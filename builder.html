@@ -1,0 +1,395 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Question builder · Scholar's Hub</title>
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#6E1F2B">
+<link rel="icon" href="logo.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css">
+<link rel="stylesheet" href="assets/sh.css">
+<style>
+  .b-wrap { max-width: 1320px; margin: 0 auto; padding: 22px var(--gutter) 60px; }
+  .b-head { display: flex; gap: 14px; align-items: flex-end; justify-content: space-between; flex-wrap: wrap; margin-bottom: 16px; }
+  .b-head h1 { font-size: 2rem; margin: 0; }
+  .b-grid { display: grid; grid-template-columns: 260px minmax(0, 1fr) minmax(0, 1fr); gap: 18px; align-items: start; }
+  .b-list { position: sticky; top: 84px; max-height: calc(100vh - 100px); overflow-y: auto; }
+  .b-list h3 { font-size: 1rem; margin: 10px 0 6px; font-family: var(--sans); font-weight: 700; color: var(--gold-text); text-transform: uppercase; letter-spacing: .08em; font-size: .76rem; }
+  .b-item { display: flex; gap: 8px; align-items: center; width: 100%; text-align: left; background: var(--paper); border: 1px solid var(--line); border-radius: 8px; padding: 8px 10px; margin-bottom: 6px; cursor: pointer; font-size: .9rem; }
+  .b-item[aria-current="true"] { border-color: var(--maroon); box-shadow: 0 0 0 2px var(--maroon); }
+  .b-item .n { font-weight: 700; color: var(--maroon); min-width: 22px; }
+  .b-item .t { flex: 1; min-width: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; color: var(--ink-2); }
+  .b-item .bad { color: var(--bad); font-weight: 700; }
+  .b-ed .card + .card { margin-top: 14px; }
+  .b-ed h2 { font-size: 1.2rem; font-family: var(--sans); font-weight: 700; }
+  .two { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  .three { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px; }
+  .ed-row { display: flex; gap: 12px; flex-wrap: wrap; }
+  .ed-row > .field { flex: 1 1 140px; min-width: 0; }
+  .ed-row > .field.wide { flex: 3 1 240px; }
+  .choice-ed { display: grid; grid-template-columns: 34px minmax(0, 1fr); gap: 8px; align-items: center; margin-bottom: 8px; }
+  .choice-ed label { display: flex; align-items: center; justify-content: center; gap: 2px; font-weight: 700; cursor: pointer; }
+  .choice-ed input[type=radio] { accent-color: var(--ok); width: 16px; height: 16px; }
+  .hint { font-size: .84rem; color: var(--muted); }
+  .hint code { background: #F3EEE6; padding: 1px 4px; border-radius: 3px; }
+  .b-prev { position: sticky; top: 84px; max-height: calc(100vh - 100px); overflow-y: auto; }
+  .b-prev .pv-stim { background: #FCFAF6; border: 1px solid var(--line); border-radius: 10px; padding: 14px 16px; margin-bottom: 14px; }
+  .issues { margin: 0; padding-left: 1.1em; font-size: .9rem; color: var(--bad); }
+  .issues.ok { color: var(--ok); list-style: none; padding: 0; }
+  .toolbar { display: flex; gap: 8px; flex-wrap: wrap; }
+  pre.snippet { background: #241a17; color: #F4E6CF; padding: 12px; border-radius: 8px; overflow-x: auto; font-size: .82rem; white-space: pre-wrap; }
+  @media (max-width: 1180px) { .b-grid { grid-template-columns: 220px minmax(0, 1fr); } .b-prev { grid-column: 1 / -1; position: static; max-height: none; } }
+  @media (max-width: 760px) { .b-grid { grid-template-columns: 1fr; } .b-list { position: static; max-height: 260px; } .two, .three { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="index.html"><img src="logo.jpg" alt="" width="40" height="40"><span><span class="brand-name">Scholar&rsquo;s Hub</span><span class="brand-tag">Question builder</span></span></a>
+    <a class="btn btn-ghost btn-sm" href="practice.html">Open the practice site</a>
+  </div>
+</header>
+<div class="b-wrap">
+  <div class="b-head">
+    <div><span class="kicker">For the Scholar&rsquo;s Hub team</span><h1>Question builder</h1>
+      <p class="muted" style="margin:6px 0 0;max-width:46em">Write questions here, preview them exactly as students will see them, then download the file and upload it to GitHub. Nothing on this page is published until you upload the file. Your draft autosaves in this browser.</p></div>
+    <div class="toolbar">
+      <label class="btn btn-ghost btn-sm" for="imp">Open a JSON file</label><input type="file" id="imp" accept=".json,application/json" hidden>
+      <button class="btn btn-ghost btn-sm" type="button" id="new-doc">Start a new file</button>
+      <button class="btn btn-primary btn-sm" type="button" id="export">Download JSON</button>
+    </div>
+  </div>
+
+  <div class="card" style="margin-bottom:16px">
+    <div class="three">
+      <div class="field"><label for="m-mode">This file is a</label><select class="input" id="m-mode"><option value="set">Practice set</option><option value="test">Practice test (adaptive)</option></select></div>
+      <div class="field"><label for="m-id">File ID (letters, numbers, dashes)</label><input class="input" id="m-id" placeholder="e.g. transitions-week-3"></div>
+      <div class="field"><label for="m-title">Title students see</label><input class="input" id="m-title" placeholder="e.g. Transitions: week 3"></div>
+    </div>
+    <div class="field"><label for="m-desc">Short description</label><input class="input" id="m-desc" placeholder="One sentence about what this covers"></div>
+    <div class="three" id="test-meta" hidden>
+      <div class="field"><label for="m-rwmin">Reading and Writing minutes per module</label><input class="input" id="m-rwmin" type="number" min="1" max="60" value="32"></div>
+      <div class="field"><label for="m-mmin">Math minutes per module</label><input class="input" id="m-mmin" type="number" min="1" max="60" value="35"></div>
+      <div class="field"><label for="m-thr">Share of Module 1 correct needed for the harder Module 2</label><input class="input" id="m-thr" type="number" min="0.1" max="0.95" step="0.05" value="0.6"></div>
+      <div class="field"><label for="m-brk">Break minutes</label><input class="input" id="m-brk" type="number" min="0" max="15" value="10"></div>
+    </div>
+    <p class="hint" id="test-hint" hidden>A full-length test has 27 questions in each Reading and Writing module and 22 in each Math module, and each section needs Module 1 plus an easier and a harder Module 2.</p>
+  </div>
+
+  <div class="b-grid">
+    <aside class="b-list" aria-label="Questions">
+      <button class="btn btn-primary btn-sm btn-block" type="button" id="add-q" style="margin-bottom:10px">+ Add question</button>
+      <div id="q-list"></div>
+    </aside>
+
+    <section class="b-ed" aria-label="Edit question">
+      <div class="card">
+        <div class="row" style="justify-content:space-between;margin-bottom:8px"><h2 id="ed-title" style="margin:0">Question</h2>
+          <div class="toolbar"><button class="btn btn-ghost btn-sm" type="button" id="dup-q">Duplicate</button><button class="btn btn-ghost btn-sm" type="button" id="up-q" aria-label="Move up">&uarr;</button><button class="btn btn-ghost btn-sm" type="button" id="down-q" aria-label="Move down">&darr;</button><button class="btn btn-ghost btn-sm" type="button" id="del-q">Delete</button></div></div>
+        <div class="field" id="f-bucket-wrap" hidden><label for="f-bucket">Module</label><select class="input" id="f-bucket">
+          <option value="rw-m1">Reading and Writing, Module 1</option><option value="rw-easier">Reading and Writing, Module 2 (easier)</option><option value="rw-harder">Reading and Writing, Module 2 (harder)</option>
+          <option value="math-m1">Math, Module 1</option><option value="math-easier">Math, Module 2 (easier)</option><option value="math-harder">Math, Module 2 (harder)</option></select></div>
+        <div class="ed-row">
+          <div class="field" id="f-section-wrap"><label for="f-section">Section</label><select class="input" id="f-section"><option value="rw">Reading and Writing</option><option value="math">Math</option></select></div>
+          <div class="field wide"><label for="f-skill">Skill</label><select class="input" id="f-skill"></select></div>
+          <div class="field"><label for="f-diff">Difficulty</label><select class="input" id="f-diff"><option value="easy">Easy</option><option value="medium">Medium</option><option value="hard">Hard</option></select></div>
+        </div>
+        <div class="field"><label for="f-id">Question ID</label><input class="input" id="f-id"><span class="hint">Must be unique across all files. It is filled in for you.</span></div>
+      </div>
+
+      <div class="card">
+        <div class="field"><label for="f-passage">Passage, notes or stimulus <span class="hint">(optional for math)</span></label><textarea class="input" id="f-passage" rows="6"></textarea>
+          <span class="hint">Blank line = new paragraph. <code>**bold**</code> <code>*italic*</code> <code>__underline__</code>. A blank is <code>______</code>. Math: <code>$x^2+1$</code>. A real dollar sign: <code>\$15</code>.</span></div>
+        <div class="two">
+          <div class="field"><label for="f-ttitle">Table title <span class="hint">(optional)</span></label><input class="input" id="f-ttitle"></div>
+          <div class="field"><label for="f-img">Image file <span class="hint">(optional, e.g. data/img/graph1.png)</span></label><input class="input" id="f-img"></div>
+        </div>
+        <div class="field"><label for="f-table">Table rows <span class="hint">(optional)</span></label><textarea class="input" id="f-table" rows="3" placeholder="Region | 2018 | 2024&#10;North | 52 | 71&#10;South | 38 | 66"></textarea><span class="hint">First line is the header. Separate cells with <code>|</code>.</span></div>
+        <div class="field" id="f-alt-wrap"><label for="f-alt">Image description for screen readers</label><input class="input" id="f-alt"></div>
+      </div>
+
+      <div class="card">
+        <div class="field"><label for="f-prompt">Question</label><textarea class="input" id="f-prompt" rows="3"></textarea></div>
+        <div class="field" id="f-type-wrap"><label for="f-type">Answer type</label><select class="input" id="f-type"><option value="mc">Multiple choice (A to D)</option><option value="spr">Student-produced response (typed answer, Math only)</option></select></div>
+        <div id="f-mc">
+          <div class="label" style="margin-bottom:6px">Choices <span class="hint">(tick the correct one)</span></div>
+          <div id="f-choices"></div>
+        </div>
+        <div class="field" id="f-spr" hidden><label for="f-spr-in">Accepted answers</label><input class="input" id="f-spr-in" placeholder="7/2, 3.5"><span class="hint">Separate with commas. Equivalent values are accepted automatically (7/2 also accepts 3.5 and 14/4).</span></div>
+        <div class="field"><label for="f-expl">Explanation</label><textarea class="input" id="f-expl" rows="4"></textarea></div>
+      </div>
+    </section>
+
+    <aside class="b-prev card" aria-label="Preview">
+      <span class="kicker">Student preview</span>
+      <div id="preview"></div>
+      <h3 style="margin-top:18px;font-size:1rem">Checks</h3>
+      <ul class="issues" id="issues"></ul>
+    </aside>
+  </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.js" defer></script>
+<script src="assets/sh.js" defer></script>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  'use strict';
+  const SH = window.SH;
+  const { esc, $, $$ } = SH;
+  const BUCKETS = { 'rw-m1': 'R&W M1', 'rw-easier': 'R&W M2 easier', 'rw-harder': 'R&W M2 harder', 'math-m1': 'Math M1', 'math-easier': 'Math M2 easier', 'math-harder': 'Math M2 harder' };
+  const DRAFT = 'builder.draft';
+  let D = SH.store.get(DRAFT, null) || blankDoc();
+  let saveT = null;
+
+  function blankDoc() { return { mode: 'set', meta: { id: '', title: '', description: '', rwMinutes: 32, mathMinutes: 35, threshold: 0.6, breakMinutes: 10 }, questions: [blankQ('rw', 'rw-m1')], sel: 0 }; }
+  function blankQ(section, bucket) {
+    return { id: '', section, skill: '', difficulty: 'medium', passage: '', tableTitle: '', table: '', image: '', imageAlt: '', prompt: '', type: 'mc', choices: ['', '', '', ''], answer: 'A', spr: '', explanation: '', bucket: bucket || (section + '-m1') };
+  }
+  const cur = () => D.questions[D.sel];
+  function persist() { clearTimeout(saveT); saveT = setTimeout(() => SH.store.set(DRAFT, D), 300); }
+  function slug(s) { return String(s || '').toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '').slice(0, 48); }
+  function autoId(i) { return (slug(D.meta.id) || 'q') + '-' + String(i + 1).padStart(2, '0'); }
+
+  /* ---------- conversion ---------- */
+  function toOut(e) {
+    const q = { id: e.id || autoId(D.questions.indexOf(e)), section: e.section, domain: SH.domainOf(e.section, e.skill), skill: e.skill, difficulty: e.difficulty };
+    if (e.passage.trim()) q.passage = e.passage.trim();
+    const rows = e.table.split('\n').map(l => l.trim()).filter(Boolean).map(l => l.split('|').map(c => c.trim()));
+    if (rows.length) { q.table = { head: rows[0], rows: rows.slice(1) }; if (e.tableTitle.trim()) q.table.title = e.tableTitle.trim(); }
+    if (e.image.trim()) { q.image = e.image.trim(); q.imageAlt = e.imageAlt.trim(); }
+    q.prompt = e.prompt.trim();
+    if (e.type === 'mc' || e.section === 'rw') { q.choices = e.choices.map(c => c.trim()); q.answer = e.answer; }
+    else q.answer = e.spr.split(',').map(s => s.trim()).filter(Boolean);
+    if (e.explanation.trim()) q.explanation = e.explanation.trim();
+    return q;
+  }
+  function fromOut(q, bucket) {
+    const e = blankQ(q.section === 'math' ? 'math' : 'rw', bucket);
+    Object.assign(e, { id: q.id || '', skill: q.skill || '', difficulty: ['easy', 'medium', 'hard'].indexOf(q.difficulty) > -1 ? q.difficulty : 'medium', passage: q.passage || '', prompt: q.prompt || '', explanation: q.explanation || '', image: q.image || '', imageAlt: q.imageAlt || '' });
+    if (q.table) { e.tableTitle = q.table.title || ''; e.table = [q.table.head || []].concat(q.table.rows || []).filter(r => r.length).map(r => r.join(' | ')).join('\n'); }
+    if (Array.isArray(q.choices) && q.choices.length) { e.type = 'mc'; e.choices = [0, 1, 2, 3].map(i => q.choices[i] || ''); e.answer = String(q.answer || 'A').toUpperCase(); }
+    else { e.type = 'spr'; e.spr = (Array.isArray(q.answer) ? q.answer : [q.answer]).filter(x => x != null).join(', '); }
+    return e;
+  }
+
+  /* ---------- meta ---------- */
+  const metaFields = { 'm-id': 'id', 'm-title': 'title', 'm-desc': 'description', 'm-rwmin': 'rwMinutes', 'm-mmin': 'mathMinutes', 'm-thr': 'threshold', 'm-brk': 'breakMinutes' };
+  function drawMeta() {
+    $('#m-mode').value = D.mode;
+    Object.keys(metaFields).forEach(k => { $('#' + k).value = D.meta[metaFields[k]]; });
+    $('#test-meta').hidden = D.mode !== 'test'; $('#test-hint').hidden = D.mode !== 'test';
+  }
+  $('#m-mode').addEventListener('change', e => { D.mode = e.target.value; drawMeta(); drawAll(); persist(); });
+  Object.keys(metaFields).forEach(k => $('#' + k).addEventListener('input', e => {
+    const f = metaFields[k];
+    D.meta[f] = ['rwMinutes', 'mathMinutes', 'threshold', 'breakMinutes'].indexOf(f) > -1 ? Number(e.target.value) : e.target.value;
+    if (f === 'id') drawList();
+    persist(); drawChecks();
+  }));
+
+  /* ---------- list ---------- */
+  function order() {
+    if (D.mode !== 'test') return D.questions.map((q, i) => i);
+    const keys = Object.keys(BUCKETS);
+    return D.questions.map((q, i) => i).sort((a, b) => keys.indexOf(D.questions[a].bucket) - keys.indexOf(D.questions[b].bucket) || a - b);
+  }
+  function drawList() {
+    const host = $('#q-list');
+    let html = '', lastB = null, n = 0;
+    order().forEach(i => {
+      const q = D.questions[i];
+      if (D.mode === 'test' && q.bucket !== lastB) { lastB = q.bucket; n = 0; html += '<h3>' + BUCKETS[q.bucket] + '</h3>'; }
+      n++;
+      const bad = SH.normalizeQuestion(toOut(q)).errors.length;
+      html += '<button type="button" class="b-item" data-i="' + i + '" aria-current="' + (i === D.sel) + '"><span class="n">' + n + '</span><span class="t">' + esc((q.prompt || q.passage || 'Empty question').slice(0, 60)) + '</span>' + (bad ? '<span class="bad" title="Has problems">!</span>' : '') + '</button>';
+    });
+    host.innerHTML = html;
+    $$('.b-item', host).forEach(b => b.addEventListener('click', () => { D.sel = +b.dataset.i; drawAll(); persist(); }));
+  }
+
+  /* ---------- editor ---------- */
+  function fillSkills(section, value) {
+    const doms = SH.TAXONOMY[section].domains;
+    $('#f-skill').innerHTML = '<option value="">Choose a skill</option>' + Object.keys(doms).map(d => '<optgroup label="' + esc(d) + '">' + doms[d].map(s => '<option' + (s === value ? ' selected' : '') + '>' + esc(s) + '</option>').join('') + '</optgroup>').join('');
+  }
+  function drawEditor() {
+    const q = cur();
+    $('#ed-title').textContent = 'Question ' + (order().indexOf(D.sel) + 1);
+    $('#f-bucket-wrap').hidden = D.mode !== 'test';
+    $('#f-section-wrap').style.display = D.mode === 'test' ? 'none' : '';
+    $('#f-bucket').value = q.bucket;
+    $('#f-section').value = q.section;
+    fillSkills(q.section, q.skill);
+    $('#f-diff').value = q.difficulty;
+    $('#f-id').value = q.id; $('#f-id').placeholder = autoId(D.sel);
+    $('#f-passage').value = q.passage; $('#f-ttitle').value = q.tableTitle; $('#f-table').value = q.table;
+    $('#f-img').value = q.image; $('#f-alt').value = q.imageAlt; $('#f-alt-wrap').hidden = !q.image;
+    $('#f-prompt').value = q.prompt; $('#f-expl').value = q.explanation;
+    $('#f-type-wrap').hidden = q.section !== 'math';
+    if (q.section !== 'math') q.type = 'mc';
+    $('#f-type').value = q.type;
+    $('#f-mc').hidden = q.type !== 'mc'; $('#f-spr').hidden = q.type !== 'spr';
+    $('#f-spr-in').value = q.spr;
+    $('#f-choices').innerHTML = q.choices.map((c, i) => {
+      const L = SH.LETTERS[i];
+      return '<div class="choice-ed"><label title="Correct answer"><input type="radio" name="corr" value="' + L + '"' + (q.answer === L ? ' checked' : '') + ' aria-label="' + L + ' is correct">' + L + '</label><input class="input" data-ci="' + i + '" value="' + esc(c) + '" aria-label="Choice ' + L + '"></div>';
+    }).join('');
+    $$('#f-choices [data-ci]').forEach(inp => inp.addEventListener('input', () => { cur().choices[+inp.dataset.ci] = inp.value; changed(); }));
+    $$('#f-choices [name=corr]').forEach(r => r.addEventListener('change', () => { cur().answer = r.value; changed(); }));
+  }
+  const bind = (sel, key, after) => $(sel).addEventListener('input', e => { cur()[key] = e.target.value; if (after) after(); changed(); });
+  bind('#f-id', 'id'); bind('#f-passage', 'passage'); bind('#f-ttitle', 'tableTitle'); bind('#f-table', 'table');
+  bind('#f-img', 'image', () => { $('#f-alt-wrap').hidden = !cur().image; }); bind('#f-alt', 'imageAlt');
+  bind('#f-prompt', 'prompt'); bind('#f-expl', 'explanation'); bind('#f-spr-in', 'spr');
+  $('#f-skill').addEventListener('change', e => { cur().skill = e.target.value; changed(); });
+  $('#f-diff').addEventListener('change', e => { cur().difficulty = e.target.value; changed(); });
+  $('#f-section').addEventListener('change', e => { cur().section = e.target.value; cur().skill = ''; cur().bucket = e.target.value + '-m1'; drawEditor(); changed(); });
+  $('#f-bucket').addEventListener('change', e => {
+    const q = cur(); const sec = e.target.value.split('-')[0];
+    if (sec !== q.section) { q.section = sec; q.skill = ''; }
+    q.bucket = e.target.value; drawAll(); persist();
+  });
+  $('#f-type').addEventListener('change', e => { cur().type = e.target.value; drawEditor(); changed(); });
+  function changed() { persist(); drawPreview(); drawChecks(); clearTimeout(changed.t); changed.t = setTimeout(drawList, 250); }
+
+  /* ---------- preview & checks ---------- */
+  function drawPreview() {
+    const r = SH.normalizeQuestion(toOut(cur()));
+    const q = r.q;
+    let h = '';
+    if (q.passage || q.table || q.image) h += '<div class="pv-stim rich">' + SH.renderStimulus(q) + '</div>';
+    h += '<div class="rich" style="margin-bottom:12px">' + SH.renderRich(q.prompt || '*Question text*') + '</div>';
+    if (q.type === 'mc') h += '<ul class="choices">' + q.choices.map((c, i) => { const L = SH.LETTERS[i]; return '<li class="choice-row"><div class="choice' + (L === q.answer ? ' is-correct' : '') + '"><span class="letter">' + L + '</span><span class="choice-text rich">' + SH.renderRich(c || '—', { inline: true }) + '</span></div></li>'; }).join('') + '</ul>';
+    else h += '<p>Accepted: <b>' + esc((q.answer || []).join(', ') || '—') + '</b></p>';
+    if (q.explanation) h += '<div class="notice" style="margin-top:12px"><b>Explanation.</b> <span class="rich">' + SH.renderRich(q.explanation, { inline: true }) + '</span></div>';
+    $('#preview').innerHTML = h;
+  }
+  function allChecks() {
+    const issues = [];
+    if (!/^[a-z0-9-]+$/.test(slug(D.meta.id)) || !D.meta.id) issues.push('Give the file an ID at the top.');
+    if (!D.meta.title.trim()) issues.push('Give the file a title at the top.');
+    const ids = {};
+    order().forEach((i, n) => {
+      const e = D.questions[i]; const out = toOut(e);
+      const r = SH.normalizeQuestion(out, 'Question ' + (n + 1));
+      issues.push(...r.errors);
+      if (!e.skill) issues.push('Question ' + (n + 1) + ': choose a skill, so progress tracking works.');
+      if (e.type === 'mc' && out.choices.some(c => !c)) issues.push('Question ' + (n + 1) + ': fill in all four choices.');
+      if (!e.explanation.trim()) issues.push('Question ' + (n + 1) + ': add an explanation.');
+      if (ids[out.id]) issues.push('Question ' + (n + 1) + ': ID "' + out.id + '" is used twice.');
+      ids[out.id] = true;
+      if (e.type === 'spr') out.answer.forEach(a => { if (isNaN(SH.parseNum(a)) || a.replace('-', '').length > 5) issues.push('Question ' + (n + 1) + ': "' + a + '" cannot be typed in a student-produced response box.'); });
+    });
+    if (D.mode === 'test') {
+      const count = b => D.questions.filter(q => q.bucket === b).length;
+      ['rw', 'math'].forEach(s => {
+        const any = count(s + '-m1') + count(s + '-easier') + count(s + '-harder');
+        if (!any) return;
+        ['m1', 'easier', 'harder'].forEach(m => { if (!count(s + '-' + m)) issues.push(BUCKETS[s + '-' + m] + ' has no questions yet.'); });
+        const target = s === 'rw' ? 27 : 22;
+        const msg = ['m1', 'easier', 'harder'].map(m => count(s + '-' + m)).filter(n => n && n !== target);
+        if (msg.length) issues.push('Note: full-length ' + (s === 'rw' ? 'Reading and Writing' : 'Math') + ' modules have ' + target + ' questions each (fine to leave if this is a shorter test).');
+      });
+    }
+    return issues;
+  }
+  function drawChecks() {
+    const issues = allChecks();
+    const ul = $('#issues');
+    ul.className = 'issues' + (issues.length ? '' : ' ok');
+    ul.innerHTML = issues.length ? issues.slice(0, 30).map(i => '<li>' + esc(i) + '</li>').join('') : '<li>Everything looks good.</li>';
+  }
+
+  /* ---------- actions ---------- */
+  $('#add-q').addEventListener('click', () => {
+    const c = cur();
+    D.questions.push(blankQ(c ? c.section : 'rw', c ? c.bucket : 'rw-m1'));
+    D.sel = D.questions.length - 1; drawAll(); persist(); $('#f-prompt').focus();
+  });
+  $('#dup-q').addEventListener('click', () => { const c = JSON.parse(JSON.stringify(cur())); c.id = ''; D.questions.splice(D.sel + 1, 0, c); D.sel++; drawAll(); persist(); });
+  $('#del-q').addEventListener('click', () => {
+    if (D.questions.length === 1) { D.questions = [blankQ('rw', 'rw-m1')]; D.sel = 0; drawAll(); persist(); return; }
+    SH.modal({ title: 'Delete this question?', html: '<p>This cannot be undone.</p>', actions: [{ label: 'Cancel' }, { label: 'Delete', kind: 'primary', onClick: () => { D.questions.splice(D.sel, 1); D.sel = Math.max(0, D.sel - 1); drawAll(); persist(); } }] });
+  });
+  function move(dir) {
+    const o = order(); const pos = o.indexOf(D.sel); const other = o[pos + dir];
+    if (other == null || D.questions[other].bucket !== cur().bucket && D.mode === 'test') return;
+    const t = D.questions[other]; D.questions[other] = D.questions[D.sel]; D.questions[D.sel] = t; D.sel = other; drawAll(); persist();
+  }
+  $('#up-q').addEventListener('click', () => move(-1));
+  $('#down-q').addEventListener('click', () => move(1));
+  $('#new-doc').addEventListener('click', () => {
+    SH.modal({ title: 'Start a new file?', html: '<p>The current draft will be cleared. Download it first if you want to keep it.</p>', actions: [{ label: 'Cancel' }, { label: 'Start new', kind: 'primary', onClick: () => { D = blankDoc(); drawMeta(); drawAll(); persist(); } }] });
+  });
+
+  function buildFile() {
+    const id = slug(D.meta.id) || 'untitled';
+    D.questions.forEach((q, i) => { if (!q.id) q.id = autoId(i); });
+    if (D.mode === 'set') {
+      return { id, title: D.meta.title, description: D.meta.description, questions: D.questions.map(toOut) };
+    }
+    const mk = (b, min) => ({ minutes: min, questions: D.questions.filter(q => q.bucket === b).map(toOut) });
+    const sections = [];
+    ['rw', 'math'].forEach(s => {
+      const min = s === 'rw' ? D.meta.rwMinutes : D.meta.mathMinutes;
+      const m1 = mk(s + '-m1', min), e = mk(s + '-easier', min), h = mk(s + '-harder', min);
+      if (m1.questions.length + e.questions.length + h.questions.length) sections.push({ id: s, title: s === 'rw' ? 'Reading and Writing' : 'Math', module1: m1, module2: { easier: e, harder: h } });
+    });
+    return { id, title: D.meta.title, description: D.meta.description, routing: { threshold: D.meta.threshold }, breakMinutes: D.meta.breakMinutes, sections };
+  }
+  $('#export').addEventListener('click', () => {
+    const issues = allChecks().filter(i => i.indexOf('Note:') !== 0);
+    const go = () => {
+      const file = buildFile();
+      const blob = new Blob([JSON.stringify(file, null, 2) + '\n'], { type: 'application/json' });
+      const a = document.createElement('a'); a.href = URL.createObjectURL(blob); a.download = file.id + '.json';
+      document.body.appendChild(a); a.click(); setTimeout(() => { URL.revokeObjectURL(a.href); a.remove(); }, 500);
+      const folder = D.mode === 'set' ? 'data/sets/' : 'data/tests/';
+      const entry = D.mode === 'set'
+        ? { id: file.id, title: file.title, description: file.description, section: (file.questions.every(q => q.section === 'math') ? 'math' : file.questions.every(q => q.section === 'rw') ? 'rw' : ''), file: folder + file.id + '.json' }
+        : { id: file.id, title: file.title, description: file.description, file: folder + file.id + '.json' };
+      SH.modal({
+        title: 'Downloaded ' + file.id + '.json',
+        html: '<ol><li>On GitHub, open the <b>' + folder + '</b> folder and upload this file (Add file, then Upload files).</li><li>Open <b>data/catalog.json</b>, click the pencil icon, and add this entry inside the <b>"' + (D.mode === 'set' ? 'sets' : 'tests') + '"</b> list (put a comma after the entry before it):</li></ol><pre class="snippet">' + esc(JSON.stringify(entry, null, 2)) + '</pre><p class="small muted">After you commit, the site updates in a minute or two.</p>',
+        actions: [{ label: 'Copy entry', kind: 'ghost', onClick: () => { try { navigator.clipboard.writeText(JSON.stringify(entry, null, 2)); SH.toast('Copied'); } catch (e) { /* ignore */ } return false; } }, { label: 'Done', kind: 'primary' }]
+      });
+    };
+    if (issues.length) SH.modal({ title: 'There are ' + issues.length + ' problem' + (issues.length > 1 ? 's' : ''), html: '<ul class="issues">' + issues.slice(0, 12).map(i => '<li>' + esc(i) + '</li>').join('') + '</ul><p>Questions with problems are skipped on the site. Download anyway?</p>', actions: [{ label: 'Keep editing' }, { label: 'Download anyway', kind: 'primary', onClick: () => { setTimeout(go, 0); } }] });
+    else go();
+  });
+
+  $('#imp').addEventListener('change', async e => {
+    const f = e.target.files[0]; if (!f) return;
+    try {
+      const data = JSON.parse(await f.text());
+      const doc = blankDoc(); doc.questions = [];
+      doc.meta.id = data.id || f.name.replace(/\.json$/, ''); doc.meta.title = data.title || ''; doc.meta.description = data.description || '';
+      if (Array.isArray(data.sections)) {
+        doc.mode = 'test';
+        doc.meta.threshold = (data.routing && data.routing.threshold) || 0.6;
+        doc.meta.breakMinutes = data.breakMinutes == null ? 10 : data.breakMinutes;
+        data.sections.forEach(s => {
+          const sid = s.id === 'math' ? 'math' : 'rw';
+          if (s.module1 && s.module1.minutes) doc.meta[sid === 'rw' ? 'rwMinutes' : 'mathMinutes'] = s.module1.minutes;
+          ((s.module1 || {}).questions || []).forEach(q => doc.questions.push(fromOut(Object.assign({}, q, { section: sid }), sid + '-m1')));
+          ['easier', 'harder'].forEach(m => (((s.module2 || {})[m] || {}).questions || []).forEach(q => doc.questions.push(fromOut(Object.assign({}, q, { section: sid }), sid + '-' + m))));
+        });
+      } else {
+        (data.questions || []).forEach(q => doc.questions.push(fromOut(q)));
+      }
+      if (!doc.questions.length) doc.questions.push(blankQ('rw', 'rw-m1'));
+      D = doc; drawMeta(); drawAll(); persist(); SH.toast('Opened ' + f.name);
+    } catch (err) { SH.toast('That file is not valid JSON.'); }
+    e.target.value = '';
+  });
+
+  function drawAll() { if (D.sel >= D.questions.length) D.sel = 0; drawList(); drawEditor(); drawPreview(); drawChecks(); }
+  drawMeta(); drawAll();
+});
+</script>
+</body>
+</html>

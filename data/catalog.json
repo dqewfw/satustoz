@@ -1,0 +1,26 @@
+{
+  "sets": [
+    {
+      "id": "starter-rw",
+      "title": "Starter set: Reading and Writing",
+      "description": "Ten questions across all four Reading and Writing domains. A good first look at every question type.",
+      "section": "rw",
+      "file": "data/sets/starter-rw.json"
+    },
+    {
+      "id": "starter-math",
+      "title": "Starter set: Math",
+      "description": "Ten questions across algebra, advanced math, data and geometry, including typed-answer questions.",
+      "section": "math",
+      "file": "data/sets/starter-math.json"
+    }
+  ],
+  "tests": [
+    {
+      "id": "diagnostic-mini",
+      "title": "Mini diagnostic test",
+      "description": "A shortened adaptive test (8 Reading and Writing and 6 Math questions per module) to try the full test-day flow in about 50 minutes.",
+      "file": "data/tests/diagnostic-mini.json"
+    }
+  ]
+}
