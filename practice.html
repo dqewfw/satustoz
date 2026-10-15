@@ -1,0 +1,585 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Practice · Scholar's Hub SAT</title>
+<meta name="description" content="Digital SAT practice: question sets by skill, AI-generated practice with a tutor, adaptive practice tests, and progress tracking by skill.">
+<link rel="canonical" href="https://scholarshub.academy/practice.html">
+<meta name="theme-color" content="#6E1F2B">
+<link rel="icon" href="logo.jpg">
+<link rel="apple-touch-icon" href="logo.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600&family=Lora:wght@600&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css">
+<link rel="stylesheet" href="assets/sh.css">
+<style>
+  .hub { padding-top: 26px; padding-bottom: 20px; min-height: 60vh; }
+  .tabs { display: flex; gap: 6px; overflow-x: auto; padding-bottom: 4px; margin-bottom: 22px; scrollbar-width: none; }
+  .tabs::-webkit-scrollbar { display: none; }
+  .tabs a { flex: 0 0 auto; text-decoration: none; font-weight: 700; color: var(--ink-2); padding: 9px 16px; border-radius: 999px; border: 1px solid var(--line-2); background: var(--paper); font-size: .95rem; text-align: center; }
+  .tabs a .t-short { display: none; }
+  @media (min-width: 881px) { .tabs { display: none; } }
+  .tabs a[aria-current="page"] { background: var(--maroon); border-color: var(--maroon); color: #fff; }
+  .hub-head { display: flex; justify-content: space-between; gap: 16px; align-items: flex-end; flex-wrap: wrap; margin-bottom: 18px; }
+  .hub-head h1 { font-size: clamp(1.8rem, 4.5vw, 2.5rem); margin: 0; }
+  .section-title { font-size: 1.35rem; margin: 30px 0 12px; }
+  .skill-row { display: grid; grid-template-columns: minmax(0, 1fr) 110px auto; gap: 14px; align-items: center; padding: 12px 0; border-bottom: 1px solid var(--line); }
+  .skill-row:last-child { border-bottom: 0; }
+  .skill-row .acc { font-weight: 700; font-size: .92rem; text-align: right; }
+  .bar { height: 8px; background: #EEE6DA; border-radius: 99px; overflow: hidden; }
+  .bar i { display: block; height: 100%; background: var(--maroon); border-radius: 99px; }
+  .bar.ok i { background: var(--ok); } .bar.mid i { background: var(--gold); } .bar.low i { background: var(--bad); }
+  .set-card { display: flex; flex-direction: column; gap: 10px; }
+  .set-card .meta { display: flex; gap: 6px; flex-wrap: wrap; align-items: center; }
+  .set-card p { margin: 0; color: var(--muted); font-size: .96rem; flex: 1; }
+  .empty { text-align: center; padding: 32px 18px; }
+  .skill-pick { max-height: 340px; overflow-y: auto; border: 1px solid var(--line); border-radius: var(--r); padding: 6px 12px; background: var(--paper); }
+  .skill-pick fieldset { border: 0; margin: 0; padding: 6px 0; }
+  .skill-pick legend { font-weight: 700; font-size: .82rem; letter-spacing: .08em; text-transform: uppercase; color: var(--gold-text); padding: 6px 0; }
+  .skill-pick label { display: flex; gap: 10px; align-items: center; padding: 5px 0; font-size: .96rem; cursor: pointer; }
+  .skill-pick input { width: 18px; height: 18px; accent-color: var(--maroon); }
+  .skill-pick .cnt { margin-left: auto; color: var(--muted); font-size: .85rem; }
+  .hist { padding: 6px 22px; }
+  .hist-row { display: grid; grid-template-columns: minmax(0, 1fr) auto auto; gap: 18px; align-items: center; padding: 14px 0; border-bottom: 1px solid var(--line); }
+  .hist-row:last-child { border-bottom: 0; }
+  .hist-row .h-title { font-weight: 700; display: block; }
+  .hist-row .h-date { font-size: .88rem; color: var(--muted); }
+  .hist-row .h-score { text-align: right; line-height: 1.2; }
+  .hist-row .h-score b { font-family: var(--serif); font-size: 1.5rem; color: var(--maroon); display: block; }
+  .hist-row .h-score span { font-size: .84rem; color: var(--muted); white-space: nowrap; }
+  .ai-loading { display: flex; align-items: center; gap: 14px; }
+  .spinner { width: 28px; height: 28px; border-radius: 50%; border: 3px solid var(--gold-soft); border-top-color: var(--maroon); animation: spin 1s linear infinite; flex: 0 0 auto; }
+  @keyframes spin { to { transform: rotate(360deg); } }
+
+  /* Player */
+  .player { padding-top: 18px; padding-bottom: 40px; }
+  .p-top { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; margin-bottom: 10px; }
+  .p-top h1 { font-size: 1.25rem; margin: 0; flex: 1; min-width: 180px; }
+  .p-progress { display: flex; align-items: center; gap: 12px; margin-bottom: 16px; font-size: .92rem; color: var(--muted); }
+  .p-progress .bar { flex: 1; }
+  .p-card { background: var(--paper); border: 1px solid var(--line); border-radius: var(--r-lg); box-shadow: var(--shadow-sm); overflow: hidden; }
+  .p-grid { display: grid; grid-template-columns: 1fr; }
+  .p-grid.two { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
+  .p-stim { padding: 24px 26px; background: #FCFAF6; border-bottom: 1px solid var(--line); }
+  .p-grid.two .p-stim { border-bottom: 0; border-right: 1px solid var(--line); }
+  .p-q { padding: 22px 26px 26px; }
+  .p-qbar { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; margin-bottom: 14px; }
+  .p-qbar .p-tools { margin-left: auto; display: flex; gap: 6px; align-items: center; }
+  .p-qbar .abc-btn { background: #fff; border: 1.5px solid #8F857C; border-radius: 6px; font-weight: 700; font-size: .78rem; padding: 3px 7px; cursor: pointer; text-decoration: line-through; }
+  @media (pointer: coarse) { .p-qbar .abc-btn { padding: 6px 10px; } .calc-btn { padding: 6px 10px; } }
+  .p-qbar .abc-btn[aria-pressed="true"] { background: var(--maroon); border-color: var(--maroon); color: #fff; }
+  .p-prompt { margin-bottom: 16px; }
+  .p-actions { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 18px; align-items: center; }
+  .feedback { margin-top: 18px; border-radius: var(--r); padding: 14px 16px; }
+  .feedback.ok { background: var(--ok-tint); border: 1px solid #B9D8C1; }
+  .feedback.no { background: var(--bad-tint); border: 1px solid #E8B8B3; }
+  .feedback h3 { font-family: var(--sans); font-size: 1.05rem; font-weight: 700; margin: 0 0 6px; }
+  .expl { background: var(--ivory); border-left: 3px solid var(--gold); padding: 12px 14px; border-radius: 0 8px 8px 0; margin-top: 12px; }
+  .ai-flag { font-size: .85rem; color: var(--muted); margin-top: 10px; }
+  .summary-score { font-family: var(--serif); font-size: clamp(3rem, 9vw, 4.4rem); color: var(--maroon); line-height: 1; }
+  .miss { border: 1px solid var(--line); border-radius: var(--r); padding: 14px 16px; margin-bottom: 10px; background: var(--paper); }
+  @media (max-width: 960px) {
+    .p-grid.two { grid-template-columns: 1fr; }
+    .p-grid.two .p-stim { border-right: 0; border-bottom: 1px solid var(--line); }
+  }
+  @media (max-width: 600px) {
+    .p-stim, .p-q { padding: 18px 16px; }
+    .skill-row { grid-template-columns: minmax(0, 1fr) 70px; }
+    .skill-row .acts { grid-column: 1 / -1; }
+    .skill-row.dom { grid-template-columns: minmax(0, 1fr) 56px 42px; gap: 10px; }
+    .tabs { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 6px; overflow: visible; }
+    .tabs a { padding: 9px 4px; font-size: .9rem; }
+    .tabs a .t-long { display: none; }
+    .tabs a .t-short { display: inline; }
+    .hist { padding: 4px 16px; }
+    .hist-row { grid-template-columns: minmax(0, 1fr) auto; gap: 8px 14px; }
+    .hist-row .h-link { grid-column: 1 / -1; }
+    .card { padding: 18px; }
+  }
+</style>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="index.html"><img src="logo.jpg" alt="" width="40" height="40"><span><span class="brand-name">Scholar&rsquo;s Hub</span><span class="brand-tag">SAT practice</span></span></a>
+    <button class="menu-btn" type="button" aria-label="Menu" aria-expanded="false" aria-controls="nav"><span></span></button>
+    <nav class="nav" id="nav" aria-label="Main">
+      <a href="index.html">Home</a>
+      <a href="practice.html#home">Dashboard</a>
+      <a href="practice.html#sets">Practice sets</a>
+      <a href="practice.html#ai">AI practice</a>
+      <a href="practice.html#tests">Practice tests</a>
+    </nav>
+    <div data-auth-slot></div>
+  </div>
+</header>
+
+<main id="main" tabindex="-1">
+  <div class="wrap hub" id="hub">
+    <nav class="tabs" aria-label="Practice sections">
+      <a href="#home" data-tab="home"><span class="t-long">Dashboard</span><span class="t-short">Home</span></a>
+      <a href="#sets" data-tab="sets"><span class="t-long">Practice sets</span><span class="t-short">Sets</span></a>
+      <a href="#ai" data-tab="ai"><span class="t-long">AI practice</span><span class="t-short">AI</span></a>
+      <a href="#tests" data-tab="tests"><span class="t-long">Practice tests</span><span class="t-short">Tests</span></a>
+    </nav>
+    <div id="view" aria-live="polite"></div>
+  </div>
+  <div class="wrap player" id="player" hidden></div>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <span class="brand-name">Scholar&rsquo;s Hub</span>
+        <p style="margin-top:10px">Digital SAT practice built by someone who has taken the test, for students in Uzbekistan and beyond.</p>
+      </div>
+      <div><h3 class="f-head">Practice</h3><ul><li><a href="practice.html#sets">Practice sets</a></li><li><a href="practice.html#ai">AI practice</a></li><li><a href="practice.html#tests">Practice tests</a></li></ul></div>
+      <div><h3 class="f-head">Contact</h3><ul><li><a data-link="telegram" href="https://t.me/scholars_hub7" target="_blank" rel="noopener">Telegram: @scholars_hub7</a></li><li><a data-link="channel" href="https://t.me/scholars_hubprograms" target="_blank" rel="noopener">Telegram channel</a></li><li><a data-link="instagram" href="https://www.instagram.com/_scholarshub" target="_blank" rel="noopener">Instagram</a></li></ul></div>
+    </div>
+    <div class="footer-legal">&copy; <span data-year>2026</span> Scholar&rsquo;s Hub. SAT&reg; is a trademark registered by the College Board, which is not affiliated with, and does not endorse, this website. All practice questions on this site are written by Scholar&rsquo;s Hub.</div>
+  </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.js" defer></script>
+<script src="assets/sh.js" defer></script>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  'use strict';
+  const SH = window.SH;
+  const { esc, $, $$ } = SH;
+  const view = $('#view'), hub = $('#hub'), player = $('#player');
+  let bank = [];
+  let catalog = { sets: [], tests: [] };
+  let session = null;
+
+  const DIFF = { easy: 'Easy', medium: 'Medium', hard: 'Hard' };
+  const accClass = a => a >= .8 ? 'ok' : a >= .6 ? 'mid' : 'low';
+  const secName = s => s === 'math' ? 'Math' : 'Reading and Writing';
+  const secTag = s => '<span class="tag tag-' + s + '">' + (s === 'math' ? 'Math' : 'R&amp;W') + '</span>';
+
+  SH.calculator.setDock({
+    side: 'right', minWidth: 1100,
+    geometry: () => { const h = document.querySelector('.site-header'); return { top: (h ? h.getBoundingClientRect().bottom : 68) + 14, bottom: window.innerHeight - 14, gap: 14 }; },
+    apply: (on, w) => {
+      player.style.marginRight = on ? w + 'px' : '';
+      player.style.marginLeft = on ? Math.max(0, (window.innerWidth - 1120) / 2) + 'px' : '';
+      player.style.maxWidth = on ? 'none' : '';
+    }
+  });
+  init();
+  async function init() {
+    if (!(await SH.requireLogin())) return;
+    await SH.authReady(4000);
+    try {
+      catalog = await SH.loadCatalog();
+      bank = await SH.loadAllBank();
+    } catch (e) {
+      view.innerHTML = '<div class="notice notice-bad">Could not load the question bank. ' + esc(e.message) + '</div>';
+    }
+    window.addEventListener('hashchange', route);
+    route();
+    SH.auth.onChange(() => { if (!session) route(); });
+    document.addEventListener('sh:synced', () => { if (!session) route(); });
+  }
+
+  function route() {
+    const tab = (location.hash || '#home').slice(1);
+    if (tab === 'play') { if (!session) { location.hash = '#home'; return; } return; }
+    if (session && !confirmLeave()) return;
+    player.hidden = true; hub.hidden = false;
+    const t = ['home', 'sets', 'ai', 'tests'].indexOf(tab) > -1 ? tab : 'home';
+    $$('.tabs a').forEach(a => a.setAttribute('aria-current', a.dataset.tab === t ? 'page' : 'false'));
+    $$('.nav a').forEach(a => a.removeAttribute('aria-current'));
+    const navA = $('.nav a[href="practice.html#' + t + '"]'); if (navA) navA.setAttribute('aria-current', 'page');
+    ({ home: renderHome, sets: renderSets, ai: renderAI, tests: renderTests })[t]();
+  }
+  function confirmLeave() { session = null; SH.calculator.close(); return true; }
+
+  /* ======================= DASHBOARD ======================= */
+  function renderHome() {
+    const p = SH.getProfile();
+    const attempts = SH.getAttempts();
+    const correct = attempts.filter(a => a.correct).length;
+    const hist = SH.getTestHistory();
+    const best = hist.filter(h => h.total != null).reduce((m, h) => Math.max(m, h.total), 0);
+    let days = '';
+    if (p.testDate) {
+      const d = Math.ceil((new Date(p.testDate + 'T08:00:00') - new Date()) / 86400000);
+      days = d >= 0 ? String(d) : '';
+    }
+    const weak = SH.weakSkills(4);
+    const stats = SH.skillStats();
+    let html = '<div class="hub-head"><div><span class="kicker">Your SAT practice</span><h1>' + (p.name ? (attempts.length ? 'Welcome back, ' : 'Welcome, ') + esc(p.name.split(/\s+/)[0]) : 'Welcome') + '</h1></div>' +
+      '<button class="btn btn-ghost btn-sm" type="button" id="edit-goals">' + (p.testDate || p.name ? 'Edit goals' : 'Set your goals') + '</button></div>';
+    if (SH.auth.enabled() && SH.auth.settled && !SH.auth.user) {
+      html += '<div class="notice" style="display:flex;gap:14px;align-items:center;justify-content:space-between;flex-wrap:wrap;margin-bottom:18px;border-left:4px solid var(--gold)"><span><b>Save your progress.</b> Sign in with Google to keep your results on every device' + (SH.ai.enabled() && SH.CONFIG.AI_REQUIRES_LOGIN ? ' and use the AI tutor' : '') + '.</span><a class="btn btn-primary btn-sm" href="' + esc(SH.loginUrl('practice.html#home')) + '">Sign in with Google</a></div>';
+    }
+    html += '<div class="grid grid-4">' +
+      tile(attempts.length, 'questions practiced') +
+      tile(attempts.length ? SH.pct(correct, attempts.length) + '%' : '—', 'accuracy') +
+      tile(best || '—', 'best test estimate (goal ' + esc(p.target) + ')') +
+      tile(days || '—', p.testDate ? 'days until test day' : 'set your test date') + '</div>';
+
+    if (!attempts.length) {
+      html += '<h2 class="section-title">Start here</h2><div class="grid grid-2">' +
+        '<div class="card"><span class="kicker">Recommended first</span><h3>Take the mini diagnostic</h3><p class="muted">About 50 minutes, adaptive like the real test. It shows where you stand in every skill.</p><a class="btn btn-primary" href="test.html?id=diagnostic-mini">Start the diagnostic</a></div>' +
+        '<div class="card"><span class="kicker">Short on time</span><h3>Try a 10-question set</h3><p class="muted">Instant feedback and an explanation after every question.</p><a class="btn btn-ghost" href="#sets">See practice sets</a></div></div>';
+    } else {
+      html += '<h2 class="section-title">Focus on these skills</h2>';
+      if (weak.length) {
+        html += '<div class="card">' + weak.map(w => skillRow(w, true)).join('') + '</div>';
+      } else {
+        html += '<div class="card"><p class="muted" style="margin:0">No weak spots so far: every skill you’ve tried is at 100%. Try a harder set or a practice test.</p></div>';
+      }
+      const doms = {};
+      stats.forEach(s => {
+        const k = s.section + '|' + s.domain;
+        if (!doms[k]) doms[k] = { section: s.section, domain: s.domain || 'Other', n: 0, correct: 0 };
+        doms[k].n += s.n; doms[k].correct += s.correct;
+      });
+      const domList = Object.values(doms).sort((a, b) => a.section.localeCompare(b.section));
+      if (domList.length) {
+        html += '<h2 class="section-title">By content domain</h2><div class="card">' + domList.map(d =>
+          '<div class="skill-row dom"><div>' + secTag(d.section) + ' ' + esc(d.domain) + ' <span class="small muted">(' + d.n + ')</span></div><div class="bar ' + accClass(d.correct / d.n) + '"><i style="width:' + SH.pct(d.correct, d.n) + '%"></i></div><div class="acc">' + SH.pct(d.correct, d.n) + '%</div></div>').join('') + '</div>';
+      }
+    }
+    if (hist.length) {
+      html += '<h2 class="section-title">Recent practice tests</h2>' + histTable(hist.slice(0, 3));
+    }
+    view.innerHTML = html;
+    $('#edit-goals').addEventListener('click', editGoals);
+    bindSkillButtons();
+  }
+  function tile(v, label) { return '<div class="stat"><b>' + esc(v) + '</b><span>' + label + '</span></div>'; }
+  function skillRow(w, withActions) {
+    const inBank = bank.filter(q => q.skill === w.skill && q.section === w.section).length;
+    const acts = withActions ? '<div class="acts row" style="gap:6px;justify-content:flex-end">' +
+      (inBank ? '<button class="btn btn-ghost btn-sm" type="button" data-drill="' + esc(w.skill) + '" data-sec="' + w.section + '">Practice (' + inBank + ')</button>' : '') +
+      '<button class="btn btn-primary btn-sm" type="button" data-aiskill="' + esc(w.skill) + '" data-sec="' + w.section + '">AI questions</button></div>' : '';
+    return '<div class="skill-row"><div>' + secTag(w.section) + ' <b>' + esc(w.skill) + '</b><div class="small muted">' + w.correct + ' of ' + w.n + ' correct</div></div>' +
+      '<div class="bar ' + accClass(w.acc) + '"><i style="width:' + Math.round(w.acc * 100) + '%"></i></div>' + acts + '</div>';
+  }
+  function bindSkillButtons() {
+    $$('[data-drill]').forEach(b => b.addEventListener('click', () => {
+      const qs = SH.shuffle(bank.filter(q => q.skill === b.dataset.drill && q.section === b.dataset.sec)).slice(0, 10);
+      startSession({ title: b.dataset.drill + ' drill', questions: qs, source: 'drill' });
+    }));
+    $$('[data-aiskill]').forEach(b => b.addEventListener('click', () => {
+      location.hash = '#ai';
+      setTimeout(() => { prefillAI(b.dataset.sec, b.dataset.aiskill); }, 0);
+    }));
+  }
+  function editGoals() {
+    const p = SH.getProfile();
+    SH.modal({
+      title: 'Your goals',
+      html: '<div class="field"><label for="g-name">Name</label><input class="input" id="g-name" maxlength="40" value="' + esc(p.name) + '"></div>' +
+        '<div class="field"><label for="g-target">Target score</label><input class="input" id="g-target" type="number" min="400" max="1600" step="10" value="' + esc(p.target) + '"></div>' +
+        '<div class="field"><label for="g-date">Test date</label><input class="input" id="g-date" type="date" value="' + esc(p.testDate) + '"></div>' +
+        '<p class="small muted">' + (SH.auth.user ? 'Saved to your account.' : 'Saved on this device. Sign in to keep it on every device.') + '</p>',
+      actions: [{ label: 'Cancel', kind: 'ghost' }, {
+        label: 'Save', kind: 'primary', onClick: back => {
+          const t = Math.max(400, Math.min(1600, Math.round((+back.querySelector('#g-target').value || 1400) / 10) * 10));
+          SH.setProfile({ name: back.querySelector('#g-name').value.trim(), target: t, testDate: back.querySelector('#g-date').value });
+          renderHome();
+        }
+      }]
+    });
+  }
+
+  /* ======================= PRACTICE SETS ======================= */
+  function renderSets() {
+    let html = '<div class="hub-head"><div><span class="kicker">Question bank</span><h1>Practice sets</h1></div></div>';
+    if (!catalog.sets.length) html += '<div class="card empty"><p class="muted">No practice sets yet.</p></div>';
+    else {
+      html += '<div class="grid grid-3">' + catalog.sets.map(s => {
+        const qs = bank.filter(q => q.setId === s.id);
+        const mix = ['easy', 'medium', 'hard'].map(d => { const n = qs.filter(q => q.difficulty === d).length; return n ? '<span class="tag tag-' + d + '">' + n + ' ' + d + '</span>' : ''; }).join('');
+        return '<div class="card set-card"><div class="meta">' + (s.section ? secTag(s.section) : '') + '<span class="small muted">' + qs.length + ' questions</span></div>' +
+          '<h3>' + esc(s.title) + '</h3><p>' + esc(s.description || '') + '</p><div class="meta">' + mix + '</div>' +
+          '<button class="btn btn-primary" type="button" data-set="' + esc(s.id) + '"' + (qs.length ? '' : ' disabled') + '>Start</button></div>';
+      }).join('') + '</div>';
+    }
+    // drill builder
+    html += '<h2 class="section-title">Build a skill drill</h2><div class="card"><form id="drill-form">' +
+      '<div class="row" style="margin-bottom:14px"><div class="grow field" style="margin:0"><label for="d-sec">Section</label><select class="input" id="d-sec"><option value="rw">Reading and Writing</option><option value="math">Math</option></select></div>' +
+      '<div class="grow field" style="margin:0"><label for="d-diff">Difficulty</label><select class="input" id="d-diff"><option value="">Any</option><option value="easy">Easy</option><option value="medium">Medium</option><option value="hard">Hard</option></select></div>' +
+      '<div class="grow field" style="margin:0"><label for="d-n">Questions</label><select class="input" id="d-n"><option>5</option><option selected>10</option><option>20</option></select></div></div>' +
+      '<div class="label" style="margin-bottom:6px">Skills <span class="small muted">(leave all unticked for a mix)</span></div><div class="skill-pick" id="d-skills"></div>' +
+      '<div class="row" style="margin-top:14px"><button class="btn btn-primary" type="submit">Start drill</button><span class="small muted" id="d-count"></span></div></form></div>';
+    view.innerHTML = html;
+    $$('[data-set]').forEach(b => b.addEventListener('click', async () => {
+      const set = await SH.loadSet(b.dataset.set);
+      startSession({ title: set.title, questions: set.questions.map(q => Object.assign({ setId: set.id }, q)), source: 'set' });
+    }));
+    const secSel = $('#d-sec'), diffSel = $('#d-diff');
+    function drawSkills() {
+      const sec = secSel.value;
+      const doms = SH.TAXONOMY[sec].domains;
+      $('#d-skills').innerHTML = Object.keys(doms).map(d => '<fieldset><legend>' + esc(d) + '</legend>' + doms[d].map(s => {
+        const n = bank.filter(q => q.section === sec && q.skill === s).length;
+        return '<label><input type="checkbox" value="' + esc(s) + '"' + (n ? '' : ' disabled') + '> ' + esc(s) + '<span class="cnt">' + n + '</span></label>';
+      }).join('') + '</fieldset>').join('');
+      $$('#d-skills input').forEach(i => i.addEventListener('change', count));
+      count();
+    }
+    function pool() {
+      const sec = secSel.value, diff = diffSel.value;
+      const picked = $$('#d-skills input:checked').map(i => i.value);
+      return bank.filter(q => q.section === sec && (!diff || q.difficulty === diff) && (!picked.length || picked.indexOf(q.skill) > -1));
+    }
+    function count() { const n = pool().length; $('#d-count').textContent = n + ' matching question' + (n === 1 ? '' : 's') + ' in the bank'; }
+    secSel.addEventListener('change', drawSkills); diffSel.addEventListener('change', count);
+    drawSkills();
+    $('#drill-form').addEventListener('submit', e => {
+      e.preventDefault();
+      const qs = SH.shuffle(pool()).slice(0, +$('#d-n').value);
+      if (!qs.length) { SH.toast('No questions match. Try fewer filters, or use AI practice.'); return; }
+      startSession({ title: 'Skill drill', questions: qs, source: 'drill' });
+    });
+  }
+
+  /* ======================= AI PRACTICE ======================= */
+  function renderAI() {
+    const weak = SH.weakSkills(3);
+    let html = '<div class="hub-head"><div><span class="kicker">Personal practice</span><h1>AI practice</h1></div></div>';
+    const aiLocked = SH.ai.enabled() && SH.ai.needsLogin();
+    if (aiLocked) {
+      html += '<div class="notice" style="margin-bottom:18px;display:flex;gap:14px;align-items:center;justify-content:space-between;flex-wrap:wrap;border-left:4px solid var(--gold)"><span><b>Sign in to use AI practice.</b> It is free and takes one tap with your Google account.</span><a class="btn btn-primary btn-sm" href="' + esc(SH.loginUrl('practice.html#ai')) + '">Sign in with Google</a></div>';
+    }
+    if (!SH.ai.enabled()) {
+      html += '<div class="notice notice-warn" style="margin-bottom:18px"><b>AI practice isn’t switched on yet.</b> In the meantime, use the practice sets and practice tests, or message us on <a href="' + esc(SH.CONFIG.CONTACT_TELEGRAM) + '" target="_blank" rel="noopener">Telegram</a>.</div>';
+    }
+    html += '<div class="grid grid-2"><div class="card"><h3>Generate fresh questions</h3><p class="muted small">New SAT-style questions on any skill, written for you by AI, each with an explanation. After answering, ask the AI tutor anything about them.</p>' +
+      '<form id="ai-form">' +
+      '<div class="field"><label for="ai-sec">Section</label><select class="input" id="ai-sec"><option value="rw">Reading and Writing</option><option value="math">Math</option></select></div>' +
+      '<div class="field"><label for="ai-skill">Skill</label><select class="input" id="ai-skill"></select></div>' +
+      '<div class="row"><div class="grow field"><label for="ai-diff">Difficulty</label><select class="input" id="ai-diff"><option value="easy">Easy</option><option value="medium" selected>Medium</option><option value="hard">Hard</option></select></div>' +
+      '<div class="grow field"><label for="ai-n">Questions</label><select class="input" id="ai-n"><option>3</option><option selected>5</option></select></div></div>' +
+      '<div class="field"><label for="ai-topic">Topic for passages or word problems (optional)</label><input class="input" id="ai-topic" maxlength="80" placeholder="e.g. space, football, Uzbek history"></div>' +
+      '<button class="btn btn-primary" type="submit"' + (SH.ai.enabled() && !aiLocked ? '' : ' disabled') + '>Generate questions</button>' +
+      '<div id="ai-status" style="margin-top:14px"></div></form></div>' +
+      '<div class="card"><h3>Recommended for you</h3>' +
+      (weak.length ? '<p class="muted small">Your three weakest skills so far. Tap one to practice it.</p>' + weak.map(w => skillRow(w, false) + '<div style="margin:-4px 0 10px"><button class="btn btn-ghost btn-sm" type="button" data-pick="' + esc(w.skill) + '" data-sec="' + w.section + '">Use this skill</button></div>').join('')
+        : '<p class="muted">Once you’ve answered a few questions, your weakest skills will show up here so the AI can target them.</p><a class="btn btn-ghost btn-sm" href="test.html?id=diagnostic-mini">Take the mini diagnostic</a>') +
+      '<p class="small muted" style="margin-top:16px">AI-written questions are checked by the AI as it writes them, but they can still contain mistakes. If something looks wrong, ask the tutor or tell us on Telegram.</p></div></div>';
+    view.innerHTML = html;
+    const secSel = $('#ai-sec'), skillSel = $('#ai-skill');
+    function fillSkills() {
+      const doms = SH.TAXONOMY[secSel.value].domains;
+      skillSel.innerHTML = '<option value="">Mixed (all skills)</option>' + Object.keys(doms).map(d => '<optgroup label="' + esc(d) + '">' + doms[d].map(s => '<option value="' + esc(s) + '">' + esc(s) + '</option>').join('') + '</optgroup>').join('');
+    }
+    secSel.addEventListener('change', fillSkills); fillSkills();
+    $$('[data-pick]').forEach(b => b.addEventListener('click', () => prefillAI(b.dataset.sec, b.dataset.pick)));
+    $('#ai-form').addEventListener('submit', async e => {
+      e.preventDefault();
+      const btn = e.target.querySelector('button[type=submit]');
+      const status = $('#ai-status');
+      const section = secSel.value, skill = skillSel.value;
+      btn.disabled = true;
+      status.innerHTML = '<div class="ai-loading"><div class="spinner" aria-hidden="true"></div><span>Writing your questions. This usually takes 20 to 40 seconds…</span></div>';
+      try {
+        const qs = await SH.ai.generate({
+          section, skill, domain: skill ? SH.domainOf(section, skill) : '',
+          difficulty: $('#ai-diff').value, count: +$('#ai-n').value, topic: $('#ai-topic').value.trim().slice(0, 80)
+        });
+        status.innerHTML = '';
+        startSession({ title: 'AI practice: ' + (skill || secName(section)), questions: qs, source: 'ai' });
+      } catch (err) {
+        status.innerHTML = '<div class="notice notice-bad">' + esc(err.message) + (err.code === 'auth' ? ' <a href="' + esc(SH.loginUrl('practice.html#ai')) + '">Sign in</a>' : '') + '</div>';
+      } finally { btn.disabled = false; }
+    });
+  }
+  function prefillAI(sec, skill) {
+    const s = $('#ai-sec'); if (!s) return;
+    s.value = sec; s.dispatchEvent(new Event('change'));
+    $('#ai-skill').value = skill;
+    $('#ai-form').scrollIntoView({ behavior: 'smooth', block: 'start' });
+    $('#ai-skill').focus();
+  }
+
+  /* ======================= TESTS ======================= */
+  function renderTests() {
+    const hist = SH.getTestHistory();
+    let html = '<div class="hub-head"><div><span class="kicker">Test-day practice</span><h1>Practice tests</h1></div></div>';
+    html += '<div class="grid grid-2">' + catalog.tests.map(t => {
+      const run = SH.store.get('run.' + t.id, null);
+      return '<div class="card set-card"><div class="meta"><span class="tag">Adaptive</span>' + (run ? '<span class="tag tag-medium">In progress</span>' : '') + '</div><h3>' + esc(t.title) + '</h3><p>' + esc(t.description || '') + '</p>' +
+        '<div class="row"><a class="btn btn-primary" href="test.html?id=' + encodeURIComponent(t.id) + '">' + (run ? 'Resume' : 'Start') + '</a></div></div>';
+    }).join('') +
+      '<div class="card set-card"><div class="meta"><span class="tag">Official</span></div><h3>Official College Board practice</h3><p>The College Board’s free Bluebook app has full-length official practice tests, and its SAT Suite Question Bank has thousands of official questions. Use them alongside this site, especially in the last weeks before your test.</p>' +
+      '<div class="row"><a class="btn btn-ghost" href="https://bluebook.collegeboard.org/students/download-bluebook" target="_blank" rel="noopener">Get Bluebook</a><a class="btn btn-ghost" href="https://satsuitequestionbank.collegeboard.org/" target="_blank" rel="noopener">Question Bank</a></div></div></div>';
+    html += '<h2 class="section-title">Your results</h2>' + (hist.length ? histTable(hist) : '<div class="card"><p class="muted" style="margin:0">Finished tests will appear here with your estimated scores.</p></div>');
+    view.innerHTML = html;
+  }
+  function histTable(list) {
+    return '<div class="card hist">' + list.map(h => {
+      const parts = [];
+      if (h.sections.rw) parts.push('R&amp;W ' + h.sections.rw.score);
+      if (h.sections.math) parts.push('Math ' + h.sections.math.score);
+      return '<div class="hist-row"><div><span class="h-title">' + esc(h.title) + '</span><span class="h-date">' + SH.fmtDate(h.finishedAt) + '</span></div>' +
+        '<div class="h-score"><b>' + (h.total != null ? h.total : '—') + '</b><span>' + parts.join(' · ') + '</span></div>' +
+        '<a class="btn btn-ghost btn-sm h-link" href="test.html?id=' + encodeURIComponent(h.testId) + '&review=' + encodeURIComponent(h.id) + '">Review</a></div>';
+    }).join('') + '</div>';
+  }
+
+  /* ======================= PLAYER ======================= */
+  function startSession(opts) {
+    if (!opts.questions || !opts.questions.length) { SH.toast('No questions in this set yet.'); return; }
+    session = { title: opts.title, source: opts.source, questions: opts.questions, i: 0, responses: {}, checked: {}, struck: {}, elim: false, started: Date.now(), shownAt: Date.now(), time: {} };
+    hub.hidden = true; player.hidden = false;
+    history.pushState(null, '', '#play');
+    drawQuestion();
+    window.scrollTo(0, 0);
+  }
+  window.addEventListener('popstate', () => { if (session && location.hash !== '#play') { session = null; route(); } });
+
+  function drawQuestion() {
+    const s = session, q = s.questions[s.i];
+    const done = Object.keys(s.checked).length;
+    const two = q.section === 'rw' && (q.passage || q.table || q.image);
+    const stim = (q.passage || q.table || q.image) ? '<div class="p-stim rich">' + SH.renderStimulus(q) + '</div>' : '';
+    player.innerHTML =
+      '<div class="p-top"><h1>' + esc(s.title) + '</h1><button class="btn btn-ghost btn-sm" type="button" id="p-exit">Finish</button></div>' +
+      '<div class="p-progress"><span>Question ' + (s.i + 1) + ' of ' + s.questions.length + '</span><div class="bar"><i style="width:' + SH.pct(done, s.questions.length) + '%"></i></div><span>' + done + ' done</span></div>' +
+      '<div class="p-card"><div class="p-grid' + (two ? ' two' : '') + '">' + (two ? stim : '') +
+      '<div class="p-q"><div class="p-qbar">' + secTag(q.section) + '<span class="tag tag-' + q.difficulty + '">' + DIFF[q.difficulty] + '</span>' + (q.ai ? '<span class="tag tag-ai">AI</span>' : '') +
+      '<span class="small muted">' + esc(q.skill || '') + '</span>' +
+      '<span class="p-tools">' + (q.section === 'math' ? '<button class="calc-btn" type="button" id="p-calc" aria-pressed="false">' + SH.CALC_ICON + 'Calculator</button>' : '') +
+      (q.type === 'mc' ? '<button class="abc-btn" type="button" id="p-abc" aria-pressed="' + s.elim + '" aria-label="Answer choice eliminator">ABC</button>' : '') + '</span></div>' +
+      (!two && stim ? '<div class="rich" style="margin-bottom:14px">' + SH.renderStimulus(q) + '</div>' : '') +
+      '<div class="p-prompt rich">' + SH.renderRich(q.prompt) + '</div><div id="p-answer"></div>' +
+      '<div class="p-actions" id="p-actions"></div><div id="p-feedback"></div></div></div></div>';
+    $('#p-exit').addEventListener('click', finishSession);
+    const calcBtn = $('#p-calc');
+    if (calcBtn) { SH.calculator.btn = calcBtn; SH.calculator.sync(); calcBtn.addEventListener('click', () => SH.calculator.toggle(calcBtn, 'right')); }
+    else if (SH.calculator.panel && !SH.calculator.panel.hidden) { SH.calculator.panel.hidden = true; SH.calculator.btn = null; }
+    const abc = $('#p-abc');
+    if (abc) abc.addEventListener('click', () => { s.elim = !s.elim; abc.setAttribute('aria-pressed', s.elim); drawAnswer(); });
+    drawAnswer();
+    drawActions();
+    if (s.checked[q.id]) drawFeedback();
+    s.shownAt = Date.now();
+  }
+  function drawAnswer() {
+    const s = session, q = s.questions[s.i];
+    const host = $('#p-answer');
+    const checked = !!s.checked[q.id];
+    const resp = s.responses[q.id];
+    if (q.type === 'mc') {
+      const struck = s.struck[q.id] || [];
+      host.innerHTML = '<ul class="choices" role="radiogroup" aria-label="Answer choices">' + q.choices.map((c, i) => {
+        const L = SH.LETTERS[i];
+        let cls = '';
+        if (checked) { if (L === q.answer) cls = ' is-correct'; else if (L === resp) cls = ' is-wrong'; }
+        if (struck.indexOf(L) > -1 && !checked) cls += ' is-struck';
+        const strike = s.elim && !checked ? (struck.indexOf(L) > -1
+          ? '<button type="button" class="strike-btn is-undo" data-strike="' + L + '" aria-label="Undo cross out for choice ' + L + '">Undo</button>'
+          : '<button type="button" class="strike-btn" data-strike="' + L + '" aria-label="Cross out choice ' + L + '"><span class="s-letter">' + L + '</span></button>') : '';
+        return '<li class="choice-row"><button type="button" role="radio" class="choice' + cls + '" aria-checked="' + (resp === L) + '" data-choice="' + L + '"' + (checked ? ' aria-disabled="true"' : '') + '><span class="letter">' + L + '</span><span class="choice-text rich">' + SH.renderRich(c, { inline: true }) + '</span></button>' + strike + '</li>';
+      }).join('') + '</ul>';
+      if (!checked) {
+        $$('[data-choice]', host).forEach(b => b.addEventListener('click', () => {
+          const L = b.dataset.choice;
+          s.struck[q.id] = (s.struck[q.id] || []).filter(x => x !== L);
+          s.responses[q.id] = L; drawAnswer(); drawActions();
+          const a = host.querySelector('[data-choice="' + L + '"]'); if (a) a.focus();
+        }));
+        $$('[data-strike]', host).forEach(b => b.addEventListener('click', () => {
+          const L = b.dataset.strike, st = s.struck[q.id] || [];
+          if (st.indexOf(L) > -1) s.struck[q.id] = st.filter(x => x !== L);
+          else { s.struck[q.id] = st.concat(L); if (s.responses[q.id] === L) delete s.responses[q.id]; }
+          drawAnswer(); drawActions();
+        }));
+      }
+    } else {
+      host.innerHTML = '<div class="spr"><label class="label" for="p-spr">Your answer</label><input id="p-spr" inputmode="decimal" autocomplete="off" value="' + esc(resp || '') + '"' + (checked ? ' disabled' : '') + '><div class="spr-preview" id="p-prev">' + (resp ? 'Answer preview: <b>' + SH.sprPreview(resp) + '</b>' : '') + '</div>' +
+        '<div class="small muted">Up to 5 characters (6 with a minus sign). Fractions like 7/2 and decimals like 3.5 both work.</div></div>';
+      const inp = $('#p-spr');
+      if (!checked) {
+        inp.addEventListener('input', () => {
+          const v = SH.sprSanitize(inp.value); if (v !== inp.value) inp.value = v;
+          if (v) s.responses[q.id] = v; else delete s.responses[q.id];
+          $('#p-prev').innerHTML = v ? 'Answer preview: <b>' + SH.sprPreview(v) + '</b>' : '';
+          drawActions();
+        });
+        inp.addEventListener('keydown', e => { if (e.key === 'Enter' && s.responses[q.id]) check(); });
+      }
+    }
+  }
+  function drawActions() {
+    const s = session, q = s.questions[s.i];
+    const host = $('#p-actions');
+    const checked = !!s.checked[q.id];
+    const has = s.responses[q.id] != null && s.responses[q.id] !== '';
+    const last = s.i === s.questions.length - 1;
+    let h = '';
+    if (s.i > 0) h += '<button class="btn btn-ghost" type="button" id="p-prev-q">Back</button>';
+    if (!checked) {
+      h += '<button class="btn btn-primary" type="button" id="p-check"' + (has ? '' : ' disabled') + '>Check answer</button>';
+      if (SH.ai.enabled() && !SH.ai.needsLogin()) h += '<button class="btn btn-ghost" type="button" id="p-hint">Get a hint</button>';
+      h += '<button class="link-btn" type="button" id="p-skip" style="margin-left:auto">' + (last ? 'Skip and finish' : 'Skip') + '</button>';
+    } else {
+      h += '<button class="btn btn-primary" type="button" id="p-next">' + (last ? 'See results' : 'Next question') + '</button>';
+    }
+    host.innerHTML = h;
+    const on = (id, fn) => { const el = $(id); if (el) el.addEventListener('click', fn); };
+    on('#p-prev-q', () => { s.i--; drawQuestion(); });
+    on('#p-check', check);
+    on('#p-hint', () => SH.openTutor({ question: q, response: s.responses[q.id], revealAnswer: false, firstMessage: 'Give me a hint for this question without telling me the answer.' }));
+    on('#p-skip', () => { if (last) finishSession(); else { s.i++; drawQuestion(); } });
+    on('#p-next', () => { if (last) finishSession(); else { s.i++; drawQuestion(); window.scrollTo({ top: 0 }); } });
+  }
+  function check() {
+    const s = session, q = s.questions[s.i];
+    if (s.checked[q.id]) return;
+    const ok = SH.isCorrect(q, s.responses[q.id]);
+    const ms = Date.now() - s.shownAt;
+    s.checked[q.id] = { ok, ms };
+    SH.recordAttempts([{ qid: q.id, section: q.section, domain: q.domain, skill: q.skill, difficulty: q.difficulty, correct: ok, ms, source: s.source }]);
+    drawAnswer(); drawActions(); drawFeedback();
+    const fb = $('#p-feedback'); if (fb) fb.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    const nx = $('#p-next'); if (nx) nx.focus({ preventScroll: true });
+  }
+  function drawFeedback() {
+    const s = session, q = s.questions[s.i], c = s.checked[q.id];
+    $('#p-feedback').innerHTML = '<div class="feedback ' + (c.ok ? 'ok' : 'no') + '" role="status"><h3>' + (c.ok ? 'Correct' : 'Not quite. The answer is ' + esc(SH.answerLabel(q)) + '.') + '</h3>' +
+      (q.explanation ? '<div class="expl rich">' + SH.renderRich(q.explanation) + '</div>' : '') +
+      '<div class="row" style="margin-top:12px"><button class="btn btn-ghost btn-sm" type="button" id="p-tutor">' + (c.ok ? 'Ask the AI tutor' : 'Ask the AI tutor why') + '</button></div>' +
+      (q.ai ? '<p class="ai-flag">This question was written by AI. If the answer looks wrong, ask the tutor to double-check it.</p>' : '') + '</div>';
+    $('#p-tutor').addEventListener('click', () => SH.openTutor({ question: q, response: s.responses[q.id], correct: c.ok }));
+  }
+  function finishSession() {
+    const s = session;
+    const answered = s.questions.filter(q => s.checked[q.id]);
+    const right = answered.filter(q => s.checked[q.id].ok);
+    const missed = answered.filter(q => !s.checked[q.id].ok);
+    const secs = Math.round((Date.now() - s.started) / 1000);
+    const bySkill = {};
+    answered.forEach(q => { const k = q.skill || 'Other'; bySkill[k] = bySkill[k] || { n: 0, c: 0 }; bySkill[k].n++; if (s.checked[q.id].ok) bySkill[k].c++; });
+    player.innerHTML = '<div class="p-top"><h1>' + esc(s.title) + '</h1></div>' +
+      '<div class="grid grid-2"><div class="card"><span class="kicker">Session complete</span><div class="summary-score">' + right.length + '/' + answered.length + '</div><p class="muted">' +
+      (answered.length ? SH.pct(right.length, answered.length) + '% correct' : 'No questions checked') + ' · ' + SH.fmtClock(secs) + ' total' + (answered.length < s.questions.length ? ' · ' + (s.questions.length - answered.length) + ' skipped' : '') + '</p>' +
+      '<div class="row">' + (missed.length ? '<button class="btn btn-primary" type="button" id="s-retry">Retry the ' + missed.length + ' I missed</button>' : '') + '<a class="btn btn-ghost" href="#home" id="s-home">Back to dashboard</a></div></div>' +
+      '<div class="card"><h3>By skill</h3>' + (Object.keys(bySkill).length ? Object.keys(bySkill).map(k => '<div class="skill-row dom" style="grid-template-columns:minmax(0,1fr) 70px 44px"><div>' + esc(k) + '</div><div class="bar ' + accClass(bySkill[k].c / bySkill[k].n) + '"><i style="width:' + SH.pct(bySkill[k].c, bySkill[k].n) + '%"></i></div><div class="acc">' + bySkill[k].c + '/' + bySkill[k].n + '</div></div>').join('') : '<p class="muted">Nothing checked yet.</p>') + '</div></div>' +
+      (missed.length ? '<h2 class="section-title">Questions to review</h2>' + missed.map((q, i) =>
+        '<div class="miss"><div class="small muted" style="margin-bottom:6px">' + esc(q.skill || '') + ' · your answer: <b>' + esc(s.responses[q.id] || '—') + '</b> · correct: <b>' + esc(SH.answerLabel(q)) + '</b></div>' +
+        '<div class="rich"><strong>' + SH.renderRich(q.prompt, { inline: true }) + '</strong></div>' +
+        (q.explanation ? '<div class="expl rich">' + SH.renderRich(q.explanation) + '</div>' : '') +
+        '<button class="btn btn-ghost btn-sm" type="button" data-mtutor="' + i + '" style="margin-top:10px">Ask the AI tutor</button></div>').join('') : '');
+    const retry = $('#s-retry');
+    if (retry) retry.addEventListener('click', () => startSession({ title: s.title + ' (retry)', questions: missed, source: s.source }));
+    $$('[data-mtutor]').forEach(b => b.addEventListener('click', () => { const q = missed[+b.dataset.mtutor]; SH.openTutor({ question: q, response: s.responses[q.id], correct: false }); }));
+    $('#s-home').addEventListener('click', () => { session = null; });
+    session = null;
+    SH.calculator.close();
+    window.scrollTo(0, 0);
+  }
+});
+</script>
+</body>
+</html>

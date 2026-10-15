@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Disallow: /builder.html
+Disallow: /worker/
+
+Sitemap: https://scholarshub.academy/sitemap.xml
