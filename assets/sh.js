@@ -25,10 +25,10 @@
     // Firestore rules in firestore.rules. Leave apiKey empty and the site
     // works exactly as before, with no sign-in anywhere.
     FIREBASE: {
-      apiKey: '',
-      authDomain: '',
-      projectId: '',
-      appId: ''
+      apiKey: 'AIzaSyAAxqdRhKtMr7Iwloe75MaMtFbTQFt4wxY',
+      authDomain: 'satustoz.firebaseapp.com',
+      projectId: 'satustoz',
+      appId: '1:1096969960371:web:64454d3b4101a3170a69c6'
     },
     // true = students must sign in before practicing or taking tests.
     // false = anyone can practice; signing in saves progress across devices.
