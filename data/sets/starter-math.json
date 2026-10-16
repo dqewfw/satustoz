@@ -1,0 +1,118 @@
+{
+  "id": "starter-math",
+  "title": "Starter set: Math",
+  "description": "Ten questions across algebra, advanced math, data and geometry.",
+  "questions": [
+    {
+      "id": "sm-01",
+      "section": "math",
+      "domain": "Algebra",
+      "skill": "Linear equations in one variable",
+      "difficulty": "easy",
+      "prompt": "If $\\dfrac{x}{4} + 3 = 8$, what is the value of $x$?",
+      "answer": ["20"],
+      "explanation": "Subtract 3: $\\dfrac{x}{4} = 5$. Multiply by 4: $x = 20$."
+    },
+    {
+      "id": "sm-02",
+      "section": "math",
+      "domain": "Algebra",
+      "skill": "Linear functions",
+      "difficulty": "easy",
+      "prompt": "A taxi company charges a fixed fee of 5,000 so'm plus 2,500 so'm per kilometer. Which equation gives the total cost $C$, in so'm, of a ride of $d$ kilometers?",
+      "choices": ["$C = 5{,}000d + 2{,}500$", "$C = 2{,}500d + 5{,}000$", "$C = 7{,}500d$", "$C = 2{,}500(d + 5{,}000)$"],
+      "answer": "B",
+      "explanation": "The per-kilometer rate multiplies $d$, and the fixed fee is added once: $C = 2{,}500d + 5{,}000$. Choice A swaps the two."
+    },
+    {
+      "id": "sm-03",
+      "section": "math",
+      "domain": "Algebra",
+      "skill": "Systems of two linear equations in two variables",
+      "difficulty": "medium",
+      "prompt": "$$y = 2x + 1$$ $$y = -x + 7$$ If $(x, y)$ is the solution to the given system of equations, what is the value of $y$?",
+      "choices": ["2", "3", "5", "7"],
+      "answer": "C",
+      "explanation": "Set the right sides equal: $2x + 1 = -x + 7$, so $3x = 6$ and $x = 2$. Then $y = 2(2) + 1 = 5$. Choice A is $x$, not $y$."
+    },
+    {
+      "id": "sm-04",
+      "section": "math",
+      "domain": "Algebra",
+      "skill": "Linear inequalities in one or two variables",
+      "difficulty": "medium",
+      "prompt": "A student has \\$60 to spend on notebooks that cost \\$4 each and pens that cost \\$2 each. If she buys 9 notebooks, what is the greatest number of pens she can buy?",
+      "answer": ["12"],
+      "explanation": "The notebooks cost $9 \\times 4 = 36$ dollars, leaving $60 - 36 = 24$. Each pen costs 2, so she can buy at most $24 \\div 2 = 12$ pens."
+    },
+    {
+      "id": "sm-05",
+      "section": "math",
+      "domain": "Advanced Math",
+      "skill": "Equivalent expressions",
+      "difficulty": "medium",
+      "prompt": "Which expression is equivalent to $(2x - 3)^2$?",
+      "choices": ["$4x^2 - 9$", "$4x^2 - 12x + 9$", "$4x^2 - 6x + 9$", "$2x^2 - 12x + 9$"],
+      "answer": "B",
+      "explanation": "$(2x-3)^2 = (2x)^2 - 2(2x)(3) + 3^2 = 4x^2 - 12x + 9$. Choice A forgets the middle term, the most common mistake here."
+    },
+    {
+      "id": "sm-06",
+      "section": "math",
+      "domain": "Advanced Math",
+      "skill": "Nonlinear functions",
+      "difficulty": "easy",
+      "prompt": "The function $h$ is defined by $h(x) = 2^x + 3$. What is the value of $h(5)$?",
+      "answer": ["35"],
+      "explanation": "$2^5 = 32$, so $h(5) = 32 + 3 = 35$."
+    },
+    {
+      "id": "sm-07",
+      "section": "math",
+      "domain": "Problem-Solving and Data Analysis",
+      "skill": "Percentages",
+      "difficulty": "medium",
+      "prompt": "The number of students in a club increased from 40 to 52. By what percent did the number of students increase?",
+      "choices": ["12%", "23%", "30%", "52%"],
+      "answer": "C",
+      "explanation": "Percent increase is change divided by the original: $\\dfrac{52 - 40}{40} = \\dfrac{12}{40} = 0.30$, or 30%. Choice B divides by 52 instead of 40."
+    },
+    {
+      "id": "sm-08",
+      "section": "math",
+      "domain": "Problem-Solving and Data Analysis",
+      "skill": "Two-variable data: models and scatterplots",
+      "difficulty": "medium",
+      "prompt": "For a group of students, the line of best fit for a scatterplot is $y = 1.5x + 20$, where $x$ is the number of hours a student studied per week and $y$ is the student's predicted test score, in points. Which statement is the best interpretation of the number 1.5 in this context?",
+      "choices": [
+        "For each additional hour of studying per week, the predicted test score increases by 1.5 points.",
+        "The predicted test score for a student who does not study is 1.5 points.",
+        "Students in the group studied an average of 1.5 hours per week.",
+        "For each 1.5-point increase in test score, study time increases by 1 hour per week."
+      ],
+      "answer": "A",
+      "explanation": "1.5 is the slope: the change in predicted score for each 1-unit increase in $x$. Choice B describes the $y$-intercept, which is 20."
+    },
+    {
+      "id": "sm-09",
+      "section": "math",
+      "domain": "Geometry and Trigonometry",
+      "skill": "Area and volume",
+      "difficulty": "medium",
+      "prompt": "A rectangle has a perimeter of 34 centimeters and a length of 12 centimeters. What is the area of the rectangle, in square centimeters?",
+      "answer": ["60"],
+      "explanation": "$2(12) + 2w = 34$, so $2w = 10$ and $w = 5$. Area $= 12 \\times 5 = 60$."
+    },
+    {
+      "id": "sm-10",
+      "section": "math",
+      "domain": "Advanced Math",
+      "skill": "Nonlinear equations in one variable and systems of equations in two variables",
+      "difficulty": "hard",
+      "prompt": "In the $xy$-plane, the graph of $y = x^2 - 6x + k$, where $k$ is a constant, touches the $x$-axis at exactly one point. What is the value of $k$?",
+      "choices": ["3", "6", "9", "36"],
+      "answer": "C",
+      "explanation": "Touching the $x$-axis once means exactly one solution, so the discriminant is zero: $(-6)^2 - 4(1)(k) = 0$, giving $36 = 4k$ and $k = 9$. Check: $x^2 - 6x + 9 = (x-3)^2$."
+    }
+  ]
+}
