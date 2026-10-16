@@ -17,6 +17,12 @@
   ],
   "tests": [
     {
+      "id": "practice-test-1",
+      "title": "Practice Test 1",
+      "description": "Full-length and adaptive, like test day: 98 questions in 2 hours 14 minutes, plus a 10-minute break.",
+      "file": "data/tests/practice-test-1.json"
+    },
+    {
       "id": "diagnostic-mini",
       "title": "Mini diagnostic test",
       "description": "A shortened adaptive test (8 Reading and Writing and 6 Math questions per module) to try the full test-day flow in about 50 minutes.",
