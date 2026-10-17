@@ -1,0 +1,2421 @@
+{
+  "id": "practice-test-7",
+  "title": "Practice Test 7",
+  "description": "A full-length adaptive digital SAT practice test written by SAT Ustoz: 98 questions, two modules per section, with an explanation for every question.",
+  "routing": {
+    "threshold": 0.6
+  },
+  "breakMinutes": 10,
+  "sections": [
+    {
+      "id": "rw",
+      "title": "Reading and Writing",
+      "module1": {
+        "minutes": 32,
+        "questions": [
+          {
+            "id": "t7-rw1-01",
+            "section": "rw",
+            "skill": "Words in Context",
+            "difficulty": "easy",
+            "passage": "Marathon coach Ilhom Qosimov tells his runners that long races are won through ______ effort: a steady pace held for hours will beat a fast start that cannot be maintained.",
+            "prompt": "Which choice completes the text with the most logical and precise word or phrase?",
+            "choices": [
+              "sporadic",
+              "sustained",
+              "reckless",
+              "borrowed"
+            ],
+            "answer": "B",
+            "explanation": "A steady pace held for hours is effort that continues without stopping, which is what **sustained** means. *Sporadic* means the opposite."
+          },
+          {
+            "id": "t7-rw1-02",
+            "section": "rw",
+            "skill": "Words in Context",
+            "difficulty": "medium",
+            "passage": "Playwright Odina Ferreira's first drafts are famously ______: she often writes more than two hundred pages of scenes, then cuts all but a few dozen once rehearsals begin.",
+            "prompt": "Which choice completes the text with the most logical and precise word or phrase?",
+            "choices": [
+              "concise",
+              "anonymous",
+              "fragile",
+              "sprawling"
+            ],
+            "answer": "D",
+            "explanation": "Drafts of more than two hundred pages that must be cut down are long and spread out, or **sprawling**. *Concise* is the opposite."
+          },
+          {
+            "id": "t7-rw1-03",
+            "section": "rw",
+            "skill": "Words in Context",
+            "difficulty": "medium",
+            "passage": "Even during deep sleep, the brain continues to process some sounds, which is why a sleeper may ignore the hum of traffic yet wake at the sound of their own name. In this sense, parts of the brain remain ______ throughout the night.",
+            "prompt": "Which choice completes the text with the most logical and precise word or phrase?",
+            "choices": [
+              "vigilant",
+              "dormant",
+              "obsolete",
+              "transparent"
+            ],
+            "answer": "A",
+            "explanation": "Parts of the brain keep watch for important sounds, so they stay **vigilant**. *Dormant* (inactive) contradicts the idea that the brain keeps processing sounds."
+          },
+          {
+            "id": "t7-rw1-04",
+            "section": "rw",
+            "skill": "Words in Context",
+            "difficulty": "hard",
+            "passage": "According to energy analyst Kamola Yusupova, early reports on floating solar panels were ______: they praised the land the panels saved and the cooling effect of the water beneath them but rarely mentioned the costly anchoring systems and corrosion problems that later troubled several installations.",
+            "prompt": "Which choice completes the text with the most logical and precise word or phrase?",
+            "choices": [
+              "fabricated",
+              "belated",
+              "selective",
+              "technical"
+            ],
+            "answer": "C",
+            "explanation": "The reports described the benefits and left out the problems, so they were **selective**. *Fabricated* is too strong: the land savings and cooling were real, just not the whole story."
+          },
+          {
+            "id": "t7-rw1-05",
+            "section": "rw",
+            "skill": "Text Structure and Purpose",
+            "difficulty": "medium",
+            "passage": "Each autumn, demoiselle cranes that breed on the steppes of Kazakhstan and Mongolia fly south to spend the winter in India, and many of them cross the Himalayas to get there. The crossing is among the most demanding journeys any bird makes: some passes on the route lie above 5,000 meters, where the air holds only about half as much oxygen as it does at sea level. __To save energy, the cranes rise on columns of warm air called thermals, gaining height while barely flapping their wings.__",
+            "prompt": "Which choice best describes the function of the underlined sentence in the text as a whole?",
+            "choices": [
+              "It describes a strategy the cranes use to cope with the difficulty described in the previous sentence.",
+              "It explains why the cranes breed on the steppes rather than in India.",
+              "It presents evidence that the cranes' route is shorter than scientists once believed.",
+              "It introduces a threat to the cranes that has appeared only recently."
+            ],
+            "answer": "A",
+            "explanation": "The previous sentence describes how demanding the high crossing is, and the underlined sentence explains how the cranes save energy to manage it."
+          },
+          {
+            "id": "t7-rw1-06",
+            "section": "rw",
+            "skill": "Text Structure and Purpose",
+            "difficulty": "medium",
+            "passage": "Stage designer Farrukh Akbarov rarely builds realistic sets. For a recent production of a family drama set in a Namangan courtyard, he placed only a single carpet and a low wooden table on an otherwise empty stage. Akbarov explains that when audiences are given fewer objects to look at, they pay closer attention to the actors' faces and voices, and they fill in the rest of the courtyard with their own imaginations.",
+            "prompt": "Which choice best states the main purpose of the text?",
+            "choices": [
+              "To argue that realistic sets are too expensive for most theaters",
+              "To describe the history of theater in Namangan",
+              "To compare Akbarov's designs with those of other stage designers",
+              "To present a designer's approach to building sets and his reasons for it"
+            ],
+            "answer": "D",
+            "explanation": "The text describes Akbarov's spare sets, gives an example, and then explains his reasoning. Cost and other designers are never discussed."
+          },
+          {
+            "id": "t7-rw1-07",
+            "section": "rw",
+            "skill": "Cross-Text Connections",
+            "difficulty": "hard",
+            "passage": "**Text 1**\nMany sleep researchers hold that the main function of sleep is to strengthen memories. During sleep, they note, the brain replays the day's experiences, stabilizing the connections between brain cells that store them.\n\n**Text 2**\nNeuroscientist Ines Halvorsen agrees that memories are reinforced during sleep, but she doubts that this is why sleep exists. Animals with no centralized brain, such as the upside-down jellyfish, also show sleep-like states. In Halvorsen's view, sleep first evolved to let cells repair damage that builds up during activity, and the brain's memory processing was a later addition.",
+            "prompt": "Based on the texts, how would Halvorsen (Text 2) most likely respond to the view presented in Text 1?",
+            "choices": [
+              "She would reject the claim that the brain replays experiences during sleep.",
+              "She would accept that sleep strengthens memories but dispute that this is the primary reason sleep exists.",
+              "She would argue that jellyfish store memories in the same way that humans do.",
+              "She would claim that sleep plays no role in repairing cells."
+            ],
+            "answer": "B",
+            "explanation": "Halvorsen **agrees** that memories are reinforced during sleep but argues sleep evolved for cell repair. She never rejects memory replay, so the first choice goes too far."
+          },
+          {
+            "id": "t7-rw1-08",
+            "section": "rw",
+            "skill": "Central Ideas and Details",
+            "difficulty": "easy",
+            "passage": "In kurash, a traditional style of wrestling practiced in Uzbekistan for centuries, wrestlers may not grab their opponents below the belt or keep fighting once they are on the ground. Points are scored only for throws made from a standing position. As a result, kurash rewards balance, timing, and quick footwork more than strength on the mat.",
+            "prompt": "Which choice best states the main idea of the text?",
+            "choices": [
+              "Kurash is the oldest form of wrestling in the world.",
+              "Kurash wrestlers train mainly by lifting heavy weights.",
+              "Because kurash is fought only from a standing position, it rewards balance and timing more than ground strength.",
+              "Kurash was invented recently as a safer alternative to other wrestling styles."
+            ],
+            "answer": "C",
+            "explanation": "The text explains the standing-only rules and ends with their result: balance and timing matter most."
+          },
+          {
+            "id": "t7-rw1-09",
+            "section": "rw",
+            "skill": "Central Ideas and Details",
+            "difficulty": "medium",
+            "passage": "The following text is from a short story. Nargiza has written a play that is being performed for the first time.\n\nFrom the last row of the theater, Nargiza could see only the backs of heads. For the first twenty minutes, she studied them the way a farmer studies the sky, reading every cough and every shifting shoulder as a sign of boredom. Then, during the argument between the two brothers, the heads stopped moving altogether, and she realized she had been holding her breath along with everyone else.",
+            "prompt": "Which choice best states the main idea of the text?",
+            "choices": [
+              "Nargiza's anxiety about how the audience will react gives way when she sees the audience become absorbed in her play.",
+              "Nargiza regrets that she cannot see the actors from the back row.",
+              "Nargiza decides to rewrite the argument between the two brothers.",
+              "Nargiza becomes bored during the first part of her play."
+            ],
+            "answer": "A",
+            "explanation": "She first watches nervously for signs of boredom, then sees the audience go still and finds herself caught up with them."
+          },
+          {
+            "id": "t7-rw1-10",
+            "section": "rw",
+            "skill": "Command of Evidence: Textual",
+            "difficulty": "medium",
+            "passage": "Ornithologist Timur Sadikov hypothesizes that young barn swallows migrating for the first time find their way using an inherited sense of direction rather than by following experienced adults.",
+            "prompt": "Which finding, if true, would most directly support Sadikov's hypothesis?",
+            "choices": [
+              "Adult swallows usually return to the same nesting site each spring.",
+              "Young swallows gain weight rapidly in the weeks before migration.",
+              "Young swallows that migrate in large flocks arrive at their wintering grounds earlier than those that migrate in small flocks.",
+              "Young swallows raised with no contact with adult swallows faced the same direction as wild swallows when tested at the start of the migration season."
+            ],
+            "answer": "D",
+            "explanation": "Birds that never met adults still chose the right direction, so the sense of direction cannot have been learned from adults."
+          },
+          {
+            "id": "t7-rw1-11",
+            "section": "rw",
+            "skill": "Command of Evidence: Textual",
+            "difficulty": "hard",
+            "passage": "A team of engineers at a solar farm in southern Uzbekistan claims that the dust that collects on the farm's panels reduces their electricity output mainly by blocking sunlight, not by raising the panels' temperature.",
+            "prompt": "Which finding, if true, would most directly support the engineers' claim?",
+            "choices": [
+              "On the hottest days, dusty panels were slightly warmer than clean panels.",
+              "Dusty panels produced about 15 percent less electricity than clean panels, and this gap was nearly unchanged when both sets of panels were cooled to the same temperature.",
+              "After the dusty panels were cleaned, their output returned to the same level as that of the other panels.",
+              "Dust collected more quickly on panels tilted at low angles than on panels tilted at steep angles."
+            ],
+            "answer": "B",
+            "explanation": "Holding temperature equal did not shrink the gap, so the loss must come mainly from **blocked light**. Recovery after cleaning shows dust matters but not how it reduces output."
+          },
+          {
+            "id": "t7-rw1-12",
+            "section": "rw",
+            "skill": "Command of Evidence: Quantitative",
+            "difficulty": "medium",
+            "passage": "A sports scientist compared four eight-week training programs for youth soccer players by timing each group's 30-meter sprint before and after the program. She reports that the program combining sprints with jumping exercises produced the largest improvement: ______",
+            "prompt": "Which choice most effectively uses data from the table to complete the statement?",
+            "choices": [
+              "the weight training group had the fastest average time before the program, 4.88 seconds.",
+              "the sprints-only group's average time fell from 4.92 to 4.81 seconds.",
+              "the average time of the sprints-and-jumping group fell by 0.27 seconds, more than that of any other group.",
+              "the endurance running group's average time changed by only 0.01 seconds."
+            ],
+            "answer": "C",
+            "explanation": "Lower times are faster. The drops were 0.11, 0.27, 0.08, and 0.01 seconds, so the sprints-and-jumping group improved the most.",
+            "table": {
+              "title": "Average 30-meter sprint time (seconds)",
+              "head": [
+                "Program",
+                "Before",
+                "After"
+              ],
+              "rows": [
+                [
+                  "Sprints only",
+                  "4.92",
+                  "4.81"
+                ],
+                [
+                  "Sprints and jumping",
+                  "4.97",
+                  "4.70"
+                ],
+                [
+                  "Weight training",
+                  "4.88",
+                  "4.80"
+                ],
+                [
+                  "Endurance running",
+                  "4.90",
+                  "4.89"
+                ]
+              ]
+            }
+          },
+          {
+            "id": "t7-rw1-13",
+            "section": "rw",
+            "skill": "Inferences",
+            "difficulty": "medium",
+            "passage": "During adolescence, the body's internal clock shifts later, so many teenagers do not feel sleepy until well after 11:00 p.m., no matter when they must wake up. A school district that moved its high school start time from 7:30 to 8:30 a.m. found that students' bedtimes stayed about the same after the change. Researchers therefore concluded that the later start most likely ______",
+            "prompt": "Which choice most logically completes the text?",
+            "choices": [
+              "caused students to go to bed earlier than before.",
+              "made students feel sleepy earlier in the evening.",
+              "increased the amount of sleep students got on school nights.",
+              "had no effect on how long students slept."
+            ],
+            "answer": "C",
+            "explanation": "Bedtimes stayed the same while the school day started an hour later, so students could sleep later and get more sleep."
+          },
+          {
+            "id": "t7-rw1-14",
+            "section": "rw",
+            "skill": "Inferences",
+            "difficulty": "hard",
+            "passage": "Ice that forms on wind turbine blades changes their shape and reduces the amount of electricity they generate. Some turbines in northern Kazakhstan are fitted with heaters that melt the ice, but the heaters use part of the electricity the turbine produces. An engineer found that on days with light icing, turbines with their heaters on produced less net electricity than identical turbines with their heaters off, while on days with heavy icing the reverse was true. These results suggest that ______",
+            "prompt": "Which choice most logically completes the text?",
+            "choices": [
+              "running the heaters pays off only when icing is heavy enough that the electricity lost to ice exceeds the electricity the heaters use.",
+              "turbines in northern Kazakhstan should not be fitted with heaters at all.",
+              "light icing does not reduce the amount of electricity a turbine generates.",
+              "heavy icing occurs more often than light icing in northern Kazakhstan."
+            ],
+            "answer": "A",
+            "explanation": "Heaters helped on heavy-ice days and hurt on light-ice days, so they are worth running only when ice costs more than the heaters do. Light icing may still reduce output; it just costs less than heating."
+          },
+          {
+            "id": "t7-rw1-15",
+            "section": "rw",
+            "skill": "Boundaries",
+            "difficulty": "easy",
+            "passage": "The common swift spends almost its entire life in the ______ young swifts may fly without landing for nearly ten months after leaving the nest.",
+            "prompt": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+            "choices": [
+              "air,",
+              "air",
+              "air, and,",
+              "air;"
+            ],
+            "answer": "D",
+            "explanation": "Both parts are complete sentences, so they need a semicolon. A comma alone creates a comma splice."
+          },
+          {
+            "id": "t7-rw1-16",
+            "section": "rw",
+            "skill": "Boundaries",
+            "difficulty": "medium",
+            "passage": "The ghost ______ a single bulb left burning on an empty stage after a theater closes for the night, keeps anyone who enters the dark building from falling off the edge of the stage.",
+            "prompt": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+            "choices": [
+              "light;",
+              "light,",
+              "light",
+              "light:"
+            ],
+            "answer": "B",
+            "explanation": "\"A single bulb...for the night\" renames the ghost light and closes with a comma, so it must open with a comma."
+          },
+          {
+            "id": "t7-rw1-17",
+            "section": "rw",
+            "skill": "Boundaries",
+            "difficulty": "medium",
+            "passage": "The tiny trackers that researchers attach to migrating ______ can weigh less than a paper clip.",
+            "prompt": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+            "choices": [
+              "warblers",
+              "warblers,",
+              "warblers;",
+              "warblers—"
+            ],
+            "answer": "A",
+            "explanation": "No punctuation should separate the subject (\"The tiny trackers...warblers\") from its verb \"can weigh.\""
+          },
+          {
+            "id": "t7-rw1-18",
+            "section": "rw",
+            "skill": "Boundaries",
+            "difficulty": "hard",
+            "passage": "Solar panels become less efficient as they heat up, so panels in hot desert climates often produce less electricity on summer afternoons than their ratings ______ engineers sometimes mount them well above the ground, allowing cooling air to flow beneath them.",
+            "prompt": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+            "choices": [
+              "suggest, thus,",
+              "suggest thus;",
+              "suggest; thus,",
+              "suggest, thus"
+            ],
+            "answer": "C",
+            "explanation": "Two complete sentences joined by \"thus\" need a semicolon before it and a comma after it. Commas alone create a comma splice."
+          },
+          {
+            "id": "t7-rw1-19",
+            "section": "rw",
+            "skill": "Form, Structure, and Sense",
+            "difficulty": "easy",
+            "passage": "The flock of white storks circling above the fields ______ waiting for rising warm air before continuing its journey south.",
+            "prompt": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+            "choices": [
+              "are",
+              "is",
+              "were",
+              "have been"
+            ],
+            "answer": "B",
+            "explanation": "The subject is the singular \"flock\" (note \"its journey\"), so the verb is **is**."
+          },
+          {
+            "id": "t7-rw1-20",
+            "section": "rw",
+            "skill": "Form, Structure, and Sense",
+            "difficulty": "medium",
+            "passage": "When the director first read the script, she worried that its final scene, in which two estranged sisters reconcile, ______ too sentimental for modern audiences.",
+            "prompt": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+            "choices": [
+              "are",
+              "being",
+              "have been",
+              "would be"
+            ],
+            "answer": "D",
+            "explanation": "The subject is the singular \"scene,\" and the worry happened in the past, so **would be** fits. *Being* is not a complete verb."
+          },
+          {
+            "id": "t7-rw1-21",
+            "section": "rw",
+            "skill": "Form, Structure, and Sense",
+            "difficulty": "hard",
+            "passage": "Among the instruments carried aboard last month's weather balloon ______ a sensor that measured ozone levels and a small camera that photographed the clouds.",
+            "prompt": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+            "choices": [
+              "were",
+              "was",
+              "is",
+              "has been"
+            ],
+            "answer": "A",
+            "explanation": "The sentence is inverted: the subject comes after the verb and is plural (\"a sensor...and a small camera\"). The event is past, so the verb is **were**. \"Balloon\" is not the subject."
+          },
+          {
+            "id": "t7-rw1-22",
+            "section": "rw",
+            "skill": "Transitions",
+            "difficulty": "easy",
+            "passage": "Many endurance athletes train at high altitude, where the air contains less oxygen. Their bodies respond by producing more red blood cells, which carry oxygen to the muscles. ______ when these athletes return to lower elevations, their muscles can receive more oxygen than before.",
+            "prompt": "Which choice completes the text with the most logical transition?",
+            "choices": [
+              "In contrast,",
+              "Nevertheless,",
+              "As a result,",
+              "For instance,"
+            ],
+            "answer": "C",
+            "explanation": "Extra oxygen reaching the muscles is a result of the extra red blood cells, so **As a result** fits."
+          },
+          {
+            "id": "t7-rw1-23",
+            "section": "rw",
+            "skill": "Transitions",
+            "difficulty": "medium",
+            "passage": "Most playwrights finish their scripts before rehearsals begin. The members of the Navbahor Theater Collective, ______ build their plays during rehearsals, improvising scenes together and writing down only the moments that work.",
+            "prompt": "Which choice completes the text with the most logical transition?",
+            "choices": [
+              "for example,",
+              "by contrast,",
+              "therefore,",
+              "similarly,"
+            ],
+            "answer": "B",
+            "explanation": "The collective works differently from most playwrights, so a contrast is needed: **by contrast**."
+          },
+          {
+            "id": "t7-rw1-24",
+            "section": "rw",
+            "skill": "Transitions",
+            "difficulty": "hard",
+            "passage": "The noise of wind turbines is often cited as a reason that people oppose new wind farms. In one survey near a wind farm, however, residents who could see the turbines from their homes reported being bothered by the noise far more often than residents who heard the same noise levels but could not see the turbines. ______ the residents' annoyance may have had as much to do with the turbines' appearance as with their sound.",
+            "prompt": "Which choice completes the text with the most logical transition?",
+            "choices": [
+              "Even so,",
+              "Moreover,",
+              "Previously,",
+              "Hence,"
+            ],
+            "answer": "D",
+            "explanation": "The last sentence is a conclusion drawn from the survey result, so **Hence** fits. *Even so* would wrongly signal a point that goes against the survey."
+          },
+          {
+            "id": "t7-rw1-25",
+            "section": "rw",
+            "skill": "Rhetorical Synthesis",
+            "difficulty": "medium",
+            "passage": "While researching a topic, a student has taken the following notes:\n\n• The Nurek Dam stands on the Vakhsh River in Tajikistan.\n• It was completed in 1980.\n• At about 300 meters tall, it was the world's tallest dam for more than thirty years.\n• Hydropower supplies more than 90 percent of Tajikistan's electricity.",
+            "prompt": "The student wants to emphasize the importance of hydropower to Tajikistan. Which choice most effectively uses relevant information from the notes to accomplish this goal?",
+            "choices": [
+              "Hydropower, from dams such as the Nurek Dam on the Vakhsh River, supplies more than 90 percent of Tajikistan's electricity.",
+              "The Nurek Dam in Tajikistan was completed in 1980.",
+              "At about 300 meters tall, the Nurek Dam was the world's tallest dam for more than thirty years.",
+              "The Nurek Dam stands on the Vakhsh River."
+            ],
+            "answer": "A",
+            "explanation": "Only this choice shows how much of the country's electricity comes from hydropower."
+          },
+          {
+            "id": "t7-rw1-26",
+            "section": "rw",
+            "skill": "Rhetorical Synthesis",
+            "difficulty": "medium",
+            "passage": "While researching a topic, a student has taken the following notes:\n\n• Sleep occurs in repeating cycles of about 90 minutes.\n• Each cycle includes non-REM sleep and REM (rapid eye movement) sleep.\n• Most vivid dreams occur during REM sleep.\n• The body releases most of its growth hormone during deep non-REM sleep.",
+            "prompt": "The student wants to contrast REM sleep with deep non-REM sleep. Which choice most effectively uses relevant information from the notes to accomplish this goal?",
+            "choices": [
+              "Sleep occurs in repeating cycles of about 90 minutes, each including non-REM and REM sleep.",
+              "Most vivid dreams occur during REM sleep.",
+              "While most vivid dreams occur during REM sleep, deep non-REM sleep is when the body releases most of its growth hormone.",
+              "REM stands for rapid eye movement, and each sleep cycle includes REM sleep."
+            ],
+            "answer": "C",
+            "explanation": "Only this choice sets a feature of REM sleep against a feature of deep non-REM sleep."
+          },
+          {
+            "id": "t7-rw1-27",
+            "section": "rw",
+            "skill": "Rhetorical Synthesis",
+            "difficulty": "hard",
+            "passage": "While researching a topic, a student has taken the following notes:\n\n• Rano Ismoilova is an Uzbek playwright.\n• Her play *The Silk Ledger* (2019) follows three generations of a family of silk merchants in Kokand.\n• *The Silk Ledger* is performed on a bare stage with only two chairs.\n• Her play *Wells of Nukus* (2023) takes place in a single apartment over one night.\n• *Wells of Nukus* is performed on a set built as a detailed copy of a 1970s apartment.",
+            "prompt": "The student wants to emphasize a difference in how the two plays are staged. Which choice most effectively uses relevant information from the notes to accomplish this goal?",
+            "choices": [
+              "*The Silk Ledger* spans three generations of a family, while *Wells of Nukus* takes place over a single night.",
+              "*The Silk Ledger* is performed on a bare stage with only two chairs, whereas *Wells of Nukus* uses a detailed copy of a 1970s apartment.",
+              "Both of Ismoilova's plays, *The Silk Ledger* and *Wells of Nukus*, are set in Uzbekistan.",
+              "Ismoilova wrote *The Silk Ledger* in 2019 and *Wells of Nukus* in 2023."
+            ],
+            "answer": "B",
+            "explanation": "The goal is a difference in **staging**, which means the sets. The first choice contrasts how much time each story covers, not how the plays are staged."
+          }
+        ]
+      },
+      "module2": {
+        "easier": {
+          "minutes": 32,
+          "questions": [
+            {
+              "id": "t7-rw2e-01",
+              "section": "rw",
+              "skill": "Words in Context",
+              "difficulty": "easy",
+              "passage": "The team's new running shoes were designed to be ______: at only 180 grams each, they weigh about half as much as the shoes the runners wore last season.",
+              "prompt": "Which choice completes the text with the most logical and precise word or phrase?",
+              "choices": [
+                "colorful",
+                "sturdy",
+                "lightweight",
+                "expensive"
+              ],
+              "answer": "C",
+              "explanation": "Shoes that weigh half as much as the old ones are **lightweight**."
+            },
+            {
+              "id": "t7-rw2e-02",
+              "section": "rw",
+              "skill": "Words in Context",
+              "difficulty": "easy",
+              "passage": "To wait out a storm, the migrating geese ______ on a lake in the Kazakh steppe, resting and feeding for several days until the weather cleared.",
+              "prompt": "Which choice completes the text with the most logical and precise word or phrase?",
+              "choices": [
+                "lingered",
+                "vanished",
+                "argued",
+                "multiplied"
+              ],
+              "answer": "A",
+              "explanation": "Staying in one place for several days before moving on is what **lingered** means."
+            },
+            {
+              "id": "t7-rw2e-03",
+              "section": "rw",
+              "skill": "Words in Context",
+              "difficulty": "easy",
+              "passage": "The actor's performance was so ______ that several audience members were moved to tears during the final scene.",
+              "prompt": "Which choice completes the text with the most logical and precise word or phrase?",
+              "choices": [
+                "brief",
+                "careless",
+                "ordinary",
+                "powerful"
+              ],
+              "answer": "D",
+              "explanation": "A performance that moves people to tears has a strong effect, so it is **powerful**."
+            },
+            {
+              "id": "t7-rw2e-04",
+              "section": "rw",
+              "skill": "Words in Context",
+              "difficulty": "medium",
+              "passage": "Because the amount of sunlight reaching a solar farm changes with the weather and the time of day, the farm's electricity output is ______, so engineers often pair solar farms with large batteries that store extra power for cloudy periods and nighttime.",
+              "prompt": "Which choice completes the text with the most logical and precise word or phrase?",
+              "choices": [
+                "permanent",
+                "variable",
+                "invisible",
+                "excessive"
+              ],
+              "answer": "B",
+              "explanation": "Output that changes with the weather and the time of day is **variable**. *Permanent* is the opposite."
+            },
+            {
+              "id": "t7-rw2e-05",
+              "section": "rw",
+              "skill": "Text Structure and Purpose",
+              "difficulty": "easy",
+              "passage": "Many people believe that drinking coffee can make up for a night without sleep. Caffeine does make people feel more alert by blocking a chemical in the brain that builds up during waking hours and causes sleepiness. However, caffeine cannot fully restore the attention and memory benefits that sleep provides, so a tired person who drinks coffee may feel awake while still making more mistakes than usual.",
+              "prompt": "Which choice best states the main purpose of the text?",
+              "choices": [
+                "To argue that people should never drink coffee",
+                "To explain why caffeine cannot fully replace sleep, despite its effect on alertness",
+                "To describe the chemical structure of caffeine",
+                "To compare coffee with other drinks that contain caffeine"
+              ],
+              "answer": "B",
+              "explanation": "The text grants that caffeine increases alertness, then explains (\"However\") why it is not a full substitute for sleep."
+            },
+            {
+              "id": "t7-rw2e-06",
+              "section": "rw",
+              "skill": "Text Structure and Purpose",
+              "difficulty": "medium",
+              "passage": "Each autumn, many birds that breed in Siberia and Kazakhstan fly south across Central Asia toward wintering grounds in South Asia and Africa. Along the way, many of them stop at small wetlands in the deserts of Uzbekistan and Turkmenistan. __These wetlands offer some of the only food and fresh water available across hundreds of kilometers of dry land.__ Because so many species depend on them, conservationists consider protecting these stopover sites as important as protecting the birds' breeding grounds.",
+              "prompt": "Which choice best describes the function of the underlined sentence in the text as a whole?",
+              "choices": [
+                "It describes the breeding grounds of the birds discussed in the text.",
+                "It introduces a disagreement among conservationists.",
+                "It explains why the birds avoid stopping during their migration.",
+                "It explains why the wetlands mentioned in the previous sentence are so valuable to the birds."
+              ],
+              "answer": "D",
+              "explanation": "The underlined sentence tells why the desert wetlands matter: they are among the only sources of food and water on the route."
+            },
+            {
+              "id": "t7-rw2e-07",
+              "section": "rw",
+              "skill": "Cross-Text Connections",
+              "difficulty": "medium",
+              "passage": "**Text 1**\nMany coaches believe that static stretching, which means holding a stretch for thirty seconds or more, should be done right before exercise because it improves performance and helps prevent injuries.\n\n**Text 2**\nA review of dozens of studies found that long static stretches done right before sprinting or jumping slightly reduced athletes' power, while a dynamic warm-up of light jogging and active movements did not. The reviewers recommend saving long static stretches for after training.",
+              "prompt": "Based on the texts, how would the reviewers in Text 2 most likely respond to the coaches' belief in Text 1?",
+              "choices": [
+                "By pointing out that long static stretches done right before exercise may actually reduce performance in activities that require power",
+                "By agreeing that static stretching right before exercise improves performance",
+                "By arguing that athletes should never stretch at all",
+                "By claiming that dynamic warm-ups cause more injuries than static stretching does"
+              ],
+              "answer": "A",
+              "explanation": "The review found that static stretching right before sprinting or jumping reduced power, which challenges the coaches' belief that it improves performance."
+            },
+            {
+              "id": "t7-rw2e-08",
+              "section": "rw",
+              "skill": "Central Ideas and Details",
+              "difficulty": "easy",
+              "passage": "The Charvak Reservoir, in the mountains northeast of Tashkent, was created in the 1970s when a dam was built across the Chirchiq River. Today, the reservoir serves several purposes. Its dam produces hydroelectric power, its water irrigates farmland downstream, and its shores attract thousands of visitors each summer who come to swim, hike, and escape the city's heat.",
+              "prompt": "Which choice best states the main idea of the text?",
+              "choices": [
+                "The Charvak Reservoir is the largest lake in Central Asia.",
+                "Building the dam at Charvak was difficult and expensive.",
+                "The Charvak Reservoir serves several purposes, from producing electricity to offering a place for recreation.",
+                "Summers in Tashkent have become hotter in recent years."
+              ],
+              "answer": "C",
+              "explanation": "The text says the reservoir \"serves several purposes\" and then lists them: power, irrigation, and recreation."
+            },
+            {
+              "id": "t7-rw2e-09",
+              "section": "rw",
+              "skill": "Central Ideas and Details",
+              "difficulty": "medium",
+              "passage": "The following text is from a short story. Akmal has just finished his first season as a goalkeeper on a youth soccer team.\n\nAkmal had let in eleven goals in his first five games, and after each one he had replayed the ball's path in his mind until he fell asleep. By the end of the season, he still let in goals, but fewer, and he had stopped replaying them. Instead, he found himself thinking about the shots he had stopped: the low one in the rain, the one that stung his palms, the one his teammates still talked about.",
+              "prompt": "Which choice best states the main idea of the text?",
+              "choices": [
+                "Akmal decides to stop playing goalkeeper.",
+                "Akmal's teammates blame him for the team's losses.",
+                "Akmal cannot remember the details of his games.",
+                "Over the season, Akmal shifts from dwelling on his mistakes to remembering his successes."
+              ],
+              "answer": "D",
+              "explanation": "Early on he replays the goals he let in; by the end he thinks \"instead\" about the shots he stopped."
+            },
+            {
+              "id": "t7-rw2e-10",
+              "section": "rw",
+              "skill": "Command of Evidence: Textual",
+              "difficulty": "easy",
+              "passage": "A sports nutrition researcher hypothesizes that athletes who drink water regularly during long training sessions perform better near the end of those sessions than athletes who do not.",
+              "prompt": "Which finding, if true, would most directly support the researcher's hypothesis?",
+              "choices": [
+                "Most athletes prefer cold water to warm water.",
+                "Cyclists who drank water every fifteen minutes during a three-hour ride produced more power in the final thirty minutes than cyclists who drank nothing.",
+                "Athletes sweat more in hot weather than in cool weather.",
+                "Some sports drinks contain large amounts of sugar."
+              ],
+              "answer": "B",
+              "explanation": "Only this choice links drinking water during a long session to better performance at the end of it."
+            },
+            {
+              "id": "t7-rw2e-11",
+              "section": "rw",
+              "skill": "Command of Evidence: Textual",
+              "difficulty": "medium",
+              "passage": "A theater researcher hypothesizes that audiences laugh more at a comedy when the theater is full than when it is mostly empty, even when the performance itself is the same.",
+              "prompt": "Which finding, if true, would most directly support the researcher's hypothesis?",
+              "choices": [
+                "Recordings of one comedy performed by the same cast showed that audiences laughed about twice as often on nights when every seat was filled as on nights when most seats were empty.",
+                "Tickets to comedies are usually cheaper than tickets to dramas.",
+                "Actors said they enjoyed performing in front of full theaters more than in front of empty ones.",
+                "Comedies are performed more often than tragedies at most theaters."
+              ],
+              "answer": "A",
+              "explanation": "This finding compares laughter for the same performance in full and empty theaters. The actors' enjoyment says nothing about how much audiences laughed."
+            },
+            {
+              "id": "t7-rw2e-12",
+              "section": "rw",
+              "skill": "Command of Evidence: Quantitative",
+              "difficulty": "easy",
+              "passage": "Volunteers counted the birds of four species resting at a lake in Uzbekistan during one week of autumn migration. The most numerous of the four species was ______",
+              "prompt": "Which choice most effectively uses data from the table to complete the statement?",
+              "choices": [
+                "the common crane, with 315 birds counted.",
+                "the greylag goose, with 420 birds counted.",
+                "the ruddy shelduck, with 590 birds counted.",
+                "the great cormorant, with 270 birds counted."
+              ],
+              "answer": "C",
+              "explanation": "The ruddy shelduck has the largest count in the table, 590.",
+              "table": {
+                "title": "Birds counted at the lake",
+                "head": [
+                  "Species",
+                  "Number counted"
+                ],
+                "rows": [
+                  [
+                    "Greylag goose",
+                    "420"
+                  ],
+                  [
+                    "Common crane",
+                    "315"
+                  ],
+                  [
+                    "Ruddy shelduck",
+                    "590"
+                  ],
+                  [
+                    "Great cormorant",
+                    "270"
+                  ]
+                ]
+              }
+            },
+            {
+              "id": "t7-rw2e-13",
+              "section": "rw",
+              "skill": "Inferences",
+              "difficulty": "easy",
+              "passage": "Wind turbines generate electricity only when the wind blows above a certain speed. In one region of Uzbekistan, winds are strongest in winter and weakest in summer. Engineers would therefore expect the region's wind turbines to ______",
+              "prompt": "Which choice most logically completes the text?",
+              "choices": [
+                "produce the same amount of electricity in every season.",
+                "stop working entirely in winter.",
+                "produce the most electricity in summer.",
+                "produce more electricity in winter than in summer."
+              ],
+              "answer": "D",
+              "explanation": "Turbines depend on wind, and the wind is strongest in winter, so they should produce more electricity then."
+            },
+            {
+              "id": "t7-rw2e-14",
+              "section": "rw",
+              "skill": "Inferences",
+              "difficulty": "medium",
+              "passage": "In one experiment, volunteers learned a list of word pairs in the evening. Half of them then slept normally, while the other half stayed awake all night. Two days later, after both groups had had a full night of recovery sleep, the volunteers who had slept right after learning remembered far more word pairs. This result suggests that ______",
+              "prompt": "Which choice most logically completes the text?",
+              "choices": [
+                "a night of recovery sleep fully restores memories lost during a sleepless night.",
+                "sleep soon after learning helps preserve new memories in a way that later sleep cannot fully make up for.",
+                "staying awake all night improves memory for word pairs.",
+                "the volunteers who stayed awake never learned the word pairs in the first place."
+              ],
+              "answer": "B",
+              "explanation": "Both groups eventually slept, yet the group that slept right away still remembered more, so the timing of sleep mattered."
+            },
+            {
+              "id": "t7-rw2e-15",
+              "section": "rw",
+              "skill": "Boundaries",
+              "difficulty": "easy",
+              "passage": "Tulips grow wild in the mountains of Central ______ many of the garden varieties sold around the world today are descended from these wild species.",
+              "prompt": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+              "choices": [
+                "Asia;",
+                "Asia,",
+                "Asia",
+                "Asia, and,"
+              ],
+              "answer": "A",
+              "explanation": "Both parts are complete sentences, so they need a semicolon. A comma alone creates a comma splice."
+            },
+            {
+              "id": "t7-rw2e-16",
+              "section": "rw",
+              "skill": "Boundaries",
+              "difficulty": "easy",
+              "passage": "As the runners approached the final ______ the crowd rose to its feet and began to cheer.",
+              "prompt": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+              "choices": [
+                "lap;",
+                "lap:",
+                "lap,",
+                "lap"
+              ],
+              "answer": "C",
+              "explanation": "A comma separates the introductory \"As...\" clause from the main sentence."
+            },
+            {
+              "id": "t7-rw2e-17",
+              "section": "rw",
+              "skill": "Boundaries",
+              "difficulty": "medium",
+              "passage": "The team's ______ Diyora Rahmonova, performed a routine that included two moves never before attempted at the regional championship.",
+              "prompt": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+              "choices": [
+                "captain",
+                "captain;",
+                "captain:",
+                "captain,"
+              ],
+              "answer": "D",
+              "explanation": "The name \"Diyora Rahmonova\" renames the captain and is followed by a comma, so it must also be preceded by a comma."
+            },
+            {
+              "id": "t7-rw2e-18",
+              "section": "rw",
+              "skill": "Boundaries",
+              "difficulty": "medium",
+              "passage": "The summer workshop taught young performers three skills: voice ______ movement, and improvisation.",
+              "prompt": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+              "choices": [
+                "projection,",
+                "projection;",
+                "projection",
+                "projection:"
+              ],
+              "answer": "A",
+              "explanation": "Items in a simple list are separated by commas, as \"movement, and improvisation\" shows."
+            },
+            {
+              "id": "t7-rw2e-19",
+              "section": "rw",
+              "skill": "Form, Structure, and Sense",
+              "difficulty": "easy",
+              "passage": "The solar panels on the roof of the school ______ enough electricity to power all of its classrooms on sunny days.",
+              "prompt": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+              "choices": [
+                "generates",
+                "has generated",
+                "generate",
+                "is generating"
+              ],
+              "answer": "C",
+              "explanation": "The subject is the plural \"panels,\" not \"roof\" or \"school,\" so the verb is **generate**."
+            },
+            {
+              "id": "t7-rw2e-20",
+              "section": "rw",
+              "skill": "Form, Structure, and Sense",
+              "difficulty": "medium",
+              "passage": "In a V formation, each goose in the flock takes ______ turn at the front, where flying requires the most effort.",
+              "prompt": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+              "choices": [
+                "their",
+                "its",
+                "it's",
+                "they're"
+              ],
+              "answer": "B",
+              "explanation": "The pronoun refers to \"each goose,\" which is singular, so the possessive is **its**. *It's* means \"it is.\""
+            },
+            {
+              "id": "t7-rw2e-21",
+              "section": "rw",
+              "skill": "Form, Structure, and Sense",
+              "difficulty": "medium",
+              "passage": "Last season, the theater company ______ six new plays, more than in any previous year.",
+              "prompt": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+              "choices": [
+                "premieres",
+                "will premiere",
+                "has premiered",
+                "premiered"
+              ],
+              "answer": "D",
+              "explanation": "\"Last season\" refers to a finished time in the past, so the simple past **premiered** is needed."
+            },
+            {
+              "id": "t7-rw2e-22",
+              "section": "rw",
+              "skill": "Transitions",
+              "difficulty": "easy",
+              "passage": "The body's internal clock is strongly influenced by light. ______ looking at bright screens late at night can make it harder to fall asleep.",
+              "prompt": "Which choice completes the text with the most logical transition?",
+              "choices": [
+                "However,",
+                "For this reason,",
+                "Instead,",
+                "In contrast,"
+              ],
+              "answer": "B",
+              "explanation": "Trouble falling asleep after screen light is a consequence of the clock's sensitivity to light, so **For this reason** fits."
+            },
+            {
+              "id": "t7-rw2e-23",
+              "section": "rw",
+              "skill": "Transitions",
+              "difficulty": "medium",
+              "passage": "Hydroelectric dams can produce electricity steadily, day and night. ______ they can flood large areas of land and block fish from moving up and down rivers.",
+              "prompt": "Which choice completes the text with the most logical transition?",
+              "choices": [
+                "For example,",
+                "Therefore,",
+                "However,",
+                "Likewise,"
+              ],
+              "answer": "C",
+              "explanation": "An advantage is followed by drawbacks, so a contrast is needed: **However**."
+            },
+            {
+              "id": "t7-rw2e-24",
+              "section": "rw",
+              "skill": "Transitions",
+              "difficulty": "medium",
+              "passage": "Kupkari, a traditional horseback game played in Uzbekistan, requires riders to scoop a heavy goat carcass off the ground while galloping at full speed. ______ riders must keep hold of the carcass while dozens of opponents try to pull it away.",
+              "prompt": "Which choice completes the text with the most logical transition?",
+              "choices": [
+                "In addition,",
+                "In contrast,",
+                "Nevertheless,",
+                "Previously,"
+              ],
+              "answer": "A",
+              "explanation": "The second sentence adds another demand of the game, so **In addition** fits."
+            },
+            {
+              "id": "t7-rw2e-25",
+              "section": "rw",
+              "skill": "Rhetorical Synthesis",
+              "difficulty": "easy",
+              "passage": "While researching a topic, a student has taken the following notes:\n\n• The bearded vulture lives in high mountains, including the Pamirs and the Tian Shan of Central Asia.\n• Its wingspan can reach nearly 3 meters.\n• Bones make up most of its diet.\n• It drops large bones from great heights onto rocks to break them.",
+              "prompt": "The student wants to explain how the bearded vulture gets food from large bones. Which choice most effectively uses relevant information from the notes to accomplish this goal?",
+              "choices": [
+                "The bearded vulture's wingspan can reach nearly 3 meters.",
+                "The bearded vulture lives in the Pamirs and the Tian Shan.",
+                "The bearded vulture is a large bird that lives in high mountains.",
+                "To feed on large bones, the bearded vulture drops them from great heights onto rocks, breaking them into smaller pieces."
+              ],
+              "answer": "D",
+              "explanation": "Only this choice explains what the vulture does to large bones so it can eat them."
+            },
+            {
+              "id": "t7-rw2e-26",
+              "section": "rw",
+              "skill": "Rhetorical Synthesis",
+              "difficulty": "medium",
+              "passage": "While researching a topic, a student has taken the following notes:\n\n• Photovoltaic (PV) solar panels convert sunlight directly into electricity.\n• Concentrated solar power (CSP) plants use mirrors to focus sunlight and heat a fluid that drives a turbine.\n• CSP plants can store heat in molten salt and keep producing electricity after sunset.\n• PV panels produce electricity only while the sun is shining unless they are paired with batteries.",
+              "prompt": "The student wants to emphasize an advantage of CSP plants over PV panels. Which choice most effectively uses relevant information from the notes to accomplish this goal?",
+              "choices": [
+                "PV panels convert sunlight directly into electricity.",
+                "CSP plants use mirrors to focus sunlight and heat a fluid that drives a turbine.",
+                "Unlike PV panels, which need batteries to supply power after dark, CSP plants can store heat in molten salt and keep producing electricity after sunset.",
+                "Both PV panels and CSP plants use sunlight to produce electricity."
+              ],
+              "answer": "C",
+              "explanation": "Only this choice compares the two and shows something CSP plants can do more easily: keep producing power after sunset."
+            },
+            {
+              "id": "t7-rw2e-27",
+              "section": "rw",
+              "skill": "Rhetorical Synthesis",
+              "difficulty": "medium",
+              "passage": "While researching a topic, a student has taken the following notes:\n\n• The Chiroq Theater is a small theater in Samarkand.\n• It was founded in 2012 by a group of drama students.\n• It seats 60 people.\n• Its plays are performed in both Uzbek and English.",
+              "prompt": "The student wants to emphasize that the theater welcomes visitors who do not speak Uzbek. Which choice most effectively uses relevant information from the notes to accomplish this goal?",
+              "choices": [
+                "The Chiroq Theater was founded in 2012 by a group of drama students.",
+                "At the Chiroq Theater, a small theater in Samarkand, plays are performed in both Uzbek and English, so visitors who do not speak Uzbek can follow along.",
+                "The Chiroq Theater seats 60 people.",
+                "The Chiroq Theater, in Samarkand, was founded by drama students."
+              ],
+              "answer": "B",
+              "explanation": "Only this choice mentions the English performances, which make the plays open to visitors who do not speak Uzbek."
+            }
+          ]
+        },
+        "harder": {
+          "minutes": 32,
+          "questions": [
+            {
+              "id": "t7-rw2h-01",
+              "section": "rw",
+              "skill": "Words in Context",
+              "difficulty": "medium",
+              "passage": "Neuroscientist Elnara Kadyrova notes that the brain's response to sleep loss is far from ______: after one sleepless night, some volunteers in her study performed almost normally on attention tests, while others made dozens of errors.",
+              "prompt": "Which choice completes the text with the most logical and precise word or phrase?",
+              "choices": [
+                "detectable",
+                "permanent",
+                "gradual",
+                "uniform"
+              ],
+              "answer": "D",
+              "explanation": "Some volunteers barely changed while others struggled, so the response was not the same for everyone, or not **uniform**. The tests did detect it, so *detectable* does not fit."
+            },
+            {
+              "id": "t7-rw2h-02",
+              "section": "rw",
+              "skill": "Words in Context",
+              "difficulty": "hard",
+              "passage": "Critics praised the revival for its ______ treatment of the century-old script: rather than modernizing the dialogue or updating the costumes, the director staged the play almost exactly as its first audiences would have seen it.",
+              "prompt": "Which choice completes the text with the most logical and precise word or phrase?",
+              "choices": [
+                "iconoclastic",
+                "reverent",
+                "perfunctory",
+                "eclectic"
+              ],
+              "answer": "B",
+              "explanation": "Staging the play just as it was first performed shows deep respect for the original, which is what **reverent** means. *Iconoclastic* (attacking tradition) is the opposite."
+            },
+            {
+              "id": "t7-rw2h-03",
+              "section": "rw",
+              "skill": "Words in Context",
+              "difficulty": "hard",
+              "passage": "A young cuckoo is raised by birds of another species and never meets its parents, yet according to ornithologist Bahrom Ergashev, its first migration to Africa is far from ______: in his tracking study, young cuckoos from the same breeding area followed remarkably similar routes, even though each one traveled alone.",
+              "prompt": "Which choice completes the text with the most logical and precise word or phrase?",
+              "choices": [
+                "haphazard",
+                "innate",
+                "hazardous",
+                "solitary"
+              ],
+              "answer": "A",
+              "explanation": "Birds traveling alone still followed nearly the same routes, so their migration is not random, or not **haphazard**. Saying it is \"far from *innate*\" would contradict the evidence that the route seems built in."
+            },
+            {
+              "id": "t7-rw2h-04",
+              "section": "rw",
+              "skill": "Words in Context",
+              "difficulty": "hard",
+              "passage": "Sellers of small rooftop wind turbines often ______ their benefits: advertisements suggest that a single turbine can power an entire household, though in most cities, surrounding buildings disrupt the wind so much that the turbines produce only a fraction of that amount.",
+              "prompt": "Which choice completes the text with the most logical and precise word or phrase?",
+              "choices": [
+                "underestimate",
+                "corroborate",
+                "overstate",
+                "concede"
+              ],
+              "answer": "C",
+              "explanation": "Promising far more power than the turbines actually produce is claiming too much, or **overstating** the benefits. *Underestimate* is the opposite."
+            },
+            {
+              "id": "t7-rw2h-05",
+              "section": "rw",
+              "skill": "Text Structure and Purpose",
+              "difficulty": "hard",
+              "passage": "Coaches have long assumed that an athlete's reaction time is fixed mainly by genetics. Sports scientist Shirin Mavlonova tested this assumption by training a group of teenage table tennis players with a computer game that required them to respond quickly to flashing lights. __After six weeks, the trained players responded to the lights much faster than an untrained group did, but they returned real serves in matches no faster than before.__ Mavlonova concludes that reaction time can be improved with practice but that the improvement may be limited to the task that was practiced.",
+              "prompt": "Which choice best describes the function of the underlined sentence in the text as a whole?",
+              "choices": [
+                "It describes a flaw in Mavlonova's study that led her to reject her own hypothesis.",
+                "It presents evidence that reaction time is fixed mainly by genetics, as coaches have assumed.",
+                "It reports results that challenge a long-held assumption while also revealing a limit on the benefit of the training.",
+                "It explains why table tennis players react faster than athletes in other sports."
+              ],
+              "answer": "C",
+              "explanation": "Faster responses to the lights challenge the idea that reaction time is fixed, while the unchanged match play shows the gain did not transfer. The second choice ignores the improvement on the light test."
+            },
+            {
+              "id": "t7-rw2h-06",
+              "section": "rw",
+              "skill": "Text Structure and Purpose",
+              "difficulty": "hard",
+              "passage": "The following text is from a poem. The speaker is watching cranes fly south in autumn.\n\nThey write their slow, uneven line\nacross the paper of the sky.\nI used to read it as a sign\nof endings, as a long goodbye.\nBut leaving, for a crane, is just\nthe first half of a journey home;\nthe empty marsh holds them in trust\nthe way a nest holds what has flown.",
+              "prompt": "Which choice best states the main purpose of the text?",
+              "choices": [
+                "To show a change in the speaker's understanding of the cranes' departure, from an ending to one part of a cycle of return",
+                "To express the speaker's sorrow that the cranes are leaving",
+                "To describe in detail the physical features of the cranes",
+                "To contrast the behavior of cranes with the behavior of other birds"
+              ],
+              "answer": "A",
+              "explanation": "The speaker \"used to\" see the cranes' flight as a goodbye, \"But\" now sees leaving as \"the first half of a journey home.\" Sorrow describes only the speaker's old view."
+            },
+            {
+              "id": "t7-rw2h-07",
+              "section": "rw",
+              "skill": "Cross-Text Connections",
+              "difficulty": "hard",
+              "passage": "**Text 1**\nSome energy analysts argue that because solar and wind output rises and falls with the weather, any electricity grid that relies heavily on these sources will always need a large fleet of fossil-fuel plants ready to take over on calm or cloudy days.\n\n**Text 2**\nEngineer Dilfuza Hamidova notes that weather rarely affects every location at once: when it is calm or cloudy in one region, it is often windy or sunny in another several hundred kilometers away. She argues that linking solar and wind farms across a wide area with long-distance power lines can smooth out much of this variation, greatly reducing the need for backup plants.",
+              "prompt": "Based on the texts, how would Hamidova (Text 2) most likely respond to the analysts' argument in Text 1?",
+              "choices": [
+                "She would agree that fossil-fuel plants will remain the main source of electricity on most grids.",
+                "She would argue that the output of solar and wind farms does not actually change with the weather.",
+                "She would claim that long-distance power lines are too costly to be practical.",
+                "She would contend that the analysts overlook how combining output from distant locations could reduce the variation that concerns them."
+              ],
+              "answer": "D",
+              "explanation": "Hamidova accepts that local output varies but argues that linking distant farms evens it out, which the analysts do not consider. She never denies that output changes with the weather."
+            },
+            {
+              "id": "t7-rw2h-08",
+              "section": "rw",
+              "skill": "Central Ideas and Details",
+              "difficulty": "hard",
+              "passage": "Many migratory songbirds fly at night and rest during the day. One long-standing explanation is that cooler night air helps them avoid overheating during long flights. Ornithologist Saida Nurmatova proposes an additional reason: by flying at night, birds keep the daylight hours free for feeding, so they can refuel at a stopover site each day without losing travel time. Her observations of warblers at stopover sites in eastern Uzbekistan showed that the birds spent most of each day feeding before resuming their journey after dark.",
+              "prompt": "Which choice best states the main idea of the text?",
+              "choices": [
+                "A researcher has shown that cooler night air is not the reason songbirds migrate at night.",
+                "A researcher suggests that flying at night may benefit songbirds not only by keeping them cool but also by leaving the day free for feeding.",
+                "Songbirds would rather migrate during the day but are forced to fly at night by high temperatures.",
+                "Warblers that stop in eastern Uzbekistan migrate shorter distances than other songbirds."
+              ],
+              "answer": "B",
+              "explanation": "Nurmatova offers an **additional** reason, so she adds to the cooling explanation rather than rejecting it, as the first choice claims."
+            },
+            {
+              "id": "t7-rw2h-09",
+              "section": "rw",
+              "skill": "Central Ideas and Details",
+              "difficulty": "hard",
+              "passage": "The following text is from a short story. Mirjalol is a retired stage actor.\n\nMirjalol had played the old king in *The Winter Orchard* more than two hundred times, and in his youth he had thought it a dull role: the king spends most of the play seated on his throne, listening while others argue. Now, watching a young actor rehearse the part, Mirjalol noticed how much the young man was trying to do: frowning, pacing, waving his hands. \"Let them come to you,\" Mirjalol said at last. \"The king's power is that he doesn't need to move.\"",
+              "prompt": "Which choice best states the main idea of the text?",
+              "choices": [
+                "Experience has led Mirjalol to value a quality of the role that he once considered a weakness.",
+                "Mirjalol is jealous of the young actor who now plays the old king.",
+                "Mirjalol believes that *The Winter Orchard* is a poorly written play.",
+                "Mirjalol regrets that he never had the chance to play the old king."
+              ],
+              "answer": "A",
+              "explanation": "As a young man he found the king's stillness dull; now he sees that stillness as the source of the king's power."
+            },
+            {
+              "id": "t7-rw2h-10",
+              "section": "rw",
+              "skill": "Command of Evidence: Textual",
+              "difficulty": "hard",
+              "passage": "Sports scientist Marat Abenov claims that the home-field advantage in soccer comes mainly from the support of the crowd rather than from players' familiarity with their own stadium or from the visiting team's tiring travel.",
+              "prompt": "Which finding, if true, would most directly weaken Abenov's claim?",
+              "choices": [
+                "Teams won a greater share of their home games in seasons when attendance at their stadiums was highest.",
+                "Players reported feeling more motivated when playing in front of large crowds.",
+                "Home teams were awarded slightly more penalty kicks than visiting teams in matches with large crowds.",
+                "During a season in which matches were played without spectators, home teams won about as large a share of their games as in seasons with full crowds."
+              ],
+              "answer": "D",
+              "explanation": "If home teams kept their advantage with no crowd at all, the crowd cannot be the main cause. The other three findings would **support** the claim, not weaken it."
+            },
+            {
+              "id": "t7-rw2h-11",
+              "section": "rw",
+              "skill": "Command of Evidence: Quantitative",
+              "difficulty": "hard",
+              "passage": "An engineer compared four wind farms. A farm's capacity factor is the electricity it actually produces as a percentage of what it would produce if its turbines ran at full power all the time. The engineer claims that a wind farm's size alone does not determine how much electricity it produces. ______",
+              "prompt": "Which choice most effectively uses data from the table to support the engineer's claim?",
+              "choices": [
+                "Farm R had the greatest installed capacity and also produced the most electricity.",
+                "Farm P had a capacity factor of 22%, the lowest of the four farms.",
+                "Farm Q, with an installed capacity of only 60 megawatts, produced more electricity per year than Farm P, which has 100 megawatts.",
+                "Farm S had a higher capacity factor than Farm R did."
+              ],
+              "answer": "C",
+              "explanation": "A smaller farm out-producing a larger one shows that size alone does not decide output. Farm R's result fits the opposite idea, and capacity factors alone say nothing about output.",
+              "table": {
+                "title": "Four wind farms",
+                "head": [
+                  "Wind farm",
+                  "Installed capacity (megawatts)",
+                  "Capacity factor (%)",
+                  "Annual output (gigawatt-hours)"
+                ],
+                "rows": [
+                  [
+                    "P",
+                    "100",
+                    "22",
+                    "193"
+                  ],
+                  [
+                    "Q",
+                    "60",
+                    "45",
+                    "237"
+                  ],
+                  [
+                    "R",
+                    "150",
+                    "30",
+                    "394"
+                  ],
+                  [
+                    "S",
+                    "80",
+                    "35",
+                    "245"
+                  ]
+                ]
+              }
+            },
+            {
+              "id": "t7-rw2h-12",
+              "section": "rw",
+              "skill": "Command of Evidence: Quantitative",
+              "difficulty": "hard",
+              "passage": "A researcher surveyed 400 high school students about their screen use and how long it takes them to fall asleep. She claims that when students use screens matters more than how many hours of screen time they have each day. ______",
+              "prompt": "Which choice most effectively uses data from the table to support the researcher's claim?",
+              "choices": [
+                "Students with 6 hours of daily screen time took slightly longer to fall asleep than students with 3 hours, whether or not they used screens before bed.",
+                "Students with 6 hours of daily screen time who avoided screens before bed fell asleep in 17 minutes, on average, faster than the 31 minutes for students with only 3 hours who used screens before bed.",
+                "Students with 6 hours of daily screen time who used screens before bed took the longest to fall asleep, 34 minutes on average.",
+                "Students with 3 hours of daily screen time who avoided screens before bed fell asleep in 14 minutes, on average, the fastest of any group."
+              ],
+              "answer": "B",
+              "explanation": "Students with twice the screen time but none before bed fell asleep faster than students with less screen time who used screens before bed, so timing outweighed amount. The first choice is about amount only.",
+              "table": {
+                "title": "Average time to fall asleep",
+                "head": [
+                  "Daily screen time",
+                  "Screens in hour before bed?",
+                  "Time to fall asleep (minutes)"
+                ],
+                "rows": [
+                  [
+                    "3 hours",
+                    "No",
+                    "14"
+                  ],
+                  [
+                    "3 hours",
+                    "Yes",
+                    "31"
+                  ],
+                  [
+                    "6 hours",
+                    "No",
+                    "17"
+                  ],
+                  [
+                    "6 hours",
+                    "Yes",
+                    "34"
+                  ]
+                ]
+              }
+            },
+            {
+              "id": "t7-rw2h-13",
+              "section": "rw",
+              "skill": "Inferences",
+              "difficulty": "hard",
+              "passage": "Theater historian Komil Saidov studied the prompt books (scripts marked with notes for actors and stagehands) of a touring company that performed in the 1920s. He found that the company's prompt books for the same play differed from town to town: scenes were cut in some towns and lengthened in others, and jokes were rewritten to mention local figures. Because the company's printed programs described every performance as faithful to the original script, Saidov concludes that ______",
+              "prompt": "Which choice most logically completes the text?",
+              "choices": [
+                "the programs may not be reliable evidence of what audiences actually saw on stage.",
+                "the company's actors often forgot their lines.",
+                "audiences in different towns preferred the same version of the play.",
+                "the original script must have been lost before the company began touring."
+              ],
+              "answer": "A",
+              "explanation": "The programs claimed faithfulness while the prompt books show the play changed from town to town, so the programs can't be trusted as a record of the performances."
+            },
+            {
+              "id": "t7-rw2h-14",
+              "section": "rw",
+              "skill": "Inferences",
+              "difficulty": "hard",
+              "passage": "Researchers studying marathon runners found that runners who wore a new type of cushioned racing shoe finished about 2 percent faster, on average, than runners in traditional shoes. However, the runners who chose the new shoes also tended to be younger and to have trained more in the months before the race. Before concluding that the shoes caused the faster times, the researchers would therefore need to ______",
+              "prompt": "Which choice most logically completes the text?",
+              "choices": [
+                "show that the new shoes are more comfortable than traditional shoes.",
+                "measure how much the new shoes weigh.",
+                "find out whether older runners prefer traditional shoes.",
+                "compare runners of similar ages and training levels who wore the two types of shoes."
+              ],
+              "answer": "D",
+              "explanation": "Age and training could explain the faster times, so the researchers must compare runners who are alike in those ways to isolate the effect of the shoes."
+            },
+            {
+              "id": "t7-rw2h-15",
+              "section": "rw",
+              "skill": "Boundaries",
+              "difficulty": "hard",
+              "passage": "Writing in a mix of Uzbek and Russian, the way many residents of Tashkent actually speak, award-winning ______ Laylo Umarova creates dialogue that audiences often describe as startlingly realistic.",
+              "prompt": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+              "choices": [
+                "playwright,",
+                "playwright",
+                "playwright:",
+                "playwright—"
+              ],
+              "answer": "B",
+              "explanation": "\"Playwright\" is a title that comes right before the name, so no punctuation should separate \"award-winning playwright\" from \"Laylo Umarova.\""
+            },
+            {
+              "id": "t7-rw2h-16",
+              "section": "rw",
+              "skill": "Boundaries",
+              "difficulty": "hard",
+              "passage": "Some engineers see a promising use for the wide, flat roofs of Tashkent's Soviet-era apartment ______ platforms for solar panels that could supply power to the residents below.",
+              "prompt": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+              "choices": [
+                "blocks;",
+                "blocks",
+                "blocks:",
+                "blocks, these are"
+              ],
+              "answer": "C",
+              "explanation": "A colon introduces the explanation of what that use is. A semicolon would need a complete sentence after it, and \"these are\" creates a comma splice."
+            },
+            {
+              "id": "t7-rw2h-17",
+              "section": "rw",
+              "skill": "Boundaries",
+              "difficulty": "hard",
+              "passage": "Its wings tucked tightly against its ______ the peregrine falcon can dive at speeds of more than 300 kilometers per hour.",
+              "prompt": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+              "choices": [
+                "body;",
+                "body:",
+                "body",
+                "body,"
+              ],
+              "answer": "D",
+              "explanation": "\"Its wings tucked...body\" is an introductory phrase without a main verb, so it is set off from the main clause with a comma, not a semicolon or colon."
+            },
+            {
+              "id": "t7-rw2h-18",
+              "section": "rw",
+              "skill": "Boundaries",
+              "difficulty": "hard",
+              "passage": "In 1998, the year the city's new stadium ______ the local soccer team won its first national title.",
+              "prompt": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+              "choices": [
+                "opened,",
+                "opened",
+                "opened;",
+                "opened—"
+              ],
+              "answer": "A",
+              "explanation": "\"The year the city's new stadium opened\" renames 1998 and opens with a comma, so it must close with a comma before the main clause."
+            },
+            {
+              "id": "t7-rw2h-19",
+              "section": "rw",
+              "skill": "Form, Structure, and Sense",
+              "difficulty": "hard",
+              "passage": "The success of the region's solar farms, along with the falling cost of batteries, ______ convinced several towns to cancel plans for new coal-fired power plants.",
+              "prompt": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+              "choices": [
+                "have",
+                "were",
+                "has",
+                "are"
+              ],
+              "answer": "C",
+              "explanation": "The subject is the singular \"success\"; the phrase \"along with...batteries\" does not make it plural. The verb is **has**."
+            },
+            {
+              "id": "t7-rw2h-20",
+              "section": "rw",
+              "skill": "Form, Structure, and Sense",
+              "difficulty": "hard",
+              "passage": "Weighing less than fifteen grams, ______",
+              "prompt": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+              "choices": [
+                "a journey of thousands of kilometers is completed each year by the willow warbler.",
+                "the willow warbler completes a journey of thousands of kilometers each year.",
+                "thousands of kilometers are covered each year by the willow warbler.",
+                "it is remarkable that the willow warbler completes a journey of thousands of kilometers each year."
+              ],
+              "answer": "B",
+              "explanation": "The opening phrase describes the bird, so \"the willow warbler\" must come right after the comma. In the other choices, a journey, kilometers, or \"it\" would be the thing weighing fifteen grams."
+            },
+            {
+              "id": "t7-rw2h-21",
+              "section": "rw",
+              "skill": "Form, Structure, and Sense",
+              "difficulty": "hard",
+              "passage": "Neither the coach nor the players ______ expecting the referee's decision at the end of last night's match, so the stadium fell silent when it was announced.",
+              "prompt": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+              "choices": [
+                "was",
+                "is",
+                "has been",
+                "were"
+              ],
+              "answer": "D",
+              "explanation": "With \"neither...nor,\" the verb agrees with the nearer subject, the plural \"players,\" and the event is in the past, so the verb is **were**."
+            },
+            {
+              "id": "t7-rw2h-22",
+              "section": "rw",
+              "skill": "Transitions",
+              "difficulty": "hard",
+              "passage": "Bar-headed geese migrate over the Himalayas, where oxygen at high altitudes is scarce. Their blood carries a form of hemoglobin that binds oxygen unusually well, and their lungs are large for birds of their size. ______ the geese usually follow lower valleys when they can, climbing to great heights only when the mountains force them to.",
+              "prompt": "Which choice completes the text with the most logical transition?",
+              "choices": [
+                "Even so,",
+                "Moreover,",
+                "As a result,",
+                "In other words,"
+              ],
+              "answer": "A",
+              "explanation": "The geese are well equipped for high altitude, yet they avoid it when possible. That unexpected contrast calls for **Even so**. *As a result* wrongly suggests their adaptations cause them to stay low."
+            },
+            {
+              "id": "t7-rw2h-23",
+              "section": "rw",
+              "skill": "Transitions",
+              "difficulty": "hard",
+              "passage": "Many athletes believe that ice baths after exercise speed up muscle recovery, and some studies support this belief, finding that athletes report less soreness after sitting in cold water. ______ other studies suggest that taking ice baths regularly may reduce the muscle growth that strength training is meant to produce.",
+              "prompt": "Which choice completes the text with the most logical transition?",
+              "choices": [
+                "For instance,",
+                "Accordingly,",
+                "At the same time,",
+                "In short,"
+              ],
+              "answer": "C",
+              "explanation": "The second sentence adds a drawback that qualifies the benefit just described, so **At the same time** fits. *For instance* and *In short* would present the drawback as an example or summary of the benefit."
+            },
+            {
+              "id": "t7-rw2h-24",
+              "section": "rw",
+              "skill": "Transitions",
+              "difficulty": "hard",
+              "passage": "In most plays, the audience learns important information at the same moment the characters do. In Komila Nazarova's *The Locked Room*, ______ the audience learns in the first scene that the missing letter is hidden inside the piano, while the characters spend the rest of the play searching for it.",
+              "prompt": "Which choice completes the text with the most logical transition?",
+              "choices": [
+                "for example,",
+                "by contrast,",
+                "in addition,",
+                "as a result,"
+              ],
+              "answer": "B",
+              "explanation": "Nazarova's play does the opposite of most plays, so **by contrast** fits. *For example* would wrongly present it as a typical case."
+            },
+            {
+              "id": "t7-rw2h-25",
+              "section": "rw",
+              "skill": "Rhetorical Synthesis",
+              "difficulty": "hard",
+              "passage": "While researching a topic, a student has taken the following notes:\n\n• Neuroscientist Behruz Tursunov wanted to know whether the brain processes sounds differently during light sleep and deep sleep.\n• He recorded the brain activity of 24 volunteers as they slept in a laboratory.\n• Throughout the night, a speaker quietly played recordings of each volunteer's own name and of unfamiliar names.\n• During light sleep, brain responses to the volunteers' own names were much stronger than responses to unfamiliar names; during deep sleep, the difference was small.",
+              "prompt": "The student wants to present Tursunov's research question and the method he used to investigate it. Which choice most effectively uses relevant information from the notes to accomplish this goal?",
+              "choices": [
+                "Tursunov found that the brain responds much more strongly to a person's own name during light sleep than during deep sleep.",
+                "Tursunov recorded the brain activity of 24 volunteers as they slept in a laboratory.",
+                "During deep sleep, the difference between the brain's responses to familiar and unfamiliar names was small.",
+                "Wanting to know whether the brain processes sounds differently in light and deep sleep, Tursunov recorded volunteers' brain activity overnight while playing recordings of their own and unfamiliar names."
+              ],
+              "answer": "D",
+              "explanation": "The goal has two parts, the question and the method. The first choice gives a finding, and the second gives only part of the method with no question."
+            },
+            {
+              "id": "t7-rw2h-26",
+              "section": "rw",
+              "skill": "Rhetorical Synthesis",
+              "difficulty": "hard",
+              "passage": "While researching a topic, a student has taken the following notes:\n\n• The Parkent Solar Furnace stands in the foothills of the Tian Shan, east of Tashkent.\n• It was completed in 1987.\n• Dozens of flat mirrors on a hillside reflect sunlight onto a giant curved mirror made of thousands of smaller mirrors.\n• The curved mirror focuses the light onto a small spot, where temperatures can exceed 3,000°C.\n• Scientists use the furnace to test materials that must withstand extreme heat.",
+              "prompt": "The student wants to explain how the furnace produces such high temperatures. Which choice most effectively uses relevant information from the notes to accomplish this goal?",
+              "choices": [
+                "By reflecting sunlight from dozens of flat mirrors onto a giant curved mirror that focuses it onto a small spot, the Parkent Solar Furnace can reach temperatures above 3,000°C.",
+                "Completed in 1987, the Parkent Solar Furnace stands in the foothills of the Tian Shan, east of Tashkent.",
+                "Scientists use the Parkent Solar Furnace, where temperatures can exceed 3,000°C, to test materials that must withstand extreme heat.",
+                "The Parkent Solar Furnace, which uses many mirrors, was completed in 1987."
+              ],
+              "answer": "A",
+              "explanation": "Only this choice explains **how** the heat is produced, by gathering and focusing sunlight. The third choice states the temperature but not how it is reached."
+            },
+            {
+              "id": "t7-rw2h-27",
+              "section": "rw",
+              "skill": "Rhetorical Synthesis",
+              "difficulty": "hard",
+              "passage": "While researching a topic, a student has taken the following notes:\n\n• In ancient Athens, plays were performed at festivals honoring the god Dionysus.\n• Tragedies usually retold myths about gods and legendary heroes.\n• Comedies often mocked well-known politicians of the day.\n• Both tragedies and comedies were performed by male actors wearing masks.",
+              "prompt": "The student wants to emphasize a similarity in how Athenian tragedies and comedies were performed while acknowledging a difference in their subject matter. Which choice most effectively uses relevant information from the notes to accomplish this goal?",
+              "choices": [
+                "Although both tragedies and comedies were performed by male actors wearing masks, tragedies usually retold myths, while comedies often mocked politicians.",
+                "In ancient Athens, both tragedies and comedies were performed at festivals honoring the god Dionysus.",
+                "Although Athenian tragedies usually retold myths and comedies often mocked politicians, both kinds of plays were performed by male actors wearing masks.",
+                "Athenian tragedies usually retold myths about gods and legendary heroes."
+              ],
+              "answer": "C",
+              "explanation": "This choice acknowledges the difference in the \"Although\" clause and emphasizes the shared performance style in the main clause. The first choice does the reverse, emphasizing the difference."
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "math",
+      "title": "Math",
+      "module1": {
+        "minutes": 35,
+        "questions": [
+          {
+            "id": "t7-m1-01",
+            "section": "math",
+            "skill": "Linear equations in one variable",
+            "difficulty": "easy",
+            "prompt": "If $4x + 9 = 37$, what is the value of $x$?",
+            "explanation": "Subtract 9 from both sides: $4x = 28$, so $x = 7$.",
+            "choices": [
+              "28",
+              "$\\dfrac{23}{2}$",
+              "7",
+              "$\\dfrac{37}{4}$"
+            ],
+            "answer": "C"
+          },
+          {
+            "id": "t7-m1-02",
+            "section": "math",
+            "skill": "Percentages",
+            "difficulty": "easy",
+            "prompt": "What is 18% of 250?",
+            "explanation": "$0.18 \\times 250 = 45$.",
+            "answer": [
+              "45"
+            ]
+          },
+          {
+            "id": "t7-m1-03",
+            "section": "math",
+            "skill": "Linear functions",
+            "difficulty": "easy",
+            "prompt": "A gym charges a one-time membership fee of 150,000 so'm plus 90,000 so'm per month. Which function gives the total cost $C$, in so'm, of a membership for $m$ months?",
+            "explanation": "The monthly charge multiplies $m$, and the one-time fee is added once: $C(m) = 90{,}000m + 150{,}000$.",
+            "choices": [
+              "$C(m) = 90{,}000m + 150{,}000$",
+              "$C(m) = 150{,}000m + 90{,}000$",
+              "$C(m) = 240{,}000m$",
+              "$C(m) = 90{,}000(m + 150{,}000)$"
+            ],
+            "answer": "A"
+          },
+          {
+            "id": "t7-m1-04",
+            "section": "math",
+            "skill": "Equivalent expressions",
+            "difficulty": "easy",
+            "prompt": "Which expression is equivalent to $(5x^2 - 3x + 2) - (2x^2 + x - 6)$?",
+            "explanation": "Distribute the minus sign: $5x^2 - 3x + 2 - 2x^2 - x + 6 = 3x^2 - 4x + 8$.",
+            "choices": [
+              "$3x^2 - 2x - 4$",
+              "$7x^2 - 2x - 4$",
+              "$3x^2 - 4x - 4$",
+              "$3x^2 - 4x + 8$"
+            ],
+            "answer": "D"
+          },
+          {
+            "id": "t7-m1-05",
+            "section": "math",
+            "skill": "Ratios, rates, proportional relationships, and units",
+            "difficulty": "medium",
+            "prompt": "A pump fills a tank at a constant rate of 18 liters per minute. How many hours does it take the pump to fill an empty 2,700-liter tank?",
+            "explanation": "$2{,}700 \\div 18 = 150$ minutes, and $150 \\div 60 = 2.5$ hours. *150* is the time in minutes, not hours.",
+            "choices": [
+              "1.5",
+              "2.5",
+              "9",
+              "150"
+            ],
+            "answer": "B"
+          },
+          {
+            "id": "t7-m1-06",
+            "section": "math",
+            "skill": "Systems of two linear equations in two variables",
+            "difficulty": "medium",
+            "prompt": "$$3x + 2y = 19$$ $$x - 2y = 1$$ If $(x, y)$ is the solution to the given system of equations, what is the value of $x + y$?",
+            "explanation": "Adding the equations gives $4x = 20$, so $x = 5$. Then $5 - 2y = 1$ gives $y = 2$, and $x + y = 7$.",
+            "answer": [
+              "7"
+            ]
+          },
+          {
+            "id": "t7-m1-07",
+            "section": "math",
+            "skill": "Linear equations in two variables",
+            "difficulty": "medium",
+            "prompt": "What is the slope of the line in the $xy$-plane that passes through the points $(-2, 5)$ and $(4, -7)$?",
+            "explanation": "$\\dfrac{-7 - 5}{4 - (-2)} = \\dfrac{-12}{6} = -2$.",
+            "choices": [
+              "$-2$",
+              "$-\\dfrac{1}{2}$",
+              "$2$",
+              "$-6$"
+            ],
+            "answer": "A"
+          },
+          {
+            "id": "t7-m1-08",
+            "section": "math",
+            "skill": "Nonlinear functions",
+            "difficulty": "medium",
+            "prompt": "The function $g$ is defined by $g(x) = x^2 - 3x$. What is the value of $g(-2)$?",
+            "explanation": "$g(-2) = (-2)^2 - 3(-2) = 4 + 6 = 10$.",
+            "choices": [
+              "$-10$",
+              "$-2$",
+              "$10$",
+              "$2$"
+            ],
+            "answer": "C"
+          },
+          {
+            "id": "t7-m1-09",
+            "section": "math",
+            "skill": "Lines, angles, and triangles",
+            "difficulty": "medium",
+            "prompt": "In triangle $ABC$, $AB = AC$ and the measure of angle $A$ is $40^\\circ$. What is the measure, in degrees, of angle $B$?",
+            "explanation": "Since $AB = AC$, angles $B$ and $C$ are equal. They share $180 - 40 = 140$ degrees, so angle $B$ is $70^\\circ$.",
+            "answer": [
+              "70"
+            ]
+          },
+          {
+            "id": "t7-m1-10",
+            "section": "math",
+            "skill": "One-variable data: distributions and measures of center and spread",
+            "difficulty": "medium",
+            "prompt": "The data set $6, 9, 9, 12, 14$ has a mean of 10 and a median of 9. If the value 32 is added to the data set, which statement best describes the change in the mean and the median?",
+            "explanation": "The new mean is $\\dfrac{82}{6} \\approx 13.7$, up about 3.7. The new median is $\\dfrac{9 + 12}{2} = 10.5$, up 1.5. A large outlier pulls the mean more than the median.",
+            "choices": [
+              "The mean and the median both stay the same.",
+              "The mean increases, and the median stays the same.",
+              "The mean and the median both increase, and the median increases more.",
+              "The mean and the median both increase, and the mean increases more."
+            ],
+            "answer": "D"
+          },
+          {
+            "id": "t7-m1-11",
+            "section": "math",
+            "skill": "Linear inequalities in one or two variables",
+            "difficulty": "medium",
+            "prompt": "A freight elevator can safely carry at most 1,200 kilograms. An operator who weighs 80 kilograms rides with boxes that weigh 35 kilograms each. What is the greatest number of boxes the elevator can safely carry on one trip with the operator?",
+            "explanation": "$80 + 35b \\le 1{,}200$ gives $35b \\le 1{,}120$, so $b \\le 32$. *34* ignores the operator's weight.",
+            "choices": [
+              "31",
+              "32",
+              "34",
+              "36"
+            ],
+            "answer": "B"
+          },
+          {
+            "id": "t7-m1-12",
+            "section": "math",
+            "skill": "Equivalent expressions",
+            "difficulty": "medium",
+            "prompt": "Which expression is equivalent to $(3x - 2)(x + 5)$?",
+            "explanation": "$3x^2 + 15x - 2x - 10 = 3x^2 + 13x - 10$.",
+            "choices": [
+              "$3x^2 + 13x + 10$",
+              "$3x^2 - 13x - 10$",
+              "$3x^2 + 13x - 10$",
+              "$3x^2 + 17x - 10$"
+            ],
+            "answer": "C"
+          },
+          {
+            "id": "t7-m1-13",
+            "section": "math",
+            "skill": "Nonlinear equations in one variable and systems of equations in two variables",
+            "difficulty": "medium",
+            "prompt": "What is the positive solution to the equation $x^2 - 2x - 35 = 0$?",
+            "explanation": "$x^2 - 2x - 35 = (x - 7)(x + 5)$, so $x = 7$ or $x = -5$. The positive solution is 7.",
+            "answer": [
+              "7"
+            ]
+          },
+          {
+            "id": "t7-m1-14",
+            "section": "math",
+            "skill": "Probability and conditional probability",
+            "difficulty": "medium",
+            "prompt": "The table shows the activity chosen by each of the 150 participants at a summer sports camp in Namangan. If a participant who chose tennis is selected at random, what is the probability that the participant is 14 or older?",
+            "explanation": "Only the 38 tennis players count. Of these, 24 are 14 or older, and $\\dfrac{24}{38} = \\dfrac{12}{19}$.",
+            "table": {
+              "head": [
+                "",
+                "Football",
+                "Swimming",
+                "Tennis",
+                "Total"
+              ],
+              "rows": [
+                [
+                  "Under 14",
+                  "34",
+                  "22",
+                  "14",
+                  "70"
+                ],
+                [
+                  "14 and older",
+                  "38",
+                  "18",
+                  "24",
+                  "80"
+                ],
+                [
+                  "Total",
+                  "72",
+                  "40",
+                  "38",
+                  "150"
+                ]
+              ]
+            },
+            "choices": [
+              "$\\dfrac{12}{19}$",
+              "$\\dfrac{4}{25}$",
+              "$\\dfrac{3}{10}$",
+              "$\\dfrac{19}{75}$"
+            ],
+            "answer": "A"
+          },
+          {
+            "id": "t7-m1-15",
+            "section": "math",
+            "skill": "Systems of two linear equations in two variables",
+            "difficulty": "hard",
+            "prompt": "$$2x - 5y = 8$$ $$kx + 15y = 3$$ In the given system, $k$ is a constant. For what value of $k$ does the system have no solution?",
+            "explanation": "No solution means parallel lines. Since $15 = -3(-5)$, the $x$-coefficient must be $-3(2) = -6$. Then $-3(8) = -24 \\neq 3$, so the lines are distinct and never meet.",
+            "choices": [
+              "$6$",
+              "$-3$",
+              "$3$",
+              "$-6$"
+            ],
+            "answer": "D"
+          },
+          {
+            "id": "t7-m1-16",
+            "section": "math",
+            "skill": "Nonlinear functions",
+            "difficulty": "hard",
+            "prompt": "The function $f$ is defined by $f(x) = a \\cdot b^x$, where $a$ and $b$ are positive constants. If $f(0) = 5$ and $f(2) = 45$, what is the value of $f(3)$?",
+            "explanation": "$f(0) = a = 5$. Then $5b^2 = 45$, so $b^2 = 9$ and $b = 3$. So $f(3) = 5 \\cdot 3^3 = 135$.",
+            "answer": [
+              "135"
+            ]
+          },
+          {
+            "id": "t7-m1-17",
+            "section": "math",
+            "skill": "Right triangles and trigonometry",
+            "difficulty": "hard",
+            "prompt": "In right triangle $ABC$, angle $C$ is the right angle, $AB = 50$, and $\\tan A = \\dfrac{7}{24}$. What is the length of $\\overline{BC}$?",
+            "explanation": "$\\tan A = \\dfrac{BC}{AC} = \\dfrac{7}{24}$, so the sides are $7k$, $24k$, and hypotenuse $25k$. Since $25k = 50$, $k = 2$ and $BC = 14$. *48* is $AC$.",
+            "choices": [
+              "7",
+              "14",
+              "24",
+              "48"
+            ],
+            "answer": "B"
+          },
+          {
+            "id": "t7-m1-18",
+            "section": "math",
+            "skill": "Equivalent expressions",
+            "difficulty": "hard",
+            "prompt": "If $\\dfrac{2x + 1}{x - 3} = 2 + \\dfrac{a}{x - 3}$ for all $x \\neq 3$, where $a$ is a constant, what is the value of $a$?",
+            "explanation": "Write $2x + 1 = 2(x - 3) + 7$, so $\\dfrac{2x + 1}{x - 3} = 2 + \\dfrac{7}{x - 3}$ and $a = 7$. The choice $-5$ comes from writing $2(x - 3)$ as $2x + 6$.",
+            "choices": [
+              "7",
+              "1",
+              "$-5$",
+              "4"
+            ],
+            "answer": "A"
+          },
+          {
+            "id": "t7-m1-19",
+            "section": "math",
+            "skill": "Circles",
+            "difficulty": "hard",
+            "prompt": "A circle has center $O$ and radius 9. The area of sector $AOB$ is $27\\pi$. What is the measure of central angle $AOB$?",
+            "explanation": "The circle's area is $81\\pi$, so the sector is $\\dfrac{27\\pi}{81\\pi} = \\dfrac{1}{3}$ of the circle. The angle is $\\dfrac{1}{3} \\times 360^\\circ = 120^\\circ$.",
+            "choices": [
+              "$60^\\circ$",
+              "$90^\\circ$",
+              "$120^\\circ$",
+              "$240^\\circ$"
+            ],
+            "answer": "C"
+          },
+          {
+            "id": "t7-m1-20",
+            "section": "math",
+            "skill": "Nonlinear equations in one variable and systems of equations in two variables",
+            "difficulty": "hard",
+            "prompt": "$$y = x^2 - 6x + 11$$ $$y = 2x - 5$$ How many solutions does the given system of equations have?",
+            "explanation": "Setting the expressions equal gives $x^2 - 8x + 16 = 0$, or $(x - 4)^2 = 0$. The only solution is $x = 4$ (with $y = 3$), so the line touches the parabola at exactly one point.",
+            "choices": [
+              "Zero",
+              "Exactly one",
+              "Exactly two",
+              "Infinitely many"
+            ],
+            "answer": "B"
+          },
+          {
+            "id": "t7-m1-21",
+            "section": "math",
+            "skill": "Percentages",
+            "difficulty": "hard",
+            "prompt": "The number of solar panels installed in a town increased by 40% from 2022 to 2023 and then decreased by 15% from 2023 to 2024. If 2,380 panels were installed in 2024, how many panels were installed in 2022?",
+            "explanation": "If $n$ panels were installed in 2022, then $n(1.40)(0.85) = 1.19n = 2{,}380$, so $n = 2{,}000$. *1,904* wrongly treats the changes as a single 25% increase.",
+            "choices": [
+              "1,700",
+              "1,904",
+              "2,800",
+              "2,000"
+            ],
+            "answer": "D"
+          },
+          {
+            "id": "t7-m1-22",
+            "section": "math",
+            "skill": "Linear equations in two variables",
+            "difficulty": "hard",
+            "prompt": "Line $\\ell$ in the $xy$-plane is parallel to the line $3x - 6y = 7$ and passes through the point $(1, 4)$. What is the $x$-coordinate of the point where line $\\ell$ crosses the $x$-axis?",
+            "explanation": "The given line is $y = \\dfrac{1}{2}x - \\dfrac{7}{6}$, so line $\\ell$ has slope $\\dfrac{1}{2}$: $y - 4 = \\dfrac{1}{2}(x - 1)$. Setting $y = 0$ gives $x - 1 = -8$, so $x = -7$.",
+            "answer": [
+              "-7"
+            ]
+          }
+        ]
+      },
+      "module2": {
+        "easier": {
+          "minutes": 35,
+          "questions": [
+            {
+              "id": "t7-m2e-01",
+              "section": "math",
+              "skill": "Linear equations in one variable",
+              "difficulty": "easy",
+              "prompt": "If $7x - 4 = 3x + 20$, what is the value of $x$?",
+              "explanation": "Subtract $3x$ and add 4 to both sides: $4x = 24$, so $x = 6$.",
+              "choices": [
+                "4",
+                "6",
+                "$\\dfrac{12}{5}$",
+                "24"
+              ],
+              "answer": "B"
+            },
+            {
+              "id": "t7-m2e-02",
+              "section": "math",
+              "skill": "Ratios, rates, proportional relationships, and units",
+              "difficulty": "easy",
+              "prompt": "On a map, 1 centimeter represents 25 kilometers. Two towns are 6.4 centimeters apart on the map. What is the actual distance, in kilometers, between the towns?",
+              "explanation": "$6.4 \\times 25 = 160$ kilometers.",
+              "answer": [
+                "160"
+              ]
+            },
+            {
+              "id": "t7-m2e-03",
+              "section": "math",
+              "skill": "Linear functions",
+              "difficulty": "easy",
+              "prompt": "The function $f$ is defined by $f(x) = -3x + 8$. What is the value of $f(-2)$?",
+              "explanation": "$f(-2) = -3(-2) + 8 = 6 + 8 = 14$.",
+              "choices": [
+                "2",
+                "$-14$",
+                "$-2$",
+                "14"
+              ],
+              "answer": "D"
+            },
+            {
+              "id": "t7-m2e-04",
+              "section": "math",
+              "skill": "Percentages",
+              "difficulty": "easy",
+              "prompt": "A pair of sneakers normally costs 120,000 so'm. During a sale, the price is reduced by 30%. What is the sale price, in so'm?",
+              "explanation": "The discount is $0.30 \\times 120{,}000 = 36{,}000$ so'm, and $120{,}000 - 36{,}000 = 84{,}000$. *36,000* is the discount, not the sale price.",
+              "choices": [
+                "84,000",
+                "36,000",
+                "90,000",
+                "156,000"
+              ],
+              "answer": "A"
+            },
+            {
+              "id": "t7-m2e-05",
+              "section": "math",
+              "skill": "Equivalent expressions",
+              "difficulty": "easy",
+              "prompt": "Which expression is equivalent to $4(2x - 3) + 5x$?",
+              "explanation": "Distribute: $8x - 12 + 5x = 13x - 12$.",
+              "choices": [
+                "$13x - 3$",
+                "$8x - 7$",
+                "$13x - 12$",
+                "$13x + 12$"
+              ],
+              "answer": "C"
+            },
+            {
+              "id": "t7-m2e-06",
+              "section": "math",
+              "skill": "Lines, angles, and triangles",
+              "difficulty": "easy",
+              "prompt": "Two angles are supplementary. One of the angles measures $128^\\circ$. What is the measure, in degrees, of the other angle?",
+              "explanation": "Supplementary angles add up to $180^\\circ$: $180 - 128 = 52$.",
+              "answer": [
+                "52"
+              ]
+            },
+            {
+              "id": "t7-m2e-07",
+              "section": "math",
+              "skill": "One-variable data: distributions and measures of center and spread",
+              "difficulty": "easy",
+              "prompt": "What is the median of the data set $15, 8, 23, 11, 19$?",
+              "explanation": "In order, the values are $8, 11, 15, 19, 23$. The middle value is 15. (*15.2* is the mean.)",
+              "choices": [
+                "11",
+                "15.2",
+                "15",
+                "23"
+              ],
+              "answer": "C"
+            },
+            {
+              "id": "t7-m2e-08",
+              "section": "math",
+              "skill": "Linear equations in two variables",
+              "difficulty": "easy",
+              "prompt": "Which point lies on the line $y = 4x - 3$ in the $xy$-plane?",
+              "explanation": "For $x = 2$: $4(2) - 3 = 5$, which matches. Each other point gives a different $y$-value.",
+              "choices": [
+                "$(2, 5)$",
+                "$(1, 4)$",
+                "$(3, 12)$",
+                "$(0, 3)$"
+              ],
+              "answer": "A"
+            },
+            {
+              "id": "t7-m2e-09",
+              "section": "math",
+              "skill": "Area and volume",
+              "difficulty": "easy",
+              "prompt": "A rectangular rug is 3 meters long and 2.4 meters wide. What is the area of the rug, in square meters?",
+              "explanation": "$3 \\times 2.4 = 7.2$ square meters.",
+              "answer": [
+                "7.2",
+                "36/5"
+              ]
+            },
+            {
+              "id": "t7-m2e-10",
+              "section": "math",
+              "skill": "Nonlinear functions",
+              "difficulty": "easy",
+              "prompt": "The function $h$ is defined by $h(x) = x^2 + 1$. What is the value of $h(3)$?",
+              "explanation": "$h(3) = 3^2 + 1 = 9 + 1 = 10$.",
+              "choices": [
+                "7",
+                "9",
+                "16",
+                "10"
+              ],
+              "answer": "D"
+            },
+            {
+              "id": "t7-m2e-11",
+              "section": "math",
+              "skill": "Systems of two linear equations in two variables",
+              "difficulty": "medium",
+              "prompt": "$$y = x + 4$$ $$2x + y = 19$$ If $(x, y)$ is the solution to the given system of equations, what is the value of $y$?",
+              "explanation": "Substitute: $2x + (x + 4) = 19$, so $3x = 15$ and $x = 5$. Then $y = 5 + 4 = 9$.",
+              "answer": [
+                "9"
+              ]
+            },
+            {
+              "id": "t7-m2e-12",
+              "section": "math",
+              "skill": "Linear inequalities in one or two variables",
+              "difficulty": "medium",
+              "prompt": "Shahzoda has 150,000 so'm to spend on school supplies. She buys one set of pens for 15,000 so'm and some notebooks that cost 9,000 so'm each. What is the greatest number of notebooks she can buy?",
+              "explanation": "$15{,}000 + 9{,}000n \\le 150{,}000$ gives $9{,}000n \\le 135{,}000$, so $n \\le 15$. *16* forgets the cost of the pens.",
+              "choices": [
+                "14",
+                "15",
+                "16",
+                "17"
+              ],
+              "answer": "B"
+            },
+            {
+              "id": "t7-m2e-13",
+              "section": "math",
+              "skill": "Probability and conditional probability",
+              "difficulty": "medium",
+              "prompt": "A box contains 6 green tokens, 9 yellow tokens, and 5 white tokens. If one token is chosen at random, what is the probability that it is yellow?",
+              "explanation": "There are $6 + 9 + 5 = 20$ tokens, and 9 of them are yellow.",
+              "choices": [
+                "$\\dfrac{9}{20}$",
+                "$\\dfrac{9}{11}$",
+                "$\\dfrac{1}{3}$",
+                "$\\dfrac{11}{20}$"
+              ],
+              "answer": "A"
+            },
+            {
+              "id": "t7-m2e-14",
+              "section": "math",
+              "skill": "Nonlinear equations in one variable and systems of equations in two variables",
+              "difficulty": "medium",
+              "prompt": "If $(x + 1)^2 = 64$ and $x > 0$, what is the value of $x$?",
+              "explanation": "$x + 1 = 8$ or $x + 1 = -8$, so $x = 7$ or $x = -9$. Since $x > 0$, $x = 7$.",
+              "answer": [
+                "7"
+              ]
+            },
+            {
+              "id": "t7-m2e-15",
+              "section": "math",
+              "skill": "Linear functions",
+              "difficulty": "medium",
+              "prompt": "The height $h$, in centimeters, of a bamboo plant $d$ days after a gardener began measuring it is given by $h = 2.5d + 15$. What is the best interpretation of 15 in this context?",
+              "explanation": "When $d = 0$, $h = 15$, so 15 is the plant's height at the start. The growth rate is 2.5 centimeters per day.",
+              "choices": [
+                "The plant grows 15 centimeters each day.",
+                "The plant will be 15 centimeters tall after 2.5 days.",
+                "The plant grows 2.5 centimeters every 15 days.",
+                "The plant was 15 centimeters tall when the gardener began measuring it."
+              ],
+              "answer": "D"
+            },
+            {
+              "id": "t7-m2e-16",
+              "section": "math",
+              "skill": "Nonlinear equations in one variable and systems of equations in two variables",
+              "difficulty": "medium",
+              "prompt": "The graphs of $y = x^2$ and $y = 3x + 10$ in the $xy$-plane intersect at two points. What is the $x$-coordinate of the intersection point that has a positive $x$-coordinate?",
+              "explanation": "Set $x^2 = 3x + 10$: $x^2 - 3x - 10 = (x - 5)(x + 2) = 0$, so $x = 5$ or $x = -2$. The positive one is 5.",
+              "answer": [
+                "5"
+              ]
+            },
+            {
+              "id": "t7-m2e-17",
+              "section": "math",
+              "skill": "Right triangles and trigonometry",
+              "difficulty": "medium",
+              "prompt": "A right triangle has legs of length 20 and 21. What is the length of the hypotenuse?",
+              "explanation": "$\\sqrt{20^2 + 21^2} = \\sqrt{400 + 441} = \\sqrt{841} = 29$.",
+              "choices": [
+                "41",
+                "29",
+                "$\\sqrt{41}$",
+                "841"
+              ],
+              "answer": "B"
+            },
+            {
+              "id": "t7-m2e-18",
+              "section": "math",
+              "skill": "Percentages",
+              "difficulty": "medium",
+              "prompt": "The population of a town grew from 12,500 to 14,000. By what percent did the population increase?",
+              "explanation": "The increase is 1,500, and $\\dfrac{1{,}500}{12{,}500} = 0.12$, or 12%. Dividing by the new population, 14,000, gives the wrong base.",
+              "choices": [
+                "1.5%",
+                "10.7%",
+                "12%",
+                "15%"
+              ],
+              "answer": "C"
+            },
+            {
+              "id": "t7-m2e-19",
+              "section": "math",
+              "skill": "Equivalent expressions",
+              "difficulty": "medium",
+              "prompt": "Which expression is equivalent to $x^2 - 4x - 21$?",
+              "explanation": "Find two numbers that multiply to $-21$ and add to $-4$: $-7$ and $3$.",
+              "choices": [
+                "$(x - 7)(x + 3)$",
+                "$(x + 7)(x - 3)$",
+                "$(x - 7)(x - 3)$",
+                "$(x - 21)(x + 1)$"
+              ],
+              "answer": "A"
+            },
+            {
+              "id": "t7-m2e-20",
+              "section": "math",
+              "skill": "Circles",
+              "difficulty": "medium",
+              "prompt": "The circumference of a circular garden bed is $22\\pi$ meters. What is the area of the garden bed, in square meters?",
+              "explanation": "$2\\pi r = 22\\pi$ gives $r = 11$, so the area is $\\pi(11)^2 = 121\\pi$. The choice $484\\pi$ uses the diameter instead of the radius.",
+              "choices": [
+                "$11\\pi$",
+                "$22\\pi$",
+                "$484\\pi$",
+                "$121\\pi$"
+              ],
+              "answer": "D"
+            },
+            {
+              "id": "t7-m2e-21",
+              "section": "math",
+              "skill": "Nonlinear functions",
+              "difficulty": "medium",
+              "prompt": "A colony of bacteria doubles in size every 3 hours. If the colony starts with 400 bacteria, how many bacteria will there be after 12 hours?",
+              "explanation": "12 hours is 4 doubling periods, so $400 \\times 2^4 = 400 \\times 16 = 6{,}400$.",
+              "choices": [
+                "3,200",
+                "6,400",
+                "9,600",
+                "1,638,400"
+              ],
+              "answer": "B"
+            },
+            {
+              "id": "t7-m2e-22",
+              "section": "math",
+              "skill": "Linear equations in two variables",
+              "difficulty": "medium",
+              "prompt": "A line in the $xy$-plane passes through the points $(0, -3)$ and $(6, 1)$. Which equation represents the line?",
+              "explanation": "The slope is $\\dfrac{1 - (-3)}{6 - 0} = \\dfrac{4}{6} = \\dfrac{2}{3}$, and the $y$-intercept is $-3$.",
+              "choices": [
+                "$y = \\dfrac{3}{2}x - 3$",
+                "$y = \\dfrac{2}{3}x + 1$",
+                "$y = \\dfrac{2}{3}x - 3$",
+                "$y = -\\dfrac{2}{3}x - 3$"
+              ],
+              "answer": "C"
+            }
+          ]
+        },
+        "harder": {
+          "minutes": 35,
+          "questions": [
+            {
+              "id": "t7-m2h-01",
+              "section": "math",
+              "skill": "Linear equations in one variable",
+              "difficulty": "medium",
+              "prompt": "If $\\dfrac{5x - 2}{4} = \\dfrac{x + 7}{2}$, what is the value of $x$?",
+              "explanation": "Multiply both sides by 4: $5x - 2 = 2(x + 7) = 2x + 14$. Then $3x = 16$ and $x = \\dfrac{16}{3}$, or about 5.333.",
+              "answer": [
+                "16/3",
+                "5.333"
+              ]
+            },
+            {
+              "id": "t7-m2h-02",
+              "section": "math",
+              "skill": "Systems of two linear equations in two variables",
+              "difficulty": "hard",
+              "prompt": "A theater in Bukhara sold 420 tickets for one performance. Adult tickets cost 45,000 so'm each, and student tickets cost 25,000 so'm each. If ticket sales totaled 15,300,000 so'm, how many student tickets were sold?",
+              "explanation": "Let $a$ and $s$ be the numbers of adult and student tickets. Then $a + s = 420$ and $45{,}000a + 25{,}000s = 15{,}300{,}000$. Substituting $a = 420 - s$ gives $18{,}900{,}000 - 20{,}000s = 15{,}300{,}000$, so $s = 180$. *240* is the number of adult tickets.",
+              "choices": [
+                "153",
+                "210",
+                "180",
+                "240"
+              ],
+              "answer": "C"
+            },
+            {
+              "id": "t7-m2h-03",
+              "section": "math",
+              "skill": "Equivalent expressions",
+              "difficulty": "hard",
+              "prompt": "If $x^2 + y^2 = 58$ and $xy = 21$, what is the value of $(x - y)^2$?",
+              "explanation": "$(x - y)^2 = x^2 + y^2 - 2xy = 58 - 42 = 16$. The choice 4 is the value of $|x - y|$, not $(x - y)^2$.",
+              "choices": [
+                "16",
+                "37",
+                "100",
+                "4"
+              ],
+              "answer": "A"
+            },
+            {
+              "id": "t7-m2h-04",
+              "section": "math",
+              "skill": "Linear inequalities in one or two variables",
+              "difficulty": "hard",
+              "prompt": "A bakery makes cakes and pies. Each cake requires 0.75 hour of oven time, and each pie requires 0.5 hour. This week the oven is available for at most 30 hours, and the bakery must make at least 12 cakes. What is the greatest number of pies the bakery can make this week?",
+              "explanation": "To make the most pies, make the fewest cakes: 12 cakes use $12 \\times 0.75 = 9$ hours. Then $9 + 0.5p \\le 30$ gives $p \\le 42$. *60* ignores the required cakes.",
+              "choices": [
+                "36",
+                "40",
+                "60",
+                "42"
+              ],
+              "answer": "D"
+            },
+            {
+              "id": "t7-m2h-05",
+              "section": "math",
+              "skill": "Nonlinear functions",
+              "difficulty": "hard",
+              "prompt": "The function $f$ is defined by $f(x) = 2(x - 3)(x + 5)$. What is the minimum value of $f(x)$?",
+              "explanation": "The zeros are 3 and $-5$, so the vertex is halfway between them, at $x = -1$. Then $f(-1) = 2(-4)(4) = -32$.",
+              "answer": [
+                "-32"
+              ]
+            },
+            {
+              "id": "t7-m2h-06",
+              "section": "math",
+              "skill": "Ratios, rates, proportional relationships, and units",
+              "difficulty": "hard",
+              "prompt": "Each blade of a wind turbine is 40 meters long, and the blades turn at a constant rate of 15 revolutions per minute. The tip of each blade travels in a circle whose radius is the length of the blade. To the nearest kilometer per hour, what is the speed of the tip of a blade?",
+              "explanation": "Each revolution covers $2\\pi(40) = 80\\pi$ meters, so the tip travels $15 \\times 80\\pi = 1{,}200\\pi$ meters per minute, or $1{,}200\\pi \\times 60 = 72{,}000\\pi$ meters per hour. That is $72\\pi \\approx 226$ kilometers per hour. *113* treats the 40-meter blade as the diameter, and *4* is in kilometers per minute.",
+              "choices": [
+                "4",
+                "113",
+                "226",
+                "452"
+              ],
+              "answer": "C"
+            },
+            {
+              "id": "t7-m2h-07",
+              "section": "math",
+              "skill": "Linear equations in two variables",
+              "difficulty": "hard",
+              "prompt": "In the $xy$-plane, line $k$ has an $x$-intercept of $(6, 0)$ and a $y$-intercept of $(0, -4)$. Line $m$ is perpendicular to line $k$ and passes through the point $(6, 0)$. What is the $y$-coordinate of the $y$-intercept of line $m$?",
+              "explanation": "Line $k$ has slope $\\dfrac{0 - (-4)}{6 - 0} = \\dfrac{2}{3}$, so line $m$ has slope $-\\dfrac{3}{2}$. Then $y = -\\dfrac{3}{2}(x - 6)$, and at $x = 0$, $y = 9$. The choice $-9$ uses slope $\\dfrac{3}{2}$ instead of $-\\dfrac{3}{2}$.",
+              "choices": [
+                "$-9$",
+                "$9$",
+                "$4$",
+                "$-4$"
+              ],
+              "answer": "B"
+            },
+            {
+              "id": "t7-m2h-08",
+              "section": "math",
+              "skill": "Nonlinear equations in one variable and systems of equations in two variables",
+              "difficulty": "hard",
+              "prompt": "What are all the solutions to the equation $\\sqrt{x + 7} = x - 5$?",
+              "explanation": "Squaring gives $x + 7 = x^2 - 10x + 25$, or $x^2 - 11x + 18 = (x - 2)(x - 9) = 0$. Check both: $x = 9$ gives $\\sqrt{16} = 4 = 9 - 5$, but $x = 2$ gives $\\sqrt{9} = 3 \\neq -3$. So 2 is extraneous, and only 9 works.",
+              "choices": [
+                "2",
+                "9",
+                "2 and 9",
+                "There are no solutions."
+              ],
+              "answer": "B"
+            },
+            {
+              "id": "t7-m2h-09",
+              "section": "math",
+              "skill": "Linear functions",
+              "difficulty": "hard",
+              "prompt": "The linear function $f$ satisfies $f(3) = 11$ and $f(7) = 23$. The function $g$ is defined by $g(x) = f(2x) - 5$. What is the value of $g(4)$?",
+              "explanation": "The slope of $f$ is $\\dfrac{23 - 11}{7 - 3} = 3$, so $f(x) = 3x + 2$. Then $g(4) = f(8) - 5 = 26 - 5 = 21$.",
+              "answer": [
+                "21"
+              ]
+            },
+            {
+              "id": "t7-m2h-10",
+              "section": "math",
+              "skill": "Probability and conditional probability",
+              "difficulty": "hard",
+              "prompt": "Of the 60 members of a games club, 36 play chess, 25 play go, and 10 play both games. If a member who plays at least one of the two games is selected at random, what is the probability that the member plays both games?",
+              "explanation": "Members who play at least one game: $36 + 25 - 10 = 51$. Of these, 10 play both, so the probability is $\\dfrac{10}{51}$. Adding 36 and 25 without subtracting the overlap gives the wrong total of 61.",
+              "choices": [
+                "$\\dfrac{10}{51}$",
+                "$\\dfrac{1}{6}$",
+                "$\\dfrac{10}{61}$",
+                "$\\dfrac{5}{18}$"
+              ],
+              "answer": "A"
+            },
+            {
+              "id": "t7-m2h-11",
+              "section": "math",
+              "skill": "Right triangles and trigonometry",
+              "difficulty": "hard",
+              "prompt": "In right triangle $ABC$, angle $C$ is the right angle, $\\sin A = 0.6$, and $AC = 16$. What is the length of $\\overline{AB}$?",
+              "explanation": "$\\sin A = 0.6 = \\dfrac{3}{5}$, so the sides are in the ratio $3 : 4 : 5$ and $\\cos A = \\dfrac{AC}{AB} = \\dfrac{4}{5}$. Then $AB = \\dfrac{16}{0.8} = 20$. *12* is $BC$, and $\\dfrac{80}{3}$ wrongly treats $AC$ as the side opposite angle $A$.",
+              "choices": [
+                "9.6",
+                "12",
+                "$\\dfrac{80}{3}$",
+                "20"
+              ],
+              "answer": "D"
+            },
+            {
+              "id": "t7-m2h-12",
+              "section": "math",
+              "skill": "Nonlinear functions",
+              "difficulty": "hard",
+              "prompt": "A sample of a radioactive substance loses 20% of its mass every 5 years. The sample's mass was 300 grams when it was first measured. Which function gives the mass $M$, in grams, of the sample $t$ years after it was first measured?",
+              "explanation": "Each 5-year period multiplies the mass by $1 - 0.20 = 0.8$, and there are $\\dfrac{t}{5}$ such periods in $t$ years. A 4% yearly loss is not the same: $0.96^5 \\approx 0.815$, not $0.8$.",
+              "choices": [
+                "$M = 300(0.2)^{t/5}$",
+                "$M = 300(0.8)^{5t}$",
+                "$M = 300(0.8)^{t/5}$",
+                "$M = 300(0.96)^{t}$"
+              ],
+              "answer": "C"
+            },
+            {
+              "id": "t7-m2h-13",
+              "section": "math",
+              "skill": "Systems of two linear equations in two variables",
+              "difficulty": "hard",
+              "prompt": "$$ax + 3y = 12$$ $$4x + by = 16$$ In the given system, $a$ and $b$ are constants. If the system has infinitely many solutions, what is the value of $a + b$?",
+              "explanation": "The second equation must be a multiple of the first. Since $\\dfrac{16}{12} = \\dfrac{4}{3}$, we need $\\dfrac{4}{a} = \\dfrac{4}{3}$ and $\\dfrac{b}{3} = \\dfrac{4}{3}$, so $a = 3$, $b = 4$, and $a + b = 7$.",
+              "answer": [
+                "7"
+              ]
+            },
+            {
+              "id": "t7-m2h-14",
+              "section": "math",
+              "skill": "Nonlinear equations in one variable and systems of equations in two variables",
+              "difficulty": "hard",
+              "prompt": "In the $xy$-plane, the graph of $y = x^2 + 4x$ and the line $y = 2x + c$, where $c$ is a constant, intersect at exactly one point. What is the value of $c$?",
+              "explanation": "Setting $x^2 + 4x = 2x + c$ gives $x^2 + 2x - c = 0$. Exactly one intersection means the discriminant is 0: $4 + 4c = 0$, so $c = -1$.",
+              "answer": [
+                "-1"
+              ]
+            },
+            {
+              "id": "t7-m2h-15",
+              "section": "math",
+              "skill": "Area and volume",
+              "difficulty": "hard",
+              "prompt": "A right circular cone has a volume of $150\\pi$ cubic centimeters and a height of 18 centimeters. What is the diameter of the base of the cone, in centimeters?",
+              "explanation": "$\\dfrac{1}{3}\\pi r^2(18) = 6\\pi r^2 = 150\\pi$, so $r^2 = 25$ and $r = 5$. The diameter is 10. *5* is the radius, and $\\dfrac{10\\sqrt{3}}{3}$ comes from leaving out the $\\dfrac{1}{3}$.",
+              "choices": [
+                "10",
+                "5",
+                "$\\dfrac{10\\sqrt{3}}{3}$",
+                "25"
+              ],
+              "answer": "A"
+            },
+            {
+              "id": "t7-m2h-16",
+              "section": "math",
+              "skill": "One-variable data: distributions and measures of center and spread",
+              "difficulty": "hard",
+              "prompt": "Data set $X$ consists of 12 values with a mean of 40 and a standard deviation of 6. Data set $Y$ is created by multiplying each value in data set $X$ by 2 and then subtracting 5. Which of the following correctly gives the mean and standard deviation of data set $Y$?",
+              "explanation": "Doubling every value doubles both the mean and the spread: mean 80, standard deviation 12. Subtracting 5 shifts the mean to 75 but does not change the spread, so the standard deviation stays 12.",
+              "choices": [
+                "Mean: 75; standard deviation: 7",
+                "Mean: 80; standard deviation: 12",
+                "Mean: 75; standard deviation: 6",
+                "Mean: 75; standard deviation: 12"
+              ],
+              "answer": "D"
+            },
+            {
+              "id": "t7-m2h-17",
+              "section": "math",
+              "skill": "Linear equations in one variable",
+              "difficulty": "hard",
+              "prompt": "In the equation $4(3x - 5) + 2 = kx - 15$, $k$ is a constant. For what value of $k$ does the equation have no solution?",
+              "explanation": "The left side simplifies to $12x - 18$. If $k = 12$, the equation becomes $12x - 18 = 12x - 15$, or $-18 = -15$, which is never true. For any other $k$, there is exactly one solution.",
+              "choices": [
+                "4",
+                "12",
+                "$-12$",
+                "18"
+              ],
+              "answer": "B"
+            },
+            {
+              "id": "t7-m2h-18",
+              "section": "math",
+              "skill": "Circles",
+              "difficulty": "hard",
+              "prompt": "A circle in the $xy$-plane has its center at $(-3, 2)$ and passes through the point $(1, 8)$. What is the area of the circle?",
+              "explanation": "$r^2 = (1 - (-3))^2 + (8 - 2)^2 = 16 + 36 = 52$, so the area is $\\pi r^2 = 52\\pi$. The choice $2\\sqrt{13}\\pi$ is $\\pi r$, not $\\pi r^2$.",
+              "choices": [
+                "$2\\sqrt{13}\\pi$",
+                "$26\\pi$",
+                "$52\\pi$",
+                "$40\\pi$"
+              ],
+              "answer": "C"
+            },
+            {
+              "id": "t7-m2h-19",
+              "section": "math",
+              "skill": "Lines, angles, and triangles",
+              "difficulty": "hard",
+              "prompt": "In triangle $ABC$, point $D$ lies on $\\overline{AB}$ and point $E$ lies on $\\overline{AC}$ so that $\\overline{DE}$ is parallel to $\\overline{BC}$. If $AD = 6$, $DB = 9$, and $DE = 8$, what is the length of $\\overline{BC}$?",
+              "explanation": "Triangles $ADE$ and $ABC$ are similar, with $\\dfrac{AB}{AD} = \\dfrac{6 + 9}{6} = \\dfrac{5}{2}$. So $BC = \\dfrac{5}{2} \\times 8 = 20$. *12* uses $DB$ instead of $AB$.",
+              "choices": [
+                "20",
+                "12",
+                "$\\dfrac{40}{3}$",
+                "17"
+              ],
+              "answer": "A"
+            },
+            {
+              "id": "t7-m2h-20",
+              "section": "math",
+              "skill": "Percentages",
+              "difficulty": "hard",
+              "prompt": "The price of a bicycle was increased by $p\\%$, and later the new price was decreased by $p\\%$. The final price was 91% of the original price. What is the value of $p$?",
+              "explanation": "$\\left(1 + \\dfrac{p}{100}\\right)\\left(1 - \\dfrac{p}{100}\\right) = 1 - \\dfrac{p^2}{10{,}000} = 0.91$, so $p^2 = 900$ and $p = 30$. Check: $1.3 \\times 0.7 = 0.91$.",
+              "choices": [
+                "9",
+                "30",
+                "3",
+                "4.5"
+              ],
+              "answer": "B"
+            },
+            {
+              "id": "t7-m2h-21",
+              "section": "math",
+              "skill": "Equivalent expressions",
+              "difficulty": "hard",
+              "prompt": "If $3x - 2y = 7$, what is the value of $\\dfrac{27^x}{9^y}$?",
+              "explanation": "$\\dfrac{27^x}{9^y} = \\dfrac{3^{3x}}{3^{2y}} = 3^{3x - 2y} = 3^7$.",
+              "choices": [
+                "$3^{14}$",
+                "$3^{21}$",
+                "$7^3$",
+                "$3^7$"
+              ],
+              "answer": "D"
+            },
+            {
+              "id": "t7-m2h-22",
+              "section": "math",
+              "skill": "Nonlinear functions",
+              "difficulty": "hard",
+              "prompt": "In the $xy$-plane, the vertex of the parabola $y = x^2 - 8x + k$, where $k$ is a constant, lies on the line $y = 2x + 1$. What is the value of $k$?",
+              "explanation": "The vertex is at $x = \\dfrac{8}{2} = 4$, where $y = 16 - 32 + k = k - 16$. On the line, $y = 2(4) + 1 = 9$. So $k - 16 = 9$ and $k = 25$.",
+              "answer": [
+                "25"
+              ]
+            }
+          ]
+        }
+      }
+    }
+  ]
+}

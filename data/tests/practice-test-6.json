@@ -1,0 +1,2454 @@
+{
+  "id": "practice-test-6",
+  "title": "Practice Test 6",
+  "description": "A full-length adaptive digital SAT practice test written by SAT Ustoz: 98 questions, two modules per section, with an explanation for every question.",
+  "routing": {
+    "threshold": 0.6
+  },
+  "breakMinutes": 10,
+  "sections": [
+    {
+      "id": "rw",
+      "title": "Reading and Writing",
+      "module1": {
+        "minutes": 32,
+        "questions": [
+          {
+            "id": "t6-rw1-01",
+            "section": "rw",
+            "skill": "Words in Context",
+            "difficulty": "easy",
+            "passage": "The warehouse robot's gripper is remarkably ______: in a single shift, it can lift a heavy crate, pick up a grape without bruising it, and fold a cotton shirt.",
+            "prompt": "Which choice completes the text with the most logical and precise word or phrase?",
+            "choices": [
+              "fragile",
+              "versatile",
+              "unreliable",
+              "decorative"
+            ],
+            "answer": "B",
+            "explanation": "The gripper handles very different jobs, from heavy crates to delicate grapes, so it is **versatile**."
+          },
+          {
+            "id": "t6-rw1-02",
+            "section": "rw",
+            "skill": "Words in Context",
+            "difficulty": "medium",
+            "passage": "Author Nilufar Qosimova's picture book *The Lantern Moth* is notably ______ with words: most pages hold a single short sentence, leaving the illustrations to tell much of the story.",
+            "prompt": "Which choice completes the text with the most logical and precise word or phrase?",
+            "choices": [
+              "generous",
+              "careless",
+              "inconsistent",
+              "sparing"
+            ],
+            "answer": "D",
+            "explanation": "One short sentence per page means using few words, so she is **sparing** with them. *Generous* is the opposite."
+          },
+          {
+            "id": "t6-rw1-03",
+            "section": "rw",
+            "skill": "Words in Context",
+            "difficulty": "medium",
+            "passage": "In much of Uzbekistan, the plov served at a large wedding is rarely cooked by the host family. The task is instead ______ to an oshpaz, a specialist cook whose skill with enormous kazans of rice, carrots, and meat is known throughout the neighborhood.",
+            "prompt": "Which choice completes the text with the most logical and precise word or phrase?",
+            "choices": [
+              "forbidden",
+              "compared",
+              "entrusted",
+              "explained"
+            ],
+            "answer": "C",
+            "explanation": "The family hands an important job to a trusted specialist, so the task is **entrusted** to the oshpaz."
+          },
+          {
+            "id": "t6-rw1-04",
+            "section": "rw",
+            "skill": "Words in Context",
+            "difficulty": "hard",
+            "passage": "Glaciologist Arvid Halvorsen cautions that a single cool summer, which may briefly slow a glacier's retreat, should not be treated as ______ evidence that the glacier is recovering: decades of measurements show the ice thinning steadily despite occasional pauses of this kind.",
+            "prompt": "Which choice completes the text with the most logical and precise word or phrase?",
+            "choices": [
+              "spurious",
+              "conclusive",
+              "exhaustive",
+              "ambivalent"
+            ],
+            "answer": "B",
+            "explanation": "Halvorsen warns that one cool summer does not settle the question, since long-term data show continued thinning. Evidence that settles a question is **conclusive**. Warning against treating it as *spurious* (false) evidence would mean it is genuine evidence of recovery, the opposite of his point."
+          },
+          {
+            "id": "t6-rw1-05",
+            "section": "rw",
+            "skill": "Text Structure and Purpose",
+            "difficulty": "medium",
+            "passage": "For decades, engineers who wanted robots to grasp unfamiliar objects tried to copy the human hand, building fingers with dozens of joints, motors, and sensors. Such hands were expensive and often failed when an object had an unusual shape. __One simpler design does away with fingers entirely: a rubber balloon filled with coffee grounds is pressed against an object, molds around it, and then stiffens when air is pumped out, locking the object in place.__",
+            "prompt": "Which choice best describes the function of the underlined sentence in the text as a whole?",
+            "choices": [
+              "It describes an alternative design that avoids the problems mentioned in the previous sentence.",
+              "It gives an example of a robotic hand that closely imitates the human hand.",
+              "It explains why engineers stopped trying to build robots that grasp objects.",
+              "It identifies a weakness shared by all robotic grippers."
+            ],
+            "answer": "A",
+            "explanation": "The previous sentence names the problems with copying the hand; the underlined sentence offers a finger-free design that gets around them."
+          },
+          {
+            "id": "t6-rw1-06",
+            "section": "rw",
+            "skill": "Text Structure and Purpose",
+            "difficulty": "medium",
+            "passage": "When author Farrukh Ismoilov submitted the manuscript of *The Boy Who Counted Clouds*, three publishers rejected it, complaining that the story had no villain and almost no plot: a boy spends one summer on a rooftop in Namangan, naming the shapes he sees in the sky. The small press that eventually published the book left its quiet structure unchanged. Teachers soon reported that young readers, with no complicated plot to follow, began inventing cloud stories of their own, and the book has since been reprinted eleven times.",
+            "prompt": "Which choice best states the main purpose of the text?",
+            "choices": [
+              "To argue that children's books should never include villains",
+              "To describe how small presses decide which manuscripts to publish",
+              "To explain why the author chose to set his book in Namangan",
+              "To show how a feature of a book that publishers considered a weakness turned out to be part of its appeal"
+            ],
+            "answer": "D",
+            "explanation": "Publishers saw the missing plot as a flaw, yet that same quiet structure let readers invent their own stories, and the book succeeded."
+          },
+          {
+            "id": "t6-rw1-07",
+            "section": "rw",
+            "skill": "Cross-Text Connections",
+            "difficulty": "hard",
+            "passage": "**Text 1**\nA layer of rock debris more than a few centimeters thick shields glacier ice from the sun's heat. For this reason, many glaciologists expect glaciers covered in debris to lose ice much more slowly than clean glaciers in the same climate, and some forecasts of future water supply in Central Asia treat debris-covered glaciers as relatively secure.\n\n**Text 2**\nSatellite measurements analyzed by a team led by geographer Zarina Abdullaeva show that debris-covered glaciers in the Tian Shan have been thinning at about the same rate as nearby clean glaciers. The team traced much of the loss to scattered ice cliffs and meltwater ponds on the debris-covered surfaces. Although these features occupy only a small share of each glacier, they absorb heat and rapidly melt the surrounding ice.",
+            "prompt": "Based on the texts, how would Abdullaeva's team most likely respond to the forecasts described in Text 1?",
+            "choices": [
+              "By rejecting the idea that a thick layer of debris can insulate the ice beneath it",
+              "By suggesting that the forecasts overlook surface features that let heat reach the ice despite the debris, so debris-covered glaciers may be less secure than assumed",
+              "By agreeing that debris-covered glaciers lose ice more slowly than clean glaciers, except in the Tian Shan",
+              "By arguing that ice cliffs and meltwater ponds form mainly on glaciers that have no debris"
+            ],
+            "answer": "B",
+            "explanation": "Text 2 finds similar thinning and explains it with ice cliffs and ponds, which the forecasts ignore. The team never denies that debris insulates the ice it covers; it points to the small areas where heat gets through, so rejecting insulation outright goes too far."
+          },
+          {
+            "id": "t6-rw1-08",
+            "section": "rw",
+            "skill": "Central Ideas and Details",
+            "difficulty": "easy",
+            "passage": "Account books from a nineteenth-century dye workshop in Kokand show that the color of a silk robe said a great deal about its price. Red dye came from madder root, which grew nearby, and yellow from local plants such as larkspur. Deep blue, however, required indigo, which arrived by caravan from India, and the workshop charged far more for blue cloth than for red or yellow cloth.",
+            "prompt": "Which choice best states the main idea of the text?",
+            "choices": [
+              "Madder root was the most common plant grown near Kokand.",
+              "Silk robes were worn only by the wealthiest residents of Kokand.",
+              "The workshop's prices for dyed cloth reflected whether a dye could be obtained locally or had to be imported.",
+              "Indigo was used mainly to dye cotton rather than silk."
+            ],
+            "answer": "C",
+            "explanation": "The text contrasts cheap local dyes (red and yellow) with costly imported indigo, which explains the difference in price."
+          },
+          {
+            "id": "t6-rw1-09",
+            "section": "rw",
+            "skill": "Central Ideas and Details",
+            "difficulty": "medium",
+            "passage": "The following text is from a short story. Akmal has entered a robot he built in a school competition.\n\nThe robot was supposed to sort colored blocks into bins, but halfway through its first round it began spinning in place, scattering blocks across the floor. Akmal felt his face grow hot as the judges marked their sheets. Then he noticed a cluster of first-graders pressed against the railing, laughing and cheering each time the robot spun. When the round ended, they begged him to make it dance again, and for the first time all morning, Akmal laughed too.",
+            "prompt": "Which choice best states the main idea of the text?",
+            "choices": [
+              "Although Akmal's robot fails at its task, the young spectators' delight helps him enjoy the moment.",
+              "Akmal realizes that he programmed the robot incorrectly and decides to fix it before the next round.",
+              "The judges are impressed by the robot's unexpected spinning.",
+              "Akmal is annoyed that the first-graders are laughing at his robot."
+            ],
+            "answer": "A",
+            "explanation": "Akmal is embarrassed at first, but the children's cheering turns the failure into something he can laugh at."
+          },
+          {
+            "id": "t6-rw1-10",
+            "section": "rw",
+            "skill": "Command of Evidence: Textual",
+            "difficulty": "medium",
+            "passage": "Anthropologist Javlon Ergashev, who studies households in mountain villages of southern Uzbekistan, argues that families there serve guests freshly baked bread mainly as a sign of respect rather than because they simply prefer fresh bread.",
+            "prompt": "Which finding, if true, would most directly support Ergashev's argument?",
+            "choices": [
+              "Most households in the villages own a clay oven for baking bread.",
+              "Bread baked in the villages stays fresh longer than bread bought in city shops.",
+              "Families that ate bread several days old at their own meals still baked fresh bread whenever a guest was expected.",
+              "Guests in the villages usually arrive in the late afternoon."
+            ],
+            "answer": "C",
+            "explanation": "If families happily eat old bread themselves but still bake fresh bread for guests, the fresh bread is about honoring the guest, not about taste."
+          },
+          {
+            "id": "t6-rw1-11",
+            "section": "rw",
+            "skill": "Command of Evidence: Textual",
+            "difficulty": "hard",
+            "passage": "\"Loom Song\" is a poem by Ozoda Sharipova. In the poem, the speaker suggests that weaving connects her to the women who worked at the loom before her.",
+            "prompt": "Which quotation from \"Loom Song\" most effectively illustrates this claim?",
+            "choices": [
+              "\"Each knot I pull, my grandmother pulled first; / her patient hands still move inside my own.\"",
+              "\"The loom is older than the house it stands in, / its frame gone dark with a century of smoke.\"",
+              "\"I choose the red for warmth, the blue for distance, / and let the colors argue on the frame.\"",
+              "\"By evening, the shuttle's rhythm slows, / and the courtyard fills with the sound of rain.\""
+            ],
+            "answer": "A",
+            "explanation": "Only this quotation ties the speaker's weaving to an earlier weaver, her grandmother, whose hands she feels in her own. The line about the old loom mentions the past but says nothing about the women who used it."
+          },
+          {
+            "id": "t6-rw1-12",
+            "section": "rw",
+            "skill": "Command of Evidence: Quantitative",
+            "difficulty": "medium",
+            "passage": "A geographer studying four glaciers in the same valley suggests that glaciers whose lower ends lie at lower elevations, where the air is warmer, have retreated farther in recent decades. For example, ______",
+            "prompt": "Which choice most effectively uses data from the table to complete the example?",
+            "choices": [
+              "East Glacier retreated 390 meters between 2000 and 2020.",
+              "the lower end of North Glacier sits at 3,950 meters, higher than the lower end of East Glacier.",
+              "West Glacier, which ends at the highest elevation, retreated farther than North Glacier did.",
+              "the lower end of South Glacier sits at 3,210 meters, and that glacier retreated 655 meters, while West Glacier, which ends at 4,120 meters, retreated only 85 meters."
+            ],
+            "answer": "D",
+            "explanation": "The example must pair elevation with retreat. South Glacier ends lowest and retreated most; West Glacier ends highest and retreated least. The claim that West retreated farther than North is false: West retreated 85 meters and North 140.",
+            "table": {
+              "title": "Four glaciers in one valley",
+              "head": [
+                "Glacier",
+                "Elevation of lower end (m)",
+                "Retreat, 2000–2020 (m)"
+              ],
+              "rows": [
+                [
+                  "North",
+                  "3,950",
+                  "140"
+                ],
+                [
+                  "East",
+                  "3,480",
+                  "390"
+                ],
+                [
+                  "South",
+                  "3,210",
+                  "655"
+                ],
+                [
+                  "West",
+                  "4,120",
+                  "85"
+                ]
+              ]
+            }
+          },
+          {
+            "id": "t6-rw1-13",
+            "section": "rw",
+            "skill": "Inferences",
+            "difficulty": "medium",
+            "passage": "Many robot vacuum cleaners avoid falling down stairs by shining infrared light at the floor and measuring how much of it is reflected back: when little light returns, the robot assumes it has reached a drop-off and backs away. Owners have reported that these robots often refuse to cross very dark rugs, which absorb most of the light that strikes them. This behavior suggests that the robots ______",
+            "prompt": "Which choice most logically completes the text?",
+            "choices": [
+              "are unable to detect real staircases.",
+              "mistake the dark rugs for drop-offs such as the edge of a staircase.",
+              "clean dark rugs more thoroughly than light-colored floors.",
+              "rely on cameras rather than infrared light to detect obstacles."
+            ],
+            "answer": "B",
+            "explanation": "Dark rugs reflect little light, which is exactly the signal the robot reads as a drop-off, so it backs away from them."
+          },
+          {
+            "id": "t6-rw1-14",
+            "section": "rw",
+            "skill": "Inferences",
+            "difficulty": "hard",
+            "passage": "At a site in Khorezm that was occupied for many centuries, archaeologists found charred grape seeds in household hearths from every period. Seeds from the oldest layers are short and round, like those of wild grapes, whereas seeds from more recent layers are longer and narrower, a shape typical of cultivated vines. Because pollen records show that wild grapevines grew in the nearby river forests throughout the site's history, the archaeologists concluded that ______",
+            "prompt": "Which choice most logically completes the text?",
+            "choices": [
+              "residents most likely stopped eating grapes during the later periods of occupation.",
+              "wild grapevines most likely disappeared from the river forests before the site's later periods.",
+              "the site's earliest residents most likely grew more cultivated vines than its later residents did.",
+              "the change in seed shape most likely reflects residents' growing reliance on cultivated vines rather than the loss of wild grapes from the area."
+            ],
+            "answer": "D",
+            "explanation": "Wild grapes stayed available, so their disappearance can't explain the change; residents must have shifted toward cultivated grapes. The option about wild vines disappearing is ruled out by the pollen records."
+          },
+          {
+            "id": "t6-rw1-15",
+            "section": "rw",
+            "skill": "Boundaries",
+            "difficulty": "easy",
+            "passage": "Shyrdaks, the felt carpets of Kyrgyzstan, are made entirely by ______ their bold patterns are cut from dyed felt and stitched together piece by piece.",
+            "prompt": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+            "choices": [
+              "hand;",
+              "hand,",
+              "hand",
+              "hand, and,"
+            ],
+            "answer": "A",
+            "explanation": "Both parts are complete sentences, so they need a semicolon. A comma alone creates a comma splice."
+          },
+          {
+            "id": "t6-rw1-16",
+            "section": "rw",
+            "skill": "Boundaries",
+            "difficulty": "medium",
+            "passage": "The team's ______ a four-legged machine assembled from recycled bicycle parts, climbed a full flight of stairs during the regional competition.",
+            "prompt": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+            "choices": [
+              "robot,",
+              "robot",
+              "robot;",
+              "robot:"
+            ],
+            "answer": "A",
+            "explanation": "The phrase \"a four-legged machine...parts\" renames the robot and closes with a comma, so it must open with a comma too."
+          },
+          {
+            "id": "t6-rw1-17",
+            "section": "rw",
+            "skill": "Boundaries",
+            "difficulty": "hard",
+            "passage": "The children's ______ *The Salt Road Fox* tells the story of a young fox who follows a camel caravan across the desert in search of her lost brother.",
+            "prompt": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+            "choices": [
+              "novel,",
+              "novel:",
+              "novel",
+              "novel—"
+            ],
+            "answer": "C",
+            "explanation": "The title identifies which novel is meant, so it is essential and takes no punctuation. A comma would also need a closing comma after the title, and there is none."
+          },
+          {
+            "id": "t6-rw1-18",
+            "section": "rw",
+            "skill": "Boundaries",
+            "difficulty": "medium",
+            "passage": "In Gulnora's kitchen, the dough for hand-pulled lagman noodles needs only three ______ wheat flour, water, and salt. The real skill lies in the stretching, which can take years to master.",
+            "prompt": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+            "choices": [
+              "ingredients;",
+              "ingredients:",
+              "ingredients",
+              "ingredients, they are"
+            ],
+            "answer": "B",
+            "explanation": "A colon introduces the list that names the three ingredients. A semicolon would need a complete sentence after it."
+          },
+          {
+            "id": "t6-rw1-19",
+            "section": "rw",
+            "skill": "Form, Structure, and Sense",
+            "difficulty": "easy",
+            "passage": "The tiny moons orbiting the distant planet ______ too dim to be seen without a powerful telescope.",
+            "prompt": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+            "choices": [
+              "is",
+              "was",
+              "are",
+              "has been"
+            ],
+            "answer": "C",
+            "explanation": "The subject is the plural \"moons,\" so the verb is **are**."
+          },
+          {
+            "id": "t6-rw1-20",
+            "section": "rw",
+            "skill": "Form, Structure, and Sense",
+            "difficulty": "medium",
+            "passage": "Since its founding in 1998, the small textile museum ______ more than four hundred embroidered panels from families across Karakalpakstan.",
+            "prompt": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+            "choices": [
+              "collects",
+              "will collect",
+              "had collected",
+              "has collected"
+            ],
+            "answer": "D",
+            "explanation": "\"Since its founding\" describes an action that began in the past and continues now, so the present perfect **has collected** is needed."
+          },
+          {
+            "id": "t6-rw1-21",
+            "section": "rw",
+            "skill": "Form, Structure, and Sense",
+            "difficulty": "hard",
+            "passage": "The letters exchanged by the silk merchant and his business partner in Kashgar ______ how quickly prices for raw silk rose during the 1870s.",
+            "prompt": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+            "choices": [
+              "reveals",
+              "has revealed",
+              "reveal",
+              "is revealing"
+            ],
+            "answer": "C",
+            "explanation": "The subject is the plural \"letters,\" so the verb is **reveal**. The singular nouns \"partner\" and \"Kashgar\" sit right before the blank but are not the subject."
+          },
+          {
+            "id": "t6-rw1-22",
+            "section": "rw",
+            "skill": "Transitions",
+            "difficulty": "easy",
+            "passage": "Sea ice reflects most of the sunlight that strikes it, while dark ocean water absorbs most of it. ______ as Arctic sea ice melts and exposes more open water, the region absorbs more heat, which in turn melts more ice.",
+            "prompt": "Which choice completes the text with the most logical transition?",
+            "choices": [
+              "Consequently,",
+              "However,",
+              "For example,",
+              "Similarly,"
+            ],
+            "answer": "A",
+            "explanation": "The extra heat absorption is a result of the difference described in the first sentence."
+          },
+          {
+            "id": "t6-rw1-23",
+            "section": "rw",
+            "skill": "Transitions",
+            "difficulty": "medium",
+            "passage": "Before the 1800s, weaving a complex pattern on a loom required a helper, often called a draw boy, who raised particular threads by hand for each row. The Jacquard loom, introduced in France in the early 1800s, ______ used chains of punched cards to select the threads automatically, so a single weaver could produce intricate designs.",
+            "prompt": "Which choice completes the text with the most logical transition?",
+            "choices": [
+              "for instance,",
+              "by contrast,",
+              "similarly,",
+              "in other words,"
+            ],
+            "answer": "B",
+            "explanation": "The Jacquard loom did automatically what earlier looms needed a helper to do, so the sentence contrasts the two."
+          },
+          {
+            "id": "t6-rw1-24",
+            "section": "rw",
+            "skill": "Transitions",
+            "difficulty": "hard",
+            "passage": "Engineers acknowledge that humanoid robots, which walk on two legs, are far less efficient than wheeled robots on flat floors. ______ they argue that a robot with legs and arms can work in spaces built for people, climbing stairs and opening doors that would stop a wheeled machine.",
+            "prompt": "Which choice completes the text with the most logical transition?",
+            "choices": [
+              "Still,",
+              "Indeed,",
+              "Thus,",
+              "Likewise,"
+            ],
+            "answer": "A",
+            "explanation": "The first sentence concedes a weakness; the second gives an advantage anyway, so the concession word **Still** fits. *Indeed* would wrongly signal that the second sentence reinforces the first."
+          },
+          {
+            "id": "t6-rw1-25",
+            "section": "rw",
+            "skill": "Rhetorical Synthesis",
+            "difficulty": "medium",
+            "passage": "While researching a topic, a student has taken the following notes:\n\n• Non is a round flatbread baked throughout Uzbekistan.\n• It is traditionally baked on the inside wall of a tandir, a clay oven.\n• Before baking, bakers press a stamp called a chekich into the center of the dough.\n• The stamp's pattern of holes keeps the center from rising, so it stays thin and crisp while the edges puff up.",
+            "prompt": "The student wants to explain the purpose of the chekich. Which choice most effectively uses relevant information from the notes to accomplish this goal?",
+            "choices": [
+              "Non is a round flatbread baked throughout Uzbekistan.",
+              "Non is traditionally baked on the inside wall of a clay oven called a tandir.",
+              "A chekich is a stamp that bakers use on non dough.",
+              "Bakers press a chekich into the center of non dough so that the center stays thin and crisp instead of rising."
+            ],
+            "answer": "D",
+            "explanation": "Only this choice says what the stamp does: it keeps the center from rising. The option that only defines the chekich as a stamp names the tool but not its purpose."
+          },
+          {
+            "id": "t6-rw1-26",
+            "section": "rw",
+            "skill": "Rhetorical Synthesis",
+            "difficulty": "hard",
+            "passage": "While researching a topic, a student has taken the following notes:\n\n• *Little Camel's Long Walk* and *The Apricot Thief* are picture books by author Dildora Yo'ldosheva.\n• *Little Camel's Long Walk* was published in 2014.\n• *The Apricot Thief* was published in 2019.\n• *Little Camel's Long Walk* is written in rhyming verse.\n• *The Apricot Thief* is written in prose.\n• Both books are set in villages near Termez.",
+            "prompt": "The student wants to contrast the writing styles of the two books. Which choice most effectively uses relevant information from the notes to accomplish this goal?",
+            "choices": [
+              "*Little Camel's Long Walk* was published in 2014, five years before *The Apricot Thief*.",
+              "Both of Yo'ldosheva's picture books, *Little Camel's Long Walk* and *The Apricot Thief*, are set in villages near Termez.",
+              "Although both are picture books by Yo'ldosheva, *Little Camel's Long Walk* is written in rhyming verse, whereas *The Apricot Thief* is written in prose.",
+              "*The Apricot Thief*, a picture book by Yo'ldosheva, is written in prose."
+            ],
+            "answer": "C",
+            "explanation": "Writing style means verse versus prose, and a contrast needs both books. The publication dates are a difference, but not one of style, and the option about *The Apricot Thief* alone describes only one book."
+          },
+          {
+            "id": "t6-rw1-27",
+            "section": "rw",
+            "skill": "Rhetorical Synthesis",
+            "difficulty": "medium",
+            "passage": "While researching a topic, a student has taken the following notes:\n\n• Fog nets are large mesh panels set up on hillsides in some dry coastal regions.\n• As fog drifts through the mesh, tiny water droplets collect on the fibers.\n• The droplets merge, run down the mesh, and drip into gutters below.\n• The nets need no electricity.",
+            "prompt": "The student wants to explain how fog nets collect water. Which choice most effectively uses relevant information from the notes to accomplish this goal?",
+            "choices": [
+              "Fog nets are large mesh panels set up on hillsides in some dry coastal regions.",
+              "As fog drifts through a fog net's mesh, tiny droplets collect on the fibers, merge, and drip into gutters below.",
+              "Fog nets need no electricity.",
+              "In some dry coastal regions, fog nets are set up on hillsides."
+            ],
+            "answer": "B",
+            "explanation": "Only this choice describes the process by which the nets gather water."
+          }
+        ]
+      },
+      "module2": {
+        "easier": {
+          "minutes": 32,
+          "questions": [
+            {
+              "id": "t6-rw2e-01",
+              "section": "rw",
+              "skill": "Words in Context",
+              "difficulty": "easy",
+              "passage": "The textile museum's new exhibit is designed to be ______: visitors can touch samples of wool and silk, try a small hand loom, and spin thread on a wooden spindle.",
+              "prompt": "Which choice completes the text with the most logical and precise word or phrase?",
+              "choices": [
+                "temporary",
+                "silent",
+                "interactive",
+                "expensive"
+              ],
+              "answer": "C",
+              "explanation": "Touching, weaving, and spinning let visitors take part, so the exhibit is **interactive**."
+            },
+            {
+              "id": "t6-rw2e-02",
+              "section": "rw",
+              "skill": "Words in Context",
+              "difficulty": "easy",
+              "passage": "After months of drought, the farmers were ______ when steady rain finally began to fall on their dry fields.",
+              "prompt": "Which choice completes the text with the most logical and precise word or phrase?",
+              "choices": [
+                "relieved",
+                "puzzled",
+                "furious",
+                "bored"
+              ],
+              "answer": "A",
+              "explanation": "Rain ending a long drought would make farmers feel **relieved**."
+            },
+            {
+              "id": "t6-rw2e-03",
+              "section": "rw",
+              "skill": "Words in Context",
+              "difficulty": "medium",
+              "passage": "The robot's designers made its movements deliberately ______ so that the factory workers beside it could always tell where its arm would go next.",
+              "prompt": "Which choice completes the text with the most logical and precise word or phrase?",
+              "choices": [
+                "consistent",
+                "erratic",
+                "elaborate",
+                "concealed"
+              ],
+              "answer": "A",
+              "explanation": "Workers can predict the arm's path only if it always moves the same way, so the movements are **consistent**. *Erratic* is the opposite."
+            },
+            {
+              "id": "t6-rw2e-04",
+              "section": "rw",
+              "skill": "Words in Context",
+              "difficulty": "medium",
+              "passage": "The critic praised the picture book for its ______ humor: its jokes delight young listeners while also offering sly asides that the adults reading aloud will appreciate.",
+              "prompt": "Which choice completes the text with the most logical and precise word or phrase?",
+              "choices": [
+                "crude",
+                "forced",
+                "scarce",
+                "layered"
+              ],
+              "answer": "D",
+              "explanation": "The humor works on two levels, one for children and one for adults, so it is **layered**."
+            },
+            {
+              "id": "t6-rw2e-05",
+              "section": "rw",
+              "skill": "Text Structure and Purpose",
+              "difficulty": "easy",
+              "passage": "Some engineers design robots that start out as flat sheets and fold themselves into three-dimensional shapes when heated, much like a sheet of paper folded into an origami crane. Because they can be shipped flat, such robots could be sent to remote places, including outer space, while taking up very little storage room.",
+              "prompt": "Which choice best states the main purpose of the text?",
+              "choices": [
+                "To argue that robots should be built from paper",
+                "To explain how origami cranes are folded",
+                "To describe a type of robot and explain one advantage of its design",
+                "To compare robots used on Earth with robots used in space"
+              ],
+              "answer": "C",
+              "explanation": "The text describes self-folding robots and then gives a benefit: they can be shipped flat."
+            },
+            {
+              "id": "t6-rw2e-06",
+              "section": "rw",
+              "skill": "Text Structure and Purpose",
+              "difficulty": "medium",
+              "passage": "Many picture books for toddlers are printed on thick cardboard pages instead of paper. __These \"board books\" can survive being chewed, dropped, and bent by small hands that are not yet able to turn thin pages gently.__ Publishers therefore often release popular picture books in board-book editions once the books have proved successful.",
+              "prompt": "Which choice best describes the function of the underlined sentence in the text as a whole?",
+              "choices": [
+                "It explains why a type of book is well suited to very young children.",
+                "It describes a problem that publishers have not yet solved.",
+                "It compares board books with books read on screens.",
+                "It argues that toddlers prefer thin paper pages to cardboard ones."
+              ],
+              "answer": "A",
+              "explanation": "The sentence explains what makes cardboard pages a good fit for toddlers, which is why publishers make board-book editions."
+            },
+            {
+              "id": "t6-rw2e-07",
+              "section": "rw",
+              "skill": "Cross-Text Connections",
+              "difficulty": "medium",
+              "passage": "**Text 1**\nSome designers of robots for elder care argue that the robots should look as humanlike as possible, since older adults may find a familiar face comforting.\n\n**Text 2**\nIn a study at a care home, researchers found that most residents preferred a robot shaped like a simple, friendly animal over a robot with a realistic human face. Several residents described the realistic robot as unsettling.",
+              "prompt": "Based on the texts, how would the researchers in Text 2 most likely respond to the designers in Text 1?",
+              "choices": [
+                "By agreeing that robots for elder care should have realistic human faces",
+                "By pointing out that a humanlike appearance may make some older adults uneasy rather than comforted",
+                "By arguing that older adults do not want robots in care homes at all",
+                "By suggesting that animal-shaped robots are more expensive to build"
+              ],
+              "answer": "B",
+              "explanation": "Residents found the realistic face unsettling, which challenges the claim that a humanlike look is comforting."
+            },
+            {
+              "id": "t6-rw2e-08",
+              "section": "rw",
+              "skill": "Central Ideas and Details",
+              "difficulty": "easy",
+              "passage": "In many Central Asian homes, a dastarkhan, a cloth spread on the floor or on a low table, is covered with bread, fruit, nuts, and sweets whenever guests arrive. Hosts set out far more food than visitors could possibly eat, because a full dastarkhan is a way of showing generosity and welcome.",
+              "prompt": "Which choice best states the main idea of the text?",
+              "choices": [
+                "Guests are expected to eat everything placed on the dastarkhan.",
+                "A dastarkhan is always spread on the floor rather than on a table.",
+                "Bread is the most important food served to guests.",
+                "Hosts fill the dastarkhan with plentiful food as a way of showing generosity to guests."
+              ],
+              "answer": "D",
+              "explanation": "The text describes the abundant food and explains that it signals generosity and welcome."
+            },
+            {
+              "id": "t6-rw2e-09",
+              "section": "rw",
+              "skill": "Central Ideas and Details",
+              "difficulty": "medium",
+              "passage": "The following text is from a novel. Madina is visiting her aunt's farm for the first time.\n\nMadina had imagined the farm as a quiet place for reading under fruit trees. Instead, the rooster began shouting before dawn, the goats complained loudly from their pen, and her aunt handed her a bucket before she had finished breakfast. By noon her arms ached, but when her aunt praised the neat rows she had weeded, Madina felt prouder than she had after any test at school.",
+              "prompt": "Which choice best states the main idea of the text?",
+              "choices": [
+                "Although the farm is busier and harder than Madina expected, the work gives her a new sense of pride.",
+                "Madina is disappointed that she has no time to read on the farm and wants to go home.",
+                "Madina's aunt is unhappy with how slowly Madina works.",
+                "Madina learns how to care for the goats on her aunt's farm."
+              ],
+              "answer": "A",
+              "explanation": "The farm is not the quiet place she pictured, but her aunt's praise for her work leaves her feeling proud."
+            },
+            {
+              "id": "t6-rw2e-10",
+              "section": "rw",
+              "skill": "Command of Evidence: Textual",
+              "difficulty": "easy",
+              "passage": "A student hypothesizes that bean seedlings grown under red light grow taller than bean seedlings grown under blue light.",
+              "prompt": "Which finding, if true, would most directly support the student's hypothesis?",
+              "choices": [
+                "Seedlings grown under blue light produced more leaves than seedlings grown under red light.",
+                "Seedlings grown under red light grew taller, on average, than identical seedlings grown under blue light.",
+                "Both groups of seedlings were watered at the same time every day.",
+                "Red and blue lights are both commonly used in greenhouses."
+              ],
+              "answer": "B",
+              "explanation": "Only this finding compares the heights of the two groups, which is what the hypothesis is about."
+            },
+            {
+              "id": "t6-rw2e-11",
+              "section": "rw",
+              "skill": "Command of Evidence: Textual",
+              "difficulty": "medium",
+              "passage": "Carpet historian Rustam Ibragimov claims that a large nineteenth-century carpet in a museum's collection was woven by several weavers working side by side rather than by a single weaver.",
+              "prompt": "Which finding, if true, would most directly support Ibragimov's claim?",
+              "choices": [
+                "The carpet's wool was dyed with madder and indigo.",
+                "The carpet is one of the largest in the museum's collection.",
+                "Carpets of a similar size were often given as wedding gifts.",
+                "The knots in the carpet's left, middle, and right sections were tied with three noticeably different techniques, and the borders between these sections run straight from the bottom of the carpet to the top."
+              ],
+              "answer": "D",
+              "explanation": "Three knotting styles in side-by-side strips running the whole length of the carpet point to three weavers working next to one another."
+            },
+            {
+              "id": "t6-rw2e-12",
+              "section": "rw",
+              "skill": "Command of Evidence: Quantitative",
+              "difficulty": "easy",
+              "passage": "A teacher recorded the number of students in a school's robotics club each year from 2021 to 2024. Membership was highest in ______",
+              "prompt": "Which choice most effectively uses data from the table to complete the statement?",
+              "choices": [
+                "2024, when the club had 39 members.",
+                "2023, when the club had 41 members.",
+                "2022, when the club had 26 members.",
+                "2021, when the club had 18 members."
+              ],
+              "answer": "B",
+              "explanation": "41 is the largest number in the table, and it belongs to 2023.",
+              "table": {
+                "title": "Robotics club membership",
+                "head": [
+                  "Year",
+                  "Members"
+                ],
+                "rows": [
+                  [
+                    "2021",
+                    "18"
+                  ],
+                  [
+                    "2022",
+                    "26"
+                  ],
+                  [
+                    "2023",
+                    "41"
+                  ],
+                  [
+                    "2024",
+                    "39"
+                  ]
+                ]
+              }
+            },
+            {
+              "id": "t6-rw2e-13",
+              "section": "rw",
+              "skill": "Inferences",
+              "difficulty": "easy",
+              "passage": "Glaciers form where snow piles up year after year. Over time, the weight of new snow presses the older layers beneath it into dense ice. Because this process requires more snow to fall each winter than melts the following summer, glaciers are unlikely to form in places where ______",
+              "prompt": "Which choice most logically completes the text?",
+              "choices": [
+                "winters are long and snowy.",
+                "summers are short and cool.",
+                "most of each winter's snow melts away during the summer.",
+                "snow falls mainly at high elevations."
+              ],
+              "answer": "C",
+              "explanation": "If most snow melts each summer, it can't pile up year after year, so no glacier forms."
+            },
+            {
+              "id": "t6-rw2e-14",
+              "section": "rw",
+              "skill": "Inferences",
+              "difficulty": "medium",
+              "passage": "As mountain glaciers shrink, the amount of meltwater they release each summer may at first increase, since warmer temperatures melt more ice. Eventually, however, a shrinking glacier becomes too small to release as much water as it once did. Communities that depend on rivers fed by glacier meltwater may therefore ______",
+              "prompt": "Which choice most logically completes the text?",
+              "choices": [
+                "see river flows decline at first and then recover.",
+                "see no change in river flows as the glaciers shrink.",
+                "see river flows rise for a time before they begin to decline.",
+                "receive more water every year for as long as temperatures keep rising."
+              ],
+              "answer": "C",
+              "explanation": "Meltwater first increases and later falls as the glacier gets too small, so river flows would rise and then decline."
+            },
+            {
+              "id": "t6-rw2e-15",
+              "section": "rw",
+              "skill": "Boundaries",
+              "difficulty": "easy",
+              "passage": "Although the apricot orchard was planted only six years ______ it already produces enough fruit to supply the village market.",
+              "prompt": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+              "choices": [
+                "ago",
+                "ago;",
+                "ago:",
+                "ago,"
+              ],
+              "answer": "D",
+              "explanation": "A comma separates the introductory \"Although...\" clause from the main sentence."
+            },
+            {
+              "id": "t6-rw2e-16",
+              "section": "rw",
+              "skill": "Boundaries",
+              "difficulty": "easy",
+              "passage": "Bahor's grandmother keeps her spices in small glass ______ each one is labeled in her neat, slanting handwriting.",
+              "prompt": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+              "choices": [
+                "jars,",
+                "jars",
+                "jars;",
+                "jars, and,"
+              ],
+              "answer": "C",
+              "explanation": "Both parts are complete sentences, so they need a semicolon. A comma alone creates a comma splice."
+            },
+            {
+              "id": "t6-rw2e-17",
+              "section": "rw",
+              "skill": "Boundaries",
+              "difficulty": "medium",
+              "passage": "Lola's favorite picture book, which her grandfather read to her every ______ is now held together with tape.",
+              "prompt": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+              "choices": [
+                "night",
+                "night,",
+                "night;",
+                "night:"
+              ],
+              "answer": "B",
+              "explanation": "The clause \"which her grandfather...night\" opens with a comma, so it must close with a comma before the verb \"is.\""
+            },
+            {
+              "id": "t6-rw2e-18",
+              "section": "rw",
+              "skill": "Boundaries",
+              "difficulty": "medium",
+              "passage": "The beginner's robot kit includes a battery ______ two small motors, and a set of light sensors.",
+              "prompt": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+              "choices": [
+                "pack",
+                "pack;",
+                "pack,",
+                "pack:"
+              ],
+              "answer": "C",
+              "explanation": "Items in a simple list of three are separated by commas."
+            },
+            {
+              "id": "t6-rw2e-19",
+              "section": "rw",
+              "skill": "Form, Structure, and Sense",
+              "difficulty": "easy",
+              "passage": "The baskets woven by the village's craftspeople ______ sold at the weekly bazaar.",
+              "prompt": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+              "choices": [
+                "are",
+                "is",
+                "was",
+                "has been"
+              ],
+              "answer": "A",
+              "explanation": "The subject is the plural \"baskets,\" so the verb is **are**."
+            },
+            {
+              "id": "t6-rw2e-20",
+              "section": "rw",
+              "skill": "Form, Structure, and Sense",
+              "difficulty": "medium",
+              "passage": "During the cotton harvest, many of the region's ______ hire extra workers to bring in the crop before the autumn rains.",
+              "prompt": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+              "choices": [
+                "farm's",
+                "farms",
+                "farms'",
+                "farm"
+              ],
+              "answer": "B",
+              "explanation": "The sentence needs a plural noun that simply names the farms, so **farms** fits. Nothing belongs to the farms here, so no apostrophe is needed."
+            },
+            {
+              "id": "t6-rw2e-21",
+              "section": "rw",
+              "skill": "Form, Structure, and Sense",
+              "difficulty": "easy",
+              "passage": "Last spring, the research team ______ a network of sensors across the glacier to record the temperature of the ice.",
+              "prompt": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+              "choices": [
+                "install",
+                "will install",
+                "installing",
+                "installed"
+              ],
+              "answer": "D",
+              "explanation": "\"Last spring\" places the action in the past, so the past tense **installed** fits."
+            },
+            {
+              "id": "t6-rw2e-22",
+              "section": "rw",
+              "skill": "Transitions",
+              "difficulty": "easy",
+              "passage": "Wool traps air between its fibers, which helps keep heat close to the body. ______ wool has been one of the most common materials for winter clothing for thousands of years.",
+              "prompt": "Which choice completes the text with the most logical transition?",
+              "choices": [
+                "However,",
+                "Instead,",
+                "In contrast,",
+                "For this reason,"
+              ],
+              "answer": "D",
+              "explanation": "Wool's warmth is the reason it is used for winter clothing, so a cause-and-effect transition fits."
+            },
+            {
+              "id": "t6-rw2e-23",
+              "section": "rw",
+              "skill": "Transitions",
+              "difficulty": "medium",
+              "passage": "Most robots in factories repeat a single motion thousands of times a day. ______ robots used in hospitals must handle a wide variety of tasks, from delivering medicine to guiding visitors through hallways.",
+              "prompt": "Which choice completes the text with the most logical transition?",
+              "choices": [
+                "By contrast,",
+                "Therefore,",
+                "For example,",
+                "Likewise,"
+              ],
+              "answer": "A",
+              "explanation": "Hospital robots do many different tasks, the opposite of factory robots that repeat one motion."
+            },
+            {
+              "id": "t6-rw2e-24",
+              "section": "rw",
+              "skill": "Transitions",
+              "difficulty": "medium",
+              "passage": "The illustrator begins every page with a light pencil sketch. ______ she adds watercolor, layering pale washes before painting the darker details.",
+              "prompt": "Which choice completes the text with the most logical transition?",
+              "choices": [
+                "However,",
+                "Next,",
+                "Instead,",
+                "For example,"
+              ],
+              "answer": "B",
+              "explanation": "Adding color is the step that follows the sketch, so a sequence word fits."
+            },
+            {
+              "id": "t6-rw2e-25",
+              "section": "rw",
+              "skill": "Rhetorical Synthesis",
+              "difficulty": "easy",
+              "passage": "While researching a topic, a student has taken the following notes:\n\n• Kurt is a snack made from dried, salted balls of strained yogurt.\n• It is popular in Uzbekistan, Kazakhstan, and other Central Asian countries.\n• Because it contains very little water, kurt can be stored for months without refrigeration.\n• Herders traditionally carried it on long journeys.",
+              "prompt": "The student wants to explain why kurt was useful on long journeys. Which choice most effectively uses relevant information from the notes to accomplish this goal?",
+              "choices": [
+                "Kurt is a snack made from dried, salted balls of strained yogurt.",
+                "Kurt is popular in Uzbekistan, Kazakhstan, and other Central Asian countries.",
+                "Because kurt contains very little water and keeps for months without refrigeration, herders could carry it on long journeys.",
+                "Herders traditionally carried kurt with them."
+              ],
+              "answer": "C",
+              "explanation": "Only this choice gives the reason: kurt keeps for months without refrigeration."
+            },
+            {
+              "id": "t6-rw2e-26",
+              "section": "rw",
+              "skill": "Rhetorical Synthesis",
+              "difficulty": "medium",
+              "passage": "While researching a topic, a student has taken the following notes:\n\n• Silk is produced by silkworms, which spin cocoons from a single continuous fiber.\n• A single silk fiber can be hundreds of meters long.\n• Cotton comes from the fluffy fibers that surround the seeds of the cotton plant.\n• Cotton fibers are usually only a few centimeters long.",
+              "prompt": "The student wants to emphasize a difference in fiber length between silk and cotton. Which choice most effectively uses relevant information from the notes to accomplish this goal?",
+              "choices": [
+                "Silk is produced by silkworms, while cotton comes from the cotton plant.",
+                "A single silk fiber can be hundreds of meters long, while cotton fibers are usually only a few centimeters long.",
+                "Cotton fibers surround the seeds of the cotton plant.",
+                "Silkworms spin their cocoons from a single continuous fiber."
+              ],
+              "answer": "B",
+              "explanation": "Only this choice compares the lengths of the two fibers. The option about silkworms and the cotton plant contrasts the fibers' sources, not their lengths."
+            },
+            {
+              "id": "t6-rw2e-27",
+              "section": "rw",
+              "skill": "Rhetorical Synthesis",
+              "difficulty": "medium",
+              "passage": "While researching a topic, a student has taken the following notes:\n\n• *The Clever Goat of Chimgan* is a children's book by Sherzod Aliyev.\n• It was first published in Uzbek in 2016.\n• It has since been translated into Russian, Kazakh, and English.\n• Aliyev worked as a primary school teacher before becoming a writer.",
+              "prompt": "The student wants to emphasize how widely the book has been translated. Which choice most effectively uses relevant information from the notes to accomplish this goal?",
+              "choices": [
+                "First published in Uzbek, *The Clever Goat of Chimgan* has since been translated into Russian, Kazakh, and English.",
+                "*The Clever Goat of Chimgan* was first published in 2016.",
+                "Sherzod Aliyev worked as a primary school teacher before writing *The Clever Goat of Chimgan*.",
+                "*The Clever Goat of Chimgan* is a children's book by Sherzod Aliyev."
+              ],
+              "answer": "A",
+              "explanation": "Only this choice lists the languages the book has been translated into."
+            }
+          ]
+        },
+        "harder": {
+          "minutes": 32,
+          "questions": [
+            {
+              "id": "t6-rw2h-01",
+              "section": "rw",
+              "skill": "Words in Context",
+              "difficulty": "hard",
+              "passage": "Though the explorer's journals are full of vivid detail, historians regard them as ______ guides to the route he actually traveled: several mountain passes he describes crossing lie more than a hundred kilometers from any path he could have taken.",
+              "prompt": "Which choice completes the text with the most logical and precise word or phrase?",
+              "choices": [
+                "indispensable",
+                "dubious",
+                "meticulous",
+                "laconic"
+              ],
+              "answer": "B",
+              "explanation": "Passes that lie far from any possible route make the journals untrustworthy as guides, so they are **dubious**. *Meticulous* would mean careful and accurate, the opposite of what the evidence shows."
+            },
+            {
+              "id": "t6-rw2h-02",
+              "section": "rw",
+              "skill": "Words in Context",
+              "difficulty": "hard",
+              "passage": "Critics have sometimes dismissed picture books as slight, but illustrator Gavhar Mirzaeva's work resists such ______: her wordless book *Night Ferry* rewards repeated readings, each revealing details in its crowded harbor scenes that earlier viewings missed.",
+              "prompt": "Which choice completes the text with the most logical and precise word or phrase?",
+              "choices": [
+                "scrutiny",
+                "acclaim",
+                "imitation",
+                "condescension"
+              ],
+              "answer": "D",
+              "explanation": "Dismissing picture books as slight is a form of **condescension**, and the colon shows her work proving that attitude wrong. *Scrutiny* doesn't fit: her book actually rewards close looking rather than resisting it."
+            },
+            {
+              "id": "t6-rw2h-03",
+              "section": "rw",
+              "skill": "Words in Context",
+              "difficulty": "hard",
+              "passage": "In her memoir, the weaver describes her apprenticeship with ______ candor: she admits that for her first two years she ruined more cloth than she finished and twice came close to quitting.",
+              "prompt": "Which choice completes the text with the most logical and precise word or phrase?",
+              "choices": [
+                "guarded",
+                "selective",
+                "unflinching",
+                "belated"
+              ],
+              "answer": "C",
+              "explanation": "She openly admits unflattering failures, so her candor is **unflinching**. *Selective* would mean she left the embarrassing parts out, which she does not."
+            },
+            {
+              "id": "t6-rw2h-04",
+              "section": "rw",
+              "skill": "Words in Context",
+              "difficulty": "hard",
+              "passage": "The retreat of the Qorasuv Glacier has not been ______: periods of rapid ice loss in the 1990s and 2010s were separated by a decade in which the glacier's front barely moved.",
+              "prompt": "Which choice completes the text with the most logical and precise word or phrase?",
+              "choices": [
+                "measurable",
+                "uniform",
+                "unprecedented",
+                "inevitable"
+              ],
+              "answer": "B",
+              "explanation": "Fast periods separated by a near pause mean the retreat did not proceed at the same rate throughout, so it has not been **uniform**. *Measurable* is wrong because the text describes measured changes."
+            },
+            {
+              "id": "t6-rw2h-05",
+              "section": "rw",
+              "skill": "Text Structure and Purpose",
+              "difficulty": "hard",
+              "passage": "Histories of textiles often describe how spinning and weaving machines, beginning in the late 1700s, swept away hand production wherever they appeared. __In some Central Asian towns, however, hand-spinning and hand-weaving remained the main ways of making cloth well into the twentieth century, even as factory-made fabric arrived through trade.__ Scholar Timur Sobirov argues that this persistence reflected not a lack of access to machine-made goods but steady local demand for patterns and textures that factories could not easily copy.",
+              "prompt": "Which choice best describes the function of the underlined sentence in the text as a whole?",
+              "choices": [
+                "It presents a case that complicates a widely held account, setting up the explanation offered in the next sentence.",
+                "It offers further evidence for the account presented in the first sentence.",
+                "It explains why factory-made fabric could not reach Central Asian towns.",
+                "It summarizes the argument that Sobirov makes about local demand."
+              ],
+              "answer": "A",
+              "explanation": "The underlined sentence is an exception (\"however\") to the account that machines swept away handwork, and the next sentence explains that exception. Factory cloth did arrive, so the option saying it could not reach the towns contradicts the text."
+            },
+            {
+              "id": "t6-rw2h-06",
+              "section": "rw",
+              "skill": "Text Structure and Purpose",
+              "difficulty": "hard",
+              "passage": "Researchers who interviewed owners of robot vacuum cleaners expected to hear the machines described as ordinary appliances, like dishwashers. Instead, many owners reported having named their robots, and some admitted to tidying up before a cleaning run so the robot would not \"struggle.\" The researchers propose that a machine that moves around a home on its own invites people to treat it as something like a companion, even when they know it has no feelings.",
+              "prompt": "Which choice best describes the overall structure of the text?",
+              "choices": [
+                "It presents a hypothesis, describes evidence that confirms it, and raises a question that remains unanswered.",
+                "It identifies a flaw in robot vacuum cleaners and proposes a way to fix it.",
+                "It compares robot vacuum cleaners with dishwashers and argues that one is more useful.",
+                "It describes an expectation, reports findings that differ from it, and offers an interpretation of those findings."
+              ],
+              "answer": "D",
+              "explanation": "The researchers expected owners to treat the robots as appliances, found the opposite (\"Instead\"), and then explained why. The evidence contradicted the expectation, so the option about confirming a hypothesis is wrong."
+            },
+            {
+              "id": "t6-rw2h-07",
+              "section": "rw",
+              "skill": "Cross-Text Connections",
+              "difficulty": "hard",
+              "passage": "**Text 1**\nMany educators argue that picture books for young children should avoid sad endings. Young children, they reason, may not yet have the emotional tools to cope with loss, and an unresolved sadness can make a story frightening rather than meaningful.\n\n**Text 2**\nChildren's literature scholar Komila Raupova studied how kindergarten classes responded to picture books that end with a loss, such as the death of a pet. When teachers read the books aloud and then invited discussion, children often connected the stories to their own experiences and talked about them calmly. Raupova concludes that what matters is less the ending itself than whether an adult helps children talk about it.",
+              "prompt": "Based on the texts, how would Raupova most likely respond to the educators' view in Text 1?",
+              "choices": [
+                "She would argue that sad endings need not overwhelm young children if an adult helps them discuss the stories.",
+                "She would agree that sad endings should be avoided unless the books are read at home.",
+                "She would argue that young children cope with loss better than adults do.",
+                "She would claim that young children generally prefer sad endings to happy ones."
+              ],
+              "answer": "A",
+              "explanation": "Raupova found that children handled sad endings calmly when adults led a discussion, so the ending alone is not the problem. She makes no comparison with adults and says nothing about which endings children prefer."
+            },
+            {
+              "id": "t6-rw2h-08",
+              "section": "rw",
+              "skill": "Central Ideas and Details",
+              "difficulty": "hard",
+              "passage": "Scientists can reconstruct past climates from glacier ice because tiny bubbles in the ice trap samples of the atmosphere from the time the snow fell. In many mountain glaciers, however, summer meltwater seeps down through the snow and refreezes, mixing material from different years and blurring the record. For this reason, researchers seeking long, detailed climate records from mountain ranges often look for glaciers at very high elevations, where temperatures rarely rise above freezing even in summer.",
+              "prompt": "Which choice best states the main idea of the text?",
+              "choices": [
+                "Because melting can blur the climate records stored in glacier ice, researchers seeking detailed records from mountains favor very high, cold glaciers.",
+                "Ice from mountain glaciers provides more detailed climate records than ice from any other source.",
+                "Bubbles in glacier ice preserve samples of the atmosphere from the time the ice melted.",
+                "Summer meltwater has destroyed the climate records in nearly all mountain glaciers."
+              ],
+              "answer": "A",
+              "explanation": "The text explains a problem (meltwater blurs the record) and the researchers' response (seeking high, cold glaciers). The option about meltwater destroying nearly all records overstates the text, which says only that it blurs records in many glaciers."
+            },
+            {
+              "id": "t6-rw2h-09",
+              "section": "rw",
+              "skill": "Central Ideas and Details",
+              "difficulty": "hard",
+              "passage": "The following text is from a novel. Feruz, a retired mapmaker, is looking at a map he drew forty years earlier.\n\nThe map had been his finest work: every irrigation canal, every orchard wall, every footpath between the villages traced in ink so fine it seemed breathed onto the paper. Feruz unfolded it on the kitchen table and found his own street, then the bend in the canal where the old mill had stood. The mill was gone now, the canal paved over, the orchards divided into building lots. Yet the map, he realized, was not wrong. It was simply loyal to a place that no longer existed.",
+              "prompt": "Which choice best states the main idea of the text?",
+              "choices": [
+                "Feruz discovers several errors in a map he once considered his finest work.",
+                "Feruz realizes that his old map, though it no longer matches the area, faithfully records a place that has since disappeared.",
+                "Feruz regrets that he never drew a map of the area as it looks today.",
+                "Feruz decides to redraw the map to show the area's new streets and buildings."
+              ],
+              "answer": "B",
+              "explanation": "The landscape has changed, but Feruz concludes the map \"was not wrong\": it is \"loyal\" to the place as it was. The option about errors contradicts that realization."
+            },
+            {
+              "id": "t6-rw2h-10",
+              "section": "rw",
+              "skill": "Command of Evidence: Textual",
+              "difficulty": "hard",
+              "passage": "Robotics researcher Ilhom Qodirov hypothesizes that pedestrians trust a sidewalk delivery robot more when it signals where it is about to go, for example by projecting arrows onto the pavement, than when it moves without giving such signals.",
+              "prompt": "Which finding, if true, would most directly support Qodirov's hypothesis?",
+              "choices": [
+                "Pedestrians who passed a robot projecting arrows rated it as more trustworthy than did pedestrians who passed an otherwise identical robot that gave no signals.",
+                "Pedestrians rated robots that projected arrows as more trustworthy than human couriers on bicycles.",
+                "Robots that projected arrows used slightly more battery power than robots that did not.",
+                "Most pedestrians in the trials said they had never encountered a delivery robot before."
+              ],
+              "answer": "A",
+              "explanation": "The hypothesis compares signaling robots with robots that don't signal, and this finding makes exactly that comparison while keeping everything else the same. Comparing robots with human couriers tests a different question."
+            },
+            {
+              "id": "t6-rw2h-11",
+              "section": "rw",
+              "skill": "Command of Evidence: Quantitative",
+              "difficulty": "hard",
+              "passage": "Anthropologist Shahnoza Valieva surveyed households in four villages (identified here by pseudonyms) in 2005 and again in 2025. In every village, a smaller share of households baked their own bread in 2025 than in 2005, but Valieva claims that the decline was steepest in villages located close to a commercial bakery. ______",
+              "prompt": "Which choice most effectively uses data from the table to support Valieva's claim?",
+              "choices": [
+                "In 2005, Meadow had the highest share of households baking their own bread, at 92%.",
+                "In 2025, fewer than 90% of households baked their own bread in each of the four villages.",
+                "In Orchard, 2 kilometers from a commercial bakery, the share of households baking their own bread fell from 88% to 41%, while in Meadow, 28 kilometers away, it fell only from 92% to 89%.",
+                "In Spring, 6 kilometers from a commercial bakery, the share fell from 90% to 63%, a steeper drop than in Orchard."
+              ],
+              "answer": "C",
+              "explanation": "The claim links distance to the size of the decline, so the support must compare a near village with a far one. Orchard (2 km) dropped 47 points and Meadow (28 km) only 3. The Spring option is false: its 27-point drop is smaller than Orchard's.",
+              "table": {
+                "title": "Households that bake their own bread",
+                "head": [
+                  "Village",
+                  "Distance to nearest commercial bakery (km)",
+                  "2005 (%)",
+                  "2025 (%)"
+                ],
+                "rows": [
+                  [
+                    "Orchard",
+                    "2",
+                    "88",
+                    "41"
+                  ],
+                  [
+                    "Spring",
+                    "6",
+                    "90",
+                    "63"
+                  ],
+                  [
+                    "Ridge",
+                    "15",
+                    "85",
+                    "77"
+                  ],
+                  [
+                    "Meadow",
+                    "28",
+                    "92",
+                    "89"
+                  ]
+                ]
+              }
+            },
+            {
+              "id": "t6-rw2h-12",
+              "section": "rw",
+              "skill": "Command of Evidence: Quantitative",
+              "difficulty": "hard",
+              "passage": "Engineers tested a new robotic gripper on four objects, attempting to grasp each one 200 times. They conclude that the gripper had the most difficulty with soft objects, which it grasped both less reliably and more slowly than it grasped rigid objects. ______",
+              "prompt": "Which choice most effectively uses data from the table to support the engineers' conclusion?",
+              "choices": [
+                "The gripper succeeded on 188 attempts with the glass jar but on only 151 attempts with the bag of rice.",
+                "The gripper needed more time, on average, to grasp the glass jar than to grasp the wooden block.",
+                "The gripper grasped the bag of rice more reliably than the plush toy and needed less time to do so.",
+                "The gripper succeeded on 142 attempts with the plush toy and 151 with the bag of rice, compared with at least 188 for the rigid objects, and it needed 2.8 seconds or more per grasp for the soft objects but no more than 1.9 seconds for the rigid ones."
+              ],
+              "answer": "D",
+              "explanation": "The conclusion has two parts, reliability and speed, for soft versus rigid objects, and only this choice covers both. The jar-and-rice option shows only reliability, and only for one pair of objects.",
+              "table": {
+                "title": "Gripper performance (200 attempts per object)",
+                "head": [
+                  "Object",
+                  "Type",
+                  "Successful grasps",
+                  "Average time per grasp (seconds)"
+                ],
+                "rows": [
+                  [
+                    "Wooden block",
+                    "Rigid",
+                    "196",
+                    "1.2"
+                  ],
+                  [
+                    "Glass jar",
+                    "Rigid",
+                    "188",
+                    "1.9"
+                  ],
+                  [
+                    "Plush toy",
+                    "Soft",
+                    "142",
+                    "3.4"
+                  ],
+                  [
+                    "Bag of rice",
+                    "Soft",
+                    "151",
+                    "2.8"
+                  ]
+                ]
+              }
+            },
+            {
+              "id": "t6-rw2h-13",
+              "section": "rw",
+              "skill": "Inferences",
+              "difficulty": "hard",
+              "passage": "Spindle whorls, the small weights used in hand-spinning, vary in mass depending on the thread being made: light whorls suit fine threads spun from fibers such as cotton, whereas heavier whorls suit thicker threads such as those spun from wool. At one ancient settlement, archaeologists found only heavy whorls in the oldest layers but a mix of heavy and very light whorls in later layers. Since no plant fibers or cotton seeds have survived at the site, the archaeologists suggest that ______",
+              "prompt": "Which choice most logically completes the text?",
+              "choices": [
+                "residents stopped spinning wool in the later period.",
+                "residents may have begun spinning a fine fiber in the later period, even though no direct evidence of that fiber has been preserved.",
+                "cotton was the main fiber spun at the site in every period.",
+                "the light whorls were most likely used for some purpose other than spinning."
+              ],
+              "answer": "B",
+              "explanation": "New light whorls point to fine thread, even without surviving fibers. Heavy whorls remain in the later layers, so wool spinning did not stop."
+            },
+            {
+              "id": "t6-rw2h-14",
+              "section": "rw",
+              "skill": "Inferences",
+              "difficulty": "hard",
+              "passage": "In early summer, meltwater that drains to the base of a glacier can act as a lubricant, causing the ice above it to slide faster. Researchers monitoring the edge of the Greenland ice sheet found, however, that summers with especially heavy melting were often followed by unusually slow ice flow the next winter. The researchers proposed that heavy melting carves wide, efficient channels along the base of the ice, which ______",
+              "prompt": "Which choice most logically completes the text?",
+              "choices": [
+                "trap large amounts of meltwater beneath the ice until the following summer.",
+                "drain water away so quickly that less water remains at the base to lubricate the ice in the months that follow.",
+                "cause the ice to melt faster in winter than in summer.",
+                "make the surface of the ice warmer during the following winter."
+              ],
+              "answer": "B",
+              "explanation": "Water at the base speeds the ice up, so slower flow means less water there. Efficient channels that drain water away explain this. Trapped water would speed the ice up instead."
+            },
+            {
+              "id": "t6-rw2h-15",
+              "section": "rw",
+              "skill": "Boundaries",
+              "difficulty": "hard",
+              "passage": "Most of the rover's instruments worked flawlessly during the desert trial. Its ______ failed repeatedly in the glare of the midday sun.",
+              "prompt": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+              "choices": [
+                "camera, however,",
+                "camera; however,",
+                "camera however",
+                "camera, however"
+              ],
+              "answer": "A",
+              "explanation": "\"However\" interrupts the sentence \"Its camera failed...,\" so it is set off with a comma on each side. A semicolon would split the subject from its verb."
+            },
+            {
+              "id": "t6-rw2h-16",
+              "section": "rw",
+              "skill": "Boundaries",
+              "difficulty": "hard",
+              "passage": "In her review, the critic described the picture book's final illustration ______ \"a night sky so crowded with lanterns that the darkness has nowhere left to go.\"",
+              "prompt": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+              "choices": [
+                "as,",
+                "as:",
+                "as—",
+                "as"
+              ],
+              "answer": "D",
+              "explanation": "The quotation completes the phrase \"described...as,\" so no punctuation belongs between \"as\" and the quotation. A colon must follow a complete sentence."
+            },
+            {
+              "id": "t6-rw2h-17",
+              "section": "rw",
+              "skill": "Boundaries",
+              "difficulty": "hard",
+              "passage": "The decision by the cooperative's founders to pay weavers by the hour rather than by the ______ helped the business keep its most skilled workers.",
+              "prompt": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+              "choices": [
+                "piece,",
+                "piece;",
+                "piece",
+                "piece—"
+              ],
+              "answer": "C",
+              "explanation": "Everything before the blank is the subject, and \"helped\" is its verb. No punctuation should separate a subject from its verb."
+            },
+            {
+              "id": "t6-rw2h-18",
+              "section": "rw",
+              "skill": "Boundaries",
+              "difficulty": "hard",
+              "passage": "Glacial flour, the fine rock powder that glaciers grind from the bedrock beneath ______ gives many mountain lakes their milky turquoise color.",
+              "prompt": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+              "choices": [
+                "them",
+                "them,",
+                "them;",
+                "them—"
+              ],
+              "answer": "B",
+              "explanation": "The phrase \"the fine rock powder...beneath them\" opens with a comma after \"Glacial flour,\" so it must close with a comma before the verb \"gives.\""
+            },
+            {
+              "id": "t6-rw2h-19",
+              "section": "rw",
+              "skill": "Form, Structure, and Sense",
+              "difficulty": "hard",
+              "passage": "Neither the robot's two arms nor its camera ______ damaged when the machine tipped over during testing.",
+              "prompt": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+              "choices": [
+                "were",
+                "have been",
+                "are",
+                "was"
+              ],
+              "answer": "D",
+              "explanation": "With \"neither...nor,\" the verb agrees with the nearer subject, the singular \"camera,\" so the verb is **was**. *Were* would agree with \"arms,\" the farther subject."
+            },
+            {
+              "id": "t6-rw2h-20",
+              "section": "rw",
+              "skill": "Form, Structure, and Sense",
+              "difficulty": "hard",
+              "passage": "After comparing the two ______ accounts of the 1903 expedition, the historian concluded that both men had exaggerated the size of the glacier they crossed.",
+              "prompt": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+              "choices": [
+                "explorer's",
+                "explorers'",
+                "explorers",
+                "explorers's"
+              ],
+              "answer": "B",
+              "explanation": "The accounts belong to two explorers, so the plural possessive **explorers'** is needed. *Explorer's* refers to only one explorer."
+            },
+            {
+              "id": "t6-rw2h-21",
+              "section": "rw",
+              "skill": "Form, Structure, and Sense",
+              "difficulty": "hard",
+              "passage": "The cloth fragments, ______ in a sealed clay jar for nearly two thousand years, still show traces of the red dye used to color them.",
+              "prompt": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+              "choices": [
+                "were preserved",
+                "are preserved",
+                "preserved",
+                "they were preserved"
+              ],
+              "answer": "C",
+              "explanation": "The phrase between the commas describes the fragments, and the sentence's main verb is \"show.\" A participle, **preserved**, is needed; a second main verb would make the sentence ungrammatical."
+            },
+            {
+              "id": "t6-rw2h-22",
+              "section": "rw",
+              "skill": "Transitions",
+              "difficulty": "hard",
+              "passage": "The first sewing machines sold for home use were noisy, broke down often, and cost more than many families could easily afford. ______ demand for them grew quickly, since a machine could sew a shirt in a fraction of the time needed by hand.",
+              "prompt": "Which choice completes the text with the most logical transition?",
+              "choices": [
+                "Even so,",
+                "Indeed,",
+                "As a result,",
+                "In other words,"
+              ],
+              "answer": "A",
+              "explanation": "Demand grew despite the drawbacks just listed, so a concession word fits. *As a result* would wrongly suggest the drawbacks caused the demand."
+            },
+            {
+              "id": "t6-rw2h-23",
+              "section": "rw",
+              "skill": "Transitions",
+              "difficulty": "hard",
+              "passage": "Robots that learn by trial and error can master tasks that are hard to program step by step, such as folding laundry. ______ this kind of learning is slow: a robot may need thousands of failed attempts before it folds a single shirt neatly.",
+              "prompt": "Which choice completes the text with the most logical transition?",
+              "choices": [
+                "Specifically,",
+                "Hence,",
+                "That said,",
+                "Similarly,"
+              ],
+              "answer": "C",
+              "explanation": "The first sentence gives a strength and the second a drawback, so a transition that introduces a qualification, **That said**, fits."
+            },
+            {
+              "id": "t6-rw2h-24",
+              "section": "rw",
+              "skill": "Transitions",
+              "difficulty": "hard",
+              "passage": "Conservators examining a nineteenth-century silk robe found that it had been altered several times during its long life. ______ its sleeves had been shortened, its lining had been replaced at least twice, and a collar had been added in a fabric made decades after the robe itself.",
+              "prompt": "Which choice completes the text with the most logical transition?",
+              "choices": [
+                "Nevertheless,",
+                "In contrast,",
+                "Previously,",
+                "Specifically,"
+              ],
+              "answer": "D",
+              "explanation": "The second sentence lists the particular alterations that the first sentence mentions in general, so **Specifically** fits."
+            },
+            {
+              "id": "t6-rw2h-25",
+              "section": "rw",
+              "skill": "Rhetorical Synthesis",
+              "difficulty": "hard",
+              "passage": "While researching a topic, a student has taken the following notes:\n\n• Alizarin is the compound that gives madder root its red dye.\n• For centuries, dyers obtained alizarin by drying, grinding, and soaking madder roots.\n• In 1868, chemists in Germany produced alizarin synthetically from a substance found in coal tar.\n• Within a few decades, synthetic alizarin had largely replaced madder grown on farms.",
+              "prompt": "The student wants to explain the effect of synthetic alizarin on madder farming. Which choice most effectively uses relevant information from the notes to accomplish this goal?",
+              "choices": [
+                "Alizarin, the compound that gives madder root its red dye, was first produced synthetically in 1868.",
+                "For centuries, dyers obtained alizarin by drying, grinding, and soaking madder roots.",
+                "After chemists produced alizarin from a coal-tar substance in 1868, the synthetic dye largely replaced farm-grown madder within a few decades.",
+                "Synthetic alizarin is made from a coal-tar substance, while natural alizarin comes from madder roots."
+              ],
+              "answer": "C",
+              "explanation": "The goal is an effect on farming, and only this choice says that synthetic alizarin replaced farm-grown madder. The option that gives only the 1868 date leaves out the effect."
+            },
+            {
+              "id": "t6-rw2h-26",
+              "section": "rw",
+              "skill": "Rhetorical Synthesis",
+              "difficulty": "hard",
+              "passage": "While researching a topic, a student has taken the following notes:\n\n• Qadam is a two-legged robot built by engineering students at a university in Tashkent.\n• It is 1.2 meters tall.\n• Cameras and pressure sensors in its feet help it keep its balance on uneven ground.\n• The students hope it will one day carry supplies to villages in mountain areas.",
+              "prompt": "The student wants to introduce Qadam to an audience unfamiliar with it, emphasizing the robot's intended purpose. Which choice most effectively uses relevant information from the notes to accomplish this goal?",
+              "choices": [
+                "Qadam uses cameras and pressure sensors in its feet to keep its balance on uneven ground.",
+                "The students hope their robot will one day carry supplies to villages in mountain areas.",
+                "Qadam, a two-legged robot built by engineering students in Tashkent, may one day carry supplies to mountain villages.",
+                "At 1.2 meters tall, Qadam is a two-legged robot built by engineering students in Tashkent."
+              ],
+              "answer": "C",
+              "explanation": "An unfamiliar audience needs to know what Qadam is, and the goal stresses its purpose. Only this choice does both. The option about \"their robot\" gives the purpose but never names or describes the robot."
+            },
+            {
+              "id": "t6-rw2h-27",
+              "section": "rw",
+              "skill": "Rhetorical Synthesis",
+              "difficulty": "hard",
+              "passage": "While researching a topic, a student has taken the following notes:\n\n• Researcher Nargiza Tolipova examined 400 picture books published in Uzbekistan between 1990 and 2019.\n• In books from the 1990s, 18% of main characters were animals.\n• In books from the 2010s, 46% of main characters were animals.\n• Tolipova suggests that illustrators increasingly chose animal characters so that children from any background could identify with them.",
+              "prompt": "The student wants to present the main finding of Tolipova's study. Which choice most effectively uses relevant information from the notes to accomplish this goal?",
+              "choices": [
+                "Tolipova found that animal main characters became far more common in the picture books she studied, rising from 18% of main characters in the 1990s to 46% in the 2010s.",
+                "Tolipova suggests that illustrators chose animal characters so that children from any background could identify with them.",
+                "Tolipova examined 400 picture books published in Uzbekistan between 1990 and 2019.",
+                "In picture books from the 1990s, 18% of main characters were animals."
+              ],
+              "answer": "A",
+              "explanation": "The finding is the change in animal characters from 18% to 46%. The option about illustrators' choices is Tolipova's explanation of the finding, not the finding itself."
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "math",
+      "title": "Math",
+      "module1": {
+        "minutes": 35,
+        "questions": [
+          {
+            "id": "t6-m1-01",
+            "section": "math",
+            "skill": "Linear equations in one variable",
+            "difficulty": "easy",
+            "prompt": "If $6x - 11 = 43$, what is the value of $x$?",
+            "explanation": "Add 11 to both sides: $6x = 54$, so $x = 9$.",
+            "choices": [
+              "$\\dfrac{16}{3}$",
+              "54",
+              "9",
+              "8"
+            ],
+            "answer": "C"
+          },
+          {
+            "id": "t6-m1-02",
+            "section": "math",
+            "skill": "Percentages",
+            "difficulty": "easy",
+            "prompt": "Of the 650 visitors to a robotics fair on Saturday, 24% were under 12 years old. How many of the visitors were under 12 years old?",
+            "explanation": "$0.24 \\times 650 = 156$.",
+            "choices": [
+              "156",
+              "24",
+              "494",
+              "626"
+            ],
+            "answer": "A"
+          },
+          {
+            "id": "t6-m1-03",
+            "section": "math",
+            "skill": "Linear functions",
+            "difficulty": "easy",
+            "prompt": "The function $g$ is defined by $g(x) = \\dfrac{x}{2} - 9$. What is the value of $g(-6)$?",
+            "explanation": "$g(-6) = \\dfrac{-6}{2} - 9 = -3 - 9 = -12$.",
+            "choices": [
+              "$-6$",
+              "$-12$",
+              "$-15$",
+              "12"
+            ],
+            "answer": "B"
+          },
+          {
+            "id": "t6-m1-04",
+            "section": "math",
+            "skill": "Lines, angles, and triangles",
+            "difficulty": "easy",
+            "prompt": "In triangle $PQR$, $PQ = PR$, and the measure of angle $Q$ is $52^\\circ$. What is the measure, in degrees, of angle $P$?",
+            "explanation": "Because $PQ = PR$, the angles opposite those sides, $R$ and $Q$, are equal, so angle $R$ is also $52^\\circ$. Then angle $P$ is $180 - 52 - 52 = 76$ degrees.",
+            "answer": [
+              "76"
+            ]
+          },
+          {
+            "id": "t6-m1-05",
+            "section": "math",
+            "skill": "Equivalent expressions",
+            "difficulty": "medium",
+            "prompt": "Which expression is equivalent to $(5x - 3)(2x + 7) - x$?",
+            "explanation": "$(5x - 3)(2x + 7) = 10x^2 + 35x - 6x - 21 = 10x^2 + 29x - 21$. Subtracting $x$ gives $10x^2 + 28x - 21$.",
+            "choices": [
+              "$10x^2 + 29x - 21$",
+              "$10x^2 + 40x - 21$",
+              "$10x^2 + 28x + 21$",
+              "$10x^2 + 28x - 21$"
+            ],
+            "answer": "D"
+          },
+          {
+            "id": "t6-m1-06",
+            "section": "math",
+            "skill": "Nonlinear functions",
+            "difficulty": "medium",
+            "prompt": "The function $p$ is defined by $p(x) = 3(4)^x$. What is the value of $p(2) - p(1)$?",
+            "explanation": "$p(2) = 3 \\cdot 4^2 = 48$ and $p(1) = 3 \\cdot 4 = 12$, so $p(2) - p(1) = 36$.",
+            "answer": [
+              "36"
+            ]
+          },
+          {
+            "id": "t6-m1-07",
+            "section": "math",
+            "skill": "Systems of two linear equations in two variables",
+            "difficulty": "medium",
+            "prompt": "A bakery sells non for 4,000 so'm each and samsa for 7,000 so'm each. One morning, it sold 150 of these items for a total of 795,000 so'm. How many samsa did the bakery sell that morning?",
+            "explanation": "Let $s$ be the number of samsa, so $150 - s$ non were sold. In thousands of so'm, $4(150 - s) + 7s = 795$, so $600 + 3s = 795$ and $s = 65$. (85 is the number of non.)",
+            "choices": [
+              "85",
+              "65",
+              "75",
+              "70"
+            ],
+            "answer": "B"
+          },
+          {
+            "id": "t6-m1-08",
+            "section": "math",
+            "skill": "Linear equations in two variables",
+            "difficulty": "medium",
+            "prompt": "At what point does the graph of $5x - 2y = 30$ in the $xy$-plane cross the $y$-axis?",
+            "explanation": "On the $y$-axis, $x = 0$, so $-2y = 30$ and $y = -15$. The point $(6, 0)$ is where the line crosses the $x$-axis.",
+            "choices": [
+              "$(0, -15)$",
+              "$(0, 15)$",
+              "$(6, 0)$",
+              "$(0, -5)$"
+            ],
+            "answer": "A"
+          },
+          {
+            "id": "t6-m1-09",
+            "section": "math",
+            "skill": "Nonlinear functions",
+            "difficulty": "medium",
+            "prompt": "The number of members of an online robotics forum is modeled by $M(t) = 3{,}000(0.92)^t$, where $t$ is the number of years after 2020. Which statement best describes how the number of members changes according to the model?",
+            "explanation": "Multiplying by $0.92 = 1 - 0.08$ each year keeps 92% of the members, which is a decrease of 8% per year.",
+            "choices": [
+              "It decreases by 92% each year.",
+              "It increases by 92% each year.",
+              "It decreases by 8% each year.",
+              "It decreases by 0.92 members each year."
+            ],
+            "answer": "C"
+          },
+          {
+            "id": "t6-m1-10",
+            "section": "math",
+            "skill": "One-variable data: distributions and measures of center and spread",
+            "difficulty": "medium",
+            "prompt": "The mean of the data set $8, 13, 13, 21, x$ is 14. What is the value of $x$?",
+            "explanation": "Five values with a mean of 14 add up to $5 \\times 14 = 70$. Since $8 + 13 + 13 + 21 = 55$, $x = 70 - 55 = 15$.",
+            "answer": [
+              "15"
+            ]
+          },
+          {
+            "id": "t6-m1-11",
+            "section": "math",
+            "skill": "Linear inequalities in one or two variables",
+            "difficulty": "medium",
+            "prompt": "A delivery robot can carry at most 25 kilograms. It always carries a 4-kilogram tool kit, plus $b$ boxes that weigh 1.5 kilograms each. Which inequality represents the possible numbers of boxes the robot can carry?",
+            "explanation": "The total weight is the tool kit plus the boxes, $4 + 1.5b$, and \"at most 25\" means $\\le 25$.",
+            "choices": [
+              "$1.5 + 4b \\le 25$",
+              "$4 + 1.5b \\ge 25$",
+              "$4(1.5b) \\le 25$",
+              "$4 + 1.5b \\le 25$"
+            ],
+            "answer": "D"
+          },
+          {
+            "id": "t6-m1-12",
+            "section": "math",
+            "skill": "Area and volume",
+            "difficulty": "medium",
+            "prompt": "A cylindrical rain barrel has a radius of 4 decimeters and a height of 7 decimeters. What is the volume of the barrel, in cubic decimeters?",
+            "explanation": "$V = \\pi r^2 h = \\pi (4^2)(7) = 112\\pi$.",
+            "choices": [
+              "$28\\pi$",
+              "$56\\pi$",
+              "$112\\pi$",
+              "$196\\pi$"
+            ],
+            "answer": "C"
+          },
+          {
+            "id": "t6-m1-13",
+            "section": "math",
+            "skill": "Nonlinear equations in one variable and systems of equations in two variables",
+            "difficulty": "medium",
+            "prompt": "What is the positive solution to the equation $x^2 + 3x - 54 = 0$?",
+            "explanation": "$x^2 + 3x - 54 = (x + 9)(x - 6)$, so $x = -9$ or $x = 6$. The positive solution is 6.",
+            "choices": [
+              "9",
+              "54",
+              "3",
+              "6"
+            ],
+            "answer": "D"
+          },
+          {
+            "id": "t6-m1-14",
+            "section": "math",
+            "skill": "Probability and conditional probability",
+            "difficulty": "medium",
+            "prompt": "The table shows the results of a survey of 120 visitors to a textile museum, sorted by age group and by whether they attended a weaving workshop. If a visitor who attended a workshop is selected at random, what is the probability that the visitor is under 18 years old?",
+            "explanation": "Only the 45 visitors who attended a workshop count. Of these, 18 are under 18, and $\\dfrac{18}{45} = \\dfrac{2}{5}$.",
+            "table": {
+              "head": [
+                "",
+                "Attended a workshop",
+                "Did not attend",
+                "Total"
+              ],
+              "rows": [
+                [
+                  "Under 18",
+                  "18",
+                  "22",
+                  "40"
+                ],
+                [
+                  "18 and older",
+                  "27",
+                  "53",
+                  "80"
+                ],
+                [
+                  "Total",
+                  "45",
+                  "75",
+                  "120"
+                ]
+              ]
+            },
+            "choices": [
+              "$\\dfrac{9}{20}$",
+              "$\\dfrac{2}{5}$",
+              "$\\dfrac{3}{20}$",
+              "$\\dfrac{3}{8}$"
+            ],
+            "answer": "B"
+          },
+          {
+            "id": "t6-m1-15",
+            "section": "math",
+            "skill": "Linear functions",
+            "difficulty": "hard",
+            "prompt": "The front of a glacier has been retreating at a constant rate. In 2004, it was 1,850 meters from a marker stone, and in 2016, it was 2,330 meters from the stone. If the glacier continues to retreat at this rate, in what year will its front be 2,650 meters from the stone?",
+            "explanation": "The front moved $2{,}330 - 1{,}850 = 480$ meters in 12 years, or 40 meters per year. Reaching 2,650 meters takes $\\dfrac{2{,}650 - 1{,}850}{40} = 20$ years after 2004, which is 2024.",
+            "answer": [
+              "2024"
+            ]
+          },
+          {
+            "id": "t6-m1-16",
+            "section": "math",
+            "skill": "Systems of two linear equations in two variables",
+            "difficulty": "hard",
+            "prompt": "$$9x + 4y = 2$$ $$kx + 10y = 7$$ In the given system of equations, $k$ is a constant. For what value of $k$ does the system have no solution?",
+            "explanation": "No solution means the lines are parallel but not the same. Multiplying the first equation by $\\dfrac{5}{2}$ gives $\\dfrac{45}{2}x + 10y = 5$. With $k = \\dfrac{45}{2}$, the left sides match but $5 \\neq 7$, so the lines never meet.",
+            "answer": [
+              "22.5",
+              "45/2"
+            ]
+          },
+          {
+            "id": "t6-m1-17",
+            "section": "math",
+            "skill": "Nonlinear functions",
+            "difficulty": "hard",
+            "prompt": "The function $f$ is defined by $f(x) = (x - 9)(x + 3)$. What is the minimum value of $f(x)$?",
+            "explanation": "The zeros are 9 and $-3$, so the vertex is halfway between them, at $x = 3$. Then $f(3) = (-6)(6) = -36$. The value 3 is where the minimum occurs, not the minimum itself, and $-27$ is $f(0)$.",
+            "choices": [
+              "$-27$",
+              "$-36$",
+              "3",
+              "$-6$"
+            ],
+            "answer": "B"
+          },
+          {
+            "id": "t6-m1-18",
+            "section": "math",
+            "skill": "Equivalent expressions",
+            "difficulty": "hard",
+            "prompt": "Which expression is equivalent to $\\dfrac{3}{x - 4} + \\dfrac{2}{x + 1}$, for $x \\neq 4$ and $x \\neq -1$?",
+            "explanation": "Use the common denominator $(x - 4)(x + 1) = x^2 - 3x - 4$: $\\dfrac{3(x + 1) + 2(x - 4)}{x^2 - 3x - 4} = \\dfrac{5x - 5}{x^2 - 3x - 4}$. Adding the numerators and denominators separately does not work.",
+            "choices": [
+              "$\\dfrac{5}{2x - 3}$",
+              "$\\dfrac{5x + 11}{x^2 - 3x - 4}$",
+              "$\\dfrac{5x - 5}{x^2 - 3x - 4}$",
+              "$\\dfrac{5}{x^2 - 3x - 4}$"
+            ],
+            "answer": "C"
+          },
+          {
+            "id": "t6-m1-19",
+            "section": "math",
+            "skill": "Right triangles and trigonometry",
+            "difficulty": "hard",
+            "prompt": "In right triangle $JKL$, angle $K$ is the right angle, $JK = 30$, and $\\sin L = \\dfrac{15}{17}$. What is the length of $KL$?",
+            "explanation": "$JK$ is opposite angle $L$, so $\\sin L = \\dfrac{JK}{JL} = \\dfrac{30}{JL} = \\dfrac{15}{17}$, which gives $JL = 34$. Then $KL = \\sqrt{34^2 - 30^2} = \\sqrt{256} = 16$.",
+            "answer": [
+              "16"
+            ]
+          },
+          {
+            "id": "t6-m1-20",
+            "section": "math",
+            "skill": "Evaluating statistical claims: observational studies and experiments",
+            "difficulty": "hard",
+            "prompt": "A researcher selected 300 students at random from a large university. Half of these students, chosen at random, used a spaced-review study app for one semester, and the other half did not use the app. The students who used the app had a significantly higher average exam score. Which conclusion is best supported by the study?",
+            "explanation": "Random assignment to use the app or not supports a conclusion about cause, and random selection from one university lets the conclusion extend to that university's students only. The association-only option ignores the random assignment.",
+            "choices": [
+              "Using the app likely causes higher exam scores among students at that university.",
+              "Using the app likely causes higher exam scores among all university students in the country.",
+              "Using the app is associated with higher exam scores, but the study cannot show that it causes them.",
+              "Every student at the university who uses the app will earn a higher exam score."
+            ],
+            "answer": "A"
+          },
+          {
+            "id": "t6-m1-21",
+            "section": "math",
+            "skill": "Circles",
+            "difficulty": "hard",
+            "prompt": "A sector of a circle with radius 6 has an area of $15\\pi$. What is the measure, in degrees, of the sector's central angle?",
+            "explanation": "The whole circle has area $\\pi (6^2) = 36\\pi$, and $\\dfrac{15\\pi}{36\\pi} = \\dfrac{5}{12}$. The central angle is $\\dfrac{5}{12}$ of $360^\\circ$, or $150^\\circ$.",
+            "choices": [
+              "150",
+              "75",
+              "135",
+              "90"
+            ],
+            "answer": "A"
+          },
+          {
+            "id": "t6-m1-22",
+            "section": "math",
+            "skill": "Nonlinear equations in one variable and systems of equations in two variables",
+            "difficulty": "hard",
+            "prompt": "$$y = x^2 + 4$$ $$y = mx$$ In the given system of equations, $m$ is a positive constant. If the graphs of the two equations intersect at exactly one point, what is the value of $m$?",
+            "explanation": "Setting $x^2 + 4 = mx$ gives $x^2 - mx + 4 = 0$. Exactly one intersection means the discriminant is 0: $m^2 - 16 = 0$. Since $m > 0$, $m = 4$.",
+            "choices": [
+              "2",
+              "8",
+              "16",
+              "4"
+            ],
+            "answer": "D"
+          }
+        ]
+      },
+      "module2": {
+        "easier": {
+          "minutes": 35,
+          "questions": [
+            {
+              "id": "t6-m2e-01",
+              "section": "math",
+              "skill": "Linear equations in one variable",
+              "difficulty": "easy",
+              "prompt": "Aziza bought 4 identical notebooks and one pen. The pen cost 6,000 so'm, and she paid 38,000 so'm in total. What was the price, in so'm, of one notebook?",
+              "explanation": "The notebooks cost $38{,}000 - 6{,}000 = 32{,}000$ so'm in total, so one notebook cost $32{,}000 \\div 4 = 8{,}000$ so'm.",
+              "choices": [
+                "8,000",
+                "9,500",
+                "11,000",
+                "32,000"
+              ],
+              "answer": "A"
+            },
+            {
+              "id": "t6-m2e-02",
+              "section": "math",
+              "skill": "Ratios, rates, proportional relationships, and units",
+              "difficulty": "easy",
+              "prompt": "A robotic arm places 18 items into boxes each minute. At this rate, how many items does the arm place into boxes in 15 minutes?",
+              "explanation": "$18 \\times 15 = 270$.",
+              "answer": [
+                "270"
+              ]
+            },
+            {
+              "id": "t6-m2e-03",
+              "section": "math",
+              "skill": "Linear functions",
+              "difficulty": "easy",
+              "prompt": "The function $f$ is defined by $f(x) = 5x + 2$. For what value of $x$ is $f(x) = 37$?",
+              "explanation": "Solve $5x + 2 = 37$: $5x = 35$, so $x = 7$. (187 is $f(37)$, not the answer.)",
+              "choices": [
+                "187",
+                "$\\dfrac{39}{5}$",
+                "7",
+                "35"
+              ],
+              "answer": "C"
+            },
+            {
+              "id": "t6-m2e-04",
+              "section": "math",
+              "skill": "Percentages",
+              "difficulty": "easy",
+              "prompt": "A textile cooperative sold 250 scarves in May, and 40% of them were made of silk. How many silk scarves did the cooperative sell in May?",
+              "explanation": "$0.40 \\times 250 = 100$.",
+              "choices": [
+                "100",
+                "40",
+                "150",
+                "210"
+              ],
+              "answer": "A"
+            },
+            {
+              "id": "t6-m2e-05",
+              "section": "math",
+              "skill": "Equivalent expressions",
+              "difficulty": "easy",
+              "prompt": "Which expression is equivalent to $3(5x - 2) + 4$?",
+              "explanation": "Distribute first: $15x - 6 + 4 = 15x - 2$.",
+              "choices": [
+                "$15x - 2$",
+                "$15x + 2$",
+                "$5x + 2$",
+                "$15x - 10$"
+              ],
+              "answer": "A"
+            },
+            {
+              "id": "t6-m2e-06",
+              "section": "math",
+              "skill": "Lines, angles, and triangles",
+              "difficulty": "easy",
+              "prompt": "Two angles are supplementary. One of the angles measures $47^\\circ$. What is the measure, in degrees, of the other angle?",
+              "explanation": "Supplementary angles add up to $180^\\circ$: $180 - 47 = 133$.",
+              "answer": [
+                "133"
+              ]
+            },
+            {
+              "id": "t6-m2e-07",
+              "section": "math",
+              "skill": "One-variable data: distributions and measures of center and spread",
+              "difficulty": "easy",
+              "prompt": "What is the median of the data set $14, 6, 11, 20, 9, 17, 3$?",
+              "explanation": "In order, the values are $3, 6, 9, 11, 14, 17, 20$. The middle (fourth) value is 11.",
+              "answer": [
+                "11"
+              ]
+            },
+            {
+              "id": "t6-m2e-08",
+              "section": "math",
+              "skill": "Linear equations in two variables",
+              "difficulty": "easy",
+              "prompt": "What is the slope of the line in the $xy$-plane that passes through the points $(-3, 10)$ and $(5, -6)$?",
+              "explanation": "$\\dfrac{-6 - 10}{5 - (-3)} = \\dfrac{-16}{8} = -2$.",
+              "choices": [
+                "2",
+                "$-\\dfrac{1}{2}$",
+                "$-16$",
+                "$-2$"
+              ],
+              "answer": "D"
+            },
+            {
+              "id": "t6-m2e-09",
+              "section": "math",
+              "skill": "Equivalent expressions",
+              "difficulty": "easy",
+              "prompt": "Which expression is equivalent to $(x^4)^3$?",
+              "explanation": "When raising a power to a power, multiply the exponents: $x^{4 \\cdot 3} = x^{12}$.",
+              "choices": [
+                "$x^{12}$",
+                "$x^7$",
+                "$x^{64}$",
+                "$3x^4$"
+              ],
+              "answer": "A"
+            },
+            {
+              "id": "t6-m2e-10",
+              "section": "math",
+              "skill": "Nonlinear functions",
+              "difficulty": "easy",
+              "prompt": "The function $h$ is defined by $h(x) = 2x^2 - 5$. What is the value of $h(3)$?",
+              "explanation": "$h(3) = 2(3^2) - 5 = 18 - 5 = 13$. Squaring $2 \\cdot 3$ instead gives the wrong answer 31.",
+              "choices": [
+                "31",
+                "13",
+                "1",
+                "12"
+              ],
+              "answer": "B"
+            },
+            {
+              "id": "t6-m2e-11",
+              "section": "math",
+              "skill": "Systems of two linear equations in two variables",
+              "difficulty": "medium",
+              "prompt": "$$x = 3y$$ $$x + 2y = 35$$ If $(x, y)$ is the solution to the given system of equations, what is the value of $y$?",
+              "explanation": "Substitute $x = 3y$: $3y + 2y = 35$, so $5y = 35$ and $y = 7$. (21 is the value of $x$.)",
+              "choices": [
+                "21",
+                "5",
+                "14",
+                "7"
+              ],
+              "answer": "D"
+            },
+            {
+              "id": "t6-m2e-12",
+              "section": "math",
+              "skill": "Linear inequalities in one or two variables",
+              "difficulty": "medium",
+              "prompt": "Dilnoza has \\$60 to spend on art supplies. She has already spent \\$12 on paints, and sketchbooks cost \\$8 each. What is the greatest number of sketchbooks she can buy?",
+              "explanation": "She needs $12 + 8s \\le 60$, so $8s \\le 48$ and $s \\le 6$.",
+              "choices": [
+                "7",
+                "6",
+                "5",
+                "9"
+              ],
+              "answer": "B"
+            },
+            {
+              "id": "t6-m2e-13",
+              "section": "math",
+              "skill": "Nonlinear equations in one variable and systems of equations in two variables",
+              "difficulty": "medium",
+              "prompt": "If $(x + 4)^2 = 36$, which of the following could be the value of $x$?",
+              "explanation": "$x + 4 = 6$ or $x + 4 = -6$, so $x = 2$ or $x = -10$. Only $-10$ is a choice.",
+              "choices": [
+                "$-2$",
+                "$-10$",
+                "10",
+                "32"
+              ],
+              "answer": "B"
+            },
+            {
+              "id": "t6-m2e-14",
+              "section": "math",
+              "skill": "Probability and conditional probability",
+              "difficulty": "medium",
+              "prompt": "A box of robot parts contains 12 red connectors, 8 blue connectors, and 20 green connectors. If one connector is chosen at random from the box, what is the probability that it is blue?",
+              "explanation": "There are $12 + 8 + 20 = 40$ connectors, and 8 are blue: $\\dfrac{8}{40} = \\dfrac{1}{5}$.",
+              "choices": [
+                "$\\dfrac{1}{4}$",
+                "$\\dfrac{2}{5}$",
+                "$\\dfrac{1}{5}$",
+                "$\\dfrac{4}{5}$"
+              ],
+              "answer": "C"
+            },
+            {
+              "id": "t6-m2e-15",
+              "section": "math",
+              "skill": "Nonlinear equations in one variable and systems of equations in two variables",
+              "difficulty": "medium",
+              "prompt": "If $2x^2 - 7 = 91$ and $x > 0$, what is the value of $x$?",
+              "explanation": "Add 7: $2x^2 = 98$. Divide by 2: $x^2 = 49$, so $x = 7$ or $x = -7$. Since $x > 0$, $x = 7$.",
+              "answer": [
+                "7"
+              ]
+            },
+            {
+              "id": "t6-m2e-16",
+              "section": "math",
+              "skill": "Equivalent expressions",
+              "difficulty": "medium",
+              "prompt": "Which expression is equivalent to $16x^2 - 81$?",
+              "explanation": "This is a difference of squares: $(4x)^2 - 9^2 = (4x - 9)(4x + 9)$.",
+              "choices": [
+                "$(4x - 9)^2$",
+                "$(16x - 9)(x + 9)$",
+                "$(8x - 9)(8x + 9)$",
+                "$(4x - 9)(4x + 9)$"
+              ],
+              "answer": "D"
+            },
+            {
+              "id": "t6-m2e-17",
+              "section": "math",
+              "skill": "Linear functions",
+              "difficulty": "medium",
+              "prompt": "The total cost $C$, in thousands of so'm, of renting a rowboat for $h$ hours is given by $C = 30h + 20$. What is the best interpretation of 20 in this context?",
+              "explanation": "The 20 is added once no matter what $h$ is, so it is a fixed charge. The 30 is the charge per hour.",
+              "choices": [
+                "A fixed charge of 20 thousand so'm paid no matter how long the boat is rented",
+                "An additional charge of 20 thousand so'm for each hour of the rental",
+                "A rental that lasts 20 hours",
+                "The total cost of renting the boat for 30 hours"
+              ],
+              "answer": "A"
+            },
+            {
+              "id": "t6-m2e-18",
+              "section": "math",
+              "skill": "Right triangles and trigonometry",
+              "difficulty": "medium",
+              "prompt": "A 29-meter cable runs from the top of a vertical pole to a point on level ground 20 meters from the base of the pole. What is the height of the pole, in meters?",
+              "explanation": "The cable is the hypotenuse: $h = \\sqrt{29^2 - 20^2} = \\sqrt{441} = 21$.",
+              "choices": [
+                "9",
+                "21",
+                "49",
+                "24"
+              ],
+              "answer": "B"
+            },
+            {
+              "id": "t6-m2e-19",
+              "section": "math",
+              "skill": "Nonlinear functions",
+              "difficulty": "medium",
+              "prompt": "A colony of yeast cells triples in size every 2 hours. If the colony has 150 cells at the start, how many cells will it have after 6 hours?",
+              "explanation": "6 hours is 3 tripling periods: $150 \\cdot 3^3 = 150 \\cdot 27 = 4{,}050$.",
+              "choices": [
+                "1,350",
+                "2,700",
+                "4,050",
+                "900"
+              ],
+              "answer": "C"
+            },
+            {
+              "id": "t6-m2e-20",
+              "section": "math",
+              "skill": "Two-variable data: models and scatterplots",
+              "difficulty": "medium",
+              "prompt": "For a group of mountain glaciers, the line of best fit relating average summer temperature $x$, in degrees Celsius, to annual thinning $y$, in meters, is $y = 0.8x + 1.2$. According to the line of best fit, by how many meters does annual thinning increase for each increase of 1 degree Celsius in average summer temperature?",
+              "explanation": "The slope, 0.8, is the change in $y$ for each increase of 1 in $x$. The 1.2 is the $y$-intercept.",
+              "choices": [
+                "1.2",
+                "2.0",
+                "1.5",
+                "0.8"
+              ],
+              "answer": "D"
+            },
+            {
+              "id": "t6-m2e-21",
+              "section": "math",
+              "skill": "Circles",
+              "difficulty": "medium",
+              "prompt": "A circular rug has a circumference of $14\\pi$ feet. What is the area of the rug, in square feet?",
+              "explanation": "$2\\pi r = 14\\pi$ gives $r = 7$, so the area is $\\pi (7^2) = 49\\pi$. Using 14 as the radius gives $196\\pi$.",
+              "choices": [
+                "$14\\pi$",
+                "$28\\pi$",
+                "$49\\pi$",
+                "$196\\pi$"
+              ],
+              "answer": "C"
+            },
+            {
+              "id": "t6-m2e-22",
+              "section": "math",
+              "skill": "Linear equations in one variable",
+              "difficulty": "medium",
+              "prompt": "If $\\dfrac{3x - 2}{4} = 10$, what is the value of $x$?",
+              "explanation": "Multiply both sides by 4: $3x - 2 = 40$, so $3x = 42$ and $x = 14$.",
+              "answer": [
+                "14"
+              ]
+            }
+          ]
+        },
+        "harder": {
+          "minutes": 35,
+          "questions": [
+            {
+              "id": "t6-m2h-01",
+              "section": "math",
+              "skill": "Linear equations in one variable",
+              "difficulty": "medium",
+              "prompt": "If $\\dfrac{2}{3}(9x - 6) = 4x + 22$, what is the value of $x$?",
+              "explanation": "Distribute: $6x - 4 = 4x + 22$. Then $2x = 26$, so $x = 13$.",
+              "answer": [
+                "13"
+              ]
+            },
+            {
+              "id": "t6-m2h-02",
+              "section": "math",
+              "skill": "Percentages",
+              "difficulty": "hard",
+              "prompt": "A store increased the price of a carpet by 30%. Later, the store decreased the new price by $p$ percent. The final price was 4% greater than the original price. What is the value of $p$?",
+              "explanation": "If the original price is 1, then $1.3\\left(1 - \\dfrac{p}{100}\\right) = 1.04$, so $1 - \\dfrac{p}{100} = 0.8$ and $p = 20$. Subtracting $30 - 4 = 26$ ignores that the decrease applies to the larger price.",
+              "answer": [
+                "20"
+              ]
+            },
+            {
+              "id": "t6-m2h-03",
+              "section": "math",
+              "skill": "Nonlinear functions",
+              "difficulty": "hard",
+              "prompt": "The graph of the quadratic function $f$ in the $xy$-plane has its vertex at $(3, -8)$ and passes through the point $(5, 4)$. What is the value of $f(0)$?",
+              "explanation": "Write $f(x) = a(x - 3)^2 - 8$. Then $4 = a(2^2) - 8$, so $a = 3$, and $f(0) = 3(-3)^2 - 8 = 19$. Assuming $a = 1$ gives the wrong answer 1.",
+              "choices": [
+                "$-8$",
+                "1",
+                "19",
+                "10"
+              ],
+              "answer": "C"
+            },
+            {
+              "id": "t6-m2h-04",
+              "section": "math",
+              "skill": "Systems of two linear equations in two variables",
+              "difficulty": "hard",
+              "prompt": "A cooperative sells silk scarves for \\$45 each and cotton scarves for \\$18 each. Last week, it sold 3 times as many cotton scarves as silk scarves, for a total of \\$1,782. How many scarves did the cooperative sell in all last week?",
+              "explanation": "Let $s$ be the number of silk scarves, so $3s$ cotton scarves were sold: $45s + 18(3s) = 99s = 1{,}782$, so $s = 18$. The total is $s + 3s = 72$. (18 and 54 are the counts of each kind.)",
+              "choices": [
+                "18",
+                "72",
+                "54",
+                "99"
+              ],
+              "answer": "B"
+            },
+            {
+              "id": "t6-m2h-05",
+              "section": "math",
+              "skill": "Nonlinear equations in one variable and systems of equations in two variables",
+              "difficulty": "hard",
+              "prompt": "What is the positive solution to the equation $\\dfrac{1}{x} + \\dfrac{2}{x + 3} = 1$?",
+              "explanation": "Multiply both sides by $x(x + 3)$: $(x + 3) + 2x = x^2 + 3x$. The $3x$ terms cancel, leaving $x^2 = 3$, so $x = \\sqrt{3}$ or $x = -\\sqrt{3}$. The positive solution is $\\sqrt{3}$.",
+              "choices": [
+                "3",
+                "$\\sqrt{6}$",
+                "$\\sqrt{3}$",
+                "$\\dfrac{3}{2}$"
+              ],
+              "answer": "C"
+            },
+            {
+              "id": "t6-m2h-06",
+              "section": "math",
+              "skill": "Nonlinear equations in one variable and systems of equations in two variables",
+              "difficulty": "hard",
+              "prompt": "What is the solution to the equation $x - 1 = \\sqrt{x + 11}$?",
+              "explanation": "Square both sides: $x^2 - 2x + 1 = x + 11$, so $x^2 - 3x - 10 = (x - 5)(x + 2) = 0$. Check both: $x = 5$ gives $4 = \\sqrt{16}$, which works, but $x = -2$ gives $-3 = \\sqrt{9} = 3$, which is false.",
+              "answer": [
+                "5"
+              ]
+            },
+            {
+              "id": "t6-m2h-07",
+              "section": "math",
+              "skill": "One-variable data: distributions and measures of center and spread",
+              "difficulty": "hard",
+              "prompt": "Data set A consists of the values $4, 9, 11, 16,$ and $20$. Data set B is created by multiplying each value in data set A by 3. Which statement correctly compares the two data sets?",
+              "explanation": "Multiplying every value by 3 multiplies the mean by 3 and also stretches the distances from the mean by 3, so the standard deviation is 3 times as large. Adding 3 to every value would leave the spread unchanged, but that is not what happened here.",
+              "choices": [
+                "The mean and the standard deviation of data set B are each 3 times those of data set A.",
+                "The mean of data set B is 3 times that of data set A, and the two standard deviations are equal.",
+                "The mean of data set B is 3 greater than that of data set A, and the two standard deviations are equal.",
+                "The two means are equal, and the standard deviation of data set B is 3 times that of data set A."
+              ],
+              "answer": "A"
+            },
+            {
+              "id": "t6-m2h-08",
+              "section": "math",
+              "skill": "Linear equations in two variables",
+              "difficulty": "hard",
+              "prompt": "Line $\\ell$ in the $xy$-plane passes through the points $(-3, 14)$ and $(5, -10)$. Line $m$ is parallel to line $\\ell$ and passes through the point $(2, 1)$. What is the $y$-coordinate of the $y$-intercept of line $m$?",
+              "explanation": "The slope of $\\ell$ is $\\dfrac{-10 - 14}{5 - (-3)} = -3$, and line $m$ has the same slope. Then $1 = -3(2) + b$, so $b = 7$. (5 is the $y$-intercept of line $\\ell$.)",
+              "choices": [
+                "5",
+                "$-5$",
+                "1",
+                "7"
+              ],
+              "answer": "D"
+            },
+            {
+              "id": "t6-m2h-09",
+              "section": "math",
+              "skill": "Circles",
+              "difficulty": "hard",
+              "prompt": "The equation $(x - 1)^2 + (y + 4)^2 = 169$ represents a circle in the $xy$-plane. Which of the following points lies on the circle?",
+              "explanation": "The center is $(1, -4)$ and the radius is 13. The point $(-11, 1)$ is $\\sqrt{(-12)^2 + 5^2} = 13$ from the center. $(11, 9)$ is 13 from $(-1, 4)$, so it comes from reading the center's signs backward.",
+              "choices": [
+                "$(11, 9)$",
+                "$(-11, 1)$",
+                "$(6, -8)$",
+                "$(14, 8)$"
+              ],
+              "answer": "B"
+            },
+            {
+              "id": "t6-m2h-10",
+              "section": "math",
+              "skill": "Nonlinear equations in one variable and systems of equations in two variables",
+              "difficulty": "hard",
+              "prompt": "$$y = 2x^2 - 5x$$ $$y = 3x - 6$$ The graphs of the given equations in the $xy$-plane intersect at two points. What is the sum of the $y$-coordinates of the two points?",
+              "explanation": "Set $2x^2 - 5x = 3x - 6$: $2x^2 - 8x + 6 = 0$, or $x^2 - 4x + 3 = (x - 1)(x - 3) = 0$. The points are $(1, -3)$ and $(3, 3)$, so the $y$-coordinates add to 0. (4 is the sum of the $x$-coordinates.)",
+              "choices": [
+                "0",
+                "4",
+                "3",
+                "$-3$"
+              ],
+              "answer": "A"
+            },
+            {
+              "id": "t6-m2h-11",
+              "section": "math",
+              "skill": "Probability and conditional probability",
+              "difficulty": "hard",
+              "prompt": "The table shows the results of a study of 80 sites near the front of a glacier, sorted by the direction each site faces and by whether the ice at the site was retreating or stable. If a site where the ice was stable is selected at random, what is the probability that the site faces north?",
+              "explanation": "Only the 29 stable sites count, and 22 of them face north: $\\dfrac{22}{29}$. $\\dfrac{11}{20}$ is the probability that a north-facing site is stable, which reverses the condition.",
+              "table": {
+                "head": [
+                  "",
+                  "Retreating",
+                  "Stable",
+                  "Total"
+                ],
+                "rows": [
+                  [
+                    "North-facing",
+                    "18",
+                    "22",
+                    "40"
+                  ],
+                  [
+                    "South-facing",
+                    "33",
+                    "7",
+                    "40"
+                  ],
+                  [
+                    "Total",
+                    "51",
+                    "29",
+                    "80"
+                  ]
+                ]
+              },
+              "choices": [
+                "$\\dfrac{11}{20}$",
+                "$\\dfrac{11}{40}$",
+                "$\\dfrac{22}{29}$",
+                "$\\dfrac{29}{80}$"
+              ],
+              "answer": "C"
+            },
+            {
+              "id": "t6-m2h-12",
+              "section": "math",
+              "skill": "Linear inequalities in one or two variables",
+              "difficulty": "hard",
+              "prompt": "A robotics team can spend at most \\$600 on motors, which cost \\$45 each, and sensors, which cost \\$20 each. The team must buy at least 4 motors and at least 6 sensors. What is the greatest number of sensors the team can buy?",
+              "explanation": "To leave the most money for sensors, buy the minimum 4 motors: $600 - 4(45) = 420$, and $420 \\div 20 = 21$ sensors. 30 ignores the required motors.",
+              "choices": [
+                "30",
+                "24",
+                "15",
+                "21"
+              ],
+              "answer": "D"
+            },
+            {
+              "id": "t6-m2h-13",
+              "section": "math",
+              "skill": "Equivalent expressions",
+              "difficulty": "hard",
+              "prompt": "For real numbers $x$ and $y$, $x^2 + y^2 = 74$ and $xy = 35$. What is the value of $(x + y)^2$?",
+              "explanation": "$(x + y)^2 = x^2 + 2xy + y^2 = (x^2 + y^2) + 2xy = 74 + 70 = 144$. There is no need to find $x$ and $y$ themselves.",
+              "answer": [
+                "144"
+              ]
+            },
+            {
+              "id": "t6-m2h-14",
+              "section": "math",
+              "skill": "Lines, angles, and triangles",
+              "difficulty": "hard",
+              "prompt": "Two parallel lines are intersected by a transversal. One of the angles formed measures $(4x + 12)^\\circ$, and another angle formed, which is not congruent to the first, measures $(2x + 18)^\\circ$. What is the value of $x$?",
+              "explanation": "When a transversal crosses two parallel lines, any two of the angles formed are either congruent or supplementary. These two are not congruent, so $(4x + 12) + (2x + 18) = 180$, which gives $6x = 150$ and $x = 25$. Setting them equal gives 3, but the angles are not congruent.",
+              "choices": [
+                "3",
+                "25",
+                "15",
+                "68"
+              ],
+              "answer": "B"
+            },
+            {
+              "id": "t6-m2h-15",
+              "section": "math",
+              "skill": "Linear functions",
+              "difficulty": "hard",
+              "prompt": "A robot's battery charge $B$, as a percent of a full charge, is modeled by $B = 96 - 0.8t$, where $t$ is the number of minutes since the robot began working. The robot must return to its charger when its battery charge reaches 20%. If the robot began working at 8:00 a.m., at what time must it return to its charger?",
+              "explanation": "Solve $96 - 0.8t = 20$: $0.8t = 76$, so $t = 95$ minutes. 95 minutes after 8:00 a.m. is 9:35 a.m. (10:00 a.m. is when the charge would reach 0%.)",
+              "choices": [
+                "10:00 a.m.",
+                "8:25 a.m.",
+                "9:35 a.m.",
+                "9:01 a.m."
+              ],
+              "answer": "C"
+            },
+            {
+              "id": "t6-m2h-16",
+              "section": "math",
+              "skill": "Nonlinear functions",
+              "difficulty": "hard",
+              "prompt": "The function $f$ is defined by $f(x) = 2^x$. The graph of $y = g(x)$ is the result of shifting the graph of $y = f(x)$ up 3 units and right 1 unit. What is the value of $g(4)$?",
+              "explanation": "Shifting right 1 and up 3 gives $g(x) = 2^{x - 1} + 3$, so $g(4) = 2^3 + 3 = 11$. Shifting left instead gives the wrong answer 35.",
+              "choices": [
+                "11",
+                "19",
+                "35",
+                "3"
+              ],
+              "answer": "A"
+            },
+            {
+              "id": "t6-m2h-17",
+              "section": "math",
+              "skill": "Right triangles and trigonometry",
+              "difficulty": "hard",
+              "prompt": "In triangle $ABC$, angle $C$ is a right angle, $\\tan A = 2.4$, and $AC = 10$. What is the perimeter of triangle $ABC$?",
+              "explanation": "$\\tan A = \\dfrac{BC}{AC}$, so $BC = 2.4 \\times 10 = 24$. Then $AB = \\sqrt{10^2 + 24^2} = 26$, and the perimeter is $10 + 24 + 26 = 60$.",
+              "answer": [
+                "60"
+              ]
+            },
+            {
+              "id": "t6-m2h-18",
+              "section": "math",
+              "skill": "Linear equations in two variables",
+              "difficulty": "hard",
+              "prompt": "A shop sells robot kits for \\$34 each and spare-part packs for \\$6 each. Amina spent exactly \\$250 on robot kits and spare-part packs, buying at least one of each. What is the greatest number of robot kits she could have bought?",
+              "explanation": "She needs $34k + 6p = 250$ with whole numbers $k, p \\ge 1$. 8 kits cost \\$272, too much. With 7 kits, $250 - 238 = 12$ buys exactly 2 packs, so 7 works. (6 kits leaves \\$46, which is not a multiple of 6.)",
+              "choices": [
+                "4",
+                "6",
+                "8",
+                "7"
+              ],
+              "answer": "D"
+            },
+            {
+              "id": "t6-m2h-19",
+              "section": "math",
+              "skill": "Ratios, rates, proportional relationships, and units",
+              "difficulty": "hard",
+              "prompt": "A baker mixes flour and sugar in a ratio of 5 to 2 by mass. The baker has 3.5 kilograms of flour and 1.2 kilograms of sugar. What is the greatest total mass, in kilograms, of the flour-and-sugar mixture the baker can make using this ratio?",
+              "explanation": "All 3.5 kg of flour would need $3.5 \\times \\dfrac{2}{5} = 1.4$ kg of sugar, which is more than the baker has, so sugar limits the mixture. 1.2 kg of sugar needs $1.2 \\times \\dfrac{5}{2} = 3$ kg of flour, for a total of $3 + 1.2 = 4.2$ kg.",
+              "answer": [
+                "4.2",
+                "21/5"
+              ]
+            },
+            {
+              "id": "t6-m2h-20",
+              "section": "math",
+              "skill": "Area and volume",
+              "difficulty": "hard",
+              "prompt": "The length, width, and height of a rectangular box are in the ratio $2 : 3 : 4$, and the volume of the box is 648 cubic centimeters. What is the total surface area of the box, in square centimeters?",
+              "explanation": "Let the dimensions be $2k$, $3k$, and $4k$: $24k^3 = 648$, so $k^3 = 27$ and $k = 3$. The box is 6 by 9 by 12, with surface area $2(54 + 72 + 108) = 468$. (234 adds the three different face areas but forgets that each appears twice.)",
+              "choices": [
+                "234",
+                "468",
+                "432",
+                "648"
+              ],
+              "answer": "B"
+            },
+            {
+              "id": "t6-m2h-21",
+              "section": "math",
+              "skill": "Nonlinear functions",
+              "difficulty": "hard",
+              "prompt": "The mass, in grams, of a growing crystal is modeled by $A(t) = 500(1.21)^{t/2}$, where $t$ is the number of days since the crystal began to form. According to the model, by what percent does the mass increase each day?",
+              "explanation": "$(1.21)^{t/2} = \\left((1.21)^{1/2}\\right)^t = (1.1)^t$, so the mass is multiplied by 1.1 each day, an increase of 10%. 10.5% wrongly halves the 21% two-day increase.",
+              "choices": [
+                "10%",
+                "21%",
+                "10.5%",
+                "42%"
+              ],
+              "answer": "A"
+            },
+            {
+              "id": "t6-m2h-22",
+              "section": "math",
+              "skill": "Linear equations in one variable",
+              "difficulty": "hard",
+              "prompt": "In the equation $5(2x - 3) + kx = 7x + 4$, $k$ is a constant. For what value of $k$ does the equation have no solution?",
+              "explanation": "The left side is $(10 + k)x - 15$. There is no solution when the $x$-terms match but the constants differ: $10 + k = 7$, so $k = -3$, and then $-15 \\neq 4$.",
+              "choices": [
+                "3",
+                "$-17$",
+                "17",
+                "$-3$"
+              ],
+              "answer": "D"
+            }
+          ]
+        }
+      }
+    }
+  ]
+}

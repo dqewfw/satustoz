@@ -1,0 +1,98 @@
+{
+  "sets": [
+    {
+      "id": "starter-rw",
+      "title": "Starter set: Reading and Writing",
+      "description": "Ten questions across all four Reading and Writing domains. A good first look at every question type.",
+      "section": "rw",
+      "file": "data/sets/starter-rw.json"
+    },
+    {
+      "id": "starter-math",
+      "title": "Starter set: Math",
+      "description": "Ten questions across algebra, advanced math, data and geometry, including typed-answer questions.",
+      "section": "math",
+      "file": "data/sets/starter-math.json"
+    }
+  ],
+  "tests": [
+    {
+      "id": "practice-test-1",
+      "title": "Practice Test 1",
+      "description": "Full-length and adaptive, like test day: 98 questions in 2 hours 14 minutes, plus a 10-minute break.",
+      "plan": "free",
+      "file": "data/tests/practice-test-1.json"
+    },
+    {
+      "id": "practice-test-2",
+      "title": "Practice Test 2",
+      "description": "Full-length and adaptive, like test day: 98 questions in 2 hours 14 minutes, plus a 10-minute break.",
+      "plan": "free",
+      "file": "data/tests/practice-test-2.json"
+    },
+    {
+      "id": "practice-test-3",
+      "title": "Practice Test 3",
+      "description": "Full-length and adaptive, like test day: 98 questions in 2 hours 14 minutes, plus a 10-minute break.",
+      "plan": "free",
+      "file": "data/tests/practice-test-3.json"
+    },
+    {
+      "id": "practice-test-4",
+      "title": "Practice Test 4",
+      "description": "Full-length and adaptive, like test day: 98 questions in 2 hours 14 minutes, plus a 10-minute break.",
+      "plan": "pro",
+      "file": "data/tests/practice-test-4.json"
+    },
+    {
+      "id": "practice-test-5",
+      "title": "Practice Test 5",
+      "description": "Full-length and adaptive, like test day: 98 questions in 2 hours 14 minutes, plus a 10-minute break.",
+      "plan": "pro",
+      "file": "data/tests/practice-test-5.json"
+    },
+    {
+      "id": "practice-test-6",
+      "title": "Practice Test 6",
+      "description": "Full-length and adaptive, like test day: 98 questions in 2 hours 14 minutes, plus a 10-minute break.",
+      "plan": "pro",
+      "file": "data/tests/practice-test-6.json"
+    },
+    {
+      "id": "practice-test-7",
+      "title": "Practice Test 7",
+      "description": "Full-length and adaptive, like test day: 98 questions in 2 hours 14 minutes, plus a 10-minute break.",
+      "plan": "pro",
+      "file": "data/tests/practice-test-7.json"
+    },
+    {
+      "id": "practice-test-8",
+      "title": "Practice Test 8",
+      "description": "Full-length and adaptive, like test day: 98 questions in 2 hours 14 minutes, plus a 10-minute break.",
+      "plan": "pro",
+      "file": "data/tests/practice-test-8.json"
+    },
+    {
+      "id": "practice-test-9",
+      "title": "Practice Test 9",
+      "description": "Full-length and adaptive, like test day: 98 questions in 2 hours 14 minutes, plus a 10-minute break.",
+      "plan": "pro",
+      "file": "data/tests/practice-test-9.json"
+    },
+    {
+      "id": "practice-test-10",
+      "title": "Practice Test 10",
+      "description": "Full-length and adaptive, like test day: 98 questions in 2 hours 14 minutes, plus a 10-minute break.",
+      "plan": "pro",
+      "file": "data/tests/practice-test-10.json"
+    },
+    {
+      "id": "diagnostic-mini",
+      "title": "Mini diagnostic test",
+      "description": "A shortened adaptive test (8 Reading and Writing and 6 Math questions per module) to try the full test-day flow in about 50 minutes.",
+      "plan": "free",
+      "kind": "mini",
+      "file": "data/tests/diagnostic-mini.json"
+    }
+  ]
+}

@@ -1,0 +1,2436 @@
+{
+  "id": "practice-test-5",
+  "title": "Practice Test 5",
+  "description": "A full-length adaptive digital SAT practice test written by SAT Ustoz: 98 questions, two modules per section, with an explanation for every question.",
+  "routing": {
+    "threshold": 0.6
+  },
+  "breakMinutes": 10,
+  "sections": [
+    {
+      "id": "rw",
+      "title": "Reading and Writing",
+      "module1": {
+        "minutes": 32,
+        "questions": [
+          {
+            "id": "t5-rw1-01",
+            "section": "rw",
+            "skill": "Words in Context",
+            "difficulty": "easy",
+            "passage": "Pumice, a volcanic rock filled with tiny gas bubbles, is remarkably ______: some pieces float on the ocean for months, drifting thousands of kilometers before they finally sink.",
+            "prompt": "Which choice completes the text with the most logical and precise word or phrase?",
+            "choices": [
+              "dense",
+              "lightweight",
+              "colorful",
+              "ancient"
+            ],
+            "answer": "B",
+            "explanation": "Rock that floats for months must be very light for its size, so it is **lightweight**. *Dense* is the opposite."
+          },
+          {
+            "id": "t5-rw1-02",
+            "section": "rw",
+            "skill": "Words in Context",
+            "difficulty": "medium",
+            "passage": "In the earliest years of cinema, most filmmakers kept the camera ______, recording each scene from a single fixed spot as if filming a stage play. Only later did directors begin to move the camera to follow the action.",
+            "prompt": "Which choice completes the text with the most logical and precise word or phrase?",
+            "choices": [
+              "hidden",
+              "stationary",
+              "affordable",
+              "unreliable"
+            ],
+            "answer": "B",
+            "explanation": "Filming \"from a single fixed spot\" means the camera did not move, so it was **stationary**. The next sentence confirms this: only later did cameras move."
+          },
+          {
+            "id": "t5-rw1-03",
+            "section": "rw",
+            "skill": "Words in Context",
+            "difficulty": "medium",
+            "passage": "Leafcutter ants do not eat the leaves they carry back to their nests. Instead, they use the chopped leaves to ______ a fungus, which they tend in underground chambers and which serves as the colony's main food.",
+            "prompt": "Which choice completes the text with the most logical and precise word or phrase?",
+            "choices": [
+              "conceal",
+              "imitate",
+              "discard",
+              "cultivate"
+            ],
+            "answer": "D",
+            "explanation": "The ants feed the leaves to a fungus and tend it as food, the way a farmer raises a crop, so they **cultivate** it."
+          },
+          {
+            "id": "t5-rw1-04",
+            "section": "rw",
+            "skill": "Words in Context",
+            "difficulty": "hard",
+            "passage": "Economist Farrukh Jurayev cautions that a falling unemployment rate is not always ______ evidence of a strengthening labor market: the rate also falls when discouraged job seekers stop looking for work, since people who are not looking are no longer counted as unemployed.",
+            "prompt": "Which choice completes the text with the most logical and precise word or phrase?",
+            "choices": [
+              "unambiguous",
+              "anecdotal",
+              "inadvertent",
+              "obsolete"
+            ],
+            "answer": "A",
+            "explanation": "A falling rate can mean either more jobs or more people giving up, so it is not **unambiguous** (open to only one reading). *Anecdotal* evidence comes from personal stories, which an unemployment rate is not."
+          },
+          {
+            "id": "t5-rw1-05",
+            "section": "rw",
+            "skill": "Text Structure and Purpose",
+            "difficulty": "medium",
+            "passage": "Many dung beetles roll balls of dung away from crowded dung piles, where rivals might steal them, and they travel in remarkably straight lines while doing so. Researchers have long known that the beetles can keep their bearings using the Sun or the Moon. __Some beetles, however, stay on course even on moonless nights, when neither is visible.__ Experiments in a planetarium later showed that these beetles can orient themselves using the faint band of light from the Milky Way.",
+            "prompt": "Which choice best describes the function of the underlined sentence in the text as a whole?",
+            "choices": [
+              "It presents an observation that the explanation in the previous sentence cannot fully account for.",
+              "It offers evidence that dung beetles depend mainly on the Moon to navigate.",
+              "It describes a flaw in the planetarium experiments mentioned in the final sentence.",
+              "It explains why dung beetles move their dung away from crowded piles."
+            ],
+            "answer": "A",
+            "explanation": "The Sun-and-Moon explanation cannot explain straight travel on moonless nights. The underlined sentence raises that puzzle, which the planetarium experiments then solve."
+          },
+          {
+            "id": "t5-rw1-06",
+            "section": "rw",
+            "skill": "Text Structure and Purpose",
+            "difficulty": "hard",
+            "passage": "Film histories often describe the arrival of synchronized sound in the late 1920s as a sudden revolution that ended the silent era almost overnight. Historian Kamola Yusupova points out, however, that many theaters in smaller towns went on showing silent films for years, because installing sound equipment was expensive. In her view, the shift to sound was less a single turning point than a gradual process whose pace depended on local economic conditions.",
+            "prompt": "Which choice best states the main purpose of the text?",
+            "choices": [
+              "To argue that synchronized sound had little lasting influence on the way films were made",
+              "To explain why theaters in large cities adopted sound equipment before the technology was reliable",
+              "To present a historian's view that a major change in cinema spread more gradually and unevenly than is often assumed",
+              "To criticize film historians for overlooking the artistic achievements of silent films"
+            ],
+            "answer": "C",
+            "explanation": "The text sets up the \"sudden revolution\" story and then gives Yusupova's view that the change was gradual and depended on local conditions. She never says sound had *little lasting influence*, only that it spread slowly."
+          },
+          {
+            "id": "t5-rw1-07",
+            "section": "rw",
+            "skill": "Cross-Text Connections",
+            "difficulty": "hard",
+            "passage": "**Text 1**\nVolcanologists have traditionally treated a sharp rise in small earthquakes beneath a volcano as the most dependable sign that an eruption is near. The quakes, the reasoning goes, occur as rising magma forces its way through the surrounding rock.\n\n**Text 2**\nGeophysicist Eldor Nasriddinov and colleagues reviewed monitoring records from dozens of volcanoes. Swarms of small earthquakes came before many eruptions, but they also occurred often with no eruption following. Swarms accompanied by measurable swelling of the ground, however, were far more likely to end in eruptions, so the team recommends tracking both signals together.",
+            "prompt": "Based on the texts, how would Nasriddinov and colleagues (Text 2) most likely respond to the traditional view described in Text 1?",
+            "choices": [
+              "By claiming that earthquakes beneath volcanoes are not caused by rising magma",
+              "By arguing that earthquake swarms are a less dependable warning on their own than that view assumes, though they become more informative when combined with evidence of ground swelling",
+              "By agreeing that earthquake swarms reliably signal an eruption whenever they occur",
+              "By recommending that monitoring of ground swelling replace earthquake monitoring entirely"
+            ],
+            "answer": "B",
+            "explanation": "Text 2 found many swarms with no eruption afterward, so swarms alone are less reliable than Text 1 assumes. The team still uses them, together with ground swelling, which rules out *replace earthquake monitoring entirely*."
+          },
+          {
+            "id": "t5-rw1-08",
+            "section": "rw",
+            "skill": "Central Ideas and Details",
+            "difficulty": "easy",
+            "passage": "The Tian Shan mountains stretch for about 2,500 kilometers across Central Asia, from China through Kyrgyzstan and Kazakhstan into eastern Uzbekistan. Although they formed long ago, the mountains are still rising. The slow collision between the Indian and Eurasian tectonic plates continues to squeeze the region, pushing the ranges upward and causing frequent earthquakes.",
+            "prompt": "Which choice best states the main idea of the text?",
+            "choices": [
+              "The Tian Shan are the tallest mountains in Central Asia.",
+              "The Tian Shan mountains continue to rise because of an ongoing collision between tectonic plates.",
+              "Earthquakes in the Tian Shan have become less common over time.",
+              "The Indian and Eurasian plates stopped moving long ago."
+            ],
+            "answer": "B",
+            "explanation": "The text says the mountains are **still rising** and explains why: the plates are still colliding. The other choices are not stated or contradict the text."
+          },
+          {
+            "id": "t5-rw1-09",
+            "section": "rw",
+            "skill": "Central Ideas and Details",
+            "difficulty": "medium",
+            "passage": "The following text is from a short story. Saida, a set designer, is visiting the film studio where her father once worked.\n\nThe studio's backlot was quieter than Saida remembered. The painted street where her father had built shopfronts out of plywood was still standing, though its colors had faded to the gray of old photographs. She pressed her palm against a door that had never opened onto anything and was surprised to find that it still felt, somehow, like the entrance to somewhere.",
+            "prompt": "Which choice best states the main idea of the text?",
+            "choices": [
+              "Although the old set is faded and was never real, it still gives Saida a sense of possibility.",
+              "Saida is upset to discover that her father's street set has been torn down.",
+              "Saida realizes that her father built his sets carelessly.",
+              "Saida decides to repaint the street set in its original colors."
+            ],
+            "answer": "A",
+            "explanation": "The set is faded and the door leads nowhere, yet it still feels like \"the entrance to somewhere.\" The set is still standing, so it was not torn down."
+          },
+          {
+            "id": "t5-rw1-10",
+            "section": "rw",
+            "skill": "Command of Evidence: Textual",
+            "difficulty": "medium",
+            "passage": "Entomologist Gulshan Ahmedova hypothesizes that males of a certain firefly species flash in unison because females of the species respond more readily to many lights flashing together than to scattered, unsynchronized flashes.",
+            "prompt": "Which finding, if true, would most directly support Ahmedova's hypothesis?",
+            "choices": [
+              "Males of the species flash more often on warm nights than on cool nights.",
+              "In a laboratory, females flashed back more often at groups of small lights blinking in unison than at the same number of lights blinking at random times.",
+              "Synchronized flashing has been observed in several firefly species on different continents.",
+              "Females of the species fly shorter distances than males do."
+            ],
+            "answer": "B",
+            "explanation": "The hypothesis is about how females respond. Only this finding compares female responses to synchronized and random flashing, and females preferred the synchronized lights."
+          },
+          {
+            "id": "t5-rw1-11",
+            "section": "rw",
+            "skill": "Command of Evidence: Textual",
+            "difficulty": "hard",
+            "passage": "Studying a region where several large warehouses opened within two years, economist Nilufar Haydarova argues that the warehouses raised wages not only for their own employees but also for workers at nearby retail stores, which had to raise pay to keep employees from leaving for warehouse jobs.",
+            "prompt": "Which finding, if true, would most directly support Haydarova's argument?",
+            "choices": [
+              "Warehouse employees in the region earned more per hour than retail employees did both before and after the warehouses opened.",
+              "Several retail stores in the region closed during the two years in which the warehouses opened.",
+              "Most people hired by the new warehouses had been unemployed rather than working in retail.",
+              "Retail wages rose faster in towns within commuting distance of the new warehouses than in similar towns farther away, and the gap appeared only after the warehouses began hiring."
+            ],
+            "answer": "D",
+            "explanation": "The argument is about a spillover to retail pay. Only this finding ties faster retail wage growth to nearness to the warehouses and to the timing of their hiring. The finding about previously unemployed hires would weaken the argument."
+          },
+          {
+            "id": "t5-rw1-12",
+            "section": "rw",
+            "skill": "Command of Evidence: Quantitative",
+            "difficulty": "medium",
+            "passage": "Architecture students measured indoor temperatures at 3:00 p.m. on a hot July day in four buildings in Bukhara. They note that the building with the thickest walls was the coolest, but that wall thickness alone does not explain their results: ______",
+            "prompt": "Which choice most effectively uses data from the table to complete the statement?",
+            "choices": [
+              "the caravanserai, with walls 90 centimeters thick, was 27°C at 3:00 p.m.",
+              "the apartment block had the thinnest walls of the four buildings, at 30 centimeters.",
+              "the office without a courtyard was the warmest of the four buildings, at 34°C.",
+              "the two offices had walls of the same thickness, yet the office with a courtyard was 6 degrees cooler than the one without."
+            ],
+            "answer": "D",
+            "explanation": "To show that thickness alone does not explain the temperatures, you need buildings with equal walls but different temperatures. Both offices have 40 cm walls, yet they differ by 34 − 28 = 6 degrees.",
+            "table": {
+              "title": "Wall thickness and indoor temperature at 3:00 p.m.",
+              "head": [
+                "Building",
+                "Wall thickness (cm)",
+                "Indoor temperature (°C)"
+              ],
+              "rows": [
+                [
+                  "Caravanserai (16th century)",
+                  "90",
+                  "27"
+                ],
+                [
+                  "Apartment block (1970s)",
+                  "30",
+                  "33"
+                ],
+                [
+                  "Office with courtyard (2015)",
+                  "40",
+                  "28"
+                ],
+                [
+                  "Office without courtyard (2016)",
+                  "40",
+                  "34"
+                ]
+              ]
+            }
+          },
+          {
+            "id": "t5-rw1-13",
+            "section": "rw",
+            "skill": "Inferences",
+            "difficulty": "medium",
+            "passage": "Volcanic ash that falls on farmland can damage crops in the short term, but it also contains minerals, such as potassium and phosphorus, that plants need. Over years and decades, the ash weathers and releases these minerals into the soil. This helps explain why farmers in many volcanic regions ______",
+            "prompt": "Which choice most logically completes the text?",
+            "choices": [
+              "continue to cultivate land on the slopes of active volcanoes despite the risk of eruptions.",
+              "avoid planting crops in soil that contains volcanic ash.",
+              "harvest their largest crops in the year immediately after an eruption.",
+              "rarely experience crop damage from eruptions."
+            ],
+            "answer": "A",
+            "explanation": "Over time, ash makes the soil fertile, which explains why farmers stay on volcanic slopes. The text says fresh ash damages crops, so the year right after an eruption would not bring the best harvest."
+          },
+          {
+            "id": "t5-rw1-14",
+            "section": "rw",
+            "skill": "Inferences",
+            "difficulty": "hard",
+            "passage": "In some species of paper wasp, several queens often start a nest together and settle conflicts through a dominance hierarchy, in which each wasp must keep track of which rivals it has already fought. Biologists have found that one such species has highly variable facial markings, and its members can learn to recognize one another's faces. A closely related species whose queens almost always start nests alone has nearly uniform faces, and its members perform poorly on face-learning tests. These findings suggest that ______",
+            "prompt": "Which choice most logically completes the text?",
+            "choices": [
+              "facial markings in paper wasps serve mainly to attract mates.",
+              "paper wasps that start nests alone are less intelligent in general than those that start nests in groups.",
+              "the ability to recognize individuals may have developed in the first species because living among rival queens made that ability useful.",
+              "the second species will develop variable facial markings if its queens begin starting nests together."
+            ],
+            "answer": "C",
+            "explanation": "Face recognition shows up in the species whose queens must keep track of rivals and not in the species whose queens live alone, which suggests the social setting made it useful. The findings concern face learning only, not *intelligence in general*."
+          },
+          {
+            "id": "t5-rw1-15",
+            "section": "rw",
+            "skill": "Boundaries",
+            "difficulty": "easy",
+            "passage": "The documentary Snow Line was filmed entirely in the mountains near ______ the crew spent four months living in tents above the tree line.",
+            "prompt": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+            "choices": [
+              "Chimgan,",
+              "Chimgan",
+              "Chimgan;",
+              "Chimgan, in fact,"
+            ],
+            "answer": "C",
+            "explanation": "Both parts are complete sentences, so they need a semicolon. A comma alone, even with *in fact*, creates a comma splice."
+          },
+          {
+            "id": "t5-rw1-16",
+            "section": "rw",
+            "skill": "Boundaries",
+            "difficulty": "medium",
+            "passage": "Built in the tenth century, the Samanid Mausoleum in ______ is one of the oldest surviving examples of baked-brick architecture in Central Asia.",
+            "prompt": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+            "choices": [
+              "Bukhara,",
+              "Bukhara;",
+              "Bukhara:",
+              "Bukhara"
+            ],
+            "answer": "D",
+            "explanation": "No punctuation belongs between the subject (\"the Samanid Mausoleum in Bukhara\") and its verb \"is.\""
+          },
+          {
+            "id": "t5-rw1-17",
+            "section": "rw",
+            "skill": "Boundaries",
+            "difficulty": "medium",
+            "passage": "The desert ______ which can travel up to 150 kilometers in a single day as part of a swarm, is one of the most destructive agricultural pests in the world.",
+            "prompt": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+            "choices": [
+              "locust",
+              "locust;",
+              "locust,",
+              "locust:"
+            ],
+            "answer": "C",
+            "explanation": "The \"which\" clause adds extra information and is closed by the comma after \"swarm,\" so it must open with a comma too."
+          },
+          {
+            "id": "t5-rw1-18",
+            "section": "rw",
+            "skill": "Boundaries",
+            "difficulty": "hard",
+            "passage": "Early sound-film cameras were so noisy that microphones on the set picked up their ______ studios placed each camera, along with its operator, inside a soundproof booth.",
+            "prompt": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+            "choices": [
+              "whirring; as a result,",
+              "whirring, as a result,",
+              "whirring as a result,",
+              "whirring, as a result;"
+            ],
+            "answer": "A",
+            "explanation": "Two complete sentences joined by the transition \"as a result\" need a semicolon before it and a comma after it. The other choices create a comma splice or put the semicolon in the wrong place."
+          },
+          {
+            "id": "t5-rw1-19",
+            "section": "rw",
+            "skill": "Form, Structure, and Sense",
+            "difficulty": "easy",
+            "passage": "The ants in a single army ant colony ______ able to link their bodies together to form living bridges across gaps on the forest floor.",
+            "prompt": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+            "choices": [
+              "is",
+              "was being",
+              "has been",
+              "are"
+            ],
+            "answer": "D",
+            "explanation": "The subject is the plural \"ants,\" not \"colony,\" so the verb is **are**."
+          },
+          {
+            "id": "t5-rw1-20",
+            "section": "rw",
+            "skill": "Form, Structure, and Sense",
+            "difficulty": "medium",
+            "passage": "When their studio closed in 1961, the two ______ hand-cranked cameras, which had been used to film nearly every scene of their early comedies, were donated to a museum in Tashkent.",
+            "prompt": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+            "choices": [
+              "directors'",
+              "director's",
+              "directors",
+              "directors's"
+            ],
+            "answer": "A",
+            "explanation": "The cameras belong to two directors (\"their early comedies\"), so the plural possessive **directors'** is needed."
+          },
+          {
+            "id": "t5-rw1-21",
+            "section": "rw",
+            "skill": "Form, Structure, and Sense",
+            "difficulty": "hard",
+            "passage": "Among the most unusual features of architect Lola Mirzayeva's design for a new library in Samarkand ______ a roof assembled from thousands of interlocking ceramic tiles.",
+            "prompt": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+            "choices": [
+              "is",
+              "are",
+              "were",
+              "have been"
+            ],
+            "answer": "A",
+            "explanation": "The sentence is inverted: the subject, \"a roof,\" comes after the verb and is singular, so the verb is **is**. \"Features\" is not the subject."
+          },
+          {
+            "id": "t5-rw1-22",
+            "section": "rw",
+            "skill": "Transitions",
+            "difficulty": "easy",
+            "passage": "Large volcanic eruptions can send sulfur dioxide high into the atmosphere, where it forms tiny droplets that reflect sunlight back into space. ______ a major eruption is sometimes followed by a year or two of slightly cooler temperatures around the world.",
+            "prompt": "Which choice completes the text with the most logical transition?",
+            "choices": [
+              "In contrast,",
+              "For instance,",
+              "Even so,",
+              "Consequently,"
+            ],
+            "answer": "D",
+            "explanation": "Cooler temperatures are a result of the droplets reflecting sunlight, so **Consequently** fits."
+          },
+          {
+            "id": "t5-rw1-23",
+            "section": "rw",
+            "skill": "Transitions",
+            "difficulty": "medium",
+            "passage": "Most animated films of the 1930s were made from drawings, with each frame drawn and painted by hand. Stop-motion animators, ______ built small physical models and photographed them, moving each figure slightly between shots.",
+            "prompt": "Which choice completes the text with the most logical transition?",
+            "choices": [
+              "for example,",
+              "therefore,",
+              "by contrast,",
+              "in addition,"
+            ],
+            "answer": "C",
+            "explanation": "Stop-motion used models instead of drawings, which contrasts with the method in the first sentence."
+          },
+          {
+            "id": "t5-rw1-24",
+            "section": "rw",
+            "skill": "Transitions",
+            "difficulty": "hard",
+            "passage": "When a supermarket chain installed self-checkout machines, analysts predicted that it would sharply cut its workforce. The number of cashier positions at the chain did decline. ______ total employment at its stores held steady, because many workers who had once operated registers moved into jobs restocking shelves, helping customers, and preparing online orders.",
+            "prompt": "Which choice completes the text with the most logical transition?",
+            "choices": [
+              "Accordingly,",
+              "In other words,",
+              "Moreover,",
+              "Even so,"
+            ],
+            "answer": "D",
+            "explanation": "The text grants that cashier jobs fell, then says total jobs held steady anyway, so a concession like **Even so** is needed. *Accordingly* would wrongly present steady employment as a result of the decline."
+          },
+          {
+            "id": "t5-rw1-25",
+            "section": "rw",
+            "skill": "Rhetorical Synthesis",
+            "difficulty": "medium",
+            "passage": "While researching a topic, a student has taken the following notes:\n\n• Air moves through networks of tunnels in some termite mounds, helping to regulate conditions inside.\n• The Eastgate Centre is an office and shopping complex in Harare, Zimbabwe, that opened in 1996.\n• Its ventilation system was modeled on the way air circulates through termite mounds.\n• The building uses much less energy for cooling than conventional buildings of similar size.",
+            "prompt": "The student wants to explain what inspired the design of the Eastgate Centre's ventilation system. Which choice most effectively uses relevant information from the notes to accomplish this goal?",
+            "choices": [
+              "The Eastgate Centre, an office and shopping complex in Harare, Zimbabwe, opened in 1996.",
+              "The ventilation system of the Eastgate Centre in Harare, Zimbabwe, was modeled on the way air circulates through termite mounds.",
+              "Air moves through networks of tunnels in some termite mounds.",
+              "The Eastgate Centre uses much less energy for cooling than conventional buildings of similar size."
+            ],
+            "answer": "B",
+            "explanation": "Only this choice names the source of the design idea: the way air moves through termite mounds."
+          },
+          {
+            "id": "t5-rw1-26",
+            "section": "rw",
+            "skill": "Rhetorical Synthesis",
+            "difficulty": "medium",
+            "passage": "While researching a topic, a student has taken the following notes:\n\n• Researchers surveyed 1,500 workers in three cities about how they found their current jobs.\n• 46% found their jobs through friends or relatives.\n• 31% found their jobs through online job sites.\n• 23% found their jobs through other means, such as job fairs or newspaper ads.",
+            "prompt": "The student wants to emphasize the importance of personal connections in finding a job. Which choice most effectively uses relevant information from the notes to accomplish this goal?",
+            "choices": [
+              "Researchers surveyed 1,500 workers in three cities about how they found their current jobs.",
+              "Of the workers surveyed, 31% found their jobs through online job sites.",
+              "Nearly half of the workers surveyed (46%) found their current jobs through friends or relatives, more than through any other method.",
+              "Some workers found their jobs through job fairs or newspaper ads."
+            ],
+            "answer": "C",
+            "explanation": "Friends and relatives are personal connections, and 46% is the largest share. Only this choice makes that point."
+          },
+          {
+            "id": "t5-rw1-27",
+            "section": "rw",
+            "skill": "Rhetorical Synthesis",
+            "difficulty": "medium",
+            "passage": "While researching a topic, a student has taken the following notes:\n\n• Mauna Loa, on the island of Hawaii, is a shield volcano.\n• Shield volcanoes erupt runny lava that spreads over wide areas, building broad mountains with gentle slopes.\n• Mayon, in the Philippines, is a stratovolcano.\n• Stratovolcanoes erupt thicker lava and ash that pile up in layers, building steep, cone-shaped mountains.",
+            "prompt": "The student wants to contrast the shapes of the two volcanoes and explain the difference. Which choice most effectively uses relevant information from the notes to accomplish this goal?",
+            "choices": [
+              "Mauna Loa and Mayon are both volcanoes, one in Hawaii and the other in the Philippines.",
+              "Mauna Loa, a shield volcano, has broad, gentle slopes built by runny lava that spreads widely, whereas Mayon, a stratovolcano, is steep and cone-shaped because thicker lava and ash pile up in layers.",
+              "Mayon, a stratovolcano in the Philippines, erupts thicker lava and ash that pile up in layers.",
+              "Shield volcanoes such as Mauna Loa erupt runny lava that spreads over wide areas."
+            ],
+            "answer": "B",
+            "explanation": "The goal has two parts: contrast the shapes and explain the difference. Only this choice describes both volcanoes' shapes and the kind of eruption that builds each."
+          }
+        ]
+      },
+      "module2": {
+        "easier": {
+          "minutes": 32,
+          "questions": [
+            {
+              "id": "t5-rw2e-01",
+              "section": "rw",
+              "skill": "Words in Context",
+              "difficulty": "easy",
+              "passage": "The architect chose large south-facing windows so that the classrooms would be ______ with natural light, even on short winter days.",
+              "prompt": "Which choice completes the text with the most logical and precise word or phrase?",
+              "choices": [
+                "filled",
+                "darkened",
+                "decorated",
+                "measured"
+              ],
+              "answer": "A",
+              "explanation": "Large windows let in light, so the rooms would be **filled** with it. *Darkened* is the opposite."
+            },
+            {
+              "id": "t5-rw2e-02",
+              "section": "rw",
+              "skill": "Words in Context",
+              "difficulty": "easy",
+              "passage": "Crickets are most ______ at night: during the day they hide under rocks and leaves, but after sunset the males begin chirping loudly to attract mates.",
+              "prompt": "Which choice completes the text with the most logical and precise word or phrase?",
+              "choices": [
+                "active",
+                "silent",
+                "fragile",
+                "colorful"
+              ],
+              "answer": "A",
+              "explanation": "Hiding by day and chirping after sunset means crickets do most of their activity at night, so they are most **active** then."
+            },
+            {
+              "id": "t5-rw2e-03",
+              "section": "rw",
+              "skill": "Words in Context",
+              "difficulty": "medium",
+              "passage": "The director was famously ______ about details: she once reshot an entire scene because a clock in the background showed the wrong time.",
+              "prompt": "Which choice completes the text with the most logical and precise word or phrase?",
+              "choices": [
+                "careless",
+                "cheerful",
+                "meticulous",
+                "uncertain"
+              ],
+              "answer": "C",
+              "explanation": "Reshooting a scene over a small clock error shows extreme care with details, which is what **meticulous** means. *Careless* is the opposite."
+            },
+            {
+              "id": "t5-rw2e-04",
+              "section": "rw",
+              "skill": "Words in Context",
+              "difficulty": "medium",
+              "passage": "Although the factory's owners expected the new machines to ______ the need for workers, the plant actually hired more employees, because the machines allowed it to accept far more orders.",
+              "prompt": "Which choice completes the text with the most logical and precise word or phrase?",
+              "choices": [
+                "celebrate",
+                "conceal",
+                "eliminate",
+                "postpone"
+              ],
+              "answer": "C",
+              "explanation": "\"Although\" sets up a contrast with hiring more workers, so the owners expected the machines to remove, or **eliminate**, the need for workers."
+            },
+            {
+              "id": "t5-rw2e-05",
+              "section": "rw",
+              "skill": "Text Structure and Purpose",
+              "difficulty": "easy",
+              "passage": "Geysers form where underground water is heated by hot rock deep below the surface. As the water heats, pressure builds in narrow underground channels until water and steam burst upward through an opening in the ground. The eruption releases the pressure, and the cycle begins again as the channels refill with water.",
+              "prompt": "Which choice best states the main purpose of the text?",
+              "choices": [
+                "To argue that geysers should be protected from tourists",
+                "To explain the process that causes geysers to erupt",
+                "To compare geysers with volcanoes",
+                "To describe where the world's largest geysers are found"
+              ],
+              "answer": "B",
+              "explanation": "The text walks through the steps of an eruption, from heating to pressure to release, so its purpose is to explain how geysers erupt."
+            },
+            {
+              "id": "t5-rw2e-06",
+              "section": "rw",
+              "skill": "Text Structure and Purpose",
+              "difficulty": "medium",
+              "passage": "Traditional houses in the old quarters of Bukhara were built around an inner courtyard. __Their thick mud-brick walls facing the street usually had few or no windows.__ This design kept hot, dusty street air out while letting light and breezes reach the rooms from the shaded courtyard.",
+              "prompt": "Which choice best describes the function of the underlined sentence in the text as a whole?",
+              "choices": [
+                "It introduces a problem that the houses' builders were unable to solve.",
+                "It compares the houses of Bukhara with those of other cities.",
+                "It describes a feature of the houses that the final sentence then explains.",
+                "It explains why few houses in Bukhara had courtyards."
+              ],
+              "answer": "C",
+              "explanation": "The underlined sentence describes the windowless street walls, and the last sentence explains why they were built that way (\"This design kept hot, dusty street air out\")."
+            },
+            {
+              "id": "t5-rw2e-07",
+              "section": "rw",
+              "skill": "Cross-Text Connections",
+              "difficulty": "medium",
+              "passage": "**Text 1**\nSome film distributors argue that black-and-white classics seem old-fashioned to modern viewers and that these films should be digitally colorized so that more people will watch them.\n\n**Text 2**\nFilm historian Sherzod Turgunov points out that the makers of black-and-white films planned their lighting, sets, and costumes for a world without color. A costume that looked striking in shades of gray might have been an unappealing color in real life. Adding color afterward, he argues, replaces the look the filmmakers carefully designed with one they never intended.",
+              "prompt": "Based on the texts, how would Turgunov (Text 2) most likely respond to the distributors' proposal in Text 1?",
+              "choices": [
+                "By agreeing that colorized versions would attract larger audiences to classic films",
+                "By arguing that colorizing the films would alter visual choices that the original filmmakers made deliberately",
+                "By claiming that modern viewers prefer black-and-white films to color films",
+                "By suggesting that black-and-white films were cheaper to make than color films"
+              ],
+              "answer": "B",
+              "explanation": "Turgunov says filmmakers designed their films for black and white, so adding color changes what they intended. That is an objection to the distributors' plan."
+            },
+            {
+              "id": "t5-rw2e-08",
+              "section": "rw",
+              "skill": "Central Ideas and Details",
+              "difficulty": "easy",
+              "passage": "Caddisfly larvae live on the bottoms of streams, where they face hungry fish and strong currents. To protect themselves, many species build portable cases around their bodies, gluing together grains of sand, tiny pebbles, or bits of plants with a silk they produce. The larvae carry these cases with them as they move and enlarge them as they grow.",
+              "prompt": "Which choice best states the main idea of the text?",
+              "choices": [
+                "Caddisfly larvae are the main food of most stream fish.",
+                "Caddisflies spend their entire lives as larvae.",
+                "Caddisfly larvae avoid streams with strong currents.",
+                "Many caddisfly larvae protect themselves by building cases from materials found in their surroundings."
+              ],
+              "answer": "D",
+              "explanation": "Every sentence after the first describes the protective cases the larvae build from sand, pebbles, or plants."
+            },
+            {
+              "id": "t5-rw2e-09",
+              "section": "rw",
+              "skill": "Central Ideas and Details",
+              "difficulty": "medium",
+              "passage": "The following text is from a short story. Nargiza, a young engineer, is starting her first job at a construction site.\n\nOn her first morning, Nargiza arrived with a new hard hat and a folder of drawings she had checked three times. The foreman glanced at the folder, then handed it back without opening it. \"Drawings are what we hope will happen,\" he said, nodding toward the half-finished walls. \"Spend today watching what actually does.\"",
+              "prompt": "Which choice best states the main idea of the text?",
+              "choices": [
+                "A foreman suggests that Nargiza will learn more by watching the work on the site than by studying her plans.",
+                "Nargiza is criticized for the errors in her drawings.",
+                "The foreman refuses to let Nargiza work at the site.",
+                "Nargiza decides that her engineering training was a waste of time."
+              ],
+              "answer": "A",
+              "explanation": "The foreman contrasts plans (\"what we hope will happen\") with real work (\"what actually does\") and tells her to watch. He never opens the folder, so he points out no errors."
+            },
+            {
+              "id": "t5-rw2e-10",
+              "section": "rw",
+              "skill": "Command of Evidence: Textual",
+              "difficulty": "easy",
+              "passage": "A human resources researcher hypothesizes that employees who are allowed to choose their own working hours take fewer sick days than employees with fixed schedules.",
+              "prompt": "Which finding, if true, would most directly support the researcher's hypothesis?",
+              "choices": [
+                "Employees with flexible hours said that they enjoyed their jobs.",
+                "Most employees at the company preferred to start work early in the morning.",
+                "Employees with fixed schedules worked in larger offices than employees with flexible hours.",
+                "At one company, employees with flexible hours took an average of 4 sick days per year, compared with 7 for employees with fixed schedules."
+              ],
+              "answer": "D",
+              "explanation": "Only this choice compares sick days for the two kinds of schedules, and the flexible group took fewer."
+            },
+            {
+              "id": "t5-rw2e-11",
+              "section": "rw",
+              "skill": "Command of Evidence: Textual",
+              "difficulty": "medium",
+              "passage": "Geologist Aziza Qurbonova claims that a layer of volcanic ash found in the mud at the bottom of several lakes across a region came from a single large eruption rather than from several smaller ones.",
+              "prompt": "Which finding, if true, would most directly support Qurbonova's claim?",
+              "choices": [
+                "The ash layer is thicker in some lakes than in others.",
+                "Several volcanoes in the region have erupted within the past 10,000 years.",
+                "The lakes in the region formed at different times.",
+                "The ash in every lake has the same distinctive chemical makeup, and in each lake the layer dates to the same year."
+              ],
+              "answer": "D",
+              "explanation": "Identical chemistry and identical dates point to one eruption. Several active volcanoes in the region would, if anything, suggest more than one source."
+            },
+            {
+              "id": "t5-rw2e-12",
+              "section": "rw",
+              "skill": "Command of Evidence: Quantitative",
+              "difficulty": "easy",
+              "passage": "A historian studying the records of a film studio that operated in Tashkent from 1950 to 1989 found that the studio released the most feature films in the ______",
+              "prompt": "Which choice most effectively uses data from the table to complete the statement?",
+              "choices": [
+                "1970s, when it released 48 films.",
+                "1960s, when it released 35 films.",
+                "1980s, when it released 30 films.",
+                "1950s, when it released 21 films."
+              ],
+              "answer": "A",
+              "explanation": "48 is the largest number in the table, and it belongs to the 1970s.",
+              "table": {
+                "title": "Feature films released by the studio",
+                "head": [
+                  "Decade",
+                  "Films released"
+                ],
+                "rows": [
+                  [
+                    "1950s",
+                    "21"
+                  ],
+                  [
+                    "1960s",
+                    "35"
+                  ],
+                  [
+                    "1970s",
+                    "48"
+                  ],
+                  [
+                    "1980s",
+                    "30"
+                  ]
+                ]
+              }
+            },
+            {
+              "id": "t5-rw2e-13",
+              "section": "rw",
+              "skill": "Inferences",
+              "difficulty": "easy",
+              "passage": "Mud brick, made from clay and straw dried in the sun, absorbs heat slowly during the day and releases it slowly at night. In desert regions where days are hot and nights are cold, buildings made of mud brick therefore tend to ______",
+              "prompt": "Which choice most logically completes the text?",
+              "choices": [
+                "heat up quickly in the afternoon.",
+                "stay cooler during the day and warmer at night than the air outside.",
+                "need more fuel for heating at night than other buildings.",
+                "be found only near large rivers."
+              ],
+              "answer": "B",
+              "explanation": "Slow absorption keeps rooms cool by day, and slow release keeps them warm at night."
+            },
+            {
+              "id": "t5-rw2e-14",
+              "section": "rw",
+              "skill": "Inferences",
+              "difficulty": "medium",
+              "passage": "Some species of ants tend aphids, small insects that feed on plant sap and release a sugary liquid called honeydew. The ants eat the honeydew and, in return, protect the aphids from ladybugs and other predators. Researchers who remove the ants from some plants would therefore most likely find that ______",
+              "prompt": "Which choice most logically completes the text?",
+              "choices": [
+                "aphids on those plants produce more honeydew than before.",
+                "aphids on those plants are eaten by predators more often than aphids on plants where the ants remain.",
+                "ladybugs avoid those plants entirely.",
+                "those plants become home to larger numbers of aphids than before."
+              ],
+              "answer": "B",
+              "explanation": "The ants protect aphids from predators, so without the ants, more aphids would be eaten. That also means there would be fewer aphids, not more."
+            },
+            {
+              "id": "t5-rw2e-15",
+              "section": "rw",
+              "skill": "Boundaries",
+              "difficulty": "easy",
+              "passage": "Before the invention of powerful electric ______ filmmakers often shot their scenes outdoors in bright sunlight.",
+              "prompt": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+              "choices": [
+                "lights;",
+                "lights:",
+                "lights",
+                "lights,"
+              ],
+              "answer": "D",
+              "explanation": "A comma separates the introductory phrase \"Before...lights\" from the main sentence. A semicolon or colon would need a complete sentence before it."
+            },
+            {
+              "id": "t5-rw2e-16",
+              "section": "rw",
+              "skill": "Boundaries",
+              "difficulty": "easy",
+              "passage": "The architect relied on two local ______ fired brick from nearby kilns and poplar wood from the Zarafshan Valley.",
+              "prompt": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+              "choices": [
+                "materials;",
+                "materials",
+                "materials:",
+                "materials, and"
+              ],
+              "answer": "C",
+              "explanation": "A colon introduces the two materials after a complete sentence. A semicolon would need a complete sentence after it."
+            },
+            {
+              "id": "t5-rw2e-17",
+              "section": "rw",
+              "skill": "Boundaries",
+              "difficulty": "medium",
+              "passage": "Botir Holmatov's first feature ______ a black-and-white drama set in a mill town, won a prize at a regional film festival in 1968.",
+              "prompt": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+              "choices": [
+                "film",
+                "film;",
+                "film:",
+                "film,"
+              ],
+              "answer": "D",
+              "explanation": "\"A black-and-white drama set in a mill town\" renames the film and closes with a comma, so it must open with a comma too."
+            },
+            {
+              "id": "t5-rw2e-18",
+              "section": "rw",
+              "skill": "Boundaries",
+              "difficulty": "medium",
+              "passage": "The thick walls and small, shaded windows of traditional desert ______ help keep indoor rooms cool during the hottest hours of the day.",
+              "prompt": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+              "choices": [
+                "homes",
+                "homes,",
+                "homes;",
+                "homes:"
+              ],
+              "answer": "A",
+              "explanation": "The subject (\"The thick walls...homes\") runs straight into its verb \"help,\" so no punctuation belongs between them."
+            },
+            {
+              "id": "t5-rw2e-19",
+              "section": "rw",
+              "skill": "Form, Structure, and Sense",
+              "difficulty": "easy",
+              "passage": "Last summer, a team of geologists ______ samples of hardened lava from the slopes of the volcano.",
+              "prompt": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+              "choices": [
+                "collected",
+                "collects",
+                "will collect",
+                "is collecting"
+              ],
+              "answer": "A",
+              "explanation": "\"Last summer\" places the action in the past, so the past tense **collected** is needed."
+            },
+            {
+              "id": "t5-rw2e-20",
+              "section": "rw",
+              "skill": "Form, Structure, and Sense",
+              "difficulty": "medium",
+              "passage": "Architects in hot climates often design roofs that extend well beyond a building's walls, because ______ shade the windows below from the midday sun.",
+              "prompt": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+              "choices": [
+                "it",
+                "this",
+                "one",
+                "they"
+              ],
+              "answer": "D",
+              "explanation": "The pronoun refers to the plural \"roofs\" and goes with the plural verb \"shade,\" so it must be **they**."
+            },
+            {
+              "id": "t5-rw2e-21",
+              "section": "rw",
+              "skill": "Form, Structure, and Sense",
+              "difficulty": "medium",
+              "passage": "Although the volcano has been quiet for decades, scientists still monitor ______ slopes for signs of swelling.",
+              "prompt": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+              "choices": [
+                "it's",
+                "their",
+                "its",
+                "its'"
+              ],
+              "answer": "C",
+              "explanation": "The slopes belong to the singular \"volcano,\" so the possessive is **its**. *It's* means \"it is,\" and *its'* is not a word."
+            },
+            {
+              "id": "t5-rw2e-22",
+              "section": "rw",
+              "skill": "Transitions",
+              "difficulty": "easy",
+              "passage": "Desert locusts usually live alone and avoid one another. ______ when heavy rains bring many of them together, they change color and behavior and begin to form huge swarms.",
+              "prompt": "Which choice completes the text with the most logical transition?",
+              "choices": [
+                "Therefore,",
+                "However,",
+                "For example,",
+                "Similarly,"
+              ],
+              "answer": "B",
+              "explanation": "Forming swarms is the opposite of living alone, so a contrast word is needed."
+            },
+            {
+              "id": "t5-rw2e-23",
+              "section": "rw",
+              "skill": "Transitions",
+              "difficulty": "medium",
+              "passage": "Apprenticeship programs let workers earn wages while they learn a trade. ______ the programs give employers a chance to train workers in the specific skills their businesses need.",
+              "prompt": "Which choice completes the text with the most logical transition?",
+              "choices": [
+                "In contrast,",
+                "Even so,",
+                "In addition,",
+                "Instead,"
+              ],
+              "answer": "C",
+              "explanation": "The second sentence adds another benefit of apprenticeships, so **In addition** fits."
+            },
+            {
+              "id": "t5-rw2e-24",
+              "section": "rw",
+              "skill": "Transitions",
+              "difficulty": "medium",
+              "passage": "Engineers in earthquake-prone regions design buildings to sway slightly during an earthquake rather than resist the shaking rigidly, since rigid structures are more likely to crack. ______ many tall buildings in these regions rest on flexible bearings that absorb some of the ground's motion.",
+              "prompt": "Which choice completes the text with the most logical transition?",
+              "choices": [
+                "Nevertheless,",
+                "By comparison,",
+                "For this reason,",
+                "In the past,"
+              ],
+              "answer": "C",
+              "explanation": "Flexible bearings follow from the goal of letting buildings sway, so the second sentence is a result of the first."
+            },
+            {
+              "id": "t5-rw2e-25",
+              "section": "rw",
+              "skill": "Rhetorical Synthesis",
+              "difficulty": "easy",
+              "passage": "While researching a topic, a student has taken the following notes:\n\n• Obsidian is a type of volcanic glass.\n• It forms when lava cools so quickly that crystals do not have time to grow.\n• Its broken edges can be extremely sharp.\n• Ancient peoples used obsidian to make knives and arrowheads.",
+              "prompt": "The student wants to explain how obsidian forms. Which choice most effectively uses relevant information from the notes to accomplish this goal?",
+              "choices": [
+                "Ancient peoples used obsidian to make knives and arrowheads.",
+                "The broken edges of obsidian can be extremely sharp.",
+                "Obsidian is a type of volcanic glass.",
+                "Obsidian is a volcanic glass that forms when lava cools so quickly that crystals do not have time to grow."
+              ],
+              "answer": "D",
+              "explanation": "Only this choice tells how obsidian forms: lava cools too quickly for crystals to grow."
+            },
+            {
+              "id": "t5-rw2e-26",
+              "section": "rw",
+              "skill": "Rhetorical Synthesis",
+              "difficulty": "medium",
+              "passage": "While researching a topic, a student has taken the following notes:\n\n• The Kalyan Minaret in Bukhara, Uzbekistan, was completed in 1127.\n• It is built of baked brick arranged in decorative bands.\n• The bell tower of Pisa Cathedral in Italy, known as the Leaning Tower of Pisa, was completed in 1372.\n• It is built mainly of white marble.",
+              "prompt": "The student wants to emphasize the difference in age between the two towers. Which choice most effectively uses relevant information from the notes to accomplish this goal?",
+              "choices": [
+                "Completed in 1127, the Kalyan Minaret in Bukhara is more than two centuries older than the Leaning Tower of Pisa, which was completed in 1372.",
+                "The Kalyan Minaret is built of baked brick, while the Leaning Tower of Pisa is built mainly of white marble.",
+                "The Leaning Tower of Pisa is the bell tower of Pisa Cathedral in Italy.",
+                "The Kalyan Minaret in Bukhara, Uzbekistan, is built of baked brick arranged in decorative bands."
+              ],
+              "answer": "A",
+              "explanation": "The goal is a difference in age, which needs both completion dates: 1372 − 1127 = 245 years. The brick-and-marble choice compares materials instead."
+            },
+            {
+              "id": "t5-rw2e-27",
+              "section": "rw",
+              "skill": "Rhetorical Synthesis",
+              "difficulty": "medium",
+              "passage": "While researching a topic, a student has taken the following notes:\n\n• Economists studied 2,000 delivery drivers who used an app that let them choose when to start and stop working.\n• The economists compared the hours each driver worked on a given day with the driver's hourly earnings that day.\n• On days when hourly earnings were high, many drivers stopped working earlier than usual.\n• The economists concluded that many drivers aim for a daily earnings target rather than a fixed number of hours.",
+              "prompt": "The student wants to describe the method the economists used in their study. Which choice most effectively uses relevant information from the notes to accomplish this goal?",
+              "choices": [
+                "On days when their hourly earnings were high, many app-based delivery drivers stopped working earlier than usual.",
+                "The economists compared the daily working hours of 2,000 app-based delivery drivers with how much the drivers earned per hour on each day.",
+                "The economists concluded that many drivers aim for a daily earnings target rather than a fixed number of hours.",
+                "Delivery drivers who use apps can choose when to start and stop working."
+              ],
+              "answer": "B",
+              "explanation": "A method is what the researchers did. Only this choice describes what the economists compared; the others give a result, the conclusion, or background."
+            }
+          ]
+        },
+        "harder": {
+          "minutes": 32,
+          "questions": [
+            {
+              "id": "t5-rw2h-01",
+              "section": "rw",
+              "skill": "Words in Context",
+              "difficulty": "hard",
+              "passage": "Because the rock layers at the base of the canyon were laid down over millions of years without interruption, geologist Sanjar Aliqulov regards them as an unusually ______ archive: whereas most rock sequences are riddled with gaps where layers eroded away, these layers preserve a nearly complete history of the region's climate.",
+              "prompt": "Which choice completes the text with the most logical and precise word or phrase?",
+              "choices": [
+                "fragmentary",
+                "intact",
+                "provisional",
+                "anomalous"
+              ],
+              "answer": "B",
+              "explanation": "The colon contrasts these layers with sequences \"riddled with gaps\": nothing is missing from them, so they are **intact**. *Fragmentary* describes the gap-filled sequences instead."
+            },
+            {
+              "id": "t5-rw2h-02",
+              "section": "rw",
+              "skill": "Words in Context",
+              "difficulty": "hard",
+              "passage": "Although the director's films were often praised as loose and improvised, her assistant's notebooks reveal that their seemingly spontaneous moments were in fact ______: scenes that appear to unfold by accident were rehearsed dozens of times.",
+              "prompt": "Which choice completes the text with the most logical and precise word or phrase?",
+              "choices": [
+                "unscripted",
+                "sentimental",
+                "orchestrated",
+                "incidental"
+              ],
+              "answer": "C",
+              "explanation": "Scenes rehearsed dozens of times were carefully arranged in advance, or **orchestrated**. *Unscripted* is what the moments only seemed to be."
+            },
+            {
+              "id": "t5-rw2h-03",
+              "section": "rw",
+              "skill": "Words in Context",
+              "difficulty": "hard",
+              "passage": "In her study of hiring in the textile industry, economist Madina Sultonova finds that employers' stated preference for experienced workers is largely ______: when her team sent employers pairs of otherwise identical applications that differed only in years of experience, the two applications received callbacks at nearly the same rate.",
+              "prompt": "Which choice completes the text with the most logical and precise word or phrase?",
+              "choices": [
+                "nominal",
+                "pervasive",
+                "pragmatic",
+                "justified"
+              ],
+              "answer": "A",
+              "explanation": "Employers say they prefer experience but treat the applications the same, so the preference exists mostly in name: it is **nominal**. *Pervasive* (widespread) ignores the evidence that the preference has little effect."
+            },
+            {
+              "id": "t5-rw2h-04",
+              "section": "rw",
+              "skill": "Words in Context",
+              "difficulty": "hard",
+              "passage": "Individually, army ants have strikingly ______ navigational abilities: the ants are nearly blind and simply follow chemical trails left by others, so a group that loses its trail may march in a circle for hours. Yet colonies of these ants carry out coordinated raids across large areas of forest floor.",
+              "prompt": "Which choice completes the text with the most logical and precise word or phrase?",
+              "choices": [
+                "sophisticated",
+                "deliberate",
+                "redundant",
+                "rudimentary"
+              ],
+              "answer": "D",
+              "explanation": "Being nearly blind and marching in circles shows very basic, or **rudimentary**, abilities. *Sophisticated* fits the colony, not the individual ant, as \"Yet\" makes clear."
+            },
+            {
+              "id": "t5-rw2h-05",
+              "section": "rw",
+              "skill": "Text Structure and Purpose",
+              "difficulty": "hard",
+              "passage": "Visitors to the apartment blocks built in Tashkent in the 1970s and 1980s often notice the large mosaic panels on their outer walls, which depict cotton harvests, space flights, and scenes from local legends. Architectural historian Bahodir Nurmatov argues that these panels should not be dismissed as decoration added to otherwise ordinary buildings. Because the panels were often planned together with the buildings themselves, he contends, they gave architects one of the few ways to express regional character in structures whose layouts followed standard designs approved in Moscow.",
+              "prompt": "Which choice best states the main purpose of the text?",
+              "choices": [
+                "To argue that standard building designs prevented architects in Tashkent from expressing any regional character",
+                "To describe the subjects most often shown in the mosaic panels on Tashkent's buildings",
+                "To present a historian's argument that a feature of certain buildings was more significant than it might appear",
+                "To explain why building designs approved in Moscow were poorly suited to Tashkent's climate"
+              ],
+              "answer": "C",
+              "explanation": "The text reports Nurmatov's claim that the panels were more than decoration. The first wrong choice goes too far: in his view, the panels *were* a way to express regional character."
+            },
+            {
+              "id": "t5-rw2h-06",
+              "section": "rw",
+              "skill": "Text Structure and Purpose",
+              "difficulty": "hard",
+              "passage": "Many species of firefly produce patterns of flashes to attract mates. Females of some species, however, imitate the flash patterns of other species. __When a male of another species approaches, expecting to find a mate, the female captures and eats him.__ Biologists have found that the imitators gain more than a meal: by eating these males, they acquire defensive chemicals, which they cannot produce themselves, that make them distasteful to spiders and birds.",
+              "prompt": "Which choice best describes the function of the underlined sentence in the text as a whole?",
+              "choices": [
+                "It describes the outcome of the behavior introduced in the previous sentence, an outcome that the final sentence shows has an additional benefit.",
+                "It offers an example of the courtship behavior described in the first sentence.",
+                "It presents a hypothesis that the final sentence calls into question.",
+                "It explains how males of the imitated species avoid being captured."
+              ],
+              "answer": "A",
+              "explanation": "The previous sentence introduces the imitation, and the underlined sentence tells what it leads to: the male is eaten. The final sentence adds a further benefit. The female is hunting, not courting, so the sentence is not an example of mating behavior."
+            },
+            {
+              "id": "t5-rw2h-07",
+              "section": "rw",
+              "skill": "Cross-Text Connections",
+              "difficulty": "hard",
+              "passage": "**Text 1**\nFor decades, many economists held that raising the minimum wage must reduce employment among low-wage workers. If labor becomes more expensive, the reasoning went, employers will simply hire fewer people.\n\n**Text 2**\nEconomist Akmal Rasulov notes that this reasoning assumes employers cannot set wages below what workers would earn in a competitive market. In towns dominated by a single large employer, he argues, workers have few alternatives, so the employer can hold wages down. In such places, a moderate rise in the minimum wage could draw more people into the workforce without reducing the number of jobs.",
+              "prompt": "Based on the texts, how would Rasulov (Text 2) most likely respond to the reasoning presented in Text 1?",
+              "choices": [
+                "He would agree that higher minimum wages reduce employment but argue that the benefits to workers outweigh this cost.",
+                "He would claim that it applies only to towns dominated by a single large employer.",
+                "He would argue that it rests on an assumption that does not hold in labor markets where workers have few alternative employers.",
+                "He would contend that raising the minimum wage increases employment regardless of local conditions."
+              ],
+              "answer": "C",
+              "explanation": "Rasulov identifies a hidden assumption in Text 1 and says it fails where one employer dominates. He does not grant that jobs are lost, and his claim is limited to particular towns, not \"regardless of local conditions.\""
+            },
+            {
+              "id": "t5-rw2h-08",
+              "section": "rw",
+              "skill": "Central Ideas and Details",
+              "difficulty": "hard",
+              "passage": "Film restorers working on damaged silent films face a dilemma. Many such films survive only in copies made decades after their release, and these copies often differ from the versions that audiences first saw: scenes were cut by censors, title cards were rewritten for new markets, and colors added by hand-tinting were lost when the films were copied onto black-and-white stock. Restorer Gulbahor Zokirova argues that every restoration is therefore an interpretation, and she insists that restorers document each choice they make so that viewers can see where a restored film departs from the surviving evidence.",
+              "prompt": "Which choice best states the main idea of the text?",
+              "choices": [
+                "Hand-tinted color was the feature of silent films most often lost in later copies.",
+                "Restorers should stop trying to recreate silent films as audiences first saw them.",
+                "Because surviving copies of silent films may differ from the originals in many ways, a restorer argues that restorers should be open about the decisions they make.",
+                "Censorship was the main reason that silent films were altered after their release."
+              ],
+              "answer": "C",
+              "explanation": "The text explains why surviving copies are unreliable and ends with Zokirova's call to document every choice. She wants restorers to be transparent, not to stop restoring, and the text never ranks the causes of change."
+            },
+            {
+              "id": "t5-rw2h-09",
+              "section": "rw",
+              "skill": "Central Ideas and Details",
+              "difficulty": "hard",
+              "passage": "The following text is from a poem. The speaker describes a scene at dawn.\n\nThe cranes along the river stand unmoving,\ntheir long necks bent above the unfinished towers,\nas if they, too, were waiting for the morning\nto tell them what the city means to build.\nBelow, the workers gather with their thermoses,\nand steel begins to answer to their voices.",
+              "prompt": "Which choice best states the main idea of the text?",
+              "choices": [
+                "The speaker portrays a construction site as still and expectant until the arriving workers set it in motion.",
+                "The speaker describes birds gathering along a river before they fly away for the day.",
+                "The speaker mourns the loss of old buildings that were torn down to make room for new towers.",
+                "The speaker suggests that the workers are reluctant to begin a dangerous job."
+              ],
+              "answer": "A",
+              "explanation": "The \"cranes\" stand above \"unfinished towers,\" and steel responds to the workers, so they are construction cranes described as if they were birds. The scene waits until the workers arrive and work begins."
+            },
+            {
+              "id": "t5-rw2h-10",
+              "section": "rw",
+              "skill": "Command of Evidence: Textual",
+              "difficulty": "hard",
+              "passage": "Volcanologist Iroda Shermatova hypothesizes that eruptions of a particular volcano in a region with distinct wet and dry seasons are often triggered when heavy seasonal rains soak deep into the ground, raising the pressure in the rock around the volcano's magma chamber.",
+              "prompt": "Which finding, if true, would most directly support Shermatova's hypothesis?",
+              "choices": [
+                "The volcano receives more rainfall each year than any other volcano in the region.",
+                "Over the past century, the volcano's eruptions have begun far more often in the two months after the end of the wet season than at any other time of year.",
+                "When rainwater meets hot rock during an eruption, the resulting steam makes the volcano's explosions more violent.",
+                "The volcano's magma chamber lies closer to the surface than those of most other volcanoes in the region."
+              ],
+              "answer": "B",
+              "explanation": "If soaking rains trigger eruptions, eruptions should cluster soon after the wet season, which is what this finding shows. The steam choice is about how violent an eruption is once it has begun, not what starts it."
+            },
+            {
+              "id": "t5-rw2h-11",
+              "section": "rw",
+              "skill": "Command of Evidence: Quantitative",
+              "difficulty": "hard",
+              "passage": "Economists studying a city's labor market recorded wage growth and the share of workers who changed employers in four industries over one year. They note that faster wage growth in an industry did not necessarily mean that more of its workers changed jobs: ______",
+              "prompt": "Which choice most effectively uses data from the table to complete the statement?",
+              "choices": [
+                "construction had the fastest wage growth of the four industries, 6.2%, and 18% of its workers changed employers.",
+                "health care had the smallest share of workers who changed employers, 9%.",
+                "manufacturing had faster wage growth than health care, 5.4% versus 4.1%, and a larger share of its workers changed employers, 11% versus 9%.",
+                "construction had faster wage growth than retail, 6.2% versus 3.0%, yet a smaller share of construction workers changed employers, 18% versus 24%."
+              ],
+              "answer": "D",
+              "explanation": "The claim needs an industry with faster wage growth but fewer job changers than another industry. Construction versus retail shows exactly that. The manufacturing choice shows the opposite pattern.",
+              "table": {
+                "title": "Wage growth and job changes by industry, one year",
+                "head": [
+                  "Industry",
+                  "Wage growth (%)",
+                  "Workers who changed employers (%)"
+                ],
+                "rows": [
+                  [
+                    "Construction",
+                    "6.2",
+                    "18"
+                  ],
+                  [
+                    "Health care",
+                    "4.1",
+                    "9"
+                  ],
+                  [
+                    "Retail",
+                    "3.0",
+                    "24"
+                  ],
+                  [
+                    "Manufacturing",
+                    "5.4",
+                    "11"
+                  ]
+                ]
+              }
+            },
+            {
+              "id": "t5-rw2h-12",
+              "section": "rw",
+              "skill": "Command of Evidence: Quantitative",
+              "difficulty": "hard",
+              "passage": "Entomologist Javlon Hamroyev placed food at the ends of trails that had been marked with scent by different numbers of ants from the same colony, then counted how many ants from the colony followed each trail over one hour. He concluded that a trail became more attractive as more ants marked it, but only up to a point: ______",
+              "prompt": "Which choice most effectively uses data from the table to complete the statement?",
+              "choices": [
+                "a trail marked by 10 ants drew 41 followers, more than three times as many as the unmarked trail.",
+                "a trail marked by 200 ants drew 90 followers, barely more than the 87 drawn by a trail marked by 50 ants.",
+                "the unmarked trail drew the fewest followers, 12.",
+                "a trail marked by 50 ants drew 87 followers, more than twice as many as a trail marked by 10 ants."
+              ],
+              "answer": "B",
+              "explanation": "\"Only up to a point\" means extra marking eventually stops helping. Going from 50 to 200 markers added just 3 followers (87 to 90). The other choices show the increase, not its limit.",
+              "table": {
+                "title": "Ants following each trail in one hour",
+                "head": [
+                  "Ants that marked the trail",
+                  "Ants that followed the trail"
+                ],
+                "rows": [
+                  [
+                    "0 (unmarked)",
+                    "12"
+                  ],
+                  [
+                    "10",
+                    "41"
+                  ],
+                  [
+                    "50",
+                    "87"
+                  ],
+                  [
+                    "200",
+                    "90"
+                  ]
+                ]
+              }
+            },
+            {
+              "id": "t5-rw2h-13",
+              "section": "rw",
+              "skill": "Inferences",
+              "difficulty": "hard",
+              "passage": "Engineers building dams across river canyons can choose between two basic designs. A thin arch dam curves upstream and transfers the force of the water sideways into the canyon walls, so it requires far less concrete than a gravity dam, which holds back water through sheer weight. An arch dam, however, is only as strong as the rock that supports it. For a canyon whose walls consist of heavily fractured, crumbling rock, engineers would therefore most likely choose ______",
+              "prompt": "Which choice most logically completes the text?",
+              "choices": [
+                "an arch dam, since it would require less concrete.",
+                "an arch dam built from the canyon's own fractured rock.",
+                "a gravity dam, even though it would require more concrete.",
+                "not to build either kind of dam anywhere along the river."
+              ],
+              "answer": "C",
+              "explanation": "An arch dam depends on strong canyon walls, which crumbling rock cannot provide, so a gravity dam is the logical choice despite its cost. Saving concrete does not matter if the walls cannot carry the load."
+            },
+            {
+              "id": "t5-rw2h-14",
+              "section": "rw",
+              "skill": "Inferences",
+              "difficulty": "hard",
+              "passage": "When a large factory closes, wages often fall not only for its former employees but also for workers in the same town who never worked there. Economists explain this by noting that the laid-off workers compete for the town's remaining jobs, increasing the number of people available to other employers. If this explanation is correct, the effect of a factory closure on other workers' wages should be smallest in towns where ______",
+              "prompt": "Which choice most logically completes the text?",
+              "choices": [
+                "the factory employed a large share of the town's workforce.",
+                "most remaining employers need workers with the same skills as the laid-off workers.",
+                "laid-off workers can easily commute to jobs in nearby cities.",
+                "the factory had been operating for many decades before it closed."
+              ],
+              "answer": "C",
+              "explanation": "If laid-off workers can take jobs elsewhere, fewer of them compete for local jobs, so local wages fall less. A large share of the workforce or matching skills would increase the competition instead."
+            },
+            {
+              "id": "t5-rw2h-15",
+              "section": "rw",
+              "skill": "Boundaries",
+              "difficulty": "hard",
+              "passage": "The world's first volcano observatory was founded on the slopes of Mount Vesuvius in 1841. Continuous monitoring of volcanoes with scientific instruments, ______ did not become widespread until the twentieth century.",
+              "prompt": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+              "choices": [
+                "however;",
+                "however",
+                "however:",
+                "however,"
+              ],
+              "answer": "D",
+              "explanation": "\"However\" interrupts a single sentence, between the subject (\"Continuous monitoring...instruments\") and the verb \"did,\" so it is set off by a pair of commas. A semicolon or colon would cut the subject off from its verb."
+            },
+            {
+              "id": "t5-rw2h-16",
+              "section": "rw",
+              "skill": "Boundaries",
+              "difficulty": "hard",
+              "passage": "The surface of the lava flow cooled within hours, yet the flow kept advancing for ______ beneath the hardened crust, molten rock continued to stream toward the sea.",
+              "prompt": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+              "choices": [
+                "weeks:",
+                "weeks,",
+                "weeks",
+                "weeks, in fact,"
+              ],
+              "answer": "A",
+              "explanation": "Both parts are complete sentences, and the second explains the first (why the flow kept moving), so a colon fits. A comma, even with *in fact*, creates a comma splice."
+            },
+            {
+              "id": "t5-rw2h-17",
+              "section": "rw",
+              "skill": "Boundaries",
+              "difficulty": "medium",
+              "passage": "Insects that undergo complete ______ such as beetles, butterflies, and flies, pass through four distinct life stages: egg, larva, pupa, and adult.",
+              "prompt": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+              "choices": [
+                "metamorphosis,",
+                "metamorphosis",
+                "metamorphosis:",
+                "metamorphosis;"
+              ],
+              "answer": "A",
+              "explanation": "The \"such as\" phrase is extra information that closes with the comma after \"flies,\" so it must open with a comma too. A colon or semicolon cannot separate the subject from its verb \"pass.\""
+            },
+            {
+              "id": "t5-rw2h-18",
+              "section": "rw",
+              "skill": "Boundaries",
+              "difficulty": "hard",
+              "passage": "The ______ Laylo Nazirova has spent two decades studying how workers who move abroad send money home to their families.",
+              "prompt": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+              "choices": [
+                "labor economist,",
+                "labor economist",
+                "labor economist:",
+                "labor economist;"
+              ],
+              "answer": "B",
+              "explanation": "\"Laylo Nazirova\" identifies which labor economist is meant, so it is essential and takes no punctuation. A single comma would wrongly separate the subject from the rest of the sentence."
+            },
+            {
+              "id": "t5-rw2h-19",
+              "section": "rw",
+              "skill": "Form, Structure, and Sense",
+              "difficulty": "hard",
+              "passage": "The patterns of ash and pumice that geologists have found in the layers of rock beneath the village ______ that the volcano erupted at least four times in the past 2,000 years.",
+              "prompt": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+              "choices": [
+                "indicates",
+                "has indicated",
+                "is indicating",
+                "indicate"
+              ],
+              "answer": "D",
+              "explanation": "The subject is the plural \"patterns\"; the nouns in between (\"ash,\" \"pumice,\" \"layers,\" \"village\") do not change that. The plural verb is **indicate**."
+            },
+            {
+              "id": "t5-rw2h-20",
+              "section": "rw",
+              "skill": "Form, Structure, and Sense",
+              "difficulty": "hard",
+              "passage": "By the time the restoration of the damaged film is complete next spring, technicians ______ more than 40,000 individual frames by hand.",
+              "prompt": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+              "choices": [
+                "will have repaired",
+                "had repaired",
+                "have repaired",
+                "repaired"
+              ],
+              "answer": "A",
+              "explanation": "\"By the time\" plus a future event (\"next spring\") calls for the future perfect: **will have repaired**. *Had repaired* is for actions finished before a past event."
+            },
+            {
+              "id": "t5-rw2h-21",
+              "section": "rw",
+              "skill": "Form, Structure, and Sense",
+              "difficulty": "hard",
+              "passage": "Originally built as a resting place for merchants traveling along the Silk Road, ______",
+              "prompt": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+              "choices": [
+                "a museum of regional crafts now occupies the caravanserai.",
+                "the caravanserai now houses a museum of regional crafts.",
+                "visitors can now tour a museum of regional crafts inside the caravanserai.",
+                "the city has turned the caravanserai into a museum of regional crafts."
+              ],
+              "answer": "B",
+              "explanation": "The opening phrase describes the building, so \"the caravanserai\" must come right after the comma. In the other choices, the museum, the visitors, or the city would seem to have been built for merchants."
+            },
+            {
+              "id": "t5-rw2h-22",
+              "section": "rw",
+              "skill": "Transitions",
+              "difficulty": "hard",
+              "passage": "Through the late nineteenth century, most geologists were convinced that the continents had always been fixed in place. ______ when the idea that continents slowly drift across Earth's surface was proposed in the early twentieth century, it was widely rejected.",
+              "prompt": "Which choice completes the text with the most logical transition?",
+              "choices": [
+                "Nevertheless,",
+                "In contrast,",
+                "For example,",
+                "Accordingly,"
+              ],
+              "answer": "D",
+              "explanation": "The rejection follows from geologists' belief in fixed continents, so a cause-and-effect word like **Accordingly** fits. *Nevertheless* would suggest the idea was rejected despite that belief."
+            },
+            {
+              "id": "t5-rw2h-23",
+              "section": "rw",
+              "skill": "Transitions",
+              "difficulty": "hard",
+              "passage": "Director Akbar Hasanov rarely used music in his films, believing that a musical score told audiences how to feel. His final film is no exception: it has no score at all. ______ the film is far from quiet; Hasanov filled its soundtrack with the hum of traffic, distant radios, and the calls of street vendors.",
+              "prompt": "Which choice completes the text with the most logical transition?",
+              "choices": [
+                "Consequently,",
+                "Still,",
+                "In other words,",
+                "Similarly,"
+              ],
+              "answer": "B",
+              "explanation": "Having no score might suggest a quiet film, but the film is full of sound, so a contrast word like **Still** is needed. *In other words* would wrongly present \"far from quiet\" as a restatement of \"no score.\""
+            },
+            {
+              "id": "t5-rw2h-24",
+              "section": "rw",
+              "skill": "Transitions",
+              "difficulty": "hard",
+              "passage": "Economists generally expect workers to quit their jobs more often when unemployment is low, since new jobs are then easy to find. Two decades of data from one region's labor market fit this pattern closely. ______ in the region's tourism industry, quit rates stayed high even in years of high unemployment, because many tourism jobs are seasonal and workers routinely change employers between seasons.",
+              "prompt": "Which choice completes the text with the most logical transition?",
+              "choices": [
+                "For instance,",
+                "Therefore,",
+                "Likewise,",
+                "However,"
+              ],
+              "answer": "D",
+              "explanation": "Tourism is an exception to the pattern just described, so a contrast is needed. *For instance* would wrongly present tourism as an example of the pattern."
+            },
+            {
+              "id": "t5-rw2h-25",
+              "section": "rw",
+              "skill": "Rhetorical Synthesis",
+              "difficulty": "hard",
+              "passage": "While researching a topic, a student has taken the following notes:\n\n• Gur-e-Amir is a mausoleum in Samarkand, Uzbekistan, completed in the early 1400s.\n• It holds the tomb of the conqueror Timur (Amir Temur).\n• The Taj Mahal is a mausoleum in Agra, India, completed in the mid-1600s.\n• It was built by the Mughal emperor Shah Jahan, a descendant of Timur.\n• Historians regard the design of Gur-e-Amir as an important influence on later Mughal tombs, including the Taj Mahal.",
+              "prompt": "The student wants to emphasize the architectural connection between the two buildings for an audience unfamiliar with Gur-e-Amir. Which choice most effectively uses relevant information from the notes to accomplish this goal?",
+              "choices": [
+                "The Taj Mahal was built by Shah Jahan, a descendant of Timur, whose tomb lies in Gur-e-Amir.",
+                "Gur-e-Amir and the Taj Mahal are both mausoleums.",
+                "Gur-e-Amir, which holds the tomb of Timur, was completed about two centuries before the Taj Mahal.",
+                "Gur-e-Amir, a mausoleum completed in Samarkand in the early 1400s, is regarded as an important influence on later Mughal tombs, including India's Taj Mahal."
+              ],
+              "answer": "D",
+              "explanation": "The goal is an *architectural* link, explained for readers who don't know Gur-e-Amir. Only this choice says what Gur-e-Amir is and that its design influenced the Taj Mahal. The Shah Jahan choice gives a family connection, not an architectural one."
+            },
+            {
+              "id": "t5-rw2h-26",
+              "section": "rw",
+              "skill": "Rhetorical Synthesis",
+              "difficulty": "hard",
+              "passage": "While researching a topic, a student has taken the following notes:\n\n• Periodical cicadas in eastern North America spend 13 or 17 years underground as nymphs.\n• They then emerge together in enormous numbers, sometimes more than a million per acre.\n• Birds and other predators can eat only a small fraction of them.\n• One hypothesis holds that the cicadas' long, prime-numbered life cycles make it hard for predators with shorter cycles to match the timing of their emergences.",
+              "prompt": "The student wants to explain how emerging in huge numbers helps periodical cicadas survive. Which choice most effectively uses relevant information from the notes to accomplish this goal?",
+              "choices": [
+                "One hypothesis holds that the cicadas' prime-numbered life cycles make it hard for predators to match the timing of their emergences.",
+                "Periodical cicadas spend 13 or 17 years underground before emerging together.",
+                "By emerging together in enormous numbers, sometimes more than a million per acre, periodical cicadas overwhelm their predators, which can eat only a small fraction of them.",
+                "Birds and other predators eat periodical cicadas when they emerge."
+              ],
+              "answer": "C",
+              "explanation": "The goal is how *numbers* help survival: so many emerge that predators can eat only a small share. The prime-number choice is also about survival, but it explains the timing of emergences, not their size."
+            },
+            {
+              "id": "t5-rw2h-27",
+              "section": "rw",
+              "skill": "Rhetorical Synthesis",
+              "difficulty": "hard",
+              "passage": "While researching a topic, a student has taken the following notes:\n\n• Film scholar Shahnoza Abdurahmonova measured the average shot length, or the time between cuts, in 400 feature films released from 1950 to 2009.\n• In films from the 1950s, the average shot lasted about 11 seconds.\n• In films from the 2000s, the average shot lasted about 4 seconds.\n• Abdurahmonova attributes the change partly to the influence of television commercials and music videos.",
+              "prompt": "The student wants to emphasize the size of the change in shot length and present a possible explanation for it. Which choice most effectively uses relevant information from the notes to accomplish this goal?",
+              "choices": [
+                "Average shot length fell from about 11 seconds in films from the 1950s to about 4 seconds in films from the 2000s.",
+                "The average shot in feature films shrank from about 11 seconds in the 1950s to about 4 seconds in the 2000s, a change Abdurahmonova attributes partly to the influence of television commercials and music videos.",
+                "Abdurahmonova attributes changes in average shot length partly to the influence of television commercials and music videos.",
+                "Abdurahmonova measured the average time between cuts in 400 feature films released from 1950 to 2009."
+              ],
+              "answer": "B",
+              "explanation": "The goal has two parts: the size of the change and a possible explanation. Only this choice gives both the numbers (11 to 4 seconds) and the suggested cause."
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "math",
+      "title": "Math",
+      "module1": {
+        "minutes": 35,
+        "questions": [
+          {
+            "id": "t5-m1-01",
+            "section": "math",
+            "skill": "Linear equations in one variable",
+            "difficulty": "easy",
+            "prompt": "If $\\dfrac{2x}{3} - 1 = 9$, what is the value of $x$?",
+            "explanation": "Add 1: $\\dfrac{2x}{3} = 10$. Multiply by $\\dfrac{3}{2}$: $x = 15$. Multiplying by 3 but forgetting to divide by 2 gives 30.",
+            "choices": [
+              "12",
+              "$\\dfrac{20}{3}$",
+              "15",
+              "30"
+            ],
+            "answer": "C"
+          },
+          {
+            "id": "t5-m1-02",
+            "section": "math",
+            "skill": "Ratios, rates, proportional relationships, and units",
+            "difficulty": "easy",
+            "prompt": "A machine at a brick factory makes 450 bricks in 3 hours. At this rate, how many bricks does the machine make in 8 hours?",
+            "explanation": "The rate is $450 \\div 3 = 150$ bricks per hour, and $150 \\times 8 = 1{,}200$.",
+            "choices": [
+              "1,200",
+              "1,350",
+              "3,600",
+              "150"
+            ],
+            "answer": "A"
+          },
+          {
+            "id": "t5-m1-03",
+            "section": "math",
+            "skill": "Linear functions",
+            "difficulty": "easy",
+            "prompt": "The function $C(n) = 15n + 40$ gives the cost, in thousands of so'm, for a print shop in Andijan to make $n$ posters. For what value of $n$ is $C(n) = 250$?",
+            "explanation": "Set $15n + 40 = 250$. Then $15n = 210$, so $n = 14$.",
+            "answer": [
+              "14"
+            ]
+          },
+          {
+            "id": "t5-m1-04",
+            "section": "math",
+            "skill": "Equivalent expressions",
+            "difficulty": "easy",
+            "prompt": "Which expression is equivalent to $7x - 2(x - 6)$?",
+            "explanation": "Distribute the $-2$: $7x - 2x + 12 = 5x + 12$. Multiplying $-6$ by $-2$ gives $+12$, not $-12$.",
+            "choices": [
+              "$5x - 12$",
+              "$5x + 12$",
+              "$5x - 6$",
+              "$9x - 12$"
+            ],
+            "answer": "B"
+          },
+          {
+            "id": "t5-m1-05",
+            "section": "math",
+            "skill": "Lines, angles, and triangles",
+            "difficulty": "medium",
+            "prompt": "In triangle $JKL$, the measure of angle $J$ is $3x^\\circ$, the measure of angle $K$ is $(2x + 10)^\\circ$, and the measure of angle $L$ is $(x + 20)^\\circ$. What is the value of $x$?",
+            "explanation": "The angles of a triangle add to $180^\\circ$: $3x + (2x + 10) + (x + 20) = 180$, so $6x + 30 = 180$ and $x = 25$. 75 is the measure of angle $J$, not $x$.",
+            "choices": [
+              "30",
+              "75",
+              "25",
+              "50"
+            ],
+            "answer": "C"
+          },
+          {
+            "id": "t5-m1-06",
+            "section": "math",
+            "skill": "Systems of two linear equations in two variables",
+            "difficulty": "medium",
+            "prompt": "$$y = 4x - 5$$ $$y = x + 7$$ The solution to the given system of equations is $(a, b)$. What is the value of $a + b$?",
+            "explanation": "Set the expressions for $y$ equal: $4x - 5 = x + 7$, so $3x = 12$ and $x = 4$. Then $y = 4 + 7 = 11$, and $a + b = 4 + 11 = 15$.",
+            "answer": [
+              "15"
+            ]
+          },
+          {
+            "id": "t5-m1-07",
+            "section": "math",
+            "skill": "Linear equations in two variables",
+            "difficulty": "medium",
+            "prompt": "Which equation represents the line in the $xy$-plane that passes through the points $(-2, 7)$ and $(4, -5)$?",
+            "explanation": "The slope is $\\dfrac{-5 - 7}{4 - (-2)} = \\dfrac{-12}{6} = -2$. Using $(-2, 7)$: $7 = -2(-2) + b$, so $b = 3$.",
+            "choices": [
+              "$y = -2x + 3$",
+              "$y = -2x + 11$",
+              "$y = 2x + 11$",
+              "$y = -\\dfrac{1}{2}x + 6$"
+            ],
+            "answer": "A"
+          },
+          {
+            "id": "t5-m1-08",
+            "section": "math",
+            "skill": "Percentages",
+            "difficulty": "medium",
+            "prompt": "A company had 250 employees in 2022 and 290 employees in 2023. By what percent did the number of employees increase?",
+            "explanation": "The increase is $290 - 250 = 40$, and $\\dfrac{40}{250} = 0.16$, or 16%. Dividing by 290 instead uses the wrong starting value.",
+            "choices": [
+              "16%",
+              "40%",
+              "13.8%",
+              "116%"
+            ],
+            "answer": "A"
+          },
+          {
+            "id": "t5-m1-09",
+            "section": "math",
+            "skill": "Nonlinear functions",
+            "difficulty": "medium",
+            "prompt": "The function $f$ is defined by $f(x) = (x - 4)(x + 6)$. What is the $x$-coordinate of the vertex of the graph of $y = f(x)$ in the $xy$-plane?",
+            "explanation": "The zeros are 4 and $-6$, and the vertex of a parabola lies halfway between its zeros: $\\dfrac{4 + (-6)}{2} = -1$.",
+            "choices": [
+              "$1$",
+              "$-1$",
+              "$-24$",
+              "$5$"
+            ],
+            "answer": "B"
+          },
+          {
+            "id": "t5-m1-10",
+            "section": "math",
+            "skill": "One-variable data: distributions and measures of center and spread",
+            "difficulty": "medium",
+            "prompt": "The data set below gives the number of minutes 7 students spent on a homework assignment. $$12, 15, 15, 18, 20, 22, 45$$ If the value 45 is removed from the data set, which statement about the mean and the median is true?",
+            "explanation": "Before: the mean is $147 \\div 7 = 21$ and the median is 18. After: the mean is $102 \\div 6 = 17$ and the median is $\\dfrac{15 + 18}{2} = 16.5$. Both decrease.",
+            "choices": [
+              "The mean decreases, and the median stays the same.",
+              "Both the mean and the median decrease.",
+              "The mean stays the same, and the median decreases.",
+              "The mean decreases, and the median increases."
+            ],
+            "answer": "B"
+          },
+          {
+            "id": "t5-m1-11",
+            "section": "math",
+            "skill": "Linear inequalities in one or two variables",
+            "difficulty": "medium",
+            "prompt": "An elevator in an office building can carry at most 900 kilograms. A worker who weighs 75 kilograms is moving boxes that weigh 24 kilograms each and must ride in the elevator with them. What is the greatest number of boxes the worker can take in one trip?",
+            "explanation": "$75 + 24b \\le 900$ gives $24b \\le 825$, so $b \\le 34.375$. The number of boxes must be a whole number that does not exceed this, so the greatest is 34. Rounding up to 35 would overload the elevator, and ignoring the worker gives 37.",
+            "choices": [
+              "35",
+              "37",
+              "38",
+              "34"
+            ],
+            "answer": "D"
+          },
+          {
+            "id": "t5-m1-12",
+            "section": "math",
+            "skill": "Nonlinear equations in one variable and systems of equations in two variables",
+            "difficulty": "medium",
+            "prompt": "What are the solutions to the equation $2x^2 - 5x - 12 = 0$?",
+            "explanation": "Factor: $(2x + 3)(x - 4) = 0$, so $2x + 3 = 0$ or $x - 4 = 0$. That gives $x = -\\dfrac{3}{2}$ or $x = 4$.",
+            "choices": [
+              "$x = -4$ and $x = \\dfrac{3}{2}$",
+              "$x = 4$ and $x = -3$",
+              "$x = 6$ and $x = -2$",
+              "$x = 4$ and $x = -\\dfrac{3}{2}$"
+            ],
+            "answer": "D"
+          },
+          {
+            "id": "t5-m1-13",
+            "section": "math",
+            "skill": "Area and volume",
+            "difficulty": "medium",
+            "prompt": "A cube has a total surface area of 150 square centimeters. What is the volume of the cube, in cubic centimeters?",
+            "explanation": "A cube has 6 square faces: $6s^2 = 150$, so $s^2 = 25$ and $s = 5$. The volume is $5^3 = 125$.",
+            "answer": [
+              "125"
+            ]
+          },
+          {
+            "id": "t5-m1-14",
+            "section": "math",
+            "skill": "Linear functions",
+            "difficulty": "medium",
+            "prompt": "A tour company in Samarkand charges a fixed booking fee plus a fixed amount per person. A group of 4 people pays \\$260, and a group of 7 people pays \\$410. What is the booking fee?",
+            "explanation": "The 3 extra people cost $410 - 260 = 150$ dollars, so the charge per person is \\$50. The fee is $260 - 4(50) = 60$ dollars. \\$50 is the per-person charge, not the fee.",
+            "choices": [
+              "\\$50",
+              "\\$65",
+              "\\$60",
+              "\\$110"
+            ],
+            "answer": "C"
+          },
+          {
+            "id": "t5-m1-15",
+            "section": "math",
+            "skill": "Equivalent expressions",
+            "difficulty": "hard",
+            "prompt": "In the equation $(3x + p)(x - 4) = 3x^2 + qx - 8$, $p$ and $q$ are constants. The equation is true for all values of $x$. What is the value of $p + q$?",
+            "explanation": "Expanding the left side gives $3x^2 + (p - 12)x - 4p$. Matching the constant terms, $-4p = -8$, so $p = 2$. Matching the $x$ terms, $q = p - 12 = -10$. So $p + q = 2 + (-10) = -8$.",
+            "answer": [
+              "-8"
+            ]
+          },
+          {
+            "id": "t5-m1-16",
+            "section": "math",
+            "skill": "Systems of two linear equations in two variables",
+            "difficulty": "hard",
+            "prompt": "$$\\dfrac{2}{3}x - 2y = 4$$ $$4x + ky = 24$$ In the given system of equations, $k$ is a constant. For what value of $k$ does the system have infinitely many solutions?",
+            "explanation": "Multiplying the first equation by 6 gives $4x - 12y = 24$. If $k = -12$, the two equations are identical, so every solution of one is a solution of the other. With $k = 12$, the lines cross at exactly one point.",
+            "choices": [
+              "12",
+              "$-2$",
+              "$-6$",
+              "$-12$"
+            ],
+            "answer": "D"
+          },
+          {
+            "id": "t5-m1-17",
+            "section": "math",
+            "skill": "Right triangles and trigonometry",
+            "difficulty": "hard",
+            "prompt": "In right triangle $DEF$, angle $F$ is a right angle and $\\sin D = \\dfrac{9}{41}$. What is the value of $\\tan E$?",
+            "explanation": "$\\sin D = \\dfrac{EF}{DE} = \\dfrac{9}{41}$, so take $EF = 9$ and $DE = 41$. Then $DF = \\sqrt{41^2 - 9^2} = 40$. From angle $E$, the opposite side is $DF$ and the adjacent side is $EF$: $\\tan E = \\dfrac{40}{9}$. $\\dfrac{9}{40}$ is $\\tan D$.",
+            "choices": [
+              "$\\dfrac{9}{40}$",
+              "$\\dfrac{40}{41}$",
+              "$\\dfrac{40}{9}$",
+              "$\\dfrac{9}{41}$"
+            ],
+            "answer": "C"
+          },
+          {
+            "id": "t5-m1-18",
+            "section": "math",
+            "skill": "Nonlinear functions",
+            "difficulty": "hard",
+            "prompt": "The number of registered users of a new language-learning app was 2,000 when it launched, and the number doubles every 6 months. Which function gives the number of users $U(t)$, $t$ years after the launch?",
+            "explanation": "There are two 6-month periods in a year, so the number doubles twice a year and is multiplied by $2^2 = 4$ each year: $U(t) = 2{,}000(2)^{2t} = 2{,}000(4)^t$. The exponent $\\dfrac{t}{6}$ would mean doubling every 6 years.",
+            "choices": [
+              "$U(t) = 2{,}000(2)^{t/6}$",
+              "$U(t) = 2{,}000(2)^{6t}$",
+              "$U(t) = 2{,}000(2)^{t/2}$",
+              "$U(t) = 2{,}000(4)^t$"
+            ],
+            "answer": "D"
+          },
+          {
+            "id": "t5-m1-19",
+            "section": "math",
+            "skill": "Nonlinear equations in one variable and systems of equations in two variables",
+            "difficulty": "hard",
+            "prompt": "In the $xy$-plane, the graphs of $y = x^2 + kx + 7$ and $y = 3x + 3$, where $k$ is a constant, intersect at exactly one point, and that point has a positive $x$-coordinate. What is the value of $k$?",
+            "explanation": "Setting the expressions equal gives $x^2 + (k - 3)x + 4 = 0$. One intersection point means one solution, so the discriminant is 0: $(k - 3)^2 - 16 = 0$, giving $k = 7$ or $k = -1$. The solution is $x = -\\dfrac{k - 3}{2}$, which is $-2$ for $k = 7$ and $2$ for $k = -1$. Only $k = -1$ gives a positive $x$-coordinate.",
+            "answer": [
+              "-1"
+            ]
+          },
+          {
+            "id": "t5-m1-20",
+            "section": "math",
+            "skill": "Probability and conditional probability",
+            "difficulty": "hard",
+            "prompt": "In a group of 120 students, 70 play chess, 50 play football, and 20 play both. If a student who plays chess is chosen at random, what is the probability that the student also plays football?",
+            "explanation": "Only the 70 chess players count, and 20 of them also play football: $\\dfrac{20}{70} = \\dfrac{2}{7}$. $\\dfrac{2}{5}$ divides by the number of football players instead.",
+            "choices": [
+              "$\\dfrac{1}{6}$",
+              "$\\dfrac{2}{7}$",
+              "$\\dfrac{2}{5}$",
+              "$\\dfrac{5}{12}$"
+            ],
+            "answer": "B"
+          },
+          {
+            "id": "t5-m1-21",
+            "section": "math",
+            "skill": "Circles",
+            "difficulty": "hard",
+            "prompt": "A circle has a radius of 9. A sector of the circle has an area of $27\\pi$. The central angle of the sector measures $k\\pi$ radians. What is the value of $k$?",
+            "explanation": "The circle's area is $81\\pi$, so the sector is $\\dfrac{27\\pi}{81\\pi} = \\dfrac{1}{3}$ of the circle. Its angle is $\\dfrac{1}{3}$ of $2\\pi$, or $\\dfrac{2}{3}\\pi$ radians, so $k = \\dfrac{2}{3}$.",
+            "answer": [
+              "2/3",
+              ".6666",
+              ".6667"
+            ]
+          },
+          {
+            "id": "t5-m1-22",
+            "section": "math",
+            "skill": "Nonlinear functions",
+            "difficulty": "hard",
+            "prompt": "The quadratic function $f$ has zeros at $x = 1$ and $x = 7$, and $f(0) = 14$. What is the minimum value of $f(x)$?",
+            "explanation": "Write $f(x) = a(x - 1)(x - 7)$. Then $f(0) = 7a = 14$, so $a = 2$. The vertex is halfway between the zeros, at $x = 4$: $f(4) = 2(3)(-3) = -18$. Since $a > 0$, this is the minimum. Leaving out $a$ gives $-9$.",
+            "choices": [
+              "$-18$",
+              "$-9$",
+              "$4$",
+              "$14$"
+            ],
+            "answer": "A"
+          }
+        ]
+      },
+      "module2": {
+        "easier": {
+          "minutes": 35,
+          "questions": [
+            {
+              "id": "t5-m2e-01",
+              "section": "math",
+              "skill": "Linear equations in one variable",
+              "difficulty": "easy",
+              "prompt": "If $5(x - 1) = 30$, what is the value of $x$?",
+              "explanation": "Divide both sides by 5: $x - 1 = 6$, so $x = 7$. Writing $5x - 1 = 30$ without distributing gives $\\dfrac{31}{5}$.",
+              "choices": [
+                "7",
+                "6",
+                "$\\dfrac{31}{5}$",
+                "25"
+              ],
+              "answer": "A"
+            },
+            {
+              "id": "t5-m2e-02",
+              "section": "math",
+              "skill": "Percentages",
+              "difficulty": "easy",
+              "prompt": "An orchard near Samarkand has 640 apricot trees, and 35% of them were planted in the last five years. How many of the trees were planted in the last five years?",
+              "explanation": "$0.35 \\times 640 = 224$.",
+              "answer": [
+                "224"
+              ]
+            },
+            {
+              "id": "t5-m2e-03",
+              "section": "math",
+              "skill": "Linear functions",
+              "difficulty": "easy",
+              "prompt": "The table shows four values of $x$ and their corresponding values of $y$ for a linear relationship. Which equation represents this relationship?",
+              "explanation": "When $x = 0$, $y = 4$, so the $y$-intercept is 4. Each time $x$ increases by 1, $y$ increases by 3, so the slope is 3.",
+              "table": {
+                "head": [
+                  "$x$",
+                  "$y$"
+                ],
+                "rows": [
+                  [
+                    "0",
+                    "4"
+                  ],
+                  [
+                    "1",
+                    "7"
+                  ],
+                  [
+                    "2",
+                    "10"
+                  ],
+                  [
+                    "3",
+                    "13"
+                  ]
+                ]
+              },
+              "choices": [
+                "$y = 3x + 4$",
+                "$y = 4x + 3$",
+                "$y = x + 4$",
+                "$y = 3x + 1$"
+              ],
+              "answer": "A"
+            },
+            {
+              "id": "t5-m2e-04",
+              "section": "math",
+              "skill": "Area and volume",
+              "difficulty": "easy",
+              "prompt": "A triangular flower bed in a schoolyard in Namangan has a base of 7.5 meters and a height of 4 meters. What is the area of the flower bed, in square meters?",
+              "explanation": "The area of a triangle is $\\dfrac{1}{2} \\times \\text{base} \\times \\text{height} = \\dfrac{1}{2}(7.5)(4) = 15$. Forgetting the $\\dfrac{1}{2}$ gives 30.",
+              "choices": [
+                "30",
+                "15",
+                "11.5",
+                "60"
+              ],
+              "answer": "B"
+            },
+            {
+              "id": "t5-m2e-05",
+              "section": "math",
+              "skill": "Equivalent expressions",
+              "difficulty": "easy",
+              "prompt": "Which expression is equivalent to $2x^3 \\cdot 5x^4$?",
+              "explanation": "Multiply the coefficients and add the exponents: $2 \\cdot 5 = 10$ and $3 + 4 = 7$, so the product is $10x^7$.",
+              "choices": [
+                "$7x^7$",
+                "$10x^7$",
+                "$10x^{12}$",
+                "$7x^{12}$"
+              ],
+              "answer": "B"
+            },
+            {
+              "id": "t5-m2e-06",
+              "section": "math",
+              "skill": "Nonlinear equations in one variable and systems of equations in two variables",
+              "difficulty": "easy",
+              "prompt": "If $\\sqrt{x} + 3 = 8$, what is the value of $x$?",
+              "explanation": "Subtract 3: $\\sqrt{x} = 5$. Square both sides: $x = 25$. Stopping at 5 gives the value of $\\sqrt{x}$, not $x$.",
+              "choices": [
+                "5",
+                "64",
+                "121",
+                "25"
+              ],
+              "answer": "D"
+            },
+            {
+              "id": "t5-m2e-07",
+              "section": "math",
+              "skill": "Linear equations in two variables",
+              "difficulty": "easy",
+              "prompt": "At what point does the graph of $2x + 5y = 20$ cross the $y$-axis?",
+              "explanation": "On the $y$-axis, $x = 0$, so $5y = 20$ and $y = 4$. The point $(10, 0)$ is where the line crosses the $x$-axis.",
+              "choices": [
+                "$(0, 20)$",
+                "$(0, 4)$",
+                "$(10, 0)$",
+                "$(0, 5)$"
+              ],
+              "answer": "B"
+            },
+            {
+              "id": "t5-m2e-08",
+              "section": "math",
+              "skill": "Two-variable data: models and scatterplots",
+              "difficulty": "easy",
+              "prompt": "A scatterplot shows the elevation $h$, in kilometers, and the average July temperature $T$, in degrees Celsius, for weather stations in the Chatkal Mountains. The line of best fit for the data is $T = 26 - 6.5h$. What average July temperature, in degrees Celsius, does the line of best fit predict for a station at an elevation of 2 kilometers?",
+              "explanation": "Substitute $h = 2$: $T = 26 - 6.5(2) = 26 - 13 = 13$.",
+              "answer": [
+                "13"
+              ]
+            },
+            {
+              "id": "t5-m2e-09",
+              "section": "math",
+              "skill": "Linear inequalities in one or two variables",
+              "difficulty": "medium",
+              "prompt": "Which of the following values of $x$ is NOT a solution to the inequality $5 - 2x \\le 1$?",
+              "explanation": "Subtract 5: $-2x \\le -4$. Dividing by $-2$ reverses the inequality: $x \\ge 2$. Only 1 is less than 2.",
+              "choices": [
+                "2",
+                "3",
+                "1",
+                "5"
+              ],
+              "answer": "C"
+            },
+            {
+              "id": "t5-m2e-10",
+              "section": "math",
+              "skill": "Lines, angles, and triangles",
+              "difficulty": "easy",
+              "prompt": "Two parallel lines are cut by a transversal. One of the angles formed measures $(3x + 15)^\\circ$, and the angle that corresponds to it measures $75^\\circ$. What is the value of $x$?",
+              "explanation": "Corresponding angles formed by parallel lines are equal: $3x + 15 = 75$, so $3x = 60$ and $x = 20$. Setting the angles' sum to $180^\\circ$ instead gives 30.",
+              "choices": [
+                "20",
+                "30",
+                "25",
+                "60"
+              ],
+              "answer": "A"
+            },
+            {
+              "id": "t5-m2e-11",
+              "section": "math",
+              "skill": "Nonlinear functions",
+              "difficulty": "medium",
+              "prompt": "The function $g$ is defined by $g(x) = 2^x + x$. What is the value of $g(3)$?",
+              "explanation": "$g(3) = 2^3 + 3 = 8 + 3 = 11$.",
+              "answer": [
+                "11"
+              ]
+            },
+            {
+              "id": "t5-m2e-12",
+              "section": "math",
+              "skill": "Systems of two linear equations in two variables",
+              "difficulty": "medium",
+              "prompt": "At a museum in Tashkent, adult tickets cost 40,000 so'm and student tickets cost 25,000 so'm. One morning, the museum sold 40 tickets for a total of 1,315,000 so'm. How many adult tickets did it sell?",
+              "explanation": "Let $a$ be the number of adult tickets, so $40 - a$ were student tickets. $40{,}000a + 25{,}000(40 - a) = 1{,}315{,}000$ gives $15{,}000a = 315{,}000$, so $a = 21$. 19 is the number of student tickets.",
+              "choices": [
+                "19",
+                "23",
+                "21",
+                "25"
+              ],
+              "answer": "C"
+            },
+            {
+              "id": "t5-m2e-13",
+              "section": "math",
+              "skill": "Nonlinear equations in one variable and systems of equations in two variables",
+              "difficulty": "medium",
+              "prompt": "If $(x - 3)^2 = 25$, which of the following is a possible value of $x$?",
+              "explanation": "$x - 3 = 5$ or $x - 3 = -5$, so $x = 8$ or $x = -2$. Only 8 is listed.",
+              "choices": [
+                "$-8$",
+                "8",
+                "2",
+                "22"
+              ],
+              "answer": "B"
+            },
+            {
+              "id": "t5-m2e-14",
+              "section": "math",
+              "skill": "Probability and conditional probability",
+              "difficulty": "medium",
+              "prompt": "A bag contains only red tiles and green tiles. If one tile is chosen at random, the probability that it is red is $\\dfrac{3}{8}$. If the bag contains 15 green tiles, how many red tiles does it contain?",
+              "explanation": "Green tiles make up $1 - \\dfrac{3}{8} = \\dfrac{5}{8}$ of the bag, so the bag holds $15 \\div \\dfrac{5}{8} = 24$ tiles. Red tiles: $24 - 15 = 9$.",
+              "choices": [
+                "15",
+                "24",
+                "40",
+                "9"
+              ],
+              "answer": "D"
+            },
+            {
+              "id": "t5-m2e-15",
+              "section": "math",
+              "skill": "Circles",
+              "difficulty": "medium",
+              "prompt": "The area of a circle is $64\\pi$ square meters. What is the circumference of the circle, in meters?",
+              "explanation": "$\\pi r^2 = 64\\pi$ gives $r = 8$, so the circumference is $2\\pi(8) = 16\\pi$. $8\\pi$ uses the radius in place of the diameter.",
+              "choices": [
+                "$16\\pi$",
+                "$8\\pi$",
+                "$32\\pi$",
+                "$64\\pi$"
+              ],
+              "answer": "A"
+            },
+            {
+              "id": "t5-m2e-16",
+              "section": "math",
+              "skill": "Equivalent expressions",
+              "difficulty": "medium",
+              "prompt": "Which expression is equivalent to $x^2 - 10x + 25$?",
+              "explanation": "$x^2 - 10x + 25$ is a perfect square: $(x - 5)^2 = x^2 - 10x + 25$. $(x - 5)(x + 5)$ is $x^2 - 25$.",
+              "choices": [
+                "$(x + 5)^2$",
+                "$(x - 5)(x + 5)$",
+                "$(x - 25)(x - 1)$",
+                "$(x - 5)^2$"
+              ],
+              "answer": "D"
+            },
+            {
+              "id": "t5-m2e-17",
+              "section": "math",
+              "skill": "Linear functions",
+              "difficulty": "medium",
+              "prompt": "The equation $W = 1{,}500 - 40d$ gives the amount of water $W$, in liters, left in a tank $d$ days after a farmer starts using it to water a field. What is the best interpretation of 40 in this context?",
+              "explanation": "40 is the rate of change: each day, $W$ goes down by 40 liters. The tank started with 1,500 liters, and it empties after $1{,}500 \\div 40 = 37.5$ days, not 40.",
+              "choices": [
+                "The tank held 40 liters of water when the farmer started using it.",
+                "The tank will be empty after 40 days.",
+                "The amount of water in the tank decreases by 40 liters each day.",
+                "The farmer waters the field for 40 days."
+              ],
+              "answer": "C"
+            },
+            {
+              "id": "t5-m2e-18",
+              "section": "math",
+              "skill": "Percentages",
+              "difficulty": "medium",
+              "prompt": "After a 30% discount, the price of a pair of shoes is \\$42. What was the original price, in dollars?",
+              "explanation": "The sale price is 70% of the original price $p$: $0.70p = 42$, so $p = 60$.",
+              "answer": [
+                "60"
+              ]
+            },
+            {
+              "id": "t5-m2e-19",
+              "section": "math",
+              "skill": "Nonlinear functions",
+              "difficulty": "medium",
+              "prompt": "The graph of a quadratic function in the $xy$-plane has its vertex at $(2, -5)$ and opens upward. Which equation could define this function?",
+              "explanation": "The form $y = a(x - h)^2 + k$ has its vertex at $(h, k)$, here $(2, -5)$, and opens upward when $a > 0$.",
+              "choices": [
+                "$y = (x + 2)^2 - 5$",
+                "$y = (x - 2)^2 - 5$",
+                "$y = -(x - 2)^2 - 5$",
+                "$y = (x - 2)^2 + 5$"
+              ],
+              "answer": "B"
+            },
+            {
+              "id": "t5-m2e-20",
+              "section": "math",
+              "skill": "Right triangles and trigonometry",
+              "difficulty": "medium",
+              "prompt": "In right triangle $RST$, angle $T$ is a right angle, $RT = 11$, $ST = 60$, and $RS = 61$. What is the value of $\\tan R$?",
+              "explanation": "Tangent is opposite over adjacent. From angle $R$, the opposite side is $ST = 60$ and the adjacent side is $RT = 11$, so $\\tan R = \\dfrac{60}{11}$.",
+              "choices": [
+                "$\\dfrac{11}{60}$",
+                "$\\dfrac{60}{61}$",
+                "$\\dfrac{11}{61}$",
+                "$\\dfrac{60}{11}$"
+              ],
+              "answer": "D"
+            },
+            {
+              "id": "t5-m2e-21",
+              "section": "math",
+              "skill": "Linear equations in one variable",
+              "difficulty": "medium",
+              "prompt": "A taxi ride in Tashkent costs a base fare of 6,000 so'm plus 2,500 so'm for each kilometer. If a ride cost 36,000 so'm, how many kilometers long was the ride?",
+              "explanation": "$6{,}000 + 2{,}500k = 36{,}000$ gives $2{,}500k = 30{,}000$, so $k = 12$.",
+              "answer": [
+                "12"
+              ]
+            },
+            {
+              "id": "t5-m2e-22",
+              "section": "math",
+              "skill": "Inference from sample statistics and margin of error",
+              "difficulty": "medium",
+              "prompt": "In a random sample of 150 households in a town, 36 households own a bicycle. There are 5,000 households in the town. Based on the sample, about how many households in the town own a bicycle?",
+              "explanation": "In the sample, $\\dfrac{36}{150} = 0.24$, or 24%, of households own a bicycle. For the whole town: $0.24 \\times 5{,}000 = 1{,}200$.",
+              "choices": [
+                "36",
+                "240",
+                "1,200",
+                "3,800"
+              ],
+              "answer": "C"
+            }
+          ]
+        },
+        "harder": {
+          "minutes": 35,
+          "questions": [
+            {
+              "id": "t5-m2h-01",
+              "section": "math",
+              "skill": "Linear equations in one variable",
+              "difficulty": "medium",
+              "prompt": "If $\\dfrac{3x + 2}{5} = \\dfrac{x - 4}{3}$, what is the value of $x$?",
+              "explanation": "Multiply both sides by 15: $3(3x + 2) = 5(x - 4)$, so $9x + 6 = 5x - 20$, $4x = -26$, and $x = -\\dfrac{13}{2}$. Cross-multiplying the wrong way, $5(3x + 2) = 3(x - 4)$, gives $-\\dfrac{11}{6}$.",
+              "choices": [
+                "$\\dfrac{13}{2}$",
+                "$-\\dfrac{13}{2}$",
+                "$-\\dfrac{11}{6}$",
+                "$-26$"
+              ],
+              "answer": "B"
+            },
+            {
+              "id": "t5-m2h-02",
+              "section": "math",
+              "skill": "Percentages",
+              "difficulty": "hard",
+              "prompt": "The number of visitors to a national park increased by 20% from 2021 to 2022 and then decreased by 15% from 2022 to 2023. The park had 35,700 visitors in 2023. How many visitors did the park have in 2021?",
+              "explanation": "Each change multiplies the count: $1.20 \\times 0.85 = 1.02$. So the 2021 count $v$ satisfies $1.02v = 35{,}700$, and $v = 35{,}000$. Treating the changes as a net 5% increase gives 34,000.",
+              "choices": [
+                "34,000",
+                "35,000",
+                "35,700",
+                "36,414"
+              ],
+              "answer": "B"
+            },
+            {
+              "id": "t5-m2h-03",
+              "section": "math",
+              "skill": "Nonlinear equations in one variable and systems of equations in two variables",
+              "difficulty": "hard",
+              "prompt": "Which of the following gives all the solutions to the equation $\\sqrt{2x + 7} + 4 = x$?",
+              "explanation": "Subtract 4 and square: $2x + 7 = (x - 4)^2 = x^2 - 8x + 16$, so $x^2 - 10x + 9 = 0$ and $x = 1$ or $x = 9$. Check: $\\sqrt{25} + 4 = 9$ works, but $\\sqrt{9} + 4 = 7$, not 1, so 1 is not a solution.",
+              "choices": [
+                "$1$ only",
+                "$1$ and $9$",
+                "There are no solutions.",
+                "$9$ only"
+              ],
+              "answer": "D"
+            },
+            {
+              "id": "t5-m2h-04",
+              "section": "math",
+              "skill": "Systems of two linear equations in two variables",
+              "difficulty": "hard",
+              "prompt": "At a bazaar in Bukhara, a vendor sells small rugs for \\$45 each and large rugs for \\$120 each. On Saturday, the vendor sold 24 rugs for a total of \\$1,530. The vendor had paid \\$30 for each small rug and \\$80 for each large rug. What was the vendor's total profit, in dollars, on the rugs sold on Saturday?",
+              "explanation": "Let $s$ and $\\ell$ be the numbers of small and large rugs: $s + \\ell = 24$ and $45s + 120\\ell = 1{,}530$. Substituting $s = 24 - \\ell$ gives $1{,}080 + 75\\ell = 1{,}530$, so $\\ell = 6$ and $s = 18$. The rugs cost $18(30) + 6(80) = 1{,}020$ dollars, so the profit was $1{,}530 - 1{,}020 = 510$ dollars.",
+              "answer": [
+                "510"
+              ]
+            },
+            {
+              "id": "t5-m2h-05",
+              "section": "math",
+              "skill": "Area and volume",
+              "difficulty": "hard",
+              "prompt": "A sphere fits exactly inside a cube, touching each of the cube's six faces. The volume of the cube is 216 cubic centimeters. What is the volume of the sphere, in cubic centimeters?",
+              "explanation": "The cube's edge is $\\sqrt[3]{216} = 6$, which equals the sphere's diameter, so $r = 3$. Then $V = \\dfrac{4}{3}\\pi(3)^3 = 36\\pi$. Using 6 as the radius gives $288\\pi$.",
+              "choices": [
+                "$36\\pi$",
+                "$288\\pi$",
+                "$72\\pi$",
+                "$9\\pi$"
+              ],
+              "answer": "A"
+            },
+            {
+              "id": "t5-m2h-06",
+              "section": "math",
+              "skill": "Nonlinear functions",
+              "difficulty": "hard",
+              "prompt": "The function $f$ is defined by $f(x) = 3x^2 - 12x + 7$. Which of the following equivalent forms of $f(x)$ displays the minimum value of $f$ as a constant or coefficient?",
+              "explanation": "Complete the square: $3(x^2 - 4x) + 7 = 3(x^2 - 4x + 4) - 12 + 7 = 3(x - 2)^2 - 5$. Since $3(x - 2)^2 \\ge 0$, the minimum is $-5$, which appears as the constant. The 7 in the other forms is $f(0)$, not the minimum.",
+              "choices": [
+                "$3(x^2 - 4x) + 7$",
+                "$3x(x - 4) + 7$",
+                "$3(x - 2)^2 - 5$",
+                "$3\\left(x^2 - 4x + \\dfrac{7}{3}\\right)$"
+              ],
+              "answer": "C"
+            },
+            {
+              "id": "t5-m2h-07",
+              "section": "math",
+              "skill": "One-variable data: distributions and measures of center and spread",
+              "difficulty": "hard",
+              "prompt": "Data set $Y$ is formed by multiplying each value in data set $X$ by 2 and then adding 3. Data set $X$ has a mean of 14 and a standard deviation of 4. What are the mean and standard deviation of data set $Y$?",
+              "explanation": "Every value is doubled and then raised by 3, so the mean becomes $2(14) + 3 = 31$. Adding 3 shifts all values equally and does not change the spread, but doubling doubles it: $2(4) = 8$.",
+              "choices": [
+                "Mean 31, standard deviation 11",
+                "Mean 31, standard deviation 8",
+                "Mean 28, standard deviation 8",
+                "Mean 17, standard deviation 4"
+              ],
+              "answer": "B"
+            },
+            {
+              "id": "t5-m2h-08",
+              "section": "math",
+              "skill": "Linear functions",
+              "difficulty": "hard",
+              "prompt": "The graph of the linear function $f$ in the $xy$-plane is perpendicular to the graph of $2x - 5y = 10$, and $f(3) = -4$. What is the value of $f(13)$?",
+              "explanation": "The line $2x - 5y = 10$ has slope $\\dfrac{2}{5}$, so $f$ has slope $-\\dfrac{5}{2}$. From $x = 3$ to $x = 13$, $x$ increases by 10, so $f$ changes by $-\\dfrac{5}{2}(10) = -25$: $f(13) = -4 - 25 = -29$.",
+              "answer": [
+                "-29"
+              ]
+            },
+            {
+              "id": "t5-m2h-09",
+              "section": "math",
+              "skill": "Circles",
+              "difficulty": "hard",
+              "prompt": "Points $A$, $B$, and $C$ lie on a circle with radius 18. Inscribed angle $ACB$ measures $35^\\circ$. What is the length of minor arc $AB$?",
+              "explanation": "An inscribed angle is half the central angle, so arc $AB$ measures $70^\\circ$. Its length is $\\dfrac{70}{360} \\cdot 2\\pi(18) = 7\\pi$. Treating $35^\\circ$ as the central angle gives $\\dfrac{7\\pi}{2}$.",
+              "choices": [
+                "$\\dfrac{7\\pi}{2}$",
+                "$14\\pi$",
+                "$7\\pi$",
+                "$35\\pi$"
+              ],
+              "answer": "C"
+            },
+            {
+              "id": "t5-m2h-10",
+              "section": "math",
+              "skill": "Equivalent expressions",
+              "difficulty": "hard",
+              "prompt": "Which expression is equivalent to $\\dfrac{x}{x + 3} + \\dfrac{2}{x - 1}$, for $x \\ne -3$ and $x \\ne 1$?",
+              "explanation": "Use the common denominator $(x + 3)(x - 1) = x^2 + 2x - 3$. The numerator is $x(x - 1) + 2(x + 3) = x^2 - x + 2x + 6 = x^2 + x + 6$. Adding the tops and bottoms separately gives $\\dfrac{x + 2}{2x + 2}$, which is not equivalent.",
+              "choices": [
+                "$\\dfrac{x^2 + x + 6}{x^2 + 2x - 3}$",
+                "$\\dfrac{x + 2}{2x + 2}$",
+                "$\\dfrac{x^2 + x + 3}{x^2 + 2x - 3}$",
+                "$\\dfrac{x^2 + 3x + 6}{x^2 + 2x - 3}$"
+              ],
+              "answer": "A"
+            },
+            {
+              "id": "t5-m2h-11",
+              "section": "math",
+              "skill": "Probability and conditional probability",
+              "difficulty": "hard",
+              "prompt": "A survey asked 250 workers in two cities whether they work remotely or on-site. The results are shown in the table. If one of the workers who work on-site is chosen at random, what is the probability that the worker is from Samarkand?",
+              "explanation": "Only the 180 on-site workers count, and 78 of them are from Samarkand: $\\dfrac{78}{180} = \\dfrac{13}{30}$.",
+              "table": {
+                "head": [
+                  "",
+                  "Remote",
+                  "On-site",
+                  "Total"
+                ],
+                "rows": [
+                  [
+                    "Tashkent",
+                    "48",
+                    "102",
+                    "150"
+                  ],
+                  [
+                    "Samarkand",
+                    "22",
+                    "78",
+                    "100"
+                  ],
+                  [
+                    "Total",
+                    "70",
+                    "180",
+                    "250"
+                  ]
+                ]
+              },
+              "answer": [
+                "13/30",
+                ".4333"
+              ]
+            },
+            {
+              "id": "t5-m2h-12",
+              "section": "math",
+              "skill": "Nonlinear functions",
+              "difficulty": "hard",
+              "prompt": "The value, in dollars, of an investment is modeled by $V(t) = 2{,}000(1.06)^t$, where $t$ is the number of years since the investment was made. Which expression gives the value of the investment, in dollars, $m$ months after it was made?",
+              "explanation": "$m$ months is $\\dfrac{m}{12}$ years, so substitute $t = \\dfrac{m}{12}$. The expression $2{,}000(1.005)^m$ would grow by about 6.17% per year, not 6%.",
+              "choices": [
+                "$2{,}000(1.06)^{12m}$",
+                "$2{,}000(1.005)^m$",
+                "$2{,}000(1.06)^{m/12}$",
+                "$2{,}000\\left(\\dfrac{1.06}{12}\\right)^m$"
+              ],
+              "answer": "C"
+            },
+            {
+              "id": "t5-m2h-13",
+              "section": "math",
+              "skill": "Linear inequalities in one or two variables",
+              "difficulty": "hard",
+              "prompt": "A bakery uses 0.5 kilogram of flour for each loaf of bread and 0.8 kilogram of flour for each cake. On a given day, it has at most 40 kilograms of flour and must make at least 30 loaves and at least 10 cakes. Which combination of $x$ loaves and $y$ cakes satisfies all of these conditions?",
+              "explanation": "Check $0.5x + 0.8y \\le 40$, $x \\ge 30$, and $y \\ge 10$. For $x = 30$, $y = 30$: $15 + 24 = 39 \\le 40$, and both minimums are met. The second choice needs 40.8 kilograms of flour, the third has too few loaves, and the fourth has too few cakes.",
+              "choices": [
+                "$x = 40$, $y = 26$",
+                "$x = 28$, $y = 30$",
+                "$x = 50$, $y = 8$",
+                "$x = 30$, $y = 30$"
+              ],
+              "answer": "D"
+            },
+            {
+              "id": "t5-m2h-14",
+              "section": "math",
+              "skill": "Lines, angles, and triangles",
+              "difficulty": "hard",
+              "prompt": "Triangle $ABC$ is similar to triangle $XYZ$, with $A$, $B$, and $C$ corresponding to $X$, $Y$, and $Z$, respectively. In triangle $ABC$, $AB = 12$, $BC = 15$, and $AC = 18$. The perimeter of triangle $XYZ$ is 75. What is the length of $XZ$?",
+              "explanation": "The perimeter of triangle $ABC$ is $12 + 15 + 18 = 45$, so the scale factor is $\\dfrac{75}{45} = \\dfrac{5}{3}$. $XZ$ corresponds to $AC$, so $XZ = 18 \\cdot \\dfrac{5}{3} = 30$.",
+              "answer": [
+                "30"
+              ]
+            },
+            {
+              "id": "t5-m2h-15",
+              "section": "math",
+              "skill": "Nonlinear equations in one variable and systems of equations in two variables",
+              "difficulty": "hard",
+              "prompt": "The two solutions to the equation $x^2 - 8x + c = 0$, where $c$ is a constant, differ by 2. What is the value of $c$?",
+              "explanation": "The solutions add to 8 (the opposite of the coefficient of $x$), and their product is $c$. Two numbers that add to 8 and differ by 2 are 3 and 5, so $c = 3 \\times 5 = 15$. A value of 16 gives a single repeated solution.",
+              "choices": [
+                "16",
+                "12",
+                "8",
+                "15"
+              ],
+              "answer": "D"
+            },
+            {
+              "id": "t5-m2h-16",
+              "section": "math",
+              "skill": "Evaluating statistical claims: observational studies and experiments",
+              "difficulty": "hard",
+              "prompt": "Researchers selected 500 factory workers at random from all factory workers in a large city. They randomly assigned half of them to a schedule with a 10-minute break every two hours and the other half to their usual schedule. After one month, the workers on the break schedule produced significantly more per hour, on average. Which conclusion is best supported by the study?",
+              "explanation": "Random assignment supports a cause-and-effect conclusion, and random selection lets it extend to factory workers in that city, but not to other industries. The result is an average effect, not a guarantee for every worker.",
+              "choices": [
+                "The break schedule likely causes higher average hourly output among factory workers in that city.",
+                "The break schedule likely causes higher average hourly output among workers in every industry.",
+                "The study shows only an association between the break schedule and output, not a cause.",
+                "The break schedule will raise the hourly output of every factory worker in the city."
+              ],
+              "answer": "A"
+            },
+            {
+              "id": "t5-m2h-17",
+              "section": "math",
+              "skill": "Linear equations in two variables",
+              "difficulty": "hard",
+              "prompt": "In the $xy$-plane, line $k$ has the equation $2x + 5y = 15$. Line $m$ is perpendicular to line $k$ and passes through the point $(4, -3)$. At what point does line $m$ cross the $y$-axis?",
+              "explanation": "Line $k$ has slope $-\\dfrac{2}{5}$, so line $m$ has slope $\\dfrac{5}{2}$. Then $y + 3 = \\dfrac{5}{2}(x - 4)$, or $y = \\dfrac{5}{2}x - 13$, which crosses the $y$-axis at $(0, -13)$. $(0, 3)$ is where line $k$ crosses it.",
+              "choices": [
+                "$(0, 7)$",
+                "$\\left(0, -\\dfrac{7}{5}\\right)$",
+                "$(0, -13)$",
+                "$(0, 3)$"
+              ],
+              "answer": "C"
+            },
+            {
+              "id": "t5-m2h-18",
+              "section": "math",
+              "skill": "Nonlinear functions",
+              "difficulty": "hard",
+              "prompt": "The graph of the quadratic function $f(x) = ax^2 + bx + c$ in the $xy$-plane passes through the points $(0, 6)$, $(1, 3)$, and $(3, 9)$. What is the value of $f(4)$?",
+              "explanation": "Since $f(0) = 6$, $c = 6$. Then $a + b = -3$ and $9a + 3b = 3$, which simplifies to $3a + b = 1$. Subtracting gives $2a = 4$, so $a = 2$ and $b = -5$. Then $f(4) = 2(16) - 5(4) + 6 = 18$.",
+              "answer": [
+                "18"
+              ]
+            },
+            {
+              "id": "t5-m2h-19",
+              "section": "math",
+              "skill": "Right triangles and trigonometry",
+              "difficulty": "hard",
+              "prompt": "In triangle $ABC$, angle $B$ is a right angle, the measure of angle $A$ is $30^\\circ$, and $AC = 14$. What is the area of triangle $ABC$?",
+              "explanation": "In a $30^\\circ$-$60^\\circ$-$90^\\circ$ triangle, the side opposite $30^\\circ$ is half the hypotenuse, so $BC = 7$ and $AB = 7\\sqrt{3}$. The area is $\\dfrac{1}{2}(7)(7\\sqrt{3}) = \\dfrac{49\\sqrt{3}}{2}$. Leaving out the $\\dfrac{1}{2}$ gives $49\\sqrt{3}$.",
+              "choices": [
+                "$49\\sqrt{3}$",
+                "$\\dfrac{49}{2}$",
+                "$98\\sqrt{3}$",
+                "$\\dfrac{49\\sqrt{3}}{2}$"
+              ],
+              "answer": "D"
+            },
+            {
+              "id": "t5-m2h-20",
+              "section": "math",
+              "skill": "Systems of two linear equations in two variables",
+              "difficulty": "hard",
+              "prompt": "$$y = -3x + 7$$ $$y = ax + c$$ In the given system of equations, $a$ and $c$ are constants. The system has no solution, and the graph of the second equation in the $xy$-plane passes through the point $(2, 4)$. What is the value of $c$?",
+              "explanation": "No solution means the lines are parallel and distinct, so $a = -3$. Then $4 = -3(2) + c$, so $c = 10$. Since $10 \\ne 7$, the lines really are distinct. Using a slope of 3 instead gives $-2$.",
+              "choices": [
+                "10",
+                "$-2$",
+                "7",
+                "4"
+              ],
+              "answer": "A"
+            },
+            {
+              "id": "t5-m2h-21",
+              "section": "math",
+              "skill": "Nonlinear equations in one variable and systems of equations in two variables",
+              "difficulty": "hard",
+              "prompt": "In the $xy$-plane, the graphs of $y = x^2 - 4x + 1$ and $y = -2x + k$, where $k$ is a constant, intersect at exactly two points. Which of the following could be the value of $k$?",
+              "explanation": "Setting the expressions equal gives $x^2 - 2x + (1 - k) = 0$. Two intersection points need a positive discriminant: $4 - 4(1 - k) = 4k > 0$, so $k > 0$. Only 2 works; $k = 0$ gives exactly one point.",
+              "choices": [
+                "0",
+                "2",
+                "$-1$",
+                "$-3$"
+              ],
+              "answer": "B"
+            },
+            {
+              "id": "t5-m2h-22",
+              "section": "math",
+              "skill": "Ratios, rates, proportional relationships, and units",
+              "difficulty": "hard",
+              "prompt": "A cotton farm in the Fergana Valley produces an average of 3.2 metric tons of cotton per hectare. One rectangular field on the farm measures 800 meters by 500 meters. At this rate, how many metric tons of cotton does the field produce? (1 hectare = 10,000 square meters)",
+              "explanation": "The field's area is $800 \\times 500 = 400{,}000$ square meters, which is $400{,}000 \\div 10{,}000 = 40$ hectares. Then $40 \\times 3.2 = 128$ metric tons.",
+              "answer": [
+                "128"
+              ]
+            }
+          ]
+        }
+      }
+    }
+  ]
+}
