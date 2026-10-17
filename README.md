@@ -29,7 +29,7 @@ robots.txt, sitemap.xml
 3. **Keep `CNAME`.** It is not in this folder and keeps your domain working.
    The old `logo.jpg` is no longer used. The logo now lives in `assets/brand/`, and you can delete
    `logo.jpg` from the repository.
-5. Wait a minute or two, then open scholarshub.academy and run through: practice set, the mini
+5. Wait a minute or two, then open satustoz.academy and run through: practice set, the mini
    diagnostic test, and the language switch.
 
 The site works fully at this point. Until step 2, the AI practice tab shows a "not switched on yet" note and the
@@ -74,7 +74,7 @@ Uzbek Latin and Russian Cyrillic.
 
 1. In GitHub: **Settings → Pages → Custom domain**, enter the new domain, then tick **Enforce HTTPS**
    once it is offered. This rewrites `CNAME` for you.
-2. Find and replace `scholarshub.academy` with the new domain in: `index.html`, `practice.html`,
+2. Find and replace `satustoz.academy` with the new domain in: `index.html`, `practice.html`,
    `login.html`, `sitemap.xml`, `robots.txt`, `worker/ai-worker.js` and `worker/payments-worker.js`.
 3. Firebase: **Authentication → Settings → Authorized domains**, add the new domain (and `www.`).
 4. Cloudflare Workers (once the AI or payments are on): add the new domain to `ALLOWED_ORIGINS`, and in the payments
@@ -124,14 +124,14 @@ Until you do this, the site works without accounts and shows no sign-in buttons.
    These values are designed to be public, unlike the AI key.
 3. **Build → Authentication → Get started → Sign-in method → Google → Enable.** Pick your email as the
    support email and save.
-4. **Authentication → Settings → Authorized domains → Add domain:** `scholarshub.academy`
-   (add `www.scholarshub.academy` too).
+4. **Authentication → Settings → Authorized domains → Add domain:** `satustoz.academy`
+   (add `www.satustoz.academy` too).
 5. **Build → Firestore Database → Create database.** Pick a location close to Uzbekistan
    (for example `europe-west`), start in **production mode**, then open the **Rules** tab, replace
    everything with the contents of `firestore.rules`, and click **Publish**.
 6. **Project settings → General → Public-facing name:** `SAT Ustoz`. This is the name students see
    in the Google window.
-7. Upload the updated `assets/sh.js` to GitHub. Open scholarshub.academy/login.html and sign in once to test.
+7. Upload the updated `assets/sh.js` to GitHub. Open satustoz.academy/login.html and sign in once to test.
 8. In your Cloudflare Worker, add a Text variable `FIREBASE_PROJECT_ID` with your project ID. From then on
    only signed-in students can use the AI, and the daily limit counts per student.
 
@@ -154,7 +154,7 @@ Until you do this, the site works without accounts and shows no sign-in buttons.
 
 ## 5. Adding your own questions
 
-1. Open `scholarshub.academy/builder.html`.
+1. Open `satustoz.academy/builder.html`.
 2. Choose **Practice set** or **Practice test**, give it an ID and title, write the questions.
    The right-hand panel shows exactly what students will see and lists anything missing.
 3. Click **Download JSON**. Upload the file to `data/sets/` or `data/tests/`. A Pro test goes to your private
@@ -300,8 +300,8 @@ The Worker needs this key to write the plan on a student's account.
    |---|---|---|
    | `FIREBASE_PROJECT_ID` | Text | your Firebase project ID, e.g. `satustoz` |
    | `GOOGLE_SERVICE_ACCOUNT` | Secret | open the `.json` file from step B in a text editor and paste all of it |
-   | `ALLOWED_ORIGINS` | Text | `https://scholarshub.academy,https://www.scholarshub.academy` |
-   | `SITE_URL` | Text | `https://scholarshub.academy` |
+   | `ALLOWED_ORIGINS` | Text | `https://satustoz.academy,https://www.satustoz.academy` |
+   | `SITE_URL` | Text | `https://satustoz.academy` |
    | `PRO_PRICE` | Text | the Pro price in so'm, digits only, e.g. `79000`. This is what students are charged |
    | `PAYME_MERCHANT_ID` | Text | the web kassa ID |
    | `PAYME_TEST_KEY` | Secret | the kassa's TEST_KEY |

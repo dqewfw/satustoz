@@ -16,7 +16,7 @@
  *     Delete the sample code, paste THIS whole file, click Deploy.
  *  3. Worker -> Settings -> Variables and Secrets -> Add:
  *       ANTHROPIC_API_KEY   (type: Secret)   your key  <- type it here only
- *       ALLOWED_ORIGINS     (type: Text)     https://scholarshub.academy,https://www.scholarshub.academy
+ *       ALLOWED_ORIGINS     (type: Text)     https://satustoz.academy,https://www.satustoz.academy
  *     Optional (Text):
  *       GEN_MODEL           default claude-sonnet-5-5   (writes questions)
  *       TUTOR_MODEL         default claude-haiku-5-5    (tutor chat, cheaper)
@@ -60,7 +60,7 @@ function domainOf(section, skill) {
 export default {
   async fetch(request, env, ctx) {
     const origin = request.headers.get('Origin') || '';
-    const allowed = (env.ALLOWED_ORIGINS || 'https://scholarshub.academy,https://www.scholarshub.academy')
+    const allowed = (env.ALLOWED_ORIGINS || 'https://satustoz.academy,https://www.satustoz.academy')
       .split(',').map(s => s.trim()).filter(Boolean);
     const cors = {
       'Access-Control-Allow-Origin': allowed.includes(origin) ? origin : allowed[0],

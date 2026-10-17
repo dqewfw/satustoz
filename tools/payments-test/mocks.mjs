@@ -233,7 +233,7 @@ export function installFetch() {
     if (url === 'https://oauth2.googleapis.com/token') return googleTokenFetch(init);
     if (host === 'firestore.googleapis.com') return firestoreFetch(url, init);
     if (url === 'https://checkout.test.paycom.uz/api' || url === 'https://checkout.paycom.uz/api') { payme.lastApi = url; return paymeFetch(init); }
-    if (host === 'scholarshub.academy') {
+    if (host === 'satustoz.academy') {
       const p = decodeURIComponent(new URL(url).pathname).replace(/^\/+/, '');
       if (p.includes('..') || !(p === 'data/catalog.json' || /^data\/tests\/[a-z0-9-]+\.json$/.test(p))) return new Response('Not found', { status: 404 });
       if (net.movedOff && p.startsWith('data/tests/') && p !== 'data/tests/practice-test-1.json') return new Response('Not found', { status: 404 });

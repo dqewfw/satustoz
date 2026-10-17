@@ -15,7 +15,7 @@ const worker = (await import(workerFile)).default;
 const SITE = 'http://localhost:8791', API = 'http://localhost:8792';
 const env = {
   PAYMENTS: new MemoryKV(), FIREBASE_PROJECT_ID: PROJECT, GOOGLE_SERVICE_ACCOUNT: keys.saJson,
-  ALLOWED_ORIGINS: SITE, SITE_URL: 'https://scholarshub.academy', PRO_PRICE: '79000',
+  ALLOWED_ORIGINS: SITE, SITE_URL: 'https://satustoz.academy', PRO_PRICE: '79000',
   PAYME_MERCHANT_ID: payme.merchant, PAYME_TEST_KEY: payme.key, PAYME_TEST: 'true', ADMIN_KEY: 'admin-secret'
 };
 const pending = [];
@@ -64,7 +64,7 @@ http.createServer(async (req, res) => {
       const account = { order_id: params['ac.order_id'] }, amount = Number(params.a), id = Array.from(crypto.getRandomValues(new Uint8Array(12)), b => b.toString(16).padStart(2, '0')).join('');
       const steps = [await payme.merchant_call('CheckPerformTransaction', { amount, account }), await payme.merchant_call('CreateTransaction', { id, time: Date.now(), amount, account })];
       steps.push(await payme.merchant_call('PerformTransaction', { id }));
-      const back = params.c.replace('https://scholarshub.academy', SITE);
+      const back = params.c.replace('https://satustoz.academy', SITE);
       res.writeHead(200, { 'content-type': 'text/html; charset=utf-8' });
       return res.end('<!doctype html><meta charset="utf-8"><title>Payme (test stand-in)</title><body style="font:16px sans-serif;padding:24px"><h1>Payme test page</h1><p>Merchant: ' + params.m + '<br>Order: ' + account.order_id + '<br>Amount: ' + amount + ' tiyin<br>Language: ' + params.l + '</p><pre>' + JSON.stringify(steps.map(s => s.result || s.error), null, 1) + '</pre><p><a id="back" href="' + back + '">Return to the site</a></p></body>');
     }

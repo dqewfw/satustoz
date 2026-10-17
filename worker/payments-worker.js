@@ -29,8 +29,8 @@
  *       GOOGLE_SERVICE_ACCOUNT  (Secret)  the whole JSON file from Firebase ->
  *                                         Project settings -> Service accounts ->
  *                                         Generate new private key
- *       ALLOWED_ORIGINS         (Text)    https://scholarshub.academy,https://www.scholarshub.academy
- *       SITE_URL                (Text)    https://scholarshub.academy
+ *       ALLOWED_ORIGINS         (Text)    https://satustoz.academy,https://www.satustoz.academy
+ *       SITE_URL                (Text)    https://satustoz.academy
  *       PRO_PRICE               (Text)    Pro price in so'm, e.g. 79000
  *       PAYME_MERCHANT_ID       (Text)    your Payme web kassa ID
  *       PAYME_TEST_KEY          (Secret)  the kassa's TEST_KEY (sandbox)
@@ -78,7 +78,7 @@ export default {
     if (path.startsWith('/admin/')) return admin(request, env, url, path);
 
     const origin = request.headers.get('Origin') || '';
-    const allowed = (env.ALLOWED_ORIGINS || 'https://scholarshub.academy,https://www.scholarshub.academy')
+    const allowed = (env.ALLOWED_ORIGINS || 'https://satustoz.academy,https://www.satustoz.academy')
       .split(',').map(s => s.trim()).filter(Boolean);
     const cors = {
       'Access-Control-Allow-Origin': allowed.includes(origin) ? origin : allowed[0],
@@ -159,7 +159,7 @@ function cfg(env) {
     attempts: Number(env.RENEW_ATTEMPTS) > 0 ? Number(env.RENEW_ATTEMPTS) : 3,
     checkoutUrl: test ? 'https://test.paycom.uz' : 'https://checkout.paycom.uz',
     apiUrl: test ? 'https://checkout.test.paycom.uz/api' : 'https://checkout.paycom.uz/api',
-    site: (env.SITE_URL || 'https://scholarshub.academy').replace(/\/+$/, '')
+    site: (env.SITE_URL || 'https://satustoz.academy').replace(/\/+$/, '')
   };
 }
 const pickLang = l => (['uz', 'ru', 'en'].includes(l) ? l : 'en');

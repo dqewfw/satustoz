@@ -7,12 +7,12 @@ await setupKeys();
 installFetch();
 const worker = (await import(process.env.WORKER)).default;
 
-const ORIGIN = 'https://scholarshub.academy';
+const ORIGIN = 'https://satustoz.academy';
 const DAY = 86400000;
 function makeEnv(over = {}) {
   return Object.assign({
     PAYMENTS: new MemoryKV(), FIREBASE_PROJECT_ID: PROJECT, GOOGLE_SERVICE_ACCOUNT: keys.saJson,
-    ALLOWED_ORIGINS: ORIGIN + ',https://www.scholarshub.academy', SITE_URL: ORIGIN, PRO_PRICE: '79 000',
+    ALLOWED_ORIGINS: ORIGIN + ',https://www.satustoz.academy', SITE_URL: ORIGIN, PRO_PRICE: '79 000',
     PAYME_MERCHANT_ID: payme.merchant, PAYME_TEST_KEY: payme.key, PAYME_KEY: 'PROD-KEY-not-for-tests-000000000000', PAYME_TEST: 'true',
     ADMIN_KEY: 'admin-secret'
   }, over);
@@ -84,7 +84,7 @@ await test('returns a test.paycom.uz URL carrying the order and the Pro price', 
   assert.equal(r.data.amount, 79000); assert.equal(r.data.card, true);
   assert.ok(r.data.url.startsWith('https://test.paycom.uz/'));
   orderA = orderOf(r.data.url);
-  assert.equal(Buffer.from(r.data.url.split('/').pop(), 'base64').toString(), 'm=' + payme.merchant + ';ac.order_id=' + orderA + ';a=' + AMOUNT + ';l=ru;c=https://scholarshub.academy/practice.html?paid#plans');
+  assert.equal(Buffer.from(r.data.url.split('/').pop(), 'base64').toString(), 'm=' + payme.merchant + ';ac.order_id=' + orderA + ';a=' + AMOUNT + ';l=ru;c=https://satustoz.academy/practice.html?paid#plans');
   const order = await kvJson('order:' + orderA);
   assert.equal(order.uid, 'stuA'); assert.equal(order.amount, AMOUNT); assert.equal(order.state, 'new');
 });

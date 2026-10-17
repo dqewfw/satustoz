@@ -3,4 +3,4 @@ Allow: /
 Disallow: /builder.html
 Disallow: /worker/
 
-Sitemap: https://scholarshub.academy/sitemap.xml
+Sitemap: https://satustoz.academy/sitemap.xml
