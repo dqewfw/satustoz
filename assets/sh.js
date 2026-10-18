@@ -56,9 +56,9 @@
     // Example: 'https://scholarshub-pay.yourname.workers.dev'
     PAYMENTS_ENDPOINT: '',
 
-    CONTACT_TELEGRAM: 'https://t.me/scholars_hub7',
-    CHANNEL_TELEGRAM: 'https://t.me/scholars_hubprograms',
-    INSTAGRAM: 'https://www.instagram.com/_scholarshub',
+    CONTACT_TELEGRAM: 'https://t.me/azizbek7_t',
+    CHANNEL_TELEGRAM: 'https://t.me/satustoz_off',
+    INSTAGRAM: 'https://www.instagram.com/satustoz',
     PHONE: '+998 97 055 00 33',
     CATALOG_URL: 'data/catalog.json'
   };
