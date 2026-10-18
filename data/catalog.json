@@ -13,6 +13,54 @@
       "description": "Ten questions across algebra, advanced math, data and geometry, including typed-answer questions.",
       "section": "math",
       "file": "data/sets/starter-math.json"
+    },
+    {
+      "id": "skill-boundaries",
+      "title": "Skill set: Boundaries",
+      "description": "Ten questions on joining and separating clauses: semicolons, colons, dashes, commas, and when to use no punctuation at all.",
+      "section": "rw",
+      "plan": "pro",
+      "file": "data/sets/skill-boundaries.json"
+    },
+    {
+      "id": "skill-form-structure-sense",
+      "title": "Skill set: Form, Structure, and Sense",
+      "description": "Ten questions on subject-verb agreement, pronouns, possessives, verb tense and form, and modifiers.",
+      "section": "rw",
+      "plan": "pro",
+      "file": "data/sets/skill-form-structure-sense.json"
+    },
+    {
+      "id": "skill-transitions",
+      "title": "Skill set: Transitions",
+      "description": "Ten questions on choosing the transition that matches the logic: contrast, cause and effect, example, concession, and more.",
+      "section": "rw",
+      "plan": "pro",
+      "file": "data/sets/skill-transitions.json"
+    },
+    {
+      "id": "skill-words-in-context",
+      "title": "Skill set: Words in Context",
+      "description": "Ten questions on choosing the most precise word for the context, plus what a word most nearly means.",
+      "section": "rw",
+      "plan": "pro",
+      "file": "data/sets/skill-words-in-context.json"
+    },
+    {
+      "id": "skill-linear-equations-one-variable",
+      "title": "Skill set: Linear equations in one variable",
+      "description": "Ten questions on solving linear equations, including word problems and equations with no solution or infinitely many solutions.",
+      "section": "math",
+      "plan": "pro",
+      "file": "data/sets/skill-linear-equations-one-variable.json"
+    },
+    {
+      "id": "skill-nonlinear-functions",
+      "title": "Skill set: Nonlinear functions",
+      "description": "Ten questions on quadratic and exponential functions: evaluating, modeling, the vertex and minimum, growth and decay.",
+      "section": "math",
+      "plan": "pro",
+      "file": "data/sets/skill-nonlinear-functions.json"
     }
   ],
   "tests": [
@@ -27,14 +75,16 @@
       "id": "practice-test-2",
       "title": "Practice Test 2",
       "description": "Full-length and adaptive, like test day: 98 questions in 2 hours 14 minutes, plus a 10-minute break.",
-      "plan": "free",
+      "plan": "pro",
+      "legacyFree": true,
       "file": "data/tests/practice-test-2.json"
     },
     {
       "id": "practice-test-3",
       "title": "Practice Test 3",
       "description": "Full-length and adaptive, like test day: 98 questions in 2 hours 14 minutes, plus a 10-minute break.",
-      "plan": "free",
+      "plan": "pro",
+      "legacyFree": true,
       "file": "data/tests/practice-test-3.json"
     },
     {

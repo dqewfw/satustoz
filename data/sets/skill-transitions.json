@@ -1,0 +1,127 @@
+{
+  "id": "skill-transitions",
+  "title": "Skill set: Transitions",
+  "description": "Ten questions on choosing the transition that matches the logic: contrast, cause and effect, example, concession, and more.",
+  "questions": [
+    {
+      "id": "trn-01",
+      "section": "rw",
+      "domain": "Expression of Ideas",
+      "skill": "Transitions",
+      "difficulty": "easy",
+      "passage": "For centuries, papermakers in Samarkand produced paper by hand from mulberry bark and cotton rags. ______ most of the world's paper is made by machines from wood pulp.",
+      "prompt": "Which choice completes the text with the most logical transition?",
+      "choices": ["For example,", "Today, however,", "Similarly,", "As a result,"],
+      "answer": "B",
+      "explanation": "The first sentence describes how paper was made in the past (by hand, from bark and rags). The second describes how it is made now (by machine, from wood pulp). That is a shift in time and a contrast: **Today, however,**.\n\nThe second sentence is not an example of the first (A). The two methods are different, not similar (C). The old handmade methods did not cause modern factory production (D)."
+    },
+    {
+      "id": "trn-02",
+      "section": "rw",
+      "domain": "Expression of Ideas",
+      "skill": "Transitions",
+      "difficulty": "easy",
+      "passage": "The only bridge between the two villages was closed for repairs for three months. ______ drivers traveling between the villages had to take a mountain road that added nearly an hour to each trip.",
+      "prompt": "Which choice completes the text with the most logical transition?",
+      "choices": ["Nevertheless,", "For instance,", "In contrast,", "Consequently,"],
+      "answer": "D",
+      "explanation": "The bridge was closed, so drivers had to take the longer road. The second sentence is a result of the first: **Consequently,**.\n\n*Nevertheless* (A) and *In contrast* (C) signal that the second idea goes against the first, but it follows directly from it. *For instance* (B) would introduce an example, and the detour is not an example of a closed bridge."
+    },
+    {
+      "id": "trn-03",
+      "section": "rw",
+      "domain": "Expression of Ideas",
+      "skill": "Transitions",
+      "difficulty": "easy",
+      "passage": "Many common English words were borrowed from Persian. ______ *bazaar*, *caravan*, and *paradise* can all be traced back to Persian.",
+      "prompt": "Which choice completes the text with the most logical transition?",
+      "choices": ["For example,", "However,", "Instead,", "Finally,"],
+      "answer": "A",
+      "explanation": "The first sentence makes a general claim (many English words came from Persian), and the second names specific words that show it. That is an example: **For example,**.\n\n*However* (B) and *Instead* (C) signal a contrast or a replacement, but the second sentence supports the first. *Finally* (D) signals the last step in a sequence or list, and there is no sequence here."
+    },
+    {
+      "id": "trn-04",
+      "section": "rw",
+      "domain": "Expression of Ideas",
+      "skill": "Transitions",
+      "difficulty": "medium",
+      "passage": "The Kyzylkum Desert, which stretches across parts of Uzbekistan, Kazakhstan, and Turkmenistan, is extremely dry. ______ parts of the desert receive only about 100 millimeters of rain in a typical year.",
+      "prompt": "Which choice completes the text with the most logical transition?",
+      "choices": ["Nevertheless,", "By contrast,", "In fact,", "Thus,"],
+      "answer": "C",
+      "explanation": "The first sentence says the desert is extremely dry. The second backs that up with a specific, striking number. A transition that reinforces and sharpens the previous claim is **In fact,**.\n\n*Nevertheless* (A) and *By contrast* (B) signal that the second sentence goes against the first, but it agrees with it. *Thus* (D) would make the low rainfall a *result* of the desert being dry, which reverses the logic: little rain is the evidence for (and the cause of) the dryness, not its consequence."
+    },
+    {
+      "id": "trn-05",
+      "section": "rw",
+      "domain": "Expression of Ideas",
+      "skill": "Transitions",
+      "difficulty": "medium",
+      "passage": "The new drip irrigation system cost far more to install than the farmers' old open canals. ______ most farmers in the district chose to adopt it, because it cut their water use nearly in half within the first season.",
+      "prompt": "Which choice completes the text with the most logical transition?",
+      "choices": ["Still,", "Therefore,", "Similarly,", "In other words,"],
+      "answer": "A",
+      "explanation": "A high cost would normally discourage farmers, yet most of them adopted the system anyway. The second sentence goes against what the first would lead you to expect, so the transition must signal that: **Still,**.\n\n*Therefore* (B) would mean the high cost is the reason they adopted it, which is backwards; the reason given is the water savings. *Similarly* (C) needs two parallel ideas, and *In other words* (D) needs a restatement of the first sentence. The second sentence is neither."
+    },
+    {
+      "id": "trn-06",
+      "section": "rw",
+      "domain": "Expression of Ideas",
+      "skill": "Transitions",
+      "difficulty": "medium",
+      "passage": "Bats find insects in the dark by echolocation: they produce high-pitched calls and listen for the echoes that bounce back. ______ toothed whales such as dolphins send out rapid clicks and interpret the returning sounds to locate fish in murky water.",
+      "prompt": "Which choice completes the text with the most logical transition?",
+      "choices": ["Nonetheless,", "As a result,", "For example,", "Similarly,"],
+      "answer": "D",
+      "explanation": "The second sentence describes a different animal using the same strategy as bats: sending out sounds and reading the echoes. Two parallel cases call for **Similarly,**.\n\n*Nonetheless* (A) signals a contrast, but the two sentences match. *As a result* (B) would mean bats' behavior causes dolphins' behavior. *For example* (C) is the trap: dolphins are not an example of bats, so the second sentence does not illustrate the first; it adds a second, similar case."
+    },
+    {
+      "id": "trn-07",
+      "section": "rw",
+      "domain": "Expression of Ideas",
+      "skill": "Transitions",
+      "difficulty": "medium",
+      "passage": "Pistachio trees are either male or female, and only female trees produce nuts. A female tree, however, cannot produce nuts unless pollen from a male tree reaches its flowers. ______ orchard growers usually plant some male trees among the female ones, often about one male for every ten females.",
+      "prompt": "Which choice completes the text with the most logical transition?",
+      "choices": ["Nevertheless,", "For this reason,", "On the other hand,", "Specifically,"],
+      "answer": "B",
+      "explanation": "Female trees need pollen from male trees, so growers plant male trees too. The last sentence is the result of the fact before it: **For this reason,**.\n\n*Nevertheless* (A) and *On the other hand* (C) signal a contrast, but planting male trees is exactly what the previous sentence would lead you to expect. *Specifically* (D) would introduce a more detailed version of the previous sentence. The planting is a response to that fact, not a detail of it."
+    },
+    {
+      "id": "trn-08",
+      "section": "rw",
+      "domain": "Expression of Ideas",
+      "skill": "Transitions",
+      "difficulty": "hard",
+      "passage": "Economists describe the region's job market as \"tight.\" ______ there are more open positions than there are people looking for work, so employers often have to offer higher wages to attract workers.",
+      "prompt": "Which choice completes the text with the most logical transition?",
+      "choices": ["Even so,", "By contrast,", "That is,", "Meanwhile,"],
+      "answer": "C",
+      "explanation": "The first sentence uses a technical term, \"tight,\" and the second explains what it means. A transition that introduces an explanation or restatement is **That is,**.\n\n*Even so* (A) and *By contrast* (B) signal that the second sentence goes against the first, but it explains it. *Meanwhile* (D) introduces a separate thing happening at the same time, not the meaning of the term just used."
+    },
+    {
+      "id": "trn-09",
+      "section": "rw",
+      "domain": "Expression of Ideas",
+      "skill": "Transitions",
+      "difficulty": "hard",
+      "passage": "Some historians have argued that trade along the Silk Road consisted mainly of luxury goods such as silk, spices, and jewels. ______ these were the goods that travelers and officials most often wrote about. Yet archaeological finds along the old routes, including ordinary pottery, farm tools, and seeds, suggest that everyday goods moved along the routes as well.",
+      "prompt": "Which choice completes the text with the most logical transition?",
+      "choices": ["Consequently,", "Admittedly,", "Similarly,", "In contrast,"],
+      "answer": "B",
+      "explanation": "Look at the whole passage. The writer presents the historians' view, then grants a point in its favor (written records do focus on luxury goods), then pushes back with *Yet*. A transition that concedes a point before a counterargument is **Admittedly,**.\n\n*Consequently* (A) reverses cause and effect: the written records are a reason for the historians' view, not a result of it. *Similarly* (C) would need a second, parallel claim. *In contrast* (D) signals disagreement, but this sentence supports the historians; the disagreement comes in the next sentence, with *Yet*."
+    },
+    {
+      "id": "trn-10",
+      "section": "rw",
+      "domain": "Expression of Ideas",
+      "skill": "Transitions",
+      "difficulty": "hard",
+      "passage": "In laboratory tests, some common houseplants removed small amounts of certain pollutants from the air inside sealed chambers. ______ researchers caution that in a typical home, where indoor air constantly mixes with outdoor air, a person would need an impractically large number of plants to make a noticeable difference.",
+      "prompt": "Which choice completes the text with the most logical transition?",
+      "choices": ["Even so,", "Indeed,", "Accordingly,", "Likewise,"],
+      "answer": "A",
+      "explanation": "The lab result suggests that houseplants clean the air. The researchers' caution limits that conclusion for real homes. The second sentence accepts the first but warns against reading too much into it: **Even so,**.\n\n*Indeed* (B) would strengthen the lab finding, but the caution weakens it. *Accordingly* (C) would make the caution a result of the lab finding, when it actually pushes against it. *Likewise* (D) needs a second, similar finding."
+    }
+  ]
+}

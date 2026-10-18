@@ -1,0 +1,127 @@
+{
+  "id": "skill-words-in-context",
+  "title": "Skill set: Words in Context",
+  "description": "Ten questions on choosing the most precise word for the context, plus what a word most nearly means.",
+  "questions": [
+    {
+      "id": "wic-01",
+      "section": "rw",
+      "domain": "Craft and Structure",
+      "skill": "Words in Context",
+      "difficulty": "easy",
+      "passage": "The trail was poorly marked, so the hikers had to stop every few minutes to check their map. As a result, their progress up the mountain was ______.",
+      "prompt": "Which choice completes the text with the most logical and precise word or phrase?",
+      "choices": ["effortless", "reckless", "halting", "celebrated"],
+      "answer": "C",
+      "explanation": "The hikers stopped every few minutes, so their progress kept starting and stopping. **Halting** means exactly that: moving forward with frequent stops.\n\n*Effortless* (A) is the opposite of a slow, interrupted climb. *Reckless* (B) means careless or dangerous, but stopping to check a map is careful. Nothing in the text suggests anyone praised their progress (D)."
+    },
+    {
+      "id": "wic-02",
+      "section": "rw",
+      "domain": "Craft and Structure",
+      "skill": "Words in Context",
+      "difficulty": "easy",
+      "passage": "The museum's new exhibit is remarkably ______: it includes more than four hundred objects, from ancient coins to twentieth-century film posters.",
+      "prompt": "Which choice completes the text with the most logical and precise word or phrase?",
+      "choices": ["extensive", "fragile", "temporary", "obscure"],
+      "answer": "A",
+      "explanation": "The colon tells you the second half explains the blank. More than four hundred objects spanning many centuries describes an exhibit that is large and wide-ranging: **extensive**.\n\nThe text says nothing about objects breaking easily (B), how long the exhibit will stay open (C), or the exhibit being little known (D). Those words could describe an exhibit, but the evidence after the colon supports none of them."
+    },
+    {
+      "id": "wic-03",
+      "section": "rw",
+      "domain": "Craft and Structure",
+      "skill": "Words in Context",
+      "difficulty": "easy",
+      "passage": "Although the chemist's first results were ______, later experiments with much larger samples confirmed her hypothesis beyond reasonable doubt.",
+      "prompt": "Which choice completes the text with the most logical and precise word or phrase?",
+      "choices": ["definitive", "fraudulent", "expensive", "inconclusive"],
+      "answer": "D",
+      "explanation": "*Although* sets up a contrast with *confirmed ... beyond reasonable doubt*. So the first results must have failed to settle the question: **inconclusive**.\n\n*Definitive* (A) means the same as the later results, so there would be no contrast. *Fraudulent* (B) is far too strong; nothing suggests the chemist was dishonest. Being *expensive* (C) is not the opposite of confirming a hypothesis."
+    },
+    {
+      "id": "wic-04",
+      "section": "rw",
+      "domain": "Craft and Structure",
+      "skill": "Words in Context",
+      "difficulty": "medium",
+      "passage": "Reviewers praised the novelist's ______ style: in a book of nearly 400 pages, she rarely uses a word that does not serve a clear purpose.",
+      "prompt": "Which choice completes the text with the most logical and precise word or phrase?",
+      "choices": ["ornate", "economical", "archaic", "hesitant"],
+      "answer": "B",
+      "explanation": "The colon explains the blank: the novelist wastes almost no words. A style with no unnecessary words is **economical**.\n\n*Ornate* (A) means heavily decorated and elaborate, close to the opposite. Nothing suggests old-fashioned language (C) or an uncertain, unconfident style (D)."
+    },
+    {
+      "id": "wic-05",
+      "section": "rw",
+      "domain": "Craft and Structure",
+      "skill": "Words in Context",
+      "difficulty": "medium",
+      "passage": "When the old caretaker retired, the garden did not decline, as the neighbors had feared it would. His granddaughter, who had followed him along the rows of roses since she was small, took over the work with a quiet confidence that had clearly been cultivated over years of watching him.",
+      "prompt": "As used in the text, what does the word \"cultivated\" most nearly mean?",
+      "choices": ["developed", "sown", "displayed", "rewarded"],
+      "answer": "A",
+      "explanation": "Her confidence grew gradually *over years of watching him*. In this sense, *cultivated* means built up over time: **developed**.\n\n*Sown* (B) is the trap. It fits the garden setting, but it is a literal farming meaning (planting seeds), and planting describes only a beginning, not years of growth. *Displayed* (C) describes showing her confidence now, not how it formed over the years. *Rewarded* (D) does not fit: confidence is not given as a prize for watching."
+    },
+    {
+      "id": "wic-06",
+      "section": "rw",
+      "domain": "Craft and Structure",
+      "skill": "Words in Context",
+      "difficulty": "medium",
+      "passage": "The two researchers' accounts of the discovery ______ in only one respect: one remembered the key experiment taking place in March, while the other was certain it happened in April.",
+      "prompt": "Which choice completes the text with the most logical and precise word or phrase?",
+      "choices": ["agreed", "faltered", "diverged", "persisted"],
+      "answer": "C",
+      "explanation": "The detail after the colon is a difference: March versus April. So the accounts differed in only that one respect: **diverged**.\n\n*Agreed* (A) is the trap. \"Agreed in only one respect\" sounds natural, but the colon then gives a disagreement, not the shared point. *Faltered* (B) means weakened or stumbled, and *persisted* (D) means continued; neither describes two accounts that differ."
+    },
+    {
+      "id": "wic-07",
+      "section": "rw",
+      "domain": "Craft and Structure",
+      "skill": "Words in Context",
+      "difficulty": "medium",
+      "passage": "Rather than simply ______ the measurements that contradicted her model, the economist revised the model so that it could account for those unusual cases.",
+      "prompt": "Which choice completes the text with the most logical and precise word or phrase?",
+      "choices": ["explaining", "collecting", "publishing", "dismissing"],
+      "answer": "D",
+      "explanation": "*Rather than* contrasts the blank with what she actually did: she took the troublesome measurements seriously and changed her model to fit them. The opposite of that is ignoring them: **dismissing**.\n\n*Explaining* (A) is close to what she actually did (accounting for the cases), so it does not contrast. *Collecting* (B) and *publishing* (C) are not alternatives to revising a model to account for the data."
+    },
+    {
+      "id": "wic-08",
+      "section": "rw",
+      "domain": "Craft and Structure",
+      "skill": "Words in Context",
+      "difficulty": "hard",
+      "passage": "The committee's report on the proposed dam was notably ______: it described the project's environmental risks in careful detail but stopped short of recommending that construction be canceled.",
+      "prompt": "Which choice completes the text with the most logical and precise word or phrase?",
+      "choices": ["scathing", "measured", "perfunctory", "jubilant"],
+      "answer": "B",
+      "explanation": "The report is thorough about the risks but avoids the strongest possible conclusion. A careful, restrained, balanced tone is **measured**.\n\n*Scathing* (A) means harshly critical, but the report *stopped short* of the harshest step. *Perfunctory* (C) means done with minimal effort, which contradicts *in careful detail*. *Jubilant* (D) means joyful, and nothing in a report about environmental risks suggests joy."
+    },
+    {
+      "id": "wic-09",
+      "section": "rw",
+      "domain": "Craft and Structure",
+      "skill": "Words in Context",
+      "difficulty": "hard",
+      "passage": "Many early listeners found the composer's final symphony ______, but audiences today tend to hear its unexpected harmonies as bold and thrilling rather than baffling.",
+      "prompt": "Which choice completes the text with the most logical and precise word or phrase?",
+      "choices": ["impenetrable", "derivative", "sentimental", "understated"],
+      "answer": "A",
+      "explanation": "Today's audiences hear the harmonies as bold *rather than baffling*, which tells you the earlier reaction was confusion. Music that listeners found impossible to understand is **impenetrable**.\n\n*Derivative* (B) means copied from others' work, but *unexpected harmonies* suggest the opposite. *Sentimental* (C) means overly emotional, which has nothing to do with being baffling. *Understated* (D) means quiet and restrained; the contrast in the sentence is between baffling and bold, not quiet and bold."
+    },
+    {
+      "id": "wic-10",
+      "section": "rw",
+      "domain": "Craft and Structure",
+      "skill": "Words in Context",
+      "difficulty": "hard",
+      "passage": "New evidence from the excavation did not overturn historians' account of how the city was founded, but it did qualify that account: the founding now appears to have been a gradual process that took several generations rather than a single event.",
+      "prompt": "As used in the text, what does the word \"qualify\" most nearly mean?",
+      "choices": ["certify", "make eligible", "modify", "prove"],
+      "answer": "C",
+      "explanation": "The evidence did not overturn the account, but it changed one part of it (a gradual process instead of a single event). To *qualify* a statement in this sense is to limit or adjust it: **modify**.\n\n*Make eligible* (B) is the most common meaning of *qualify* (to qualify for a team), but it does not fit an account of history. *Certify* (A) and *prove* (D) mean the evidence confirmed the account, but the text says it changed the account."
+    }
+  ]
+}

@@ -4,6 +4,7 @@
    ========================================================================== */
 (function () {
   'use strict';
+  const SCRIPT = document.currentScript; // its data-analytics attribute switches analytics on for the page
 
   /* ------------------------------------------------------------------
      SETTINGS — the only part of this file you normally edit
@@ -11,7 +12,7 @@
   const CONFIG = {
     // Paste your Cloudflare Worker URL here (see worker/ai-worker.js).
     // Leave empty and the AI features show a friendly "not switched on" note.
-    // Example: 'https://scholarshub-ai.yourname.workers.dev'
+    // Example: 'https://satustoz-ai.yourname.workers.dev'
     AI_ENDPOINT: '',
 
     // The College Board version of the Desmos graphing calculator, the same
@@ -37,6 +38,17 @@
     // (recommended: it stops strangers from spending your AI budget).
     AI_REQUIRES_LOGIN: true,
 
+    // Product analytics with PostHog (README "7. Analytics"): which pages
+    // students visit and where they stop on the way to Pro. KEY is the Project
+    // API key from PostHog -> Project settings (starts with phc_, meant to be
+    // public). HOST is where your project lives: 'https://eu.i.posthog.com'
+    // (EU cloud) or 'https://us.i.posthog.com' (US cloud).
+    // Leave KEY empty and nothing is tracked or loaded.
+    ANALYTICS: {
+      KEY: 'phc_kxKGXFqUGtjpBJ26Kf5HsNprEQpGzSBBhH3zzU42Jej6',
+      HOST: 'https://eu.i.posthog.com'
+    },
+
     // Plans shown on the pricing section (index.html#pricing, practice.html#plans).
     // Prices are shown exactly as written; replace these placeholders with your own.
     // Which tests each plan opens is the "plan" field on each test in data/catalog.json.
@@ -45,7 +57,17 @@
     PLANS: {
       CURRENCY: { en: 'so’m', uz: 'soʻm', ru: 'сум' },
       PRO_PRICE: '79 000',
-      MAX_PRICE: '149 000'
+      MAX_PRICE: '149 000',
+      // "Until your test" pass: PASS_MONTHS of Pro for PASS_PRICE, offered next to
+      // the monthly price while payment is by card transfer (MANUAL_PAY).
+      // Empty PASS_PRICE hides it.
+      PASS_MONTHS: 3,
+      PASS_PRICE: '197 500',
+      // The day Free changed: Tests 2 and 3 moved to Pro, and the skill breakdown,
+      // question review and skill drills became Pro. Students who used the site
+      // before this day (Tashkent time) keep Tests 2 and 3, and the full results
+      // of tests they finished before it. Set it to the day you upload this version.
+      FREE_CHANGED_AT: '2026-10-19'
     },
 
     // Online payment with Payme. Paste your payments Worker URL here
@@ -54,7 +76,7 @@
     // the Telegram steps). Set: students pay by card or on Payme's page, Pro
     // switches on by itself, and Pro tests load through the Worker. MANUAL_PAY
     // is then ignored.
-    // Example: 'https://scholarshub-pay.yourname.workers.dev'
+    // Example: 'https://satustoz-pay.yourname.workers.dev'
     PAYMENTS_ENDPOINT: '',
 
     // Pro tests through the payments Worker before Payme is ready (README
@@ -370,7 +392,9 @@
     const meta = cat.tests.find(t => t.id === id);
     if (!meta) throw new Error('Practice test "' + id + '" is not in data/catalog.json');
     // Paid tests come from the payments Worker, which checks the plan first.
-    const raw = meta.plan && meta.plan !== 'free' && pay.testsEnabled() ? await loadProTest(meta) : await getJSON(meta.file);
+    // "legacyFree" tests (Tests 2 and 3) stay in data/tests/ for students from
+    // before Free changed, who have no Pro for the Worker to check.
+    const raw = meta.plan && meta.plan !== 'free' && !meta.legacyFree && pay.testsEnabled() ? await loadProTest(meta) : await getJSON(meta.file);
     const errors = [];
     const test = {
       id: meta.id,
@@ -723,6 +747,7 @@
           let first = true;
           authMod.onAuthStateChanged(a, u => {
             this.user = u ? { uid: u.uid, name: u.displayName || '', email: u.email || '', photo: u.photoURL || '' } : null;
+            if (u) analytics.identify(u.uid);
             const done = u ? sync.start() : Promise.resolve(sync.stop());
             if (first) { first = false; done.then(resolve, resolve); }
             this._emit();
@@ -751,13 +776,16 @@
       catch (e) { const err = new Error(friendlyAuthError(e)); err.code = e && e.code; throw err; }
       const u = cred.user;
       this.user = { uid: u.uid, name: u.displayName || '', email: u.email || '', photo: u.photoURL || '' };
+      analytics.identify(u.uid);
       await sync.start();
+      analytics.track('signed_in', { method: 'google', new_account: !sync.cloudProfile });
       return this.user;
     },
     async signOut() {
       await sync.flush();
       if (this.fb) await this.fb.authMod.signOut(this.fb.auth);
       sync.clearLocal();
+      analytics.reset();
       this.user = null;
       this._emit();
     },
@@ -822,6 +850,8 @@
       let profile = cloudP && cloudP.updatedAt >= (local.updatedAt || 0) ? cloudP : local;
       if (!profile.name && auth.user) profile = Object.assign({}, profile, { name: auth.user.name });
       if (cloudP && cloudP.onboarded) profile.onboarded = true;
+      // This device's plan for this account before the sync (null: none known here yet).
+      const planWas = owner === uid ? plan.current() : null;
       this.applying = true;
       store.set('attempts', attempts); store.set('testHistory', tests); store.set('profile', profile); store.set('owner', uid);
       // The plan is read-only here: only you (Firebase console) or a payment
@@ -830,7 +860,11 @@
         const u = userDoc.planUntil;
         store.set('plan', { id: String(userDoc.plan), until: u && typeof u.toMillis === 'function' ? u.toMillis() : (Number(u) || 0) });
       } else store.del('plan');
+      // When the account was created: decides whether the student keeps Tests 2 and 3 (plan.legacy).
+      const made = userDoc && userDoc.createdAt;
+      if (made && typeof made.toMillis === 'function') store.set('since', made.toMillis()); else store.del('since');
       this.applying = false;
+      analytics.planSynced(planWas, 'sync');
       this.dirty = { attempts: attempts.length !== cloudAttempts.length, testHistory: tests.length !== cloudTests.length, profile: true };
       await this.push(true);
       try { document.dispatchEvent(new CustomEvent('sh:synced')); } catch (e) { /* ignore */ }
@@ -865,7 +899,7 @@
     async flush() { if (this.uid && Object.keys(this.dirty).length) await this.push(); },
     clearLocal() {
       SYNCED_KEYS.forEach(k => store.del(k));
-      store.del('owner'); store.del('plan');
+      store.del('owner'); store.del('plan'); store.del('since'); store.del('waitlist');
       try { Object.keys(localStorage).filter(k => k.indexOf(PREFIX + 'run.') === 0).forEach(k => localStorage.removeItem(k)); } catch (e) { /* ignore */ }
     }
   };
@@ -922,6 +956,7 @@
      out a Pro test file.
      ------------------------------------------------------------------ */
   const PLAN_RANK = { free: 0, pro: 1, max: 2 };
+  const freeChangedAt = () => Date.parse(String(CONFIG.PLANS.FREE_CHANGED_AT || '') + 'T00:00:00+05:00') || 0;
   const knownPlan = id => Object.prototype.hasOwnProperty.call(PLAN_RANK, id);
   const plan = {
     current() {
@@ -933,6 +968,22 @@
     },
     until() { const p = store.get('plan', null); return this.current() !== 'free' && p ? p.until || 0 : 0; },
     allows(required) { return PLAN_RANK[this.current()] >= (knownPlan(required) ? PLAN_RANK[required] : 0); },
+    // Used the site before Free changed (account created, or anything practiced
+    // or finished, before CONFIG.PLANS.FREE_CHANGED_AT).
+    legacy() {
+      const cut = freeChangedAt();
+      if (!cut) return false;
+      const since = store.get('since', 0);
+      if (since && since < cut) return true;
+      return getAttempts().some(a => a.ts && a.ts < cut) || getTestHistory().some(h => h.finishedAt && h.finishedAt < cut);
+    },
+    // Can this student open this test? meta is its entry in data/catalog.json;
+    // "legacyFree" tests stay open for students from before the change.
+    opens(meta) { return !!meta && (this.allows(meta.plan) || (!!meta.legacyFree && this.legacy())); },
+    // Skill breakdown, question review and skill drills are Pro. A test record
+    // finished before the change keeps its full results.
+    insights(rec) { return this.allows('pro') || (!!(rec && rec.finishedAt) && rec.finishedAt < freeChangedAt()); },
+    pitch(opts) { openPitch(opts || {}); },
     label(id) { return planText((id || this.current()) + '_name'); },
     upgrade(id) { openUpgrade(id || 'pro'); },
     // Ask the payments Worker for the plan (right after paying, before the
@@ -940,7 +991,9 @@
     async refresh() {
       if (!pay.enabled() || !auth.user) return this.current();
       const s = await pay.call('/status');
+      const was = this.current();
       if (s.plan) store.set('plan', { id: String(s.plan), until: Number(s.until) || 0 }); else store.del('plan');
+      analytics.planSynced(was, 'payme');
       try { document.dispatchEvent(new CustomEvent('sh:synced')); } catch (e) { /* ignore */ }
       return this.current();
     }
@@ -983,32 +1036,35 @@
       const s = await fs.getDoc(ref);
       return s.exists() ? s.data() : null;
     },
-    async send(last4, receiptId, lang) {
+    async send(last4, receiptId, lang, months) {
       const { fs, ref } = await this._ref();
       await fs.setDoc(ref, {
         uid: auth.user.uid, email: auth.user.email, name: (auth.user.name || '').slice(0, 100), plan: 'pro',
-        amount: Number(String(CONFIG.PLANS.PRO_PRICE).replace(/\D/g, '')) || 0,
+        amount: somNumber(months > 1 ? CONFIG.PLANS.PASS_PRICE : CONFIG.PLANS.PRO_PRICE), months: months > 1 ? months : 1,
         last4, receiptId, lang, createdAt: fs.serverTimestamp()
       });
     }
   };
+  const somNumber = v => Number(String(v || '').replace(/\D/g, '')) || 0;
+  // The "until your test" pass is offered only with card transfer, which you check by hand.
+  const passEnabled = () => manual.enabled() && somNumber(CONFIG.PLANS.PASS_PRICE) > 0 && Number(CONFIG.PLANS.PASS_MONTHS) > 1;
   const PAYME_LOGO = 'https://cdn.payme.uz/logo/payme_color.svg';
   const PAYME_TERMS = 'https://cdn.payme.uz/terms/main.html';
   const fmtSom = n => String(Math.round(Number(n) || 0)).replace(/\B(?=(\d{3})+(?!\d))/g, ' ');
   const PLAN_TEXT = {
     en: {
       free_name: 'Free', pro_name: 'Pro', max_name: 'Max',
-      free_for: 'Try the real test format.', pro_for: 'Every practice test, for serious prep.', max_for: 'The complete learning platform.',
-      free_f: ['Practice Tests 1, 2 and 3', 'Mini diagnostic test', 'Practice sets and skill drills', 'Score history and progress by skill'],
-      pro_f: ['All 10 full-length adaptive practice tests', 'Score estimate and question-by-question review for each', 'Everything in Free'],
-      max_f: ['Everything in Pro', 'AI Tutor: ask about any question, any time', 'Personalized feedback and study recommendations', 'Progress tracking across every tool', 'Every future feature, included'],
-      per_month: '/ month', popular: 'Most popular', soon: 'Coming soon',
+      free_for: 'Try the real test format.', pro_for: 'Every test, and where your points go.', max_for: 'Pro, plus the AI tutor and live sessions.',
+      free_f: ['Mini diagnostic test', 'Practice Test 1', 'Starter practice sets', 'Your total score'],
+      pro_f: ['All 10 full-length adaptive practice tests', 'Your score broken down by skill', 'Review every question with explanations', 'Drills built from your weakest skills'],
+      max_f: ['Everything in Pro', 'AI tutor: ask about any question, any time', 'A study plan to your test date', 'A monthly live group session with Azizbek'],
+      per_month: '/ month', popular: 'Recommended', soon: 'Coming soon',
       cta_free: 'Start free', cta_current: 'Your current plan', cta_included: 'Included in your plan', cta_pro: 'Upgrade to Pro', cta_max: 'Get Max',
       active_until: 'Active until {d}',
-      note: '<b>Pro or Max?</b> Pro covers practice tests only: all 10 full-length tests. Max gives you the complete learning platform: everything in Pro, plus the AI Tutor and every tool we add in the future.',
+      note: '<b>Free, Pro or Max?</b> Free shows your total score. Pro shows why: every skill, every question, and drills for the skills that cost you points. Max adds the AI tutor and live sessions with Azizbek.',
       bill: 'Prices in Uzbek so’m. Pro is paid monthly, and you can stop any time.',
       up_title: 'Upgrade to Pro', up_signin: 'Sign in first, so Pro is linked to your account and works on every device.', up_signin_btn: 'Sign in with Google',
-      up_intro: 'Online card payment is on its way. Until then, we switch Pro on by hand, usually within a few hours:',
+      up_intro: 'Online card payment is on its way. Until then, we switch Pro on by hand within 2 hours, 9:00 to 23:00 Tashkent time:',
       up_steps: ['Message us on Telegram and say you want Pro.', 'We send you how to pay {price} for the month.', 'We switch Pro on for your account:'],
       up_tg: 'Message us on Telegram', up_copy: 'Copy', copied: 'Email copied', close: 'Close',
       pay_preparing: 'Getting your payment ready…', pay_choose: 'Pro costs {price} a month. Choose how to pay:',
@@ -1035,33 +1091,43 @@
       m_off: 'Automatic renewal is off. Pro ends on that day unless you pay for another month.',
       m_stop: 'Stop automatic renewal', m_stop_q: 'Stop automatic renewal? Pro stays on until {d}, and your card is removed.',
       m_stopped: 'Automatic renewal stopped', m_more: 'Pay for another month',
-      mp_intro: 'Pro costs {price} for one month. Transfer it to this card from any banking app (Click, Payme, Uzum or your bank’s app):',
+      mp_intro: 'Transfer {price} to this card from any banking app (Click, Payme, Uzum or your bank’s app):',
       mp_card: 'Card', mp_name: 'Name', mp_amount: 'Amount', mp_card_copied: 'Card number copied', mp_amount_copied: 'Amount copied',
       mp_note: 'Send the exact amount and keep the receipt. You need it in the next step.',
       mp_paid: 'I’ve paid', mp_form: 'So we can find your payment:',
       mp_last4: 'Last 4 digits of the card you paid from', mp_receipt: 'Receipt or transaction number (optional)',
       mp_send: 'Continue', mp_bad_last4: 'Enter the last 4 digits of your card.',
       mp_sent_t: 'Almost done',
-      mp_sent: 'Last step: send the receipt screenshot to us on Telegram. We check it and switch Pro on, usually within a few hours.',
+      mp_sent: 'Last step: send the receipt screenshot to us on Telegram. We check it and switch Pro on within 2 hours, 9:00 to 23:00 Tashkent time.',
       mp_account: 'Your account:', mp_tg: 'Send receipt on Telegram',
       mp_tg_msg: 'Hi! I paid {price} for SAT Ustoz Pro. Account: {email}. Card ending {card}. Receipt:',
-      mp_pending: 'We got your payment details on {d} and are checking them. Pro switches on within a few hours; reload the page then.',
+      mp_pending: 'We got your payment details on {d} and are checking them. Pro switches on within 2 hours (9:00 to 23:00 Tashkent time); reload the page then.',
       mp_pending_tg: 'Haven’t sent the receipt screenshot yet? Send it on Telegram so we find your payment faster.',
-      mp_again: 'I made a new payment'
+      mp_again: 'I made a new payment',
+      bill_pass: 'Prices in Uzbek so’m. Pay for one month at a time, or for 3 months until your test.',
+      pass_line: 'or {price} for 3 months, until your test',
+      mp_choose: 'How long do you want Pro?', mp_month_t: 'One month', mp_pass_t: '3 months, until your test', mp_pass_d: '{price}: 3 months for the price of 2.5',
+      pitch_lead: 'Pro gives you:', pitch_later: 'Not now', lock_btn: 'Unlock with Pro',
+      cta_wait: 'Join the Max waitlist', cta_wait_on: 'You’re on the waitlist', wl_title: 'Max waitlist',
+      wl_intro: 'Max adds the AI tutor, a study plan to your test date and a monthly live group session with Azizbek. Leave your Telegram username and we’ll message you first when it opens.',
+      wl_label: 'Telegram username', wl_bad: 'Enter your Telegram username, like @satustoz.', wl_join: 'Join the waitlist',
+      wl_done_t: 'You’re on the list', wl_done: 'We’ll message {tg} on Telegram the day Max opens.',
+      wl_signin: 'Sign in first, so we know who to message when Max opens.',
+      wl_failed: 'Could not save. Check your connection and try again, or message us on Telegram.', wl_change: 'Change username'
     },
     uz: {
       free_name: 'Bepul', pro_name: 'Pro', max_name: 'Max',
-      free_for: 'Haqiqiy test formatini sinab koʻring.', pro_for: 'Jiddiy tayyorgarlik uchun barcha sinov testlari.', max_for: 'Toʻliq taʼlim platformasi.',
-      free_f: ['1, 2 va 3-sinov testlari', 'Mini diagnostika testi', 'Savollar toʻplamlari va koʻnikma mashqlari', 'Natijalar tarixi va koʻnikmalar boʻyicha oʻsish'],
-      pro_f: ['Barcha 10 ta toʻliq adaptiv sinov testi', 'Har bir test uchun taxminiy ball va savolma-savol tahlil', 'Bepul tarifdagi hamma narsa'],
-      max_f: ['Pro tarifidagi hamma narsa', 'AI ustoz: istalgan savol boʻyicha istalgan vaqtda soʻrang', 'Shaxsiy fikr-mulohaza va oʻqish boʻyicha tavsiyalar', 'Barcha vositalarda natijalarni kuzatish', 'Kelajakdagi barcha imkoniyatlar'],
-      per_month: '/ oy', popular: 'Eng mashhur', soon: 'Tez kunda',
+      free_for: 'Haqiqiy test formatini sinab koʻring.', pro_for: 'Barcha testlar va ballaringiz qayerda yoʻqolayotgani.', max_for: 'Pro, AI ustoz va jonli darslar bilan.',
+      free_f: ['Mini diagnostika testi', '1-sinov testi', 'Boshlangʻich savollar toʻplamlari', 'Umumiy ballingiz'],
+      pro_f: ['Barcha 10 ta toʻliq adaptiv sinov testi', 'Koʻnikmalar boʻyicha ball tahlili', 'Har bir savolni izohlari bilan koʻrib chiqish', 'Eng zaif koʻnikmalaringiz boʻyicha mashqlar'],
+      max_f: ['Pro tarifidagi hamma narsa', 'AI ustoz: istalgan savol boʻyicha istalgan vaqtda soʻrang', 'Imtihon sanangizgacha oʻqish rejasi', 'Azizbek bilan oylik jonli guruh darsi'],
+      per_month: '/ oy', popular: 'Tavsiya etiladi', soon: 'Tez kunda',
       cta_free: 'Bepul boshlash', cta_current: 'Joriy tarifingiz', cta_included: 'Tarifingizga kiradi', cta_pro: 'Pro tarifiga oʻtish', cta_max: 'Max olish',
       active_until: '{d} gacha faol',
-      note: '<b>Pro yoki Max?</b> Pro faqat sinov testlarini oʻz ichiga oladi: barcha 10 ta toʻliq test. Max esa toʻliq taʼlim platformasini ochadi: Pro tarifidagi hamma narsa, AI ustoz va kelajakda qoʻshiladigan barcha vositalar.',
+      note: '<b>Bepul, Pro yoki Max?</b> Bepul tarif umumiy ballingizni koʻrsatadi. Pro esa sababini koʻrsatadi: har bir koʻnikma, har bir savol va ball yoʻqotayotgan koʻnikmalaringiz uchun mashqlar. Max esa AI ustoz va Azizbek bilan jonli darslarni qoʻshadi.',
       bill: 'Narxlar soʻmda. Pro uchun toʻlov har oy amalga oshiriladi, istalgan vaqtda toʻxtatish mumkin.',
       up_title: 'Pro tarifiga oʻtish', up_signin: 'Avval tizimga kiring: shunda Pro hisobingizga bogʻlanadi va har qanday qurilmada ishlaydi.', up_signin_btn: 'Google orqali kirish',
-      up_intro: 'Karta orqali onlayn toʻlov tez orada ishga tushadi. Shu paytgacha Pro tarifini qoʻlda yoqamiz, odatda bir necha soat ichida:',
+      up_intro: 'Karta orqali onlayn toʻlov tez orada ishga tushadi. Shu paytgacha Pro tarifini qoʻlda yoqamiz: Toshkent vaqti bilan 9:00 dan 23:00 gacha 2 soat ichida:',
       up_steps: ['Telegramda bizga yozing va Pro kerakligini ayting.', 'Bir oylik {price} toʻlovni qanday amalga oshirishni yuboramiz.', 'Hisobingiz uchun Pro tarifini yoqamiz:'],
       up_tg: 'Telegramda yozish', up_copy: 'Nusxalash', copied: 'Email nusxalandi', close: 'Yopish',
       pay_preparing: 'Toʻlov tayyorlanmoqda…', pay_choose: 'Pro oyiga {price}. Toʻlov usulini tanlang:',
@@ -1088,33 +1154,43 @@
       m_off: 'Avtomatik uzaytirish oʻchirilgan. Yana bir oy uchun toʻlamasangiz, Pro shu kuni tugaydi.',
       m_stop: 'Avtomatik uzaytirishni toʻxtatish', m_stop_q: 'Avtomatik uzaytirish toʻxtatilsinmi? Pro {d} gacha faol qoladi, kartangiz esa oʻchiriladi.',
       m_stopped: 'Avtomatik uzaytirish toʻxtatildi', m_more: 'Yana bir oy uchun toʻlash',
-      mp_intro: 'Pro bir oyga {price} turadi. Shu summani istalgan bank ilovasi (Click, Payme, Uzum yoki bankingiz ilovasi) orqali quyidagi kartaga oʻtkazing:',
+      mp_intro: 'Istalgan bank ilovasi (Click, Payme, Uzum yoki bankingiz ilovasi) orqali quyidagi kartaga {price} oʻtkazing:',
       mp_card: 'Karta', mp_name: 'Egasi', mp_amount: 'Summa', mp_card_copied: 'Karta raqami nusxalandi', mp_amount_copied: 'Summa nusxalandi',
       mp_note: 'Aynan shu summani oʻtkazing va chekni saqlab qoʻying. U keyingi qadamda kerak boʻladi.',
       mp_paid: 'Toʻladim', mp_form: 'Toʻlovingizni topishimiz uchun:',
       mp_last4: 'Toʻlov qilgan kartangizning oxirgi 4 raqami', mp_receipt: 'Chek yoki tranzaksiya raqami (ixtiyoriy)',
       mp_send: 'Davom etish', mp_bad_last4: 'Kartangizning oxirgi 4 raqamini kiriting.',
       mp_sent_t: 'Deyarli tayyor',
-      mp_sent: 'Oxirgi qadam: chek skrinshotini bizga Telegramda yuboring. Biz uni tekshirib, Pro tarifini yoqamiz, odatda bir necha soat ichida.',
+      mp_sent: 'Oxirgi qadam: chek skrinshotini bizga Telegramda yuboring. Biz uni tekshirib, Toshkent vaqti bilan 9:00 dan 23:00 gacha 2 soat ichida Pro tarifini yoqamiz.',
       mp_account: 'Hisobingiz:', mp_tg: 'Chekni Telegramda yuborish',
       mp_tg_msg: 'Salom! SAT Ustoz Pro uchun {price} toʻladim. Hisob: {email}. Karta oxiri: {card}. Chek:',
-      mp_pending: '{d} kuni toʻlov maʼlumotlaringizni oldik va tekshiryapmiz. Pro bir necha soat ichida yoqiladi, keyin sahifani yangilang.',
+      mp_pending: '{d} kuni toʻlov maʼlumotlaringizni oldik va tekshiryapmiz. Pro 2 soat ichida (Toshkent vaqti bilan 9:00–23:00) yoqiladi, keyin sahifani yangilang.',
       mp_pending_tg: 'Chek skrinshotini hali yubormadingizmi? Toʻlovingizni tezroq topishimiz uchun uni Telegramda yuboring.',
-      mp_again: 'Yangi toʻlov qildim'
+      mp_again: 'Yangi toʻlov qildim',
+      bill_pass: 'Narxlar soʻmda. Bir oyga yoki imtihoningizgacha 3 oyga toʻlang.',
+      pass_line: 'yoki imtihoningizgacha 3 oyga {price}',
+      mp_choose: 'Pro qancha muddatga kerak?', mp_month_t: 'Bir oy', mp_pass_t: 'Imtihoningizgacha 3 oy', mp_pass_d: '{price}: 2,5 oy narxiga 3 oy',
+      pitch_lead: 'Pro sizga beradi:', pitch_later: 'Hozir emas', lock_btn: 'Pro bilan ochish',
+      cta_wait: 'Max kutish roʻyxatiga yozilish', cta_wait_on: 'Siz kutish roʻyxatidasiz', wl_title: 'Max kutish roʻyxati',
+      wl_intro: 'Max AI ustoz, imtihon sanangizgacha oʻqish rejasi va Azizbek bilan oylik jonli guruh darsini qoʻshadi. Telegram foydalanuvchi nomingizni qoldiring, Max ochilganda birinchi boʻlib sizga yozamiz.',
+      wl_label: 'Telegram foydalanuvchi nomi', wl_bad: 'Telegram nomingizni kiriting, masalan @satustoz.', wl_join: 'Roʻyxatga yozilish',
+      wl_done_t: 'Siz roʻyxatdasiz', wl_done: 'Max ochilgan kuni {tg} ga Telegramda yozamiz.',
+      wl_signin: 'Avval kiring, shunda Max ochilganda kimga yozishni bilamiz.',
+      wl_failed: 'Saqlab boʻlmadi. Internetni tekshirib, qayta urinib koʻring yoki Telegramda yozing.', wl_change: 'Nomni oʻzgartirish'
     },
     ru: {
       free_name: 'Бесплатно', pro_name: 'Pro', max_name: 'Max',
-      free_for: 'Попробуйте настоящий формат теста.', pro_for: 'Все пробные тесты для серьёзной подготовки.', max_for: 'Полная учебная платформа.',
-      free_f: ['Пробные тесты 1, 2 и 3', 'Мини-диагностика', 'Наборы вопросов и тренировки по навыкам', 'История результатов и прогресс по навыкам'],
-      pro_f: ['Все 10 полных адаптивных пробных тестов', 'Примерный балл и разбор каждого вопроса', 'Всё из бесплатного тарифа'],
-      max_f: ['Всё из тарифа Pro', 'ИИ-репетитор: спрашивайте о любом вопросе в любое время', 'Персональные советы и рекомендации по подготовке', 'Отслеживание прогресса во всех инструментах', 'Все будущие функции'],
-      per_month: '/ месяц', popular: 'Популярный', soon: 'Скоро',
+      free_for: 'Попробуйте настоящий формат теста.', pro_for: 'Все тесты и то, где вы теряете баллы.', max_for: 'Pro плюс ИИ-репетитор и живые занятия.',
+      free_f: ['Мини-диагностика', 'Пробный тест 1', 'Стартовые наборы вопросов', 'Ваш общий балл'],
+      pro_f: ['Все 10 полных адаптивных пробных тестов', 'Разбор балла по навыкам', 'Разбор каждого вопроса с объяснениями', 'Тренировки по вашим самым слабым навыкам'],
+      max_f: ['Всё из тарифа Pro', 'ИИ-репетитор: спрашивайте о любом вопросе в любое время', 'План подготовки до даты экзамена', 'Ежемесячное живое групповое занятие с Азизбеком'],
+      per_month: '/ месяц', popular: 'Рекомендуем', soon: 'Скоро',
       cta_free: 'Начать бесплатно', cta_current: 'Ваш текущий тариф', cta_included: 'Входит в ваш тариф', cta_pro: 'Перейти на Pro', cta_max: 'Получить Max',
       active_until: 'Активен до {d}',
-      note: '<b>Pro или Max?</b> Pro включает только пробные тесты: все 10 полных тестов. Max открывает всю учебную платформу: всё из Pro, плюс ИИ-репетитор и все инструменты, которые мы добавим в будущем.',
+      note: '<b>Бесплатно, Pro или Max?</b> Бесплатный тариф показывает общий балл. Pro показывает, почему: каждый навык, каждый вопрос и тренировки по навыкам, на которых вы теряете баллы. Max добавит ИИ-репетитора и живые занятия с Азизбеком.',
       bill: 'Цены в узбекских сумах. Pro оплачивается помесячно, остановиться можно в любой момент.',
       up_title: 'Перейти на Pro', up_signin: 'Сначала войдите: так Pro привяжется к вашему аккаунту и будет работать на любом устройстве.', up_signin_btn: 'Войти через Google',
-      up_intro: 'Онлайн-оплата картой скоро заработает. А пока мы включаем Pro вручную, обычно в течение нескольких часов:',
+      up_intro: 'Онлайн-оплата картой скоро заработает. А пока мы включаем Pro вручную, в течение 2 часов, с 9:00 до 23:00 по Ташкенту:',
       up_steps: ['Напишите нам в Telegram, что хотите Pro.', 'Мы пришлём, как оплатить {price} за месяц.', 'Мы включим Pro для вашего аккаунта:'],
       up_tg: 'Написать в Telegram', up_copy: 'Скопировать', copied: 'Email скопирован', close: 'Закрыть',
       pay_preparing: 'Готовим оплату…', pay_choose: 'Pro стоит {price} в месяц. Выберите способ оплаты:',
@@ -1141,19 +1217,29 @@
       m_off: 'Автопродление отключено. Pro закончится в этот день, если вы не оплатите ещё месяц.',
       m_stop: 'Отключить автопродление', m_stop_q: 'Отключить автопродление? Pro останется активным до {d}, а карта будет удалена.',
       m_stopped: 'Автопродление отключено', m_more: 'Оплатить ещё месяц',
-      mp_intro: 'Pro стоит {price} за месяц. Переведите эту сумму на карту ниже из любого банковского приложения (Click, Payme, Uzum или приложение вашего банка):',
+      mp_intro: 'Переведите {price} на эту карту из любого банковского приложения (Click, Payme, Uzum или приложение вашего банка):',
       mp_card: 'Карта', mp_name: 'Получатель', mp_amount: 'Сумма', mp_card_copied: 'Номер карты скопирован', mp_amount_copied: 'Сумма скопирована',
       mp_note: 'Переведите точную сумму и сохраните чек. Он понадобится на следующем шаге.',
       mp_paid: 'Я оплатил(а)', mp_form: 'Чтобы мы нашли ваш платёж:',
       mp_last4: 'Последние 4 цифры карты, с которой вы платили', mp_receipt: 'Номер чека или транзакции (необязательно)',
       mp_send: 'Продолжить', mp_bad_last4: 'Введите последние 4 цифры карты.',
       mp_sent_t: 'Почти готово',
-      mp_sent: 'Последний шаг: отправьте нам скриншот чека в Telegram. Мы проверим его и включим Pro, обычно в течение нескольких часов.',
+      mp_sent: 'Последний шаг: отправьте нам скриншот чека в Telegram. Мы проверим его и включим Pro в течение 2 часов, с 9:00 до 23:00 по Ташкенту.',
       mp_account: 'Ваш аккаунт:', mp_tg: 'Отправить чек в Telegram',
       mp_tg_msg: 'Здравствуйте! Я оплатил(а) {price} за SAT Ustoz Pro. Аккаунт: {email}. Карта на {card}. Чек:',
-      mp_pending: '{d} мы получили данные о вашем платеже и проверяем их. Pro включится в течение нескольких часов, затем обновите страницу.',
+      mp_pending: '{d} мы получили данные о вашем платеже и проверяем их. Pro включится в течение 2 часов (с 9:00 до 23:00 по Ташкенту), затем обновите страницу.',
       mp_pending_tg: 'Ещё не отправили скриншот чека? Отправьте его в Telegram, так мы быстрее найдём платёж.',
-      mp_again: 'Я сделал(а) новый платёж'
+      mp_again: 'Я сделал(а) новый платёж',
+      bill_pass: 'Цены в узбекских сумах. Платите за месяц или сразу за 3 месяца до экзамена.',
+      pass_line: 'или {price} за 3 месяца, до экзамена',
+      mp_choose: 'На какой срок нужен Pro?', mp_month_t: 'Один месяц', mp_pass_t: '3 месяца, до экзамена', mp_pass_d: '{price}: 3 месяца по цене 2,5',
+      pitch_lead: 'Pro даёт вам:', pitch_later: 'Не сейчас', lock_btn: 'Открыть с Pro',
+      cta_wait: 'В лист ожидания Max', cta_wait_on: 'Вы в листе ожидания', wl_title: 'Лист ожидания Max',
+      wl_intro: 'Max добавит ИИ-репетитора, план подготовки до даты экзамена и ежемесячное живое групповое занятие с Азизбеком. Оставьте свой username в Telegram, и мы первыми напишем вам, когда Max откроется.',
+      wl_label: 'Username в Telegram', wl_bad: 'Введите username в Telegram, например @satustoz.', wl_join: 'Записаться',
+      wl_done_t: 'Вы в списке', wl_done: 'Мы напишем {tg} в Telegram в день запуска Max.',
+      wl_signin: 'Сначала войдите, чтобы мы знали, кому написать, когда Max откроется.',
+      wl_failed: 'Не удалось сохранить. Проверьте интернет и попробуйте ещё раз или напишите нам в Telegram.', wl_change: 'Изменить username'
     }
   };
   function planText(k, lang) {
@@ -1181,22 +1267,28 @@
       : opts.context === 'landing' ? '<a class="btn btn-ghost" href="practice.html">' + esc(T('cta_free')) + '</a>' : current();
     const proCta = cur === 'pro' ? current() : cur === 'max' ? included
       : '<button class="btn btn-primary" type="button" data-upgrade="pro">' + esc(T('cta_pro')) + '</button>';
+    // Until Max launches, its card collects a waitlist (Telegram usernames).
     const maxCta = cur === 'max' ? current()
-      : '<button class="btn btn-soon" type="button" disabled>' + esc(T('cta_max')) + '<span class="soon-badge">' + esc(T('soon')) + '</span></button>';
-    const card = (id, cls, flag, amount, monthly, cta) => '<article class="plan' + cls + (cur === id ? ' is-current' : '') + '">' +
+      : '<button class="btn btn-ghost" type="button" data-waitlist>' + esc(T(store.get('waitlist', null) ? 'cta_wait_on' : 'cta_wait')) + '</button>' +
+        '<p class="plan-until"><span class="soon-badge">' + esc(T('soon')) + '</span></p>';
+    const passOn = passEnabled();
+    const passLine = passOn && cur === 'free' ? '<p class="plan-pass">' + esc(T('pass_line').replace('{price}', priceText(CONFIG.PLANS.PASS_PRICE, lang))) + '</p>' : '';
+    const card = (id, cls, flag, amount, monthly, cta, extra) => '<article class="plan' + cls + (cur === id ? ' is-current' : '') + '">' +
       (flag ? '<span class="plan-flag">' + esc(flag) + '</span>' : '') +
       '<h3>' + esc(T(id + '_name')) + '</h3><p class="plan-for">' + esc(T(id + '_for')) + '</p>' +
-      price(amount, monthly) + list(T(id + '_f')) + '<div class="plan-cta">' + cta + '</div></article>';
+      price(amount, monthly) + (extra || '') + list(T(id + '_f')) + '<div class="plan-cta">' + cta + '</div></article>';
     host.innerHTML = '<div class="plans">' +
       card('free', '', '', '0', false, freeCta) +
-      card('pro', ' is-featured', T('popular'), CONFIG.PLANS.PRO_PRICE, true, proCta) +
+      card('pro', ' is-featured', T('popular'), CONFIG.PLANS.PRO_PRICE, true, proCta, passLine) +
       card('max', ' plan-max', '', CONFIG.PLANS.MAX_PRICE, true, maxCta) +
-      '</div><p class="plan-note">' + T('note') + '</p><p class="plan-bill">' + esc(T('bill')) + '</p>';
+      '</div><p class="plan-note">' + T('note') + '</p><p class="plan-bill">' + esc(T(passOn ? 'bill_pass' : 'bill')) + '</p>';
     $$('[data-upgrade]', host).forEach(b => b.addEventListener('click', () => plan.upgrade(b.dataset.upgrade)));
+    $$('[data-waitlist]', host).forEach(b => b.addEventListener('click', openWaitlist));
     $$('[data-manage]', host).forEach(b => b.addEventListener('click', openManage));
   }
   function openUpgrade() {
     const lang = langNow(), T = k => planText(k, lang);
+    analytics.track('upgrade_opened', { sheet: 'upgrade', step: auth.enabled() && !auth.user ? 'sign_in' : pay.enabled() ? 'payme' : manual.enabled() ? 'card_transfer' : 'telegram' });
     if (auth.enabled() && !auth.user) {
       modal({
         title: T('up_title'), html: '<p>' + esc(T('up_signin')) + '</p>',
@@ -1218,6 +1310,82 @@
     const cp = m.el.querySelector('[data-copy]');
     if (cp) cp.addEventListener('click', () => copyText(email, T('copied')));
   }
+  // "Part of Pro" sheet: what Pro gives, the price, one button. Locked tests
+  // and the blurred Pro previews (lockBox) open it.
+  function openPitch(opts) {
+    const lang = langNow(), T = k => planText(k, lang);
+    const pass = passEnabled() ? '<p class="pitch-pass">' + esc(T('pass_line').replace('{price}', priceText(CONFIG.PLANS.PASS_PRICE, lang))) + '</p>' : '';
+    analytics.track('upgrade_opened', { sheet: 'pitch', title: opts.title || '' });
+    modal({
+      title: opts.title || T('up_title'),
+      html: (opts.text ? '<p>' + esc(opts.text) + '</p>' : '') + '<p class="muted">' + esc(T('pitch_lead')) + '</p>' +
+        '<ul class="plan-list">' + T('pro_f').map(i => '<li>' + esc(i) + '</li>').join('') + '</ul>' +
+        '<p class="pitch-price"><b>' + esc(priceText(CONFIG.PLANS.PRO_PRICE, lang)) + '</b> ' + esc(T('per_month')) + '</p>' + pass,
+      actions: [{ label: T('pitch_later'), kind: 'ghost' }, { label: T('cta_pro'), kind: 'primary', onClick: () => { setTimeout(openUpgrade, 0); } }]
+    });
+  }
+  // A blurred preview of a Pro-only part of a page, with one button that opens
+  // the pitch sheet (any [data-pitch] element does; see initChrome).
+  // feature names it in analytics: 'weak_skills', 'domains', 'review', 'drills'.
+  function lockBox(inner, title, text, feature) {
+    return '<div class="pro-lock"><div class="pro-lock-blur" aria-hidden="true" inert>' + inner + '</div>' +
+      '<div class="pro-lock-over"><b>' + esc(title) + '</b>' + (text ? '<span>' + esc(text) + '</span>' : '') +
+      '<button type="button" class="btn btn-primary btn-sm" data-pitch="' + esc(title) + '"' + (feature ? ' data-pitch-feature="' + esc(feature) + '"' : '') + '>' + esc(planText('lock_btn')) + '</button></div></div>';
+  }
+
+  // Max waitlist: waitlist/<uid> holds the student's Telegram username, so you
+  // can message them the day Max opens (admin.html lists them).
+  function openWaitlist() {
+    const lang = langNow(), T = k => planText(k, lang);
+    if (auth.enabled() && !auth.user) {
+      modal({
+        title: T('wl_title'), html: '<p>' + esc(T('wl_intro')) + '</p><p>' + esc(T('wl_signin')) + '</p>',
+        actions: [{ label: T('close'), kind: 'ghost' }, { label: T('up_signin_btn'), kind: 'primary', onClick: () => { location.href = loginUrl('practice.html#plans'); } }]
+      });
+      return;
+    }
+    const ui = stepModal(T('wl_title'), lang);
+    const { show, row, closeBtn } = ui;
+    const canSave = manual.canSave();
+    const docRef = async () => { const fs = await sync._lib(); return { fs, ref: fs.doc(sync.db, 'waitlist', auth.user.uid) }; };
+    function done(tg) {
+      store.set('waitlist', tg);
+      $$('[data-waitlist]').forEach(b => { b.textContent = T('cta_wait_on'); });
+      show('<p class="pay-ok">' + esc(T('wl_done_t')) + '</p><p>' + esc(T('wl_done').replace('{tg}', tg)) + '</p>' +
+        row('<button type="button" class="btn btn-ghost" data-change>' + esc(T('wl_change')) + '</button>' + closeBtn()), '[data-close]');
+      $('[data-change]', ui.box).addEventListener('click', () => form(tg));
+    }
+    function form(prefill, msg) {
+      show('<form class="pay-card" novalidate><p>' + esc(T('wl_intro')) + '</p>' +
+        '<div class="field"><label for="wl-tg">' + esc(T('wl_label')) + '</label>' +
+        '<input id="wl-tg" class="input" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="@username" maxlength="45" value="' + esc(prefill || '') + '"></div>' +
+        '<p class="pay-err" role="alert"' + (msg ? '' : ' hidden') + '>' + esc(msg || '') + '</p>' +
+        row(closeBtn() + '<button type="submit" class="btn btn-primary">' + esc(T('wl_join')) + '</button>') + '</form>', '#wl-tg');
+      const f = $('form', ui.box), inp = $('#wl-tg', f), err = $('.pay-err', f);
+      f.addEventListener('submit', async e => {
+        e.preventDefault();
+        const name = inp.value.trim().replace(/^(https?:\/\/)?t\.me\//i, '').replace(/^@/, '');
+        if (!/^[A-Za-z0-9_]{5,32}$/.test(name)) { err.textContent = T('wl_bad'); err.hidden = false; inp.focus(); return; }
+        const tg = '@' + name;
+        $$('button, input', f).forEach(el => { el.disabled = true; });
+        try {
+          if (!canSave) throw new Error('Sign-in is not available');
+          const { fs, ref } = await docRef();
+          await fs.setDoc(ref, { uid: auth.user.uid, email: auth.user.email, name: (auth.user.name || '').slice(0, 100), telegram: tg, lang, createdAt: fs.serverTimestamp() });
+          analytics.track('waitlist_joined', { plan: 'max', changed: !!prefill });
+          done(tg);
+        } catch (ex) {
+          console.warn('[SAT Ustoz] Could not save the waitlist entry. Are the new firestore.rules published?', ex);
+          form(tg, T('wl_failed'));
+        }
+      });
+    }
+    if (!canSave) { form(store.get('waitlist', '')); return; }
+    docRef().then(({ fs, ref }) => fs.getDoc(ref))
+      .then(s => { if (s.exists() && s.data().telegram) done(s.data().telegram); else { store.del('waitlist'); form(''); } })
+      .catch(() => form(store.get('waitlist', '')));
+  }
+
   function copyText(text, msg) {
     if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(text).then(() => toast(msg), () => toast(text));
     else toast(text);
@@ -1231,7 +1399,10 @@
     const ui = stepModal(T('up_title'), lang);
     const { show, row, closeBtn } = ui;
     const digits = manual.card(), holder = String(CONFIG.MANUAL_PAY.CARD_HOLDER || '').trim();
-    const price = priceText(CONFIG.PLANS.PRO_PRICE, lang);
+    // One month, or the "until your test" pass (chosen on the first screen when it is on).
+    const passMonths = Number(CONFIG.PLANS.PASS_MONTHS) || 0;
+    let months = 1, amount = CONFIG.PLANS.PRO_PRICE, price = priceText(amount, lang);
+    const pick = m => { months = m; amount = m > 1 ? CONFIG.PLANS.PASS_PRICE : CONFIG.PLANS.PRO_PRICE; price = priceText(amount, lang); };
     const email = auth.user ? auth.user.email : '';
     const tgLink = last4 => CONFIG.CONTACT_TELEGRAM + '?text=' + encodeURIComponent(T('mp_tg_msg').replace('{price}', price).replace('{email}', email || '-').replace('{card}', last4 || '----'));
     const tgBtn = last4 => '<a class="btn btn-primary" href="' + esc(tgLink(last4)) + '" target="_blank" rel="noopener">' + esc(T('mp_tg')) + '</a>';
@@ -1239,15 +1410,26 @@
       (copy ? '<button type="button" class="link-btn" data-copy="' + copy + '">' + esc(T('up_copy')) + '</button>' : '') + '</div>';
     const bindCopies = () => $$('[data-copy]', ui.box).forEach(b => b.addEventListener('click', () => {
       if (b.dataset.copy === 'card') copyText(digits, T('mp_card_copied'));
-      else if (b.dataset.copy === 'amount') copyText(String(CONFIG.PLANS.PRO_PRICE).replace(/\D/g, ''), T('mp_amount_copied'));
+      else if (b.dataset.copy === 'amount') copyText(String(somNumber(amount)), T('mp_amount_copied'));
       else copyText(email, T('copied'));
     }));
 
     if (manual.canSave()) manual.get().then(r => {
       const at = r && r.createdAt && typeof r.createdAt.toMillis === 'function' ? r.createdAt.toMillis() : 0;
-      if (at > Date.now() - 7 * 86400000) pending(at, r.last4); else details();
-    }).catch(() => details());
-    else details();
+      if (at > Date.now() - 7 * 86400000) { if (r.months > 1) pick(r.months); pending(at, r.last4); } else start();
+    }).catch(() => start());
+    else start();
+
+    function start() { if (passEnabled()) choose(); else details(); }
+
+    function choose() {
+      const opt = (m, title, desc) => '<button type="button" class="pay-opt" data-months="' + m + '"><b>' + esc(title) + '</b><span>' + esc(desc) + '</span></button>';
+      show('<p>' + esc(T('mp_choose')) + '</p><div class="pay-options">' +
+        opt(1, T('mp_month_t'), priceText(CONFIG.PLANS.PRO_PRICE, lang)) +
+        opt(passMonths, T('mp_pass_t'), T('mp_pass_d').replace('{price}', priceText(CONFIG.PLANS.PASS_PRICE, lang))) +
+        '</div>' + row(closeBtn()), '.pay-opt');
+      $$('[data-months]', ui.box).forEach(b => b.addEventListener('click', () => { pick(Number(b.dataset.months)); details(); }));
+    }
 
     function details() {
       show('<p>' + esc(T('mp_intro').replace('{price}', price)) + '</p><div class="mp-card">' +
@@ -1255,8 +1437,10 @@
         (holder ? line('mp_name', holder) : '') +
         line('mp_amount', price, 'amount') +
         '</div><p class="mp-note">' + esc(T('mp_note')) + '</p>' +
-        row(closeBtn() + '<button type="button" class="btn btn-primary" data-paid>' + esc(T('mp_paid')) + '</button>'), '[data-paid]');
+        row((passEnabled() ? '<button type="button" class="btn btn-ghost" data-back>' + esc(T('pay_back')) + '</button>' : closeBtn()) +
+          '<button type="button" class="btn btn-primary" data-paid>' + esc(T('mp_paid')) + '</button>'), '[data-paid]');
       bindCopies();
+      const back = $('[data-back]', ui.box); if (back) back.addEventListener('click', choose);
       $('[data-paid]', ui.box).addEventListener('click', form);
     }
 
@@ -1280,10 +1464,12 @@
         $$('button, input', f).forEach(el => { el.disabled = true; });
         // If saving fails (new rules not published, no connection) the Telegram
         // message still reaches you, so the student is never stuck here.
+        let saved = false;
         if (manual.canSave()) {
-          try { await manual.send(l4, rec.value.trim().slice(0, 60), lang); }
+          try { await manual.send(l4, rec.value.trim().slice(0, 60), lang, months); saved = true; }
           catch (ex) { console.warn('[SAT Ustoz] Could not save the payment note. Are the new firestore.rules published?', ex); }
         }
+        analytics.track('pay_note_sent', { months, amount: somNumber(amount), saved });
         sent(l4);
       });
     }
@@ -1298,7 +1484,7 @@
     function pending(at, l4) {
       show('<p>' + esc(T('mp_pending').replace('{d}', fmtDate(at))) + '</p><p class="muted">' + esc(T('mp_pending_tg')) + '</p>' +
         row('<button type="button" class="btn btn-ghost" data-again>' + esc(T('mp_again')) + '</button>' + closeBtn() + tgBtn(l4)), '[data-close]');
-      $('[data-again]', ui.box).addEventListener('click', details);
+      $('[data-again]', ui.box).addEventListener('click', () => { pick(1); start(); });
     }
   }
 
@@ -1559,6 +1745,79 @@
   const CALC_ICON = '<svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="2.5" width="14" height="19" rx="2" fill="none" stroke="currentColor" stroke-width="1.8"/><rect x="8" y="5.5" width="8" height="4" rx=".6" fill="none" stroke="currentColor" stroke-width="1.5"/><circle cx="9" cy="13" r="1" fill="currentColor"/><circle cx="12" cy="13" r="1" fill="currentColor"/><circle cx="15" cy="13" r="1" fill="currentColor"/><circle cx="9" cy="17" r="1" fill="currentColor"/><circle cx="12" cy="17" r="1" fill="currentColor"/><circle cx="15" cy="17" r="1" fill="currentColor"/></svg>';
 
   /* ------------------------------------------------------------------
+     Product analytics (PostHog, CONFIG.ANALYTICS)
+     Only on pages whose sh.js tag has data-analytics (index, practice,
+     test, login; not admin or builder). Events and page views only: no
+     session recording, no autocapture, nothing typed into a field. A
+     signed-in student is known by their Firebase uid, never their email.
+     ------------------------------------------------------------------ */
+  const analytics = {
+    on: false, who: null,
+    enabled() { const a = CONFIG.ANALYTICS; return !!(a && a.KEY && a.HOST && SCRIPT && SCRIPT.hasAttribute('data-analytics')); },
+    init() {
+      if (this.on || !this.enabled()) return;
+      this.on = true;
+      const host = CONFIG.ANALYTICS.HOST.replace(/\/+$/, '');
+      loadPosthog(host).init(CONFIG.ANALYTICS.KEY, {
+        api_host: host,
+        person_profiles: 'identified_only',
+        capture_pageview: true, capture_pageleave: true,
+        autocapture: false, rageclick: false, capture_dead_clicks: false, enable_heatmaps: false,
+        disable_session_recording: true, disable_surveys: true,
+        mask_all_text: true, mask_all_element_attributes: true, respect_dnt: true
+      });
+    },
+    track(name, props) {
+      if (!this.on) return;
+      // The page language is read per event: index.html sets it after this file runs.
+      try { window.posthog.capture(name, Object.assign({ lang: langNow() }, props)); } catch (e) { /* never break the page */ }
+    },
+    identify(id) {
+      if (!this.on || !id || this.who === id) return;
+      this.who = id;
+      try { window.posthog.identify(id); } catch (e) { /* ignore */ }
+    },
+    reset() {
+      if (!this.on) return;
+      this.who = null;
+      try { window.posthog.reset(); } catch (e) { /* ignore */ }
+    },
+    // After the plan is read from Firestore (or the payments Worker): the plan
+    // goes on every event, and Free -> Pro on this device counts as "paid".
+    // was is null when this device knew no plan for this account yet.
+    planSynced(was, source) {
+      if (!this.on) return;
+      const now = plan.current();
+      try {
+        window.posthog.register({ plan: now });
+        window.posthog.setPersonProperties({ plan: now });
+      } catch (e) { /* ignore */ }
+      if (was === 'free' && now !== 'free') {
+        const until = plan.until();
+        this.track('paid', { plan: now, source, days: until ? Math.round((until - Date.now()) / 86400000) : null });
+      }
+    }
+  };
+  // PostHog's loader, written out: a stand-in window.posthog queues calls until
+  // array.js arrives from PostHog's CDN, which then replays them.
+  function loadPosthog(host) {
+    if (window.posthog) return window.posthog; // already on the page
+    const ph = window.posthog = [];
+    ph._i = []; ph.people = []; ph.__SV = 1;
+    ['capture', 'identify', 'reset', 'register', 'setPersonProperties'].forEach(m => {
+      ph[m] = function () { ph.push([m].concat(Array.prototype.slice.call(arguments))); };
+    });
+    ph.init = (key, opts) => { ph._i.push([key, opts, undefined]); };
+    const s = document.createElement('script');
+    s.async = true; s.crossOrigin = 'anonymous';
+    s.src = host.replace('.i.posthog.com', '-assets.i.posthog.com') + '/static/array.js';
+    document.head.appendChild(s);
+    return ph;
+  }
+  analytics.init();
+  const track = (name, props) => analytics.track(name, props);
+
+  /* ------------------------------------------------------------------
      Page chrome: mobile nav, footer year
      ------------------------------------------------------------------ */
   function initChrome() {
@@ -1573,6 +1832,16 @@
       $$('a', nav).forEach(a => a.addEventListener('click', () => set(false)));
     }
     $$('[data-year]').forEach(el => { el.textContent = new Date().getFullYear(); });
+    // Locked tests and blurred Pro previews: <button data-pitch="Sheet title">
+    document.addEventListener('click', e => {
+      const b = e.target.closest && e.target.closest('[data-pitch]');
+      if (!b) return;
+      e.preventDefault();
+      // data-pitch-test="<test id>" on a locked test; data-pitch-feature on the other previews.
+      if (b.dataset.pitchTest) track('locked_test_tapped', { test_id: b.dataset.pitchTest });
+      else track('pro_preview_tapped', { feature: b.dataset.pitchFeature || 'other', title: b.dataset.pitch });
+      plan.pitch({ title: b.dataset.pitch, text: b.dataset.pitchText || '' });
+    });
     // Header gets a hairline and shadow once the page scrolls
     const hdr = $('.site-header');
     if (hdr) {
@@ -1595,6 +1864,6 @@
     getAttempts, recordAttempts, skillStats, weakSkills, getProfile, setProfile, getTestHistory, addTestHistory,
     ai, toast, modal, openTutor, makePanel, calculator, CALC_ICON,
     auth, sync, authReady, renderAuthSlots, requireLogin, loginUrl, safeNext, inAppBrowser,
-    plan, renderPlans, pay
+    plan, renderPlans, pay, lockBox, analytics, track
   };
 })();

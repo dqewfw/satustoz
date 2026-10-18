@@ -1,0 +1,127 @@
+{
+  "id": "skill-boundaries",
+  "title": "Skill set: Boundaries",
+  "description": "Ten questions on joining and separating clauses: semicolons, colons, dashes, commas, and when to use no punctuation at all.",
+  "questions": [
+    {
+      "id": "bnd-01",
+      "section": "rw",
+      "domain": "Standard English Conventions",
+      "skill": "Boundaries",
+      "difficulty": "easy",
+      "passage": "The Aral Sea was once the fourth-largest lake in the ______ by the 2000s, much of its former bed had become desert.",
+      "prompt": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+      "choices": ["world,", "world", "world;", "world, which"],
+      "answer": "C",
+      "explanation": "Both parts are complete sentences: *The Aral Sea was once the fourth-largest lake in the world* and *by the 2000s, much of its former bed had become desert*. A semicolon can join two complete sentences, so **world;** is right.\n\nA comma alone (A) joins two sentences with only a comma, a comma splice. No punctuation (B) runs them together. D adds *which*, but *which by the 2000s, much of its former bed had become desert* is not a clause that works: *which* has no role in it."
+    },
+    {
+      "id": "bnd-02",
+      "section": "rw",
+      "domain": "Standard English Conventions",
+      "skill": "Boundaries",
+      "difficulty": "easy",
+      "passage": "The architects who designed the city's new ______ large windows along the north wall so that readers would have steady, indirect light.",
+      "prompt": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+      "choices": ["library, placed", "library placed", "library; placed", "library—placed"],
+      "answer": "B",
+      "explanation": "The subject is *the architects who designed the city's new library*, and its verb is *placed*. Nothing should separate a subject from its verb, so **library placed** is right.\n\nA comma (A) and a dash (D) both cut the subject off from its verb. A semicolon (C) must have a complete sentence on each side, and *The architects who designed the city's new library* is not one."
+    },
+    {
+      "id": "bnd-03",
+      "section": "rw",
+      "domain": "Standard English Conventions",
+      "skill": "Boundaries",
+      "difficulty": "easy",
+      "passage": "Visitors to the museum's textile hall can see three kinds of traditional Uzbek ______ ikat-dyed silk, hand-embroidered suzanis, and cotton woven on narrow looms.",
+      "prompt": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+      "choices": ["textiles;", "textiles", "textiles, which", "textiles:"],
+      "answer": "D",
+      "explanation": "The first part is a complete sentence that announces \"three kinds,\" and the list that follows names them. A colon introduces a list after a complete sentence, so **textiles:** is right.\n\nA semicolon (A) needs a complete sentence after it, and a list is not one. With no punctuation (B), the list runs straight into the sentence. *Which* (C) starts a clause that never gets a verb."
+    },
+    {
+      "id": "bnd-04",
+      "section": "rw",
+      "domain": "Standard English Conventions",
+      "skill": "Boundaries",
+      "difficulty": "medium",
+      "passage": "Nodira, a nineteenth-century poet who wrote in both Uzbek and ______ is also remembered for her role in the politics of the Kokand Khanate.",
+      "prompt": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+      "choices": ["Persian,", "Persian—", "Persian;", "Persian"],
+      "answer": "A",
+      "explanation": "*A nineteenth-century poet who wrote in both Uzbek and Persian* is extra information about Nodira. It opens with a comma after *Nodira*, so it must close with a comma: **Persian,**. Then the sentence continues: *Nodira ... is also remembered*.\n\nA dash (B) cannot close a phrase that a comma opened; the pair must match. A semicolon (C) separates the subject *Nodira* from its verb *is*. With no punctuation (D), the extra phrase is never closed, and the sentence reads as if *Persian* is what \"is also remembered.\""
+    },
+    {
+      "id": "bnd-05",
+      "section": "rw",
+      "domain": "Standard English Conventions",
+      "skill": "Boundaries",
+      "difficulty": "medium",
+      "passage": "The regional science fair drew students from Samarkand, Uzbekistan; Almaty, Kazakhstan ______ and Bishkek, Kyrgyzstan.",
+      "prompt": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+      "choices": ["Kazakhstan,", "Kazakhstan:", "Kazakhstan", "Kazakhstan;"],
+      "answer": "D",
+      "explanation": "Each item in this list already contains a comma (city, country). When list items contain commas, semicolons separate the items, and the first item already ends with one. So the second item must end the same way: **Kazakhstan;**.\n\nA comma (A) makes it unclear where one item ends and the next begins. A colon (B) introduces something after a complete sentence; it does not separate list items. No punctuation (C) runs the last two items together."
+    },
+    {
+      "id": "bnd-06",
+      "section": "rw",
+      "domain": "Standard English Conventions",
+      "skill": "Boundaries",
+      "difficulty": "medium",
+      "passage": "The ______ a hardy plant that can survive on very little rain—helps keep loose desert sand from blowing away.",
+      "prompt": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+      "choices": ["saxaul—", "saxaul,", "saxaul;", "saxaul"],
+      "answer": "A",
+      "explanation": "*A hardy plant that can survive on very little rain* is extra information about the saxaul. It closes with a dash before *helps*, so it must open with a dash: **saxaul—**.\n\nA comma (B) opens with one kind of punctuation and closes with another; the pair must match. A semicolon (C) needs a complete sentence before it, and *The saxaul* is not one. With no punctuation (D), the sentence reads *The saxaul a hardy plant*, and the closing dash has nothing to pair with."
+    },
+    {
+      "id": "bnd-07",
+      "section": "rw",
+      "domain": "Standard English Conventions",
+      "skill": "Boundaries",
+      "difficulty": "hard",
+      "passage": "During a long-term field project, marine ______ recorded thousands of the clicking sounds that sperm whales use to communicate.",
+      "prompt": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+      "choices": ["biologist, Ana Ferreira,", "biologist Ana Ferreira,", "biologist Ana Ferreira", "biologist, Ana Ferreira"],
+      "answer": "C",
+      "explanation": "*Marine biologist* works as a title in front of the name, like *Doctor* or *Professor*, and the name tells us which biologist. A title directly before a name takes no punctuation, and the subject *marine biologist Ana Ferreira* should not be separated from the verb *recorded*. So **biologist Ana Ferreira** is right.\n\nA puts commas around the name as if it could be removed, but without it the sentence reads *marine biologist recorded*, which is missing a word like *a*. B puts a comma between the subject and its verb. D separates the title from the name with a single comma that is never closed."
+    },
+    {
+      "id": "bnd-08",
+      "section": "rw",
+      "domain": "Standard English Conventions",
+      "skill": "Boundaries",
+      "difficulty": "hard",
+      "passage": "The first trial of the new wheat variety produced disappointing ______ the second trial, conducted after farmers adjusted the irrigation schedule, yielded nearly twice as much grain.",
+      "prompt": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+      "choices": ["results, however,", "results; however,", "results, however", "results however,"],
+      "answer": "B",
+      "explanation": "There are two complete sentences here, and *however* is a transition word, not a conjunction like *but*. It cannot join two sentences with commas alone. The standard pattern is a semicolon before *however* and a comma after it: **results; however,**.\n\nA joins the two sentences with only commas, a comma splice. C has the same problem and also drops the comma after *however*. D has no punctuation at all between the two sentences."
+    },
+    {
+      "id": "bnd-09",
+      "section": "rw",
+      "domain": "Standard English Conventions",
+      "skill": "Boundaries",
+      "difficulty": "medium",
+      "passage": "Ornithologists tracking white storks wanted to know whether the birds followed the same migration route every ______ To find out, they fitted twenty storks with lightweight GPS tags.",
+      "prompt": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+      "choices": ["year.", "year?", "year,", "year"],
+      "answer": "A",
+      "explanation": "The first sentence is a statement that *reports* a question (*wanted to know whether ...*). It does not ask one, so it ends with a period: **year.** The capital *T* in *To find out* also shows that a new sentence begins.\n\nA question mark (B) is only for a direct question, such as *Do the birds follow the same route?* A comma (C) joins two complete sentences with only a comma, a comma splice. No punctuation (D) runs them together."
+    },
+    {
+      "id": "bnd-10",
+      "section": "rw",
+      "domain": "Standard English Conventions",
+      "skill": "Boundaries",
+      "difficulty": "hard",
+      "passage": "Many reptiles of the Kyzylkum ______ the desert monitor and the toad-headed agama, escape the midday heat by sheltering in burrows.",
+      "prompt": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+      "choices": ["Desert such as", "Desert: such as", "Desert, such as", "Desert; such as"],
+      "answer": "C",
+      "explanation": "*Such as the desert monitor and the toad-headed agama* is a group of examples that could be removed. It already closes with a comma after *agama*, so it must open with a comma: **Desert, such as**. Remove it and the sentence still works: *Many reptiles of the Kyzylkum Desert escape the midday heat*.\n\nWithout the opening comma (A), the comma after *agama* stands alone and separates the subject from the verb *escape*. A colon (B) and a semicolon (D) both need a complete sentence before them, and *Many reptiles of the Kyzylkum Desert* is not one."
+    }
+  ]
+}

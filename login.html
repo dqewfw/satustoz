@@ -45,6 +45,14 @@
   .who b, .who span { display: block; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
   .who span { color: var(--muted); font-size: .92rem; }
   .who > div { min-width: 0; }
+  .ia-btn { display: flex; align-items: center; justify-content: center; gap: 12px; width: 100%; min-height: 60px; font-size: 1.12rem; }
+  .ia-btn svg { width: 24px; height: 24px; flex: 0 0 auto; }
+  .ia-steps { margin: 4px 0 18px; padding: 0; list-style: none; counter-reset: ia; display: grid; gap: 10px; }
+  .ia-steps li { counter-increment: ia; display: flex; gap: 12px; align-items: flex-start; }
+  .ia-steps li::before { content: counter(ia); flex: 0 0 auto; width: 28px; height: 28px; border-radius: 50%; background: var(--brand); color: #fff; font-weight: 700; display: flex; align-items: center; justify-content: center; font-size: .92rem; }
+  .ia-steps b { color: var(--ink); }
+  .ia-link { width: 100%; margin-top: 10px; font-size: .9rem; color: var(--muted); }
+  .ia-or { font-size: .92rem; color: var(--muted); margin: 16px 0 8px; }
   @media (max-width: 860px) {
     .login-grid { grid-template-columns: minmax(0, 1fr); max-width: 520px; margin: 0 auto; }
     .login-side { padding: 28px 24px; }
@@ -88,7 +96,7 @@
   </div>
 </main>
 
-<script src="assets/sh.js" defer></script>
+<script src="assets/sh.js" data-analytics defer></script>
 <script>
 document.addEventListener('DOMContentLoaded', async function () {
   'use strict';
@@ -104,7 +112,10 @@ document.addEventListener('DOMContentLoaded', async function () {
       google: 'Continue with Google', working: 'Waiting for Google…',
       privacy: 'We only use your name and email to create your account and save your progress. We never post anything or read your email. If you are under 18, check with a parent first.',
       skip: 'Continue without an account',
-      inapp: 'You are in the {app} browser, where Google sign-in is blocked. Open this page in Chrome or Safari: tap the ⋯ menu and choose “Open in browser”.',
+      ia_h: 'Open SAT Ustoz in your browser', ia_p: 'Google sign-in doesn’t work inside {app}. Open this page in {browser} to sign in.', this_app: 'this app',
+      ia_chrome: 'Open in Chrome', ia_safari_btn: 'Copy link for Safari',
+      ia_s1: 'Tap <b>⋯</b> at the top right of the screen.', ia_s2: 'Choose <b>“Open in Safari”</b> (in Instagram: <b>“Open in external browser”</b>).', ia_s3: 'Sign in with Google there. Your progress is saved to your account.',
+      ia_or: 'Didn’t open? Copy the link and paste it into Chrome or Safari.', ia_try: 'Try Google sign-in here anyway',
       copy: 'Copy link', copied: 'Link copied. Paste it into Chrome or Safari.',
       off: 'Accounts are coming soon. You can practice without one for now.', go_practice: 'Go to practice',
       welcome_h: 'Welcome, {name}!', onb_p: 'A few quick questions so we can tailor your practice. You can change these later.',
@@ -123,7 +134,10 @@ document.addEventListener('DOMContentLoaded', async function () {
       google: 'Google orqali davom etish', working: 'Google kutilmoqda…',
       privacy: 'Ismingiz va emailingizdan faqat hisob yaratish va natijalaringizni saqlash uchun foydalanamiz. Hech narsa joylamaymiz va xatlaringizni oʻqimaymiz. 18 yoshga toʻlmagan boʻlsangiz, avval ota-onangiz bilan maslahatlashing.',
       skip: 'Hisobsiz davom etish',
-      inapp: 'Siz {app} ichidagi brauzerdasiz, u yerda Google orqali kirish ishlamaydi. Sahifani Chrome yoki Safari’da oching: ⋯ menyusini bosib, «Brauzerda ochish»ni tanlang.',
+      ia_h: 'SAT Ustozni brauzerda oching', ia_p: '{app} ichida Google orqali kirish ishlamaydi. Kirish uchun sahifani {browser} brauzerida oching.', this_app: 'bu ilova',
+      ia_chrome: 'Chrome’da ochish', ia_safari_btn: 'Safari uchun havolani nusxalash',
+      ia_s1: 'Ekranning yuqori oʻng burchagidagi <b>⋯</b> tugmasini bosing.', ia_s2: '<b>«Open in Safari»</b>ni tanlang (Instagram’da: <b>«Open in external browser»</b>).', ia_s3: 'U yerda Google orqali kiring. Natijalaringiz hisobingizga saqlanadi.',
+      ia_or: 'Ochilmadimi? Havolani nusxalab, Chrome yoki Safari’ga qoʻying.', ia_try: 'Baribir shu yerda Google orqali kirib koʻrish',
       copy: 'Havolani nusxalash', copied: 'Havola nusxalandi. Uni Chrome yoki Safari’ga qoʻying.',
       off: 'Hisoblar tez orada ishga tushadi. Hozircha hisobsiz mashq qilishingiz mumkin.', go_practice: 'Mashqqa oʻtish',
       welcome_h: 'Xush kelibsiz, {name}!', onb_p: 'Mashqlaringizni moslashtirishimiz uchun bir nechta qisqa savol. Keyinroq oʻzgartirishingiz mumkin.',
@@ -142,7 +156,10 @@ document.addEventListener('DOMContentLoaded', async function () {
       google: 'Продолжить с Google', working: 'Ждём Google…',
       privacy: 'Мы используем ваше имя и email только для создания аккаунта и сохранения прогресса. Мы ничего не публикуем и не читаем вашу почту. Если вам нет 18, сначала посоветуйтесь с родителями.',
       skip: 'Продолжить без аккаунта',
-      inapp: 'Вы во встроенном браузере {app}, где вход через Google заблокирован. Откройте страницу в Chrome или Safari: нажмите меню ⋯ и выберите «Открыть в браузере».',
+      ia_h: 'Откройте SAT Ustoz в браузере', ia_p: 'Внутри {app} вход через Google не работает. Чтобы войти, откройте страницу в {browser}.', this_app: 'этого приложения',
+      ia_chrome: 'Открыть в Chrome', ia_safari_btn: 'Скопировать ссылку для Safari',
+      ia_s1: 'Нажмите <b>⋯</b> в правом верхнем углу экрана.', ia_s2: 'Выберите <b>«Открыть в Safari»</b> (в Instagram: <b>«Open in external browser»</b>).', ia_s3: 'Войдите там через Google. Прогресс сохранится в вашем аккаунте.',
+      ia_or: 'Не открылось? Скопируйте ссылку и вставьте её в Chrome или Safari.', ia_try: 'Всё равно попробовать войти через Google здесь',
       copy: 'Скопировать ссылку', copied: 'Ссылка скопирована. Вставьте её в Chrome или Safari.',
       off: 'Аккаунты скоро появятся. Пока можно заниматься без аккаунта.', go_practice: 'Перейти к практике',
       welcome_h: 'Добро пожаловать, {name}!', onb_p: 'Несколько коротких вопросов, чтобы подстроить практику под вас. Ответы можно изменить позже.',
@@ -160,7 +177,13 @@ document.addEventListener('DOMContentLoaded', async function () {
   const params = new URLSearchParams(location.search);
   const next = SH.safeNext(params.get('next'));
   const card = $('#card');
-  let state = 'loading', errorMsg = '', busy = false;
+  let state = 'loading', errorMsg = '', busy = false, forceGoogle = false;
+  // Google blocks sign-in inside app browsers (Telegram, Instagram...), so
+  // those visitors get a way out to Chrome or Safari instead of the button.
+  const ua = navigator.userAgent || '';
+  const OS = /Android/i.test(ua) ? 'android' : /iPhone|iPad|iPod/i.test(ua) || (/Macintosh/i.test(ua) && navigator.maxTouchPoints > 1) ? 'ios' : '';
+  // intent:// asks Android to open the same page in Chrome (or the Play Store if Chrome is missing).
+  const chromeUrl = () => 'intent://' + location.host + location.pathname + location.search + '#Intent;scheme=https;package=com.android.chrome;end';
 
   const G_LOGO = '<svg viewBox="0 0 48 48" aria-hidden="true"><path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"/><path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"/><path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"/><path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.15 1.45-4.92 2.3-8.16 2.3-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/></svg>';
 
@@ -186,18 +209,13 @@ document.addEventListener('DOMContentLoaded', async function () {
     }
     if (!u) {
       const app = SH.inAppBrowser();
+      if (app && !forceGoogle) { renderInApp(app); return; }
       card.innerHTML = '<h2>' + esc(t('card_h')) + '</h2><p class="muted">' + esc(t('card_p')) + '</p>' +
-        (app ? '<div class="notice notice-warn" style="margin-bottom:16px">' + esc(t('inapp', { app: app === 'app' ? 'app' : app })) + '<div style="margin-top:10px"><button type="button" class="btn btn-ghost btn-sm" id="copy">' + esc(t('copy')) + '</button></div></div>' : '') +
         '<button type="button" class="gbtn" id="google"' + (busy ? ' disabled' : '') + '>' + (busy ? '<span class="spin" aria-hidden="true"></span>' + esc(t('working')) : G_LOGO + esc(t('google'))) + '</button>' +
         (errorMsg ? '<div class="notice notice-bad msg" role="alert">' + esc(errorMsg) + '</div>' : '') +
         '<p class="fine">' + esc(t('privacy')) + '</p>' +
         (SH.CONFIG.REQUIRE_LOGIN ? '' : '<a class="skip" href="' + esc(next) + '">' + esc(t('skip')) + '</a>');
       $('#google').addEventListener('click', signIn);
-      const c = $('#copy');
-      if (c) c.addEventListener('click', async () => {
-        try { await navigator.clipboard.writeText(location.href); SH.toast(t('copied')); }
-        catch (e) { prompt(t('copy'), location.href); }
-      });
       return;
     }
     if (!p.onboarded) {
@@ -229,6 +247,28 @@ document.addEventListener('DOMContentLoaded', async function () {
       '<a class="btn btn-primary btn-block" href="' + esc(next) + '">' + esc(t('cont')) + '</a>' +
       '<button type="button" class="link-btn skip" id="out" style="width:100%">' + esc(t('not_you')) + '</button>';
     $('#out').addEventListener('click', async () => { await SH.auth.signOut(); errorMsg = ''; render(); });
+  }
+
+  function renderInApp(app) {
+    const appName = app === 'app' ? t('this_app') : app;
+    const ios = OS === 'ios', android = OS === 'android';
+    const ICON_OUT = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 01-1 1H5a1 1 0 01-1-1V7a1 1 0 011-1h5" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+    const ICON_COPY = '<svg viewBox="0 0 24 24" aria-hidden="true"><rect x="8" y="8" width="12" height="12" rx="2" fill="none" stroke="currentColor" stroke-width="2.2"/><path d="M16 8V5a1 1 0 00-1-1H5a1 1 0 00-1 1v10a1 1 0 001 1h3" fill="none" stroke="currentColor" stroke-width="2.2"/></svg>';
+    card.innerHTML = '<h2>' + esc(t('ia_h')) + '</h2><p class="muted">' + esc(t('ia_p', { app: appName, browser: android ? 'Chrome' : ios ? 'Safari' : 'Chrome / Safari' })) + '</p>' +
+      (android
+        ? '<a class="btn btn-primary ia-btn" id="ia-open" href="' + esc(chromeUrl()) + '">' + ICON_OUT + esc(t('ia_chrome')) + '</a>' +
+          '<p class="ia-or">' + esc(t('ia_or')) + '</p><button type="button" class="btn btn-ghost btn-block" data-copy>' + esc(t('copy')) + '</button>'
+        : '<ol class="ia-steps"><li><span>' + t('ia_s1') + '</span></li><li><span>' + t('ia_s2') + '</span></li><li><span>' + esc(t('ia_s3')) + '</span></li></ol>' +
+          '<button type="button" class="btn btn-primary ia-btn" data-copy>' + ICON_COPY + esc(t(ios ? 'ia_safari_btn' : 'copy')) + '</button>') +
+      '<input class="input ia-link" readonly aria-label="' + esc(t('copy')) + '" value="' + esc(location.href) + '">' +
+      (SH.CONFIG.REQUIRE_LOGIN ? '' : '<a class="skip" href="' + esc(next) + '">' + esc(t('skip')) + '</a>') +
+      '<button type="button" class="link-btn skip" id="ia-try" style="width:100%;font-weight:400;font-size:.9rem">' + esc(t('ia_try')) + '</button>';
+    $('[data-copy]').addEventListener('click', async () => {
+      try { await navigator.clipboard.writeText(location.href); SH.toast(t('copied')); }
+      catch (e) { const f = $('.ia-link'); f.focus(); f.select(); prompt(t('copy'), location.href); }
+    });
+    $('.ia-link').addEventListener('focus', e => e.target.select());
+    $('#ia-try').addEventListener('click', () => { forceGoogle = true; render(); });
   }
 
   async function signIn() {

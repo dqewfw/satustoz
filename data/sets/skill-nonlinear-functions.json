@@ -1,0 +1,124 @@
+{
+  "id": "skill-nonlinear-functions",
+  "title": "Skill set: Nonlinear functions",
+  "description": "Ten questions on quadratic and exponential functions: evaluating, modeling, the vertex and minimum, growth and decay.",
+  "questions": [
+    {
+      "id": "nlf-01",
+      "section": "math",
+      "domain": "Advanced Math",
+      "skill": "Nonlinear functions",
+      "difficulty": "easy",
+      "prompt": "The function $f$ is defined by $f(x) = x^2 - 3x$. What is the value of $f(-2)$?",
+      "choices": ["$-10$", "$-2$", "$2$", "$10$"],
+      "answer": "D",
+      "explanation": "Substitute $-2$ for every $x$, using parentheses: $f(-2) = (-2)^2 - 3(-2) = 4 + 6 = 10$.\n\nChoice B treats $-3(-2)$ as $-6$. Choice C treats $(-2)^2$ as $-4$. Choice A makes both mistakes."
+    },
+    {
+      "id": "nlf-02",
+      "section": "math",
+      "domain": "Advanced Math",
+      "skill": "Nonlinear functions",
+      "difficulty": "easy",
+      "prompt": "The function $g$ is defined by $g(x) = 3 \\cdot 2^x$. What is the value of $g(3)$?",
+      "answer": ["24"],
+      "explanation": "The exponent applies only to the 2: $2^3 = 8$, so $g(3) = 3 \\cdot 8 = 24$.\n\nA common mistake is to compute $6^3 = 216$, as if the 3 were also raised to the power."
+    },
+    {
+      "id": "nlf-03",
+      "section": "math",
+      "domain": "Advanced Math",
+      "skill": "Nonlinear functions",
+      "difficulty": "easy",
+      "prompt": "A biologist starts with 500 bacteria in a dish. The number of bacteria doubles every hour. Which function gives the number of bacteria, $P(t)$, after $t$ hours?",
+      "choices": ["$P(t) = 500 + 2t$", "$P(t) = 500(2)^t$", "$P(t) = 2(500)^t$", "$P(t) = 500t^2$"],
+      "answer": "B",
+      "explanation": "Doubling means multiplying by 2 every hour. Start with 500 and multiply by 2 once per hour: $P(t) = 500(2)^t$. Check: $P(0) = 500$, $P(1) = 1{,}000$, $P(2) = 2{,}000$.\n\nChoice A adds 2 bacteria per hour, which is linear growth. Choice C swaps the starting amount and the growth factor ($P(1)$ would be 1,000, but $P(2)$ would be 500,000). Choice D gives $P(0) = 0$, not 500."
+    },
+    {
+      "id": "nlf-04",
+      "section": "math",
+      "domain": "Advanced Math",
+      "skill": "Nonlinear functions",
+      "difficulty": "medium",
+      "prompt": "The function $f$ is defined by $f(x) = 2(x - 3)^2 + 5$. What is the minimum value of $f(x)$?",
+      "choices": ["$2$", "$3$", "$5$", "$-3$"],
+      "answer": "C",
+      "explanation": "A square is never negative, so $(x - 3)^2$ is smallest when it equals 0, at $x = 3$. Then $f(3) = 2(0) + 5 = 5$. Since the leading coefficient 2 is positive, the parabola opens upward and 5 is its minimum.\n\nChoice B is the $x$-value where the minimum happens, not the minimum value. Choice A is the leading coefficient. Choice D misreads the sign inside the parentheses."
+    },
+    {
+      "id": "nlf-05",
+      "section": "math",
+      "domain": "Advanced Math",
+      "skill": "Nonlinear functions",
+      "difficulty": "medium",
+      "prompt": "The value $V$, in dollars, of a car $t$ years after it was purchased is modeled by the function $V(t) = 18{,}000(0.85)^t$. Which statement is the best interpretation of 0.85 in this context?",
+      "choices": [
+        "Each year, the car's value is 15% less than it was the year before.",
+        "Each year, the car's value is 85% less than it was the year before.",
+        "Each year, the car's value decreases by \\$0.85.",
+        "The car's value one year after purchase is \\$15,300 less than its purchase price."
+      ],
+      "answer": "A",
+      "explanation": "Each year the value is multiplied by 0.85, so the car keeps 85% of its value and loses $100\\% - 85\\% = 15\\%$ of it.\n\nChoice B confuses the part kept (85%) with the part lost. Choice C treats the model as linear, subtracting a fixed amount. Choice D: $18{,}000(0.85) = 15{,}300$ is the car's value after one year, not the amount it lost, which is $18{,}000 - 15{,}300 = 2{,}700$."
+    },
+    {
+      "id": "nlf-06",
+      "section": "math",
+      "domain": "Advanced Math",
+      "skill": "Nonlinear functions",
+      "difficulty": "medium",
+      "prompt": "For the function $f(x) = (x + 4)(x - 2)$, what is the $x$-coordinate of the vertex of the graph of $y = f(x)$ in the $xy$-plane?",
+      "choices": ["$-1$", "$-8$", "$1$", "$2$"],
+      "answer": "A",
+      "explanation": "The zeros of $f$ are $x = -4$ and $x = 2$. A parabola is symmetric, so its vertex is halfway between the zeros: $\\dfrac{-4 + 2}{2} = -1$.\n\nChoice C averages 4 and $-2$, the numbers as they appear in the factors, instead of the zeros. Choice B is the $y$-intercept, $f(0) = (4)(-2) = -8$. Choice D is one of the zeros."
+    },
+    {
+      "id": "nlf-07",
+      "section": "math",
+      "domain": "Advanced Math",
+      "skill": "Nonlinear functions",
+      "difficulty": "medium",
+      "prompt": "$$f(x) = x^2 - 6x + 13$$ Which of the following equivalent forms of the function $f$ shows the minimum value of $f(x)$ as a constant or coefficient?",
+      "choices": ["$f(x) = x(x - 6) + 13$", "$f(x) = (x - 1)(x - 5) + 8$", "$f(x) = (x - 2)(x - 4) + 5$", "$f(x) = (x - 3)^2 + 4$"],
+      "answer": "D",
+      "explanation": "All four forms are equivalent (expand each to check). The vertex form $a(x - h)^2 + k$ with $a > 0$ shows the minimum value as $k$. In $f(x) = (x - 3)^2 + 4$, the square is 0 at $x = 3$, so the minimum is **4**.\n\nThe constants in the other forms are values of $f$ at particular points, not the minimum: 13 is $f(0)$, 8 is $f(1)$ and $f(5)$, and 5 is $f(2)$ and $f(4)$. All of them are greater than 4."
+    },
+    {
+      "id": "nlf-08",
+      "section": "math",
+      "domain": "Advanced Math",
+      "skill": "Nonlinear functions",
+      "difficulty": "hard",
+      "prompt": "The function $f$ is defined by $f(x) = a(b)^x$, where $a$ and $b$ are positive constants. If $f(0) = 6$ and $f(2) = 54$, what is the value of $f(3)$?",
+      "answer": ["162"],
+      "explanation": "Any positive number to the power 0 is 1, so $f(0) = a = 6$.\n\nThen $f(2) = 6b^2 = 54$, so $b^2 = 9$ and $b = 3$ (it must be positive).\n\nSo $f(x) = 6(3)^x$ and $f(3) = 6 \\cdot 27 = 162$.\n\nA common mistake is to treat the function as linear: 6 to 54 over two steps is +24 per step, giving 78. Exponential functions multiply by the same factor each step; they do not add the same amount."
+    },
+    {
+      "id": "nlf-09",
+      "section": "math",
+      "domain": "Advanced Math",
+      "skill": "Nonlinear functions",
+      "difficulty": "hard",
+      "prompt": "A sample of a radioactive substance has a mass of 800 grams when it is first measured. Its mass is cut in half every 6 hours. Which function gives the mass $M$, in grams, of the sample $h$ hours after it was first measured?",
+      "choices": [
+        "$M(h) = 800\\left(\\dfrac{1}{2}\\right)^{6h}$",
+        "$M(h) = 800 - \\dfrac{400h}{6}$",
+        "$M(h) = 800\\left(\\dfrac{1}{2}\\right)^{h/6}$",
+        "$M(h) = 400\\left(\\dfrac{1}{2}\\right)^{h/6}$"
+      ],
+      "answer": "C",
+      "explanation": "The mass halves once every 6 hours, so after $h$ hours it has halved $\\dfrac{h}{6}$ times: $M(h) = 800\\left(\\dfrac{1}{2}\\right)^{h/6}$. Check: $M(0) = 800$, $M(6) = 400$, $M(12) = 200$.\n\nChoice A halves the mass 6 times every hour: after just 1 hour it would be $800 \\cdot \\dfrac{1}{64} = 12.5$ grams. Choice B is linear: it gives 400 at 6 hours but 0 at 12 hours instead of 200. Choice D starts at 400 grams instead of 800."
+    },
+    {
+      "id": "nlf-10",
+      "section": "math",
+      "domain": "Advanced Math",
+      "skill": "Nonlinear functions",
+      "difficulty": "hard",
+      "prompt": "A ball is thrown upward from the roof of a building. The ball's height above the ground, in meters, $t$ seconds after it is thrown is given by $h(t) = -5t^2 + 30t + 35$. How many seconds after it is thrown does the ball hit the ground?",
+      "answer": ["7"],
+      "explanation": "The ball hits the ground when its height is 0: $-5t^2 + 30t + 35 = 0$.\n\nDivide every term by $-5$: $t^2 - 6t - 7 = 0$. Factor: $(t - 7)(t + 1) = 0$, so $t = 7$ or $t = -1$. Time after the throw cannot be negative, so $t = 7$.\n\nCheck: $-5(49) + 30(7) + 35 = -245 + 210 + 35 = 0$. Don't confuse this with $t = 3$, when the ball reaches its highest point ($h(3) = 80$ meters), or with 35, the height of the roof."
+    }
+  ]
+}

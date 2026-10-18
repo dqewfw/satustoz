@@ -27,7 +27,7 @@ service cloud.firestore {
     // While the placeholder is here, nobody is an admin and admin.html can't
     // load anything.
     // ---------------------------------------------------------------------
-    function adminEmails() { return ['REPLACE-WITH-YOUR-GOOGLE-EMAIL']; }
+    function adminEmails() { return ['zizz83318@gmail.com']; }
 
     // Signed in with one of the emails above, and Google has checked that the
     // account really owns that email.
@@ -49,17 +49,41 @@ service cloud.firestore {
 
     function validPayRequest(uid) {
       let d = request.resource.data;
-      return d.keys().hasOnly(['uid', 'email', 'name', 'plan', 'amount', 'last4', 'receiptId', 'lang', 'createdAt'])
+      return d.keys().hasOnly(['uid', 'email', 'name', 'plan', 'amount', 'months', 'last4', 'receiptId', 'lang', 'createdAt'])
           && d.keys().hasAll(['uid', 'email', 'plan', 'amount', 'last4', 'createdAt'])
           && d.uid == uid
           && d.email == request.auth.token.email
           && d.plan == 'pro'
           && d.amount is int && d.amount >= 0
+          && (!('months' in d) || (d.months is int && d.months >= 1 && d.months <= 12))
           && d.last4 is string && d.last4.matches('[0-9]{4}')
           && (!('receiptId' in d) || (d.receiptId is string && d.receiptId.size() <= 60))
           && (!('name' in d) || (d.name is string && d.name.size() <= 100))
           && (!('lang' in d) || d.lang in ['en', 'uz', 'ru'])
           && d.createdAt == request.time;
+    }
+
+    // waitlist/<uid>: a student's Telegram username for the Max waitlist
+    // (the Max card on the plans). Students write only their own.
+    function validWaitlist(uid) {
+      let d = request.resource.data;
+      return d.keys().hasOnly(['uid', 'email', 'name', 'telegram', 'lang', 'createdAt'])
+          && d.keys().hasAll(['uid', 'email', 'telegram', 'createdAt'])
+          && d.uid == uid
+          && d.email == request.auth.token.email
+          && d.telegram is string && d.telegram.matches('@[A-Za-z0-9_]{5,32}')
+          && (!('name' in d) || (d.name is string && d.name.size() <= 100))
+          && (!('lang' in d) || d.lang in ['en', 'uz', 'ru'])
+          && d.createdAt == request.time;
+    }
+
+    match /waitlist/{uid} {
+      allow read: if request.auth != null && request.auth.uid == uid;
+      allow create, update: if request.auth != null
+                            && request.auth.uid == uid
+                            && validWaitlist(uid);
+      // Admin (admin.html): list everyone on the waitlist.
+      allow read, delete: if isAdmin();
     }
 
     match /payRequests/{uid} {

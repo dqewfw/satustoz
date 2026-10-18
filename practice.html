@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Practice | SAT Ustoz</title>
-<meta name="description" content="Digital SAT practice: question sets by skill, AI-generated practice with a tutor, adaptive practice tests, and progress tracking by skill.">
+<meta name="description" content="Digital SAT practice: question sets by skill, adaptive practice tests, and progress tracking by skill.">
 <link rel="canonical" href="https://satustoz.academy/practice.html">
 <meta name="theme-color" content="#2D5038">
 <link rel="icon" href="favicon.ico" sizes="32x32">
@@ -197,7 +197,7 @@
       <a href="index.html">Home</a>
       <a href="practice.html#home">Dashboard</a>
       <a href="practice.html#sets">Practice sets</a>
-      <a href="practice.html#ai">AI practice</a>
+      <a href="practice.html#ai" data-ai-only>AI practice</a>
       <a href="practice.html#tests">Practice tests</a>
       <a href="practice.html#plans">Plans</a>
     </nav>
@@ -210,7 +210,7 @@
     <nav class="tabs" aria-label="Practice sections">
       <a href="#home" data-tab="home"><span class="t-long">Dashboard</span><span class="t-short">Home</span></a>
       <a href="#sets" data-tab="sets"><span class="t-long">Practice sets</span><span class="t-short">Sets</span></a>
-      <a href="#ai" data-tab="ai"><span class="t-long">AI practice</span><span class="t-short">AI</span></a>
+      <a href="#ai" data-tab="ai" data-ai-only><span class="t-long">AI practice</span><span class="t-short">AI</span></a>
       <a href="#tests" data-tab="tests"><span class="t-long">Practice tests</span><span class="t-short">Tests</span></a>
       <a href="#plans" data-tab="plans"><span class="t-long">Plans</span><span class="t-short">Plans</span></a>
     </nav>
@@ -226,7 +226,7 @@
         <span class="brand-name">SAT Ustoz</span>
         <p style="margin-top:10px">Digital SAT practice built by someone who has taken the test, for students in Uzbekistan and beyond.</p>
       </div>
-      <div><h3 class="f-head">Practice</h3><ul><li><a href="practice.html#sets">Practice sets</a></li><li><a href="practice.html#ai">AI practice</a></li><li><a href="practice.html#tests">Practice tests</a></li><li><a href="practice.html#plans">Plans</a></li></ul></div>
+      <div><h3 class="f-head">Practice</h3><ul><li><a href="practice.html#sets">Practice sets</a></li><li><a href="practice.html#tests">Practice tests</a></li><li><a href="practice.html#plans">Plans</a></li></ul></div>
       <div><h3 class="f-head">Contact</h3><ul><li><a data-link="telegram" href="https://t.me/azizbek7_t" target="_blank" rel="noopener">Telegram: @azizbek7_t</a></li><li><a data-link="channel" href="https://t.me/satustoz_off" target="_blank" rel="noopener">Telegram channel</a></li><li><a data-link="instagram" href="https://www.instagram.com/satustoz" target="_blank" rel="noopener">Instagram</a></li></ul></div>
     </div>
     <div class="footer-legal">&copy; <span data-year>2026</span> SAT Ustoz. SAT&reg; is a trademark registered by the College Board, which is not affiliated with, and does not endorse, this website. All practice questions on this site are written by SAT Ustoz.</div>
@@ -234,7 +234,7 @@
 </footer>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.js" defer></script>
-<script src="assets/sh.js" defer></script>
+<script src="assets/sh.js" data-analytics defer></script>
 <script>
 document.addEventListener('DOMContentLoaded', function () {
   'use strict';
@@ -259,6 +259,8 @@ document.addEventListener('DOMContentLoaded', function () {
       player.style.maxWidth = on ? 'none' : '';
     }
   });
+  // The AI tab shows only while the AI is switched on (AI_ENDPOINT in sh.js).
+  if (!SH.ai.enabled()) $$('[data-ai-only]').forEach(el => el.remove());
   init();
   async function init() {
     if (!(await SH.requireLogin())) return;
@@ -280,7 +282,8 @@ document.addEventListener('DOMContentLoaded', function () {
     if (tab === 'play') { if (!session) { location.hash = '#home'; return; } return; }
     if (session && !confirmLeave()) return;
     player.hidden = true; hub.hidden = false;
-    const t = ['home', 'sets', 'ai', 'tests', 'plans'].indexOf(tab) > -1 ? tab : 'home';
+    const tabs = ['home', 'sets', 'tests', 'plans'].concat(SH.ai.enabled() ? ['ai'] : []);
+    const t = tabs.indexOf(tab) > -1 ? tab : 'home';
     $$('.tabs a').forEach(a => a.setAttribute('aria-current', a.dataset.tab === t ? 'page' : 'false'));
     $$('.nav a').forEach(a => a.removeAttribute('aria-current'));
     const navA = $('.nav a[href="practice.html#' + t + '"]'); if (navA) navA.setAttribute('aria-current', 'page');
@@ -295,15 +298,12 @@ document.addEventListener('DOMContentLoaded', function () {
     const correct = attempts.filter(a => a.correct).length;
     const hist = SH.getTestHistory();
     const best = hist.filter(h => h.total != null).reduce((m, h) => Math.max(m, h.total), 0);
-    let days = '';
-    if (p.testDate) {
-      const d = Math.ceil((new Date(p.testDate + 'T08:00:00') - new Date()) / 86400000);
-      days = d >= 0 ? String(d) : '';
-    }
     const weak = SH.weakSkills(4);
     const stats = SH.skillStats();
+    const insights = SH.plan.insights();
     let html = '<div class="hub-head"><div><h1>' + (p.name ? (attempts.length ? 'Welcome back, ' : 'Welcome, ') + esc(p.name.split(/\s+/)[0]) : 'Welcome') + '</h1></div>' +
       '<div class="hub-acts">' + planChip() + '<button class="btn btn-ghost btn-sm" type="button" id="edit-goals">' + (p.testDate || p.name ? 'Edit goals' : 'Set your goals') + '</button></div></div>';
+    html += goalStrip(p, best);
     if (SH.auth.enabled() && SH.auth.settled && !SH.auth.user) {
       html += '<div class="notice" style="display:flex;gap:14px;align-items:center;justify-content:space-between;flex-wrap:wrap;margin-bottom:18px"><span><b>Save your progress.</b> Sign in with Google to keep your results on every device' + (SH.ai.enabled() && SH.CONFIG.AI_REQUIRES_LOGIN ? ' and use the AI tutor' : '') + '.</span><a class="btn btn-primary btn-sm" href="' + esc(SH.loginUrl('practice.html#home')) + '">Sign in with Google</a></div>';
     }
@@ -316,22 +316,25 @@ document.addEventListener('DOMContentLoaded', function () {
       tile(attempts.length, 'questions practiced') +
       tile(attempts.length ? SH.pct(correct, attempts.length) + '%' : '–', 'accuracy') +
       tile(best || '–', 'best test estimate (goal ' + esc(p.target) + ')') +
-      tile(days || '–', p.testDate ? 'days until test day' : 'set your test date') + '</div>';
+      tile(hist.length, 'practice test' + (hist.length === 1 ? '' : 's') + ' taken') + '</div>';
 
     if (!attempts.length) {
       html += '<h2 class="section-title">Start here</h2><div class="grid grid-3">' +
-        '<div class="card card-hover start-card"><span class="kicker">Recommended first</span><h3>Take the mini diagnostic</h3><p class="muted">About 50 minutes, adaptive like the real test. It shows where you stand in every skill.</p><a class="btn btn-primary" href="test.html?id=diagnostic-mini">Start the diagnostic</a></div>' +
-        '<div class="card card-hover start-card"><span class="kicker">Test-day ready</span><h3>Full practice tests</h3><p class="muted">Ten full-length tests, 98 questions in 2 hours 14 minutes, adaptive like the real SAT. Tests 1 to 3 are free.</p><a class="btn btn-ghost" href="#tests">See practice tests</a></div>' +
+        '<div class="card card-hover start-card"><span class="kicker">Recommended first</span><h3>Take the mini diagnostic</h3><p class="muted">About 50 minutes, adaptive like the real test. You get an estimated score, free.</p><a class="btn btn-primary" href="test.html?id=diagnostic-mini">Start the diagnostic</a></div>' +
+        '<div class="card card-hover start-card"><span class="kicker">Test-day ready</span><h3>Full practice tests</h3><p class="muted">Ten full-length tests, 98 questions in 2 hours 14 minutes, adaptive like the real SAT. Practice Test 1 is free.</p><a class="btn btn-ghost" href="#tests">See practice tests</a></div>' +
         '<div class="card card-hover start-card"><span class="kicker">Short on time</span><h3>Try a 10-question set</h3><p class="muted">Instant feedback and an explanation after every question.</p><a class="btn btn-ghost" href="#sets">See practice sets</a></div></div>';
     } else {
       html += '<h2 class="section-title">Focus on these skills</h2>';
-      if (weak.length) {
+      if (weak.length && !insights) {
+        html += '<div class="card">' + SH.lockBox(weak.slice(0, 3).map(w => skillRow(w, false)).join(''), 'Your weakest skills', 'Pro shows which skills cost you the most points, with drills for each one.', 'weak_skills') + '</div>';
+      } else if (weak.length) {
         html += '<div class="card">' + weak.map(w => skillRow(w, true)).join('') + '</div>';
       } else {
         html += '<div class="card"><p class="muted" style="margin:0">No weak spots so far: every skill you’ve tried is at 100%. Try a harder set or a practice test.</p></div>';
       }
     }
-    html += tutorTeaser(weak);
+    // The Max preview shows the student's own weak skills only to Pro, which already sees them.
+    html += tutorTeaser(insights ? weak : []);
     if (attempts.length) {
       const doms = {};
       stats.forEach(s => {
@@ -341,8 +344,9 @@ document.addEventListener('DOMContentLoaded', function () {
       });
       const domList = Object.values(doms).sort((a, b) => a.section.localeCompare(b.section));
       if (domList.length) {
-        html += '<h2 class="section-title">By content domain</h2><div class="card">' + domList.map(d =>
-          '<div class="skill-row dom"><div>' + secTag(d.section) + ' ' + esc(d.domain) + ' <span class="small muted">(' + d.n + ')</span></div><div class="bar ' + accClass(d.correct / d.n) + '"><i style="width:' + SH.pct(d.correct, d.n) + '%"></i></div><div class="acc">' + SH.pct(d.correct, d.n) + '%</div></div>').join('') + '</div>';
+        const rows = domList.map(d =>
+          '<div class="skill-row dom"><div>' + secTag(d.section) + ' ' + esc(d.domain) + ' <span class="small muted">(' + d.n + ')</span></div><div class="bar ' + accClass(d.correct / d.n) + '"><i style="width:' + SH.pct(d.correct, d.n) + '%"></i></div><div class="acc">' + SH.pct(d.correct, d.n) + '%</div></div>').join('');
+        html += '<h2 class="section-title">By content domain</h2><div class="card">' + (insights ? rows : SH.lockBox(rows, 'Your score by content domain', 'See how you do in each part of the test, and track it over time.', 'domains')) + '</div>';
       }
     }
     if (hist.length) {
@@ -350,7 +354,42 @@ document.addEventListener('DOMContentLoaded', function () {
     }
     view.innerHTML = html;
     $('#edit-goals').addEventListener('click', editGoals);
+    $$('[data-goals]').forEach(b => b.addEventListener('click', editGoals));
+    const gp = $('[data-goal-pitch]');
+    if (gp) gp.addEventListener('click', () => SH.plan.pitch({ title: gp.dataset.title, text: gp.dataset.text }));
     bindSkillButtons();
+  }
+  // Countdown to test day and the points still missing to the goal. Free
+  // students also get one line on how Pro (or the pass, close to the test) helps.
+  function goalStrip(p, best) {
+    const goal = +p.target || 0;
+    const days = p.testDate ? Math.ceil((new Date(p.testDate + 'T08:00:00') - new Date()) / 86400000) : null;
+    const gap = best && goal ? goal - best : null;
+    const item = (big, label, sub) => '<div class="goal-item"><b>' + big + '</b><span>' + label + '</span>' + (sub ? '<small>' + sub + '</small>' : '') + '</div>';
+    const setBtn = label => '<button type="button" class="link-btn" data-goals>' + label + '</button>';
+    const fmtDay = d => new Date(p.testDate + 'T08:00:00').toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' });
+    const when = days == null ? item('–', 'days to your SAT', setBtn('Set your test date'))
+      : days < 0 ? item('–', 'Your test date has passed', setBtn('Set your next test date'))
+      : days === 0 ? item('Today', 'is your SAT. Good luck!', esc(fmtDay()))
+      : item(days, (days === 1 ? 'day' : 'days') + ' to your SAT', esc(fmtDay()) + ' · ' + setBtn('Change'));
+    const what = !best ? item('–', 'points to your goal of ' + goal, '<a href="test.html?id=diagnostic-mini">Take the mini diagnostic</a> to see your gap')
+      : gap > 0 ? item(gap, 'points to your goal of ' + goal, 'Best test estimate: ' + best)
+      : item(best, 'best estimate: your goal of ' + goal + ' is reached', setBtn('Raise your goal'));
+    let pitch = '';
+    if (!SH.plan.allows('pro')) {
+      const P = SH.CONFIG.PLANS;
+      const som = v => Number(String(v || '').replace(/\D/g, '')) || 0;
+      // Same check as the pass in sh.js: only offered with card transfer.
+      const passOn = !SH.pay.enabled() && String((SH.CONFIG.MANUAL_PAY || {}).CARD || '').replace(/\D/g, '').length >= 16 && som(P.PASS_PRICE) > 0 && Number(P.PASS_MONTHS) > 1;
+      const soon = passOn && days != null && days > 0 && days <= 100;
+      const gapText = gap > 0 ? 'those ' + gap + ' points' : 'the most points';
+      const line = soon
+        ? 'Your SAT is in ' + days + ' day' + (days === 1 ? '' : 's') + '. The ' + P.PASS_MONTHS + '-month pass (' + (P.PASS_PRICE + ' ' + P.CURRENCY.en).replace(/ /g, '\u00a0') + ') gives you Pro until test day: see which skills cost you ' + gapText + ' and review every question.'
+        : 'Pro shows which skills cost you ' + gapText + ', with drills for each one and a review of every test question.';
+      const title = soon ? 'Pro until your test' : gap > 0 ? 'Close the ' + gap + '-point gap' : 'Practice what costs you points';
+      pitch = '<div class="goal-pitch"><p>' + esc(line) + '</p><button type="button" class="btn btn-primary btn-sm" data-goal-pitch data-title="' + esc(title) + '" data-text="' + esc(line) + '">' + (soon ? 'Get Pro until my test' : 'See what Pro adds') + '</button></div>';
+    }
+    return '<section class="goal-strip" aria-label="Your goal"><div class="goal-items">' + when + what + '</div>' + pitch + '</section>';
   }
   function tile(v, label) { return '<div class="stat"><b>' + esc(v) + '</b><span>' + label + '</span></div>'; }
   function planChip() {
@@ -433,24 +472,31 @@ document.addEventListener('DOMContentLoaded', function () {
     else {
       html += '<div class="grid grid-3">' + catalog.sets.map(s => {
         const qs = bank.filter(q => q.setId === s.id);
+        const locked = !SH.plan.allows(s.plan || 'free');
         const mix = ['easy', 'medium', 'hard'].map(d => { const n = qs.filter(q => q.difficulty === d).length; return n ? '<span class="tag tag-' + d + '">' + n + ' ' + d + '</span>' : ''; }).join('');
         return '<div class="card set-card"><div class="meta">' + (s.section ? secTag(s.section) : '') + '<span class="small muted">' + qs.length + ' questions</span></div>' +
           '<h3>' + esc(s.title) + '</h3><p>' + esc(s.description || '') + '</p><div class="meta">' + mix + '</div>' +
-          '<button class="btn btn-primary" type="button" data-set="' + esc(s.id) + '"' + (qs.length ? '' : ' disabled') + '>Start</button></div>';
+          (locked ? '<button class="btn btn-ghost" type="button" data-pitch="' + esc(s.title) + ' is part of Pro" data-pitch-feature="set">Unlock with Pro</button></div>'
+            : '<button class="btn btn-primary" type="button" data-set="' + esc(s.id) + '"' + (qs.length ? '' : ' disabled') + '>Start</button></div>');
       }).join('') + '</div>';
     }
-    // drill builder
-    html += '<h2 class="section-title">Build a skill drill</h2><div class="card"><form id="drill-form">' +
-      '<div class="row" style="margin-bottom:14px"><div class="grow field" style="margin:0"><label for="d-sec">Section</label><select class="input" id="d-sec"><option value="rw">Reading and Writing</option><option value="math">Math</option></select></div>' +
-      '<div class="grow field" style="margin:0"><label for="d-diff">Difficulty</label><select class="input" id="d-diff"><option value="">Any</option><option value="easy">Easy</option><option value="medium">Medium</option><option value="hard">Hard</option></select></div>' +
-      '<div class="grow field" style="margin:0"><label for="d-n">Questions</label><select class="input" id="d-n"><option>5</option><option selected>10</option><option>20</option></select></div></div>' +
-      '<div class="label" style="margin-bottom:6px">Skills <span class="small muted">(leave all unticked for a mix)</span></div><div class="skill-pick" id="d-skills"></div>' +
-      '<div class="row" style="margin-top:14px"><button class="btn btn-primary" type="submit">Start drill</button><span class="small muted" id="d-count"></span></div></form></div>';
+    // Drill builder (Pro). Free sees a blurred preview of it.
+    const pro = SH.plan.allows('pro');
+    const drillForm = (id => '<form' + id('drill-form') + '>' +
+      '<div class="row" style="margin-bottom:14px"><div class="grow field" style="margin:0"><label for="d-sec">Section</label><select class="input"' + id('d-sec') + '><option value="rw">Reading and Writing</option><option value="math">Math</option></select></div>' +
+      '<div class="grow field" style="margin:0"><label for="d-diff">Difficulty</label><select class="input"' + id('d-diff') + '><option value="">Any</option><option value="easy">Easy</option><option value="medium">Medium</option><option value="hard">Hard</option></select></div>' +
+      '<div class="grow field" style="margin:0"><label for="d-n">Questions</label><select class="input"' + id('d-n') + '><option>5</option><option selected>10</option><option>20</option></select></div></div>' +
+      '<div class="label" style="margin-bottom:6px">Skills <span class="small muted">(leave all unticked for a mix)</span></div><div class="skill-pick"' + id('d-skills') + '>' +
+      (pro ? '' : '<fieldset><legend>Standard English Conventions</legend><label><input type="checkbox"> Boundaries</label><label><input type="checkbox"> Form, Structure, and Sense</label></fieldset>') + '</div>' +
+      '<div class="row" style="margin-top:14px"><button class="btn btn-primary" type="submit">Start drill</button><span class="small muted"' + id('d-count') + '></span></div></form>')(n => pro ? ' id="' + n + '"' : '');
+    html += '<h2 class="section-title">Build a skill drill</h2><div class="card">' +
+      (pro ? drillForm : SH.lockBox(drillForm, 'Skill drills are part of Pro', 'Pick any skills and get a drill from the whole question bank, or practice your weakest skills straight from the dashboard.', 'drills')) + '</div>';
     view.innerHTML = html;
     $$('[data-set]').forEach(b => b.addEventListener('click', async () => {
       const set = await SH.loadSet(b.dataset.set);
       startSession({ title: set.title, questions: set.questions.map(q => Object.assign({ setId: set.id }, q)), source: 'set' });
     }));
+    if (!pro) return;
     const secSel = $('#d-sec'), diffSel = $('#d-diff');
     function drawSkills() {
       const sec = secSel.value;
@@ -473,7 +519,7 @@ document.addEventListener('DOMContentLoaded', function () {
     $('#drill-form').addEventListener('submit', e => {
       e.preventDefault();
       const qs = SH.shuffle(pool()).slice(0, +$('#d-n').value);
-      if (!qs.length) { SH.toast('No questions match. Try fewer filters, or use AI practice.'); return; }
+      if (!qs.length) { SH.toast('No questions match. Try fewer filters' + (SH.ai.enabled() ? ', or use AI practice.' : '.')); return; }
       startSession({ title: 'Skill drill', questions: qs, source: 'drill' });
     });
   }
@@ -542,7 +588,7 @@ document.addEventListener('DOMContentLoaded', function () {
   function testState(t, hist) {
     const runs = hist.filter(h => h.testId === t.id);
     const best = runs.reduce((m, h) => h.total != null && (m == null || h.total > m) ? h.total : m, null);
-    const locked = !SH.plan.allows(t.plan);
+    const locked = !SH.plan.opens(t);
     const run = !!SH.store.get('run.' + t.id, null);
     return { t, runs, best, locked, run, status: locked ? 'locked' : run ? 'progress' : runs.length ? 'done' : 'open' };
   }
@@ -558,7 +604,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const info = s.locked ? 'Included in Pro'
       : s.status === 'done' ? (s.best != null ? 'Best <b>' + s.best + '</b>' : 'Finished') + (s.runs.length > 1 ? ', ' + s.runs.length + ' tries' : '') + review
       : s.status === 'progress' ? 'Clock paused' : '98 questions, 2 h 14 min';
-    const cta = s.locked ? '<a class="btn btn-ghost btn-sm" href="#plans">Unlock</a>'
+    const cta = s.locked ? '<button class="btn btn-ghost btn-sm" type="button" data-pitch="' + esc(t.title) + ' is part of Pro" data-pitch-test="' + esc(t.id) + '">Unlock</button>'
       : s.status === 'progress' ? '<a class="btn btn-primary btn-sm" href="' + href + '">Resume</a>'
       : s.status === 'done' ? '<a class="btn btn-ghost btn-sm" href="' + href + '">Retake</a>'
       : '<a class="btn btn-primary btn-sm" href="' + href + '">Start</a>';
@@ -598,9 +644,10 @@ document.addEventListener('DOMContentLoaded', function () {
       (SH.CONFIG.PAYMENTS_ENDPOINT
         ? '<div><b>How do I pay?</b><p>Tap “Upgrade to Pro” and choose: pay by Uzcard or Humo card, and Pro renews every month until you stop it; or pay once on Payme’s page (Payme app, QR code or any card) for one month. Pro switches on straight away.</p></div>' +
           '<div><b>How do I stop paying?</b><p>On this page, tap “Manage payment” under your Pro plan, then “Stop automatic renewal”. Pro stays on until the end of the month you paid for, and your card is removed.</p></div>'
-        : '<div><b>How do I pay?</b><p>For now, tap “Upgrade to Pro” and message us on Telegram. We switch Pro on for your account by hand, usually within a few hours. Online card payment is coming soon.</p></div>') +
-      '<div><b>What happens when my month ends?</b><p>Your scores and progress stay. Practice Tests 4 to 10 lock again until you renew, and Tests 1 to 3 stay free.</p></div>' +
-      '<div><b>When does Max open?</b><p>When the AI Tutor is ready. Join our <a href="' + esc(SH.CONFIG.CHANNEL_TELEGRAM) + '" target="_blank" rel="noopener">Telegram channel</a> to hear the day it launches.</p></div>' +
+        : '<div><b>How do I pay?</b><p>Tap “Upgrade to Pro”, transfer the price to our card from any banking app, and send us the receipt on Telegram. We switch Pro on within 2 hours, 9:00 to 23:00 Tashkent time. Online card payment is coming soon.</p></div>') +
+      '<div><b>What happens when my Pro ends?</b><p>Your scores and progress stay. Pro tests, the skill breakdown and question review lock again until you renew. Practice Test 1 and the mini diagnostic stay free.</p></div>' +
+      '<div><b>I used SAT Ustoz before Pro changed. What do I keep?</b><p>Practice Tests 2 and 3 stay free for you, and so do the full results of every test you finished before the change.</p></div>' +
+      '<div><b>When does Max open?</b><p>When the AI tutor is ready. Tap “Join the Max waitlist” and we’ll message you on Telegram the day it opens.</p></div>' +
       (signedIn ? '' : '<div><b>Do I need an account?</b><p>Yes, for Pro. Your plan is linked to your Google account, so it works on every device you sign in on.</p></div>') +
       '</div>';
     SH.renderPlans($('#plans-host'), { context: 'app' });

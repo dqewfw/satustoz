@@ -293,6 +293,17 @@ kbd {
 .pay-help { margin: 12px 0 0; font-size: .93rem; }
 .btn.pay-stop { color: var(--bad); }
 form[aria-busy="true"] .btn-primary { cursor: progress; }
+/* Pro previews: blurred content with one unlock button (SH.lockBox) */
+.pro-lock { position: relative; border-radius: var(--r-sm); overflow: hidden; }
+.pro-lock-blur { filter: blur(6px); opacity: .6; user-select: none; pointer-events: none; min-height: 150px; }
+.pro-lock-over { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 6px; padding: 18px; text-align: center; background: rgba(255, 255, 255, .55); }
+.pro-lock-over b { font-family: var(--display); font-size: 1.15rem; color: var(--ink); }
+.pro-lock-over span { max-width: 30em; font-size: .93rem; color: var(--ink-2); }
+.pro-lock-over .btn { margin-top: 6px; }
+.plan-pass { margin: -4px 0 12px; font-size: .9rem; font-weight: 600; color: var(--gold-text); }
+.pitch-price { margin: 14px 0 0; color: var(--muted); }
+.pitch-price b { font-size: 1.3rem; color: var(--ink); }
+.pitch-pass { margin: 2px 0 0; font-size: .92rem; font-weight: 600; color: var(--gold-text); }
 /* Payment by card transfer (MANUAL_PAY) */
 .mp-card { display: grid; gap: 2px; margin: 14px 0 0; padding: 6px 16px; background: var(--sunk); border-radius: var(--r-sm); }
 .mp-row { display: grid; grid-template-columns: 6.5em minmax(0, 1fr) auto; align-items: center; gap: 12px; padding: 8px 0; }
@@ -505,3 +516,26 @@ select.input { appearance: none; -webkit-appearance: none; padding-right: 38px; 
   .site-header, .site-footer, .skip-link, .toast { display: none !important; }
   body { background: #fff; }
 }
+
+/* ---------- Goal strip (practice.html dashboard) ---------- */
+.goal-strip { background: var(--brand); color: #D6E2D0; border-radius: var(--r); padding: 18px 22px; margin-bottom: 18px; display: flex; gap: 14px 28px; align-items: center; justify-content: space-between; flex-wrap: wrap; }
+.goal-items { display: flex; gap: 14px 36px; flex-wrap: wrap; }
+.goal-item { display: grid; grid-template-columns: auto 1fr; column-gap: 12px; align-items: baseline; min-width: 0; }
+.goal-item b { grid-row: span 2; min-width: 1.75em; font-family: var(--display); font-weight: 600; font-size: 2.6rem; line-height: 1; color: #fff; font-variant-numeric: tabular-nums; letter-spacing: -.02em; }
+.goal-item span { font-weight: 600; color: #fff; align-self: end; }
+.goal-item small { font-size: .88rem; color: #C3D2BD; align-self: start; }
+.goal-strip a, .goal-strip .link-btn { color: #EDD9A8; font-weight: 600; font-size: inherit; }
+.goal-strip a:hover, .goal-strip .link-btn:hover { color: #fff; }
+.goal-strip :focus-visible { outline-color: var(--gold-on-dark); }
+.goal-pitch { display: flex; gap: 10px 20px; align-items: center; justify-content: space-between; flex: 1 1 100%; padding-top: 14px; border-top: 1px solid rgba(200,168,110,.45); }
+.goal-pitch p { margin: 0; font-size: .95rem; color: #E4ECDF; max-width: 64ch; }
+.goal-pitch .btn { flex: 0 0 auto; background: var(--gold); color: var(--brand-deep); }
+.goal-pitch .btn:hover { background: #D9BD86; color: var(--brand-deep); }
+@media (max-width: 560px) {
+  .goal-strip { padding: 16px; }
+  .goal-item b { font-size: 2.2rem; }
+  .goal-pitch { flex-direction: column; align-items: stretch; }
+}
+
+/* ---------- Score share card preview (test.html results) ---------- */
+.share-prev { display: block; width: auto; height: auto; max-width: 100%; max-height: min(56vh, 520px); margin: 0 auto; border-radius: var(--r-sm); border: 1px solid var(--line); }

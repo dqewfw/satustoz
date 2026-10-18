@@ -20,7 +20,7 @@
  * ONE-TIME SETUP (dashboard only). README "6. Plans and payments" has the
  * same steps with more detail.
  *  1. Cloudflare -> Workers & Pages -> KV -> Create namespace "sh-payments".
- *  2. Workers & Pages -> Create -> Create Worker, name it "scholarshub-pay",
+ *  2. Workers & Pages -> Create -> Create Worker, name it "satustoz-pay",
  *     Deploy -> Edit code, replace everything with THIS file, Deploy.
  *  3. Worker -> Settings -> Bindings -> Add -> KV namespace:
  *       variable name PAYMENTS, namespace sh-payments.
@@ -56,7 +56,7 @@
  *  5. Worker -> Settings -> Triggers -> Cron Triggers -> Add: 0 4 * * *
  *     (every day at 09:00 Tashkent time).
  *  6. Payme cabinet -> your kassa -> developer settings -> Endpoint URL:
- *     https://scholarshub-pay.<you>.workers.dev/payme
+ *     https://satustoz-pay.<you>.workers.dev/payme
  *  7. Put the Worker URL in PAYMENTS_ENDPOINT at the top of assets/sh.js.
  *
  * PRO TESTS ONLY, before Payme is ready (README "Moving the Pro tests off

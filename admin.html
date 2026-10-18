@@ -23,6 +23,13 @@
   .a-bar { display: flex; align-items: center; justify-content: space-between; gap: 8px 16px; flex-wrap: wrap; margin-bottom: 14px; }
   .a-bar p { margin: 0; }
   .a-bar .who { font-size: .9rem; color: var(--muted); overflow-wrap: anywhere; }
+  .a-wait { margin-top: 40px; }
+  .a-wait h2 { font-size: 1.35rem; margin: 0; }
+  .wait-table { width: 100%; border-collapse: collapse; font-size: .95rem; }
+  .wait-table th, .wait-table td { text-align: left; padding: 8px 10px; border-bottom: 1px solid var(--line); overflow-wrap: anywhere; }
+  .wait-table th { font-size: .82rem; color: var(--muted); font-weight: 600; }
+  .wait-table tr:last-child td { border-bottom: 0; }
+  @media (max-width: 640px) { .wait-table th:nth-child(3), .wait-table td:nth-child(3) { display: none; } }
   .a-empty { text-align: center; padding: 40px 24px; }
   .a-empty p { margin: 0 auto; max-width: 34em; }
   .notice p { margin: 0; }
@@ -69,7 +76,7 @@
   <div class="a-head">
     <span class="kicker">For the SAT Ustoz owner</span>
     <h1>Card transfers</h1>
-    <p class="muted">Students who tapped “I’ve paid”, newest first. Find the transfer in your bank app (same amount, sender card ending in these 4 digits, around this time), then approve it. Approving switches Pro on for 30 days, added to any time they still have.</p>
+    <p class="muted">Students who tapped “I’ve paid”, newest first. Find the transfer in your bank app (same amount, sender card ending in these 4 digits, around this time), then approve it. Approving switches Pro on for the months they paid for (30 days each), added to any time they still have. The Max waitlist is at the bottom.</p>
   </div>
   <div id="admin"><p class="muted">Loading…</p></div>
 </main>
@@ -84,6 +91,9 @@ document.addEventListener('DOMContentLoaded', async function () {
   const DAY = 86400000;
   const PRO_DAYS = 30; // same as PRO_DAYS in the payments Worker
   const PRICE = Number(String(CONFIG.PLANS.PRO_PRICE).replace(/\D/g, '')) || 0;
+  const PASS_PRICE = Number(String(CONFIG.PLANS.PASS_PRICE || '').replace(/\D/g, '')) || 0;
+  const monthsOf = r => Math.max(1, Math.min(12, Number(r && r.months) || 1));
+  let waitlist = null;     // Max waitlist entries, or an Error when they can't be read
   const CURRENCY = CONFIG.PLANS.CURRENCY.en;
   const items = new Map(); // uid -> { r: payRequest, u: users doc (null: none, undefined: unreadable) }
   let viewFor = null;      // uid whose list is on screen
@@ -106,11 +116,12 @@ document.addEventListener('DOMContentLoaded', async function () {
   // The same rule as grantMonth() in the payments Worker: the month is added
   // on top of time the student still has, an active Max stays Max, and Pro
   // with no end date is left as it is (null).
-  function grant(u, now) {
+  // months: 1, or PASS_MONTHS for the "until your test" pass.
+  function grant(u, now, months) {
     const plan = u && u.plan, cur = ms(u && u.planUntil);
     const active = (plan === 'pro' || plan === 'max') && (!cur || cur > now);
     if (active && !cur) return null;
-    return { plan: active && plan === 'max' ? 'max' : 'pro', until: (active ? Math.max(now, cur) : now) + PRO_DAYS * DAY, extends: active };
+    return { plan: active && plan === 'max' ? 'max' : 'pro', until: (active ? Math.max(now, cur) : now) + PRO_DAYS * (months || 1) * DAY, extends: active };
   }
   function planNow(u, now) {
     if (u === undefined) return '<span class="muted">Could not read their account</span>';
@@ -122,11 +133,12 @@ document.addEventListener('DOMContentLoaded', async function () {
     if (until <= now) return 'Free <span class="muted">(' + planName(plan) + ' ended ' + esc(fmtDate(until)) + ')</span>';
     return planName(plan) + ' until ' + esc(fmtDate(until)) + ' <span class="muted">(' + Math.ceil((until - now) / DAY) + ' days left)</span>' + src;
   }
-  function effect(u, now) {
-    if (u === undefined) return 'Approve gives Pro for ' + PRO_DAYS + ' days.';
-    const g = grant(u, now);
+  function effect(u, now, months) {
+    const days = PRO_DAYS * (months || 1);
+    if (u === undefined) return 'Approve gives Pro for ' + days + ' days.';
+    const g = grant(u, now, months);
     if (!g) return 'They already have ' + planName(u.plan) + ' with no end date. Approve only clears this request.';
-    return 'Approve: ' + planName(g.plan) + ' until <b>' + esc(fmtDate(g.until)) + '</b>' + (g.extends ? ' (' + PRO_DAYS + ' days added to their current month)' : '');
+    return 'Approve: ' + planName(g.plan) + ' until <b>' + esc(fmtDate(g.until)) + '</b>' + (g.extends ? ' (' + days + ' days added to the time they still have)' : '');
   }
 
   function friendly(e) {
@@ -179,6 +191,8 @@ document.addEventListener('DOMContentLoaded', async function () {
       const snap = await fs.getDocs(fs.query(fs.collection(sync.db, 'payRequests'), fs.orderBy('createdAt', 'desc'), fs.limit(200)));
       list = snap.docs.map(d => Object.assign({}, d.data(), { uid: d.id }));
       users = await Promise.all(list.map(r => fs.getDoc(fs.doc(sync.db, 'users', r.uid)).then(s => s.exists() ? s.data() : null, () => undefined)));
+      waitlist = await fs.getDocs(fs.query(fs.collection(sync.db, 'waitlist'), fs.orderBy('createdAt', 'desc'), fs.limit(500)))
+        .then(s => s.docs.map(d => Object.assign({}, d.data(), { uid: d.id })), e => { console.warn('[SAT Ustoz] Could not load the Max waitlist:', e); return e; });
     } catch (e) {
       if (my !== seq) return;
       if (e && e.code === 'permission-denied') { notAdminView(); return; }
@@ -197,9 +211,28 @@ document.addEventListener('DOMContentLoaded', async function () {
     const now = Date.now();
     box.innerHTML = '<div class="a-bar"><p><b class="num-tab" data-count></b></p>' +
       '<div class="a-row" style="margin:0"><span class="who">Signed in as ' + esc(auth.user.email) + '</span><button type="button" class="btn btn-ghost btn-sm" data-reload>Reload</button></div></div>' +
-      '<div data-list>' + Array.from(items.values()).map(it => card(it.r, it.u, now)).join('') + '</div>';
+      '<div data-list>' + Array.from(items.values()).map(it => card(it.r, it.u, now)).join('') + '</div>' + waitHtml();
     $('[data-reload]', box).addEventListener('click', load);
+    const cp = $('[data-copy-wait]', box);
+    if (cp) cp.addEventListener('click', () => {
+      const all = waitlist.map(w => w.telegram).join('\n');
+      if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(all).then(() => toast('Usernames copied'), () => toast(all));
+      else toast(all);
+    });
     count();
+  }
+  // Max waitlist: students who tapped "Join the Max waitlist" on the plans.
+  function waitHtml() {
+    const head = '<section class="a-wait"><div class="a-bar"><h2>Max waitlist</h2>';
+    if (waitlist instanceof Error) return head + '</div><div class="notice notice-warn"><p>' + esc(friendly(waitlist)) + ' The waitlist needs the latest firestore.rules.</p></div></section>';
+    if (!waitlist || !waitlist.length) return head + '</div><p class="muted">Nobody yet. Students join from the Max card on the plans.</p></section>';
+    return head + '<div class="a-row" style="margin:0"><span class="who">' + waitlist.length + ' ' + (waitlist.length === 1 ? 'student' : 'students') + '</span><button type="button" class="btn btn-ghost btn-sm" data-copy-wait>Copy all usernames</button></div></div>' +
+      '<div class="card"><table class="wait-table"><thead><tr><th>Telegram</th><th>Name</th><th>Email</th><th>Joined</th></tr></thead><tbody>' +
+      waitlist.map(w => {
+        const tg = String(w.telegram || ''), user = tg.replace(/^@/, '');
+        return '<tr><td>' + (/^[A-Za-z0-9_]{5,32}$/.test(user) ? '<a href="https://t.me/' + esc(user) + '" target="_blank" rel="noopener">' + esc(tg) + '</a>' : esc(tg)) + '</td>' +
+          '<td>' + esc(w.name || '') + '</td><td>' + esc(w.email || '') + '</td><td>' + esc(fmtDate(ms(w.createdAt))) + '</td></tr>';
+      }).join('') + '</tbody></table></div></section>';
   }
   function count() {
     const n = items.size;
@@ -210,18 +243,20 @@ document.addEventListener('DOMContentLoaded', async function () {
   function card(r, u, now) {
     const at = ms(r.createdAt);
     const fact = (k, v, cls) => '<div' + (cls ? ' class="' + cls + '"' : '') + '><dt>' + k + '</dt><dd>' + v + '</dd></div>';
-    const odd = PRICE && Number(r.amount) !== PRICE ? '<span class="tag tag-medium">price is now ' + esc(som(PRICE)) + '</span>' : '';
+    const months = monthsOf(r), expect = months > 1 ? PASS_PRICE : PRICE;
+    const odd = expect && Number(r.amount) !== expect ? '<span class="tag tag-medium">price is now ' + esc(som(expect)) + '</span>' : '';
     return '<article class="card req" data-uid="' + esc(r.uid) + '">' +
       '<div class="req-head"><div class="req-who"><b>' + esc(r.name || 'No name') + '</b><span>' + esc(r.email || '') + '</span></div>' +
       (at ? '<span class="req-when">' + esc(when(at)) + ' · ' + esc(ago(at)) + '</span>' : '') + '</div>' +
       '<dl class="req-facts">' +
       fact('Amount', esc(som(r.amount)) + odd) +
+      fact('Pro for', months > 1 ? '<b>' + months + ' months</b> (pass)' : '1 month') +
       fact('Card ending', esc(r.last4 || '----'), 'big') +
       fact('Receipt', r.receiptId ? esc(r.receiptId) : '<span class="muted">none</span>') +
       fact('Language', esc(String(r.lang || 'en').toUpperCase())) +
       fact('Plan now', planNow(u, now), 'wide') +
       '</dl>' +
-      '<div class="req-foot"><p class="req-effect">' + effect(u, now) + '</p>' +
+      '<div class="req-foot"><p class="req-effect">' + effect(u, now, months) + '</p>' +
       '<div class="req-btns"><button type="button" class="btn btn-ghost btn-reject" data-reject>Reject</button><button type="button" class="btn btn-primary" data-approve>Approve</button></div></div>' +
       '<p class="pay-err" role="alert" hidden></p>' +
       '<p class="req-uid">uid ' + esc(r.uid) + '</p></article>';
@@ -251,7 +286,7 @@ document.addEventListener('DOMContentLoaded', async function () {
         const rs = await tx.get(reqRef), us = await tx.get(userRef);
         if (!rs.exists()) throw oops('gone', 'This request was already approved or rejected.');
         if (ms(rs.data().createdAt) !== ms(it.r.createdAt)) throw oops('changed', 'The student sent new payment details. Check them again.');
-        const out = grant(us.exists() ? us.data() : null, Date.now());
+        const out = grant(us.exists() ? us.data() : null, Date.now(), monthsOf(rs.data()));
         if (out) tx.set(userRef, { plan: out.plan, planUntil: fs.Timestamp.fromMillis(out.until), planSource: 'manual' }, { merge: true });
         tx.delete(reqRef);
         return out;

@@ -292,7 +292,7 @@
 <div id="app" class="tr-shell" aria-live="polite"><div class="center-screen"><div class="spinner" aria-hidden="true"></div><p>Loading practice test&hellip;</p></div></div>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.js" defer></script>
-<script src="assets/sh.js" defer></script>
+<script src="assets/sh.js" data-analytics defer></script>
 <script>
 document.addEventListener('DOMContentLoaded', function () {
   'use strict';
@@ -365,7 +365,7 @@ document.addEventListener('DOMContentLoaded', function () {
     let meta = null;
     try { meta = (await SH.loadCatalog()).tests.find(t => t.id === testId) || null; } catch (e) { /* loadTest reports it */ }
     const reviewing = reviewId && SH.getTestHistory().some(r => r.id === reviewId);
-    if (meta && !reviewing && !SH.plan.allows(meta.plan)) return renderLocked(meta);
+    if (meta && !reviewing && !SH.plan.opens(meta)) return renderLocked(meta);
     try { test = await SH.loadTest(testId); }
     catch (e) {
       // The payments Worker knows the plan better than this device (Pro ended, or was refunded).
@@ -389,12 +389,13 @@ document.addEventListener('DOMContentLoaded', function () {
     const signedOut = SH.auth.enabled() && !SH.auth.user;
     app.innerHTML = '<div class="center-screen"><span class="status status-locked" style="margin-bottom:14px"><svg viewBox="0 0 16 16" aria-hidden="true"><rect x="3" y="7.2" width="10" height="6.8" rx="1.6" fill="currentColor"/><path d="M5.4 7.2V5.3a2.6 2.6 0 015.2 0v1.9" fill="none" stroke="currentColor" stroke-width="1.6"/></svg>Locked</span>' +
       '<h1 style="font-size:1.8rem">' + esc(meta.title) + ' is part of Pro</h1>' +
-      '<p class="muted" style="max-width:560px">Pro opens all 10 full-length practice tests. Practice Tests 1 to 3 stay free.' + (signedOut ? ' Already have Pro? Sign in and it opens.' : '') + '</p>' +
-      '<div class="row" style="justify-content:center"><a class="btn btn-primary" href="practice.html#plans">See plans</a>' +
+      '<p class="muted" style="max-width:560px">Pro opens all 10 full-length practice tests, your score broken down by skill and a review of every question. Practice Test 1 and the mini diagnostic stay free.' + (signedOut ? ' Already have Pro? Sign in and it opens.' : '') + '</p>' +
+      '<div class="row" style="justify-content:center">' + (signedOut ? '' : '<button class="btn btn-primary" type="button" data-up>Upgrade to Pro</button>') + '<a class="btn ' + (signedOut ? 'btn-primary' : 'btn-ghost') + '" href="practice.html#plans">See plans</a>' +
       (signedOut ? '<a class="btn btn-ghost" href="' + esc(SH.loginUrl()) + '">Sign in</a>' : '') +
       '<a class="btn btn-ghost" href="practice.html#tests">Back to practice tests</a></div></div>';
+    const up = app.querySelector('[data-up]'); if (up) up.addEventListener('click', () => SH.plan.upgrade('pro'));
     // A slow sign-in can finish after this screen appears.
-    const retry = () => { if (SH.plan.allows(meta.plan)) location.reload(); };
+    const retry = () => { if (SH.plan.opens(meta)) location.reload(); };
     document.addEventListener('sh:synced', retry);
     SH.auth.onChange(retry);
   }
@@ -460,6 +461,7 @@ document.addEventListener('DOMContentLoaded', function () {
       '</div></form></div></div></div>';
     $('#start-form').addEventListener('submit', e => {
       e.preventDefault();
+      SH.track('test_started', { test_id: testId, test_plan: test.plan, resumed: !!saved });
       if (saved) { S = saved; resumeRun(); return; }
       const name = ($('#sname').value || '').trim();
       if (name) SH.setProfile({ name });
@@ -1116,6 +1118,7 @@ document.addEventListener('DOMContentLoaded', function () {
       correct: SH.isCorrect(t.q, responses[t.q.id]), ms: S.time[t.q.id] || 0, source: 'test'
     })));
     SH.addTestHistory(rec);
+    SH.track('test_finished', { test_id: testId, test_plan: test.plan, total: rec.total, rw: rec.sections.rw ? rec.sections.rw.score : null, math: rec.sections.math ? rec.sections.math.score : null, minutes: Math.round((rec.finishedAt - rec.startedAt) / 60000) });
     SH.store.del(RUN_KEY);
     S = null;
     try { history.replaceState(null, '', 'test.html?id=' + encodeURIComponent(testId) + '&review=' + encodeURIComponent(rec.id)); } catch (e) { /* ignore */ }
@@ -1153,6 +1156,19 @@ document.addEventListener('DOMContentLoaded', function () {
       doms[k].n++; if (SH.isCorrect(t.q, rec.responses[t.q.id])) doms[k].c++;
     });
     const domRows = Object.values(doms).map(d => '<div class="dom-row"><div><span class="tag tag-' + d.sec + '">' + (d.sec === 'rw' ? 'R&amp;W' : 'Math') + '</span> ' + esc(d.name) + '</div><div class="bar"><i style="width:' + SH.pct(d.c, d.n) + '%"></i></div><div><b>' + d.c + '/' + d.n + '</b></div></div>').join('');
+    // Free: the score only. The three weakest skills show blurred, and the
+    // question review is a preview; both open the Pro sheet. Tests finished
+    // before Free changed keep their full results (SH.plan.insights).
+    const full = SH.plan.insights(rec);
+    const skills = {};
+    taken.forEach(t => {
+      const k = t.q.section + '|' + (t.q.skill || t.q.domain || 'Other');
+      if (!skills[k]) skills[k] = { sec: t.q.section, name: t.q.skill || t.q.domain || 'Other', c: 0, n: 0 };
+      skills[k].n++; if (SH.isCorrect(t.q, rec.responses[t.q.id])) skills[k].c++;
+    });
+    const weakest = Object.values(skills).filter(s => s.n >= 2).sort((a, b) => a.c / a.n - b.c / b.n || b.n - a.n).slice(0, 3);
+    const weakRows = weakest.map(d => '<div class="dom-row"><div><span class="tag tag-' + d.sec + '">' + (d.sec === 'rw' ? 'R&amp;W' : 'Math') + '</span> ' + esc(d.name) + '</div><div class="bar"><i style="width:' + SH.pct(d.c, d.n) + '%"></i></div><div><b>' + d.c + '/' + d.n + '</b></div></div>').join('');
+    const wrongCount = filterCount('wrong');
 
     app.className = '';
     app.innerHTML =
@@ -1162,15 +1178,100 @@ document.addEventListener('DOMContentLoaded', function () {
       '<p class="muted small">' + (rec.name ? esc(rec.name) + ', ' : '') + SH.fmtDate(rec.finishedAt) + '</p>' +
       (rec.total != null ? '<div class="score-big">' + rec.total + '<small>Estimated total score (400–1600)</small></div>' + scaleHtml(rec.total) : '') +
       '</div><div class="sec-scores">' + secRows + '<p class="small muted" style="margin:0">This is an estimate. The real SAT scores each question with item response theory, so treat it as a ballpark, not a prediction.</p></div></section>' +
-      '<div class="row" style="margin:16px 0 26px"><a class="btn btn-primary" href="test.html?id=' + encodeURIComponent(rec.testId) + '">Retake this test</a><a class="btn btn-ghost" href="practice.html#home">Practice my weak skills</a></div>' +
-      '<div class="grid grid-2"><section class="card"><h3>Modules</h3><table class="mod-table"><thead><tr><th>Module</th><th>Correct</th><th>Time used</th></tr></thead><tbody>' + modRows + '</tbody></table></section>' +
-      '<section class="card"><h3>By content domain</h3>' + domRows + '</section></div>' +
-      '<section style="margin-top:26px"><h2 style="font-size:1.6rem">Review every question</h2>' +
+      '<div class="row" style="margin:16px 0 26px"><a class="btn btn-primary" href="test.html?id=' + encodeURIComponent(rec.testId) + '">Retake this test</a><a class="btn btn-ghost" href="practice.html#home">Practice my weak skills</a><button type="button" class="btn btn-ghost" id="share-score">Share my score</button></div>' +
+      (full
+        ? '<div class="grid grid-2"><section class="card"><h3>Modules</h3><table class="mod-table"><thead><tr><th>Module</th><th>Correct</th><th>Time used</th></tr></thead><tbody>' + modRows + '</tbody></table></section>' +
+          '<section class="card"><h3>By content domain</h3>' + domRows + '</section></div>'
+        : '<section class="card"><h3>Your three weakest skills</h3>' + SH.lockBox(weakRows || domRows, 'See which skills cost you points', 'Pro breaks your score down by skill and module, so you know exactly what to practice next.', 'weak_skills') + '</section>') +
+      (full ? '' : '<section style="margin-top:26px"><h2 style="font-size:1.6rem">Review every question</h2><div class="card">' +
+        SH.lockBox('<div id="qprev"></div>', 'Review all ' + taken.length + ' questions', 'You missed ' + wrongCount + '. Pro shows each one with the right answer and an explanation.', 'review') + '</div></section>') +
+      (!full ? '' : '<section style="margin-top:26px"><h2 style="font-size:1.6rem">Review every question</h2>' +
       '<div class="filters" role="group" aria-label="Filter questions">' + [['all', 'All'], ['wrong', 'Incorrect'], ['marked', 'Marked'], ['blank', 'Unanswered']].map((f, i) =>
         '<button type="button" data-f="' + f[0] + '" aria-pressed="' + (i === 0) + '">' + f[1] + '<span class="cnt">' + filterCount(f[0]) + '</span></button>').join('') + '</div>' +
-      '<div id="qlist"></div></section></main>';
+      '<div id="qlist"></div></section>') + '</main>';
 
-    const list = $('#qlist');
+    // Story-sized score card (1080x1920) for Instagram and Telegram stories.
+    // The image is ready before the Share button shows, so the tap that
+    // shares is still the student's own (browsers require that).
+    async function shareImage() {
+      const secs = test.sections.map(s => ({ title: s.title, score: (rec.sections[s.id] || sectionScore(s, rec.routes, rec.responses)).score }));
+      const score = rec.total != null ? rec.total : secs.reduce((n, s) => n + s.score, 0);
+      const outOf = rec.total != null ? 1600 : 800 * secs.length;
+      const svg = async (path, h) => {
+        const txt = (await (await fetch(path)).text()).replace('<svg ', '<svg height="' + h + '" ');
+        const img = new Image();
+        img.src = 'data:image/svg+xml;charset=utf-8,' + encodeURIComponent(txt);
+        await img.decode();
+        return img;
+      };
+      const [logo] = await Promise.all([svg('assets/brand/logo-full.svg', 400),
+        document.fonts ? Promise.all(['600 300px Jost', '600 48px "Source Sans 3"', '400 40px "Source Sans 3"'].map(f => document.fonts.load(f))).catch(() => {}) : null]);
+      const W = 1080, H = 1920, c = document.createElement('canvas');
+      c.width = W; c.height = H;
+      const x = c.getContext('2d');
+      const DISPLAY = 'Jost, "Source Sans 3", sans-serif', SANS = '"Source Sans 3", Arial, sans-serif';
+      const rrect = (l, t, w, h, r) => { x.beginPath(); x.moveTo(l + r, t); x.arcTo(l + w, t, l + w, t + h, r); x.arcTo(l + w, t + h, l, t + h, r); x.arcTo(l, t + h, l, t, r); x.arcTo(l, t, l + w, t, r); x.closePath(); };
+      const fit = (text, font, size, max) => { do { x.font = font.replace('{s}', size); size -= 2; } while (x.measureText(text).width > max && size > 20); };
+      x.fillStyle = '#F5F7F2'; x.fillRect(0, 0, W, H);
+      const lh = 400, lw = lh * logo.width / logo.height;
+      x.drawImage(logo, (W - lw) / 2, 230, lw, lh);
+      x.textAlign = 'center'; x.textBaseline = 'alphabetic';
+      x.fillStyle = '#5E6A60'; x.font = '600 48px ' + SANS;
+      x.fillText('My SAT practice score', W / 2, 760);
+      x.fillStyle = '#2D5038'; fit(String(score), '600 {s}px ' + DISPLAY, 300, W - 160);
+      x.fillText(String(score), W / 2, 1040);
+      x.fillStyle = '#5E6A60'; x.font = '400 44px ' + SANS;
+      x.fillText('out of ' + outOf, W / 2, 1110);
+      // Section scores
+      const boxT = 1170, boxH = 170, boxL = 90, boxW = W - 180;
+      rrect(boxL, boxT, boxW, boxH, 28); x.fillStyle = '#FFFFFF'; x.fill(); x.lineWidth = 3; x.strokeStyle = '#DFE5D9'; x.stroke();
+      secs.forEach((s, i) => {
+        const cx = boxL + boxW * (i + .5) / secs.length;
+        if (i) { x.fillStyle = '#DFE5D9'; x.fillRect(boxL + boxW * i / secs.length - 1.5, boxT + 30, 3, boxH - 60); }
+        x.fillStyle = '#2D5038'; x.font = '600 80px ' + DISPLAY; x.fillText(String(s.score), cx, boxT + 95);
+        x.fillStyle = '#5E6A60'; fit(s.title, '600 {s}px ' + SANS, 34, boxW / secs.length - 40); x.fillText(s.title, cx, boxT + 140);
+      });
+      x.fillStyle = '#1D2A20'; fit(rec.title, '600 {s}px ' + SANS, 46, W - 180);
+      x.fillText(rec.title, W / 2, 1420);
+      // Brand band, kept above the bottom of the story where the reply bar sits
+      x.fillStyle = '#2D5038'; x.fillRect(0, 1500, W, H - 1500);
+      x.strokeStyle = 'rgba(200,168,110,.5)'; x.lineWidth = 4; rrect(W - 190, H - 250, 380, 380, 90); x.stroke();
+      x.strokeStyle = 'rgba(200,168,110,.32)'; rrect(W - 110, H - 160, 240, 240, 58); x.stroke();
+      x.fillStyle = '#D6E2D0'; x.font = '400 44px ' + SANS;
+      x.fillText('Free adaptive SAT practice tests', W / 2, 1610);
+      x.fillStyle = '#C8A86E'; x.font = '600 84px ' + DISPLAY;
+      x.fillText('satustoz.academy', W / 2, 1715);
+      const blob = await new Promise(r => c.toBlob(r, 'image/png'));
+      return { blob, score, url: URL.createObjectURL(blob) };
+    }
+    async function openShare() {
+      const btn = $('#share-score');
+      btn.disabled = true;
+      let img;
+      try { img = await shareImage(); }
+      catch (e) { SH.toast('Could not make the image. ' + (e.message || '')); return; }
+      finally { btn.disabled = false; }
+      const name = 'sat-ustoz-score-' + img.score + '.png';
+      const file = typeof File === 'function' ? new File([img.blob], name, { type: 'image/png' }) : null;
+      const canShare = !!(file && navigator.canShare && navigator.canShare({ files: [file] }));
+      const save = () => { const a = document.createElement('a'); a.href = img.url; a.download = name; document.body.appendChild(a); a.click(); a.remove(); };
+      const actions = [{ label: 'Close', kind: 'ghost' }, { label: 'Save image', kind: canShare ? 'ghost' : 'primary', onClick: () => { save(); return false; } }];
+      if (canShare) actions.push({ label: 'Share', kind: 'primary', onClick: () => {
+        navigator.share({ files: [file], text: 'My SAT practice score: ' + img.score + '. Practice free at https://satustoz.academy' })
+          .catch(e => { if (e && e.name !== 'AbortError') save(); });
+        return false;
+      } });
+      SH.modal({
+        title: 'Share your score',
+        html: '<img class="share-prev" src="' + img.url + '" alt="Your score card: ' + img.score + ', ' + esc(rec.title) + ', satustoz.academy" width="1080" height="1920">' +
+          '<p class="small muted" style="margin:12px 0 0">Post it to your Instagram or Telegram story.' + (SH.inAppBrowser() ? ' If the buttons don’t work here, press and hold the image to save it.' : '') + '</p>',
+        actions,
+        onClose: () => setTimeout(() => URL.revokeObjectURL(img.url), 60000)
+      });
+    }
+
+    $('#share-score').addEventListener('click', openShare);
+    const list = $('#qlist') || $('#qprev');
     function draw(filter) {
       const items = taken.filter(t => keep(t, filter));
       list.innerHTML = items.length ? items.map((t, i) => {
@@ -1192,6 +1293,12 @@ document.addEventListener('DOMContentLoaded', function () {
         const tb = item.querySelector('[data-tutor]');
         if (tb) tb.addEventListener('click', () => SH.openTutor({ question: t.q, response: rec.responses[t.q.id], correct: SH.isCorrect(t.q, rec.responses[t.q.id]) }));
       }));
+    }
+    if (!full) {
+      // Preview only: a few rows, no answers, nothing to open.
+      list.innerHTML = taken.slice(0, 4).map(t => '<div class="qitem"><button type="button" tabindex="-1"><span class="res-ic skip">?</span><span class="qi-meta"><b>' + esc(t.sec.title) + ', module ' + (t.mod + 1) + ', question ' + t.n + '</b><br>' + esc(t.q.skill || t.q.domain || '') + '</span><span class="qi-ans">Yours <b>?</b>, answer <b>?</b></span></button></div>').join('');
+      window.scrollTo(0, 0);
+      return;
     }
     draw('all');
     $$('[data-f]').forEach(b => b.addEventListener('click', () => {

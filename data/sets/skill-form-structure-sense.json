@@ -1,0 +1,132 @@
+{
+  "id": "skill-form-structure-sense",
+  "title": "Skill set: Form, Structure, and Sense",
+  "description": "Ten questions on subject-verb agreement, pronouns, possessives, verb tense and form, and modifiers.",
+  "questions": [
+    {
+      "id": "fss-01",
+      "section": "rw",
+      "domain": "Standard English Conventions",
+      "skill": "Form, Structure, and Sense",
+      "difficulty": "easy",
+      "passage": "The collection of handwritten letters, which researchers found in a family archive in Bukhara, ______ new details about daily life in the nineteenth century.",
+      "prompt": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+      "choices": ["reveal", "reveals", "are revealing", "have revealed"],
+      "answer": "B",
+      "explanation": "The subject is *collection*, which is singular. *Of handwritten letters* and the *which ...* clause sit between the subject and the verb but do not change it. A singular subject needs a singular verb: **reveals**.\n\nA, C, and D are all plural verbs. They agree with *letters*, the noun closest to the blank, which is the trap."
+    },
+    {
+      "id": "fss-02",
+      "section": "rw",
+      "domain": "Standard English Conventions",
+      "skill": "Form, Structure, and Sense",
+      "difficulty": "easy",
+      "passage": "When the city opened a new library branch in the neighborhood, local students quickly made ______ their favorite place for after-school study.",
+      "prompt": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+      "choices": ["it", "them", "they", "those"],
+      "answer": "A",
+      "explanation": "The pronoun refers to *a new library branch*, which is singular, so it needs a singular pronoun: **it**.\n\n*Them* (B) and *those* (D) are plural. *They* (C) is plural and is also a subject pronoun, but the blank is the object of *made*."
+    },
+    {
+      "id": "fss-03",
+      "section": "rw",
+      "domain": "Standard English Conventions",
+      "skill": "Form, Structure, and Sense",
+      "difficulty": "easy",
+      "passage": "The judges noted that all three ______ designs used recycled materials in creative ways.",
+      "prompt": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+      "choices": ["student's", "students", "students's", "students'"],
+      "answer": "D",
+      "explanation": "The designs belong to three students, so the word must be plural and possessive. For a plural noun ending in *s*, add only an apostrophe: **students'**.\n\n*Student's* (A) is singular, which clashes with *three*. *Students* (B) is plural but does not show that the designs belong to them. *Students's* (C) is not a standard form."
+    },
+    {
+      "id": "fss-04",
+      "section": "rw",
+      "domain": "Standard English Conventions",
+      "skill": "Form, Structure, and Sense",
+      "difficulty": "medium",
+      "passage": "In 1965, a young botanist began collecting seeds from the wild apple forests in the mountains of southeastern Kazakhstan. Over the next two decades, she ______ samples from hundreds of individual trees.",
+      "prompt": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+      "choices": ["gathers", "will gather", "gathered", "has gathered"],
+      "answer": "C",
+      "explanation": "The story is told in the past (*In 1965 ... began*), and *the next two decades* after 1965 ended long ago. An action completed in the past calls for the simple past: **gathered**.\n\n*Gathers* (A) is present and *will gather* (B) is future, so both break the past-tense timeline. *Has gathered* (D) is the present perfect, which connects an action to the present. It does not fit a time period that is already over."
+    },
+    {
+      "id": "fss-05",
+      "section": "rw",
+      "domain": "Standard English Conventions",
+      "skill": "Form, Structure, and Sense",
+      "difficulty": "medium",
+      "passage": "Built in the 1420s under the direction of the astronomer and ruler Ulugh Beg, the observatory in Samarkand ______ a giant curved instrument used to measure the positions of the Sun, Moon, and stars.",
+      "prompt": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+      "choices": ["housed", "housing", "which housed", "having housed"],
+      "answer": "A",
+      "explanation": "The opening phrase (*Built in the 1420s ...*) describes the observatory, but it is not a verb for the sentence. The subject *the observatory* still needs a main verb, and only **housed** can be one.\n\n*Housing* (B) and *having housed* (D) are -ing forms, which cannot be the main verb of a sentence on their own. *Which housed* (C) turns the rest into a description of the observatory, so the sentence still has no main verb: it is a fragment."
+    },
+    {
+      "id": "fss-06",
+      "section": "rw",
+      "domain": "Standard English Conventions",
+      "skill": "Form, Structure, and Sense",
+      "difficulty": "medium",
+      "passage": "Having spent two years recording elderly speakers in mountain villages, ______",
+      "prompt": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+      "choices": [
+        "a dictionary of more than 5,000 local words was published by the linguist.",
+        "the linguist published a dictionary of more than 5,000 local words.",
+        "the publication of a dictionary of more than 5,000 local words followed.",
+        "the linguist's dictionary contained more than 5,000 local words."
+      ],
+      "answer": "B",
+      "explanation": "The opening phrase describes someone who *spent two years recording elderly speakers*. Whoever did that must come right after the comma, as the subject of the sentence. Only **B** puts *the linguist* there.\n\nIn A the subject is *a dictionary*, and in C it is *the publication*; neither one recorded anyone. D is the trap: *the linguist's* appears, but the subject is *dictionary*, so the sentence says the dictionary spent two years recording speakers."
+    },
+    {
+      "id": "fss-07",
+      "section": "rw",
+      "domain": "Standard English Conventions",
+      "skill": "Form, Structure, and Sense",
+      "difficulty": "medium",
+      "passage": "After testing dozens of prototypes, the company finally released ______ first electric bicycle, a lightweight model designed for steep city streets.",
+      "prompt": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+      "choices": ["their", "it's", "theirs", "its"],
+      "answer": "D",
+      "explanation": "The pronoun refers to *the company*, which is singular, and the bicycle belongs to it. The singular possessive is **its**, with no apostrophe.\n\n*It's* (B) means *it is*: \"released it is first electric bicycle\" makes no sense. *Their* (A) is plural. *Theirs* (C) is plural and also stands alone (*the bicycle is theirs*), so it cannot come before a noun."
+    },
+    {
+      "id": "fss-08",
+      "section": "rw",
+      "domain": "Standard English Conventions",
+      "skill": "Form, Structure, and Sense",
+      "difficulty": "hard",
+      "passage": "Beneath the floor of the old caravanserai ______ the remains of a much older building, which archaeologists believe was a small temple.",
+      "prompt": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+      "choices": ["lies", "was lying", "lie", "has lain"],
+      "answer": "C",
+      "explanation": "This sentence is inverted: the verb comes before its subject. Ask *what* is beneath the floor: *the remains*. *Remains* is plural, so the verb is **lie**. In normal order: *The remains of a much older building lie beneath the floor*.\n\nA, B, and D are all singular. They agree with *floor* or *caravanserai*, which come before the blank, or with *building*, which comes after it. None of those is the subject."
+    },
+    {
+      "id": "fss-09",
+      "section": "rw",
+      "domain": "Standard English Conventions",
+      "skill": "Form, Structure, and Sense",
+      "difficulty": "hard",
+      "passage": "Since 2018, the number of students at the school who take the SAT ______ grown every year.",
+      "prompt": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+      "choices": ["have", "has", "are", "were"],
+      "answer": "B",
+      "explanation": "The subject is *the number*, which is singular, not *students*. (*The number of* takes a singular verb; *a number of* takes a plural one.) *Since 2018* describes something that started in the past and continues now, which calls for the present perfect. Singular present perfect: **has** grown.\n\n*Have* (A) is plural, agreeing with *students*. *Are* (C) and *were* (D) are plural too, and *are grown* or *were grown* would describe something done to the number rather than the number growing. *Were* also breaks the *since 2018* timeline."
+    },
+    {
+      "id": "fss-10",
+      "section": "rw",
+      "domain": "Standard English Conventions",
+      "skill": "Form, Structure, and Sense",
+      "difficulty": "hard",
+      "passage": "To keep the greenhouse safe for the seedlings, either the main sensor or the two backup sensors ______ the temperature every ten seconds.",
+      "prompt": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+      "choices": ["record", "records", "has recorded", "is recording"],
+      "answer": "A",
+      "explanation": "With *either ... or*, the verb agrees with the subject closer to it. Here that is *the two backup sensors*, which is plural, so the verb is **record**. The present tense also fits a routine that repeats *every ten seconds*.\n\nB, C, and D are singular, agreeing with *the main sensor*, which is the farther subject. *Has recorded* (C) also describes a finished action rather than an ongoing routine."
+    }
+  ]
+}

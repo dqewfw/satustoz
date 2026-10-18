@@ -11,7 +11,7 @@ builder.html            Question builder for your team (not linked from the site
 admin.html              Approve card-transfer payments, for you only (not linked from the site, hidden from Google)
 404.html                Branded "page not found" page (GitHub Pages uses it automatically)
 assets/sh.css           Brand styles (colours and fonts at the top)
-assets/sh.js            Shared code. SETTINGS block at the top: AI_ENDPOINT, FIREBASE, REQUIRE_LOGIN, PLANS, PAYMENTS_ENDPOINT, TESTS_ENDPOINT, MANUAL_PAY, contacts
+assets/sh.js            Shared code. SETTINGS block at the top: AI_ENDPOINT, FIREBASE, REQUIRE_LOGIN, ANALYTICS, PLANS, PAYMENTS_ENDPOINT, TESTS_ENDPOINT, MANUAL_PAY, contacts
 data/catalog.json       List of every practice set and practice test
 data/sets/*.json        Practice sets
 data/tests/*.json       Practice tests 1 to 3 and the mini diagnostic (Pro Tests 4 to 10 belong in a private repository, section 6)
@@ -117,7 +117,7 @@ panel students can drag and resize. The panel also has a "New window" link as a 
 
 Until you do this, the site works without accounts and shows no sign-in buttons.
 
-1. Go to console.firebase.google.com and click **Create a project**. Name it e.g. `scholarshub-sat`.
+1. Go to console.firebase.google.com and click **Create a project**. Name it e.g. `satustoz`.
    Google Analytics is optional; you can turn it off.
 2. On the project home page click the **Web** icon (`</>`) to add an app. Nickname: `website`.
    Don't tick Firebase Hosting. Firebase then shows a `firebaseConfig` block. Copy `apiKey`,
@@ -214,14 +214,22 @@ harder Module 2. The College Board does not publish its real rule, so this is an
 
 | Plan | Opens | Price |
 |---|---|---|
-| Free | Practice Tests 1 to 3, mini diagnostic, practice sets, progress | 0 |
-| Pro | All 10 practice tests | `PRO_PRICE` a month |
-| Max | Everything, including the AI Tutor. Shown as "Coming soon" and can't be bought yet | `MAX_PRICE` a month |
+| Free | Mini diagnostic, Practice Test 1, the starter sets, the total score of each test | 0 |
+| Pro | All 10 practice tests, the score broken down by skill and module, the question-by-question review, skill drills | `PRO_PRICE` a month, or `PASS_PRICE` for `PASS_MONTHS` months |
+| Max | Pro plus the AI tutor, a study plan to the test date and a monthly live group session. Not on sale yet: its card collects a waitlist | `MAX_PRICE` a month |
 
-- Prices are in `PLANS` at the top of `assets/sh.js`. **79 000 and 149 000 so'm are placeholders.** Put your real prices there.
-  Once online payment is on, also change `PRO_PRICE` in the payments Worker: that is the amount students are charged.
-- Which plan a test needs is the `"plan"` field on each test in `data/catalog.json` (`"free"` or `"pro"`).
-  To make Test 4 free, change its `"plan"` to `"free"`.
+- Prices are in `PLANS` at the top of `assets/sh.js`. Once online payment is on, also change `PRO_PRICE` in the payments
+  Worker: that is the amount students are charged.
+- Which plan a test or practice set needs is its `"plan"` field in `data/catalog.json` (`"free"` or `"pro"`; a set
+  without one is free). To make Test 4 free, change its `"plan"` to `"free"`.
+- **Students from before the change keep Tests 2 and 3.** Those two have `"legacyFree": true` in the catalog. Anyone whose
+  account was created, or who practiced or finished a test, before `FREE_CHANGED_AT` (in `PLANS`) keeps them free, and
+  tests they finished before that day keep their full results. Set `FREE_CHANGED_AT` to the day you upload this version.
+  Keep `practice-test-2.json` and `-3.json` in `data/tests/`: these students have no Pro for the Worker to check.
+- **The "until your test" pass** (`PASS_MONTHS` months for `PASS_PRICE`, 3 for 197 500 so'm) is offered in the card-transfer
+  steps and under the Pro price. Approving it on admin.html adds 30 days per month. Empty `PASS_PRICE` hides it.
+- **Max waitlist.** "Join the Max waitlist" asks a signed-in student for their Telegram username and saves it in
+  `waitlist/<uid>`. admin.html lists everyone at the bottom, with a button that copies all the usernames.
 - The pricing cards appear on the landing page (`index.html#pricing`, in EN / UZ / RU) and on `practice.html#plans`.
 
 ### Publish the new database rules (do this once)
@@ -361,7 +369,7 @@ The Worker needs this key to write the plan on a student's account.
 #### C. Create the payments Worker (Cloudflare dashboard, about 15 minutes)
 
 1. **Workers & Pages → KV → Create namespace**, name it `sh-payments`.
-2. **Workers & Pages → Create → Create Worker**, name it `scholarshub-pay` → **Deploy → Edit code**. Delete the sample
+2. **Workers & Pages → Create → Create Worker**, name it `satustoz-pay` → **Deploy → Edit code**. Delete the sample
    code, paste the whole of `worker/payments-worker.js`, click **Deploy**.
 3. Worker → **Settings → Bindings → Add → KV namespace**: variable name `PAYMENTS`, namespace `sh-payments`.
 4. Worker → **Settings → Variables and Secrets → Add** each of these:
@@ -384,12 +392,12 @@ The Worker needs this key to write the plan on a student's account.
    When you add the fiscal details, tell Payme's technical specialist that your billing returns a `detail` object.
 5. Worker → **Settings → Triggers → Cron Triggers → Add Cron Trigger**: `0 4 * * *` (every day at 09:00 Tashkent time).
    This is the daily renewal run.
-6. Copy the Worker's address (`https://scholarshub-pay.<your-name>.workers.dev`).
+6. Copy the Worker's address (`https://satustoz-pay.<your-name>.workers.dev`).
 
 #### D. Connect Payme and the website
 
 1. Payme cabinet → your web kassa → developer settings → **Endpoint URL**: the Worker address followed by `/payme`, e.g.
-   `https://scholarshub-pay.<your-name>.workers.dev/payme`.
+   `https://satustoz-pay.<your-name>.workers.dev/payme`.
 2. In `assets/sh.js`, put the Worker address in `PAYMENTS_ENDPOINT` and make `PRO_PRICE` in `PLANS` show the same price as
    the Worker's `PRO_PRICE` (the cards show `PLANS`; the Worker charges its own). Upload `assets/sh.js` to GitHub.
 
@@ -412,7 +420,7 @@ Sign in on the site with your own Google account. Your user ID is the name of yo
    (Payme's test card). Pro switches on and **Plans → Manage payment** shows the card and automatic renewal.
 4. **Renewal.** In Firestore change your `planUntil` to tomorrow. Open this address in the browser (with your
    `ADMIN_KEY` and user ID):
-   `https://scholarshub-pay.<your-name>.workers.dev/admin/renew?key=ADMIN_KEY&uid=YOUR_USER_ID&force=1`
+   `https://satustoz-pay.<your-name>.workers.dev/admin/renew?key=ADMIN_KEY&uid=YOUR_USER_ID&force=1`
    It answers `"state": "paid"`, and `planUntil` moves 30 days on from tomorrow.
 5. **A failed renewal.** Open `.../admin/drop-card?key=ADMIN_KEY&uid=YOUR_USER_ID` (this deletes the saved card at Payme
    but leaves automatic renewal on). Set `planUntil` to tomorrow again and open the `admin/renew` address three times.
@@ -479,7 +487,7 @@ item 4 and go on to part 3.
 
 1. Make the Google key: step B above.
 2. Cloudflare → **Workers & Pages → KV → Create namespace**, name it `sh-payments`.
-3. **Workers & Pages → Create → Create Worker**, name it `scholarshub-pay` → **Deploy → Edit code**. Delete the sample
+3. **Workers & Pages → Create → Create Worker**, name it `satustoz-pay` → **Deploy → Edit code**. Delete the sample
    code, paste the whole of `worker/payments-worker.js`, click **Deploy**. Then Worker → **Settings → Bindings → Add → KV
    namespace**: variable name `PAYMENTS`, namespace `sh-payments`.
 4. Worker → **Settings → Variables and Secrets → Add** each of these:
@@ -496,7 +504,7 @@ item 4 and go on to part 3.
    If you put the files in a folder inside that repository, also add `PRO_TESTS_DIR` (Text) with the folder name.
    Leave out the Payme variables and the Cron Trigger for now. Without them the payment parts of the Worker refuse every
    request, and the site keeps showing your card-transfer steps.
-5. Copy the Worker's address (`https://scholarshub-pay.<your-name>.workers.dev`).
+5. Copy the Worker's address (`https://satustoz-pay.<your-name>.workers.dev`).
 
 **3. Point the site at the Worker**
 
@@ -552,6 +560,30 @@ Good to know:
   private.
 - A student who took a Pro test can still open its review after Pro ends; the Worker remembers which tests they opened.
 - The free Cloudflare plan is plenty: opening a test is one Worker request.
+
+## 7. Analytics
+
+PostHog shows which pages students visit and where they stop on the way to Pro. It is switched on in
+`ANALYTICS` at the top of `assets/sh.js`: `KEY` is the Project API key (PostHog -> Project settings, starts
+with `phc_`; it is meant to be public) and `HOST` is `https://eu.i.posthog.com` for an EU project or
+`https://us.i.posthog.com` for a US one. Empty `KEY`: nothing is tracked and nothing loads from PostHog.
+
+- It runs on `index.html`, `practice.html`, `test.html` and `login.html` (their `sh.js` tag has
+  `data-analytics`), never on `admin.html` or `builder.html`. Add `data-analytics` to a new page's tag to track it.
+- Page views, plus these events: `signed_in`, `test_started` and `test_finished` (with `test_id`; finished also
+  has `total`, `rw`, `math`), `locked_test_tapped` (`test_id`), `pro_preview_tapped` (`feature`: `weak_skills`,
+  `domains`, `review`, `drills` or `set`), `upgrade_opened` (`sheet`: `pitch` or `upgrade`), `pay_note_sent`
+  (`months`: 1 or 3), `waitlist_joined` and `paid` (Free switched to Pro, seen on the student's next page load
+  after you approve them). Every event carries the student's `plan` and site `lang`.
+- Privacy: no session recording, no autocapture (so nothing typed into a field and no link addresses), no
+  heatmaps, and Do Not Track is respected. A signed-in student is known by their Firebase uid only; to find
+  one, look up the uid in Firebase -> Authentication. Keep "Discard client IP data" on in PostHog -> Project
+  settings.
+- Where students drop off: the PostHog dashboard "Pro sales funnel" has the funnel Pageview -> `signed_in` ->
+  `test_finished` -> `upgrade_opened` -> `pay_note_sent` -> `paid` (last 30 days, 14-day conversion window,
+  since approving Pro by hand takes time). It leaves out localhost, so your own previews don't count.
+  Click a step to see who dropped off there, or switch the chart to "Conversion over time" after a change.
+- Ad blockers stop PostHog for some students, so treat the numbers as a floor, not a head count.
 
 ## About official College Board questions
 

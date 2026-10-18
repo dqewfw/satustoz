@@ -1,0 +1,112 @@
+{
+  "id": "skill-linear-equations-one-variable",
+  "title": "Skill set: Linear equations in one variable",
+  "description": "Ten questions on solving linear equations, including word problems and equations with no solution or infinitely many solutions.",
+  "questions": [
+    {
+      "id": "lin1-01",
+      "section": "math",
+      "domain": "Algebra",
+      "skill": "Linear equations in one variable",
+      "difficulty": "easy",
+      "prompt": "If $3x - 7 = 20$, what is the value of $x$?",
+      "answer": ["9"],
+      "explanation": "Add 7 to both sides: $3x = 27$. Divide by 3: $x = 9$.\n\nCheck: $3(9) - 7 = 27 - 7 = 20$."
+    },
+    {
+      "id": "lin1-02",
+      "section": "math",
+      "domain": "Algebra",
+      "skill": "Linear equations in one variable",
+      "difficulty": "easy",
+      "prompt": "What value of $x$ is the solution to the equation $5(x + 2) = 35$?",
+      "choices": ["$\\dfrac{33}{5}$", "$7$", "$5$", "$\\dfrac{37}{5}$"],
+      "answer": "C",
+      "explanation": "Divide both sides by 5: $x + 2 = 7$. Subtract 2: $x = 5$. (Or distribute: $5x + 10 = 35$, so $5x = 25$ and $x = 5$.)\n\nChoice B is $x + 2$, not $x$. Choice A comes from distributing only to $x$: $5x + 2 = 35$. Choice D comes from adding 2 instead of subtracting it: $5x = 37$."
+    },
+    {
+      "id": "lin1-03",
+      "section": "math",
+      "domain": "Algebra",
+      "skill": "Linear equations in one variable",
+      "difficulty": "easy",
+      "prompt": "A phone plan costs 40,000 so'm per month plus 500 so'm for each text message over the plan's limit. Last month, Jasur's bill was 52,500 so'm. How many text messages over the limit did he send last month?",
+      "choices": ["$80$", "$25$", "$105$", "$185$"],
+      "answer": "B",
+      "explanation": "Let $t$ be the number of extra messages: $40{,}000 + 500t = 52{,}500$. Subtract the monthly fee: $500t = 12{,}500$. Divide: $t = 25$.\n\nChoice C divides the whole bill by 500 and forgets the monthly fee. Choice D adds the fee instead of subtracting it. Choice A is just $40{,}000 \\div 500$."
+    },
+    {
+      "id": "lin1-04",
+      "section": "math",
+      "domain": "Algebra",
+      "skill": "Linear equations in one variable",
+      "difficulty": "medium",
+      "prompt": "$$\\dfrac{2x + 1}{3} = \\dfrac{x - 4}{2}$$ What value of $x$ is the solution to the given equation?",
+      "answer": ["-14"],
+      "explanation": "Multiply both sides by 6 (or cross-multiply): $2(2x + 1) = 3(x - 4)$.\n\nDistribute: $4x + 2 = 3x - 12$. Subtract $3x$ and 2 from both sides: $x = -14$.\n\nCheck: $\\dfrac{2(-14) + 1}{3} = \\dfrac{-27}{3} = -9$ and $\\dfrac{-14 - 4}{2} = \\dfrac{-18}{2} = -9$."
+    },
+    {
+      "id": "lin1-05",
+      "section": "math",
+      "domain": "Algebra",
+      "skill": "Linear equations in one variable",
+      "difficulty": "medium",
+      "prompt": "$$4(x - 3) - 2x = 2(x + 1) - 14$$ How many solutions does the given equation have?",
+      "choices": ["Exactly one", "Exactly two", "Infinitely many", "Zero"],
+      "answer": "C",
+      "explanation": "Simplify each side. Left: $4x - 12 - 2x = 2x - 12$. Right: $2x + 2 - 14 = 2x - 12$.\n\nBoth sides are exactly the same expression, so the equation is true for every value of $x$: infinitely many solutions.\n\nA linear equation can never have exactly two solutions (B). If the $x$-terms matched but the constants were different, such as $2x - 12 = 2x + 5$, there would be zero solutions (D)."
+    },
+    {
+      "id": "lin1-06",
+      "section": "math",
+      "domain": "Algebra",
+      "skill": "Linear equations in one variable",
+      "difficulty": "medium",
+      "prompt": "If $6x - 9 = 21$, what is the value of $2x - 3$?",
+      "choices": ["$5$", "$10$", "$63$", "$7$"],
+      "answer": "D",
+      "explanation": "Notice that $6x - 9 = 3(2x - 3)$. So $3(2x - 3) = 21$, and dividing by 3 gives $2x - 3 = 7$.\n\nOr solve for $x$ first: $6x = 30$, so $x = 5$, and $2(5) - 3 = 7$.\n\nChoice A is the value of $x$, not of $2x - 3$. Choice B is $2x$. Choice C multiplies 21 by 3 instead of dividing."
+    },
+    {
+      "id": "lin1-07",
+      "section": "math",
+      "domain": "Algebra",
+      "skill": "Linear equations in one variable",
+      "difficulty": "medium",
+      "prompt": "Gym A charges a one-time registration fee of 30,000 so'm plus 45,000 so'm per month. Gym B has no registration fee and charges 50,000 so'm per month. After how many months will the total amount paid at the two gyms be the same?",
+      "answer": ["6"],
+      "explanation": "After $m$ months, Gym A costs $30{,}000 + 45{,}000m$ and Gym B costs $50{,}000m$. Set them equal:\n\n$30{,}000 + 45{,}000m = 50{,}000m$, so $30{,}000 = 5{,}000m$ and $m = 6$.\n\nCheck: Gym A: $30{,}000 + 45{,}000(6) = 300{,}000$. Gym B: $50{,}000(6) = 300{,}000$."
+    },
+    {
+      "id": "lin1-08",
+      "section": "math",
+      "domain": "Algebra",
+      "skill": "Linear equations in one variable",
+      "difficulty": "hard",
+      "prompt": "$$ax - 4 = 3(2x + b)$$ In the given equation, $a$ and $b$ are constants. If the equation has infinitely many solutions, what is the value of $a + b$?",
+      "answer": ["14/3", "4.666", "4.667"],
+      "explanation": "Distribute the right side: $ax - 4 = 6x + 3b$.\n\nA linear equation has infinitely many solutions only when both sides are identical. So the $x$-coefficients match, $a = 6$, and the constants match, $-4 = 3b$, so $b = -\\dfrac{4}{3}$.\n\nThen $a + b = 6 - \\dfrac{4}{3} = \\dfrac{18}{3} - \\dfrac{4}{3} = \\dfrac{14}{3}$, about 4.667."
+    },
+    {
+      "id": "lin1-09",
+      "section": "math",
+      "domain": "Algebra",
+      "skill": "Linear equations in one variable",
+      "difficulty": "hard",
+      "prompt": "$$\\dfrac{1}{2}(8x - 6) + kx = 7x + 5$$ In the given equation, $k$ is a constant. If the equation has no solution, what is the value of $k$?",
+      "choices": ["$3$", "$-3$", "$7$", "$11$"],
+      "answer": "A",
+      "explanation": "Simplify the left side: $4x - 3 + kx = (4 + k)x - 3$.\n\nA linear equation has no solution when the $x$-coefficients are equal but the constants are different. The constants are $-3$ and $5$, which are already different, so set the coefficients equal: $4 + k = 7$, giving $k = 3$.\n\nCheck: with $k = 3$ the equation becomes $7x - 3 = 7x + 5$, which is never true. Choice C forgets the $4x$ from the left side. Choice D adds 4 instead of subtracting it. Choice B is the constant on the left side, not $k$."
+    },
+    {
+      "id": "lin1-10",
+      "section": "math",
+      "domain": "Algebra",
+      "skill": "Linear equations in one variable",
+      "difficulty": "hard",
+      "prompt": "A store lowered the price of a jacket by 20% and then took off an additional \\$15. The jacket's final price was \\$185. What was the original price of the jacket, in dollars?",
+      "answer": ["250"],
+      "explanation": "Let $p$ be the original price. After a 20% discount the price is $0.8p$; after taking off \\$15 more, it is $0.8p - 15$. So $0.8p - 15 = 185$.\n\nAdd 15: $0.8p = 200$. Divide by 0.8: $p = 250$.\n\nCheck: 20% off \\$250 is \\$200, and \\$15 less is \\$185. A common mistake is to add \\$15 back to get \\$200 and then add 20% of \\$200 to get \\$240. That fails because the 20% was taken from the original price, not from \\$200."
+    }
+  ]
+}

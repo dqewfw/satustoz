@@ -12,7 +12,7 @@
  *  1. Get an API key at https://console.anthropic.com  (Settings -> API keys).
  *     While you are there, set a monthly spend limit under Billing/Limits.
  *  2. Cloudflare dashboard -> Workers & Pages -> Create -> Create Worker.
- *     Name it e.g. "scholarshub-ai" -> Deploy -> Edit code.
+ *     Name it e.g. "satustoz-ai" -> Deploy -> Edit code.
  *     Delete the sample code, paste THIS whole file, click Deploy.
  *  3. Worker -> Settings -> Variables and Secrets -> Add:
  *       ANTHROPIC_API_KEY   (type: Secret)   your key  <- type it here only
@@ -22,13 +22,13 @@
  *       TUTOR_MODEL         default claude-haiku-5-5    (tutor chat, cheaper)
  *       DAILY_LIMIT         default 60   requests per student IP per day
  *       DAILY_GLOBAL_LIMIT  default 3000 requests per day for the whole site
- *       FIREBASE_PROJECT_ID your Firebase project ID (e.g. scholarshub-sat). When set,
+ *       FIREBASE_PROJECT_ID your Firebase project ID (e.g. satustoz). When set,
  *                           only signed-in students can use the AI, and daily
  *                           limits count per student instead of per IP.
  *  4. Recommended: Workers & Pages -> KV -> Create namespace "sh-ratelimit",
  *     then Worker -> Settings -> Bindings -> Add -> KV namespace,
  *     variable name RATE_LIMIT. Without it the daily limits are not enforced.
- *  5. Copy the Worker URL (https://scholarshub-ai.<you>.workers.dev) into
+ *  5. Copy the Worker URL (https://satustoz-ai.<you>.workers.dev) into
  *     AI_ENDPOINT at the top of assets/sh.js and upload that file to GitHub.
  *
  * Never paste the API key into the website, a GitHub file, or a chat.
