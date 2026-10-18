@@ -24,6 +24,8 @@
   .a-bar p { margin: 0; }
   .a-bar .who { font-size: .9rem; color: var(--muted); overflow-wrap: anywhere; }
   .a-wait { margin-top: 40px; }
+  .rep { margin-bottom: 12px; }
+  .rep-text { margin: 8px 0 12px; white-space: pre-wrap; overflow-wrap: anywhere; }
   .a-wait h2 { font-size: 1.35rem; margin: 0; }
   .wait-table { width: 100%; border-collapse: collapse; font-size: .95rem; }
   .wait-table th, .wait-table td { text-align: left; padding: 8px 10px; border-bottom: 1px solid var(--line); overflow-wrap: anywhere; }
@@ -94,6 +96,7 @@ document.addEventListener('DOMContentLoaded', async function () {
   const PASS_PRICE = Number(String(CONFIG.PLANS.PASS_PRICE || '').replace(/\D/g, '')) || 0;
   const monthsOf = r => Math.max(1, Math.min(12, Number(r && r.months) || 1));
   let waitlist = null;     // Max waitlist entries, or an Error when they can't be read
+  let reports = null;      // "Report a mistake" and feedback messages, or an Error
   const CURRENCY = CONFIG.PLANS.CURRENCY.en;
   const items = new Map(); // uid -> { r: payRequest, u: users doc (null: none, undefined: unreadable) }
   let viewFor = null;      // uid whose list is on screen
@@ -193,6 +196,8 @@ document.addEventListener('DOMContentLoaded', async function () {
       users = await Promise.all(list.map(r => fs.getDoc(fs.doc(sync.db, 'users', r.uid)).then(s => s.exists() ? s.data() : null, () => undefined)));
       waitlist = await fs.getDocs(fs.query(fs.collection(sync.db, 'waitlist'), fs.orderBy('createdAt', 'desc'), fs.limit(500)))
         .then(s => s.docs.map(d => Object.assign({}, d.data(), { uid: d.id })), e => { console.warn('[SAT Ustoz] Could not load the Max waitlist:', e); return e; });
+      reports = await fs.getDocs(fs.query(fs.collection(sync.db, 'reports'), fs.orderBy('createdAt', 'desc'), fs.limit(300)))
+        .then(s => s.docs.map(d => Object.assign({}, d.data(), { id: d.id })), e => { console.warn('[SAT Ustoz] Could not load reports:', e); return e; });
     } catch (e) {
       if (my !== seq) return;
       if (e && e.code === 'permission-denied') { notAdminView(); return; }
@@ -211,7 +216,7 @@ document.addEventListener('DOMContentLoaded', async function () {
     const now = Date.now();
     box.innerHTML = '<div class="a-bar"><p><b class="num-tab" data-count></b></p>' +
       '<div class="a-row" style="margin:0"><span class="who">Signed in as ' + esc(auth.user.email) + '</span><button type="button" class="btn btn-ghost btn-sm" data-reload>Reload</button></div></div>' +
-      '<div data-list>' + Array.from(items.values()).map(it => card(it.r, it.u, now)).join('') + '</div>' + waitHtml();
+      '<div data-list>' + Array.from(items.values()).map(it => card(it.r, it.u, now)).join('') + '</div>' + reportsHtml() + waitHtml();
     $('[data-reload]', box).addEventListener('click', load);
     const cp = $('[data-copy-wait]', box);
     if (cp) cp.addEventListener('click', () => {
@@ -221,6 +226,20 @@ document.addEventListener('DOMContentLoaded', async function () {
     });
     count();
   }
+  // Mistakes students reported on questions, and feedback. "Done" deletes one.
+  // Feedback marked "may quote" can go into data/testimonials.json (README).
+  function reportsHtml() {
+    const head = '<section class="a-wait"><div class="a-bar"><h2>Reports and feedback</h2>';
+    if (reports instanceof Error) return head + '</div><div class="notice notice-warn"><p>' + esc(friendly(reports)) + ' Reports need the latest firestore.rules.</p></div></section>';
+    if (!reports || !reports.length) return head + '</div><p class="muted">Nothing new. Students report mistakes from any question, and send feedback from the dashboard or the footer.</p></section>';
+    return head + '<span class="who">' + reports.length + ' open</span></div>' + reports.map(r =>
+      '<article class="card rep" data-rep="' + esc(r.id) + '"><div class="req-head"><div class="req-who"><b>' + (r.kind === 'mistake' ? 'Mistake' : 'Feedback') + (r.quoteOk ? ' <span class="tag tag-easy">may quote</span>' : '') + '</b>' +
+      '<span>' + esc(r.name || '') + ' ' + esc(r.email || '') + '</span></div><span class="req-when">' + esc(when(ms(r.createdAt))) + '</span></div>' +
+      (r.kind === 'mistake' ? '<p class="small muted" style="margin:6px 0">' + esc(r.where || '') + (r.qid ? ', question <code>' + esc(r.qid) + '</code>' : '') + '</p>' : '') +
+      '<p class="rep-text">' + esc(r.text || '') + '</p><div class="a-row" style="margin:0"><button type="button" class="btn btn-ghost btn-sm" data-done>Done</button></div>' +
+      '<p class="pay-err" role="alert" hidden></p></article>').join('') + '</section>';
+  }
+
   // Max waitlist: students who tapped "Join the Max waitlist" on the plans.
   function waitHtml() {
     const head = '<section class="a-wait"><div class="a-bar"><h2>Max waitlist</h2>';
@@ -321,6 +340,18 @@ document.addEventListener('DOMContentLoaded', async function () {
     }
   }
 
+  box.addEventListener('click', async e => {
+    const d = e.target.closest('[data-done]');
+    const rep = d && d.closest('.rep');
+    if (!rep) return;
+    busy(rep, true);
+    try {
+      const fs = await sync._lib();
+      await fs.deleteDoc(fs.doc(sync.db, 'reports', rep.dataset.rep));
+      reports = reports.filter(r => r.id !== rep.dataset.rep);
+      rep.remove();
+    } catch (ex) { busy(rep, false); fail(rep, friendly(ex)); }
+  });
   box.addEventListener('click', e => {
     const b = e.target.closest('[data-approve], [data-reject]');
     const el = b && b.closest('.req');

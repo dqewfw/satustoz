@@ -77,6 +77,31 @@ service cloud.firestore {
           && d.createdAt == request.time;
     }
 
+    // reports/<auto id>: "Report a mistake" on a question, or "Send feedback".
+    // Any signed-in student can add one under their own uid; only an admin
+    // (admin.html) can read or delete them.
+    function validReport() {
+      let d = request.resource.data;
+      return d.keys().hasOnly(['uid', 'email', 'name', 'kind', 'qid', 'where', 'text', 'quoteOk', 'lang', 'page', 'createdAt'])
+          && d.keys().hasAll(['uid', 'kind', 'text', 'createdAt'])
+          && d.uid == request.auth.uid
+          && (!('email' in d) || d.email == request.auth.token.email || d.email == '')
+          && d.kind in ['mistake', 'feedback']
+          && d.text is string && d.text.size() >= 3 && d.text.size() <= 1000
+          && (!('qid' in d) || (d.qid is string && d.qid.size() <= 100))
+          && (!('where' in d) || (d.where is string && d.where.size() <= 120))
+          && (!('name' in d) || (d.name is string && d.name.size() <= 100))
+          && (!('quoteOk' in d) || d.quoteOk is bool)
+          && (!('lang' in d) || d.lang in ['en', 'uz', 'ru'])
+          && (!('page' in d) || (d.page is string && d.page.size() <= 60))
+          && d.createdAt == request.time;
+    }
+
+    match /reports/{id} {
+      allow create: if request.auth != null && validReport();
+      allow read, delete: if isAdmin();
+    }
+
     match /waitlist/{uid} {
       allow read: if request.auth != null && request.auth.uid == uid;
       allow create, update: if request.auth != null

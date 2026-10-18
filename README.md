@@ -585,6 +585,22 @@ with `phc_`; it is meant to be public) and `HOST` is `https://eu.i.posthog.com` 
   Click a step to see who dropped off there, or switch the chart to "Conversion over time" after a change.
 - Ad blockers stop PostHog for some students, so treat the numbers as a floor, not a head count.
 
+## Mistake reports, feedback and student quotes
+
+- Every checked question (practice sets, test review) has **Report a mistake**. The dashboard and the footers have
+  **Send feedback**. Signed-in students' messages are saved in Firestore `reports`; admin.html lists them under
+  "Reports and feedback", and **Done** deletes one. Signed-out students get the same message ready to send on Telegram.
+- **What students say** on the landing page shows quotes from `data/testimonials.json` and stays hidden while it's empty
+  (`[]`). Only add feedback marked **may quote** on admin.html, word for word, with a first name or a short description:
+
+  ```json
+  [
+    { "text": "The explanations finally made Boundaries make sense.", "who": "Madina, 11th grade" }
+  ]
+  ```
+
+  Up to 9 quotes show. Never write or edit quotes yourself: the section promises they're real and unchanged.
+
 ## About official College Board questions
 
 The site does not include questions from the College Board's SAT Question Bank or Bluebook tests.

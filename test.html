@@ -1328,7 +1328,8 @@ document.addEventListener('DOMContentLoaded', function () {
     return '<div class="qdetail">' + (q.passage || q.table || q.image ? '<div class="rich" style="margin-bottom:12px">' + SH.renderStimulus(q) + '</div>' : '') +
       '<div class="rich"><strong>' + SH.renderRich(q.prompt, { inline: true }) + '</strong></div>' + ans +
       (q.explanation ? '<div class="expl rich"><strong>Explanation.</strong> ' + SH.renderRich(q.explanation) + '</div>' : '') +
-      (SH.ai.enabled() ? '<p style="margin:14px 0 0"><button type="button" class="btn btn-ghost btn-sm" data-tutor>Ask the AI tutor about this</button></p>' : '') + '</div>';
+      (SH.ai.enabled() ? '<p style="margin:14px 0 0"><button type="button" class="btn btn-ghost btn-sm" data-tutor>Ask the AI tutor about this</button></p>' : '') +
+      '<p class="report-line"><button type="button" class="link-btn" data-report data-qid="' + esc(q.id || '') + '" data-where="' + esc(test.title) + '">Report a mistake</button></p></div>';
   }
 
   window.addEventListener('beforeunload', () => { if (S) { leaveQuestion(); save(); } });

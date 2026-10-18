@@ -227,7 +227,7 @@
         <p style="margin-top:10px">Digital SAT practice built by someone who has taken the test, for students in Uzbekistan and beyond.</p>
       </div>
       <div><h3 class="f-head">Practice</h3><ul><li><a href="practice.html#sets">Practice sets</a></li><li><a href="practice.html#tests">Practice tests</a></li><li><a href="practice.html#plans">Plans</a></li></ul></div>
-      <div><h3 class="f-head">Contact</h3><ul><li><a data-link="telegram" href="https://t.me/azizbek7_t" target="_blank" rel="noopener">Telegram: @azizbek7_t</a></li><li><a data-link="channel" href="https://t.me/satustoz_off" target="_blank" rel="noopener">Telegram channel</a></li><li><a data-link="instagram" href="https://www.instagram.com/satustoz" target="_blank" rel="noopener">Instagram</a></li></ul></div>
+      <div><h3 class="f-head">Contact</h3><ul><li><a data-link="telegram" href="https://t.me/azizbek7_t" target="_blank" rel="noopener">Telegram: @azizbek7_t</a></li><li><a data-link="channel" href="https://t.me/satustoz_off" target="_blank" rel="noopener">Telegram channel</a></li><li><a data-link="instagram" href="https://www.instagram.com/satustoz" target="_blank" rel="noopener">Instagram</a></li><li><a href="#" data-feedback>Send feedback</a></li></ul></div>
     </div>
     <div class="footer-legal">&copy; <span data-year>2026</span> SAT Ustoz. SAT&reg; is a trademark registered by the College Board, which is not affiliated with, and does not endorse, this website. All practice questions on this site are written by SAT Ustoz.</div>
   </div>
@@ -316,7 +316,8 @@ document.addEventListener('DOMContentLoaded', function () {
       tile(attempts.length, 'questions practiced') +
       tile(attempts.length ? SH.pct(correct, attempts.length) + '%' : '–', 'accuracy') +
       tile(best || '–', 'best test estimate (goal ' + esc(p.target) + ')') +
-      tile(hist.length, 'practice test' + (hist.length === 1 ? '' : 's') + ' taken') + '</div>';
+      tile(hist.length, 'practice test' + (hist.length === 1 ? '' : 's') + ' taken') + '</div>' +
+      '<p class="small muted" style="margin:10px 0 0">Something missing or confusing? <button type="button" class="link-btn" data-feedback>Tell us what you think</button></p>';
 
     if (!attempts.length) {
       html += '<h2 class="section-title">Start here</h2><div class="grid grid-3">' +
@@ -795,12 +796,15 @@ document.addEventListener('DOMContentLoaded', function () {
     const fb = $('#p-feedback'); if (fb) fb.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
     const nx = $('#p-next'); if (nx) nx.focus({ preventScroll: true });
   }
+  // "Report a mistake" under a checked question (handled in sh.js).
+  const reportBtn = (q, where) => '<p class="report-line"><button type="button" class="link-btn" data-report data-qid="' + esc(q.id || '') + '" data-where="' + esc(where || '') + '">Report a mistake</button></p>';
   function drawFeedback() {
     const s = session, q = s.questions[s.i], c = s.checked[q.id];
     $('#p-feedback').innerHTML = '<div class="feedback ' + (c.ok ? 'ok' : 'no') + '" role="status"><h3>' + (c.ok ? 'Correct' : 'Not quite. The answer is ' + esc(SH.answerLabel(q)) + '.') + '</h3>' +
       (q.explanation ? '<div class="expl rich">' + SH.renderRich(q.explanation) + '</div>' : '') +
       (SH.ai.enabled() ? '<div class="row" style="margin-top:12px"><button class="btn btn-ghost btn-sm" type="button" id="p-tutor">' + (c.ok ? 'Ask the AI tutor' : 'Ask the AI tutor why') + '</button></div>' : '') +
-      (q.ai ? '<p class="ai-flag">This question was written by AI. If the answer looks wrong, ask the tutor to double-check it.</p>' : '') + '</div>';
+      (q.ai ? '<p class="ai-flag">This question was written by AI. If the answer looks wrong, ask the tutor to double-check it.</p>' : '') +
+      reportBtn(q, s.title) + '</div>';
     const tb = $('#p-tutor'); if (tb) tb.addEventListener('click', () => SH.openTutor({ question: q, response: s.responses[q.id], correct: c.ok }));
   }
   function finishSession() {
@@ -820,7 +824,7 @@ document.addEventListener('DOMContentLoaded', function () {
         '<div class="miss"><div class="small muted" style="margin-bottom:6px">' + esc(q.skill || '') + ', your answer <b>' + esc(s.responses[q.id] || '—') + '</b>, correct answer <b>' + esc(SH.answerLabel(q)) + '</b></div>' +
         '<div class="rich"><strong>' + SH.renderRich(q.prompt, { inline: true }) + '</strong></div>' +
         (q.explanation ? '<div class="expl rich">' + SH.renderRich(q.explanation) + '</div>' : '') +
-        (SH.ai.enabled() ? '<button class="btn btn-ghost btn-sm" type="button" data-mtutor="' + i + '" style="margin-top:10px">Ask the AI tutor</button>' : '') + '</div>').join('') : '');
+        (SH.ai.enabled() ? '<button class="btn btn-ghost btn-sm" type="button" data-mtutor="' + i + '" style="margin-top:10px">Ask the AI tutor</button>' : '') + reportBtn(q, s.title) + '</div>').join('') : '');
     const retry = $('#s-retry');
     if (retry) retry.addEventListener('click', () => startSession({ title: s.title + ' (retry)', questions: missed, source: s.source }));
     $$('[data-mtutor]').forEach(b => b.addEventListener('click', () => { const q = missed[+b.dataset.mtutor]; SH.openTutor({ question: q, response: s.responses[q.id], correct: false }); }));

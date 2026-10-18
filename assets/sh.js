@@ -1113,7 +1113,12 @@
       wl_label: 'Telegram username', wl_bad: 'Enter your Telegram username, like @satustoz.', wl_join: 'Join the waitlist',
       wl_done_t: 'You’re on the list', wl_done: 'We’ll message {tg} on Telegram the day Max opens.',
       wl_signin: 'Sign in first, so we know who to message when Max opens.',
-      wl_failed: 'Could not save. Check your connection and try again, or message us on Telegram.', wl_change: 'Change username'
+      wl_failed: 'Could not save. Check your connection and try again, or message us on Telegram.', wl_change: 'Change username',
+      rp_title: 'Report a mistake', rp_intro: 'What’s wrong with this question? A wrong answer key, a typo, an unclear explanation: tell us and we’ll fix it.',
+      rp_label: 'What’s wrong', rp_send: 'Send', rp_done: 'Thanks. We read every report and fix what’s wrong.', rp_empty: 'Write a few words about the problem.',
+      rp_tg: 'You’re not signed in, so this opens Telegram with your message ready to send.', rp_tg_btn: 'Send on Telegram', rp_tg_msg: 'Mistake in {where}, question {qid}: ',
+      fb_title: 'Tell us what you think', fb_intro: 'What helps you most? What’s missing? Azizbek reads every message.', fb_label: 'Your message',
+      fb_quote: 'You may show my words on the site (first name only, never changed)', fb_done: 'Thank you! We read every message.'
     },
     uz: {
       free_name: 'Bepul', pro_name: 'Pro', max_name: 'Max',
@@ -1176,7 +1181,12 @@
       wl_label: 'Telegram foydalanuvchi nomi', wl_bad: 'Telegram nomingizni kiriting, masalan @satustoz.', wl_join: 'Roʻyxatga yozilish',
       wl_done_t: 'Siz roʻyxatdasiz', wl_done: 'Max ochilgan kuni {tg} ga Telegramda yozamiz.',
       wl_signin: 'Avval kiring, shunda Max ochilganda kimga yozishni bilamiz.',
-      wl_failed: 'Saqlab boʻlmadi. Internetni tekshirib, qayta urinib koʻring yoki Telegramda yozing.', wl_change: 'Nomni oʻzgartirish'
+      wl_failed: 'Saqlab boʻlmadi. Internetni tekshirib, qayta urinib koʻring yoki Telegramda yozing.', wl_change: 'Nomni oʻzgartirish',
+      rp_title: 'Xato haqida xabar berish', rp_intro: 'Bu savolda nima notoʻgʻri? Notoʻgʻri javob kaliti, imlo xatosi yoki tushunarsiz izoh: yozing, tuzatamiz.',
+      rp_label: 'Nima notoʻgʻri', rp_send: 'Yuborish', rp_done: 'Rahmat. Har bir xabarni oʻqiymiz va xatoni tuzatamiz.', rp_empty: 'Muammo haqida bir necha soʻz yozing.',
+      rp_tg: 'Siz hisobga kirmagansiz, shuning uchun xabaringiz Telegramda tayyor holda ochiladi.', rp_tg_btn: 'Telegramda yuborish', rp_tg_msg: 'Xato: {where}, savol {qid}: ',
+      fb_title: 'Fikringizni yozing', fb_intro: 'Sizga eng koʻp nima yordam beryapti? Nima yetishmayapti? Har bir xabarni Azizbek oʻqiydi.', fb_label: 'Xabaringiz',
+      fb_quote: 'Soʻzlarimni saytda koʻrsatishingiz mumkin (faqat ismim bilan, oʻzgartirmasdan)', fb_done: 'Rahmat! Har bir xabarni oʻqiymiz.'
     },
     ru: {
       free_name: 'Бесплатно', pro_name: 'Pro', max_name: 'Max',
@@ -1239,7 +1249,12 @@
       wl_label: 'Username в Telegram', wl_bad: 'Введите username в Telegram, например @satustoz.', wl_join: 'Записаться',
       wl_done_t: 'Вы в списке', wl_done: 'Мы напишем {tg} в Telegram в день запуска Max.',
       wl_signin: 'Сначала войдите, чтобы мы знали, кому написать, когда Max откроется.',
-      wl_failed: 'Не удалось сохранить. Проверьте интернет и попробуйте ещё раз или напишите нам в Telegram.', wl_change: 'Изменить username'
+      wl_failed: 'Не удалось сохранить. Проверьте интернет и попробуйте ещё раз или напишите нам в Telegram.', wl_change: 'Изменить username',
+      rp_title: 'Сообщить об ошибке', rp_intro: 'Что не так с этим вопросом? Неверный ключ, опечатка, непонятное объяснение: напишите, и мы исправим.',
+      rp_label: 'Что не так', rp_send: 'Отправить', rp_done: 'Спасибо. Мы читаем каждое сообщение и исправляем ошибки.', rp_empty: 'Напишите пару слов о проблеме.',
+      rp_tg: 'Вы не вошли в аккаунт, поэтому сообщение откроется в Telegram, готовое к отправке.', rp_tg_btn: 'Отправить в Telegram', rp_tg_msg: 'Ошибка: {where}, вопрос {qid}: ',
+      fb_title: 'Расскажите, что думаете', fb_intro: 'Что помогает больше всего? Чего не хватает? Каждое сообщение читает Азизбек.', fb_label: 'Ваше сообщение',
+      fb_quote: 'Можно показать мои слова на сайте (только имя, без изменений)', fb_done: 'Спасибо! Мы читаем каждое сообщение.'
     }
   };
   function planText(k, lang) {
@@ -1384,6 +1399,50 @@
     docRef().then(({ fs, ref }) => fs.getDoc(ref))
       .then(s => { if (s.exists() && s.data().telegram) done(s.data().telegram); else { store.del('waitlist'); form(''); } })
       .catch(() => form(store.get('waitlist', '')));
+  }
+
+  // "Report a mistake" on a question (kind 'mistake') and "Send feedback"
+  // (kind 'feedback'). Signed in: saved to reports/<auto id>, listed on
+  // admin.html. Signed out: the same message opens on Telegram, ready to send.
+  function openNote(kind, opts) {
+    opts = opts || {};
+    const lang = langNow(), T = k => planText(k, lang);
+    const mistake = kind === 'mistake', P = mistake ? 'rp_' : 'fb_';
+    const canSave = manual.canSave();
+    const prefix = mistake ? T('rp_tg_msg').replace('{where}', opts.where || '-').replace('{qid}', opts.qid || '-') : '';
+    const ui = stepModal(T(P + 'title'), lang);
+    const { show, row, closeBtn } = ui;
+    function form(msg, text) {
+      show('<form class="pay-card" novalidate><p>' + esc(T(P + 'intro')) + '</p>' +
+        '<div class="field"><label for="nt-text">' + esc(T(P + 'label')) + '</label><textarea id="nt-text" class="input" rows="4" maxlength="1000">' + esc(text || '') + '</textarea></div>' +
+        (!mistake && canSave ? '<label class="nt-quote"><input type="checkbox" id="nt-quote"> ' + esc(T('fb_quote')) + '</label>' : '') +
+        (canSave ? '' : '<p class="muted small">' + esc(T('rp_tg')) + '</p>') +
+        '<p class="pay-err" role="alert"' + (msg ? '' : ' hidden') + '>' + esc(msg || '') + '</p>' +
+        row(closeBtn() + '<button type="submit" class="btn btn-primary">' + esc(T(canSave ? 'rp_send' : 'rp_tg_btn')) + '</button>') + '</form>', '#nt-text');
+      const f = $('form', ui.box), ta = $('#nt-text', f), err = $('.pay-err', f);
+      f.addEventListener('submit', async e => {
+        e.preventDefault();
+        const body = ta.value.trim().slice(0, 1000);
+        if (body.length < 3) { err.textContent = T('rp_empty'); err.hidden = false; ta.focus(); return; }
+        if (!canSave) { window.open(CONFIG.CONTACT_TELEGRAM + '?text=' + encodeURIComponent(prefix + body), '_blank', 'noopener'); ui.m.close(); return; }
+        const quote = $('#nt-quote', f);
+        const quoteOk = !!(quote && quote.checked);
+        $$('button, textarea, input', f).forEach(el => { el.disabled = true; });
+        try {
+          const fs = await sync._lib();
+          await fs.addDoc(fs.collection(sync.db, 'reports'), {
+            uid: auth.user.uid, email: auth.user.email || '', name: (auth.user.name || '').slice(0, 100), kind,
+            qid: String(opts.qid || '').slice(0, 100), where: String(opts.where || '').slice(0, 120),
+            text: body, quoteOk, lang, page: (location.pathname.split('/').pop() || 'index.html').slice(0, 60), createdAt: fs.serverTimestamp()
+          });
+          show('<p class="pay-ok">' + esc(T(P + 'done')) + '</p>' + row(closeBtn()), '[data-close]');
+        } catch (ex) {
+          console.warn('[SAT Ustoz] Could not save the message. Are the new firestore.rules published?', ex);
+          form(T('wl_failed'), body);
+        }
+      });
+    }
+    form();
   }
 
   function copyText(text, msg) {
@@ -1841,6 +1900,14 @@
       if (b.dataset.pitchTest) track('locked_test_tapped', { test_id: b.dataset.pitchTest });
       else track('pro_preview_tapped', { feature: b.dataset.pitchFeature || 'other', title: b.dataset.pitch });
       plan.pitch({ title: b.dataset.pitch, text: b.dataset.pitchText || '' });
+    });
+    // <button data-report data-qid="…" data-where="Practice Test 1"> and <a data-feedback>
+    document.addEventListener('click', e => {
+      const r = e.target.closest && e.target.closest('[data-report], [data-feedback]');
+      if (!r) return;
+      e.preventDefault();
+      if (r.hasAttribute('data-report')) openNote('mistake', { qid: r.dataset.qid, where: r.dataset.where });
+      else openNote('feedback');
     });
     // Header gets a hairline and shadow once the page scrolls
     const hdr = $('.site-header');

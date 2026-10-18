@@ -20,7 +20,7 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:locale:alternate" content="uz_UZ">
 <meta property="og:locale:alternate" content="ru_RU">
-<meta name="twitter:card" content="summary">
+<meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="SAT Ustoz: Digital SAT practice">
 <meta name="twitter:description" content="Adaptive SAT practice tests, question sets by skill, and an explanation for every question.">
 <meta name="twitter:image" content="https://satustoz.academy/og-image.png">
@@ -151,6 +151,38 @@
   .faq details[open] summary::after { transform: rotate(-135deg); margin-top: -2px; }
   .faq details p { padding: 0 0 20px; margin: 0; color: var(--ink-2); max-width: 42em; }
   .sticky-cta { display: none; }
+  /* Try a question */
+  .try { padding: 0; overflow: hidden; max-width: 820px; }
+  .try-tabs { display: flex; border-bottom: 1px solid var(--line); }
+  .try-tabs button { flex: 1; background: none; border: 0; border-bottom: 3px solid transparent; padding: 14px 10px; font: inherit; font-weight: 700; color: var(--muted); cursor: pointer; }
+  .try-tabs button[aria-selected="true"] { color: var(--ink); border-bottom-color: var(--brand); }
+  .try-q, .try-cta { padding: 22px 24px 4px; }
+  .try-passage { line-height: 1.7; color: var(--ink-2); }
+  .try-prompt { font-weight: 600; }
+  .try-choices { display: grid; gap: 10px; margin: 14px 0 18px; }
+  .try-c { display: flex; align-items: center; gap: 12px; text-align: left; width: 100%; padding: 12px 14px; background: var(--paper); border: 1.5px solid var(--edge); border-radius: var(--r-sm); font: inherit; color: var(--ink); cursor: pointer; }
+  .try-c i { flex: 0 0 auto; width: 28px; height: 28px; border-radius: 50%; border: 1.5px solid var(--ink-2); display: inline-flex; align-items: center; justify-content: center; font-style: normal; font-weight: 700; font-size: .9rem; }
+  .try-c:hover:not([disabled]) { border-color: var(--brand); background: var(--brand-tint); }
+  .try-c[disabled] { cursor: default; }
+  .try-c.is-right { border-color: var(--ok); background: var(--ok-tint); }
+  .try-c.is-right i { background: var(--ok); border-color: var(--ok); color: #fff; }
+  .try-c.is-wrong { border-color: var(--bad); background: var(--bad-tint); }
+  .try-res { background: var(--ivory); border-radius: var(--r-sm); padding: 14px 16px; margin-bottom: 18px; }
+  .try-res p { margin: 0 0 6px; }
+  .try-verdict { font-weight: 700; }
+  .try-cta { border-top: 1px solid var(--line); padding-bottom: 22px; }
+  .try-cta p { color: var(--muted); }
+  /* Made for Uzbekistan */
+  .why-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px 40px; }
+  .why-item { border-top: 3px solid var(--gold); padding-top: 14px; }
+  .why-item h3 { font-size: 1.2rem; margin-bottom: .35em; }
+  .why-item p { margin: 0; color: var(--muted); }
+  /* What students say */
+  .says { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
+  .says blockquote { margin: 0; background: var(--ivory); border-radius: var(--r); padding: 18px 20px; }
+  .says blockquote p { margin: 0 0 10px; color: var(--ink); }
+  .says cite { font-style: normal; font-size: .9rem; color: var(--muted); }
+  @media (max-width: 760px) { .why-grid, .says { grid-template-columns: 1fr; } }
   @media (max-width: 920px) {
     .hero .wrap, .how-grid, .feat { grid-template-columns: 1fr; gap: 32px; }
     .stage { justify-self: stretch; max-width: none; }
@@ -235,6 +267,30 @@
     </div>
   </section>
 
+  <section class="block try-sec" id="try">
+    <div class="wrap">
+      <div class="sec-head"><h2 data-i18n="try_h2">Try one now. No account needed.</h2><p class="muted" data-i18n="try_p">Two questions in the real digital SAT style. Answer one to see the explanation, in English, Uzbek or Russian: switch the language at the top.</p></div>
+      <div class="try card">
+        <div class="try-tabs" role="tablist" aria-label="Question">
+          <button type="button" role="tab" id="try-tab-rw" aria-controls="try-rw" aria-selected="true" data-try-tab="rw">Reading and Writing</button><button type="button" role="tab" id="try-tab-math" aria-controls="try-math" aria-selected="false" tabindex="-1" data-try-tab="math">Math</button>
+        </div>
+        <div class="try-q" id="try-rw" role="tabpanel" aria-labelledby="try-tab-rw" data-answer="B">
+          <p class="try-passage">Although the Aral Sea once supported a thriving fishing industry, decades of water diversion caused it to shrink. Recent efforts to restore its northern section have been ______: fish populations there have recovered enough that local fishing has resumed.</p>
+          <p class="try-prompt">Which choice completes the text with the most logical and precise word or phrase?</p>
+          <div class="try-choices"><button type="button" class="try-c" data-c="A"><i>A</i>negligible</button><button type="button" class="try-c" data-c="B"><i>B</i>encouraging</button><button type="button" class="try-c" data-c="C"><i>C</i>inevitable</button><button type="button" class="try-c" data-c="D"><i>D</i>disastrous</button></div>
+          <div class="try-res" aria-live="polite" hidden><p class="try-verdict"></p><p data-i18n="try_rw_ex">B is right. The colon promises evidence: fish came back and fishing resumed, so the efforts have been encouraging. &ldquo;Negligible&rdquo; and &ldquo;disastrous&rdquo; contradict that evidence, and nothing says the result was &ldquo;inevitable&rdquo;.</p></div>
+        </div>
+        <div class="try-q" id="try-math" role="tabpanel" aria-labelledby="try-tab-math" data-answer="A" hidden>
+          <p class="try-prompt">The function <i>f</i> is defined by <i>f</i>(<i>x</i>) = 2<i>x</i>&sup2; &minus; 18. What is the positive value of <i>x</i> for which <i>f</i>(<i>x</i>) = 0?</p>
+          <div class="try-choices"><button type="button" class="try-c" data-c="A"><i>A</i>3</button><button type="button" class="try-c" data-c="B"><i>B</i>6</button><button type="button" class="try-c" data-c="C"><i>C</i>9</button><button type="button" class="try-c" data-c="D"><i>D</i>18</button></div>
+          <div class="try-res" aria-live="polite" hidden><p class="try-verdict"></p><p data-i18n="try_math_ex">A is right. Set 2x&sup2; &minus; 18 = 0, so 2x&sup2; = 18 and x&sup2; = 9. The solutions are 3 and &minus;3, and the positive one is 3. Choice C is the value of x&sup2;, not x.</p></div>
+        </div>
+        <div class="try-cta" hidden><p data-i18n="try_cta_p">That was one question. The free mini diagnostic gives you an estimated score in about 50 minutes.</p><a class="btn btn-primary" href="test.html?id=diagnostic-mini" data-i18n="try_cta">Take the free diagnostic</a></div>
+        <span hidden data-i18n="try_ok">Correct.</span><span hidden data-i18n="try_no">Not quite. The answer is {a}.</span>
+      </div>
+    </div>
+  </section>
+
   <section class="block" id="features">
     <div class="wrap feat">
       <h2 data-i18n="features_h2">Everything you need to practice, in one place</h2>
@@ -274,12 +330,31 @@
     </div>
   </section>
 
+  <section class="block" id="why">
+    <div class="wrap">
+      <div class="sec-head"><h2 data-i18n="why_h2">Why students choose SAT Ustoz</h2></div>
+      <div class="why-grid">
+        <div class="why-item"><h3 data-i18n="w1_t">Fair price, local payment</h3><p data-i18n="w1_d">Big prep platforms charge around $20 a month. Pro here is 79 000 so&rsquo;m a month, and in Uzbekistan you pay from any banking app with Uzcard or Humo, no Visa or Mastercard needed.</p></div>
+        <div class="why-item"><h3 data-i18n="w2_t">Help in Uzbek, Russian and English</h3><p data-i18n="w2_d">Stuck on a question or a payment? Message a real person on Telegram. We reply within 2 hours, 9:00 to 23:00 Tashkent time.</p></div>
+        <div class="why-item"><h3 data-i18n="w3_t">Written by a 1530 scorer</h3><p data-i18n="w3_d">Questions and explanations come from an SAT instructor who scored 1530 (790 Math) and knows the mistakes international students make most.</p></div>
+        <div class="why-item"><h3 data-i18n="w4_t">Report a mistake, see it fixed</h3><p data-i18n="w4_d">Every question has a &ldquo;Report a mistake&rdquo; button. We read every report and fix what&rsquo;s wrong.</p></div>
+      </div>
+    </div>
+  </section>
+
   <section class="block" id="team">
     <div class="wrap">
       <div class="sec-head"><h2 data-i18n="team_h2">Built by someone who has taken the test</h2><p class="muted" data-i18n="team_p">We wrote these questions the way we wish someone had written them for us: in the real format, with explanations that tell you why, not only what.</p></div>
       <div class="team">
         <div class="card person"><div class="medal" aria-hidden="true">AT</div><div><h3>Azizbek To'rabayev</h3><p data-i18n="az_role">SAT 1530 (740 Reading and Writing, 790 Math). SAT instructor and FLEX &rsquo;26 alumnus.</p></div></div>
       </div>
+    </div>
+  </section>
+
+  <section class="block" id="students" hidden>
+    <div class="wrap">
+      <div class="sec-head"><h2 data-i18n="says_h2">What students say</h2><p class="muted" data-i18n="says_p">Real messages from SAT Ustoz students, shared with their permission. We never change the words.</p></div>
+      <div class="says" id="says"></div>
     </div>
   </section>
 
@@ -325,7 +400,7 @@
         <p style="margin-top:10px" data-i18n="footer_tag">Digital SAT practice built by someone who has taken the test, for students in Uzbekistan and beyond.</p>
       </div>
       <div><h3 class="f-head" data-i18n="f_practice">Practice</h3><ul><li><a href="practice.html#sets" data-i18n="l_sets">Practice sets</a></li><li><a href="practice.html#plans" data-i18n="l_plans">Plans</a></li><li><a href="practice.html#tests" data-i18n="nav_tests">Practice tests</a></li></ul></div>
-      <div><h3 class="f-head" data-i18n="f_contact">Contact</h3><ul><li><a href="tel:+998970550033">+998 97 055 00 33</a></li><li><a data-link="telegram" href="https://t.me/azizbek7_t" target="_blank" rel="noopener">Telegram: @azizbek7_t</a></li><li><a data-link="channel" href="https://t.me/satustoz_off" target="_blank" rel="noopener" data-i18n="l_channel">Telegram channel</a></li><li><a data-link="instagram" href="https://www.instagram.com/satustoz" target="_blank" rel="noopener">Instagram: satustoz</a></li></ul></div>
+      <div><h3 class="f-head" data-i18n="f_contact">Contact</h3><ul><li><a href="tel:+998970550033">+998 97 055 00 33</a></li><li><a data-link="telegram" href="https://t.me/azizbek7_t" target="_blank" rel="noopener">Telegram: @azizbek7_t</a></li><li><a data-link="channel" href="https://t.me/satustoz_off" target="_blank" rel="noopener" data-i18n="l_channel">Telegram channel</a></li><li><a data-link="instagram" href="https://www.instagram.com/satustoz" target="_blank" rel="noopener">Instagram: satustoz</a></li><li><a href="#" data-feedback data-i18n="l_feedback">Send feedback</a></li></ul></div>
     </div>
     <div class="footer-legal">&copy; <span data-year>2026</span> SAT Ustoz. <span data-i18n="legal">SAT&reg; is a trademark registered by the College Board, which is not affiliated with, and does not endorse, this website. All practice questions on this site are written by SAT Ustoz.</span></div>
   </div>
@@ -338,6 +413,17 @@ document.addEventListener('DOMContentLoaded', function () {
   var I18N = {
     uz: {
       skip: "Asosiy qismga oʻtish",
+      try_h2: "Hoziroq sinab koʻring. Hisob kerak emas.", try_p: "Haqiqiy Digital SAT uslubidagi ikkita savol. Javob bering va tushuntirishni ingliz, oʻzbek yoki rus tilida koʻring: tilni yuqorida oʻzgartirasiz.",
+      try_rw_ex: "Toʻgʻri javob B. Ikki nuqtadan keyingi qism dalil beradi: baliqlar qaytgan va baliq ovlash qayta boshlangan, demak saʼy-harakatlar umid beruvchi (encouraging). “Negligible” va “disastrous” bu dalilga zid, natija “inevitable” (muqarrar) boʻlgani haqida esa matnda hech narsa yoʻq.",
+      try_math_ex: "Toʻgʻri javob A. 2x² − 18 = 0 deb olamiz: 2x² = 18, x² = 9. Yechimlar 3 va −3, musbati esa 3. C javob x ning emas, x² ning qiymati.",
+      try_cta_p: "Bu bitta savol edi. Bepul mini diagnostika taxminan 50 daqiqada taxminiy ballingizni beradi.", try_cta: "Bepul diagnostikani topshirish",
+      try_ok: "Toʻgʻri.", try_no: "Unchalik emas. Toʻgʻri javob: {a}.",
+      why_h2: "Nega oʻquvchilar SAT Ustozni tanlaydi",
+      w1_t: "Adolatli narx, qulay toʻlov", w1_d: "Yirik platformalar oyiga taxminan 20 dollar oladi. Bu yerda Pro oyiga 79 000 soʻm, Oʻzbekistonda esa istalgan bank ilovasi orqali Uzcard yoki Humo bilan toʻlaysiz, Visa yoki Mastercard kerak emas.",
+      w2_t: "Oʻzbek, rus va ingliz tilida yordam", w2_d: "Savol yoki toʻlovda qiyinchilik bormi? Telegramda haqiqiy insonga yozing. Toshkent vaqti bilan 9:00 dan 23:00 gacha 2 soat ichida javob beramiz.",
+      w3_t: "1530 ball olgan ustoz tomonidan yozilgan", w3_d: "Savollar va izohlar 1530 ball (Math 790) olgan va xalqaro oʻquvchilar eng koʻp qiladigan xatolarni biladigan SAT ustozidan.",
+      w4_t: "Xatoni xabar qiling, biz tuzatamiz", w4_d: "Har bir savolda “Xato haqida xabar berish” tugmasi bor. Har bir xabarni oʻqiymiz va xatoni tuzatamiz.",
+      says_h2: "Oʻquvchilar fikri", says_p: "SAT Ustoz oʻquvchilarining haqiqiy xabarlari, ularning ruxsati bilan. Soʻzlarini hech qachon oʻzgartirmaymiz.",
       nav_practice: "Mashq", nav_tests: "Sinov testlar", nav_how: "Qanday ishlaydi", nav_pricing: "Tariflar", nav_faq: "Savollar",
       pricing_h2: "Bepul boshlang. Tayyor boʻlganingizda tarifni oshiring.", pricing_p: "Mini diagnostika va 1-sinov testi bepul, karta kerak emas. Pro barcha oʻnta testni ochadi va qaysi koʻnikmalarda ball yoʻqotayotganingizni aniq koʻrsatadi.",
       q7: "Nimalar bepul, nimalar uchun Pro kerak?", a7: "Mini diagnostika, 1-sinov testi, boshlangʻich toʻplamlar va umumiy ballingiz bepul. Pro barcha 10 ta sinov testini, koʻnikmalar boʻyicha ball tahlilini, har bir savolni izohlari bilan koʻrib chiqishni va eng zaif koʻnikmalaringiz boʻyicha mashqlarni ochadi. Tez kunda chiqadigan Max esa AI ustoz, imtihon sanangizgacha oʻqish rejasi va Azizbek bilan oylik jonli guruh darsini qoʻshadi.",
@@ -366,11 +452,22 @@ document.addEventListener('DOMContentLoaded', function () {
       q5: "Telefonda ishlaydimi?", a5: "Ha, hammasi telefonda ishlaydi. Toʻliq sinov testlari uchun esa noutbuk imtihon kuniga yaqinroq tajriba beradi.",
       q6: "Bu Bluebook bilan bir xilmi?", a6: "U xuddi shu tuzilma va vositalarga ega: taymer, savollar navigatori, Mark for Review, javob variantlarini chizib tashlash, izoh qoʻshish, kalkulyator va formulalar varagʻi. Bu bizning mustaqil mashq saytimiz va College Board bilan bogʻliq emas.",
       footer_tag: "Imtihonni oʻzi topshirgan inson tomonidan Oʻzbekiston va boshqa mamlakatlardagi oʻquvchilar uchun yaratilgan Digital SAT mashqlari.",
-      f_practice: "Mashq", f_contact: "Aloqa", l_sets: "Savollar toʻplami", l_plans: "Tariflar", l_channel: "Telegram kanal",
+      f_practice: "Mashq", f_contact: "Aloqa", l_sets: "Savollar toʻplami", l_plans: "Tariflar", l_feedback: "Fikr bildirish", l_channel: "Telegram kanal",
       legal: "SAT® College Board tomonidan roʻyxatdan oʻtkazilgan savdo belgisidir. College Board ushbu sayt bilan bogʻliq emas va uni qoʻllab-quvvatlamaydi. Saytdagi barcha mashq savollari SAT Ustoz tomonidan yozilgan."
     },
     ru: {
       skip: "Перейти к содержанию",
+      try_h2: "Попробуйте прямо сейчас. Аккаунт не нужен.", try_p: "Два вопроса в стиле настоящего Digital SAT. Ответьте, чтобы увидеть объяснение на английском, узбекском или русском: язык можно сменить вверху.",
+      try_rw_ex: "Верный ответ B. После двоеточия идёт доказательство: рыба вернулась и рыболовство возобновилось, значит, усилия обнадёживают (encouraging). «Negligible» и «disastrous» противоречат этому, а о том, что результат был «inevitable» (неизбежным), в тексте ничего нет.",
+      try_math_ex: "Верный ответ A. Приравниваем 2x² − 18 = 0: 2x² = 18, x² = 9. Решения 3 и −3, положительное из них 3. Вариант C — это значение x², а не x.",
+      try_cta_p: "Это был один вопрос. Бесплатная мини-диагностика покажет примерный балл примерно за 50 минут.", try_cta: "Пройти бесплатную диагностику",
+      try_ok: "Верно.", try_no: "Не совсем. Верный ответ: {a}.",
+      why_h2: "Почему ученики выбирают SAT Ustoz",
+      w1_t: "Честная цена, удобная оплата", w1_d: "Крупные платформы берут около 20 долларов в месяц. Здесь Pro стоит 79 000 сум в месяц, а в Узбекистане вы платите из любого банковского приложения картой Uzcard или Humo, без Visa или Mastercard.",
+      w2_t: "Помощь на узбекском, русском и английском", w2_d: "Застряли на вопросе или с оплатой? Напишите живому человеку в Telegram. Отвечаем в течение 2 часов, с 9:00 до 23:00 по Ташкенту.",
+      w3_t: "Написано преподавателем с 1530", w3_d: "Вопросы и объяснения — от преподавателя SAT с результатом 1530 (Math 790), который знает, где иностранные ученики ошибаются чаще всего.",
+      w4_t: "Сообщите об ошибке, и мы её исправим", w4_d: "У каждого вопроса есть кнопка «Сообщить об ошибке». Мы читаем каждое сообщение и исправляем ошибки.",
+      says_h2: "Что говорят ученики", says_p: "Настоящие сообщения учеников SAT Ustoz, опубликованные с их разрешения. Мы никогда не меняем их слова.",
       nav_practice: "Практика", nav_tests: "Пробные тесты", nav_how: "Как это работает", nav_pricing: "Тарифы", nav_faq: "Вопросы",
       pricing_h2: "Начните бесплатно. Перейдите на Pro, когда будете готовы.", pricing_p: "Мини-диагностика и пробный тест 1 бесплатны, карта не нужна. Pro открывает все десять тестов и точно показывает, на каких навыках вы теряете баллы.",
       q7: "Что бесплатно, а для чего нужен Pro?", a7: "Мини-диагностика, пробный тест 1, стартовые наборы и общий балл бесплатны. Pro открывает все 10 пробных тестов, разбор балла по навыкам, разбор каждого вопроса с объяснениями и тренировки по вашим самым слабым навыкам. Max, который скоро появится, добавит ИИ-репетитора, план подготовки до даты экзамена и ежемесячное живое групповое занятие с Азизбеком.",
@@ -399,7 +496,7 @@ document.addEventListener('DOMContentLoaded', function () {
       q5: "Работает ли на телефоне?", a5: "Да, всё работает на телефоне. Но для полных пробных тестов ноутбук ближе к условиям экзамена.",
       q6: "Это то же самое, что Bluebook?", a6: "Он повторяет ту же структуру и инструменты: таймер, навигатор по вопросам, Mark for Review, вычёркивание вариантов, заметки, калькулятор и справочный лист. Это наш собственный сайт для практики, он не связан с College Board.",
       footer_tag: "Практика Digital SAT от того, кто сам сдавал тест, для учеников в Узбекистане и не только.",
-      f_practice: "Практика", f_contact: "Контакты", l_sets: "Наборы вопросов", l_plans: "Тарифы", l_channel: "Telegram-канал",
+      f_practice: "Практика", f_contact: "Контакты", l_sets: "Наборы вопросов", l_plans: "Тарифы", l_feedback: "Оставить отзыв", l_channel: "Telegram-канал",
       legal: "SAT® является зарегистрированным товарным знаком College Board, которая не связана с этим сайтом и не одобряет его. Все тренировочные вопросы на сайте написаны SAT Ustoz."
     }
   };
@@ -425,7 +522,59 @@ document.addEventListener('DOMContentLoaded', function () {
     document.documentElement.lang = LOCALE[lang];
     Array.prototype.forEach.call(document.querySelectorAll('[data-lang]'), function (b) { b.setAttribute('aria-pressed', String(b.dataset.lang === lang)); });
     if (window.SH) { window.SH.store.set('lang', lang); window.SH.renderAuthSlots(); window.SH.renderPlans(plansMount, { context: 'landing' }); }
+    tryVerdicts();
   }
+
+  // Try a question: tabs, answer, verdict and explanation in the page language.
+  var tryBox = document.querySelector('.try');
+  function tryVerdicts() {
+    if (!tryBox) return;
+    var ok = tryBox.querySelector('[data-i18n="try_ok"]').textContent, no = tryBox.querySelector('[data-i18n="try_no"]').textContent;
+    Array.prototype.forEach.call(tryBox.querySelectorAll('.try-q[data-picked]'), function (q) {
+      var right = q.dataset.picked === q.dataset.answer;
+      q.querySelector('.try-verdict').textContent = right ? ok : no.replace('{a}', q.dataset.answer);
+    });
+  }
+  if (tryBox) {
+    var tabs = tryBox.querySelectorAll('[data-try-tab]');
+    Array.prototype.forEach.call(tabs, function (tab) {
+      tab.addEventListener('click', function () {
+        Array.prototype.forEach.call(tabs, function (x) { var on = x === tab; x.setAttribute('aria-selected', String(on)); x.tabIndex = on ? 0 : -1; });
+        Array.prototype.forEach.call(tryBox.querySelectorAll('.try-q'), function (q) { q.hidden = q.id !== 'try-' + tab.dataset.tryTab; });
+      });
+      tab.addEventListener('keydown', function (e) {
+        if (e.key !== 'ArrowLeft' && e.key !== 'ArrowRight') return;
+        var other = tab === tabs[0] ? tabs[1] : tabs[0];
+        other.click(); other.focus();
+      });
+    });
+    Array.prototype.forEach.call(tryBox.querySelectorAll('.try-c'), function (c) {
+      c.addEventListener('click', function () {
+        var q = c.closest('.try-q');
+        if (q.dataset.picked) return;
+        q.dataset.picked = c.dataset.c;
+        Array.prototype.forEach.call(q.querySelectorAll('.try-c'), function (x) {
+          x.disabled = true;
+          if (x.dataset.c === q.dataset.answer) x.classList.add('is-right');
+          else if (x === c) x.classList.add('is-wrong');
+        });
+        q.querySelector('.try-res').hidden = false;
+        tryBox.querySelector('.try-cta').hidden = false;
+        tryVerdicts();
+      });
+    });
+  }
+
+  // What students say: quotes from data/testimonials.json (empty: the section stays hidden).
+  fetch('data/testimonials.json', { cache: 'no-cache' }).then(function (r) { return r.ok ? r.json() : []; }).then(function (list) {
+    list = Array.isArray(list) ? list.filter(function (q) { return q && q.text; }) : [];
+    if (!list.length) return;
+    var esc = function (s) { return String(s == null ? '' : s).replace(/[&<>"']/g, function (ch) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[ch]; }); };
+    document.getElementById('says').innerHTML = list.slice(0, 9).map(function (q) {
+      return '<blockquote><p>' + esc(q.text) + '</p>' + (q.who ? '<cite>' + esc(q.who) + '</cite>' : '') + '</blockquote>';
+    }).join('');
+    document.getElementById('students').hidden = false;
+  }).catch(function () { /* no quotes yet */ });
   var plansMount = document.getElementById('plans-mount');
   if (window.SH) window.SH.auth.onChange(function () { window.SH.renderPlans(plansMount, { context: 'landing' }); });
   Array.prototype.forEach.call(document.querySelectorAll('[data-lang]'), function (b) {

@@ -539,3 +539,8 @@ select.input { appearance: none; -webkit-appearance: none; padding-right: 38px; 
 
 /* ---------- Score share card preview (test.html results) ---------- */
 .share-prev { display: block; width: auto; height: auto; max-width: 100%; max-height: min(56vh, 520px); margin: 0 auto; border-radius: var(--r-sm); border: 1px solid var(--line); }
+/* Report a mistake / Send feedback */
+.report-line { margin: 10px 0 0; font-size: .88rem; }
+.report-line .link-btn { font-weight: 600; color: var(--muted); }
+.nt-quote { display: flex; gap: 8px; align-items: flex-start; font-size: .92rem; color: var(--ink-2); margin: -4px 0 6px; }
+.nt-quote input { margin-top: 4px; }
