@@ -8,12 +8,13 @@ practice.html           Practice hub: dashboard, practice sets, skill drills, AI
 test.html               Adaptive practice test in the digital SAT format (test.html?id=<test-id>)
 login.html              Sign in / register with Google, plus a short first-time profile form
 builder.html            Question builder for your team (not linked from the site, hidden from Google)
+admin.html              Approve card-transfer payments, for you only (not linked from the site, hidden from Google)
 404.html                Branded "page not found" page (GitHub Pages uses it automatically)
 assets/sh.css           Brand styles (colours and fonts at the top)
-assets/sh.js            Shared code. SETTINGS block at the top: AI_ENDPOINT, FIREBASE, REQUIRE_LOGIN, PLANS, PAYMENTS_ENDPOINT, contacts
+assets/sh.js            Shared code. SETTINGS block at the top: AI_ENDPOINT, FIREBASE, REQUIRE_LOGIN, PLANS, PAYMENTS_ENDPOINT, TESTS_ENDPOINT, MANUAL_PAY, contacts
 data/catalog.json       List of every practice set and practice test
 data/sets/*.json        Practice sets
-data/tests/*.json       Practice tests (practice-test-1 to 10, plus the mini diagnostic)
+data/tests/*.json       Practice tests 1 to 3 and the mini diagnostic (Pro Tests 4 to 10 belong in a private repository, section 6)
 worker/ai-worker.js     Cloudflare Worker that holds the AI key (not used by the pages directly)
 worker/payments-worker.js  Cloudflare Worker for Payme payments, monthly renewals and the Pro test files
 firestore.rules         Database security rules to paste into Firebase
@@ -226,13 +227,82 @@ harder Module 2. The College Board does not publish its real rule, so this is an
 ### Publish the new database rules (do this once)
 
 `firestore.rules` changed: students can no longer write the `plan` fields on their own account. Without this, anyone
-could give themselves Pro from the browser console. Firebase console → **Firestore Database → Rules**, replace
-everything with the new `firestore.rules`, **Publish**.
+could give themselves Pro from the browser console. First put your email in `adminEmails()` near the top of the file
+(see "Payment by card transfer" below). Then Firebase console → **Firestore Database → Rules**, replace everything
+with the new `firestore.rules`, **Publish**.
+
+### Payment by card transfer (until Payme is set up)
+
+Students transfer the Pro price to your Uzcard or Humo card from any banking app, and you switch Pro on by hand.
+
+**Switch it on (once)**
+
+1. At the top of `assets/sh.js`, fill `MANUAL_PAY`: `CARD` (your card number) and `CARD_HOLDER` (the name the bank
+   app shows when someone transfers to it). Check `PRO_PRICE` in `PLANS` too: that is the amount students are told to send.
+2. In `firestore.rules`, find `adminEmails()` near the top and replace `REPLACE-WITH-YOUR-GOOGLE-EMAIL` with the
+   Google email you will use on the admin page, in lowercase: `['you@gmail.com']`. For more than one person:
+   `['you@gmail.com', 'partner@gmail.com']`. While the placeholder is there, nobody can use the admin page.
+3. Publish the new `firestore.rules` (Firebase console → **Firestore Database → Rules** → paste → **Publish**).
+   It adds `payRequests`, where students leave their payment details, and lets only the emails in `adminEmails()`
+   approve them.
+4. Upload `admin.html`, `assets/sh.js`, `assets/sh.css` and `firestore.rules` to GitHub.
+
+Anyone can read the files in a public GitHub repository, including the email in `firestore.rules`. That is safe:
+being an admin takes signing in to that Google account. To keep the email private anyway, leave the placeholder in
+the GitHub copy and type your email only in the Firebase console before you publish.
+
+**What the student sees**
+
+1. "Upgrade to Pro" (after signing in) shows your card, the name on it and the price, each with a Copy button.
+2. After paying they tap "I've paid" and enter the last 4 digits of the card they paid from, plus the receipt number
+   if they have one. This is saved in Firestore as `payRequests/<their uid>`.
+3. Last step: "Send receipt on Telegram" opens a chat with `CONTACT_TELEGRAM`, with a message already written
+   (price, account email, card ending). They attach the receipt screenshot. **This message is how you hear about the payment.**
+4. If they open "Upgrade to Pro" again within 7 days, it says the payment is being checked instead of showing the card.
+   Pro students get a "Pay for another month" link under their plan, which opens the same steps.
+
+**Checking a payment and switching Pro on**
+
+1. When the Telegram message comes in, open `satustoz.academy/admin.html` and sign in with your admin Google account.
+   It lists every payment waiting to be checked, newest first: the student's name and email, amount, the last 4 digits
+   of the card they paid from, receipt number, when they sent it, and their plan right now.
+2. In your bank app, find the incoming transfer: same amount, sender card ending in those 4 digits, around that time.
+3. **Approve** switches Pro on and takes the payment off the list. Pro runs for 30 days from today, or for 30 days
+   after their current Pro ends if they are renewing early, so they don't lose days. Each payment shows the new end
+   date before you click. The student reloads the site and Tests 4 to 10 open.
+4. **Reject**, when no transfer matches, only takes the payment off the list. Pro stays off. Tell them why on Telegram.
+
+The admin page is not linked from the site and Google doesn't index it, so bookmark it. Anyone else who opens it gets
+nothing: the database refuses the list to every account that is not in `adminEmails()`.
+
+- *"This account can't open the payment list"*: the email you signed in with is not in `adminEmails()` in the rules
+  you published, or the new rules are not published yet.
+- A student who already has Pro with no end date (your team, for example) keeps it: Approve only clears the payment.
+  A student with Max keeps Max, with 30 more days.
+- Approve sets the same fields you would set by hand: `plan` = `pro`, `planUntil` (a timestamp) and
+  `planSource` = `manual` on `users/<their uid>`. It also deletes `payRequests/<their uid>`. Both happen together or
+  not at all.
+
+**Without the admin page (fallback)**
+
+If the admin page doesn't work for you, do the same in the Firebase console:
+
+1. Firebase console → **Firestore Database → payRequests**: each document has the student's
+   `email`, `amount`, `last4`, `receiptId` and `createdAt`.
+2. In your bank app, find the incoming transfer: same amount, sender card ending in `last4`, around `createdAt`.
+3. Switch Pro on in `users/<the same uid>` as described in the next section. Use the end of their current month as
+   `planUntil` when they are renewing, so they don't lose days. Optionally add `planSource`, type *string*, `manual`.
+4. Delete the `payRequests` document, so the list holds only payments you haven't checked yet.
+
+If no transfer matches, reply on Telegram and leave Pro off. Writing a `payRequests` note never switches Pro on by
+itself: only an admin (on the admin page) or you (in the console) can set the plan fields.
+
+When Payme is ready, fill `PAYMENTS_ENDPOINT` and the card-transfer steps disappear by themselves.
 
 ### Giving a student Pro by hand (works with or without online payment)
 
-While `PAYMENTS_ENDPOINT` is empty, "Upgrade to Pro" tells the student to message you on Telegram and shows the email of
-their account. After they pay you:
+While `PAYMENTS_ENDPOINT` and `MANUAL_PAY.CARD` are both empty, "Upgrade to Pro" tells the student to message you on
+Telegram and shows the email of their account. After they pay you, or after you match a card transfer:
 
 1. Firebase console → **Firestore Database → users**. Find the student's document (each one has an `email` field).
 2. **Add field** `plan`, type *string*, value `pro`.
@@ -384,31 +454,104 @@ Sign in on the site with your own Google account. Your user ID is the name of yo
 
 ### Moving the Pro tests off GitHub Pages
 
-Until you do this, `data/tests/practice-test-4.json` to `-10.json` are public files: the site locks them, but someone
-technical can download them directly. Once `PAYMENTS_ENDPOINT` is set, the site already loads Tests 4 to 10 through the
-Worker (which checks the student's plan) and Tests 1 to 3 straight from GitHub Pages as before. The Worker reads the Pro
-files from GitHub Pages until you give it a private place to read them from:
+Until you do this, `data/tests/practice-test-4.json` to `-10.json` are public files. The site shows Tests 4 to 10 as
+locked, but anyone can open `satustoz.academy/test.html?id=practice-test-7`, or the file itself, without paying. The fix:
+the Pro files move to a private GitHub repository, and the payments Worker hands them out only to students whose account
+has Pro. The Worker reads `plan` and `planUntil` from Firestore itself, so nothing a student changes in their browser
+opens a test.
+
+**You don't need Payme for this.** It works with card transfer and with Pro given by hand. Tests 1 to 3 and the mini
+diagnostic keep loading straight from GitHub Pages, exactly as before. Do the parts in this order: if you delete the files
+first, Pro students can't open Tests 4 to 10 until the rest is done.
+
+**1. Put the Pro tests in a private repository (GitHub, 5 minutes)**
 
 1. GitHub → **New repository**, name `satustoz-pro-tests`, choose **Private**, create. **Add file → Upload files**: drag in
    `practice-test-4.json` to `practice-test-10.json` from `data/tests/`, commit.
 2. GitHub → your photo → **Settings → Developer settings → Personal access tokens → Fine-grained tokens → Generate new
    token**. Name `satustoz-pay`, expiration 1 year (put a reminder in your calendar), **Only select repositories** →
    `satustoz-pro-tests`, **Permissions → Repository permissions → Contents: Read-only**. Generate and copy the token.
-3. Cloudflare → your payments Worker → **Settings → Variables and Secrets**: add `PRO_TESTS_REPO` (Text) =
-   `your-github-name/satustoz-pro-tests` and `GITHUB_TOKEN` (Secret) = the token. If you put the files in a folder inside
-   that repository, also add `PRO_TESTS_DIR` (Text) with the folder name.
-4. With a Pro account, open Practice Test 7 on the site to check it loads.
-5. In your website repository, delete `data/tests/practice-test-4.json` to `-10.json`. Keep their entries in
-   `data/catalog.json` exactly as they are: the Worker uses the entry to find the file in the private repository.
+
+**2. Set up the Worker (Cloudflare, about 15 minutes)**
+
+If you already created the payments Worker for Payme (step C above), only add `PRO_TESTS_REPO` and `GITHUB_TOKEN` from
+item 4 and go on to part 3.
+
+1. Make the Google key: step B above.
+2. Cloudflare → **Workers & Pages → KV → Create namespace**, name it `sh-payments`.
+3. **Workers & Pages → Create → Create Worker**, name it `scholarshub-pay` → **Deploy → Edit code**. Delete the sample
+   code, paste the whole of `worker/payments-worker.js`, click **Deploy**. Then Worker → **Settings → Bindings → Add → KV
+   namespace**: variable name `PAYMENTS`, namespace `sh-payments`.
+4. Worker → **Settings → Variables and Secrets → Add** each of these:
+
+   | Name | Type | Value |
+   |---|---|---|
+   | `FIREBASE_PROJECT_ID` | Text | your Firebase project ID, e.g. `satustoz` |
+   | `GOOGLE_SERVICE_ACCOUNT` | Secret | open the `.json` file from step B in a text editor and paste all of it |
+   | `ALLOWED_ORIGINS` | Text | `https://satustoz.academy,https://www.satustoz.academy` |
+   | `SITE_URL` | Text | `https://satustoz.academy` |
+   | `PRO_TESTS_REPO` | Text | `your-github-name/satustoz-pro-tests` |
+   | `GITHUB_TOKEN` | Secret | the token from part 1 |
+
+   If you put the files in a folder inside that repository, also add `PRO_TESTS_DIR` (Text) with the folder name.
+   Leave out the Payme variables and the Cron Trigger for now. Without them the payment parts of the Worker refuse every
+   request, and the site keeps showing your card-transfer steps.
+5. Copy the Worker's address (`https://scholarshub-pay.<your-name>.workers.dev`).
+
+**3. Point the site at the Worker**
+
+At the top of `assets/sh.js`, put the Worker address in `TESTS_ENDPOINT`. Not in `PAYMENTS_ENDPOINT`: that one also
+switches "Upgrade to Pro" over to Payme. Upload `assets/sh.js` to GitHub. (If `PAYMENTS_ENDPOINT` is already set, skip
+this part: Pro tests already go through the Worker.)
+
+**4. Check it before deleting anything**
+
+1. Give your own account Pro by hand (see **Giving a student Pro by hand** above), reload the site and open Practice
+   Test 7. It loads.
+2. Sign in with an account without Pro and open `satustoz.academy/test.html?id=practice-test-7`: it says "Practice Test 7
+   is part of Pro". Practice Test 1 and the mini diagnostic open as before.
+
+If Test 7 doesn't load, the message on screen says why: "Please sign in with Google first" means `FIREBASE_PROJECT_ID` is
+wrong; "This site is not allowed..." means `ALLOWED_ORIGINS`; "Online payment is not switched on yet" means the `PAYMENTS`
+binding or `GOOGLE_SERVICE_ACCOUNT` is missing. Cloudflare → your Worker → **Logs** shows more.
+
+**5. Delete the public copies**
+
+In your website repository, delete these 7 files:
+
+```
+data/tests/practice-test-4.json
+data/tests/practice-test-5.json
+data/tests/practice-test-6.json
+data/tests/practice-test-7.json
+data/tests/practice-test-8.json
+data/tests/practice-test-9.json
+data/tests/practice-test-10.json
+```
+
+Keep `practice-test-1.json` to `-3.json` and `diagnostic-mini.json`. Keep the entries of all tests in `data/catalog.json`
+exactly as they are: the site draws the locked cards from them, and the Worker uses them to know which plan a test needs
+and which file to read from the private repository.
+
+About 15 minutes later (GitHub Pages and the Worker each keep a copy for up to 10 minutes), check again: in a private
+window, `satustoz.academy/data/tests/practice-test-7.json` shows GitHub's "404" page, and your Pro account still opens
+Test 7, now from the private repository. If it says "This test could not be loaded", check `PRO_TESTS_REPO` and
+`GITHUB_TOKEN`; until you fix them, Tests 4 to 10 don't open for anyone.
 
 Good to know:
 
 - Changes to a Pro test reach students within 10 minutes (the Worker keeps a copy that long).
 - To edit a Pro test, download it from the private repository, open it in `builder.html` (**Open a JSON file**), and
   upload the new file to the private repository, not to `data/tests/`.
-- Files that were already published stay in your website repository's history, and anyone who downloaded them keeps
-  them. Tests you add from now on stay private.
+- When the GitHub token expires, Tests 4 to 10 stop opening ("This test could not be loaded"). Make a new token as in
+  part 1 and replace `GITHUB_TOKEN` in the Worker.
+- When Payme is ready, use this same Worker: add the Payme variables and the Cron Trigger from step C, then put its
+  address in `PAYMENTS_ENDPOINT` as in step D. `TESTS_ENDPOINT` can stay as it is.
+- Deleting the files stops downloads from the site, but anyone who looks through your public website repository's history
+  on GitHub can still find the old versions, and anyone who downloaded them keeps them. Tests you add from now on stay
+  private.
 - A student who took a Pro test can still open its review after Pro ends; the Worker remembers which tests they opened.
+- The free Cloudflare plan is plenty: opening a test is one Worker request.
 
 ## About official College Board questions
 

@@ -293,7 +293,15 @@ kbd {
 .pay-help { margin: 12px 0 0; font-size: .93rem; }
 .btn.pay-stop { color: var(--bad); }
 form[aria-busy="true"] .btn-primary { cursor: progress; }
-@media (max-width: 520px) { .pay-fields { grid-template-columns: minmax(0, 1fr); } .pay-exp { max-width: 12em; } }
+/* Payment by card transfer (MANUAL_PAY) */
+.mp-card { display: grid; gap: 2px; margin: 14px 0 0; padding: 6px 16px; background: var(--sunk); border-radius: var(--r-sm); }
+.mp-row { display: grid; grid-template-columns: 6.5em minmax(0, 1fr) auto; align-items: center; gap: 12px; padding: 8px 0; }
+.mp-row + .mp-row { border-top: 1px solid var(--line-2); }
+.mp-k { font-size: .9rem; color: var(--muted); }
+.mp-row b { font-size: 1.1rem; color: var(--ink); font-variant-numeric: tabular-nums; letter-spacing: .03em; overflow-wrap: anywhere; }
+.mp-note { margin: 10px 0 0; font-size: .9rem; line-height: 1.5; color: var(--muted); }
+.mp-last4 .input { max-width: 8em; font-size: 1.1rem; letter-spacing: .12em; font-variant-numeric: tabular-nums; }
+@media (max-width: 520px) { .pay-fields { grid-template-columns: minmax(0, 1fr); } .pay-exp { max-width: 12em; } .mp-row { grid-template-columns: minmax(0, 1fr) auto; gap: 2px 12px; } .mp-k { grid-column: 1 / -1; } }
 @media (max-width: 900px) { .plans { grid-template-columns: minmax(0, 1fr); max-width: 520px; gap: 26px; } }
 
 /* ---------- Forms ---------- */

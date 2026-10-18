@@ -1,0 +1,302 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Card payments | SAT Ustoz</title>
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#2D5038">
+<link rel="icon" href="favicon.ico" sizes="32x32">
+<link rel="icon" href="icon-192.png" type="image/png" sizes="192x192">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Jost:wght@500;600&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/sh.css">
+<style>
+  .a-wrap { max-width: 880px; margin: 0 auto; padding: 26px var(--gutter) 64px; }
+  .a-head { margin-bottom: 20px; }
+  .a-head h1 { font-size: clamp(1.9rem, 4vw, 2.5rem); margin: 0 0 8px; }
+  .a-head p { margin: 0; max-width: 40em; }
+  .a-card h2, .a-empty h2 { font-size: 1.35rem; margin-bottom: .4em; }
+  .a-row { display: flex; gap: 10px; flex-wrap: wrap; align-items: center; margin-top: 16px; }
+  .a-bar { display: flex; align-items: center; justify-content: space-between; gap: 8px 16px; flex-wrap: wrap; margin-bottom: 14px; }
+  .a-bar p { margin: 0; }
+  .a-bar .who { font-size: .9rem; color: var(--muted); overflow-wrap: anywhere; }
+  .a-empty { text-align: center; padding: 40px 24px; }
+  .a-empty p { margin: 0 auto; max-width: 34em; }
+  .notice p { margin: 0; }
+  .notice p + p { margin-top: .5em; }
+  code { background: var(--sunk); padding: 1px 5px; border-radius: var(--r-xs); font-size: .9em; }
+
+  .req { padding: 20px 22px; transition: opacity var(--t); }
+  .req + .req { margin-top: 14px; }
+  .req[aria-busy="true"] { opacity: .55; }
+  .req-head { display: flex; justify-content: space-between; align-items: baseline; gap: 2px 16px; flex-wrap: wrap; margin-bottom: 12px; }
+  .req-who { display: flex; flex-wrap: wrap; align-items: baseline; gap: 0 8px; min-width: 0; }
+  .req-who b { font-size: 1.12rem; }
+  .req-who span { color: var(--ink-2); min-width: 0; overflow-wrap: anywhere; }
+  .req-when { font-size: .9rem; color: var(--muted); white-space: nowrap; }
+  .req-facts { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 10px 18px; margin: 0; padding: 12px 16px; background: var(--ivory); border-radius: var(--r-sm); }
+  .req-facts dt { font-size: .82rem; color: var(--muted); }
+  .req-facts dd { margin: 0; font-weight: 600; overflow-wrap: anywhere; font-variant-numeric: tabular-nums; }
+  .req-facts .big dd { font-size: 1.2rem; letter-spacing: .06em; }
+  .req-facts .wide { grid-column: 1 / -1; padding-top: 10px; border-top: 1px solid var(--line); }
+  .req-facts .wide dd { font-weight: 400; }
+  .req-facts .tag { display: flex; width: fit-content; margin-top: 4px; font-weight: 600; }
+  .req-foot { display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap; margin-top: 14px; }
+  .req-effect { margin: 0; font-size: .95rem; color: var(--ink-2); }
+  .req-btns { display: flex; gap: 10px; margin-left: auto; }
+  .req .btn-reject { color: var(--bad); }
+  .req .pay-err { margin-top: 12px; }
+  .req-uid { margin: 10px 0 0; font-size: .78rem; color: var(--muted); overflow-wrap: anywhere; }
+  @media (max-width: 640px) { .req-facts { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+  @media (max-width: 520px) {
+    .req { padding: 16px; }
+    .req-btns { width: 100%; }
+    .req-btns .btn { flex: 1 1 0; }
+  }
+</style>
+</head>
+<body>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="index.html"><picture><source media="(max-width: 359px)" srcset="assets/brand/mark.svg"><img class="brand-logo" src="assets/brand/logo-horizontal.svg" alt="SAT Ustoz" width="171" height="40"></picture><span class="brand-tag" style="margin:0 0 0 4px">Payments</span></a>
+    <div data-auth-slot></div>
+  </div>
+</header>
+<main class="a-wrap">
+  <div class="a-head">
+    <span class="kicker">For the SAT Ustoz owner</span>
+    <h1>Card transfers</h1>
+    <p class="muted">Students who tapped “I’ve paid”, newest first. Find the transfer in your bank app (same amount, sender card ending in these 4 digits, around this time), then approve it. Approving switches Pro on for 30 days, added to any time they still have.</p>
+  </div>
+  <div id="admin"><p class="muted">Loading…</p></div>
+</main>
+
+<script src="assets/sh.js" defer></script>
+<script>
+document.addEventListener('DOMContentLoaded', async function () {
+  'use strict';
+  const SH = window.SH;
+  const { esc, $, auth, sync, toast, modal, fmtDate, CONFIG } = SH;
+  const box = $('#admin');
+  const DAY = 86400000;
+  const PRO_DAYS = 30; // same as PRO_DAYS in the payments Worker
+  const PRICE = Number(String(CONFIG.PLANS.PRO_PRICE).replace(/\D/g, '')) || 0;
+  const CURRENCY = CONFIG.PLANS.CURRENCY.en;
+  const items = new Map(); // uid -> { r: payRequest, u: users doc (null: none, undefined: unreadable) }
+  let viewFor = null;      // uid whose list is on screen
+  let seq = 0;             // a newer load wins over an older one
+
+  const ms = t => !t ? 0 : typeof t.toMillis === 'function' ? t.toMillis() : Number(t) || 0;
+  const som = n => String(Math.round(Number(n) || 0)).replace(/\B(?=(\d{3})+(?!\d))/g, ' ') + ' ' + CURRENCY;
+  const planName = p => p === 'max' ? 'Max' : 'Pro';
+  function when(t) {
+    try { return new Date(t).toLocaleString(undefined, { day: 'numeric', month: 'short', hour: '2-digit', minute: '2-digit' }); } catch (e) { return ''; }
+  }
+  function ago(t) {
+    const m = Math.round((Date.now() - t) / 60000);
+    if (m < 1) return 'just now';
+    if (m < 60) return m + ' min ago';
+    const h = Math.round(m / 60);
+    return h < 48 ? h + ' h ago' : Math.round(h / 24) + ' days ago';
+  }
+
+  // The same rule as grantMonth() in the payments Worker: the month is added
+  // on top of time the student still has, an active Max stays Max, and Pro
+  // with no end date is left as it is (null).
+  function grant(u, now) {
+    const plan = u && u.plan, cur = ms(u && u.planUntil);
+    const active = (plan === 'pro' || plan === 'max') && (!cur || cur > now);
+    if (active && !cur) return null;
+    return { plan: active && plan === 'max' ? 'max' : 'pro', until: (active ? Math.max(now, cur) : now) + PRO_DAYS * DAY, extends: active };
+  }
+  function planNow(u, now) {
+    if (u === undefined) return '<span class="muted">Could not read their account</span>';
+    if (!u) return 'Free <span class="muted">(no account data yet)</span>';
+    const plan = u.plan, until = ms(u.planUntil);
+    const src = u.planSource ? '<span class="muted">, set by ' + esc(u.planSource) + '</span>' : '';
+    if (plan !== 'pro' && plan !== 'max') return 'Free';
+    if (!until) return planName(plan) + ', no end date' + src;
+    if (until <= now) return 'Free <span class="muted">(' + planName(plan) + ' ended ' + esc(fmtDate(until)) + ')</span>';
+    return planName(plan) + ' until ' + esc(fmtDate(until)) + ' <span class="muted">(' + Math.ceil((until - now) / DAY) + ' days left)</span>' + src;
+  }
+  function effect(u, now) {
+    if (u === undefined) return 'Approve gives Pro for ' + PRO_DAYS + ' days.';
+    const g = grant(u, now);
+    if (!g) return 'They already have ' + planName(u.plan) + ' with no end date. Approve only clears this request.';
+    return 'Approve: ' + planName(g.plan) + ' until <b>' + esc(fmtDate(g.until)) + '</b>' + (g.extends ? ' (' + PRO_DAYS + ' days added to their current month)' : '');
+  }
+
+  function friendly(e) {
+    if (e && e.code === 'permission-denied') return 'Firebase refused this. Is your email in adminEmails() in the firestore.rules you published?';
+    if (e && e.code === 'unavailable') return 'No connection to Firebase. Check your internet and try again.';
+    return (e && e.message) || 'Something went wrong. Please try again.';
+  }
+
+  /* ---------- views ---------- */
+  function draw() {
+    const u = auth.user;
+    if (!auth.enabled()) { viewFor = null; box.innerHTML = '<div class="notice notice-warn"><p>Sign-in is off: <code>FIREBASE</code> at the top of <code>assets/sh.js</code> is empty. See README, section 4.</p></div>'; return; }
+    if (auth.failed && !u) { viewFor = null; box.innerHTML = '<div class="notice notice-bad"><p>Google sign-in could not load. Check your connection and reload the page.</p></div>'; return; }
+    if (!u) { viewFor = null; signInView(); return; }
+    if (viewFor === u.uid) return;
+    viewFor = u.uid;
+    load();
+  }
+
+  function signInView() {
+    const app = SH.inAppBrowser();
+    box.innerHTML = '<div class="card a-card"><h2>Sign in</h2>' +
+      '<p>Use the Google account whose email is in <code>adminEmails()</code> in <code>firestore.rules</code>.</p>' +
+      (app ? '<div class="notice notice-warn"><p>Google blocks sign-in inside the ' + esc(app) + ' browser. Open this page in Chrome or Safari.</p></div>' : '') +
+      '<div class="a-row"><button type="button" class="btn btn-primary" data-signin>Sign in with Google</button></div>' +
+      '<p class="pay-err" role="alert" hidden></p></div>';
+    const btn = $('[data-signin]', box), err = $('.pay-err', box);
+    btn.addEventListener('click', async () => {
+      btn.disabled = true; err.hidden = true;
+      try { await auth.signInWithGoogle(); draw(); }
+      catch (e) { btn.disabled = false; if (e.message) { err.textContent = e.message; err.hidden = false; } }
+    });
+  }
+
+  function notAdminView() {
+    box.innerHTML = '<div class="notice notice-warn"><p><b>This account can’t open the payment list.</b></p>' +
+      '<p>You’re signed in as <b>' + esc(auth.user.email) + '</b>. Only the emails in <code>adminEmails()</code> in <code>firestore.rules</code> can. ' +
+      'Add yours there, publish the rules (Firebase console → Firestore Database → Rules → Publish), then reload.</p></div>' +
+      '<div class="a-row"><button type="button" class="btn btn-primary" data-reload>Reload</button><button type="button" class="btn btn-ghost" data-signout>Use another account</button></div>';
+    $('[data-reload]', box).addEventListener('click', load);
+    $('[data-signout]', box).addEventListener('click', () => auth.signOut());
+  }
+
+  async function load() {
+    const my = ++seq;
+    box.innerHTML = '<p class="muted">Loading payment requests…</p>';
+    let list, users;
+    try {
+      const fs = await sync._lib();
+      const snap = await fs.getDocs(fs.query(fs.collection(sync.db, 'payRequests'), fs.orderBy('createdAt', 'desc'), fs.limit(200)));
+      list = snap.docs.map(d => Object.assign({}, d.data(), { uid: d.id }));
+      users = await Promise.all(list.map(r => fs.getDoc(fs.doc(sync.db, 'users', r.uid)).then(s => s.exists() ? s.data() : null, () => undefined)));
+    } catch (e) {
+      if (my !== seq) return;
+      if (e && e.code === 'permission-denied') { notAdminView(); return; }
+      console.warn('[SAT Ustoz] Could not load payRequests:', e);
+      box.innerHTML = '<div class="notice notice-bad"><p>' + esc(friendly(e)) + '</p></div><div class="a-row"><button type="button" class="btn btn-primary" data-reload>Try again</button></div>';
+      $('[data-reload]', box).addEventListener('click', load);
+      return;
+    }
+    if (my !== seq) return;
+    items.clear();
+    list.forEach((r, i) => items.set(r.uid, { r, u: users[i] }));
+    render();
+  }
+
+  function render() {
+    const now = Date.now();
+    box.innerHTML = '<div class="a-bar"><p><b class="num-tab" data-count></b></p>' +
+      '<div class="a-row" style="margin:0"><span class="who">Signed in as ' + esc(auth.user.email) + '</span><button type="button" class="btn btn-ghost btn-sm" data-reload>Reload</button></div></div>' +
+      '<div data-list>' + Array.from(items.values()).map(it => card(it.r, it.u, now)).join('') + '</div>';
+    $('[data-reload]', box).addEventListener('click', load);
+    count();
+  }
+  function count() {
+    const n = items.size;
+    $('[data-count]', box).textContent = !n ? 'No payments waiting' : n === 1 ? '1 payment waiting' : n + ' payments waiting';
+    if (!n) $('[data-list]', box).innerHTML = '<div class="card a-empty"><h2>Nothing to check</h2><p class="muted">New payments show up here when a student taps “I’ve paid”. Reload to look again.</p></div>';
+  }
+
+  function card(r, u, now) {
+    const at = ms(r.createdAt);
+    const fact = (k, v, cls) => '<div' + (cls ? ' class="' + cls + '"' : '') + '><dt>' + k + '</dt><dd>' + v + '</dd></div>';
+    const odd = PRICE && Number(r.amount) !== PRICE ? '<span class="tag tag-medium">price is now ' + esc(som(PRICE)) + '</span>' : '';
+    return '<article class="card req" data-uid="' + esc(r.uid) + '">' +
+      '<div class="req-head"><div class="req-who"><b>' + esc(r.name || 'No name') + '</b><span>' + esc(r.email || '') + '</span></div>' +
+      (at ? '<span class="req-when">' + esc(when(at)) + ' · ' + esc(ago(at)) + '</span>' : '') + '</div>' +
+      '<dl class="req-facts">' +
+      fact('Amount', esc(som(r.amount)) + odd) +
+      fact('Card ending', esc(r.last4 || '----'), 'big') +
+      fact('Receipt', r.receiptId ? esc(r.receiptId) : '<span class="muted">none</span>') +
+      fact('Language', esc(String(r.lang || 'en').toUpperCase())) +
+      fact('Plan now', planNow(u, now), 'wide') +
+      '</dl>' +
+      '<div class="req-foot"><p class="req-effect">' + effect(u, now) + '</p>' +
+      '<div class="req-btns"><button type="button" class="btn btn-ghost btn-reject" data-reject>Reject</button><button type="button" class="btn btn-primary" data-approve>Approve</button></div></div>' +
+      '<p class="pay-err" role="alert" hidden></p>' +
+      '<p class="req-uid">uid ' + esc(r.uid) + '</p></article>';
+  }
+
+  /* ---------- approve and reject ---------- */
+  function busy(el, on) { el.setAttribute('aria-busy', on ? 'true' : 'false'); el.querySelectorAll('button').forEach(b => { b.disabled = on; }); }
+  function fail(el, msg) { const e = $('.pay-err', el); e.textContent = msg || ''; e.hidden = !msg; }
+  function done(el, uid, msg) {
+    items.delete(uid);
+    el.remove();
+    count();
+    toast(msg, 4000);
+  }
+  function oops(code, message) { const e = new Error(message); e.code = code; return e; }
+
+  // One transaction: if the student sent new details in the meantime, or the
+  // request was already handled in another tab, nothing is written.
+  async function approve(el, uid) {
+    const it = items.get(uid);
+    if (!it) return;
+    busy(el, true); fail(el, '');
+    try {
+      const fs = await sync._lib();
+      const reqRef = fs.doc(sync.db, 'payRequests', uid), userRef = fs.doc(sync.db, 'users', uid);
+      const g = await fs.runTransaction(sync.db, async tx => {
+        const rs = await tx.get(reqRef), us = await tx.get(userRef);
+        if (!rs.exists()) throw oops('gone', 'This request was already approved or rejected.');
+        if (ms(rs.data().createdAt) !== ms(it.r.createdAt)) throw oops('changed', 'The student sent new payment details. Check them again.');
+        const out = grant(us.exists() ? us.data() : null, Date.now());
+        if (out) tx.set(userRef, { plan: out.plan, planUntil: fs.Timestamp.fromMillis(out.until), planSource: 'manual' }, { merge: true });
+        tx.delete(reqRef);
+        return out;
+      });
+      done(el, uid, g ? planName(g.plan) + ' is on for ' + it.r.email + ' until ' + fmtDate(g.until) : 'Request cleared. ' + it.r.email + ' already has Pro with no end date.');
+    } catch (e) {
+      if (e.code === 'gone') { done(el, uid, e.message); return; }
+      if (e.code === 'changed') { toast(e.message, 4000); load(); return; }
+      console.warn('[SAT Ustoz] Could not approve:', e);
+      busy(el, false); fail(el, friendly(e));
+    }
+  }
+
+  function reject(el, uid) {
+    const it = items.get(uid);
+    if (!it) return;
+    modal({
+      title: 'Reject this payment?',
+      html: '<p>The request from <b>' + esc(it.r.email) + '</b> (card ending ' + esc(it.r.last4) + ') is deleted and Pro stays off. Tell them why on Telegram. They can send new details after paying again.</p>',
+      actions: [{ label: 'Cancel', kind: 'ghost' }, { label: 'Reject', kind: 'primary', onClick: () => { go(); } }]
+    });
+    async function go() {
+      busy(el, true); fail(el, '');
+      try {
+        const fs = await sync._lib();
+        await fs.deleteDoc(fs.doc(sync.db, 'payRequests', uid));
+        done(el, uid, 'Rejected: ' + it.r.email);
+      } catch (e) {
+        console.warn('[SAT Ustoz] Could not reject:', e);
+        busy(el, false); fail(el, friendly(e));
+      }
+    }
+  }
+
+  box.addEventListener('click', e => {
+    const b = e.target.closest('[data-approve], [data-reject]');
+    const el = b && b.closest('.req');
+    if (!el) return;
+    if (b.hasAttribute('data-approve')) approve(el, el.dataset.uid); else reject(el, el.dataset.uid);
+  });
+
+  auth.onChange(draw);
+  if (auth.enabled()) await auth.ready();
+  draw();
+});
+</script>
+</body>
+</html>

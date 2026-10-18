@@ -50,11 +50,30 @@
 
     // Online payment with Payme. Paste your payments Worker URL here
     // (see worker/payments-worker.js and README "6. Plans and payments").
-    // Empty: "Upgrade to Pro" shows the Telegram steps and every test loads
-    // from data/tests/. Set: students pay by card or on Payme's page, Pro
-    // switches on by itself, and Pro tests load through the Worker.
+    // Empty: "Upgrade to Pro" uses MANUAL_PAY below (or, without a card there,
+    // the Telegram steps). Set: students pay by card or on Payme's page, Pro
+    // switches on by itself, and Pro tests load through the Worker. MANUAL_PAY
+    // is then ignored.
     // Example: 'https://scholarshub-pay.yourname.workers.dev'
     PAYMENTS_ENDPOINT: '',
+
+    // Pro tests through the payments Worker before Payme is ready (README
+    // "Moving the Pro tests off GitHub Pages"). Paste the Worker URL here and
+    // Tests 4 to 10 load through it, only for students whose plan opens them,
+    // while "Upgrade to Pro" keeps using MANUAL_PAY.
+    // Empty: same as PAYMENTS_ENDPOINT. With both empty, every test loads from
+    // data/tests/ and anyone can download Tests 4 to 10.
+    TESTS_ENDPOINT: '',
+
+    // Payment by card transfer, checked by you (README "Payment by card transfer").
+    // Fill CARD and "Upgrade to Pro" shows this card and the Pro price, then asks
+    // the student for the last 4 digits of their card and the receipt. You match
+    // it in your bank app and switch Pro on in Firebase.
+    // Leave CARD empty to keep the "message us on Telegram" steps.
+    MANUAL_PAY: {
+      CARD: '9860 3501 4987 8463',          // Uzcard or Humo card number
+      CARD_HOLDER: "Azizbek To'rabayev"     // name as the bank app shows it
+    },
 
     CONTACT_TELEGRAM: 'https://t.me/azizbek7_t',
     CHANNEL_TELEGRAM: 'https://t.me/satustoz_off',
@@ -351,7 +370,7 @@
     const meta = cat.tests.find(t => t.id === id);
     if (!meta) throw new Error('Practice test "' + id + '" is not in data/catalog.json');
     // Paid tests come from the payments Worker, which checks the plan first.
-    const raw = meta.plan && meta.plan !== 'free' && pay.enabled() ? await loadProTest(meta) : await getJSON(meta.file);
+    const raw = meta.plan && meta.plan !== 'free' && pay.testsEnabled() ? await loadProTest(meta) : await getJSON(meta.file);
     const errors = [];
     const test = {
       id: meta.id,
@@ -390,7 +409,7 @@
     const token = await auth.token();
     if (!token) throw new Error('Sign in with Google to open ' + meta.title + '.');
     let res;
-    try { res = await fetch(pay.url('/test?id=' + encodeURIComponent(meta.id)), { headers: { authorization: 'Bearer ' + token }, cache: 'no-store' }); }
+    try { res = await fetch(pay.testsUrl('/test?id=' + encodeURIComponent(meta.id)), { headers: { authorization: 'Bearer ' + token }, cache: 'no-store' }); }
     catch (e) { throw new Error('Could not reach the server. Check your connection and try again.'); }
     if (!res.ok) {
       let d = null;
@@ -898,8 +917,9 @@
 
   /* ------------------------------------------------------------------
      Plans: Free, Pro, Max
-     The pages use this to decide what to show. With PAYMENTS_ENDPOINT set,
-     the Worker also checks the plan before it hands out a Pro test file.
+     The pages use this to decide what to show. With TESTS_ENDPOINT or
+     PAYMENTS_ENDPOINT set, the Worker also checks the plan before it hands
+     out a Pro test file.
      ------------------------------------------------------------------ */
   const PLAN_RANK = { free: 0, pro: 1, max: 2 };
   const knownPlan = id => Object.prototype.hasOwnProperty.call(PLAN_RANK, id);
@@ -930,6 +950,9 @@
   const pay = {
     enabled() { return !!CONFIG.PAYMENTS_ENDPOINT && auth.enabled(); },
     url(path) { return CONFIG.PAYMENTS_ENDPOINT.replace(/\/+$/, '') + path; },
+    // Pro test files (GET /test), which can come from the Worker before payments do.
+    testsEnabled() { return !!(CONFIG.TESTS_ENDPOINT || CONFIG.PAYMENTS_ENDPOINT) && auth.enabled(); },
+    testsUrl(path) { return (CONFIG.TESTS_ENDPOINT || CONFIG.PAYMENTS_ENDPOINT).replace(/\/+$/, '') + path; },
     async call(path, body) {
       await auth.ready();
       const token = await auth.token();
@@ -944,6 +967,29 @@
       try { data = await res.json(); } catch (e) { /* ignore */ }
       if (!res.ok) { const err = new Error((data && data.error) || planText('pay_failed')); err.status = res.status; err.code = data && data.code; throw err; }
       return data || {};
+    }
+  };
+  // Payment by card transfer (CONFIG.MANUAL_PAY), while online payment is off.
+  // The student's "I paid" note goes to payRequests/<uid>, one per student.
+  // You match it in your bank app, switch Pro on in users/<uid>, then delete
+  // the note (README "Payment by card transfer").
+  const manual = {
+    card() { return String((CONFIG.MANUAL_PAY && CONFIG.MANUAL_PAY.CARD) || '').replace(/\D/g, ''); },
+    enabled() { return !pay.enabled() && this.card().length >= 16; },
+    canSave() { return auth.enabled() && !!auth.user && !!auth.fb; },
+    async _ref() { const fs = await sync._lib(); return { fs, ref: fs.doc(sync.db, 'payRequests', auth.user.uid) }; },
+    async get() {
+      const { fs, ref } = await this._ref();
+      const s = await fs.getDoc(ref);
+      return s.exists() ? s.data() : null;
+    },
+    async send(last4, receiptId, lang) {
+      const { fs, ref } = await this._ref();
+      await fs.setDoc(ref, {
+        uid: auth.user.uid, email: auth.user.email, name: (auth.user.name || '').slice(0, 100), plan: 'pro',
+        amount: Number(String(CONFIG.PLANS.PRO_PRICE).replace(/\D/g, '')) || 0,
+        last4, receiptId, lang, createdAt: fs.serverTimestamp()
+      });
     }
   };
   const PAYME_LOGO = 'https://cdn.payme.uz/logo/payme_color.svg';
@@ -988,7 +1034,20 @@
       m_renew_pending: 'Your last payment is still being confirmed by Payme.',
       m_off: 'Automatic renewal is off. Pro ends on that day unless you pay for another month.',
       m_stop: 'Stop automatic renewal', m_stop_q: 'Stop automatic renewal? Pro stays on until {d}, and your card is removed.',
-      m_stopped: 'Automatic renewal stopped', m_more: 'Pay for another month'
+      m_stopped: 'Automatic renewal stopped', m_more: 'Pay for another month',
+      mp_intro: 'Pro costs {price} for one month. Transfer it to this card from any banking app (Click, Payme, Uzum or your bank’s app):',
+      mp_card: 'Card', mp_name: 'Name', mp_amount: 'Amount', mp_card_copied: 'Card number copied', mp_amount_copied: 'Amount copied',
+      mp_note: 'Send the exact amount and keep the receipt. You need it in the next step.',
+      mp_paid: 'I’ve paid', mp_form: 'So we can find your payment:',
+      mp_last4: 'Last 4 digits of the card you paid from', mp_receipt: 'Receipt or transaction number (optional)',
+      mp_send: 'Continue', mp_bad_last4: 'Enter the last 4 digits of your card.',
+      mp_sent_t: 'Almost done',
+      mp_sent: 'Last step: send the receipt screenshot to us on Telegram. We check it and switch Pro on, usually within a few hours.',
+      mp_account: 'Your account:', mp_tg: 'Send receipt on Telegram',
+      mp_tg_msg: 'Hi! I paid {price} for SAT Ustoz Pro. Account: {email}. Card ending {card}. Receipt:',
+      mp_pending: 'We got your payment details on {d} and are checking them. Pro switches on within a few hours; reload the page then.',
+      mp_pending_tg: 'Haven’t sent the receipt screenshot yet? Send it on Telegram so we find your payment faster.',
+      mp_again: 'I made a new payment'
     },
     uz: {
       free_name: 'Bepul', pro_name: 'Pro', max_name: 'Max',
@@ -1028,7 +1087,20 @@
       m_renew_pending: 'Oxirgi toʻlovingiz hali Payme tomonidan tasdiqlanmoqda.',
       m_off: 'Avtomatik uzaytirish oʻchirilgan. Yana bir oy uchun toʻlamasangiz, Pro shu kuni tugaydi.',
       m_stop: 'Avtomatik uzaytirishni toʻxtatish', m_stop_q: 'Avtomatik uzaytirish toʻxtatilsinmi? Pro {d} gacha faol qoladi, kartangiz esa oʻchiriladi.',
-      m_stopped: 'Avtomatik uzaytirish toʻxtatildi', m_more: 'Yana bir oy uchun toʻlash'
+      m_stopped: 'Avtomatik uzaytirish toʻxtatildi', m_more: 'Yana bir oy uchun toʻlash',
+      mp_intro: 'Pro bir oyga {price} turadi. Shu summani istalgan bank ilovasi (Click, Payme, Uzum yoki bankingiz ilovasi) orqali quyidagi kartaga oʻtkazing:',
+      mp_card: 'Karta', mp_name: 'Egasi', mp_amount: 'Summa', mp_card_copied: 'Karta raqami nusxalandi', mp_amount_copied: 'Summa nusxalandi',
+      mp_note: 'Aynan shu summani oʻtkazing va chekni saqlab qoʻying. U keyingi qadamda kerak boʻladi.',
+      mp_paid: 'Toʻladim', mp_form: 'Toʻlovingizni topishimiz uchun:',
+      mp_last4: 'Toʻlov qilgan kartangizning oxirgi 4 raqami', mp_receipt: 'Chek yoki tranzaksiya raqami (ixtiyoriy)',
+      mp_send: 'Davom etish', mp_bad_last4: 'Kartangizning oxirgi 4 raqamini kiriting.',
+      mp_sent_t: 'Deyarli tayyor',
+      mp_sent: 'Oxirgi qadam: chek skrinshotini bizga Telegramda yuboring. Biz uni tekshirib, Pro tarifini yoqamiz, odatda bir necha soat ichida.',
+      mp_account: 'Hisobingiz:', mp_tg: 'Chekni Telegramda yuborish',
+      mp_tg_msg: 'Salom! SAT Ustoz Pro uchun {price} toʻladim. Hisob: {email}. Karta oxiri: {card}. Chek:',
+      mp_pending: '{d} kuni toʻlov maʼlumotlaringizni oldik va tekshiryapmiz. Pro bir necha soat ichida yoqiladi, keyin sahifani yangilang.',
+      mp_pending_tg: 'Chek skrinshotini hali yubormadingizmi? Toʻlovingizni tezroq topishimiz uchun uni Telegramda yuboring.',
+      mp_again: 'Yangi toʻlov qildim'
     },
     ru: {
       free_name: 'Бесплатно', pro_name: 'Pro', max_name: 'Max',
@@ -1068,7 +1140,20 @@
       m_renew_pending: 'Ваш последний платёж ещё подтверждается Payme.',
       m_off: 'Автопродление отключено. Pro закончится в этот день, если вы не оплатите ещё месяц.',
       m_stop: 'Отключить автопродление', m_stop_q: 'Отключить автопродление? Pro останется активным до {d}, а карта будет удалена.',
-      m_stopped: 'Автопродление отключено', m_more: 'Оплатить ещё месяц'
+      m_stopped: 'Автопродление отключено', m_more: 'Оплатить ещё месяц',
+      mp_intro: 'Pro стоит {price} за месяц. Переведите эту сумму на карту ниже из любого банковского приложения (Click, Payme, Uzum или приложение вашего банка):',
+      mp_card: 'Карта', mp_name: 'Получатель', mp_amount: 'Сумма', mp_card_copied: 'Номер карты скопирован', mp_amount_copied: 'Сумма скопирована',
+      mp_note: 'Переведите точную сумму и сохраните чек. Он понадобится на следующем шаге.',
+      mp_paid: 'Я оплатил(а)', mp_form: 'Чтобы мы нашли ваш платёж:',
+      mp_last4: 'Последние 4 цифры карты, с которой вы платили', mp_receipt: 'Номер чека или транзакции (необязательно)',
+      mp_send: 'Продолжить', mp_bad_last4: 'Введите последние 4 цифры карты.',
+      mp_sent_t: 'Почти готово',
+      mp_sent: 'Последний шаг: отправьте нам скриншот чека в Telegram. Мы проверим его и включим Pro, обычно в течение нескольких часов.',
+      mp_account: 'Ваш аккаунт:', mp_tg: 'Отправить чек в Telegram',
+      mp_tg_msg: 'Здравствуйте! Я оплатил(а) {price} за SAT Ustoz Pro. Аккаунт: {email}. Карта на {card}. Чек:',
+      mp_pending: '{d} мы получили данные о вашем платеже и проверяем их. Pro включится в течение нескольких часов, затем обновите страницу.',
+      mp_pending_tg: 'Ещё не отправили скриншот чека? Отправьте его в Telegram, так мы быстрее найдём платёж.',
+      mp_again: 'Я сделал(а) новый платёж'
     }
   };
   function planText(k, lang) {
@@ -1089,7 +1174,8 @@
     const list = items => '<ul class="plan-list">' + items.map(i => '<li>' + esc(i) + '</li>').join('') + '</ul>';
     const current = () => '<button class="btn btn-ghost" type="button" disabled>' + esc(T('cta_current')) + '</button>' +
       (cur !== 'free' && until ? '<p class="plan-until">' + esc(T('active_until').replace('{d}', fmtDate(until))) + '</p>' : '') +
-      (cur !== 'free' && pay.enabled() && auth.user ? '<p class="plan-until"><button type="button" class="link-btn" data-manage>' + esc(T('manage')) + '</button></p>' : '');
+      (cur !== 'free' && pay.enabled() && auth.user ? '<p class="plan-until"><button type="button" class="link-btn" data-manage>' + esc(T('manage')) + '</button></p>' : '') +
+      (cur === 'pro' && manual.enabled() && auth.user ? '<p class="plan-until"><button type="button" class="link-btn" data-upgrade="pro">' + esc(T('m_more')) + '</button></p>' : '');
     const included = '<button class="btn btn-ghost" type="button" disabled>' + esc(T('cta_included')) + '</button>';
     const freeCta = cur !== 'free' ? included
       : opts.context === 'landing' ? '<a class="btn btn-ghost" href="practice.html">' + esc(T('cta_free')) + '</a>' : current();
@@ -1119,6 +1205,7 @@
       return;
     }
     if (pay.enabled()) { openCheckout(); return; }
+    if (manual.enabled()) { openManualPay(); return; }
     const email = auth.user ? auth.user.email : '';
     const steps = T('up_steps').map(s => esc(s.replace('{price}', priceText(CONFIG.PLANS.PRO_PRICE, lang))));
     if (email) steps[2] += '<span class="up-email"><b>' + esc(email) + '</b><button type="button" class="link-btn" data-copy>' + esc(T('up_copy')) + '</button></span>';
@@ -1129,11 +1216,90 @@
       actions: [{ label: T('close'), kind: 'ghost' }, { label: T('up_tg'), kind: 'primary', onClick: () => { window.open(CONFIG.CONTACT_TELEGRAM, '_blank', 'noopener'); } }]
     });
     const cp = m.el.querySelector('[data-copy]');
-    if (cp) cp.addEventListener('click', () => {
-      const done = () => toast(T('copied'));
-      if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(email).then(done, () => toast(email));
-      else toast(email);
-    });
+    if (cp) cp.addEventListener('click', () => copyText(email, T('copied')));
+  }
+  function copyText(text, msg) {
+    if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(text).then(() => toast(msg), () => toast(text));
+    else toast(text);
+  }
+
+  // Card transfer: the card and price, then the last 4 digits of the student's
+  // card, then the receipt screenshot on Telegram (that message is how you hear
+  // about it). A note from the last 7 days means we are still checking it.
+  function openManualPay() {
+    const lang = langNow(), T = k => planText(k, lang);
+    const ui = stepModal(T('up_title'), lang);
+    const { show, row, closeBtn } = ui;
+    const digits = manual.card(), holder = String(CONFIG.MANUAL_PAY.CARD_HOLDER || '').trim();
+    const price = priceText(CONFIG.PLANS.PRO_PRICE, lang);
+    const email = auth.user ? auth.user.email : '';
+    const tgLink = last4 => CONFIG.CONTACT_TELEGRAM + '?text=' + encodeURIComponent(T('mp_tg_msg').replace('{price}', price).replace('{email}', email || '-').replace('{card}', last4 || '----'));
+    const tgBtn = last4 => '<a class="btn btn-primary" href="' + esc(tgLink(last4)) + '" target="_blank" rel="noopener">' + esc(T('mp_tg')) + '</a>';
+    const line = (k, v, copy) => '<div class="mp-row"><span class="mp-k">' + esc(T(k)) + '</span><b>' + esc(v) + '</b>' +
+      (copy ? '<button type="button" class="link-btn" data-copy="' + copy + '">' + esc(T('up_copy')) + '</button>' : '') + '</div>';
+    const bindCopies = () => $$('[data-copy]', ui.box).forEach(b => b.addEventListener('click', () => {
+      if (b.dataset.copy === 'card') copyText(digits, T('mp_card_copied'));
+      else if (b.dataset.copy === 'amount') copyText(String(CONFIG.PLANS.PRO_PRICE).replace(/\D/g, ''), T('mp_amount_copied'));
+      else copyText(email, T('copied'));
+    }));
+
+    if (manual.canSave()) manual.get().then(r => {
+      const at = r && r.createdAt && typeof r.createdAt.toMillis === 'function' ? r.createdAt.toMillis() : 0;
+      if (at > Date.now() - 7 * 86400000) pending(at, r.last4); else details();
+    }).catch(() => details());
+    else details();
+
+    function details() {
+      show('<p>' + esc(T('mp_intro').replace('{price}', price)) + '</p><div class="mp-card">' +
+        line('mp_card', digits.replace(/(\d{4})(?=\d)/g, '$1 '), 'card') +
+        (holder ? line('mp_name', holder) : '') +
+        line('mp_amount', price, 'amount') +
+        '</div><p class="mp-note">' + esc(T('mp_note')) + '</p>' +
+        row(closeBtn() + '<button type="button" class="btn btn-primary" data-paid>' + esc(T('mp_paid')) + '</button>'), '[data-paid]');
+      bindCopies();
+      $('[data-paid]', ui.box).addEventListener('click', form);
+    }
+
+    function form() {
+      show('<form class="pay-card" novalidate><p>' + esc(T('mp_form')) + '</p>' +
+        '<div class="field mp-last4"><label for="mp-last4">' + esc(T('mp_last4')) + '</label>' +
+        '<input id="mp-last4" class="input" inputmode="numeric" autocomplete="off" placeholder="0000" maxlength="4"></div>' +
+        '<div class="field"><label for="mp-receipt">' + esc(T('mp_receipt')) + '</label>' +
+        '<input id="mp-receipt" class="input" autocomplete="off" maxlength="60"></div>' +
+        '<p class="pay-err" role="alert" hidden></p>' +
+        row('<button type="button" class="btn btn-ghost" data-back>' + esc(T('pay_back')) + '</button><button type="submit" class="btn btn-primary">' + esc(T('mp_send')) + '</button>') +
+        '</form>', '#mp-last4');
+      const f = $('form', ui.box), last = $('#mp-last4', f), rec = $('#mp-receipt', f), err = $('.pay-err', f);
+      last.addEventListener('input', () => { last.value = last.value.replace(/\D/g, '').slice(0, 4); });
+      $('[data-back]', f).addEventListener('click', details);
+      f.addEventListener('submit', async e => {
+        e.preventDefault();
+        const l4 = last.value.replace(/\D/g, '');
+        if (l4.length !== 4) { err.textContent = T('mp_bad_last4'); err.hidden = false; last.focus(); return; }
+        err.hidden = true;
+        $$('button, input', f).forEach(el => { el.disabled = true; });
+        // If saving fails (new rules not published, no connection) the Telegram
+        // message still reaches you, so the student is never stuck here.
+        if (manual.canSave()) {
+          try { await manual.send(l4, rec.value.trim().slice(0, 60), lang); }
+          catch (ex) { console.warn('[SAT Ustoz] Could not save the payment note. Are the new firestore.rules published?', ex); }
+        }
+        sent(l4);
+      });
+    }
+
+    function sent(l4) {
+      show('<p class="pay-ok">' + esc(T('mp_sent_t')) + '</p><p>' + esc(T('mp_sent')) + '</p>' +
+        (email ? '<p class="up-email"><span>' + esc(T('mp_account')) + ' <b>' + esc(email) + '</b></span><button type="button" class="link-btn" data-copy="email">' + esc(T('up_copy')) + '</button></p>' : '') +
+        row(closeBtn() + tgBtn(l4)), 'a.btn-primary');
+      bindCopies();
+    }
+
+    function pending(at, l4) {
+      show('<p>' + esc(T('mp_pending').replace('{d}', fmtDate(at))) + '</p><p class="muted">' + esc(T('mp_pending_tg')) + '</p>' +
+        row('<button type="button" class="btn btn-ghost" data-again>' + esc(T('mp_again')) + '</button>' + closeBtn() + tgBtn(l4)), '[data-close]');
+      $('[data-again]', ui.box).addEventListener('click', details);
+    }
   }
 
   // A modal whose body this code redraws step by step (it brings its own buttons).

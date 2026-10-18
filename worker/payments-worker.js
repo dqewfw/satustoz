@@ -59,6 +59,13 @@
  *     https://scholarshub-pay.<you>.workers.dev/payme
  *  7. Put the Worker URL in PAYMENTS_ENDPOINT at the top of assets/sh.js.
  *
+ * PRO TESTS ONLY, before Payme is ready (README "Moving the Pro tests off
+ * GitHub Pages"): steps 1 to 3, then in step 4 only FIREBASE_PROJECT_ID,
+ * GOOGLE_SERVICE_ACCOUNT, ALLOWED_ORIGINS, SITE_URL, PRO_TESTS_REPO and
+ * GITHUB_TOKEN. Skip steps 5 and 6, and put the Worker URL in TESTS_ENDPOINT,
+ * not PAYMENTS_ENDPOINT. Without the Payme keys, /checkout and /payme refuse
+ * every request; add them later and nothing else changes.
+ *
  * Card numbers pass through this Worker on their way to Payme (Payme's API
  * cannot be called from a browser) and are never stored or logged. Payme
  * returns a card token; only the token is kept, here, in KV.
