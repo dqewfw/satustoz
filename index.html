@@ -530,6 +530,22 @@ document.addEventListener('DOMContentLoaded', function () {
   // Once the AI tutor is switched on (AI_ENDPOINT in sh.js), these lines replace
   // the "coming with Max" ones.
   var aiOn = !!(window.SH && window.SH.ai.enabled());
+  // Launch offer (TESTS_FREE_FOR_LAUNCH in sh.js): all 10 tests are free.
+  var launch = !!(window.SH && window.SH.CONFIG.PLANS.TESTS_FREE_FOR_LAUNCH);
+  var LAUNCH = {
+    en: {
+      pricing_p: "All 10 practice tests are free while we launch, no card needed. Pro shows exactly which skills cost you points, with every question explained.",
+      a7: "While we launch, all 10 practice tests are free, along with the mini diagnostic, the starter sets, your total score and 3 AI tutor questions a day. Pro adds your score broken down by skill, a review of every question with explanations, skill practice sets and drills built from your weakest skills. Max adds an unlimited AI tutor, new AI practice questions, a study plan to your test date and a monthly live group session with Azizbek."
+    },
+    uz: {
+      pricing_p: "Ishga tushish munosabati bilan barcha 10 ta sinov testi bepul, karta kerak emas. Pro qaysi koʻnikmalarda ball yoʻqotayotganingizni aniq koʻrsatadi va har bir savolni tushuntiradi.",
+      a7: "Ishga tushish davrida barcha 10 ta sinov testi bepul, shuningdek mini diagnostika, boshlangʻich toʻplamlar, umumiy ballingiz va kuniga 3 ta AI ustoz savoli. Pro koʻnikmalar boʻyicha ball tahlilini, har bir savolni izohlari bilan koʻrib chiqishni, koʻnikma toʻplamlari va eng zaif koʻnikmalaringiz boʻyicha mashqlarni qoʻshadi. Max esa cheksiz AI ustoz, yangi AI mashq savollari, imtihon sanangizgacha oʻqish rejasi va Azizbek bilan oylik jonli guruh darsini qoʻshadi."
+    },
+    ru: {
+      pricing_p: "В честь запуска все 10 пробных тестов бесплатны, карта не нужна. Pro точно показывает, на каких навыках вы теряете баллы, и объясняет каждый вопрос.",
+      a7: "Пока идёт запуск, все 10 пробных тестов бесплатны, как и мини-диагностика, стартовые наборы, общий балл и 3 вопроса ИИ-репетитору в день. Pro добавляет разбор балла по навыкам, разбор каждого вопроса с объяснениями, наборы по навыкам и тренировки по самым слабым навыкам. Max добавляет безлимитного ИИ-репетитора, новые ИИ-вопросы, план подготовки до даты экзамена и ежемесячное живое групповое занятие с Азизбеком."
+    }
+  };
   var AI_LIVE = {
     en: {
       hero_sub: "Timed adaptive tests in the real two-module format, question sets from our own lessons, an explanation for every question, and an AI tutor that answers in English, Uzbek or Russian.",
@@ -556,6 +572,7 @@ document.addEventListener('DOMContentLoaded', function () {
     els.forEach(function (el) {
       var k = el.dataset.i18n;
       if (k === 'a3' && !accounts) { el.textContent = LOCAL_A3[lang]; return; }
+      if (launch && LAUNCH[lang] && LAUNCH[lang][k]) { el.textContent = LAUNCH[lang][k]; return; }
       if (aiOn && AI_LIVE[lang] && AI_LIVE[lang][k]) { el.textContent = AI_LIVE[lang][k]; return; }
       if (dict && dict[k] != null) el.textContent = dict[k]; else el.innerHTML = EN[k];
     });

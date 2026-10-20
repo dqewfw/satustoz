@@ -67,7 +67,13 @@
       // question review and skill drills became Pro. Students who used the site
       // before this day (Tashkent time) keep Tests 2 and 3, and the full results
       // of tests they finished before it. Set it to the day you upload this version.
-      FREE_CHANGED_AT: '2026-10-19'
+      FREE_CHANGED_AT: '2026-10-19',
+      // Launch offer: true opens all 10 practice tests to everyone (Pro keeps the
+      // skill breakdown, question review, skill sets and drills). Set it to false
+      // to go back to Tests 4 to 10 (and 2 and 3 for new students) being Pro.
+      // While it's true, keep every test file in data/tests/ (don't use
+      // TESTS_ENDPOINT): students without Pro load the tests from there.
+      TESTS_FREE_FOR_LAUNCH: true
     },
 
     // Online payment with Payme. Paste your payments Worker URL here
@@ -394,7 +400,7 @@
     // Paid tests come from the payments Worker, which checks the plan first.
     // "legacyFree" tests (Tests 2 and 3) stay in data/tests/ for students from
     // before Free changed, who have no Pro for the Worker to check.
-    const raw = meta.plan && meta.plan !== 'free' && !meta.legacyFree && pay.testsEnabled() ? await loadProTest(meta) : await getJSON(meta.file);
+    const raw = meta.plan && meta.plan !== 'free' && !meta.legacyFree && !CONFIG.PLANS.TESTS_FREE_FOR_LAUNCH && pay.testsEnabled() ? await loadProTest(meta) : await getJSON(meta.file);
     const errors = [];
     const test = {
       id: meta.id,
@@ -994,7 +1000,7 @@
     },
     // Can this student open this test? meta is its entry in data/catalog.json;
     // "legacyFree" tests stay open for students from before the change.
-    opens(meta) { return !!meta && (this.allows(meta.plan) || (!!meta.legacyFree && this.legacy())); },
+    opens(meta) { return !!meta && (!!CONFIG.PLANS.TESTS_FREE_FOR_LAUNCH || this.allows(meta.plan) || (!!meta.legacyFree && this.legacy())); },
     // Skill breakdown, question review and skill drills are Pro. A test record
     // finished before the change keeps its full results.
     insights(rec) { return this.allows('pro') || (!!(rec && rec.finishedAt) && rec.finishedAt < freeChangedAt()); },
@@ -1138,6 +1144,7 @@
       mp_unlocked_t: '{plan} is on', mp_unlocked: 'You can use {plan} right now, for 48 hours, while we confirm your payment. Once it’s confirmed (within 2 hours, 9:00 to 23:00 Tashkent time), you get the full period you paid for. Send us the receipt so we can confirm it faster.',
       pending_note: 'Confirming your payment: the full period starts once it’s confirmed.',
       mp_trust: 'Payments go to {name}, the founder of SAT Ustoz. Questions? Message {tg} on Telegram.', mp_instant: 'Your plan switches on as soon as you tap “I’ve paid”.',
+      launch_tests: 'All 10 practice tests (free for our launch)', pro_sets: 'Practice sets for the most-missed skills',
       ai_daily: '3 AI tutor questions a day', ai_max: 'Unlimited AI tutor and new AI practice questions',
       bill_pass: 'Prices in Uzbek so’m. Pay for one month at a time, or for 3 months until your test.',
       pass_line: 'or {price} for 3 months, until your test',
@@ -1210,6 +1217,7 @@
       mp_unlocked_t: '{plan} yoqildi', mp_unlocked: 'Toʻlovingizni tasdiqlagunimizcha {plan} tarifidan hoziroq, 48 soat davomida foydalanishingiz mumkin. Tasdiqlangach (Toshkent vaqti bilan 9:00–23:00, 2 soat ichida) toʻlagan muddatingiz toʻliq ochiladi. Tezroq tasdiqlashimiz uchun chekni yuboring.',
       pending_note: 'Toʻlovingiz tasdiqlanmoqda: toʻliq muddat tasdiqlangach boshlanadi.',
       mp_trust: 'Toʻlovlar SAT Ustoz asoschisi {name} kartasiga tushadi. Savollar boʻlsa, Telegramda {tg} ga yozing.', mp_instant: '“Toʻladim” tugmasini bosishingiz bilan tarif darhol yoqiladi.',
+      launch_tests: 'Barcha 10 ta sinov testi (ishga tushish munosabati bilan bepul)', pro_sets: 'Eng koʻp xato qilinadigan koʻnikmalar boʻyicha toʻplamlar',
       ai_daily: 'Kuniga 3 ta AI ustoz savoli', ai_max: 'Cheksiz AI ustoz va yangi AI mashq savollari',
       bill_pass: 'Narxlar soʻmda. Bir oyga yoki imtihoningizgacha 3 oyga toʻlang.',
       pass_line: 'yoki imtihoningizgacha 3 oyga {price}',
@@ -1282,6 +1290,7 @@
       mp_unlocked_t: '{plan} включён', mp_unlocked: 'Пользуйтесь {plan} прямо сейчас, 48 часов, пока мы подтверждаем оплату. После подтверждения (в течение 2 часов, с 9:00 до 23:00 по Ташкенту) откроется весь оплаченный срок. Отправьте чек, чтобы мы подтвердили быстрее.',
       pending_note: 'Подтверждаем оплату: полный срок начнётся после подтверждения.',
       mp_trust: 'Платежи поступают основателю SAT Ustoz, {name}. Вопросы? Напишите {tg} в Telegram.', mp_instant: 'Тариф включится сразу, как только вы нажмёте «Я оплатил(а)».',
+      launch_tests: 'Все 10 пробных тестов (бесплатно в честь запуска)', pro_sets: 'Наборы по навыкам, где ошибаются чаще всего',
       ai_daily: '3 вопроса ИИ-репетитору в день', ai_max: 'Безлимитный ИИ-репетитор и новые ИИ-вопросы',
       bill_pass: 'Цены в узбекских сумах. Платите за месяц или сразу за 3 месяца до экзамена.',
       pass_line: 'или {price} за 3 месяца, до экзамена',
@@ -1306,6 +1315,16 @@
   }
   function priceText(amount, lang) {
     return amount + ' ' + (CONFIG.PLANS.CURRENCY[lang] || CONFIG.PLANS.CURRENCY.en);
+  }
+  // What each plan card lists. During the launch offer every test is free, so
+  // Free lists all 10 and Pro lists its skill sets instead of the tests. With the AI on, Free and Pro
+  // list their daily tutor questions and Max its unlimited AI.
+  function planFeatures(id, T) {
+    const f = T(id + '_f').slice();
+    if (CONFIG.PLANS.TESTS_FREE_FOR_LAUNCH) { if (id === 'free') f[1] = T('launch_tests'); if (id === 'pro') f[0] = T('pro_sets'); }
+    if (!ai.enabled()) return f;
+    if (id === 'max') f[1] = T('ai_max'); else f.push(T('ai_daily'));
+    return f;
   }
   // Pricing cards. opts.context: 'landing' (index.html) or 'app' (practice.html).
   function renderPlans(host, opts) {
@@ -1336,14 +1355,7 @@
     const card = (id, cls, flag, amount, monthly, cta, extra) => '<article class="plan' + cls + (cur === id ? ' is-current' : '') + '">' +
       (flag ? '<span class="plan-flag">' + esc(flag) + '</span>' : '') +
       '<h3>' + esc(T(id + '_name')) + '</h3><p class="plan-for">' + esc(T(id + '_for')) + '</p>' +
-      price(amount, monthly) + (extra || '') + list(features(id)) + '<div class="plan-cta">' + cta + '</div></article>';
-    // With the AI on: Free and Pro list their daily tutor questions, Max its unlimited AI.
-    function features(id) {
-      const f = T(id + '_f').slice();
-      if (!ai.enabled()) return f;
-      if (id === 'max') f[1] = T('ai_max'); else f.push(T('ai_daily'));
-      return f;
-    }
+      price(amount, monthly) + (extra || '') + list(planFeatures(id, T)) + '<div class="plan-cta">' + cta + '</div></article>';
     host.innerHTML = '<div class="plans">' +
       card('free', '', '', '0', false, freeCta) +
       card('pro', ' is-featured', T('popular'), CONFIG.PLANS.PRO_PRICE, true, proCta, passLine) +
@@ -1390,7 +1402,7 @@
     modal({
       title: opts.title || T('up_title'),
       html: (opts.text ? '<p>' + esc(opts.text) + '</p>' : '') + '<p class="muted">' + esc(T('pitch_lead')) + '</p>' +
-        '<ul class="plan-list">' + T('pro_f').map(i => '<li>' + esc(i) + '</li>').join('') + '</ul>' +
+        '<ul class="plan-list">' + planFeatures('pro', T).map(i => '<li>' + esc(i) + '</li>').join('') + '</ul>' +
         '<p class="pitch-price"><b>' + esc(priceText(CONFIG.PLANS.PRO_PRICE, lang)) + '</b> ' + esc(T('per_month')) + '</p>' + pass,
       actions: [{ label: T('pitch_later'), kind: 'ghost' }, { label: T('cta_pro'), kind: 'primary', onClick: () => { setTimeout(openUpgrade, 0); } }]
     });

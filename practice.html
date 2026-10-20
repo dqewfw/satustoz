@@ -322,7 +322,7 @@ document.addEventListener('DOMContentLoaded', function () {
     if (!attempts.length) {
       html += '<h2 class="section-title">Start here</h2><div class="grid grid-3">' +
         '<div class="card card-hover start-card"><span class="kicker">Recommended first</span><h3>Take the mini diagnostic</h3><p class="muted">About 50 minutes, adaptive like the real test. You get an estimated score, free.</p><a class="btn btn-primary" href="test.html?id=diagnostic-mini">Start the diagnostic</a></div>' +
-        '<div class="card card-hover start-card"><span class="kicker">Test-day ready</span><h3>Full practice tests</h3><p class="muted">Ten full-length tests, 98 questions in 2 hours 14 minutes, adaptive like the real SAT. Practice Test 1 is free.</p><a class="btn btn-ghost" href="#tests">See practice tests</a></div>' +
+        '<div class="card card-hover start-card"><span class="kicker">Test-day ready</span><h3>Full practice tests</h3><p class="muted">Ten full-length tests, 98 questions in 2 hours 14 minutes, adaptive like the real SAT. ' + (SH.CONFIG.PLANS.TESTS_FREE_FOR_LAUNCH ? 'All ten are free while we launch.' : 'Practice Test 1 is free.') + '</p><a class="btn btn-ghost" href="#tests">See practice tests</a></div>' +
         '<div class="card card-hover start-card"><span class="kicker">Short on time</span><h3>Try a 10-question set</h3><p class="muted">Instant feedback and an explanation after every question.</p><a class="btn btn-ghost" href="#sets">See practice sets</a></div></div>';
     } else {
       html += '<h2 class="section-title">Focus on these skills</h2>';
