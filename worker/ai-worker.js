@@ -20,7 +20,12 @@
  *     Optional (Text):
  *       GEN_MODEL           default claude-sonnet-5-5   (writes questions)
  *       TUTOR_MODEL         default claude-haiku-5-5    (tutor chat, cheaper)
- *       DAILY_LIMIT         default 60   requests per student IP per day
+ *       DAILY_LIMIT         default 60   requests per day for a Max student (or per IP)
+ *       FREE_DAILY_AI       default 3    tutor questions per day for Free and Pro students.
+ *                           Max is unlimited (up to DAILY_LIMIT), and only Max can
+ *                           generate new questions. Needs FIREBASE_PROJECT_ID: the
+ *                           Worker reads the student's plan (users/<uid>: plan,
+ *                           planUntil) from Firestore with their own sign-in.
  *       DAILY_GLOBAL_LIMIT  default 3000 requests per day for the whole site
  *       FIREBASE_PROJECT_ID your Firebase project ID (e.g. satustoz). When set,
  *                           only signed-in students can use the AI, and daily
@@ -93,12 +98,24 @@ export default {
       if (!student) return json({ error: 'Please sign in with Google to use the AI.', code: 'auth' }, 401);
     }
 
+    // Max: unlimited tutor and AI questions. Free and Pro: FREE_DAILY_AI tutor
+    // questions a day, and no AI question sets.
+    const token = student ? (request.headers.get('Authorization') || '').replace(/^Bearer\s+/i, '') : '';
+    const max = student ? await hasMax(env, student.sub, token) : false;
+    if (path === '/generate' && !max) return json({ error: 'New AI practice questions are part of Max.', code: 'max' }, 403);
+    const free = max ? null : await freeUses(request, env, student);
+    if (free && free.used >= free.limit) {
+      return json({ error: 'You’ve used your ' + free.limit + ' free AI tutor questions for today. They come back tomorrow, or get unlimited with Max.', code: 'free_limit', limit: free.limit, left: 0 }, 429);
+    }
+
     const limited = await rateLimit(request, env, student);
     if (limited) return json({ error: limited }, 429);
 
     try {
       if (path === '/generate') return json(await generate(body, env));
-      return json(await tutor(body, env));
+      const out = await tutor(body, env);
+      if (free) { await free.add(); out.left = Math.max(0, free.limit - free.used - 1); out.limit = free.limit; }
+      return json(out);
     } catch (e) {
       return json({ error: e.publicMessage || 'The AI service had a problem. Please try again in a minute.' }, e.status || 502);
     }
@@ -106,6 +123,36 @@ export default {
 };
 
 /* ------------------------------------------------------------------ */
+// The student's plan, read from Firestore with their own ID token (firestore.rules
+// lets a student read their own users/<uid>), so the Worker needs no Google key.
+// Any failure counts as "no Max": the free limit still applies.
+async function hasMax(env, uid, token) {
+  if (!env.FIREBASE_PROJECT_ID || !token) return false;
+  try {
+    const url = 'https://firestore.googleapis.com/v1/projects/' + encodeURIComponent(env.FIREBASE_PROJECT_ID) +
+      '/databases/(default)/documents/users/' + encodeURIComponent(uid) + '?mask.fieldPaths=plan&mask.fieldPaths=planUntil';
+    const res = await fetch(url, { headers: { authorization: 'Bearer ' + token } });
+    if (!res.ok) return false;
+    const f = (await res.json()).fields || {};
+    const plan = f.plan && f.plan.stringValue;
+    const until = f.planUntil && f.planUntil.timestampValue ? Date.parse(f.planUntil.timestampValue) : 0;
+    return plan === 'max' && (!until || until > Date.now());
+  } catch (e) { return false; }
+}
+
+// Free and Pro students' tutor questions today, per student (or per IP when
+// sign-in is off). Without the RATE_LIMIT KV there is nothing to count with,
+// so no free limit applies (the README says to bind it).
+async function freeUses(request, env, student) {
+  if (!env.RATE_LIMIT) return null;
+  const limit = Math.max(0, Number(env.FREE_DAILY_AI == null ? 3 : env.FREE_DAILY_AI) || 0);
+  const day = new Date(Date.now() + 5 * 3600000).toISOString().slice(0, 10); // Tashkent day
+  const who = student ? 'uid-' + student.sub : (request.headers.get('CF-Connecting-IP') || 'unknown');
+  const key = `free:${who}:${day}`;
+  const used = Number(await env.RATE_LIMIT.get(key) || 0);
+  return { used, limit, add: () => env.RATE_LIMIT.put(key, String(used + 1), { expirationTtl: 172800 }) };
+}
+
 async function rateLimit(request, env, student) {
   if (!env.RATE_LIMIT) return null;
   const day = new Date().toISOString().slice(0, 10);

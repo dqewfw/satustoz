@@ -511,12 +511,36 @@ document.addEventListener('DOMContentLoaded', function () {
     ru: 'В вашем браузере на этом устройстве. Если очистить данные браузера или сменить телефон, всё начнётся заново.'
   };
   var accounts = !!(window.SH && window.SH.auth.enabled());
+  // Once the AI tutor is switched on (AI_ENDPOINT in sh.js), these lines replace
+  // the "coming with Max" ones.
+  var aiOn = !!(window.SH && window.SH.ai.enabled());
+  var AI_LIVE = {
+    en: {
+      hero_sub: "Timed adaptive tests in the real two-module format, question sets from our own lessons, an explanation for every question, and an AI tutor that answers in English, Uzbek or Russian.",
+      f3_t: "AI tutor: 3 free questions a day",
+      f3_d: "Stuck on a question? Ask the AI tutor why, step by step, in English, Uzbek or Russian. Everyone gets 3 tutor questions a day; Max makes it unlimited and writes new practice questions on any skill.",
+      a7: "The mini diagnostic, Practice Test 1, the starter sets, your total score and 3 AI tutor questions a day are free. Pro opens all 10 practice tests, your score broken down by skill, a review of every question with explanations, and drills built from your weakest skills. Max adds an unlimited AI tutor, new AI practice questions, a study plan to your test date and a monthly live group session with Azizbek."
+    },
+    uz: {
+      hero_sub: "Haqiqiy ikki modulli formatdagi vaqtli adaptiv testlar, darslarimizdan olingan savollar toʻplamlari, har bir savolga tushuntirish va ingliz, oʻzbek yoki rus tilida javob beradigan AI ustoz.",
+      f3_t: "AI ustoz: kuniga 3 ta bepul savol",
+      f3_d: "Savolda qoqilib qoldingizmi? AI ustozdan sababini soʻrang: u bosqichma-bosqich, ingliz, oʻzbek yoki rus tilida tushuntiradi. Har kimga kuniga 3 ta savol bepul; Max esa cheklovni olib tashlaydi va istalgan koʻnikma boʻyicha yangi mashq savollari yozadi.",
+      a7: "Mini diagnostika, 1-sinov testi, boshlangʻich toʻplamlar, umumiy ballingiz va kuniga 3 ta AI ustoz savoli bepul. Pro barcha 10 ta sinov testini, koʻnikmalar boʻyicha ball tahlilini, har bir savolni izohlari bilan koʻrib chiqishni va eng zaif koʻnikmalaringiz boʻyicha mashqlarni ochadi. Max esa cheksiz AI ustoz, yangi AI mashq savollari, imtihon sanangizgacha oʻqish rejasi va Azizbek bilan oylik jonli guruh darsini qoʻshadi."
+    },
+    ru: {
+      hero_sub: "Адаптивные тесты с таймером в настоящем двухмодульном формате, наборы вопросов из наших занятий, объяснение к каждому вопросу и ИИ-репетитор, который отвечает на английском, узбекском или русском.",
+      f3_t: "ИИ-репетитор: 3 бесплатных вопроса в день",
+      f3_d: "Застряли на вопросе? Спросите ИИ-репетитора, почему: он объяснит пошагово на английском, узбекском или русском. Каждому доступно 3 вопроса в день; Max снимает лимит и пишет новые тренировочные вопросы по любому навыку.",
+      a7: "Мини-диагностика, пробный тест 1, стартовые наборы, общий балл и 3 вопроса ИИ-репетитору в день бесплатны. Pro открывает все 10 пробных тестов, разбор балла по навыкам, разбор каждого вопроса с объяснениями и тренировки по самым слабым навыкам. Max добавляет безлимитного ИИ-репетитора, новые ИИ-вопросы, план подготовки до даты экзамена и ежемесячное живое групповое занятие с Азизбеком."
+    }
+  };
   function apply(lang) {
     if (!LOCALE[lang]) lang = 'en';
     var dict = lang === 'en' ? null : I18N[lang];
     els.forEach(function (el) {
       var k = el.dataset.i18n;
       if (k === 'a3' && !accounts) { el.textContent = LOCAL_A3[lang]; return; }
+      if (aiOn && AI_LIVE[lang] && AI_LIVE[lang][k]) { el.textContent = AI_LIVE[lang][k]; return; }
       if (dict && dict[k] != null) el.textContent = dict[k]; else el.innerHTML = EN[k];
     });
     document.documentElement.lang = LOCALE[lang];

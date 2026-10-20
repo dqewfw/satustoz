@@ -413,7 +413,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const focus = mine ? weak.slice(0, 2) : [{ skill: 'Boundaries', acc: .58 }, { skill: 'Nonlinear functions', acc: .64 }];
     const feat = (icon, title, text) => '<li><span class="ico">' + icon + '</span><div><b>' + title + '</b><span>' + text + '</span></div></li>';
     return '<section class="teaser" aria-labelledby="teaser-h"><div>' +
-      '<div class="meta"><span class="tag tag-ai">AI Tutor</span><span class="soon-badge">Coming soon with Max</span></div>' +
+      '<div class="meta"><span class="tag tag-ai">AI Tutor</span><span class="soon-badge">' + (SH.ai.enabled() ? 'Part of Max · 3 free questions a day' : 'Coming soon with Max') + '</span></div>' +
       '<h2 id="teaser-h">A tutor that knows how you study</h2>' +
       '<p class="teaser-lede">The AI Tutor will work alongside every practice set and test. It learns from each answer you give, then tells you what to work on next.</p>' +
       '<ul class="teaser-feats">' +
@@ -421,7 +421,7 @@ document.addEventListener('DOMContentLoaded', function () {
       feat(ICON.chat, 'Real-time Q&amp;A', 'Ask about any question the moment you are stuck, in English, Uzbek or Russian, and get an answer in seconds.') +
       feat(ICON.target, 'Personalized feedback', 'Study recommendations built from your weakest skills, with the next questions to practice.') +
       '</ul><div class="row"><a class="btn btn-primary" href="#plans">See the Max plan</a>' +
-      '<a class="btn btn-ghost" href="' + esc(SH.CONFIG.CHANNEL_TELEGRAM) + '" target="_blank" rel="noopener">Get notified on Telegram</a></div></div>' +
+      (SH.ai.enabled() ? '' : '<a class="btn btn-ghost" href="' + esc(SH.CONFIG.CHANNEL_TELEGRAM) + '" target="_blank" rel="noopener">Get notified on Telegram</a>') + '</div></div>' +
       '<div class="teaser-demo" aria-hidden="true"><div class="td-window">' +
       '<div class="td-head"><span class="tag tag-ai">AI</span><b>SAT tutor</b><small>Preview</small></div>' +
       '<div class="td-log"><div class="bubble me">Why is “inevitable” wrong here?</div>' +
@@ -433,8 +433,8 @@ document.addEventListener('DOMContentLoaded', function () {
   function skillRow(w, withActions) {
     const inBank = bank.filter(q => q.skill === w.skill && q.section === w.section).length;
     const acts = withActions ? '<div class="acts row" style="gap:6px;justify-content:flex-end">' +
-      (inBank ? '<button class="btn ' + (SH.ai.enabled() ? 'btn-ghost' : 'btn-primary') + ' btn-sm" type="button" data-drill="' + esc(w.skill) + '" data-sec="' + w.section + '">Practice (' + inBank + ')</button>' : '') +
-      (SH.ai.enabled() ? '<button class="btn btn-primary btn-sm" type="button" data-aiskill="' + esc(w.skill) + '" data-sec="' + w.section + '">AI questions</button>' : (inBank ? '' : '<span class="small muted">More questions soon</span>')) + '</div>' : '';
+      (inBank ? '<button class="btn ' + (SH.ai.enabled() && SH.plan.allows('max') ? 'btn-ghost' : 'btn-primary') + ' btn-sm" type="button" data-drill="' + esc(w.skill) + '" data-sec="' + w.section + '">Practice (' + inBank + ')</button>' : '') +
+      (SH.ai.enabled() && SH.plan.allows('max') ? '<button class="btn btn-primary btn-sm" type="button" data-aiskill="' + esc(w.skill) + '" data-sec="' + w.section + '">AI questions</button>' : (inBank ? '' : '<span class="small muted">More questions soon</span>')) + '</div>' : '';
     return '<div class="skill-row' + (withActions ? ' has-acts' : '') + '"><div>' + secTag(w.section) + ' <b>' + esc(w.skill) + '</b><div class="small muted">' + w.correct + ' of ' + w.n + ' correct</div></div>' +
       '<div class="bar ' + accClass(w.acc) + '"><i style="width:' + Math.round(w.acc * 100) + '%"></i></div>' + acts + '</div>';
   }
@@ -530,6 +530,11 @@ document.addEventListener('DOMContentLoaded', function () {
     const weak = SH.weakSkills(3);
     let html = '<div class="hub-head"><div><h1>AI practice</h1></div></div>';
     const aiLocked = SH.ai.enabled() && SH.ai.needsLogin();
+    // New AI question sets are part of Max (the AI Worker checks it too).
+    const needMax = SH.ai.enabled() && !aiLocked && !SH.plan.allows('max');
+    if (needMax) {
+      html += '<div class="notice" style="margin-bottom:18px;display:flex;gap:14px;align-items:center;justify-content:space-between;flex-wrap:wrap"><span><b>New AI questions are part of Max.</b> On your plan you can still ask the AI tutor 3 questions a day from any explained question.</span><button class="btn btn-primary btn-sm" type="button" data-get-max>Get Max</button></div>';
+    }
     if (aiLocked) {
       html += '<div class="notice" style="margin-bottom:18px;display:flex;gap:14px;align-items:center;justify-content:space-between;flex-wrap:wrap"><span><b>Sign in to use AI practice.</b> It is free and takes one tap with your Google account.</span><a class="btn btn-primary btn-sm" href="' + esc(SH.loginUrl('practice.html#ai')) + '">Sign in with Google</a></div>';
     }
@@ -543,13 +548,14 @@ document.addEventListener('DOMContentLoaded', function () {
       '<div class="row"><div class="grow field"><label for="ai-diff">Difficulty</label><select class="input" id="ai-diff"><option value="easy">Easy</option><option value="medium" selected>Medium</option><option value="hard">Hard</option></select></div>' +
       '<div class="grow field"><label for="ai-n">Questions</label><select class="input" id="ai-n"><option>3</option><option selected>5</option></select></div></div>' +
       '<div class="field"><label for="ai-topic">Topic for passages or word problems (optional)</label><input class="input" id="ai-topic" maxlength="80" placeholder="e.g. space, football, Uzbek history"></div>' +
-      '<button class="btn btn-primary" type="submit"' + (SH.ai.enabled() && !aiLocked ? '' : ' disabled') + '>Generate questions</button>' +
+      '<button class="btn btn-primary" type="submit"' + (SH.ai.enabled() && !aiLocked && !needMax ? '' : ' disabled') + '>Generate questions</button>' +
       '<div id="ai-status" style="margin-top:14px"></div></form></div>' +
       '<div class="card"><h3>Recommended for you</h3>' +
       (weak.length ? '<p class="muted small">Your three weakest skills so far. Tap one to practice it.</p>' + weak.map(w => skillRow(w, false) + '<div style="margin:-4px 0 10px"><button class="btn btn-ghost btn-sm" type="button" data-pick="' + esc(w.skill) + '" data-sec="' + w.section + '">Use this skill</button></div>').join('')
         : '<p class="muted">Once you’ve answered a few questions, your weakest skills will show up here so the AI can target them.</p><a class="btn btn-ghost btn-sm" href="test.html?id=diagnostic-mini">Take the mini diagnostic</a>') +
       '<p class="small muted" style="margin-top:16px">AI-written questions are checked by the AI as it writes them, but they can still contain mistakes. If something looks wrong, ask the tutor or tell us on Telegram.</p></div></div>';
     view.innerHTML = html;
+    $$('[data-get-max]', view).forEach(b => b.addEventListener('click', () => SH.plan.upgrade('max')));
     const secSel = $('#ai-sec'), skillSel = $('#ai-skill');
     function fillSkills() {
       const doms = SH.TAXONOMY[secSel.value].domains;
@@ -648,7 +654,9 @@ document.addEventListener('DOMContentLoaded', function () {
         : '<div><b>How do I pay?</b><p>Tap “Upgrade to Pro”, transfer the price to our card from any banking app, and send us the receipt on Telegram. We switch Pro on within 2 hours, 9:00 to 23:00 Tashkent time. Online card payment is coming soon.</p></div>') +
       '<div><b>What happens when my Pro ends?</b><p>Your scores and progress stay. Pro tests, the skill breakdown and question review lock again until you renew. Practice Test 1 and the mini diagnostic stay free.</p></div>' +
       '<div><b>I used SAT Ustoz before Pro changed. What do I keep?</b><p>Practice Tests 2 and 3 stay free for you, and so do the full results of every test you finished before the change.</p></div>' +
-      '<div><b>When does Max open?</b><p>When the AI tutor is ready. Tap “Join the Max waitlist” and we’ll message you on Telegram the day it opens.</p></div>' +
+      (SH.ai.enabled()
+        ? '<div><b>What do I get with the AI on Free or Pro?</b><p>3 AI tutor questions a day, on any question with an explanation. Max makes the tutor unlimited and adds new AI practice questions on any skill.</p></div>'
+        : '<div><b>When does Max open?</b><p>When the AI tutor is ready. Tap “Join the Max waitlist” and we’ll message you on Telegram the day it opens.</p></div>') +
       (signedIn ? '' : '<div><b>Do I need an account?</b><p>Yes, for Pro. Your plan is linked to your Google account, so it works on every device you sign in on.</p></div>') +
       '</div>';
     SH.renderPlans($('#plans-host'), { context: 'app' });

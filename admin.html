@@ -94,6 +94,7 @@ document.addEventListener('DOMContentLoaded', async function () {
   const PRO_DAYS = 30; // same as PRO_DAYS in the payments Worker
   const PRICE = Number(String(CONFIG.PLANS.PRO_PRICE).replace(/\D/g, '')) || 0;
   const PASS_PRICE = Number(String(CONFIG.PLANS.PASS_PRICE || '').replace(/\D/g, '')) || 0;
+  const MAX_PRICE = Number(String(CONFIG.PLANS.MAX_PRICE || '').replace(/\D/g, '')) || 0;
   const monthsOf = r => Math.max(1, Math.min(12, Number(r && r.months) || 1));
   let waitlist = null;     // Max waitlist entries, or an Error when they can't be read
   let reports = null;      // "Report a mistake" and feedback messages, or an Error
@@ -119,12 +120,13 @@ document.addEventListener('DOMContentLoaded', async function () {
   // The same rule as grantMonth() in the payments Worker: the month is added
   // on top of time the student still has, an active Max stays Max, and Pro
   // with no end date is left as it is (null).
-  // months: 1, or PASS_MONTHS for the "until your test" pass.
-  function grant(u, now, months) {
+  // months: 1, or PASS_MONTHS for the "until your test" pass. want: the plan
+  // they paid for ('pro' or 'max'). Paying for Max upgrades Pro; an active Max stays Max.
+  function grant(u, now, months, want) {
     const plan = u && u.plan, cur = ms(u && u.planUntil);
     const active = (plan === 'pro' || plan === 'max') && (!cur || cur > now);
     if (active && !cur) return null;
-    return { plan: active && plan === 'max' ? 'max' : 'pro', until: (active ? Math.max(now, cur) : now) + PRO_DAYS * (months || 1) * DAY, extends: active };
+    return { plan: want === 'max' || (active && plan === 'max') ? 'max' : 'pro', until: (active ? Math.max(now, cur) : now) + PRO_DAYS * (months || 1) * DAY, extends: active };
   }
   function planNow(u, now) {
     if (u === undefined) return '<span class="muted">Could not read their account</span>';
@@ -136,10 +138,10 @@ document.addEventListener('DOMContentLoaded', async function () {
     if (until <= now) return 'Free <span class="muted">(' + planName(plan) + ' ended ' + esc(fmtDate(until)) + ')</span>';
     return planName(plan) + ' until ' + esc(fmtDate(until)) + ' <span class="muted">(' + Math.ceil((until - now) / DAY) + ' days left)</span>' + src;
   }
-  function effect(u, now, months) {
+  function effect(u, now, months, want) {
     const days = PRO_DAYS * (months || 1);
-    if (u === undefined) return 'Approve gives Pro for ' + days + ' days.';
-    const g = grant(u, now, months);
+    if (u === undefined) return 'Approve gives ' + planName(want) + ' for ' + days + ' days.';
+    const g = grant(u, now, months, want);
     if (!g) return 'They already have ' + planName(u.plan) + ' with no end date. Approve only clears this request.';
     return 'Approve: ' + planName(g.plan) + ' until <b>' + esc(fmtDate(g.until)) + '</b>' + (g.extends ? ' (' + days + ' days added to the time they still have)' : '');
   }
@@ -262,20 +264,20 @@ document.addEventListener('DOMContentLoaded', async function () {
   function card(r, u, now) {
     const at = ms(r.createdAt);
     const fact = (k, v, cls) => '<div' + (cls ? ' class="' + cls + '"' : '') + '><dt>' + k + '</dt><dd>' + v + '</dd></div>';
-    const months = monthsOf(r), expect = months > 1 ? PASS_PRICE : PRICE;
+    const months = monthsOf(r), expect = months > 1 ? PASS_PRICE : r.plan === 'max' ? MAX_PRICE : PRICE;
     const odd = expect && Number(r.amount) !== expect ? '<span class="tag tag-medium">price is now ' + esc(som(expect)) + '</span>' : '';
     return '<article class="card req" data-uid="' + esc(r.uid) + '">' +
       '<div class="req-head"><div class="req-who"><b>' + esc(r.name || 'No name') + '</b><span>' + esc(r.email || '') + '</span></div>' +
       (at ? '<span class="req-when">' + esc(when(at)) + ' · ' + esc(ago(at)) + '</span>' : '') + '</div>' +
       '<dl class="req-facts">' +
       fact('Amount', esc(som(r.amount)) + odd) +
-      fact('Pro for', months > 1 ? '<b>' + months + ' months</b> (pass)' : '1 month') +
+      fact(planName(r.plan) + ' for', months > 1 ? '<b>' + months + ' months</b> (pass)' : '1 month') +
       fact('Card ending', esc(r.last4 || '----'), 'big') +
       fact('Receipt', r.receiptId ? esc(r.receiptId) : '<span class="muted">none</span>') +
       fact('Language', esc(String(r.lang || 'en').toUpperCase())) +
       fact('Plan now', planNow(u, now), 'wide') +
       '</dl>' +
-      '<div class="req-foot"><p class="req-effect">' + effect(u, now, months) + '</p>' +
+      '<div class="req-foot"><p class="req-effect">' + effect(u, now, months, r.plan) + '</p>' +
       '<div class="req-btns"><button type="button" class="btn btn-ghost btn-reject" data-reject>Reject</button><button type="button" class="btn btn-primary" data-approve>Approve</button></div></div>' +
       '<p class="pay-err" role="alert" hidden></p>' +
       '<p class="req-uid">uid ' + esc(r.uid) + '</p></article>';
@@ -305,7 +307,7 @@ document.addEventListener('DOMContentLoaded', async function () {
         const rs = await tx.get(reqRef), us = await tx.get(userRef);
         if (!rs.exists()) throw oops('gone', 'This request was already approved or rejected.');
         if (ms(rs.data().createdAt) !== ms(it.r.createdAt)) throw oops('changed', 'The student sent new payment details. Check them again.');
-        const out = grant(us.exists() ? us.data() : null, Date.now(), monthsOf(rs.data()));
+        const out = grant(us.exists() ? us.data() : null, Date.now(), monthsOf(rs.data()), rs.data().plan);
         if (out) tx.set(userRef, { plan: out.plan, planUntil: fs.Timestamp.fromMillis(out.until), planSource: 'manual' }, { merge: true });
         tx.delete(reqRef);
         return out;

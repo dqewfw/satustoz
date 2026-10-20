@@ -50,6 +50,18 @@ Telegram bot token had. The Worker keeps the key on Cloudflare's side.
 Models: question writing uses `claude-sonnet-5-5`, the tutor uses `claude-haiku-5-5` (cheaper, fast).
 Change them with the `GEN_MODEL` and `TUTOR_MODEL` variables in Cloudflare, no code change needed.
 
+**Who gets the AI.** Free and Pro students get `FREE_DAILY_AI` tutor questions a day (default 3, counted per student
+in the `RATE_LIMIT` KV, reset at midnight Tashkent time). Max students get an unlimited tutor (up to `DAILY_LIMIT`, a
+safety cap) and are the only ones who can generate new AI practice questions. The Worker reads the student's `plan` and
+`planUntil` from Firestore using the student's own sign-in, so it needs `FIREBASE_PROJECT_ID` and the `RATE_LIMIT` KV
+binding, and no extra key. To change the daily number, edit `FREE_DAILY_AI` in Cloudflare (the site's wording says 3:
+search `3 AI tutor` / `3 free` in `assets/sh.js`, `practice.html` and `index.html` if you change it).
+
+**Max goes on sale when the AI is on.** With `AI_ENDPOINT` filled in, the Max card shows "Get Max" (card transfer, the
+same steps as Pro, at `MAX_PRICE`), and the landing page switches from "AI tutor coming with Max" to the live wording.
+admin.html approves Max requests like Pro ones. Message the Max waitlist (admin.html, "Copy all usernames") the day you
+switch it on. Max includes a monthly live group session with you: plan the first one before the first sale.
+
 ## Brand files
 
 ```

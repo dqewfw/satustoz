@@ -498,7 +498,12 @@
         });
         let data = null;
         try { data = await res.json(); } catch (e) { /* ignore */ }
-        if (!res.ok) { const err = new Error((data && data.error) || ('The AI service returned an error (' + res.status + ').')); if (res.status === 401) err.code = 'auth'; throw err; }
+        if (!res.ok) {
+          const err = new Error((data && data.error) || ('The AI service returned an error (' + res.status + ').'));
+          // 'auth', 'max' (AI questions are Max) or 'free_limit' (today's free tutor questions are used up)
+          err.code = (data && data.code) || (res.status === 401 ? 'auth' : '');
+          throw err;
+        }
         return data;
       } catch (e) {
         if (e.code) throw e;
@@ -619,6 +624,7 @@
     }
     function onKey(e) { if (e.key === 'Escape') close(); }
     wrap.querySelector('.x').addEventListener('click', close);
+    log.addEventListener('click', e => { if (e.target.closest('[data-get-max]')) { close(); plan.upgrade('max'); } });
     wrap.querySelector('.tutor-backdrop').addEventListener('click', close);
     document.addEventListener('keydown', onKey);
     tutorOpen = { close };
@@ -638,6 +644,10 @@
       return tutorOpen;
     }
     const studentAnswer = opts.response == null || opts.response === '' ? '(no answer)' : String(opts.response);
+    // Free and Pro: a few tutor questions a day (FREE_DAILY_AI in the AI Worker). Max: unlimited.
+    const maxBtn = '<button type="button" class="link-btn" data-get-max>Get unlimited with Max</button>';
+    const hasMax = plan.allows('max');
+    if (!hasMax) bubble('sys', 'Free and Pro include 3 AI tutor questions a day. ' + maxBtn);
     bubble('sys', reveal
       ? 'The tutor can see this question, your answer (' + esc(studentAnswer) + ') and the correct answer.'
       : 'Hint mode: the tutor will guide you without giving away the answer.');
@@ -665,9 +675,12 @@
         const reply = String((data && data.reply) || '').trim() || 'Sorry, I did not get that. Could you ask again?';
         wait.innerHTML = renderRich(reply);
         history.push({ role: 'assistant', content: reply.slice(0, 4000) });
+        if (!hasMax && data && data.left != null) bubble('sys', (data.left === 0 ? 'That was your last free tutor question today. ' : data.left + ' free tutor question' + (data.left === 1 ? '' : 's') + ' left today. ') + maxBtn);
       } catch (e) {
         wait.className = 'bubble sys';
         if (e.code === 'auth') wait.innerHTML = esc(e.message) + ' <a href="' + esc(loginUrl()) + '">Sign in</a>';
+        else if (e.code === 'free_limit') wait.innerHTML = 'You’ve used today’s free tutor questions. They come back tomorrow. ' + maxBtn;
+        else if (e.code === 'max') wait.innerHTML = esc(e.message) + ' ' + maxBtn;
         else wait.textContent = e.message;
         history.pop();
       } finally { busy = false; log.scrollTop = log.scrollHeight; }
@@ -1036,11 +1049,12 @@
       const s = await fs.getDoc(ref);
       return s.exists() ? s.data() : null;
     },
-    async send(last4, receiptId, lang, months) {
+    async send(last4, receiptId, lang, months, planId) {
       const { fs, ref } = await this._ref();
+      const max = planId === 'max';
       await fs.setDoc(ref, {
-        uid: auth.user.uid, email: auth.user.email, name: (auth.user.name || '').slice(0, 100), plan: 'pro',
-        amount: somNumber(months > 1 ? CONFIG.PLANS.PASS_PRICE : CONFIG.PLANS.PRO_PRICE), months: months > 1 ? months : 1,
+        uid: auth.user.uid, email: auth.user.email, name: (auth.user.name || '').slice(0, 100), plan: max ? 'max' : 'pro',
+        amount: somNumber(months > 1 ? CONFIG.PLANS.PASS_PRICE : max ? CONFIG.PLANS.MAX_PRICE : CONFIG.PLANS.PRO_PRICE), months: months > 1 ? months : 1,
         last4, receiptId, lang, createdAt: fs.serverTimestamp()
       });
     }
@@ -1100,10 +1114,11 @@
       mp_sent_t: 'Almost done',
       mp_sent: 'Last step: send the receipt screenshot to us on Telegram. We check it and switch Pro on within 2 hours, 9:00 to 23:00 Tashkent time.',
       mp_account: 'Your account:', mp_tg: 'Send receipt on Telegram',
-      mp_tg_msg: 'Hi! I paid {price} for SAT Ustoz Pro. Account: {email}. Card ending {card}. Receipt:',
+      mp_tg_msg: 'Hi! I paid {price} for SAT Ustoz {plan}. Account: {email}. Card ending {card}. Receipt:',
       mp_pending: 'We got your payment details on {d} and are checking them. Pro switches on within 2 hours (9:00 to 23:00 Tashkent time); reload the page then.',
       mp_pending_tg: 'Haven’t sent the receipt screenshot yet? Send it on Telegram so we find your payment faster.',
       mp_again: 'I made a new payment',
+      ai_daily: '3 AI tutor questions a day', ai_max: 'Unlimited AI tutor and new AI practice questions',
       bill_pass: 'Prices in Uzbek so’m. Pay for one month at a time, or for 3 months until your test.',
       pass_line: 'or {price} for 3 months, until your test',
       mp_choose: 'How long do you want Pro?', mp_month_t: 'One month', mp_pass_t: '3 months, until your test', mp_pass_d: '{price}: 3 months for the price of 2.5',
@@ -1168,10 +1183,11 @@
       mp_sent_t: 'Deyarli tayyor',
       mp_sent: 'Oxirgi qadam: chek skrinshotini bizga Telegramda yuboring. Biz uni tekshirib, Toshkent vaqti bilan 9:00 dan 23:00 gacha 2 soat ichida Pro tarifini yoqamiz.',
       mp_account: 'Hisobingiz:', mp_tg: 'Chekni Telegramda yuborish',
-      mp_tg_msg: 'Salom! SAT Ustoz Pro uchun {price} toʻladim. Hisob: {email}. Karta oxiri: {card}. Chek:',
+      mp_tg_msg: 'Salom! SAT Ustoz {plan} uchun {price} toʻladim. Hisob: {email}. Karta oxiri: {card}. Chek:',
       mp_pending: '{d} kuni toʻlov maʼlumotlaringizni oldik va tekshiryapmiz. Pro 2 soat ichida (Toshkent vaqti bilan 9:00–23:00) yoqiladi, keyin sahifani yangilang.',
       mp_pending_tg: 'Chek skrinshotini hali yubormadingizmi? Toʻlovingizni tezroq topishimiz uchun uni Telegramda yuboring.',
       mp_again: 'Yangi toʻlov qildim',
+      ai_daily: 'Kuniga 3 ta AI ustoz savoli', ai_max: 'Cheksiz AI ustoz va yangi AI mashq savollari',
       bill_pass: 'Narxlar soʻmda. Bir oyga yoki imtihoningizgacha 3 oyga toʻlang.',
       pass_line: 'yoki imtihoningizgacha 3 oyga {price}',
       mp_choose: 'Pro qancha muddatga kerak?', mp_month_t: 'Bir oy', mp_pass_t: 'Imtihoningizgacha 3 oy', mp_pass_d: '{price}: 2,5 oy narxiga 3 oy',
@@ -1236,10 +1252,11 @@
       mp_sent_t: 'Почти готово',
       mp_sent: 'Последний шаг: отправьте нам скриншот чека в Telegram. Мы проверим его и включим Pro в течение 2 часов, с 9:00 до 23:00 по Ташкенту.',
       mp_account: 'Ваш аккаунт:', mp_tg: 'Отправить чек в Telegram',
-      mp_tg_msg: 'Здравствуйте! Я оплатил(а) {price} за SAT Ustoz Pro. Аккаунт: {email}. Карта на {card}. Чек:',
+      mp_tg_msg: 'Здравствуйте! Я оплатил(а) {price} за SAT Ustoz {plan}. Аккаунт: {email}. Карта на {card}. Чек:',
       mp_pending: '{d} мы получили данные о вашем платеже и проверяем их. Pro включится в течение 2 часов (с 9:00 до 23:00 по Ташкенту), затем обновите страницу.',
       mp_pending_tg: 'Ещё не отправили скриншот чека? Отправьте его в Telegram, так мы быстрее найдём платёж.',
       mp_again: 'Я сделал(а) новый платёж',
+      ai_daily: '3 вопроса ИИ-репетитору в день', ai_max: 'Безлимитный ИИ-репетитор и новые ИИ-вопросы',
       bill_pass: 'Цены в узбекских сумах. Платите за месяц или сразу за 3 месяца до экзамена.',
       pass_line: 'или {price} за 3 месяца, до экзамена',
       mp_choose: 'На какой срок нужен Pro?', mp_month_t: 'Один месяц', mp_pass_t: '3 месяца, до экзамена', mp_pass_d: '{price}: 3 месяца по цене 2,5',
@@ -1276,7 +1293,7 @@
     const current = () => '<button class="btn btn-ghost" type="button" disabled>' + esc(T('cta_current')) + '</button>' +
       (cur !== 'free' && until ? '<p class="plan-until">' + esc(T('active_until').replace('{d}', fmtDate(until))) + '</p>' : '') +
       (cur !== 'free' && pay.enabled() && auth.user ? '<p class="plan-until"><button type="button" class="link-btn" data-manage>' + esc(T('manage')) + '</button></p>' : '') +
-      (cur === 'pro' && manual.enabled() && auth.user ? '<p class="plan-until"><button type="button" class="link-btn" data-upgrade="pro">' + esc(T('m_more')) + '</button></p>' : '');
+      (cur !== 'free' && manual.enabled() && auth.user && (cur === 'pro' || ai.enabled()) ? '<p class="plan-until"><button type="button" class="link-btn" data-upgrade="' + cur + '">' + esc(T('m_more')) + '</button></p>' : '');
     const included = '<button class="btn btn-ghost" type="button" disabled>' + esc(T('cta_included')) + '</button>';
     const freeCta = cur !== 'free' ? included
       : opts.context === 'landing' ? '<a class="btn btn-ghost" href="practice.html">' + esc(T('cta_free')) + '</a>' : current();
@@ -1284,6 +1301,7 @@
       : '<button class="btn btn-primary" type="button" data-upgrade="pro">' + esc(T('cta_pro')) + '</button>';
     // Until Max launches, its card collects a waitlist (Telegram usernames).
     const maxCta = cur === 'max' ? current()
+      : ai.enabled() && (manual.enabled() || !auth.enabled()) ? '<button class="btn btn-primary" type="button" data-upgrade="max">' + esc(T('cta_max')) + '</button>'
       : '<button class="btn btn-ghost" type="button" data-waitlist>' + esc(T(store.get('waitlist', null) ? 'cta_wait_on' : 'cta_wait')) + '</button>' +
         '<p class="plan-until"><span class="soon-badge">' + esc(T('soon')) + '</span></p>';
     const passOn = passEnabled();
@@ -1291,7 +1309,14 @@
     const card = (id, cls, flag, amount, monthly, cta, extra) => '<article class="plan' + cls + (cur === id ? ' is-current' : '') + '">' +
       (flag ? '<span class="plan-flag">' + esc(flag) + '</span>' : '') +
       '<h3>' + esc(T(id + '_name')) + '</h3><p class="plan-for">' + esc(T(id + '_for')) + '</p>' +
-      price(amount, monthly) + (extra || '') + list(T(id + '_f')) + '<div class="plan-cta">' + cta + '</div></article>';
+      price(amount, monthly) + (extra || '') + list(features(id)) + '<div class="plan-cta">' + cta + '</div></article>';
+    // With the AI on: Free and Pro list their daily tutor questions, Max its unlimited AI.
+    function features(id) {
+      const f = T(id + '_f').slice();
+      if (!ai.enabled()) return f;
+      if (id === 'max') f[1] = T('ai_max'); else f.push(T('ai_daily'));
+      return f;
+    }
     host.innerHTML = '<div class="plans">' +
       card('free', '', '', '0', false, freeCta) +
       card('pro', ' is-featured', T('popular'), CONFIG.PLANS.PRO_PRICE, true, proCta, passLine) +
@@ -1301,18 +1326,22 @@
     $$('[data-waitlist]', host).forEach(b => b.addEventListener('click', openWaitlist));
     $$('[data-manage]', host).forEach(b => b.addEventListener('click', openManage));
   }
-  function openUpgrade() {
+  // id: 'pro' (default) or 'max'. Max is sold once the AI tutor is on; until then its card collects a waitlist.
+  function openUpgrade(id) {
+    const want = id === 'max' ? 'max' : 'pro';
+    if (want === 'max' && !ai.enabled()) { openWaitlist(); return; }
     const lang = langNow(), T = k => planText(k, lang);
     analytics.track('upgrade_opened', { sheet: 'upgrade', step: auth.enabled() && !auth.user ? 'sign_in' : pay.enabled() ? 'payme' : manual.enabled() ? 'card_transfer' : 'telegram' });
     if (auth.enabled() && !auth.user) {
       modal({
-        title: T('up_title'), html: '<p>' + esc(T('up_signin')) + '</p>',
+        title: T(want === 'max' ? 'cta_max' : 'up_title'), html: '<p>' + esc(T('up_signin')) + '</p>',
         actions: [{ label: T('close'), kind: 'ghost' }, { label: T('up_signin_btn'), kind: 'primary', onClick: () => { location.href = loginUrl('practice.html#plans'); } }]
       });
       return;
     }
-    if (pay.enabled()) { openCheckout(); return; }
-    if (manual.enabled()) { openManualPay(); return; }
+    // The Payme Worker sells Pro only; Max goes through card transfer.
+    if (pay.enabled() && want === 'pro') { openCheckout(); return; }
+    if (manual.enabled()) { openManualPay(want); return; }
     const email = auth.user ? auth.user.email : '';
     const steps = T('up_steps').map(s => esc(s.replace('{price}', priceText(CONFIG.PLANS.PRO_PRICE, lang))));
     if (email) steps[2] += '<span class="up-email"><b>' + esc(email) + '</b><button type="button" class="link-btn" data-copy>' + esc(T('up_copy')) + '</button></span>';
@@ -1453,17 +1482,20 @@
   // Card transfer: the card and price, then the last 4 digits of the student's
   // card, then the receipt screenshot on Telegram (that message is how you hear
   // about it). A note from the last 7 days means we are still checking it.
-  function openManualPay() {
+  function openManualPay(planId) {
+    planId = planId === 'max' ? 'max' : 'pro';
     const lang = langNow(), T = k => planText(k, lang);
-    const ui = stepModal(T('up_title'), lang);
+    const ui = stepModal(T(planId === 'max' ? 'cta_max' : 'up_title'), lang);
+    const base = planId === 'max' ? CONFIG.PLANS.MAX_PRICE : CONFIG.PLANS.PRO_PRICE;
+    const withPass = () => planId === 'pro' && passEnabled();
     const { show, row, closeBtn } = ui;
     const digits = manual.card(), holder = String(CONFIG.MANUAL_PAY.CARD_HOLDER || '').trim();
     // One month, or the "until your test" pass (chosen on the first screen when it is on).
     const passMonths = Number(CONFIG.PLANS.PASS_MONTHS) || 0;
-    let months = 1, amount = CONFIG.PLANS.PRO_PRICE, price = priceText(amount, lang);
-    const pick = m => { months = m; amount = m > 1 ? CONFIG.PLANS.PASS_PRICE : CONFIG.PLANS.PRO_PRICE; price = priceText(amount, lang); };
+    let months = 1, amount = base, price = priceText(amount, lang);
+    const pick = m => { months = m; amount = m > 1 ? CONFIG.PLANS.PASS_PRICE : base; price = priceText(amount, lang); };
     const email = auth.user ? auth.user.email : '';
-    const tgLink = last4 => CONFIG.CONTACT_TELEGRAM + '?text=' + encodeURIComponent(T('mp_tg_msg').replace('{price}', price).replace('{email}', email || '-').replace('{card}', last4 || '----'));
+    const tgLink = last4 => CONFIG.CONTACT_TELEGRAM + '?text=' + encodeURIComponent(T('mp_tg_msg').replace('{plan}', planText(planId + '_name', lang)).replace('{price}', price).replace('{email}', email || '-').replace('{card}', last4 || '----'));
     const tgBtn = last4 => '<a class="btn btn-primary" href="' + esc(tgLink(last4)) + '" target="_blank" rel="noopener">' + esc(T('mp_tg')) + '</a>';
     const line = (k, v, copy) => '<div class="mp-row"><span class="mp-k">' + esc(T(k)) + '</span><b>' + esc(v) + '</b>' +
       (copy ? '<button type="button" class="link-btn" data-copy="' + copy + '">' + esc(T('up_copy')) + '</button>' : '') + '</div>';
@@ -1479,7 +1511,7 @@
     }).catch(() => start());
     else start();
 
-    function start() { if (passEnabled()) choose(); else details(); }
+    function start() { if (withPass()) choose(); else details(); }
 
     function choose() {
       const opt = (m, title, desc) => '<button type="button" class="pay-opt" data-months="' + m + '"><b>' + esc(title) + '</b><span>' + esc(desc) + '</span></button>';
@@ -1496,7 +1528,7 @@
         (holder ? line('mp_name', holder) : '') +
         line('mp_amount', price, 'amount') +
         '</div><p class="mp-note">' + esc(T('mp_note')) + '</p>' +
-        row((passEnabled() ? '<button type="button" class="btn btn-ghost" data-back>' + esc(T('pay_back')) + '</button>' : closeBtn()) +
+        row((withPass() ? '<button type="button" class="btn btn-ghost" data-back>' + esc(T('pay_back')) + '</button>' : closeBtn()) +
           '<button type="button" class="btn btn-primary" data-paid>' + esc(T('mp_paid')) + '</button>'), '[data-paid]');
       bindCopies();
       const back = $('[data-back]', ui.box); if (back) back.addEventListener('click', choose);
@@ -1525,7 +1557,7 @@
         // message still reaches you, so the student is never stuck here.
         let saved = false;
         if (manual.canSave()) {
-          try { await manual.send(l4, rec.value.trim().slice(0, 60), lang, months); saved = true; }
+          try { await manual.send(l4, rec.value.trim().slice(0, 60), lang, months, planId); saved = true; }
           catch (ex) { console.warn('[SAT Ustoz] Could not save the payment note. Are the new firestore.rules published?', ex); }
         }
         analytics.track('pay_note_sent', { months, amount: somNumber(amount), saved });

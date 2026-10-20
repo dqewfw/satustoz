@@ -53,7 +53,7 @@ service cloud.firestore {
           && d.keys().hasAll(['uid', 'email', 'plan', 'amount', 'last4', 'createdAt'])
           && d.uid == uid
           && d.email == request.auth.token.email
-          && d.plan == 'pro'
+          && d.plan in ['pro', 'max']
           && d.amount is int && d.amount >= 0
           && (!('months' in d) || (d.months is int && d.months >= 1 && d.months <= 12))
           && d.last4 is string && d.last4.matches('[0-9]{4}')
