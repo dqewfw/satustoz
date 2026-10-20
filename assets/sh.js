@@ -871,8 +871,10 @@
       // webhook can set it, and firestore.rules stops students writing it.
       if (userDoc && userDoc.plan) {
         const u = userDoc.planUntil;
-        store.set('plan', { id: String(userDoc.plan), until: u && typeof u.toMillis === 'function' ? u.toMillis() : (Number(u) || 0) });
+        store.set('plan', { id: String(userDoc.plan), until: u && typeof u.toMillis === 'function' ? u.toMillis() : (Number(u) || 0), source: String(userDoc.planSource || '') });
       } else store.del('plan');
+      // Whether this account already used its one 48-hour unlock (manual.unlock).
+      if (userDoc && userDoc.trialUsedAt) store.set('trialUsed', true); else store.del('trialUsed');
       // When the account was created: decides whether the student keeps Tests 2 and 3 (plan.legacy).
       const made = userDoc && userDoc.createdAt;
       if (made && typeof made.toMillis === 'function') store.set('since', made.toMillis()); else store.del('since');
@@ -912,7 +914,7 @@
     async flush() { if (this.uid && Object.keys(this.dirty).length) await this.push(); },
     clearLocal() {
       SYNCED_KEYS.forEach(k => store.del(k));
-      store.del('owner'); store.del('plan'); store.del('since'); store.del('waitlist');
+      store.del('owner'); store.del('plan'); store.del('since'); store.del('waitlist'); store.del('trialUsed');
       try { Object.keys(localStorage).filter(k => k.indexOf(PREFIX + 'run.') === 0).forEach(k => localStorage.removeItem(k)); } catch (e) { /* ignore */ }
     }
   };
@@ -1059,6 +1061,21 @@
       });
     }
   };
+  // The 48-hour unlock right after "I've paid": the plan switches on at once while
+  // you check the transfer. Once per account, only with no plan running, only
+  // just after a payment note for the same plan (firestore.rules checks all of it).
+  // Approving on admin.html turns it into the full period; rejecting ends it.
+  manual.canUnlock = () => manual.canSave() && plan.current() === 'free' && !store.get('trialUsed', false);
+  manual.unlock = async planId => {
+    const fs = await sync._lib();
+    const until = Date.now() + 47 * 3600000; // a little under 48 hours, so a fast device clock still passes the rule
+    await fs.setDoc(fs.doc(sync.db, 'users', auth.user.uid),
+      { plan: planId, planUntil: fs.Timestamp.fromMillis(until), planSource: 'pending', trialUsedAt: fs.serverTimestamp() }, { merge: true });
+    store.set('plan', { id: planId, until, source: 'pending' });
+    store.set('trialUsed', true);
+    try { document.dispatchEvent(new CustomEvent('sh:synced')); } catch (e) { /* ignore */ }
+    return until;
+  };
   const somNumber = v => Number(String(v || '').replace(/\D/g, '')) || 0;
   // The "until your test" pass is offered only with card transfer, which you check by hand.
   const passEnabled = () => manual.enabled() && somNumber(CONFIG.PLANS.PASS_PRICE) > 0 && Number(CONFIG.PLANS.PASS_MONTHS) > 1;
@@ -1118,6 +1135,9 @@
       mp_pending: 'We got your payment details on {d} and are checking them. Pro switches on within 2 hours (9:00 to 23:00 Tashkent time); reload the page then.',
       mp_pending_tg: 'Haven’t sent the receipt screenshot yet? Send it on Telegram so we find your payment faster.',
       mp_again: 'I made a new payment',
+      mp_unlocked_t: '{plan} is on', mp_unlocked: 'You can use {plan} right now, for 48 hours, while we confirm your payment. Once it’s confirmed (within 2 hours, 9:00 to 23:00 Tashkent time), you get the full period you paid for. Send us the receipt so we can confirm it faster.',
+      pending_note: 'Confirming your payment: the full period starts once it’s confirmed.',
+      mp_trust: 'Payments go to {name}, the founder of SAT Ustoz. Questions? Message {tg} on Telegram.', mp_instant: 'Your plan switches on as soon as you tap “I’ve paid”.',
       ai_daily: '3 AI tutor questions a day', ai_max: 'Unlimited AI tutor and new AI practice questions',
       bill_pass: 'Prices in Uzbek so’m. Pay for one month at a time, or for 3 months until your test.',
       pass_line: 'or {price} for 3 months, until your test',
@@ -1187,6 +1207,9 @@
       mp_pending: '{d} kuni toʻlov maʼlumotlaringizni oldik va tekshiryapmiz. Pro 2 soat ichida (Toshkent vaqti bilan 9:00–23:00) yoqiladi, keyin sahifani yangilang.',
       mp_pending_tg: 'Chek skrinshotini hali yubormadingizmi? Toʻlovingizni tezroq topishimiz uchun uni Telegramda yuboring.',
       mp_again: 'Yangi toʻlov qildim',
+      mp_unlocked_t: '{plan} yoqildi', mp_unlocked: 'Toʻlovingizni tasdiqlagunimizcha {plan} tarifidan hoziroq, 48 soat davomida foydalanishingiz mumkin. Tasdiqlangach (Toshkent vaqti bilan 9:00–23:00, 2 soat ichida) toʻlagan muddatingiz toʻliq ochiladi. Tezroq tasdiqlashimiz uchun chekni yuboring.',
+      pending_note: 'Toʻlovingiz tasdiqlanmoqda: toʻliq muddat tasdiqlangach boshlanadi.',
+      mp_trust: 'Toʻlovlar SAT Ustoz asoschisi {name} kartasiga tushadi. Savollar boʻlsa, Telegramda {tg} ga yozing.', mp_instant: '“Toʻladim” tugmasini bosishingiz bilan tarif darhol yoqiladi.',
       ai_daily: 'Kuniga 3 ta AI ustoz savoli', ai_max: 'Cheksiz AI ustoz va yangi AI mashq savollari',
       bill_pass: 'Narxlar soʻmda. Bir oyga yoki imtihoningizgacha 3 oyga toʻlang.',
       pass_line: 'yoki imtihoningizgacha 3 oyga {price}',
@@ -1256,6 +1279,9 @@
       mp_pending: '{d} мы получили данные о вашем платеже и проверяем их. Pro включится в течение 2 часов (с 9:00 до 23:00 по Ташкенту), затем обновите страницу.',
       mp_pending_tg: 'Ещё не отправили скриншот чека? Отправьте его в Telegram, так мы быстрее найдём платёж.',
       mp_again: 'Я сделал(а) новый платёж',
+      mp_unlocked_t: '{plan} включён', mp_unlocked: 'Пользуйтесь {plan} прямо сейчас, 48 часов, пока мы подтверждаем оплату. После подтверждения (в течение 2 часов, с 9:00 до 23:00 по Ташкенту) откроется весь оплаченный срок. Отправьте чек, чтобы мы подтвердили быстрее.',
+      pending_note: 'Подтверждаем оплату: полный срок начнётся после подтверждения.',
+      mp_trust: 'Платежи поступают основателю SAT Ustoz, {name}. Вопросы? Напишите {tg} в Telegram.', mp_instant: 'Тариф включится сразу, как только вы нажмёте «Я оплатил(а)».',
       ai_daily: '3 вопроса ИИ-репетитору в день', ai_max: 'Безлимитный ИИ-репетитор и новые ИИ-вопросы',
       bill_pass: 'Цены в узбекских сумах. Платите за месяц или сразу за 3 месяца до экзамена.',
       pass_line: 'или {price} за 3 месяца, до экзамена',
@@ -1292,8 +1318,9 @@
     const list = items => '<ul class="plan-list">' + items.map(i => '<li>' + esc(i) + '</li>').join('') + '</ul>';
     const current = () => '<button class="btn btn-ghost" type="button" disabled>' + esc(T('cta_current')) + '</button>' +
       (cur !== 'free' && until ? '<p class="plan-until">' + esc(T('active_until').replace('{d}', fmtDate(until))) + '</p>' : '') +
+      (cur !== 'free' && (store.get('plan', {}) || {}).source === 'pending' ? '<p class="plan-until">' + esc(T('pending_note')) + '</p>' : '') +
       (cur !== 'free' && pay.enabled() && auth.user ? '<p class="plan-until"><button type="button" class="link-btn" data-manage>' + esc(T('manage')) + '</button></p>' : '') +
-      (cur !== 'free' && manual.enabled() && auth.user && (cur === 'pro' || ai.enabled()) ? '<p class="plan-until"><button type="button" class="link-btn" data-upgrade="' + cur + '">' + esc(T('m_more')) + '</button></p>' : '');
+      (cur !== 'free' && manual.enabled() && auth.user && (cur === 'pro' || ai.enabled()) && (store.get('plan', {}) || {}).source !== 'pending' ? '<p class="plan-until"><button type="button" class="link-btn" data-upgrade="' + cur + '">' + esc(T('m_more')) + '</button></p>' : '');
     const included = '<button class="btn btn-ghost" type="button" disabled>' + esc(T('cta_included')) + '</button>';
     const freeCta = cur !== 'free' ? included
       : opts.context === 'landing' ? '<a class="btn btn-ghost" href="practice.html">' + esc(T('cta_free')) + '</a>' : current();
@@ -1527,7 +1554,8 @@
         line('mp_card', digits.replace(/(\d{4})(?=\d)/g, '$1 '), 'card') +
         (holder ? line('mp_name', holder) : '') +
         line('mp_amount', price, 'amount') +
-        '</div><p class="mp-note">' + esc(T('mp_note')) + '</p>' +
+        '</div><p class="mp-note">' + esc(T('mp_note')) + (manual.canUnlock() ? ' ' + esc(T('mp_instant')) : '') + '</p>' +
+        (holder ? '<p class="mp-note">' + esc(T('mp_trust').replace('{name}', holder).replace('{tg}', '@' + String(CONFIG.CONTACT_TELEGRAM).replace(/\/+$/, '').split('/').pop())) + '</p>' : '') +
         row((withPass() ? '<button type="button" class="btn btn-ghost" data-back>' + esc(T('pay_back')) + '</button>' : closeBtn()) +
           '<button type="button" class="btn btn-primary" data-paid>' + esc(T('mp_paid')) + '</button>'), '[data-paid]');
       bindCopies();
@@ -1561,14 +1589,22 @@
           catch (ex) { console.warn('[SAT Ustoz] Could not save the payment note. Are the new firestore.rules published?', ex); }
         }
         analytics.track('pay_note_sent', { months, amount: somNumber(amount), saved });
-        sent(l4);
+        let unlocked = false;
+        if (saved && manual.canUnlock()) {
+          try { await manual.unlock(planId); unlocked = true; }
+          catch (ex) { console.warn('[SAT Ustoz] Could not switch the plan on for 48 hours. Are the new firestore.rules published?', ex); }
+        }
+        sent(l4, unlocked);
       });
     }
 
-    function sent(l4) {
-      show('<p class="pay-ok">' + esc(T('mp_sent_t')) + '</p><p>' + esc(T('mp_sent')) + '</p>' +
+    function sent(l4, unlocked) {
+      const name = planText(planId + '_name', lang);
+      show((unlocked
+        ? '<p class="pay-ok">' + esc(T('mp_unlocked_t').replace('{plan}', name)) + '</p><p>' + esc(T('mp_unlocked').replace('{plan}', name)) + '</p>'
+        : '<p class="pay-ok">' + esc(T('mp_sent_t')) + '</p><p>' + esc(T('mp_sent')) + '</p>') +
         (email ? '<p class="up-email"><span>' + esc(T('mp_account')) + ' <b>' + esc(email) + '</b></span><button type="button" class="link-btn" data-copy="email">' + esc(T('up_copy')) + '</button></p>' : '') +
-        row(closeBtn() + tgBtn(l4)), 'a.btn-primary');
+        row((unlocked ? '<a class="btn btn-ghost" href="practice.html#tests" data-close>' + esc(T('open_tests')) + '</a>' : closeBtn()) + tgBtn(l4)), 'a.btn-primary');
       bindCopies();
     }
 

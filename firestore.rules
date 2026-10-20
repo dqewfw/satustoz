@@ -122,14 +122,46 @@ service cloud.firestore {
       allow read, delete: if isAdmin();
     }
 
+    // Fields a student can never change on their own account in a normal save:
+    // the plan, and the record that they already used their 48-hour unlock.
+    function lockedFields() { return planFields().concat(['trialUsedAt']); }
+
+    // The 48-hour unlock (MANUAL_PAY in assets/sh.js): right after a student
+    // sends a payment note (payRequests/<uid>, under 10 minutes old, for the
+    // same plan) they may switch that plan on for at most 48 hours, once per
+    // account, and only when no plan is running. You approve it on admin.html
+    // (it becomes the full month) or reject it (it ends at once); if you do
+    // neither, it simply runs out.
+    function validTrial() {
+      let d = request.resource.data;
+      let before = resource.data;
+      let note = /databases/$(database)/documents/payRequests/$(request.auth.uid);
+      return d.diff(before).affectedKeys().hasOnly(['plan', 'planUntil', 'planSource', 'trialUsedAt'])
+          && !('trialUsedAt' in before)
+          && (!('plan' in before) || before.plan == 'free'
+              || ('planUntil' in before && before.planUntil is timestamp && before.planUntil < request.time))
+          && d.plan in ['pro', 'max']
+          && d.planSource == 'pending'
+          && d.planUntil is timestamp
+          && d.planUntil > request.time
+          && d.planUntil <= request.time + duration.value(48, 'h')
+          && d.trialUsedAt == request.time
+          && exists(note)
+          && get(note).data.plan == d.plan
+          && get(note).data.createdAt > request.time - duration.value(10, 'm');
+    }
+
     match /users/{uid} {
       allow read: if request.auth != null && request.auth.uid == uid;
       allow create: if request.auth != null
                     && request.auth.uid == uid
-                    && !request.resource.data.keys().hasAny(planFields());
+                    && !request.resource.data.keys().hasAny(lockedFields());
       allow update: if request.auth != null
                     && request.auth.uid == uid
-                    && !request.resource.data.diff(resource.data).affectedKeys().hasAny(planFields());
+                    && !request.resource.data.diff(resource.data).affectedKeys().hasAny(lockedFields());
+      allow update: if request.auth != null
+                    && request.auth.uid == uid
+                    && validTrial();
 
       // Admin (admin.html): read one student's account, and change its plan
       // fields and nothing else. "create" is for a student whose account

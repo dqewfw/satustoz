@@ -122,9 +122,11 @@ document.addEventListener('DOMContentLoaded', async function () {
   // with no end date is left as it is (null).
   // months: 1, or PASS_MONTHS for the "until your test" pass. want: the plan
   // they paid for ('pro' or 'max'). Paying for Max upgrades Pro; an active Max stays Max.
+  // A plan on the 48-hour unlock (planSource 'pending') is this same payment, so
+  // the paid period starts now instead of being added on top of it.
   function grant(u, now, months, want) {
     const plan = u && u.plan, cur = ms(u && u.planUntil);
-    const active = (plan === 'pro' || plan === 'max') && (!cur || cur > now);
+    const active = !(u && u.planSource === 'pending') && (plan === 'pro' || plan === 'max') && (!cur || cur > now);
     if (active && !cur) return null;
     return { plan: want === 'max' || (active && plan === 'max') ? 'max' : 'pro', until: (active ? Math.max(now, cur) : now) + PRO_DAYS * (months || 1) * DAY, extends: active };
   }
@@ -134,6 +136,7 @@ document.addEventListener('DOMContentLoaded', async function () {
     const plan = u.plan, until = ms(u.planUntil);
     const src = u.planSource ? '<span class="muted">, set by ' + esc(u.planSource) + '</span>' : '';
     if (plan !== 'pro' && plan !== 'max') return 'Free';
+    if (u.planSource === 'pending' && until > now) return planName(plan) + ' on the 48-hour unlock <span class="muted">(ends ' + esc(when(until)) + ' unless you approve)</span>';
     if (!until) return planName(plan) + ', no end date' + src;
     if (until <= now) return 'Free <span class="muted">(' + planName(plan) + ' ended ' + esc(fmtDate(until)) + ')</span>';
     return planName(plan) + ' until ' + esc(fmtDate(until)) + ' <span class="muted">(' + Math.ceil((until - now) / DAY) + ' days left)</span>' + src;
@@ -326,14 +329,22 @@ document.addEventListener('DOMContentLoaded', async function () {
     if (!it) return;
     modal({
       title: 'Reject this payment?',
-      html: '<p>The request from <b>' + esc(it.r.email) + '</b> (card ending ' + esc(it.r.last4) + ') is deleted and Pro stays off. Tell them why on Telegram. They can send new details after paying again.</p>',
+      html: '<p>The request from <b>' + esc(it.r.email) + '</b> (card ending ' + esc(it.r.last4) + ') is deleted' +
+        (it.u && it.u.planSource === 'pending' ? ', and the plan they switched on for 48 hours ends now' : ' and their plan stays as it is') +
+        '. Tell them why on Telegram. They can send new details after paying again.</p>',
       actions: [{ label: 'Cancel', kind: 'ghost' }, { label: 'Reject', kind: 'primary', onClick: () => { go(); } }]
     });
     async function go() {
       busy(el, true); fail(el, '');
       try {
         const fs = await sync._lib();
-        await fs.deleteDoc(fs.doc(sync.db, 'payRequests', uid));
+        const reqRef = fs.doc(sync.db, 'payRequests', uid), userRef = fs.doc(sync.db, 'users', uid);
+        // Take back the 48-hour unlock, if that's what they're on.
+        await fs.runTransaction(sync.db, async tx => {
+          const us = await tx.get(userRef);
+          if (us.exists() && us.data().planSource === 'pending') tx.set(userRef, { plan: 'free', planUntil: fs.Timestamp.fromMillis(Date.now()), planSource: 'rejected' }, { merge: true });
+          tx.delete(reqRef);
+        });
         done(el, uid, 'Rejected: ' + it.r.email);
       } catch (e) {
         console.warn('[SAT Ustoz] Could not reject:', e);

@@ -281,6 +281,12 @@ the GitHub copy and type your email only in the Firebase console before you publ
 4. If they open "Upgrade to Pro" again within 7 days, it says the payment is being checked instead of showing the card.
    Pro students get a "Pay for another month" link under their plan, which opens the same steps.
 
+**Instant 48-hour access.** When a student taps "I've paid" (and has no plan running), the plan they paid for switches
+on at once for 48 hours, marked `planSource: pending`, so nobody waits on you to start studying. Each account gets
+this once (`trialUsedAt`), only right after a payment note for the same plan; `firestore.rules` enforces all of it.
+**Approve** on admin.html and it becomes the full period, counted from the moment you approve. **Reject** and it ends
+at once. If you do neither, it runs out after 48 hours. Worst case, someone who never paid gets 48 hours once.
+
 **Checking a payment and switching Pro on**
 
 1. When the Telegram message comes in, open `satustoz.academy/admin.html` and sign in with your admin Google account.
