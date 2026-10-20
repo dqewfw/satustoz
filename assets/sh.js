@@ -13,7 +13,7 @@
     // Paste your Cloudflare Worker URL here (see worker/ai-worker.js).
     // Leave empty and the AI features show a friendly "not switched on" note.
     // Example: 'https://satustoz-ai.yourname.workers.dev'
-    AI_ENDPOINT: '',
+    AI_ENDPOINT: 'https://satustoz-ai.azizbeekk7.workers.dev',
 
     // The College Board version of the Desmos graphing calculator, the same
     // one Bluebook uses. No key needed. If Desmos ever moves it, change this
