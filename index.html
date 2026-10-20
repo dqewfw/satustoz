@@ -51,6 +51,7 @@
         { "@type": "Question", "name": "Where is my progress saved?", "acceptedAnswer": { "@type": "Answer", "text": "If you sign in with Google, your progress is saved to your account and follows you to any device. Without an account, it stays in the browser on the device you use." } },
         { "@type": "Question", "name": "Does it work on a phone?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Everything works on phones, though a laptop feels closer to test day for full practice tests." } },
         { "@type": "Question", "name": "What is free, and what needs Pro?", "acceptedAnswer": { "@type": "Answer", "text": "The mini diagnostic, Practice Test 1, the starter sets and your total score are free. Pro opens all 10 practice tests, your score broken down by skill, a review of every question and drills built from your weakest skills. Max, coming soon, adds the AI tutor, a study plan to your test date and a monthly live group session." } },
+        { "@type": "Question", "name": "Can you help me register for the SAT?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Message us on Telegram and we'll walk you through creating your College Board account, picking a test date and center, and paying the registration fee." } },
         { "@type": "Question", "name": "Is this the same as Bluebook?", "acceptedAnswer": { "@type": "Answer", "text": "It follows the same structure and tools, but it is an independent practice site and is not affiliated with the College Board." } }
       ]
     }
@@ -141,6 +142,7 @@
   .cta-card { background: var(--ivory); border-radius: var(--r); padding: 32px; display: flex; gap: 24px; align-items: center; justify-content: space-between; flex-wrap: wrap; }
   .cta-card h2 { font-size: 1.7rem; margin-bottom: .3em; }
   .cta-card p { margin: 0; color: var(--muted); max-width: 36em; }
+  .reg-card { background: var(--paper); border: 2px solid var(--gold); }
   .faq h2, .faq details { max-width: 820px; }
   .faq details { border-bottom: 1px solid var(--line); }
   .faq details:first-of-type { border-top: 1px solid var(--line); }
@@ -365,6 +367,15 @@
     </div>
   </section>
 
+  <section class="block" id="register">
+    <div class="wrap">
+      <div class="cta-card reg-card">
+        <div><h2 data-i18n="reg_h">Need help registering for the SAT?</h2><p data-i18n="reg_p">We help you through it: creating your College Board account, choosing a test date and center, and paying the fee. Just message us on Telegram.</p></div>
+        <div class="row"><a class="btn btn-primary" data-link="telegram" href="https://t.me/azizbek7_t" target="_blank" rel="noopener" data-i18n="reg_btn">Get help on Telegram</a></div>
+      </div>
+    </div>
+  </section>
+
   <section class="block">
     <div class="wrap">
       <div class="cta-card">
@@ -385,6 +396,7 @@
       <details><summary data-i18n="q3">Where is my progress saved?</summary><p data-i18n="a3">If you sign in with Google, your progress is saved to your account and follows you to any device. Without an account, it stays in this browser on this device, and clearing your browser data starts fresh.</p></details>
       <details><summary data-i18n="q5">Does it work on a phone?</summary><p data-i18n="a5">Yes. Everything works on phones. For full practice tests, a laptop feels closer to test day.</p></details>
       <details><summary data-i18n="q7">What is free, and what needs Pro?</summary><p data-i18n="a7">The mini diagnostic, Practice Test 1, the starter sets and your total score are free. Pro opens all 10 practice tests, your score broken down by skill, a review of every question with explanations, and drills built from your weakest skills. Max, coming soon, adds the AI tutor, a study plan to your test date and a monthly live group session with Azizbek.</p></details>
+      <details><summary data-i18n="q8">Can you help me register for the SAT?</summary><p data-i18n="a8">Yes. Message us on Telegram and we&rsquo;ll walk you through creating your College Board account, picking a test date and center, and paying the registration fee.</p></details>
       <details><summary data-i18n="q6">Is this the same as Bluebook?</summary><p data-i18n="a6">It follows the same structure and tools: timer, question navigator, mark for review, answer eliminator, annotation, calculator and reference sheet. It is our own practice site and is not affiliated with the College Board.</p></details>
     </div>
   </section>
@@ -419,6 +431,8 @@ document.addEventListener('DOMContentLoaded', function () {
       try_cta_p: "Bu bitta savol edi. Bepul mini diagnostika taxminan 50 daqiqada taxminiy ballingizni beradi.", try_cta: "Bepul diagnostikani topshirish",
       try_ok: "Toʻgʻri.", try_no: "Unchalik emas. Toʻgʻri javob: {a}.",
       why_h2: "Nega oʻquvchilar SAT Ustozni tanlaydi",
+      reg_h: "SATga roʻyxatdan oʻtishda yordam kerakmi?", reg_p: "Biz yordam beramiz: College Board hisobini ochish, imtihon sanasi va markazini tanlash hamda toʻlovni amalga oshirish. Telegramda bizga yozing.", reg_btn: "Telegramda yordam olish",
+      q8: "SATga roʻyxatdan oʻtishga yordam bera olasizmi?", a8: "Ha. Telegramda bizga yozing: College Board hisobini ochish, imtihon sanasi va markazini tanlash hamda roʻyxatdan oʻtish toʻlovini qilishda bosqichma-bosqich yordam beramiz.",
       w1_t: "Adolatli narx, qulay toʻlov", w1_d: "Yirik platformalar oyiga taxminan 20 dollar oladi. Bu yerda Pro oyiga 79 000 soʻm, Oʻzbekistonda esa istalgan bank ilovasi orqali Uzcard yoki Humo bilan toʻlaysiz, Visa yoki Mastercard kerak emas.",
       w2_t: "Oʻzbek, rus va ingliz tilida yordam", w2_d: "Savol yoki toʻlovda qiyinchilik bormi? Telegramda haqiqiy insonga yozing. Toshkent vaqti bilan 9:00 dan 23:00 gacha 2 soat ichida javob beramiz.",
       w3_t: "1530 ball olgan ustoz tomonidan yozilgan", w3_d: "Savollar va izohlar 1530 ball (Math 790) olgan va xalqaro oʻquvchilar eng koʻp qiladigan xatolarni biladigan SAT ustozidan.",
@@ -463,6 +477,8 @@ document.addEventListener('DOMContentLoaded', function () {
       try_cta_p: "Это был один вопрос. Бесплатная мини-диагностика покажет примерный балл примерно за 50 минут.", try_cta: "Пройти бесплатную диагностику",
       try_ok: "Верно.", try_no: "Не совсем. Верный ответ: {a}.",
       why_h2: "Почему ученики выбирают SAT Ustoz",
+      reg_h: "Нужна помощь с регистрацией на SAT?", reg_p: "Мы поможем: создать аккаунт College Board, выбрать дату и центр сдачи и оплатить регистрацию. Просто напишите нам в Telegram.", reg_btn: "Получить помощь в Telegram",
+      q8: "Можете помочь с регистрацией на SAT?", a8: "Да. Напишите нам в Telegram, и мы проведём вас через создание аккаунта College Board, выбор даты и центра сдачи и оплату регистрации.",
       w1_t: "Честная цена, удобная оплата", w1_d: "Крупные платформы берут около 20 долларов в месяц. Здесь Pro стоит 79 000 сум в месяц, а в Узбекистане вы платите из любого банковского приложения картой Uzcard или Humo, без Visa или Mastercard.",
       w2_t: "Помощь на узбекском, русском и английском", w2_d: "Застряли на вопросе или с оплатой? Напишите живому человеку в Telegram. Отвечаем в течение 2 часов, с 9:00 до 23:00 по Ташкенту.",
       w3_t: "Написано преподавателем с 1530", w3_d: "Вопросы и объяснения — от преподавателя SAT с результатом 1530 (Math 790), который знает, где иностранные ученики ошибаются чаще всего.",
