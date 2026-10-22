@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="uz">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>SAT question of the day | SAT Ustoz</title>
+<meta name="description" content="One new digital SAT question every day, with a full explanation. Keep your streak going. Har kuni bitta SAT savoli va izohi.">
+<link rel="canonical" href="https://satustoz.academy/daily.html">
+<meta property="og:title" content="SAT question of the day">
+<meta property="og:description" content="One new SAT question every day, with the explanation. Can you get today's right?">
+<meta property="og:image" content="https://satustoz.academy/og-image.png">
+<meta name="theme-color" content="#2D5038">
+<link rel="icon" href="favicon.ico" sizes="32x32">
+<link rel="icon" href="icon-192.png" type="image/png" sizes="192x192">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="manifest" href="site.webmanifest">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Jost:wght@500;600&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css">
+<link rel="stylesheet" href="assets/sh.css">
+<style>
+  .dq { padding-top: 26px; min-height: 60vh; max-width: 860px; }
+  .dq-head { display: flex; justify-content: space-between; align-items: flex-end; gap: 12px 20px; flex-wrap: wrap; margin-bottom: 18px; }
+  .dq-head h1 { font-size: clamp(1.9rem, 4.5vw, 2.5rem); margin: 0 0 4px; }
+  .dq-head p { margin: 0; color: var(--muted); }
+  .streak { display: flex; gap: 10px; }
+  .streak .stat { min-width: 110px; }
+  .dq-card { background: var(--paper); border: 1px solid var(--line-2); border-radius: var(--r); padding: 24px 26px; }
+  .dq-bar { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; margin-bottom: 14px; }
+  .dq-stim { background: var(--ivory); border-radius: var(--r-sm); padding: 16px 18px; margin-bottom: 16px; }
+  .dq-prompt { margin-bottom: 14px; }
+  .dq-acts { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 18px; align-items: center; }
+  .dq-res { margin-top: 18px; border-radius: var(--r); padding: 14px 16px; }
+  .dq-res.ok { background: var(--ok-tint); border: 1px solid #B9D8C1; }
+  .dq-res.no { background: var(--bad-tint); border: 1px solid #E8B8B3; }
+  .dq-res h2 { font-family: var(--sans); font-size: 1.1rem; font-weight: 700; margin: 0 0 6px; }
+  .dq-res.ok h2 { color: var(--ok); } .dq-res.no h2 { color: var(--bad); }
+  .expl { background: var(--paper); border-left: 3px solid var(--gold); padding: 12px 14px; border-radius: 0 10px 10px 0; margin-top: 10px; }
+  .dq-next { margin-top: 26px; }
+  @media (max-width: 600px) { .dq-card { padding: 18px 16px; } .streak .stat { min-width: 0; flex: 1; } }
+</style>
+</head>
+<body>
+<a class="skip-link" href="#main" data-nav="skip">Skip to content</a>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="index.html"><picture><source media="(max-width: 359px)" srcset="assets/brand/mark.svg"><img class="brand-logo" src="assets/brand/logo-horizontal.svg" alt="SAT Ustoz" width="171" height="40"></picture></a>
+    <button class="menu-btn" type="button" aria-label="Menu" aria-expanded="false" aria-controls="nav"><span></span></button>
+    <nav class="nav" id="nav" aria-label="Main">
+      <a href="practice.html#home" data-nav="dash">Dashboard</a>
+      <a href="practice.html#sets" data-nav="sets">Practice sets</a>
+      <a href="practice.html#tests" data-nav="tests">Practice tests</a>
+      <a href="vocab.html" data-nav="vocab">Vocabulary</a>
+      <a href="lessons.html" data-nav="lessons">Lessons</a>
+      <a href="practice.html#plans" data-nav="plans">Plans</a>
+    </nav>
+    <div class="lang-switch" role="group" aria-label="Language"><button type="button" data-lang="en" aria-pressed="false">EN</button><button type="button" data-lang="uz" aria-pressed="true">UZ</button><button type="button" data-lang="ru" aria-pressed="false">RU</button></div>
+    <div data-auth-slot></div>
+  </div>
+</header>
+
+<main id="main" tabindex="-1">
+  <div class="wrap dq">
+    <div class="dq-head">
+      <div><h1 id="dq-h1">Kun savoli</h1><p id="dq-sub"></p></div>
+      <div class="streak" id="streak"></div>
+    </div>
+    <div id="dq"><p class="muted">…</p></div>
+    <div class="dq-next" id="dq-next"></div>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="footer-brand"><span class="brand-name">SAT Ustoz</span><p style="margin-top:10px" data-nav="tag">Digital SAT practice built by someone who has taken the test, for students in Uzbekistan and beyond.</p></div>
+      <div><h3 class="f-head" data-nav="practice">Practice</h3><ul><li><a href="practice.html#tests" data-nav="tests">Practice tests</a></li><li><a href="vocab.html" data-nav="vocab">Vocabulary</a></li><li><a href="lessons.html" data-nav="lessons">Lessons</a></li><li><a href="score-calculator.html" data-nav="calc">Score calculator</a></li><li><a href="mock.html" data-nav="mock">National mock</a></li><li><a href="teacher.html" data-nav="teach">For teachers</a></li></ul></div>
+      <div><h3 class="f-head" data-nav="contact">Contact</h3><ul><li><a data-link="telegram" href="https://t.me/azizbek7_t" target="_blank" rel="noopener">Telegram: @azizbek7_t</a></li><li><a data-link="channel" href="https://t.me/satustoz_off" target="_blank" rel="noopener" data-nav="channel">Telegram channel</a></li><li><a data-link="instagram" href="https://www.instagram.com/satustoz" target="_blank" rel="noopener">Instagram</a></li><li><a href="#" data-feedback data-nav="feedback">Send feedback</a></li></ul></div>
+    </div>
+    <div class="footer-legal">&copy; <span data-year>2026</span> SAT Ustoz. <span data-nav="legal">SAT&reg; is a trademark registered by the College Board, which is not affiliated with, and does not endorse, this website. All practice questions on this site are written by SAT Ustoz.</span></div>
+  </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.js" defer></script>
+<script src="assets/sh.js" data-analytics defer></script>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  'use strict';
+  const SH = window.SH;
+  const { esc, $, $$ } = SH;
+  const t = SH.i18n({
+    en: { h1: 'Question of the day', sub: 'No. {n} · {d}. A new question every day at midnight, Tashkent time.', cur: 'day streak', best: 'best streak',
+      check: 'Check answer', ok: 'Correct!', no: 'Not quite. The answer is {a}.', your: 'Your answer: {r}', spr: 'Your answer', spr_hint: 'Fractions like 7/2 and decimals like 3.5 both work.',
+      done_today: 'You answered today’s question. The next one opens at midnight, Tashkent time.', share: 'Share on Telegram', share_txt: 'SAT question of the day: can you get it right?',
+      next_h: 'Want more?', next_p: 'Practice sets give you ten questions with the same instant explanations. The free mini diagnostic gives you an estimated score in about 50 minutes.',
+      sets: 'Practice sets', diag: 'Take the free diagnostic', streak_note: 'Answer every day to keep your streak. ', sign_in: 'Sign in to keep it on every device.', report: 'Report a mistake', err: 'Could not load today’s question. Check your connection and refresh.',
+      streak_up: '{n}-day streak. See you tomorrow!' },
+    uz: { h1: 'Kun savoli', sub: '{n}-savol · {d}. Har kuni Toshkent vaqti bilan yarim tunda yangi savol.', cur: 'kun ketma-ket', best: 'eng uzun seriya',
+      check: 'Javobni tekshirish', ok: 'Toʻgʻri!', no: 'Unchalik emas. Toʻgʻri javob: {a}.', your: 'Sizning javobingiz: {r}', spr: 'Javobingiz', spr_hint: '7/2 kabi kasrlar va 3.5 kabi oʻnli sonlar qabul qilinadi.',
+      done_today: 'Bugungi savolga javob berdingiz. Keyingisi Toshkent vaqti bilan yarim tunda ochiladi.', share: 'Telegramda ulashish', share_txt: 'SAT kun savoli: toʻgʻri javob bera olasizmi?',
+      next_h: 'Yana mashq qilmoqchimisiz?', next_p: 'Savollar toʻplamlarida xuddi shunday darhol izohli oʻnta savol bor. Bepul mini diagnostika esa taxminan 50 daqiqada taxminiy ballingizni koʻrsatadi.',
+      sets: 'Savollar toʻplamlari', diag: 'Bepul diagnostikani topshirish', streak_note: 'Seriyani uzmaslik uchun har kuni javob bering. ', sign_in: 'Har bir qurilmada saqlash uchun tizimga kiring.', report: 'Xato haqida xabar berish', err: 'Bugungi savolni yuklab boʻlmadi. Internetni tekshirib, sahifani yangilang.',
+      streak_up: 'Ketma-ket {n} kun. Ertaga koʻrishguncha!' },
+    ru: { h1: 'Вопрос дня', sub: '№ {n} · {d}. Новый вопрос каждый день в полночь по Ташкенту.', cur: 'дней подряд', best: 'лучшая серия',
+      check: 'Проверить ответ', ok: 'Верно!', no: 'Не совсем. Верный ответ: {a}.', your: 'Ваш ответ: {r}', spr: 'Ваш ответ', spr_hint: 'Подходят и дроби вроде 7/2, и десятичные вроде 3.5.',
+      done_today: 'Вы ответили на сегодняшний вопрос. Следующий откроется в полночь по Ташкенту.', share: 'Поделиться в Telegram', share_txt: 'Вопрос дня по SAT: сможете ответить верно?',
+      next_h: 'Хотите ещё?', next_p: 'В наборах вопросов по десять вопросов с такими же мгновенными объяснениями. Бесплатная мини-диагностика покажет примерный балл примерно за 50 минут.',
+      sets: 'Наборы вопросов', diag: 'Пройти бесплатную диагностику', streak_note: 'Отвечайте каждый день, чтобы не прервать серию. ', sign_in: 'Войдите, чтобы сохранять её на всех устройствах.', report: 'Сообщить об ошибке', err: 'Не удалось загрузить вопрос дня. Проверьте интернет и обновите страницу.',
+      streak_up: '{n} дней подряд. До завтра!' }
+  });
+  let q = null, pick = null;
+  SH.langSwitch(draw);
+
+  SH.daily.question().then(x => { q = x; draw(); }).catch(e => { console.warn(e); $('#dq').innerHTML = '<div class="notice notice-bad">' + esc(t('err')) + '</div>'; });
+  document.addEventListener('sh:synced', draw);
+
+  function draw() {
+    $('#dq-h1').textContent = t('h1');
+    const st = SH.daily.streak();
+    $('#streak').innerHTML = '<div class="stat"><b>' + st.current + '</b><span>' + esc(t('cur')) + '</span></div><div class="stat"><b>' + st.best + '</b><span>' + esc(t('best')) + '</span></div>';
+    const lang = SH.langNow();
+    $('#dq-sub').textContent = t('sub', { n: SH.daily.number(), d: SH.dateText() });
+    drawNext();
+    if (!q) return;
+    const done = SH.daily.answered();
+    const resp = done ? done.r : pick;
+    const sec = q.section === 'math' ? 'Math' : 'R&amp;W';
+    let ans = '';
+    if (q.type === 'mc') {
+      ans = '<div class="choices" role="radiogroup" aria-label="Answer choices">' + q.choices.map((c, i) => {
+        const L = SH.LETTERS[i];
+        const cls = done ? (L === q.answer ? ' is-correct' : L === done.r ? ' is-wrong' : '') : '';
+        return '<div class="choice-row"><button type="button" role="radio" class="choice' + cls + '" aria-checked="' + (resp === L) + '" data-c="' + L + '"' + (done ? ' aria-disabled="true"' : '') + '><span class="letter">' + L + '</span><span class="choice-text rich" lang="en">' + SH.renderRich(c, { inline: true }) + '</span></button></div>';
+      }).join('') + '</div>';
+    } else {
+      ans = '<div class="spr"><label class="label" for="dq-spr">' + esc(t('spr')) + '</label><input id="dq-spr" inputmode="decimal" autocomplete="off" value="' + esc(resp || '') + '"' + (done ? ' disabled' : '') + '><div class="small muted">' + esc(t('spr_hint')) + '</div></div>';
+    }
+    $('#dq').innerHTML = '<article class="dq-card" lang="en"><div class="dq-bar"><span class="tag tag-' + q.section + '">' + sec + '</span><span class="tag tag-' + q.difficulty + '">' + esc(q.difficulty) + '</span><span class="small muted">' + esc(q.skill || '') + '</span></div>' +
+      ((q.passage || q.table || q.image) ? '<div class="dq-stim rich">' + SH.renderStimulus(q) + '</div>' : '') +
+      '<div class="dq-prompt rich"><strong>' + SH.renderRich(q.prompt, { inline: true }) + '</strong></div>' + ans +
+      (done ? resultHtml(done) : '<div class="dq-acts"><button type="button" class="btn btn-primary" id="dq-check"' + (resp ? '' : ' disabled') + ' lang="' + lang + '">' + esc(t('check')) + '</button></div>') + '</article>';
+    if (!done) {
+      $$('[data-c]').forEach(b => b.addEventListener('click', () => { pick = b.dataset.c; draw(); const f = $('[data-c="' + pick + '"]'); if (f) f.focus(); }));
+      const inp = $('#dq-spr');
+      if (inp) inp.addEventListener('input', () => { inp.value = SH.sprSanitize(inp.value); pick = inp.value || null; $('#dq-check').disabled = !pick; });
+      $('#dq-check').addEventListener('click', () => {
+        if (!pick) return;
+        const ok = SH.isCorrect(q, pick);
+        SH.daily.answer(q, pick, ok);
+        SH.track('daily_answered', { correct: ok, qid: q.id, streak: SH.daily.streak().current });
+        draw();
+        const st2 = SH.daily.streak().current;
+        if (st2 > 1) SH.toast(t('streak_up', { n: st2 }));
+      });
+    }
+  }
+  function resultHtml(done) {
+    const share = 'https://t.me/share/url?url=' + encodeURIComponent('https://satustoz.academy/daily.html') + '&text=' + encodeURIComponent(t('share_txt'));
+    return '<div class="dq-res ' + (done.ok ? 'ok' : 'no') + '" role="status" lang="' + SH.langNow() + '"><h2>' + esc(done.ok ? t('ok') : t('no', { a: SH.answerLabel(q) })) + '</h2>' +
+      (q.explanation ? '<div class="expl rich" lang="en">' + SH.renderRich(q.explanation) + '</div>' : '') +
+      '<p class="small" style="margin:12px 0 0">' + esc(t('done_today')) + '</p>' +
+      '<div class="dq-acts"><a class="btn btn-ghost btn-sm" href="' + esc(share) + '" target="_blank" rel="noopener">' + esc(t('share')) + '</a>' +
+      '<button type="button" class="link-btn small" data-report data-qid="' + esc(q.id) + '" data-where="Question of the day">' + esc(t('report')) + '</button></div></div>';
+  }
+  function drawNext() {
+    const signedOut = SH.auth.enabled() && SH.auth.settled && !SH.auth.user;
+    $('#dq-next').innerHTML = '<div class="card"><h2 style="font-size:1.4rem">' + esc(t('next_h')) + '</h2><p class="muted">' + esc(t('next_p')) + '</p>' +
+      '<div class="row"><a class="btn btn-primary" href="practice.html#sets">' + esc(t('sets')) + '</a><a class="btn btn-ghost" href="test.html?id=diagnostic-mini">' + esc(t('diag')) + '</a></div>' +
+      (signedOut ? '<p class="small muted" style="margin:14px 0 0">' + esc(t('streak_note')) + '<a href="' + esc(SH.loginUrl('daily.html')) + '">' + esc(t('sign_in')) + '</a></p>' : '') + '</div>';
+  }
+});
+</script>
+</body>
+</html>

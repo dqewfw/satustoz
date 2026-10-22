@@ -1,0 +1,208 @@
+<!doctype html>
+<html lang="uz">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>National SAT mock and leaderboard | SAT Ustoz</title>
+<meta name="description" content="Once a month, students across Uzbekistan take the same full SAT practice test at the same time. See the leaderboard by region and school. Milliy SAT sinov imtihoni va reyting.">
+<link rel="canonical" href="https://satustoz.academy/mock.html">
+<meta property="og:title" content="National SAT mock: Uzbekistan's monthly leaderboard">
+<meta property="og:description" content="Same test, same time, all of Uzbekistan. Rank by region and school.">
+<meta property="og:image" content="https://satustoz.academy/og-image.png">
+<meta name="theme-color" content="#2D5038">
+<link rel="icon" href="favicon.ico" sizes="32x32">
+<link rel="icon" href="icon-192.png" type="image/png" sizes="192x192">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="manifest" href="site.webmanifest">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Jost:wght@500;600&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/sh.css">
+<style>
+  .mk { padding-top: 26px; min-height: 60vh; }
+  .mk-head h1 { font-size: clamp(1.9rem, 4.5vw, 2.6rem); margin: 0 0 6px; }
+  .mk-head p { margin: 0 0 22px; color: var(--muted); max-width: 44em; }
+  .next { background: var(--brand); color: #D6E2D0; border-radius: var(--r); padding: 24px 26px; display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 16px 28px; align-items: center; }
+  .next h2 { color: #fff; font-size: clamp(1.4rem, 3vw, 1.9rem); margin: 0 0 6px; }
+  .next p { margin: 0; color: #D6E2D0; }
+  .next :focus-visible { outline-color: var(--gold-on-dark); }
+  .next .btn-gold { background: var(--gold); color: var(--brand-deep); }
+  .count { display: flex; gap: 10px; }
+  .count div { background: var(--brand-deep); border-radius: var(--r-sm); padding: 8px 12px; text-align: center; min-width: 66px; }
+  .count b { display: block; font-family: var(--display); font-size: 1.8rem; color: #fff; line-height: 1.1; font-variant-numeric: tabular-nums; }
+  .count span { font-size: .78rem; color: #C3D2BD; }
+  .lb-filters { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 12px; }
+  .lb-filters .input { width: auto; min-width: 200px; }
+  .lb { width: 100%; border-collapse: collapse; font-variant-numeric: tabular-nums; }
+  .lb th, .lb td { text-align: left; padding: 10px 8px; border-bottom: 1px solid var(--line); }
+  .lb th { font-size: .85rem; color: var(--muted); font-weight: 600; }
+  .lb td.num, .lb th.num { text-align: right; }
+  .lb tr.me td { background: var(--brand-tint); font-weight: 700; }
+  .lb .rank { width: 48px; font-weight: 700; color: var(--brand); }
+  .past a { display: flex; justify-content: space-between; padding: 10px 0; border-bottom: 1px solid var(--line); text-decoration: none; }
+  .past a:last-child { border-bottom: 0; }
+  @media (max-width: 760px) { .next { grid-template-columns: 1fr; } .lb .school { display: none; } }
+</style>
+</head>
+<body>
+<a class="skip-link" href="#main" data-nav="skip">Skip to content</a>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="index.html"><picture><source media="(max-width: 359px)" srcset="assets/brand/mark.svg"><img class="brand-logo" src="assets/brand/logo-horizontal.svg" alt="SAT Ustoz" width="171" height="40"></picture></a>
+    <button class="menu-btn" type="button" aria-label="Menu" aria-expanded="false" aria-controls="nav"><span></span></button>
+    <nav class="nav" id="nav" aria-label="Main">
+      <a href="practice.html#home" data-nav="dash">Dashboard</a>
+      <a href="practice.html#sets" data-nav="sets">Practice sets</a>
+      <a href="practice.html#tests" data-nav="tests">Practice tests</a>
+      <a href="vocab.html" data-nav="vocab">Vocabulary</a>
+      <a href="lessons.html" data-nav="lessons">Lessons</a>
+      <a href="practice.html#plans" data-nav="plans">Plans</a>
+    </nav>
+    <div class="lang-switch" role="group" aria-label="Language"><button type="button" data-lang="en" aria-pressed="false">EN</button><button type="button" data-lang="uz" aria-pressed="true">UZ</button><button type="button" data-lang="ru" aria-pressed="false">RU</button></div>
+    <div data-auth-slot></div>
+  </div>
+</header>
+
+<main id="main" tabindex="-1">
+  <div class="wrap mk" id="mk"><p class="muted">…</p></div>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="footer-brand"><span class="brand-name">SAT Ustoz</span><p style="margin-top:10px" data-nav="tag">Digital SAT practice built by someone who has taken the test, for students in Uzbekistan and beyond.</p></div>
+      <div><h3 class="f-head" data-nav="practice">Practice</h3><ul><li><a href="practice.html#tests" data-nav="tests">Practice tests</a></li><li><a href="vocab.html" data-nav="vocab">Vocabulary</a></li><li><a href="lessons.html" data-nav="lessons">Lessons</a></li><li><a href="daily.html" data-nav="daily">Question of the day</a></li><li><a href="score-calculator.html" data-nav="calc">Score calculator</a></li><li><a href="teacher.html" data-nav="teach">For teachers</a></li></ul></div>
+      <div><h3 class="f-head" data-nav="contact">Contact</h3><ul><li><a data-link="telegram" href="https://t.me/azizbek7_t" target="_blank" rel="noopener">Telegram: @azizbek7_t</a></li><li><a data-link="channel" href="https://t.me/satustoz_off" target="_blank" rel="noopener" data-nav="channel">Telegram channel</a></li><li><a data-link="instagram" href="https://www.instagram.com/satustoz" target="_blank" rel="noopener">Instagram</a></li><li><a href="#" data-feedback data-nav="feedback">Send feedback</a></li></ul></div>
+    </div>
+    <div class="footer-legal">&copy; <span data-year>2026</span> SAT Ustoz. <span data-nav="legal">SAT&reg; is a trademark registered by the College Board, which is not affiliated with, and does not endorse, this website. All practice questions on this site are written by SAT Ustoz.</span></div>
+  </div>
+</footer>
+
+<script src="assets/sh.js" data-analytics defer></script>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  'use strict';
+  const SH = window.SH;
+  const { esc, $, $$ } = SH;
+  const t = SH.i18n({
+    en: { h1: 'National mock', lede: 'Once a month, students across Uzbekistan take the same full practice test at the same time. Then everyone sees where they rank in the country, their region and their school.',
+      next: 'Next mock', open: 'Open now', ended: 'Finished', d: 'days', h: 'hours', m: 'min', s: 'sec', when: '{d}, {time} Tashkent time', window: 'Start any time until {end}. The test takes 2 hours 14 minutes plus a 10-minute break.',
+      start: 'Start the mock', sign_in: 'Sign in to take part', done: 'You took this mock: {score}', remind: 'Get a reminder on Telegram', prize: 'Prize: {p}',
+      profile: 'Add your region and school so you show up in their rankings.', profile_btn: 'Add region and school', none_h: 'The first national mock is coming soon', none_p: 'Join our Telegram channel to hear the date first.',
+      lb: 'Leaderboard', lb_none: 'No results yet. They appear here as students finish.', all_regions: 'All regions', school_ph: 'Filter by school', rank: '#', name: 'Name', region: 'Region', school: 'School', score: 'Score',
+      students: '{n} students', past: 'Past mocks', you: 'you', err: 'Could not load the national mock. Check your connection.', fair: 'Scores are estimates from the same scoring as our practice tests. We check the top results before prizes are given.',
+      save: 'Save', cancel: 'Cancel', choose: 'Choose…', reg_l: 'Region', sch_l: 'School or lyceum (optional)' },
+    uz: { h1: 'Milliy sinov imtihoni', lede: 'Oyda bir marta butun Oʻzbekiston boʻylab oʻquvchilar bir vaqtda bir xil toʻliq sinov testini topshiradi. Soʻng har kim mamlakatda, viloyatida va maktabida nechanchi oʻrinda ekanini koʻradi.',
+      next: 'Keyingi imtihon', open: 'Hozir ochiq', ended: 'Tugagan', d: 'kun', h: 'soat', m: 'daq', s: 'son', when: '{d}, Toshkent vaqti bilan {time}', window: '{end} gacha istalgan vaqtda boshlang. Test 2 soat 14 daqiqa va 10 daqiqalik tanaffusdan iborat.',
+      start: 'Imtihonni boshlash', sign_in: 'Qatnashish uchun tizimga kiring', done: 'Siz bu imtihonni topshirdingiz: {score}', remind: 'Telegramda eslatma olish', prize: 'Sovrin: {p}',
+      profile: 'Viloyat va maktabingiz reytingida chiqishingiz uchun ularni kiriting.', profile_btn: 'Viloyat va maktabni kiritish', none_h: 'Birinchi milliy sinov imtihoni tez orada', none_p: 'Sanasini birinchilardan boʻlib bilish uchun Telegram kanalimizga qoʻshiling.',
+      lb: 'Reyting', lb_none: 'Hozircha natija yoʻq. Oʻquvchilar tugatgan sari shu yerda chiqadi.', all_regions: 'Barcha viloyatlar', school_ph: 'Maktab boʻyicha saralash', rank: '#', name: 'Ism', region: 'Viloyat', school: 'Maktab', score: 'Ball',
+      students: '{n} oʻquvchi', past: 'Oʻtgan imtihonlar', you: 'siz', err: 'Milliy imtihonni yuklab boʻlmadi. Internetni tekshiring.', fair: 'Ballar sinov testlarimizdagi hisoblash usuli bilan taxminiy hisoblanadi. Sovrin berishdan oldin eng yuqori natijalarni tekshiramiz.',
+      save: 'Saqlash', cancel: 'Bekor qilish', choose: 'Tanlang…', reg_l: 'Viloyat', sch_l: 'Maktab yoki litsey (ixtiyoriy)' },
+    ru: { h1: 'Национальный пробный экзамен', lede: 'Раз в месяц ученики со всего Узбекистана в одно и то же время проходят один и тот же полный пробный тест. Затем каждый видит своё место в стране, регионе и школе.',
+      next: 'Ближайший экзамен', open: 'Открыт сейчас', ended: 'Завершён', d: 'дн', h: 'ч', m: 'мин', s: 'сек', when: '{d}, {time} по Ташкенту', window: 'Начать можно до {end}. Тест длится 2 часа 14 минут плюс 10 минут перерыва.',
+      start: 'Начать экзамен', sign_in: 'Войдите, чтобы участвовать', done: 'Вы прошли этот экзамен: {score}', remind: 'Напоминание в Telegram', prize: 'Приз: {p}',
+      profile: 'Укажите регион и школу, чтобы попасть в их рейтинги.', profile_btn: 'Указать регион и школу', none_h: 'Первый национальный экзамен скоро', none_p: 'Подпишитесь на наш Telegram-канал, чтобы первыми узнать дату.',
+      lb: 'Рейтинг', lb_none: 'Пока нет результатов. Они появятся здесь по мере завершения.', all_regions: 'Все регионы', school_ph: 'Фильтр по школе', rank: '#', name: 'Имя', region: 'Регион', school: 'Школа', score: 'Балл',
+      students: '{n} учеников', past: 'Прошедшие экзамены', you: 'вы', err: 'Не удалось загрузить национальный экзамен. Проверьте интернет.', fair: 'Баллы оцениваются так же, как в наших пробных тестах. Перед вручением призов мы проверяем лучшие результаты.',
+      save: 'Сохранить', cancel: 'Отмена', choose: 'Выберите…', reg_l: 'Регион', sch_l: 'Школа или лицей (необязательно)' }
+  });
+  const box = $('#mk');
+  let loaded = false, mocks = [], shown = null, results = [], timer = null, regionF = '', schoolF = '';
+  const loc = () => SH.langNow() === 'ru' ? 'ru-RU' : 'en-GB'; // for times; Uzbek uses the 24-hour clock too
+  const day = ms => SH.dateText(ms, { weekday: true });
+  const time = ms => new Date(ms).toLocaleTimeString(loc(), { hour: '2-digit', minute: '2-digit', timeZone: 'Asia/Tashkent' });
+
+  SH.langSwitch(draw);
+  load();
+  async function load() {
+    try {
+      await SH.authReady(4000);
+      mocks = await SH.mock.list();
+      const want = new URLSearchParams(location.search).get('id');
+      const now = Date.now();
+      // The one to show: ?id=, else the open one, else the next upcoming, else the latest.
+      shown = mocks.find(m => m.id === want) || mocks.find(m => SH.mock.isOpen(m)) || mocks.filter(m => m.startsAt > now).sort((a, b) => a.startsAt - b.startsAt)[0] || mocks[0] || null;
+      results = shown && shown.startsAt <= now ? await SH.mock.results(shown.id) : [];
+    } catch (e) {
+      console.warn('[SAT Ustoz] Could not load the national mock:', e);
+      // Database rules without the mock collections yet: show "coming soon".
+      if (e && e.code === 'permission-denied') { mocks = []; shown = null; results = []; }
+      else { box.innerHTML = '<div class="notice notice-bad">' + esc(t('err')) + '</div>'; return; }
+    }
+    loaded = true;
+    draw();
+  }
+  function draw() {
+    clearInterval(timer);
+    if (!loaded) return;
+    let html = '<div class="mk-head"><h1>' + esc(t('h1')) + '</h1><p>' + esc(t('lede')) + '</p></div>';
+    if (!shown) {
+      html += '<div class="next"><div><h2>' + esc(t('none_h')) + '</h2><p>' + esc(t('none_p')) + '</p></div><a class="btn btn-gold" data-link="channel" href="' + esc(SH.CONFIG.CHANNEL_TELEGRAM) + '" target="_blank" rel="noopener">' + esc(t('remind')) + '</a></div>';
+      box.innerHTML = html; return;
+    }
+    const m = shown, now = Date.now(), open = SH.mock.isOpen(m), upcoming = m.startsAt > now;
+    const me = SH.auth.user ? results.find(r => r.uid === SH.auth.user.uid) : null;
+    const p = SH.getProfile();
+    let cta = '';
+    if (me) cta = '<p><b>' + esc(t('done', { score: me.total })) + '</b></p>';
+    else if (open) cta = SH.auth.enabled() && !SH.auth.user ? '<a class="btn btn-gold btn-lg" href="' + esc(SH.loginUrl('mock.html?id=' + m.id)) + '">' + esc(t('sign_in')) + '</a>'
+      : '<a class="btn btn-gold btn-lg" href="test.html?id=' + encodeURIComponent(m.testId) + '&mock=' + encodeURIComponent(m.id) + '">' + esc(t('start')) + '</a>';
+    else if (upcoming) cta = '<div class="count" id="count" aria-live="off"></div>';
+    html += '<section class="next"><div><span class="kicker" style="color:var(--gold-on-dark)">' + esc(open ? t('open') : upcoming ? t('next') : t('ended')) + '</span><h2>' + esc(m.title) + '</h2>' +
+      '<p>' + esc(t('when', { d: day(m.startsAt), time: time(m.startsAt) })) + '</p>' + (!me && (open || upcoming) ? '<p class="small" style="margin-top:6px">' + esc(t('window', { end: time(m.endsAt) + (dayKeyT(m.endsAt) !== dayKeyT(m.startsAt) ? ', ' + day(m.endsAt) : '') })) + '</p>' : '') +
+      (m.prize ? '<p style="margin-top:8px;color:#EDD9A8"><b>' + esc(t('prize', { p: m.prize })) + '</b></p>' : '') + '</div><div>' + cta +
+      (upcoming ? '<p style="margin-top:12px"><a class="btn btn-light btn-sm" data-link="channel" href="' + esc(SH.CONFIG.CHANNEL_TELEGRAM) + '" target="_blank" rel="noopener">' + esc(t('remind')) + '</a></p>' : '') + '</div></section>';
+    if (SH.auth.user && !p.region && !me) html += '<div class="notice" style="margin-top:14px;display:flex;gap:12px;align-items:center;justify-content:space-between;flex-wrap:wrap"><span>' + esc(t('profile')) + '</span><button type="button" class="btn btn-primary btn-sm" data-profile>' + esc(t('profile_btn')) + '</button></div>';
+    if (!upcoming) html += leaderboard(me);
+    const past = mocks.filter(x => x.id !== m.id && x.startsAt <= now);
+    if (past.length) html += '<h2 class="section-title" style="font-size:1.35rem;margin:34px 0 10px">' + esc(t('past')) + '</h2><div class="card past">' + past.map(x => '<a href="mock.html?id=' + encodeURIComponent(x.id) + '"><span>' + esc(x.title) + '</span><span class="muted">' + esc(SH.dateText(x.startsAt, { year: true })) + '</span></a>').join('') + '</div>';
+    box.innerHTML = html;
+    $$('[data-link="channel"]', box).forEach(a => { a.href = SH.CONFIG.CHANNEL_TELEGRAM; });
+    const pb = $('[data-profile]'); if (pb) pb.addEventListener('click', editProfile);
+    const rf = $('#lb-region'); if (rf) rf.addEventListener('change', () => { regionF = rf.value; drawRows(me); });
+    const sf = $('#lb-school'); if (sf) sf.addEventListener('input', () => { schoolF = sf.value; drawRows(me); });
+    if (!upcoming) drawRows(me);
+    if (upcoming) { tick(); timer = setInterval(tick, 1000); }
+  }
+  const dayKeyT = ms => SH.dayKey(ms);
+  function tick() {
+    const el = $('#count'); if (!el) return;
+    let s = Math.max(0, Math.round((shown.startsAt - Date.now()) / 1000));
+    if (!s) { clearInterval(timer); load(); return; }
+    const d = Math.floor(s / 86400); s -= d * 86400; const h = Math.floor(s / 3600); s -= h * 3600; const m = Math.floor(s / 60); s -= m * 60;
+    el.innerHTML = [[d, 'd'], [h, 'h'], [m, 'm'], [s, 's']].map(x => '<div><b>' + x[0] + '</b><span>' + esc(t(x[1])) + '</span></div>').join('');
+  }
+  function leaderboard() {
+    const regions = SH.REGIONS.filter(r => results.some(x => x.region === r));
+    return '<div class="row" style="justify-content:space-between;margin:34px 0 10px"><h2 style="font-size:1.35rem;margin:0">' + esc(t('lb')) + '</h2><span class="muted small">' + esc(t('students', { n: results.length })) + '</span></div>' +
+      '<div class="lb-filters"><select class="input" id="lb-region" aria-label="' + esc(t('region')) + '"><option value="">' + esc(t('all_regions')) + '</option>' + regions.map(r => '<option' + (r === regionF ? ' selected' : '') + '>' + esc(r) + '</option>').join('') + '</select>' +
+      '<input class="input" id="lb-school" type="search" placeholder="' + esc(t('school_ph')) + '" aria-label="' + esc(t('school_ph')) + '" value="' + esc(schoolF) + '"></div>' +
+      '<div class="card" style="padding:6px 16px"><table class="lb"><thead><tr><th class="rank">' + t('rank') + '</th><th>' + esc(t('name')) + '</th><th>' + esc(t('region')) + '</th><th class="school">' + esc(t('school')) + '</th><th class="num">' + esc(t('score')) + '</th></tr></thead><tbody id="lb-rows"></tbody></table></div>' +
+      '<p class="small muted" style="margin-top:10px">' + esc(t('fair')) + '</p>';
+  }
+  function drawRows(me) {
+    const body = $('#lb-rows'); if (!body) return;
+    const sq = schoolF.trim().toLowerCase();
+    const rows = results.filter(r => (!regionF || r.region === regionF) && (!sq || String(r.school || '').toLowerCase().indexOf(sq) > -1));
+    // Equal scores share a rank.
+    let rank = 0, prev = null;
+    body.innerHTML = rows.length ? rows.slice(0, 300).map((r, i) => {
+      if (r.total !== prev) { rank = i + 1; prev = r.total; }
+      const mine = me && r.uid === me.uid;
+      return '<tr' + (mine ? ' class="me"' : '') + '><td class="rank">' + rank + '</td><td>' + esc(r.name || '') + (mine ? ' (' + esc(t('you')) + ')' : '') + '</td><td>' + esc(r.region || '–') + '</td><td class="school">' + esc(r.school || '–') + '</td><td class="num"><b>' + r.total + '</b></td></tr>';
+    }).join('') : '<tr><td colspan="5" class="muted">' + esc(t('lb_none')) + '</td></tr>';
+  }
+  function editProfile() {
+    const p = SH.getProfile();
+    SH.modal({
+      title: t('profile_btn'),
+      html: '<div class="field"><label for="pr-r">' + esc(t('reg_l')) + '</label><select class="input" id="pr-r"><option value="">' + esc(t('choose')) + '</option>' + SH.REGIONS.map(r => '<option' + (p.region === r ? ' selected' : '') + '>' + esc(r) + '</option>').join('') + '</select></div>' +
+        '<div class="field"><label for="pr-s">' + esc(t('sch_l')) + '</label><input class="input" id="pr-s" maxlength="80" value="' + esc(p.school) + '"></div>',
+      actions: [{ label: t('cancel'), kind: 'ghost' }, { label: t('save'), kind: 'primary', onClick: back => { SH.setProfile({ region: back.querySelector('#pr-r').value, school: back.querySelector('#pr-s').value.trim().slice(0, 80) }); setTimeout(draw, 0); } }]
+    });
+  }
+});
+</script>
+</body>
+</html>

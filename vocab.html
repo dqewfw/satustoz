@@ -1,0 +1,357 @@
+<!doctype html>
+<html lang="uz">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>SAT vocabulary in Uzbek and Russian | SAT Ustoz</title>
+<meta name="description" content="SAT words with meanings in Uzbek and Russian, example sentences and audio. Spaced repetition brings each word back before you forget it. SAT soʻzlari oʻzbekcha va ruscha maʼnolari bilan.">
+<link rel="canonical" href="https://satustoz.academy/vocab.html">
+<meta name="theme-color" content="#2D5038">
+<link rel="icon" href="favicon.ico" sizes="32x32">
+<link rel="icon" href="icon-192.png" type="image/png" sizes="192x192">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="manifest" href="site.webmanifest">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Jost:wght@500;600&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/sh.css">
+<style>
+  .vb { padding-top: 26px; min-height: 60vh; }
+  .vb-head { display: flex; justify-content: space-between; align-items: flex-end; gap: 12px 20px; flex-wrap: wrap; margin-bottom: 18px; }
+  .vb-head h1 { font-size: clamp(1.9rem, 4.5vw, 2.6rem); margin: 0 0 6px; }
+  .vb-head p { margin: 0; color: var(--muted); max-width: 40em; }
+  .decks { display: flex; gap: 4px; padding: 4px; background: var(--sunk); border-radius: var(--r-sm); margin: 18px 0; overflow-x: auto; scrollbar-width: none; }
+  .decks button { flex: 1 0 auto; border: 0; background: none; font: inherit; font-weight: 700; color: var(--ink-2); padding: 8px 14px; border-radius: 6px; cursor: pointer; }
+  .decks button[aria-pressed="true"] { background: var(--paper); color: var(--brand); box-shadow: 0 0 0 1px var(--line-2); }
+  .flash { max-width: 640px; margin: 0 auto; }
+  .fc { background: var(--paper); border: 1px solid var(--line-2); border-radius: var(--r); padding: 28px 26px; text-align: center; }
+  .fc-top { display: flex; justify-content: space-between; align-items: center; font-size: .88rem; color: var(--muted); margin-bottom: 18px; }
+  .fc-word { font-family: var(--display); font-weight: 600; font-size: clamp(2.2rem, 7vw, 3rem); line-height: 1.05; letter-spacing: -.02em; margin: 0; overflow-wrap: anywhere; }
+  .fc-pos { color: var(--muted); font-style: italic; margin: 6px 0 0; }
+  .say { display: inline-flex; align-items: center; gap: 6px; margin-top: 12px; }
+  .say svg { width: 18px; height: 18px; }
+  .fc-back { text-align: left; border-top: 1px solid var(--line); margin-top: 22px; padding-top: 18px; animation: sh-pop .2s var(--ease) both; }
+  .fc-mean { font-size: 1.3rem; font-weight: 700; color: var(--ink); margin: 0 0 4px; }
+  .fc-other { margin: 0 0 12px; color: var(--ink-2); }
+  .fc-other span { color: var(--muted); font-size: .88rem; font-weight: 700; margin-right: 6px; }
+  .fc-ex { background: var(--ivory); border-left: 3px solid var(--gold); border-radius: 0 var(--r-sm) var(--r-sm) 0; padding: 10px 14px; margin: 0; font-size: 1.02rem; line-height: 1.6; }
+  .fc-ex mark { background: var(--gold-soft); padding: 0 2px; border-radius: 3px; }
+  .fc-acts { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 20px; }
+  .fc-acts .btn { width: 100%; }
+  .btn-again { color: var(--bad); }
+  .fc-hint { font-size: .85rem; color: var(--muted); margin: 10px 0 0; }
+  @media (pointer: coarse) { .fc-hint { display: none; } }
+  .wl-search { max-width: 360px; margin-bottom: 12px; }
+  .wl { display: grid; gap: 0; }
+  .wl-row { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 4px 12px; align-items: center; padding: 11px 0; border-bottom: 1px solid var(--line); }
+  .wl-row:last-child { border-bottom: 0; }
+  .wl-row b { font-size: 1.05rem; }
+  .wl-row .small { display: block; }
+  .lvl { display: inline-flex; gap: 3px; vertical-align: middle; margin-left: 8px; }
+  .lvl i { width: 7px; height: 7px; border-radius: 2px; background: var(--sunk); }
+  .lvl i.on { background: var(--brand); }
+  .done-box { text-align: center; padding: 36px 20px; }
+  .add-form .row > .field { flex: 1 1 220px; margin-bottom: 10px; }
+  .vb-settings { display: flex; gap: 10px; align-items: center; font-size: .92rem; color: var(--muted); }
+  .vb-settings select { min-height: 36px; padding: 4px 34px 4px 10px; width: auto; }
+</style>
+</head>
+<body>
+<a class="skip-link" href="#main" data-nav="skip">Skip to content</a>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="index.html"><picture><source media="(max-width: 359px)" srcset="assets/brand/mark.svg"><img class="brand-logo" src="assets/brand/logo-horizontal.svg" alt="SAT Ustoz" width="171" height="40"></picture></a>
+    <button class="menu-btn" type="button" aria-label="Menu" aria-expanded="false" aria-controls="nav"><span></span></button>
+    <nav class="nav" id="nav" aria-label="Main">
+      <a href="practice.html#home" data-nav="dash">Dashboard</a>
+      <a href="practice.html#sets" data-nav="sets">Practice sets</a>
+      <a href="practice.html#tests" data-nav="tests">Practice tests</a>
+      <a href="vocab.html" data-nav="vocab" aria-current="page">Vocabulary</a>
+      <a href="lessons.html" data-nav="lessons">Lessons</a>
+      <a href="practice.html#plans" data-nav="plans">Plans</a>
+    </nav>
+    <div class="lang-switch" role="group" aria-label="Language"><button type="button" data-lang="en" aria-pressed="false">EN</button><button type="button" data-lang="uz" aria-pressed="true">UZ</button><button type="button" data-lang="ru" aria-pressed="false">RU</button></div>
+    <div data-auth-slot></div>
+  </div>
+</header>
+
+<main id="main" tabindex="-1">
+  <div class="wrap vb">
+    <div class="vb-head">
+      <div><h1 data-t="h1">SAT soʻzlari</h1><p data-t="lede">SAT soʻzlari oʻzbekcha va ruscha maʼnolari, misol gap va talaffuzi bilan.</p></div>
+      <label class="vb-settings"><span data-t="per_day">New words a day</span><select class="input" id="per-day"><option>5</option><option selected>10</option><option>20</option></select></label>
+    </div>
+    <div class="grid grid-4" id="stats"></div>
+    <div class="decks" role="group" aria-label="Decks" id="decks"></div>
+    <div id="pane" aria-live="polite"></div>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="footer-brand"><span class="brand-name">SAT Ustoz</span><p style="margin-top:10px" data-nav="tag">Digital SAT practice built by someone who has taken the test, for students in Uzbekistan and beyond.</p></div>
+      <div><h3 class="f-head" data-nav="practice">Practice</h3><ul><li><a href="practice.html#tests" data-nav="tests">Practice tests</a></li><li><a href="lessons.html" data-nav="lessons">Lessons</a></li><li><a href="daily.html" data-nav="daily">Question of the day</a></li><li><a href="score-calculator.html" data-nav="calc">Score calculator</a></li><li><a href="mock.html" data-nav="mock">National mock</a></li><li><a href="teacher.html" data-nav="teach">For teachers</a></li></ul></div>
+      <div><h3 class="f-head" data-nav="contact">Contact</h3><ul><li><a data-link="telegram" href="https://t.me/azizbek7_t" target="_blank" rel="noopener">Telegram: @azizbek7_t</a></li><li><a data-link="channel" href="https://t.me/satustoz_off" target="_blank" rel="noopener" data-nav="channel">Telegram channel</a></li><li><a data-link="instagram" href="https://www.instagram.com/satustoz" target="_blank" rel="noopener">Instagram</a></li><li><a href="#" data-feedback data-nav="feedback">Send feedback</a></li></ul></div>
+    </div>
+    <div class="footer-legal">&copy; <span data-year>2026</span> SAT Ustoz. <span data-nav="legal">SAT&reg; is a trademark registered by the College Board, which is not affiliated with, and does not endorse, this website. All practice questions on this site are written by SAT Ustoz.</span></div>
+  </div>
+</footer>
+
+<script src="assets/sh.js" data-analytics defer></script>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  'use strict';
+  const SH = window.SH;
+  const { esc, $, $$ } = SH;
+  const t = SH.i18n({
+    en: {
+      h1: 'SAT vocabulary', lede: 'SAT words with meanings in Uzbek and Russian, an example sentence and audio. Each word comes back just before you would forget it.',
+      per_day: 'New words a day', d_review: 'Today’s review', d_missed: 'From your mistakes', d_mine: 'My words', d_list: 'All words',
+      s_learned: 'words learned', s_learning: 'learning now', s_due: 'due today', s_days: 'days in a row',
+      show: 'Show meaning', again: 'I didn’t know it', knew: 'I knew it', listen: 'Listen', of: '{i} of {n}', new_w: 'New word', review_w: 'Review',
+      hint: 'Space shows the meaning. 1: didn’t know, 2: knew it.', no_audio: 'Audio is not available in this browser.',
+      done_h: 'Done for today', done_p: 'Come back tomorrow: the words you learned will come back for review right before you would forget them.', more: 'Learn {n} more words',
+      empty_missed: 'Words from Words in Context questions you got wrong show up here. Nothing yet: keep practicing.',
+      missed_lead: 'The right answers to Words in Context questions you missed. Learn them so they don’t trip you up again.', review_these: 'Review these {n}', add_meaning: 'Add a meaning', from_q: 'From question {q}',
+      mine_lead: 'Save words you meet while reading. They join your daily review.', f_word: 'Word', f_mean: 'Meaning (any language)', f_ex: 'Example sentence (optional)', add: 'Add word', added: 'Added to your words', need_word: 'Enter the word and its meaning.',
+      del: 'Delete', search: 'Search words', learned: 'Learned', new: 'New', in_progress: 'Learning', saved_device: 'Your progress is saved on this device.', sign_in: 'Sign in to keep it on every device.',
+      offline: 'You are offline. Review still works; progress syncs when you are back online.', load_err: 'Could not load the word list. Check your connection.'
+    },
+    uz: {
+      h1: 'SAT soʻzlari', lede: 'SAT soʻzlari oʻzbekcha va ruscha maʼnolari, misol gap va talaffuzi bilan. Har bir soʻz siz uni unutishingizdan sal oldin qaytib keladi.',
+      per_day: 'Kuniga yangi soʻz', d_review: 'Bugungi takrorlash', d_missed: 'Xatolaringizdan', d_mine: 'Mening soʻzlarim', d_list: 'Barcha soʻzlar',
+      s_learned: 'soʻz oʻrganildi', s_learning: 'oʻrganilmoqda', s_due: 'bugun takrorlash', s_days: 'kun ketma-ket',
+      show: 'Maʼnosini koʻrsatish', again: 'Bilmadim', knew: 'Bilardim', listen: 'Tinglash', of: '{n} tadan {i}', new_w: 'Yangi soʻz', review_w: 'Takrorlash',
+      hint: 'Probel maʼnoni ochadi. 1: bilmadim, 2: bilardim.', no_audio: 'Bu brauzerda ovoz ishlamaydi.',
+      done_h: 'Bugunga yetarli', done_p: 'Ertaga qayting: oʻrgangan soʻzlaringiz unutishingizdan sal oldin takrorlash uchun qaytadi.', more: 'Yana {n} ta soʻz oʻrganish',
+      empty_missed: 'Words in Context savollarida xato qilganingizda toʻgʻri soʻz shu yerga tushadi. Hozircha hech narsa yoʻq: mashq qilishda davom eting.',
+      missed_lead: 'Words in Context savollarida xato qilganingizdagi toʻgʻri javoblar. Ularni oʻrganing, qayta adashmaysiz.', review_these: 'Shu {n} tasini takrorlash', add_meaning: 'Maʼnosini qoʻshish', from_q: '{q} savolidan',
+      mine_lead: 'Oʻqiyotganda uchragan soʻzlarni saqlang. Ular kundalik takrorlashga qoʻshiladi.', f_word: 'Soʻz', f_mean: 'Maʼnosi (istalgan tilda)', f_ex: 'Misol gap (ixtiyoriy)', add: 'Soʻz qoʻshish', added: 'Soʻzlaringizga qoʻshildi', need_word: 'Soʻz va uning maʼnosini kiriting.',
+      del: 'Oʻchirish', search: 'Soʻz qidirish', learned: 'Oʻrganilgan', new: 'Yangi', in_progress: 'Oʻrganilmoqda', saved_device: 'Natijangiz shu qurilmada saqlanadi.', sign_in: 'Har bir qurilmada saqlash uchun tizimga kiring.',
+      offline: 'Internet yoʻq. Takrorlash baribir ishlaydi, natija internet qaytganda saqlanadi.', load_err: 'Soʻzlar roʻyxatini yuklab boʻlmadi. Internetni tekshiring.'
+    },
+    ru: {
+      h1: 'Слова для SAT', lede: 'Слова SAT со значением на узбекском и русском, примером и произношением. Каждое слово возвращается как раз перед тем, как вы его забудете.',
+      per_day: 'Новых слов в день', d_review: 'Повторение на сегодня', d_missed: 'Из ваших ошибок', d_mine: 'Мои слова', d_list: 'Все слова',
+      s_learned: 'слов выучено', s_learning: 'в процессе', s_due: 'повторить сегодня', s_days: 'дней подряд',
+      show: 'Показать значение', again: 'Не знал(а)', knew: 'Знал(а)', listen: 'Послушать', of: '{i} из {n}', new_w: 'Новое слово', review_w: 'Повторение',
+      hint: 'Пробел показывает значение. 1: не знал(а), 2: знал(а).', no_audio: 'В этом браузере озвучка недоступна.',
+      done_h: 'На сегодня всё', done_p: 'Возвращайтесь завтра: выученные слова вернутся на повторение как раз перед тем, как вы бы их забыли.', more: 'Выучить ещё {n} слов',
+      empty_missed: 'Сюда попадают верные слова из вопросов Words in Context, где вы ошиблись. Пока пусто: продолжайте практику.',
+      missed_lead: 'Верные ответы из вопросов Words in Context, где вы ошиблись. Выучите их, чтобы не ошибаться снова.', review_these: 'Повторить эти {n}', add_meaning: 'Добавить значение', from_q: 'Из вопроса {q}',
+      mine_lead: 'Сохраняйте слова, которые встречаете при чтении. Они попадут в ежедневное повторение.', f_word: 'Слово', f_mean: 'Значение (на любом языке)', f_ex: 'Пример (необязательно)', add: 'Добавить слово', added: 'Добавлено в ваши слова', need_word: 'Введите слово и его значение.',
+      del: 'Удалить', search: 'Поиск слов', learned: 'Выучено', new: 'Новое', in_progress: 'Учится', saved_device: 'Прогресс сохраняется на этом устройстве.', sign_in: 'Войдите, чтобы сохранять его на всех устройствах.',
+      offline: 'Нет интернета. Повторение работает, прогресс сохранится, когда связь вернётся.', load_err: 'Не удалось загрузить список слов. Проверьте интернет.'
+    }
+  });
+  // Leitner boxes: a word you know moves up a box and comes back later; one you
+  // miss starts over. Box 5 and up counts as learned.
+  const DAYS = [0, 1, 3, 7, 16, 35, 90];
+  const LEARNED = 5;
+  const pane = $('#pane');
+  let words = [], deck = 'review', queue = [], qi = 0, flipped = false, extraNew = 0;
+  const perDay = () => +SH.store.get('vocabPerDay', 10) || 10;
+  $('#per-day').value = String(perDay());
+  $('#per-day').addEventListener('change', e => { SH.store.set('vocabPerDay', +e.target.value); if (deck === 'review') startReview(); });
+
+  SH.langSwitch(() => { paintStatic(); draw(); });
+  paintStatic();
+  function paintStatic() { $$('[data-t]').forEach(el => { el.textContent = t(el.dataset.t); }); drawDecks(); }
+
+  // Every card: dictionary words, the student's own words (id "my:<slug>"), and
+  // missed words that aren't in the dictionary (id "mx:<slug>").
+  function cardOf(id) {
+    if (id.indexOf('my:') === 0) { const m = SH.vocab.get().mine[id.slice(3)]; return m && !m.deleted ? { id, w: m.w, pos: '', mine: m.m, ex: m.ex || '' } : null; }
+    if (id.indexOf('mx:') === 0) { const x = SH.vocab.get().missed[id.slice(3)]; return x && !x.deleted ? { id, w: x.w, pos: '', ctx: x.ctx, qid: x.qid } : null; }
+    return words.find(w => w.id === id) || null;
+  }
+  const stateOf = id => { const c = SH.vocab.get().cards[id]; return c && !c.deleted ? c : null; };
+  function grade(id, knew) {
+    const v = SH.vocab.get(), now = Date.now(), today = SH.dayKey();
+    const c = Object.assign({ b: 0, n: 0, lapses: 0, first: now }, stateOf(id));
+    const wasNew = !c.n;
+    c.n++; c.b = knew ? Math.min(DAYS.length - 1, c.b + 1) : 1; if (!knew) c.lapses++;
+    // A miss comes back in this session (10 minutes); a known word after its box's days.
+    c.due = knew ? now + DAYS[c.b] * 86400000 - 3600000 : now + 600000; c.t = now;
+    const day = Object.assign({ r: 0, n: 0 }, v.days[today]);
+    day.r++; if (wasNew) day.n++; day.t = now;
+    v.cards = Object.assign({}, v.cards, { [id]: c });
+    v.days = Object.assign({}, v.days, { [today]: day });
+    SH.vocab.save(v);
+    if (day.r === 1) SH.track('vocab_reviewed', { deck });
+  }
+  function counts() {
+    const v = SH.vocab.get(), now = Date.now();
+    const st = Object.keys(v.cards).map(k => v.cards[k]).filter(c => c && !c.deleted);
+    let streak = 0, d = SH.dayNum();
+    if (!v.days[SH.dayKey()]) d--;
+    while (v.days[SH.dayKey(d * 86400000 - 5 * 3600000)]) { streak++; d--; }
+    return { learned: st.filter(c => c.b >= LEARNED).length, learning: st.filter(c => c.b < LEARNED).length, due: st.filter(c => c.due <= now + 6 * 3600000).length, streak };
+  }
+  function drawStats() {
+    const c = counts();
+    const tile = (v, k) => '<div class="stat"><b>' + v + '</b><span>' + esc(t(k)) + '</span></div>';
+    $('#stats').innerHTML = tile(c.learned, 's_learned') + tile(c.learning, 's_learning') + tile(c.due, 's_due') + tile(c.streak, 's_days');
+  }
+  function drawDecks() {
+    const v = SH.vocab.get();
+    const missed = Object.keys(v.missed).filter(k => v.missed[k] && !v.missed[k].deleted).length;
+    const mine = Object.keys(v.mine).filter(k => v.mine[k] && !v.mine[k].deleted).length;
+    $('#decks').innerHTML = [['review', t('d_review')], ['missed', t('d_missed') + (missed ? ' (' + missed + ')' : '')], ['mine', t('d_mine') + (mine ? ' (' + mine + ')' : '')], ['list', t('d_list')]]
+      .map(d => '<button type="button" data-deck="' + d[0] + '" aria-pressed="' + (deck === d[0]) + '">' + esc(d[1]) + '</button>').join('');
+    $$('[data-deck]').forEach(b => b.addEventListener('click', () => { deck = b.dataset.deck; drawDecks(); if (deck === 'review') startReview(); else draw(); }));
+  }
+
+  /* ---------- Review: due cards first, then today's new words ---------- */
+  function startReview() {
+    const v = SH.vocab.get(), now = Date.now();
+    const due = Object.keys(v.cards).filter(id => v.cards[id] && !v.cards[id].deleted && v.cards[id].due <= now + 6 * 3600000 && cardOf(id)).sort((a, b) => v.cards[a].due - v.cards[b].due);
+    const newToday = (v.days[SH.dayKey()] || {}).n || 0;
+    const room = Math.max(0, perDay() + extraNew - newToday);
+    const fresh = SH.seededShuffle(words.map(w => w.id), 1530).filter(id => !v.cards[id] || v.cards[id].deleted).slice(0, room);
+    queue = due.concat(fresh); qi = 0; flipped = false;
+    draw();
+  }
+  function startQueue(ids) { queue = ids.filter(cardOf); qi = 0; flipped = false; deck = 'review'; drawDecks(); draw(true); }
+
+  function draw(keepQueue) {
+    drawStats();
+    if (!words.length) return;
+    if (deck === 'missed') return drawMissed();
+    if (deck === 'mine') return drawMine();
+    if (deck === 'list') return drawList();
+    if (qi >= queue.length) {
+      pane.innerHTML = '<div class="card done-box flash"><h2>' + esc(t('done_h')) + '</h2><p class="muted">' + esc(t('done_p')) + '</p>' +
+        '<button type="button" class="btn btn-ghost" data-more>' + esc(t('more', { n: perDay() })) + '</button>' + accountNote() + '</div>';
+      $('[data-more]').addEventListener('click', () => { extraNew += perDay(); startReview(); });
+      return;
+    }
+    const c = cardOf(queue[qi]); if (!c) { qi++; return draw(); }
+    const st = stateOf(c.id);
+    const lang = SH.langNow();
+    const main = c.mine != null ? c.mine : c.ctx != null ? '' : (lang === 'ru' ? c.ru : lang === 'en' ? c.en : c.uz);
+    const others = c.mine != null || c.ctx != null ? [] : (lang === 'en' ? [['UZ', c.uz], ['RU', c.ru]] : [['EN', c.en], [lang === 'ru' ? 'UZ' : 'RU', lang === 'ru' ? c.uz : c.ru]]);
+    const ex = c.ex ? highlight(c.ex, c.w) : c.ctx ? SH.renderRich(c.ctx, { inline: true }) : '';
+    pane.innerHTML = '<div class="flash"><div class="fc">' +
+      '<div class="fc-top"><span>' + esc(st ? t('review_w') : t('new_w')) + '</span><span>' + esc(t('of', { i: qi + 1, n: queue.length })) + '</span></div>' +
+      '<p class="fc-word" lang="en">' + esc(c.w) + '</p>' + (c.pos ? '<p class="fc-pos">' + esc(c.pos) + '</p>' : '') +
+      '<button type="button" class="btn btn-ghost btn-sm say" data-say>' + SPEAK + esc(t('listen')) + '</button>' +
+      (flipped ? '<div class="fc-back">' + (main ? '<p class="fc-mean">' + esc(main) + '</p>' : '') +
+        others.map(o => '<p class="fc-other"><span>' + o[0] + '</span>' + esc(o[1]) + '</p>').join('') +
+        (ex ? '<p class="fc-ex" lang="en">' + ex + '</p>' : '') + (c.qid ? '<p class="small muted" style="margin:8px 0 0">' + esc(t('from_q', { q: c.qid })) + '</p>' : '') + '</div>' +
+        '<div class="fc-acts"><button type="button" class="btn btn-ghost btn-again" data-g="0">' + esc(t('again')) + '</button><button type="button" class="btn btn-primary" data-g="1">' + esc(t('knew')) + '</button></div>'
+        : '<div class="fc-acts" style="grid-template-columns:1fr"><button type="button" class="btn btn-primary btn-lg" data-flip>' + esc(t('show')) + '</button></div>') +
+      '<p class="fc-hint">' + esc(t('hint')) + '</p></div></div>';
+    const flip = $('[data-flip]'); if (flip) flip.addEventListener('click', () => { flipped = true; draw(); });
+    $$('[data-g]').forEach(b => b.addEventListener('click', () => answer(b.dataset.g === '1')));
+    $('[data-say]').addEventListener('click', () => speak(c.w));
+    const focus = $('[data-flip]') || $('[data-g="1"]'); if (focus) focus.focus({ preventScroll: true });
+  }
+  function answer(knew) {
+    const id = queue[qi];
+    grade(id, knew);
+    if (!knew) queue.push(id); // seen again before the session ends
+    qi++; flipped = false; draw();
+  }
+  document.addEventListener('keydown', e => {
+    if (deck !== 'review' || e.target.closest('input, textarea, select') || document.querySelector('.modal-backdrop') || e.metaKey || e.ctrlKey) return;
+    if (!flipped && (e.key === ' ' || e.key === 'Enter') && $('[data-flip]')) { e.preventDefault(); flipped = true; draw(); }
+    else if (flipped && (e.key === '1' || e.key === '2')) { e.preventDefault(); answer(e.key === '2'); }
+  });
+  const SPEAK = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9h4l5-4v14l-5-4H4z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M16.5 8.5a5 5 0 010 7M19 6a8.5 8.5 0 010 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>';
+  function speak(w) {
+    if (!('speechSynthesis' in window)) { SH.toast(t('no_audio')); return; }
+    const u = new SpeechSynthesisUtterance(w);
+    u.lang = 'en-US'; u.rate = .9;
+    const v = speechSynthesis.getVoices().find(x => /^en(-|_)US/i.test(x.lang)) || speechSynthesis.getVoices().find(x => /^en/i.test(x.lang));
+    if (v) u.voice = v;
+    speechSynthesis.cancel(); speechSynthesis.speak(u);
+  }
+  function highlight(ex, w) {
+    const stem = w.toLowerCase().replace(/e$/, '').replace(/y$/, '');
+    return esc(ex).replace(new RegExp('\\b(' + stem.replace(/[^a-z]/g, '') + '[a-z]*)', 'i'), '<mark>$1</mark>');
+  }
+  function accountNote() {
+    if (!SH.auth.enabled() || SH.auth.user) return '';
+    return '<p class="small muted" style="margin:16px 0 0">' + esc(t('saved_device')) + ' <a href="' + esc(SH.loginUrl('vocab.html')) + '">' + esc(t('sign_in')) + '</a></p>';
+  }
+  const slug = w => w.toLowerCase().replace(/[^a-z]+/g, '-').replace(/^-|-$/g, '').slice(0, 40);
+  const lvl = st => '<span class="lvl" aria-hidden="true">' + [1, 2, 3, 4, 5].map(i => '<i class="' + (st && st.b >= i ? 'on' : '') + '"></i>').join('') + '</span>';
+
+  /* ---------- From your mistakes ---------- */
+  function drawMissed() {
+    const v = SH.vocab.get();
+    const list = Object.keys(v.missed).map(k => Object.assign({ key: k }, v.missed[k])).filter(x => !x.deleted).sort((a, b) => b.t - a.t);
+    if (!list.length) { pane.innerHTML = '<div class="card"><p class="muted" style="margin:0">' + esc(t('empty_missed')) + '</p></div>'; return; }
+    const idFor = x => words.some(w => w.id === x.key) ? x.key : v.mine[x.key] && !v.mine[x.key].deleted ? 'my:' + x.key : 'mx:' + x.key;
+    pane.innerHTML = '<p class="muted">' + esc(t('missed_lead')) + '</p><div class="row" style="margin-bottom:14px"><button type="button" class="btn btn-primary" data-review-missed>' + esc(t('review_these', { n: list.length })) + '</button></div>' +
+      '<div class="card wl">' + list.map(x => {
+        const id = idFor(x), c = cardOf(id);
+        return '<div class="wl-row"><div><b lang="en">' + esc(x.w) + '</b>' + lvl(stateOf(id)) + '<span class="small muted">' + (c && c.uz ? esc(SH.langNow() === 'ru' ? c.ru : SH.langNow() === 'en' ? c.en : c.uz) : SH.renderRich(x.ctx || '', { inline: true })) + '</span></div>' +
+          (id.indexOf('mx:') === 0 ? '<button type="button" class="btn btn-ghost btn-sm" data-mean="' + esc(x.key) + '">' + esc(t('add_meaning')) + '</button>' : '<button type="button" class="btn btn-ghost btn-sm" data-say-w="' + esc(x.w) + '" aria-label="' + esc(t('listen')) + '">' + SPEAK + '</button>') + '</div>';
+      }).join('') + '</div>';
+    $('[data-review-missed]').addEventListener('click', () => startQueue(list.map(idFor)));
+    $$('[data-say-w]').forEach(b => b.addEventListener('click', () => speak(b.dataset.sayW)));
+    $$('[data-mean]').forEach(b => b.addEventListener('click', () => { const x = v.missed[b.dataset.mean]; deck = 'mine'; drawDecks(); drawMine(x.w); }));
+  }
+
+  /* ---------- My words ---------- */
+  function drawMine(prefill) {
+    const v = SH.vocab.get();
+    const list = Object.keys(v.mine).map(k => Object.assign({ key: k }, v.mine[k])).filter(x => !x.deleted).sort((a, b) => b.t - a.t);
+    pane.innerHTML = '<p class="muted">' + esc(t('mine_lead')) + '</p><form class="card add-form" style="margin-bottom:18px" novalidate><div class="row">' +
+      '<div class="field"><label for="mw-w">' + esc(t('f_word')) + '</label><input class="input" id="mw-w" maxlength="40" autocomplete="off" lang="en" value="' + esc(prefill || '') + '"></div>' +
+      '<div class="field"><label for="mw-m">' + esc(t('f_mean')) + '</label><input class="input" id="mw-m" maxlength="120" autocomplete="off"></div></div>' +
+      '<div class="field"><label for="mw-e">' + esc(t('f_ex')) + '</label><input class="input" id="mw-e" maxlength="240" autocomplete="off" lang="en"></div>' +
+      '<p class="pay-err" role="alert" hidden></p><button type="submit" class="btn btn-primary">' + esc(t('add')) + '</button></form>' +
+      (list.length ? '<div class="card wl">' + list.map(x => '<div class="wl-row"><div><b lang="en">' + esc(x.w) + '</b>' + lvl(stateOf('my:' + x.key)) + '<span class="small muted">' + esc(x.m) + '</span></div><button type="button" class="link-btn small" data-del="' + esc(x.key) + '">' + esc(t('del')) + '</button></div>').join('') + '</div>' : '');
+    const f = $('form', pane);
+    if (prefill) $('#mw-m').focus();
+    f.addEventListener('submit', e => {
+      e.preventDefault();
+      const w = $('#mw-w').value.trim(), m = $('#mw-m').value.trim(), key = slug(w);
+      if (!w || !m || !key) { const er = $('.pay-err', f); er.textContent = t('need_word'); er.hidden = false; return; }
+      const vv = SH.vocab.get();
+      vv.mine = Object.assign({}, vv.mine, { [key]: { w, m, ex: $('#mw-e').value.trim(), t: Date.now() } });
+      SH.vocab.save(vv);
+      SH.toast(t('added')); drawDecks(); drawMine();
+    });
+    $$('[data-del]').forEach(b => b.addEventListener('click', () => {
+      const vv = SH.vocab.get();
+      vv.mine = Object.assign({}, vv.mine, { [b.dataset.del]: { deleted: true, t: Date.now() } });
+      SH.vocab.save(vv); drawDecks(); drawMine();
+    }));
+  }
+
+  /* ---------- All words ---------- */
+  function drawList(q) {
+    const lang = SH.langNow();
+    pane.innerHTML = '<input class="input wl-search" type="search" id="wl-q" placeholder="' + esc(t('search')) + '" aria-label="' + esc(t('search')) + '" value="' + esc(q || '') + '"><div class="card wl" id="wl"></div>';
+    const paint = () => {
+      const s = $('#wl-q').value.trim().toLowerCase();
+      $('#wl').innerHTML = words.filter(w => !s || (w.w + ' ' + w.uz + ' ' + w.ru + ' ' + w.en).toLowerCase().indexOf(s) > -1).map(w => {
+        const st = stateOf(w.id);
+        return '<div class="wl-row"><div><b lang="en">' + esc(w.w) + '</b> <span class="small muted" style="display:inline">' + esc(w.pos) + '</span>' + lvl(st) +
+          '<span class="small">' + esc(lang === 'ru' ? w.ru : lang === 'en' ? w.en : w.uz) + '</span><span class="small muted">' + esc(lang === 'en' ? w.uz + ' · ' + w.ru : w.en) + '</span></div>' +
+          '<button type="button" class="btn btn-ghost btn-sm" data-say-w="' + esc(w.w) + '" aria-label="' + esc(t('listen') + ': ' + w.w) + '">' + SPEAK + '</button></div>';
+      }).join('');
+      $$('[data-say-w]', $('#wl')).forEach(b => b.addEventListener('click', () => speak(b.dataset.sayW)));
+    };
+    $('#wl-q').addEventListener('input', paint);
+    paint();
+  }
+
+  SH.getJSON('data/vocab.json').then(d => {
+    words = (d.words || []).filter(w => w && w.id && w.w);
+    if (location.hash === '#mistakes') deck = 'missed';
+    drawDecks();
+    if (deck === 'review') startReview(); else draw();
+  }).catch(() => { pane.innerHTML = '<div class="notice notice-bad">' + esc(navigator.onLine === false ? t('offline') : t('load_err')) + '</div>'; drawStats(); });
+  window.addEventListener('offline', () => SH.toast(t('offline'), 4000));
+  if ('speechSynthesis' in window) speechSynthesis.getVoices();
+  document.addEventListener('sh:synced', () => { drawDecks(); if (deck !== 'review') draw(); else drawStats(); });
+});
+</script>
+</body>
+</html>

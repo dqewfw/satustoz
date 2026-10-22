@@ -37,6 +37,9 @@
     // true = the AI tutor and AI questions need a signed-in student
     // (recommended: it stops strangers from spending your AI budget).
     AI_REQUIRES_LOGIN: true,
+    // "Continue with Apple" on the sign-in page. Needs an Apple Developer
+    // account and Apple switched on in Firebase (README "Sign in with Apple").
+    APPLE_SIGNIN: false,
 
     // Product analytics with PostHog (README "7. Analytics"): which pages
     // students visit and where they stop on the way to Pro. KEY is the Project
@@ -107,6 +110,10 @@
     CHANNEL_TELEGRAM: 'https://t.me/satustoz_off',
     INSTAGRAM: 'https://www.instagram.com/satustoz',
     PHONE: '+998 97 055 00 33',
+    // Your learning center, offered after the free diagnostic to students who
+    // want a teacher (a free 15-minute call or a trial lesson). Empty URL: the
+    // offer opens a Telegram message to CONTACT_TELEGRAM instead.
+    LEARNING_CENTER: { NAME: 'Be Student', URL: '' },
     CATALOG_URL: 'data/catalog.json'
   };
 
@@ -144,7 +151,10 @@
      Storage (never throws; falls back to memory in private mode)
      ------------------------------------------------------------------ */
   const PREFIX = 'sh.v1.';
-  const SYNCED_KEYS = ['attempts', 'testHistory', 'profile'];
+  // Study data kept together in users/<uid>/data/study: the mistake notebook,
+  // vocabulary progress, question of the day, saved drills, study plan, classes and lesson checks.
+  const STUDY_KEYS = ['mistakes', 'vocab', 'daily', 'drills', 'studyPlan', 'classes', 'lessons'];
+  const SYNCED_KEYS = ['attempts', 'testHistory', 'profile'].concat(STUDY_KEYS);
   const hooks = { change: null };
   function onLocalChange(key) { if (hooks.change) hooks.change(key); }
   const mem = {};
@@ -478,10 +488,186 @@
     return skillStats().filter(s => s.n >= (minAttempts || 1) && s.acc < 1 && s.skill !== 'Other')
       .sort((a, b) => smooth(a) - smooth(b) || b.n - a.n).slice(0, limit || 3);
   }
-  function getProfile() { return Object.assign({ name: '', target: 1400, testDate: '', grade: '', onboarded: false, updatedAt: 0 }, store.get('profile', {})); }
+  const PROFILE_DEFAULTS = { name: '', target: 1400, testDate: '', grade: '', region: '', school: '', onboarded: false, updatedAt: 0 };
+  function getProfile() { return Object.assign({}, PROFILE_DEFAULTS, store.get('profile', {})); }
   function setProfile(p) { store.set('profile', Object.assign(getProfile(), p, { updatedAt: Date.now() })); }
   function getTestHistory() { return store.get('testHistory', []); }
   function addTestHistory(rec) { store.set('testHistory', [rec].concat(getTestHistory()).slice(0, 40)); }
+  // Regions of Uzbekistan for the national mock leaderboard and the profile.
+  const REGIONS = ['Tashkent city', 'Tashkent region', 'Andijan', 'Bukhara', 'Fergana', 'Jizzakh', 'Kashkadarya', 'Khorezm', 'Namangan', 'Navoi', 'Samarkand', 'Surkhandarya', 'Syrdarya', 'Karakalpakstan', 'Outside Uzbekistan'];
+
+  /* ------------------------------------------------------------------
+     Days in Tashkent time (daily question, streaks, weekly plan)
+     ------------------------------------------------------------------ */
+  const TZ_MS = 5 * 3600000;
+  const dayKey = ts => new Date((ts == null ? Date.now() : ts) + TZ_MS).toISOString().slice(0, 10);
+  const dayNum = ts => Math.floor(((ts == null ? Date.now() : ts) + TZ_MS) / 86400000);
+  // Monday 00:00 Tashkent time of the week ts falls in.
+  function weekStart(ts) {
+    const d = dayNum(ts), dow = (d + 3) % 7; // day 0 (1970-01-01) was a Thursday
+    return (d - dow) * 86400000 - TZ_MS;
+  }
+
+  /* ------------------------------------------------------------------
+     Study data maps: { id: { ..., t } }. Merging two copies (this device
+     and the account) keeps the newer version of each item; a removed item
+     stays as { deleted: true, t } so the other copy doesn't bring it back.
+     ------------------------------------------------------------------ */
+  function mergeStudy(cloud, local) {
+    if (local === undefined || local === null) return cloud === null ? undefined : cloud;
+    if (cloud === undefined || cloud === null) return local;
+    const isObj = v => v && typeof v === 'object' && !Array.isArray(v);
+    if (isObj(cloud) && isObj(local)) {
+      if (typeof cloud.t === 'number' || typeof local.t === 'number') return (local.t || 0) >= (cloud.t || 0) ? local : cloud;
+      const out = {};
+      Object.keys(cloud).concat(Object.keys(local)).forEach(k => { if (!(k in out)) out[k] = mergeStudy(cloud[k], local[k]); });
+      return out;
+    }
+    return local;
+  }
+  const live = map => Object.keys(map || {}).map(k => map[k]).filter(v => v && !v.deleted);
+
+  /* ------------------------------------------------------------------
+     Mistake notebook: every wrong answer, by skill. Answering it right
+     twice in a row (FIX_AFTER) marks it fixed. A Words in Context miss also
+     puts the right word into the vocabulary "from your mistakes" deck.
+     ------------------------------------------------------------------ */
+  const FIX_AFTER = 2;
+  const MAX_MISTAKES = 600;
+  const mistakes = {
+    map() { return store.get('mistakes', {}) || {}; },
+    all() { return live(this.map()); },
+    open() { return this.all().filter(e => !e.fixed); },
+    // src: { type: 'set' | 'test' | 'ai', id: set or test id, where: a label for the list }
+    record(q, ok, src) { this.recordMany([{ q, ok, src }]); },
+    // One save for many answers (a finished practice test).
+    recordMany(items) {
+      const m = Object.assign({}, this.map());
+      let changed = false;
+      items.forEach(it => { if (this._apply(m, it.q, it.ok, it.src)) changed = true; });
+      if (!changed) return;
+      const now = Date.now();
+      // Keep the notebook small enough for one Firestore document: fixed ones go first.
+      const ids = Object.keys(m).filter(k => !m[k].deleted);
+      if (ids.length > MAX_MISTAKES) {
+        ids.sort((a, b) => (m[b].fixed ? 1 : 0) - (m[a].fixed ? 1 : 0) || m[a].t - m[b].t)
+          .slice(0, ids.length - MAX_MISTAKES).forEach(k => { m[k] = { deleted: true, t: now }; });
+      }
+      store.set('mistakes', m);
+    },
+    _apply(m, q, ok, src) {
+      if (!q || !q.id || !src) return false;
+      const now = Date.now();
+      const had = m[q.id] && !m[q.id].deleted ? Object.assign({}, m[q.id]) : null;
+      if (!ok) {
+        const e = Object.assign(had || { qid: q.id, first: now, misses: 0 }, {
+          ref: src.type === 'ai' ? { type: 'ai', id: '' } : { type: src.type, id: String(src.id || '') },
+          where: String(src.where || '').slice(0, 80), section: q.section, skill: q.skill || 'Other',
+          difficulty: q.difficulty || 'medium', streak: 0, fixed: false, t: now,
+          // A few words of the question, so the notebook list is readable.
+          p: String(q.passage || q.prompt || '').replace(/_{3,}/g, '…').replace(/\$\$?|\*\*|__|\*/g, '').replace(/\s+/g, ' ').trim().slice(0, 110)
+        });
+        e.misses = (e.misses || 0) + 1;
+        delete e.fixedAt;
+        // AI questions exist nowhere else, so the notebook keeps their text.
+        if (src.type === 'ai') e.q = JSON.parse(JSON.stringify(q));
+        m[q.id] = e;
+        vocab.fromMiss(q);
+      } else if (had && !had.fixed) {
+        had.streak = (had.streak || 0) + 1; had.t = now;
+        if (had.streak >= FIX_AFTER) { had.fixed = true; had.fixedAt = now; }
+        m[q.id] = had;
+      } else return false;
+      return true;
+    },
+    remove(qid) { const m = Object.assign({}, this.map()); m[qid] = { deleted: true, t: Date.now() }; store.set('mistakes', m); },
+    // The questions behind notebook entries, loaded from their sets and tests.
+    async questions(entries) {
+      const want = {}, found = {};
+      entries.forEach(e => { if (e.ref && e.ref.type !== 'ai' && e.ref.id) { const k = e.ref.type + ':' + e.ref.id; (want[k] = want[k] || []).push(e.qid); } });
+      await Promise.all(Object.keys(want).map(async k => {
+        const [type, id] = [k.slice(0, k.indexOf(':')), k.slice(k.indexOf(':') + 1)];
+        try {
+          if (type === 'set') { const s = await loadSet(id); s.questions.forEach(q => { found[q.id] = Object.assign({ setId: s.id }, q); }); }
+          else if (type === 'test') {
+            const t = await loadTest(id);
+            t.sections.forEach(s => [s.module1, s.module2.easier, s.module2.harder].forEach(m => m.questions.forEach(q => { found[q.id] = Object.assign({ testId: t.id }, q); })));
+          }
+        } catch (e) { console.warn('[SAT Ustoz] Could not load ' + k + ' for the mistake notebook:', e); }
+      }));
+      return entries.map(e => e.ref && e.ref.type === 'ai' ? (e.q ? normalizeQuestion(e.q).q : null) : found[e.qid]).filter(Boolean);
+    }
+  };
+
+  /* ------------------------------------------------------------------
+     Vocabulary progress (vocab.html): spaced repetition boxes per word,
+     the student's own words, words from missed questions, review days.
+     ------------------------------------------------------------------ */
+  const vocab = {
+    get() { const v = store.get('vocab', {}) || {}; return { cards: v.cards || {}, mine: v.mine || {}, missed: v.missed || {}, days: v.days || {} }; },
+    save(v) { store.set('vocab', v); },
+    // Words in Context: the right answer is the word worth learning.
+    fromMiss(q) {
+      if (!q || q.type !== 'mc' || q.skill !== 'Words in Context') return;
+      const word = String(q.choices[LETTERS.indexOf(q.answer)] || '').replace(/[*_$]/g, '').trim();
+      if (!/^[A-Za-z][A-Za-z' -]{1,40}$/.test(word) || word.split(/\s+/).length > 3) return;
+      const key = word.toLowerCase().replace(/[^a-z]+/g, '-').replace(/^-|-$/g, '');
+      if (!key) return;
+      const ctx = String(q.passage || '').replace(/_{3,}/g, '**' + word + '**').replace(/\s+/g, ' ').slice(0, 320);
+      const v = this.get();
+      v.missed = Object.assign({}, v.missed, { [key]: { w: word, ctx, qid: q.id, t: Date.now() } });
+      this.save(v);
+    }
+  };
+
+  /* ------------------------------------------------------------------
+     Question of the day: one question from the practice sets, the same
+     for everyone on the same Tashkent day, Reading and Writing and Math
+     taking turns. The streak counts days in a row with an answer.
+     ------------------------------------------------------------------ */
+  function seededShuffle(arr, seed) {
+    const a = arr.slice();
+    let s = seed >>> 0;
+    const rnd = () => { s = (s + 0x6D2B79F5) >>> 0; let t = s; t = Math.imul(t ^ (t >>> 15), t | 1); t ^= t + Math.imul(t ^ (t >>> 7), t | 61); return ((t ^ (t >>> 14)) >>> 0) / 4294967296; };
+    for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(rnd() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; }
+    return a;
+  }
+  const daily = {
+    today: () => dayKey(),
+    // Question number N counts from the site's first daily question.
+    number: () => dayNum() - dayNum(Date.parse('2026-10-22T00:00:00+05:00')) + 1,
+    async question(day) {
+      const bank = await loadAllBank();
+      const byId = (a, b) => a.id < b.id ? -1 : a.id > b.id ? 1 : 0;
+      const rw = seededShuffle(bank.filter(q => q.section === 'rw').sort(byId), 2026);
+      const math = seededShuffle(bank.filter(q => q.section === 'math').sort(byId), 1530);
+      const order = [];
+      for (let i = 0; i < Math.max(rw.length, math.length); i++) { if (rw[i]) order.push(rw[i]); if (math[i]) order.push(math[i]); }
+      if (!order.length) return null;
+      const n = day == null ? dayNum() : day;
+      return order[((n % order.length) + order.length) % order.length];
+    },
+    days() { return (store.get('daily', {}) || {}).days || {}; },
+    answered(day) { return this.days()[day || dayKey()] || null; },
+    answer(q, response, ok) {
+      const d = store.get('daily', {}) || {};
+      const key = dayKey();
+      if (d.days && d.days[key]) return;
+      store.set('daily', Object.assign({}, d, { days: Object.assign({}, d.days, { [key]: { qid: q.id, r: String(response == null ? '' : response).slice(0, 8), ok: !!ok, t: Date.now() } }) }));
+      recordAttempts([{ qid: q.id, section: q.section, domain: q.domain, skill: q.skill, difficulty: q.difficulty, correct: ok, source: 'daily' }]);
+      mistakes.record(q, ok, { type: 'set', id: q.setId, where: 'Question of the day' });
+    },
+    streak() {
+      const days = this.days();
+      let n = dayNum(), cur = 0;
+      if (!days[dayKey()]) n -= 1; // today's isn't answered yet: the streak still stands from yesterday
+      while (days[dayKey(n * 86400000 - TZ_MS)]) { cur++; n--; }
+      const sorted = Object.keys(days).sort();
+      let best = 0, run = 0, prev = null;
+      sorted.forEach(k => { const d = Math.round(Date.parse(k + 'T00:00:00Z') / 86400000); run = prev != null && d === prev + 1 ? run + 1 : 1; prev = d; best = Math.max(best, run); });
+      return { current: cur, best: Math.max(best, cur), total: sorted.length };
+    }
+  };
 
   /* ------------------------------------------------------------------
      AI client (talks to your Cloudflare Worker, never to the API directly)
@@ -711,6 +897,68 @@
     synced: { en: 'Progress saved to your account', uz: 'Natijalar hisobingizga saqlanadi', ru: 'Прогресс сохраняется в аккаунте' }
   };
   const tr = k => (AUTH_TEXT[k] && AUTH_TEXT[k][langNow()]) || AUTH_TEXT[k].en;
+  // Uzbek first: the student's own choice, else their browser's language when
+  // it's Uzbek or Russian, else Uzbek for anyone in Uzbekistan's time zone.
+  function pickLang() {
+    const saved = store.get('lang', null);
+    if (saved === 'en' || saved === 'uz' || saved === 'ru') return saved;
+    const nav = (navigator.language || '').slice(0, 2).toLowerCase();
+    if (nav === 'uz' || nav === 'ru') return nav;
+    let tz = '';
+    try { tz = Intl.DateTimeFormat().resolvedOptions().timeZone || ''; } catch (e) { /* ignore */ }
+    return /^Asia\/(Tashkent|Samarkand)$/.test(tz) ? 'uz' : 'en';
+  }
+  // A date in the page language, Tashkent time: "22-oktabr", "22 октября", "22 October".
+  // Browsers often lack Uzbek month names, so Uzbek is written out here.
+  // opts: { weekday: true, year: true }
+  const UZ_MONTHS = ['yanvar', 'fevral', 'mart', 'aprel', 'may', 'iyun', 'iyul', 'avgust', 'sentabr', 'oktabr', 'noyabr', 'dekabr'];
+  const UZ_DAYS = ['yakshanba', 'dushanba', 'seshanba', 'chorshanba', 'payshanba', 'juma', 'shanba'];
+  function dateText(ts, opts, lang) {
+    opts = opts || {}; lang = lang || langNow();
+    const d = new Date((ts == null ? Date.now() : +ts) + TZ_MS);
+    if (lang === 'uz') return (opts.weekday ? UZ_DAYS[d.getUTCDay()] + ', ' : '') + d.getUTCDate() + '-' + UZ_MONTHS[d.getUTCMonth()] + (opts.year ? ' ' + d.getUTCFullYear() + '-yil' : '');
+    const o = { day: 'numeric', month: 'long', timeZone: 'Asia/Tashkent' };
+    if (opts.weekday) o.weekday = 'long';
+    if (opts.year) o.year = 'numeric';
+    try { return new Date(+ts || Date.now()).toLocaleDateString(lang === 'ru' ? 'ru-RU' : 'en-GB', o); } catch (e) { return fmtDate(ts); }
+  }
+  // t = SH.i18n({ en: {...}, uz: {...}, ru: {...} }); t('key', { n: 3 }) fills {n}.
+  function i18n(T) {
+    return (k, vars) => {
+      const l = langNow();
+      let s = T[l] && T[l][k] != null ? T[l][k] : T.en[k] != null ? T.en[k] : k;
+      if (vars) Object.keys(vars).forEach(v => { s = String(s).split('{' + v + '}').join(vars[v]); });
+      return s;
+    };
+  }
+  // Header and footer words on the trilingual pages (vocab, lessons, daily,
+  // mock, score calculator): <a data-nav="vocab">Vocabulary</a>.
+  const NAV_TEXT = {
+    en: { dash: 'Dashboard', sets: 'Sets', tests: 'Tests', vocab: 'Vocabulary', lessons: 'Lessons', plans: 'Plans', daily: 'Question of the day', calc: 'Score calculator', mock: 'National mock', teach: 'For teachers', practice: 'Practice', contact: 'Contact', channel: 'Telegram channel', feedback: 'Send feedback', skip: 'Skip to content',
+      tag: 'Digital SAT practice built by someone who has taken the test, for students in Uzbekistan and beyond.',
+      legal: 'SAT® is a trademark registered by the College Board, which is not affiliated with, and does not endorse, this website. All practice questions on this site are written by SAT Ustoz.' },
+    uz: { dash: 'Sahifam', sets: 'Toʻplamlar', tests: 'Testlar', vocab: 'Lugʻat', lessons: 'Darslar', plans: 'Tariflar', daily: 'Kun savoli', calc: 'Ball kalkulyatori', mock: 'Milliy sinov imtihoni', teach: 'Oʻqituvchilar uchun', practice: 'Mashq', contact: 'Aloqa', channel: 'Telegram kanal', feedback: 'Fikr bildirish', skip: 'Asosiy qismga oʻtish',
+      tag: 'Imtihonni oʻzi topshirgan inson tomonidan Oʻzbekiston va boshqa mamlakatlardagi oʻquvchilar uchun yaratilgan Digital SAT mashqlari.',
+      legal: 'SAT® College Board tomonidan roʻyxatdan oʻtkazilgan savdo belgisidir. College Board ushbu sayt bilan bogʻliq emas va uni qoʻllab-quvvatlamaydi. Saytdagi barcha mashq savollari SAT Ustoz tomonidan yozilgan.' },
+    ru: { dash: 'Кабинет', sets: 'Наборы', tests: 'Тесты', vocab: 'Словарь', lessons: 'Уроки', plans: 'Тарифы', daily: 'Вопрос дня', calc: 'Калькулятор баллов', mock: 'Национальный пробный экзамен', teach: 'Для преподавателей', practice: 'Практика', contact: 'Контакты', channel: 'Telegram-канал', feedback: 'Оставить отзыв', skip: 'Перейти к содержанию',
+      tag: 'Практика Digital SAT от того, кто сам сдавал тест, для учеников в Узбекистане и не только.',
+      legal: 'SAT® является зарегистрированным товарным знаком College Board, которая не связана с этим сайтом и не одобряет его. Все тренировочные вопросы на сайте написаны SAT Ustoz.' }
+  };
+  // EN / UZ / RU buttons (any [data-lang] on the page). onChange(lang) redraws.
+  function langSwitch(onChange) {
+    const paint = lang => {
+      document.documentElement.lang = lang;
+      $$('[data-lang]').forEach(b => b.setAttribute('aria-pressed', String(b.dataset.lang === lang)));
+      $$('[data-nav]').forEach(el => { el.textContent = (NAV_TEXT[lang] || NAV_TEXT.en)[el.dataset.nav] || NAV_TEXT.en[el.dataset.nav] || el.textContent; });
+    };
+    $$('[data-lang]').forEach(b => b.addEventListener('click', () => {
+      store.set('lang', b.dataset.lang); paint(b.dataset.lang); renderAuthSlots();
+      if (onChange) onChange(b.dataset.lang);
+    }));
+    const lang = pickLang();
+    paint(lang);
+    return lang;
+  }
 
   function safeNext(raw) {
     raw = String(raw || '').replace(/^\/+/, '');
@@ -784,20 +1032,25 @@
       this._subs.forEach(cb => { try { cb(this.user); } catch (e) { console.error(e); } });
       renderAuthSlots();
     },
-    async signInWithGoogle() {
+    signInWithGoogle() {
+      return this._popup('google', authMod => { const p = new authMod.GoogleAuthProvider(); p.setCustomParameters({ prompt: 'select_account' }); return p; });
+    },
+    // Apple (CONFIG.APPLE_SIGNIN): Apple shares the name only on the first sign-in.
+    signInWithApple() {
+      return this._popup('apple', authMod => { const p = new authMod.OAuthProvider('apple.com'); p.addScope('email'); p.addScope('name'); return p; });
+    },
+    async _popup(method, makeProvider) {
       await this.ready();
       if (!this.fb) throw new Error('Sign-in could not load. Check your connection and refresh the page.');
       const { authMod, auth: a } = this.fb;
-      const provider = new authMod.GoogleAuthProvider();
-      provider.setCustomParameters({ prompt: 'select_account' });
       let cred;
-      try { cred = await authMod.signInWithPopup(a, provider); }
+      try { cred = await authMod.signInWithPopup(a, makeProvider(authMod)); }
       catch (e) { const err = new Error(friendlyAuthError(e)); err.code = e && e.code; throw err; }
       const u = cred.user;
       this.user = { uid: u.uid, name: u.displayName || '', email: u.email || '', photo: u.photoURL || '' };
       analytics.identify(u.uid);
       await sync.start();
-      analytics.track('signed_in', { method: 'google', new_account: !sync.cloudProfile });
+      analytics.track('signed_in', { method, new_account: !sync.cloudProfile });
       return this.user;
     },
     async signOut() {
@@ -819,7 +1072,7 @@
     uid: null, fs: null, db: null, dirty: {}, timer: null, applying: false, isNew: false, _start: null, cloudProfile: null,
     markDirty(key) {
       if (this.applying || !this.uid) return;
-      this.dirty[key] = true;
+      this.dirty[STUDY_KEYS.indexOf(key) > -1 ? 'study' : key] = true;
       clearTimeout(this.timer);
       this.timer = setTimeout(() => this.push(), 1500);
     },
@@ -846,11 +1099,15 @@
       const fs = await this._lib();
       const uid = this.uid;
       const ref = (...p) => fs.doc(this.db, 'users', uid, ...p);
-      const snaps = await Promise.all([fs.getDoc(ref()), fs.getDoc(ref('data', 'attempts')), fs.getDoc(ref('data', 'tests'))]);
+      // data/study needs the newer firestore.rules; until they're published it stays on this device.
+      const snaps = await Promise.all([fs.getDoc(ref()), fs.getDoc(ref('data', 'attempts')), fs.getDoc(ref('data', 'tests')),
+        fs.getDoc(ref('data', 'study')).catch(e => { console.warn('[SAT Ustoz] Could not read study data. Are the new firestore.rules published?', e); return null; })]);
       if (uid !== this.uid) return;
       const userDoc = snaps[0].exists() ? snaps[0].data() : null;
       const cloudAttempts = snaps[1].exists() ? (snaps[1].data().items || []) : [];
       const cloudTests = snaps[2].exists() ? (snaps[2].data().items || []) : [];
+      this.studyOk = !!snaps[3];
+      const cloudStudy = snaps[3] && snaps[3].exists() ? snaps[3].data() : {};
       this.isNew = !userDoc;
       this.cloudProfile = userDoc;
       // Local data that belongs to nobody (practiced before signing in) is merged
@@ -864,8 +1121,8 @@
       const byId = {};
       cloudTests.concat(mine ? getTestHistory() : []).forEach(t => { if (t && t.id) byId[t.id] = t; });
       const tests = Object.values(byId).sort((a, b) => b.finishedAt - a.finishedAt).slice(0, 40);
-      const local = mine ? getProfile() : { name: '', target: 1400, testDate: '', grade: '', onboarded: false, updatedAt: 0 };
-      const cloudP = userDoc ? { name: userDoc.name || '', target: userDoc.target || 1400, testDate: userDoc.testDate || '', grade: userDoc.grade || '', onboarded: !!userDoc.onboarded, updatedAt: userDoc.profileUpdatedAt || 0 } : null;
+      const local = mine ? getProfile() : Object.assign({}, PROFILE_DEFAULTS);
+      const cloudP = userDoc ? { name: userDoc.name || '', target: userDoc.target || 1400, testDate: userDoc.testDate || '', grade: userDoc.grade || '', region: userDoc.region || '', school: userDoc.school || '', onboarded: !!userDoc.onboarded, updatedAt: userDoc.profileUpdatedAt || 0 } : null;
       let profile = cloudP && cloudP.updatedAt >= (local.updatedAt || 0) ? cloudP : local;
       if (!profile.name && auth.user) profile = Object.assign({}, profile, { name: auth.user.name });
       if (cloudP && cloudP.onboarded) profile.onboarded = true;
@@ -873,6 +1130,15 @@
       const planWas = owner === uid ? plan.current() : null;
       this.applying = true;
       store.set('attempts', attempts); store.set('testHistory', tests); store.set('profile', profile); store.set('owner', uid);
+      let studyLocal = false;
+      STUDY_KEYS.forEach(k => {
+        const here = mine ? store.get(k, undefined) : undefined;
+        if (here !== undefined) studyLocal = true;
+        const v = mergeStudy(cloudStudy[k], here);
+        if (v === undefined) store.del(k); else store.set(k, v);
+      });
+      // Who invited this student (?ref= link), and whether the reward note was sent.
+      if (userDoc && userDoc.referredBy) store.set('referredBy', String(userDoc.referredBy)); else store.del('referredBy');
       // The plan is read-only here: only you (Firebase console) or a payment
       // webhook can set it, and firestore.rules stops students writing it.
       if (userDoc && userDoc.plan) {
@@ -886,8 +1152,9 @@
       if (made && typeof made.toMillis === 'function') store.set('since', made.toMillis()); else store.del('since');
       this.applying = false;
       analytics.planSynced(planWas, 'sync');
-      this.dirty = { attempts: attempts.length !== cloudAttempts.length, testHistory: tests.length !== cloudTests.length, profile: true };
+      this.dirty = { attempts: attempts.length !== cloudAttempts.length, testHistory: tests.length !== cloudTests.length, profile: true, study: studyLocal && this.studyOk };
       await this.push(true);
+      await notices.load(uid);
       try { document.dispatchEvent(new CustomEvent('sh:synced')); } catch (e) { /* ignore */ }
     },
     async push(first) {
@@ -902,29 +1169,261 @@
       const tests = getTestHistory();
       const right = attempts.filter(a => a.correct).length;
       const best = tests.reduce((m, t) => Math.max(m, t.total || 0), 0);
+      const stats = { questions: attempts.length, accuracy: attempts.length ? Math.round(right / attempts.length * 100) : 0, bestScore: best, tests: tests.length };
       const userData = {
         name: p.name || auth.user.name, email: auth.user.email, photo: auth.user.photo,
         grade: p.grade || '', target: p.target || 1400, testDate: p.testDate || '', onboarded: !!p.onboarded,
-        profileUpdatedAt: p.updatedAt || 0,
-        stats: { questions: attempts.length, accuracy: attempts.length ? Math.round(right / attempts.length * 100) : 0, bestScore: best, tests: tests.length }
+        region: p.region || '', school: p.school || '',
+        profileUpdatedAt: p.updatedAt || 0, stats
       };
       const userDoc = clean(userData);
       userDoc.lastSeenAt = fs.serverTimestamp();
-      if (first && this.isNew) userDoc.createdAt = fs.serverTimestamp();
+      if (first && this.isNew) {
+        userDoc.createdAt = fs.serverTimestamp();
+        // Invited by a friend's link (referral.capture): saved once, on the new account.
+        const r = store.get('ref', null);
+        if (r && r.code && r.code !== uid) { userDoc.referredBy = r.code; store.set('referredBy', r.code); }
+      }
       const jobs = [fs.setDoc(ref(), userDoc, { merge: true })];
       if (d.attempts) jobs.push(fs.setDoc(ref('data', 'attempts'), { items: clean(attempts.slice(-1500)), updatedAt: fs.serverTimestamp() }));
       if (d.testHistory) jobs.push(fs.setDoc(ref('data', 'tests'), { items: clean(tests), updatedAt: fs.serverTimestamp() }));
       try { await Promise.all(jobs); this.isNew = false; }
       catch (e) { Object.assign(this.dirty, d); console.warn('[SAT Ustoz] Could not save progress to your account:', e); }
+      // Study data and class rosters are saved on their own, so older database
+      // rules that refuse them never block the progress above.
+      if (d.study) {
+        const study = {};
+        STUDY_KEYS.forEach(k => { const v = store.get(k, undefined); if (v !== undefined) study[k] = v; });
+        try { await fs.setDoc(ref('data', 'study'), Object.assign(clean(study), { updatedAt: fs.serverTimestamp() })); }
+        catch (e) { console.warn('[SAT Ustoz] Could not save study data. Are the new firestore.rules published?', e); }
+      }
+      if (d.attempts || d.testHistory || d.profile) classes.pushStats(stats).catch(e => console.warn('[SAT Ustoz] Could not update your class:', e));
     },
     async flush() { if (this.uid && Object.keys(this.dirty).length) await this.push(); },
     clearLocal() {
       SYNCED_KEYS.forEach(k => store.del(k));
       store.del('owner'); store.del('plan'); store.del('since'); store.del('waitlist'); store.del('trialUsed');
+      store.del('referredBy'); store.del('refSent'); store.del('notices');
       try { Object.keys(localStorage).filter(k => k.indexOf(PREFIX + 'run.') === 0).forEach(k => localStorage.removeItem(k)); } catch (e) { /* ignore */ }
     }
   };
   hooks.change = key => sync.markDirty(key);
+  const fsTime = t => !t ? 0 : typeof t.toMillis === 'function' ? t.toMillis() : Number(t) || 0;
+
+  /* ------------------------------------------------------------------
+     Notices from the team, like "Your report on question X was fixed".
+     admin.html writes users/<uid>/notices/<id>; the student dismisses them.
+     ------------------------------------------------------------------ */
+  const notices = {
+    list() { return store.get('notices', []) || []; },
+    async load(uid) {
+      try {
+        const fs = await sync._lib();
+        const snap = await fs.getDocs(fs.query(fs.collection(sync.db, 'users', uid, 'notices'), fs.limit(20)));
+        if (uid !== sync.uid) return;
+        store.set('notices', snap.docs.map(d => { const x = d.data(); return { id: d.id, kind: x.kind || '', qid: x.qid || '', where: x.where || '', text: x.text || '', at: fsTime(x.createdAt) }; }).sort((a, b) => b.at - a.at));
+      } catch (e) { console.warn('[SAT Ustoz] Could not read notices. Are the new firestore.rules published?', e); }
+    },
+    async dismiss(id) {
+      store.set('notices', this.list().filter(n => n.id !== id));
+      if (!auth.user) return;
+      const fs = await sync._lib();
+      await fs.deleteDoc(fs.doc(sync.db, 'users', auth.user.uid, 'notices', id));
+    }
+  };
+
+  /* ------------------------------------------------------------------
+     Invite a friend: satustoz.academy/?ref=<uid>. The new account keeps who
+     invited it (users.referredBy). When the friend finishes the free
+     diagnostic, referrals/<friend uid> is written, and admin.html has a
+     button that gives the inviter 7 days of Pro.
+     ------------------------------------------------------------------ */
+  const referral = {
+    link() { return auth.user ? 'https://satustoz.academy/?ref=' + encodeURIComponent(auth.user.uid) : ''; },
+    capture() {
+      let code = '';
+      try { code = new URLSearchParams(location.search).get('ref') || ''; } catch (e) { /* ignore */ }
+      if (!/^[A-Za-z0-9]{10,40}$/.test(code)) return;
+      if (!store.get('ref', null)) { store.set('ref', { code, t: Date.now() }); analytics.track('referral_landed', {}); }
+    },
+    async complete(testId) {
+      const by = store.get('referredBy', '');
+      if (!by || !auth.user || store.get('refSent', false) || by === auth.user.uid) return;
+      try {
+        const fs = await sync._lib();
+        await fs.setDoc(fs.doc(sync.db, 'referrals', auth.user.uid), {
+          uid: auth.user.uid, referrer: by, name: (getProfile().name || auth.user.name || '').slice(0, 100), email: auth.user.email || '',
+          testId: String(testId).slice(0, 60), createdAt: fs.serverTimestamp()
+        });
+        store.set('refSent', true);
+        analytics.track('referral_completed', { test_id: testId });
+      } catch (e) { console.warn('[SAT Ustoz] Could not record the referral. Are the new firestore.rules published?', e); }
+    },
+    async mine() {
+      if (!auth.user) return [];
+      const fs = await sync._lib();
+      const snap = await fs.getDocs(fs.query(fs.collection(sync.db, 'referrals'), fs.where('referrer', '==', auth.user.uid), fs.limit(100)));
+      return snap.docs.map(d => d.data());
+    }
+  };
+
+  /* ------------------------------------------------------------------
+     "Took the real SAT?": a student's real score next to their practice
+     scores (realScores/<uid>), so you can publish how close the estimates
+     are (admin.html, data/calibration.json).
+     ------------------------------------------------------------------ */
+  const realScore = {
+    async get() {
+      if (!auth.user) return null;
+      const fs = await sync._lib();
+      const s = await fs.getDoc(fs.doc(sync.db, 'realScores', auth.user.uid));
+      return s.exists() ? s.data() : null;
+    },
+    async save(r) {
+      const fs = await sync._lib();
+      const full = getTestHistory().filter(h => h.total != null && h.testId !== 'diagnostic-mini').sort((a, b) => b.finishedAt - a.finishedAt);
+      const last3 = full.slice(0, 3);
+      await fs.setDoc(fs.doc(sync.db, 'realScores', auth.user.uid), {
+        uid: auth.user.uid, name: (getProfile().name || auth.user.name || '').slice(0, 100), email: auth.user.email || '',
+        total: r.total, rw: r.rw, math: r.math, month: r.month,
+        practiceBest: full.reduce((m, h) => Math.max(m, h.total), 0), practiceLast: full.length ? full[0].total : 0,
+        practiceAvg3: last3.length ? Math.round(last3.reduce((n, h) => n + h.total, 0) / last3.length / 10) * 10 : 0,
+        practiceTests: full.length, createdAt: fs.serverTimestamp()
+      });
+      analytics.track('real_score_shared', {});
+    }
+  };
+
+  /* ------------------------------------------------------------------
+     Classes (teacher.html): a student joins with the class code, sees the
+     homework on the dashboard, and each finished set, drill, lesson check
+     or test that matches an assignment is sent to the teacher as a result.
+     ------------------------------------------------------------------ */
+  const classes = {
+    mine() { return live(store.get('classes', {}) || {}); },
+    async join(code) {
+      code = String(code || '').toUpperCase().replace(/[^A-Z0-9]/g, '');
+      if (code.length < 5) { const e = new Error('Enter the class code your teacher gave you.'); e.code = 'nocode'; throw e; }
+      const fs = await sync._lib();
+      const s = await fs.getDoc(fs.doc(sync.db, 'classCodes', code));
+      if (!s.exists()) { const e = new Error('No class has the code ' + code + '. Check it with your teacher.'); e.code = 'nocode'; throw e; }
+      const c = s.data();
+      await fs.setDoc(fs.doc(sync.db, 'classes', c.classId, 'members', auth.user.uid), {
+        uid: auth.user.uid, name: (getProfile().name || auth.user.name || '').slice(0, 100), email: auth.user.email || '',
+        stats: memberStats(), joinedAt: fs.serverTimestamp(), updatedAt: fs.serverTimestamp()
+      });
+      const m = Object.assign({}, store.get('classes', {}));
+      m[c.classId] = { id: c.classId, name: c.name || '', teacher: c.teacher || '', center: c.center || '', t: Date.now() };
+      store.set('classes', m);
+      store.del('classTasks');
+      analytics.track('class_joined', {});
+      return m[c.classId];
+    },
+    async leave(id) {
+      const fs = await sync._lib();
+      await fs.deleteDoc(fs.doc(sync.db, 'classes', id, 'members', auth.user.uid));
+      const m = Object.assign({}, store.get('classes', {}));
+      m[id] = { deleted: true, t: Date.now() };
+      store.set('classes', m);
+      store.del('classTasks');
+    },
+    // Every class's assignments, newest first, each with this student's result.
+    async tasks() {
+      const list = this.mine();
+      if (!list.length || !auth.user) return [];
+      const fs = await sync._lib();
+      const out = [];
+      await Promise.all(list.map(async c => {
+        try {
+          const [as, rs] = await Promise.all([
+            fs.getDocs(fs.query(fs.collection(sync.db, 'classes', c.id, 'assignments'), fs.orderBy('createdAt', 'desc'), fs.limit(30))),
+            fs.getDocs(fs.query(fs.collection(sync.db, 'classes', c.id, 'results'), fs.where('uid', '==', auth.user.uid), fs.limit(100)))
+          ]);
+          const done = {};
+          rs.docs.forEach(d => { done[d.data().aid] = d.data(); });
+          as.docs.forEach(d => out.push(Object.assign({}, d.data(), { id: d.id, classId: c.id, className: c.name, result: done[d.id] || null, at: fsTime(d.data().createdAt) })));
+        } catch (e) { console.warn('[SAT Ustoz] Could not load the homework of ' + c.name + ':', e); }
+      }));
+      out.sort((a, b) => b.at - a.at);
+      store.set('classTasks', out.map(x => ({ id: x.id, classId: x.classId, kind: x.kind, ref: x.ref, done: !!x.result })));
+      return out;
+    },
+    // match: { kind: 'set' | 'test' | 'lesson', ref: its id } or { aid, classId } for an assigned drill.
+    // res: { title, correct, count, score?, rw?, math? }
+    async submit(match, res) {
+      if (!auth.user || !this.mine().length) return;
+      let tasks = store.get('classTasks', null);
+      if (!tasks) { await this.tasks(); tasks = store.get('classTasks', []) || []; }
+      const hits = tasks.filter(x => !x.done && (match.aid ? x.id === match.aid && x.classId === match.classId : x.kind === match.kind && x.ref === match.ref));
+      if (!hits.length) return;
+      const fs = await sync._lib();
+      const name = (getProfile().name || auth.user.name || '').slice(0, 100);
+      await Promise.all(hits.map(x => fs.setDoc(fs.doc(sync.db, 'classes', x.classId, 'results', x.id + '_' + auth.user.uid),
+        Object.assign(clean(res), { aid: x.id, uid: auth.user.uid, name, finishedAt: fs.serverTimestamp() }))));
+      store.set('classTasks', tasks.map(x => hits.indexOf(x) > -1 ? Object.assign({}, x, { done: true }) : x));
+      analytics.track('assignment_done', { kind: match.kind || 'drill' });
+    },
+    // The summary the teacher sees on the roster and in the parent report.
+    async pushStats(stats) {
+      const list = this.mine();
+      if (!list.length || !auth.user) return;
+      const fs = await sync._lib();
+      const s = Object.assign(memberStats(), stats || {});
+      await Promise.all(list.map(c => fs.setDoc(fs.doc(sync.db, 'classes', c.id, 'members', auth.user.uid),
+        { name: (getProfile().name || auth.user.name || '').slice(0, 100), stats: clean(s), updatedAt: fs.serverTimestamp() }, { merge: true })));
+    }
+  };
+  function memberStats() {
+    const attempts = getAttempts(), right = attempts.filter(a => a.correct).length;
+    const hist = getTestHistory().filter(h => h.total != null).sort((a, b) => b.finishedAt - a.finishedAt);
+    return {
+      questions: attempts.length, accuracy: attempts.length ? Math.round(right / attempts.length * 100) : 0,
+      bestScore: hist.reduce((m, h) => Math.max(m, h.total), 0), tests: hist.length,
+      lastTest: hist[0] ? { title: hist[0].title, total: hist[0].total, at: hist[0].finishedAt } : null,
+      weak: weakSkills(3, 3).map(w => w.skill), open: mistakes.open().length, target: getProfile().target || 1400, testDate: getProfile().testDate || ''
+    };
+  }
+
+  /* ------------------------------------------------------------------
+     National mock (mock.html): admin.html schedules mocks/<id> (one test,
+     one time window for everyone). A finished mock writes
+     mockResults/<mock id>_<uid>, once; the leaderboard reads them all.
+     ------------------------------------------------------------------ */
+  const mock = {
+    _doc(d) { const x = d.data(); return { id: d.id, title: x.title || '', testId: x.testId || '', prize: x.prize || '', startsAt: fsTime(x.startsAt), endsAt: fsTime(x.endsAt) }; },
+    async list() {
+      await auth.ready();
+      const fs = await sync._lib();
+      const snap = await fs.getDocs(fs.query(fs.collection(sync.db, 'mocks'), fs.orderBy('startsAt', 'desc'), fs.limit(24)));
+      return snap.docs.map(d => this._doc(d));
+    },
+    async get(id) {
+      await auth.ready();
+      const fs = await sync._lib();
+      const s = await fs.getDoc(fs.doc(sync.db, 'mocks', id));
+      return s.exists() ? this._doc(s) : null;
+    },
+    isOpen(m) { const now = Date.now(); return !!m && now >= m.startsAt && now <= m.endsAt; },
+    // "Azizbek T." from the profile name; "A student" for anyone who hides their name.
+    shortName(full) { const w = String(full || '').trim().split(/\s+/).filter(Boolean); return w.length ? w[0] + (w[1] ? ' ' + w[1][0].toUpperCase() + '.' : '') : 'A student'; },
+    async submit(m, rec, showName) {
+      const fs = await sync._lib();
+      const p = getProfile();
+      await fs.setDoc(fs.doc(sync.db, 'mockResults', m.id + '_' + auth.user.uid), {
+        mockId: m.id, uid: auth.user.uid, name: showName ? this.shortName(p.name || auth.user.name).slice(0, 40) : 'A student',
+        region: REGIONS.indexOf(p.region) > -1 ? p.region : '', school: String(p.school || '').slice(0, 80),
+        total: rec.total, rw: rec.sections.rw ? rec.sections.rw.score : 0, math: rec.sections.math ? rec.sections.math.score : 0,
+        finishedAt: fs.serverTimestamp()
+      });
+      analytics.track('mock_finished', { mock_id: m.id, total: rec.total });
+    },
+    async results(id) {
+      await auth.ready();
+      const fs = await sync._lib();
+      const snap = await fs.getDocs(fs.query(fs.collection(sync.db, 'mockResults'), fs.where('mockId', '==', id), fs.limit(2000)));
+      return snap.docs.map(d => Object.assign({}, d.data(), { at: fsTime(d.data().finishedAt) })).sort((a, b) => b.total - a.total || a.at - b.at);
+    }
+  };
 
   // Header account slot: <div data-auth-slot></div>
   function renderAuthSlots() {
@@ -1093,8 +1592,8 @@
       free_name: 'Free', pro_name: 'Pro', max_name: 'Max',
       free_for: 'Try the real test format.', pro_for: 'Every test, and where your points go.', max_for: 'Pro, plus the AI tutor and live sessions.',
       free_f: ['Mini diagnostic test', 'Practice Test 1', 'Starter practice sets', 'Your total score'],
-      pro_f: ['All 10 full-length adaptive practice tests', 'Your score broken down by skill', 'Review every question with explanations', 'Drills built from your weakest skills'],
-      max_f: ['Everything in Pro', 'AI tutor: ask about any question, any time', 'A study plan to your test date', 'A monthly live group session with Azizbek'],
+      pro_f: ['All 10 full-length adaptive practice tests', 'Your score broken down by skill', 'Review every question with explanations', 'Drills built from your weakest skills', 'A study plan to your test date'],
+      max_f: ['Everything in Pro', 'AI tutor: ask about any question, any time', 'Your study plan re-made every week', 'A monthly live group session with Azizbek'],
       per_month: '/ month', popular: 'Recommended', soon: 'Coming soon',
       cta_free: 'Start free', cta_current: 'Your current plan', cta_included: 'Included in your plan', cta_pro: 'Upgrade to Pro', cta_max: 'Get Max',
       active_until: 'Active until {d}',
@@ -1151,13 +1650,13 @@
       mp_choose: 'How long do you want Pro?', mp_month_t: 'One month', mp_pass_t: '3 months, until your test', mp_pass_d: '{price}: 3 months for the price of 2.5',
       pitch_lead: 'Pro gives you:', pitch_later: 'Not now', lock_btn: 'Unlock with Pro',
       cta_wait: 'Join the Max waitlist', cta_wait_on: 'You’re on the waitlist', wl_title: 'Max waitlist',
-      wl_intro: 'Max adds the AI tutor, a study plan to your test date and a monthly live group session with Azizbek. Leave your Telegram username and we’ll message you first when it opens.',
+      wl_intro: 'Max adds the AI tutor, a study plan re-made every week and a monthly live group session with Azizbek. Leave your Telegram username and we’ll message you first when it opens.',
       wl_label: 'Telegram username', wl_bad: 'Enter your Telegram username, like @satustoz.', wl_join: 'Join the waitlist',
       wl_done_t: 'You’re on the list', wl_done: 'We’ll message {tg} on Telegram the day Max opens.',
       wl_signin: 'Sign in first, so we know who to message when Max opens.',
       wl_failed: 'Could not save. Check your connection and try again, or message us on Telegram.', wl_change: 'Change username',
       rp_title: 'Report a mistake', rp_intro: 'What’s wrong with this question? A wrong answer key, a typo, an unclear explanation: tell us and we’ll fix it.',
-      rp_label: 'What’s wrong', rp_send: 'Send', rp_done: 'Thanks. We read every report and fix what’s wrong.', rp_empty: 'Write a few words about the problem.',
+      rp_label: 'What’s wrong', rp_send: 'Send', rp_done: 'Thanks. We read every report, fix what’s wrong, and tell you on your dashboard when it’s fixed.', rp_empty: 'Write a few words about the problem.',
       rp_tg: 'You’re not signed in, so this opens Telegram with your message ready to send.', rp_tg_btn: 'Send on Telegram', rp_tg_msg: 'Mistake in {where}, question {qid}: ',
       fb_title: 'Tell us what you think', fb_intro: 'What helps you most? What’s missing? Azizbek reads every message.', fb_label: 'Your message',
       fb_quote: 'You may show my words on the site (first name only, never changed)', fb_done: 'Thank you! We read every message.'
@@ -1166,8 +1665,8 @@
       free_name: 'Bepul', pro_name: 'Pro', max_name: 'Max',
       free_for: 'Haqiqiy test formatini sinab koʻring.', pro_for: 'Barcha testlar va ballaringiz qayerda yoʻqolayotgani.', max_for: 'Pro, AI ustoz va jonli darslar bilan.',
       free_f: ['Mini diagnostika testi', '1-sinov testi', 'Boshlangʻich savollar toʻplamlari', 'Umumiy ballingiz'],
-      pro_f: ['Barcha 10 ta toʻliq adaptiv sinov testi', 'Koʻnikmalar boʻyicha ball tahlili', 'Har bir savolni izohlari bilan koʻrib chiqish', 'Eng zaif koʻnikmalaringiz boʻyicha mashqlar'],
-      max_f: ['Pro tarifidagi hamma narsa', 'AI ustoz: istalgan savol boʻyicha istalgan vaqtda soʻrang', 'Imtihon sanangizgacha oʻqish rejasi', 'Azizbek bilan oylik jonli guruh darsi'],
+      pro_f: ['Barcha 10 ta toʻliq adaptiv sinov testi', 'Koʻnikmalar boʻyicha ball tahlili', 'Har bir savolni izohlari bilan koʻrib chiqish', 'Eng zaif koʻnikmalaringiz boʻyicha mashqlar', 'Imtihon sanangizgacha oʻqish rejasi'],
+      max_f: ['Pro tarifidagi hamma narsa', 'AI ustoz: istalgan savol boʻyicha istalgan vaqtda soʻrang', 'Oʻqish rejangiz har hafta yangilanadi', 'Azizbek bilan oylik jonli guruh darsi'],
       per_month: '/ oy', popular: 'Tavsiya etiladi', soon: 'Tez kunda',
       cta_free: 'Bepul boshlash', cta_current: 'Joriy tarifingiz', cta_included: 'Tarifingizga kiradi', cta_pro: 'Pro tarifiga oʻtish', cta_max: 'Max olish',
       active_until: '{d} gacha faol',
@@ -1224,13 +1723,13 @@
       mp_choose: 'Pro qancha muddatga kerak?', mp_month_t: 'Bir oy', mp_pass_t: 'Imtihoningizgacha 3 oy', mp_pass_d: '{price}: 2,5 oy narxiga 3 oy',
       pitch_lead: 'Pro sizga beradi:', pitch_later: 'Hozir emas', lock_btn: 'Pro bilan ochish',
       cta_wait: 'Max kutish roʻyxatiga yozilish', cta_wait_on: 'Siz kutish roʻyxatidasiz', wl_title: 'Max kutish roʻyxati',
-      wl_intro: 'Max AI ustoz, imtihon sanangizgacha oʻqish rejasi va Azizbek bilan oylik jonli guruh darsini qoʻshadi. Telegram foydalanuvchi nomingizni qoldiring, Max ochilganda birinchi boʻlib sizga yozamiz.',
+      wl_intro: 'Max AI ustoz, har hafta yangilanadigan oʻqish rejasi va Azizbek bilan oylik jonli guruh darsini qoʻshadi. Telegram foydalanuvchi nomingizni qoldiring, Max ochilganda birinchi boʻlib sizga yozamiz.',
       wl_label: 'Telegram foydalanuvchi nomi', wl_bad: 'Telegram nomingizni kiriting, masalan @satustoz.', wl_join: 'Roʻyxatga yozilish',
       wl_done_t: 'Siz roʻyxatdasiz', wl_done: 'Max ochilgan kuni {tg} ga Telegramda yozamiz.',
       wl_signin: 'Avval kiring, shunda Max ochilganda kimga yozishni bilamiz.',
       wl_failed: 'Saqlab boʻlmadi. Internetni tekshirib, qayta urinib koʻring yoki Telegramda yozing.', wl_change: 'Nomni oʻzgartirish',
       rp_title: 'Xato haqida xabar berish', rp_intro: 'Bu savolda nima notoʻgʻri? Notoʻgʻri javob kaliti, imlo xatosi yoki tushunarsiz izoh: yozing, tuzatamiz.',
-      rp_label: 'Nima notoʻgʻri', rp_send: 'Yuborish', rp_done: 'Rahmat. Har bir xabarni oʻqiymiz va xatoni tuzatamiz.', rp_empty: 'Muammo haqida bir necha soʻz yozing.',
+      rp_label: 'Nima notoʻgʻri', rp_send: 'Yuborish', rp_done: 'Rahmat. Har bir xabarni oʻqiymiz, xatoni tuzatamiz va tuzatilgach sahifangizda xabar beramiz.', rp_empty: 'Muammo haqida bir necha soʻz yozing.',
       rp_tg: 'Siz hisobga kirmagansiz, shuning uchun xabaringiz Telegramda tayyor holda ochiladi.', rp_tg_btn: 'Telegramda yuborish', rp_tg_msg: 'Xato: {where}, savol {qid}: ',
       fb_title: 'Fikringizni yozing', fb_intro: 'Sizga eng koʻp nima yordam beryapti? Nima yetishmayapti? Har bir xabarni Azizbek oʻqiydi.', fb_label: 'Xabaringiz',
       fb_quote: 'Soʻzlarimni saytda koʻrsatishingiz mumkin (faqat ismim bilan, oʻzgartirmasdan)', fb_done: 'Rahmat! Har bir xabarni oʻqiymiz.'
@@ -1239,8 +1738,8 @@
       free_name: 'Бесплатно', pro_name: 'Pro', max_name: 'Max',
       free_for: 'Попробуйте настоящий формат теста.', pro_for: 'Все тесты и то, где вы теряете баллы.', max_for: 'Pro плюс ИИ-репетитор и живые занятия.',
       free_f: ['Мини-диагностика', 'Пробный тест 1', 'Стартовые наборы вопросов', 'Ваш общий балл'],
-      pro_f: ['Все 10 полных адаптивных пробных тестов', 'Разбор балла по навыкам', 'Разбор каждого вопроса с объяснениями', 'Тренировки по вашим самым слабым навыкам'],
-      max_f: ['Всё из тарифа Pro', 'ИИ-репетитор: спрашивайте о любом вопросе в любое время', 'План подготовки до даты экзамена', 'Ежемесячное живое групповое занятие с Азизбеком'],
+      pro_f: ['Все 10 полных адаптивных пробных тестов', 'Разбор балла по навыкам', 'Разбор каждого вопроса с объяснениями', 'Тренировки по вашим самым слабым навыкам', 'План подготовки до даты экзамена'],
+      max_f: ['Всё из тарифа Pro', 'ИИ-репетитор: спрашивайте о любом вопросе в любое время', 'План подготовки, обновляемый каждую неделю', 'Ежемесячное живое групповое занятие с Азизбеком'],
       per_month: '/ месяц', popular: 'Рекомендуем', soon: 'Скоро',
       cta_free: 'Начать бесплатно', cta_current: 'Ваш текущий тариф', cta_included: 'Входит в ваш тариф', cta_pro: 'Перейти на Pro', cta_max: 'Получить Max',
       active_until: 'Активен до {d}',
@@ -1297,13 +1796,13 @@
       mp_choose: 'На какой срок нужен Pro?', mp_month_t: 'Один месяц', mp_pass_t: '3 месяца, до экзамена', mp_pass_d: '{price}: 3 месяца по цене 2,5',
       pitch_lead: 'Pro даёт вам:', pitch_later: 'Не сейчас', lock_btn: 'Открыть с Pro',
       cta_wait: 'В лист ожидания Max', cta_wait_on: 'Вы в листе ожидания', wl_title: 'Лист ожидания Max',
-      wl_intro: 'Max добавит ИИ-репетитора, план подготовки до даты экзамена и ежемесячное живое групповое занятие с Азизбеком. Оставьте свой username в Telegram, и мы первыми напишем вам, когда Max откроется.',
+      wl_intro: 'Max добавит ИИ-репетитора, план подготовки с еженедельным обновлением и ежемесячное живое групповое занятие с Азизбеком. Оставьте свой username в Telegram, и мы первыми напишем вам, когда Max откроется.',
       wl_label: 'Username в Telegram', wl_bad: 'Введите username в Telegram, например @satustoz.', wl_join: 'Записаться',
       wl_done_t: 'Вы в списке', wl_done: 'Мы напишем {tg} в Telegram в день запуска Max.',
       wl_signin: 'Сначала войдите, чтобы мы знали, кому написать, когда Max откроется.',
       wl_failed: 'Не удалось сохранить. Проверьте интернет и попробуйте ещё раз или напишите нам в Telegram.', wl_change: 'Изменить username',
       rp_title: 'Сообщить об ошибке', rp_intro: 'Что не так с этим вопросом? Неверный ключ, опечатка, непонятное объяснение: напишите, и мы исправим.',
-      rp_label: 'Что не так', rp_send: 'Отправить', rp_done: 'Спасибо. Мы читаем каждое сообщение и исправляем ошибки.', rp_empty: 'Напишите пару слов о проблеме.',
+      rp_label: 'Что не так', rp_send: 'Отправить', rp_done: 'Спасибо. Мы читаем каждое сообщение, исправляем ошибки и сообщим в вашем кабинете, когда исправим.', rp_empty: 'Напишите пару слов о проблеме.',
       rp_tg: 'Вы не вошли в аккаунт, поэтому сообщение откроется в Telegram, готовое к отправке.', rp_tg_btn: 'Отправить в Telegram', rp_tg_msg: 'Ошибка: {where}, вопрос {qid}: ',
       fb_title: 'Расскажите, что думаете', fb_intro: 'Что помогает больше всего? Чего не хватает? Каждое сообщение читает Азизбек.', fb_label: 'Ваше сообщение',
       fb_quote: 'Можно показать мои слова на сайте (только имя, без изменений)', fb_done: 'Спасибо! Мы читаем каждое сообщение.'
@@ -1962,6 +2461,11 @@
   function initChrome() {
     if (auth.enabled()) auth.ready();
     paymentReturn();
+    referral.capture();
+    // Offline support (sw.js): vocabulary review keeps working without a connection.
+    if ('serviceWorker' in navigator && (location.protocol === 'https:' || location.hostname === 'localhost')) {
+      navigator.serviceWorker.register('sw.js').catch(e => console.warn('[SAT Ustoz] Offline mode is off:', e));
+    }
     const btn = $('.menu-btn'), nav = $('.nav');
     if (btn && nav) {
       const set = open => { nav.classList.toggle('open', open); btn.setAttribute('aria-expanded', open ? 'true' : 'false'); };
@@ -2009,8 +2513,10 @@
     isCorrect, sprSanitize, sprPreview, answerLabel, parseNum,
     getJSON, loadCatalog, loadSet, loadAllBank, loadTest,
     getAttempts, recordAttempts, skillStats, weakSkills, getProfile, setProfile, getTestHistory, addTestHistory,
-    ai, toast, modal, openTutor, makePanel, calculator, CALC_ICON,
+    ai, toast, modal, openTutor, makePanel, calculator, CALC_ICON, copyText,
     auth, sync, authReady, renderAuthSlots, requireLogin, loginUrl, safeNext, inAppBrowser,
-    plan, renderPlans, pay, lockBox, analytics, track
+    plan, renderPlans, pay, lockBox, analytics, track,
+    pickLang, langNow, i18n, langSwitch, dateText, REGIONS, dayKey, dayNum, weekStart, seededShuffle,
+    mistakes, vocab, daily, notices, referral, realScore, classes, mock, FIX_AFTER
   };
 })();

@@ -4,15 +4,27 @@ A static site for GitHub Pages. No build step, no server except the optional Clo
 
 ```
 index.html              Landing page (EN / UZ / RU)
-practice.html           Practice hub: dashboard, practice sets, skill drills, AI practice, tests
+practice.html           Practice hub: dashboard, study plan, score history, mistake notebook (#mistakes), practice sets, drill builder, AI practice, tests
 test.html               Adaptive practice test in the digital SAT format (test.html?id=<test-id>)
 login.html              Sign in / register with Google, plus a short first-time profile form
 builder.html            Question builder for your team (not linked from the site, hidden from Google)
-admin.html              Approve card-transfer payments, for you only (not linked from the site, hidden from Google)
+admin.html              Approve card-transfer payments, reports, invite rewards, mocks, teachers, real scores (for you only, hidden from Google)
+vocab.html              Vocabulary trainer: SAT words with Uzbek and Russian meanings, spaced repetition, works offline
+lessons.html            5-minute skill lessons in EN / UZ / RU, each with a 5-question check
+daily.html              Question of the day with a streak
+score-calculator.html   Public SAT score calculator (EN / UZ / RU), aimed at the search "SAT ballini hisoblash"
+mock.html               National mock: countdown, then the leaderboard by region and school
+teacher.html            Classes, homework, results grid and parent reports, for teachers on the center plan
+sat-tayyorgarlik.html, sat-test-onlayn.html   Uzbek landing pages for the searches "SAT tayyorgarlik" and "SAT test onlayn"
+sw.js                   Offline support (keeps the vocabulary trainer working without a connection)
 404.html                Branded "page not found" page (GitHub Pages uses it automatically)
 assets/sh.css           Brand styles (colours and fonts at the top)
 assets/sh.js            Shared code. SETTINGS block at the top: AI_ENDPOINT, FIREBASE, REQUIRE_LOGIN, ANALYTICS, PLANS, PAYMENTS_ENDPOINT, TESTS_ENDPOINT, MANUAL_PAY, contacts
 data/catalog.json       List of every practice set and practice test
+data/vocab.json         The vocabulary list (word, part of speech, English, Uzbek and Russian meaning, example)
+data/lessons.json       The lessons (text in EN / UZ / RU, and which practice set their check uses)
+data/testimonials.json  Student quotes and scores on the landing page
+data/calibration.json   How close practice scores are to real SAT scores (copied from admin.html)
 data/sets/*.json        Practice sets
 data/tests/*.json       Practice tests 1 to 3 and the mini diagnostic (Pro Tests 4 to 10 belong in a private repository, section 6)
 worker/ai-worker.js     Cloudflare Worker that holds the AI key (not used by the pages directly)
@@ -227,8 +239,8 @@ harder Module 2. The College Board does not publish its real rule, so this is an
 | Plan | Opens | Price |
 |---|---|---|
 | Free | Mini diagnostic, Practice Test 1, the starter sets, the total score of each test | 0 |
-| Pro | All 10 practice tests, the score broken down by skill and module, the question-by-question review, skill drills | `PRO_PRICE` a month, or `PASS_PRICE` for `PASS_MONTHS` months |
-| Max | Pro plus the AI tutor, a study plan to the test date and a monthly live group session. Not on sale yet: its card collects a waitlist | `MAX_PRICE` a month |
+| Pro | All 10 practice tests, the score broken down by skill and module, the question-by-question review, skill drills, practice-test mistakes in the notebook, a study plan to the test date | `PRO_PRICE` a month, or `PASS_PRICE` for `PASS_MONTHS` months |
+| Max | Pro plus the unlimited AI tutor, the study plan re-made every week and a monthly live group session. Sold by card transfer once the AI is on; before that its card collects a waitlist | `MAX_PRICE` a month |
 
 - Prices are in `PLANS` at the top of `assets/sh.js`. Once online payment is on, also change `PRO_PRICE` in the payments
   Worker: that is the amount students are charged.
@@ -609,15 +621,143 @@ with `phc_`; it is meant to be public) and `HOST` is `https://eu.i.posthog.com` 
   **Send feedback**. Signed-in students' messages are saved in Firestore `reports`; admin.html lists them under
   "Reports and feedback", and **Done** deletes one. Signed-out students get the same message ready to send on Telegram.
 - **What students say** on the landing page shows quotes from `data/testimonials.json` and stays hidden while it's empty
-  (`[]`). Only add feedback marked **may quote** on admin.html, word for word, with a first name or a short description:
+  (`[]`). Only add feedback marked **may quote** on admin.html, or quotes a student sent you with permission, with the
+  name they agreed to:
 
   ```json
   [
-    { "text": "The explanations finally made Boundaries make sense.", "who": "Madina, 11th grade" }
+    { "text": "I was stuck at 1300 until SAT Ustoz...", "who": "Abdullajon Axmadjonov", "from": 1300, "score": 1490 },
+    { "text": "The explanations finally made Boundaries make sense.", "who": "Madina", "school": "Lyceum No. 1", "score": 1470,
+      "photo": "data/img/madina-score.jpg" }
   ]
   ```
 
-  Up to 9 quotes show. Never write or edit quotes yourself: the section promises they're real and unchanged.
+  `score` shows as a big number; with `from` as well it shows the jump (1300 → 1490, +190 points). `school` and `photo`
+  (a score-report screenshot, only with the student's permission) are optional. Up to 9 quotes show, in file order, so
+  put the biggest jumps first. Never invent quotes or scores: the section promises they're real. In the three quotes
+  there now, one typo was fixed ("helmed" to "helped") and the first two got a closing full stop; the section no longer
+  says the words are never changed.
+- **Fixed, thank you.** On admin.html a mistake report has **Fixed: tell the student**: it puts a note on the student's
+  dashboard ("The mistake you reported on question … is corrected") and closes the report. **Done** just closes it.
+
+## 8. Study tools, classes and the national mock
+
+Built from the competitor notes ("SAT Ustoz vs DSATuz, TopTierPrep and Whiz", October 2026).
+
+### Do this once: publish the new database rules
+
+`firestore.rules` gained new collections. Firebase console → **Firestore Database → Rules**, replace everything with the
+new file, **Publish**. Until you do:
+
+- study data (mistake notebook, vocabulary, daily streak, saved drills, study plan, lesson checks) stays on each device
+  instead of following the student's account;
+- "Fixed" notices, invite rewards, real scores, classes and the national mock don't work (the mock page shows "coming
+  soon", admin.html says which section needs the rules).
+
+### What students get
+
+| Where | What |
+|---|---|
+| `vocab.html` | 130 SAT words with Uzbek and Russian meanings, an example sentence and audio (the browser's own voice). Leitner boxes: a known word comes back after 1, 3, 7, 16, 35 and 90 days, a missed one in 10 minutes. A deck of words from Words in Context questions the student got wrong, and their own words. 5, 10 or 20 new words a day. |
+| `practice.html#mistakes` | Mistake notebook. Every wrong answer (sets, drills, lessons, the daily question, AI questions and practice tests) saved by skill. "Retry my mistakes" builds a set of up to 20; two right answers in a row mark one fixed. Practice-test mistakes show for Pro only, because the question review is a Pro feature. |
+| `score-calculator.html` | Correct answers per module to Module 2 route and estimated score, with the same scoring as the practice tests. Uzbek by default for search ("SAT ballini hisoblash"). |
+| Dashboard | Score history chart (every test total, the goal line and test day), study tools, homework from a class, invite-a-friend link, "share your real SAT score". |
+| `daily.html` | One question a day from the practice sets, the same for everyone on a Tashkent day, with a streak. admin.html → **Copy today's for Telegram** gives you the post for the channel. |
+| Dashboard, Pro | Study plan to the test date: this week's tasks (full tests, two focus skills, mistakes to fix, vocabulary days, daily questions), phases by weeks left. Pro: focus skills fixed when the plan is made, with a "Rebuild my plan" link. Max: re-made every Monday. Free sees a blurred preview. |
+| Drill builder (Pro) | Timer (none, SAT pace, 1 minute a question), saved drills, and "Copy link" to share a drill (anyone with Pro opens it). |
+| `lessons.html` | Six 5-minute lessons in English, Uzbek and Russian (Boundaries, Form/Structure/Sense, Transitions, Words in Context, linear equations, nonlinear functions). Each ends with 5 questions from that skill's practice set. Lessons are free. |
+| After the mini diagnostic | A report in the student's language: the three skills that cost the most points (by the site's own scoring), then Pro for those skills (or a drill link for Pro students), then a free 15-minute call or a trial lesson at your center. |
+| `mock.html` | The national mock: countdown, then the leaderboard by region and school. |
+| `teacher.html` | Classes for learning centers (below). |
+
+`sat-tayyorgarlik.html` and `sat-test-onlayn.html` are Uzbek landing pages for those searches; both are in `sitemap.xml`.
+
+**Uzbek first.** Pages now open in the student's saved language, else their browser's (Uzbek or Russian), else Uzbek
+for anyone in Uzbekistan's time zone, else English. The test screens and questions stay in English, like test day.
+
+### Settings (top of `assets/sh.js`)
+
+- `LEARNING_CENTER`: `NAME` shows in the diagnostic report ("a free trial lesson at Be Student"). Put a booking link in
+  `URL` (a Telegram bot, a form); empty opens a Telegram message to `CONTACT_TELEGRAM` with the student's score.
+- `APPLE_SIGNIN`: `true` adds "Continue with Apple" to the sign-in page. It needs an Apple Developer account ($99 a
+  year): Firebase console → **Authentication → Sign-in method → Apple**, follow Firebase's steps (Service ID, key), then
+  set this to `true`. Apple shares the student's name only the first time.
+
+### Invite a friend
+
+Each signed-in student has a link (`satustoz.academy/?ref=…`) on the dashboard. A friend who opens it, creates an account
+and finishes the mini diagnostic appears on admin.html under **Invite rewards**. **Give 7 days of Pro** adds a week to
+the inviter's plan (on top of time they still have); **Not valid** closes it. Check it's a real new student first.
+
+### Real SAT scores and "How close are our scores"
+
+After their test date, students see "How did your SAT go?" on the dashboard and can enter their real section scores.
+admin.html → **Real SAT scores** lists them next to the average of their last three practice tests, with the average
+gap. Once at least 5 students have shared, **Copy calibration.json**, paste it into `data/calibration.json` and upload
+it: the landing page then shows "How close are our scores to the real SAT?". Never type these numbers yourself.
+
+### National mock
+
+1. Pick a full test students haven't seen, ideally a new one written for the mock.
+2. admin.html → **National mock**: title, test, day, opening time (Tashkent) and how long students may start
+   (results are accepted until 4 hours after that), and the prize line. **Schedule the mock**.
+3. Announce `satustoz.academy/mock.html` in the channel. The page counts down, then shows **Start the mock** to
+   signed-in students. Each student gets one try; their score goes on the leaderboard with their first name and
+   initial (or "A student"), region and school from their profile.
+4. Before giving prizes, check the top scores (message the students, ask about their results): scores are sent from the
+   student's browser, so a determined student could fake one. admin.html can't delete a result yet: delete it in the
+   Firebase console (`mockResults/<mock id>_<uid>`).
+
+### Learning centers (teacher.html)
+
+1. admin.html → **Teachers**: the teacher's Google email, name, center name (printed on parent reports) and the number
+   of student seats you sold. Remove takes their access away; their classes stay.
+2. The teacher opens `satustoz.academy/teacher.html`, creates a class and gets a 6-letter code and a join link
+   (`practice.html?join=CODE`). Students sign in and enter the code.
+3. Homework: a practice set, a lesson, a drill (section, skills, difficulty, length, timer) or a full practice test, with
+   a due date. Results arrive by themselves when the student finishes; the grid shows scores per student.
+4. **Parent report** (Students tab): best score, goal, homework done, weakest skills, a teacher's note, in Uzbek, Russian
+   or English. **Print or save as PDF**.
+
+Seats are shown to the teacher ("12 of 30 student seats used"), not enforced. Students of a center need Pro for the Pro
+tests and sets: approve it for them on admin.html like any payment (homework sets open on any plan).
+
+### Offline vocabulary
+
+`sw.js` keeps the newest copy of every page the student opens and stores the vocabulary trainer ahead of time, so word
+review works with no connection after one visit (progress syncs when they're back online). The site can be added to the
+home screen ("Install app" in Chrome, "Add to Home Screen" in Safari); `site.webmanifest` has shortcuts to Vocabulary,
+Question of the day and the Mistake notebook. When you change the files listed in `PRECACHE` at the top of `sw.js`,
+change `VERSION` there too.
+
+### Adding content
+
+- **Words**: add lines to `data/vocab.json`, same fields. `id` is the word in lowercase and must be unique; keep `ex`
+  your own sentence, never one from a real test.
+- **Lessons**: add an entry to `data/lessons.json`. `body` takes `## ` headings, `- ` lists, `1. ` steps, `**bold**`,
+  `*italic*` and `$math$`. `set` is the practice set whose questions make the 5-question check; it needs at least 2 easy,
+  2 medium and 1 hard question with that `skill`.
+- **Test difficulty labels**: a test in `data/catalog.json` can have `"level": "Harder than Bluebook"` (any short text);
+  it shows on its card. Fill it in once you have real scores to compare.
+- **More tests and questions** (the notes' target: 30 tests and 1,500 skill questions by February) are content work:
+  write them in `builder.html` as before. The daily question, drill builder, lessons and mistake notebook all grow
+  with the practice sets.
+
+### New analytics events
+
+`daily_answered`, `vocab_reviewed`, `mistakes_retried`, `lesson_opened`, `lesson_checked`, `drill_shared`,
+`score_calculator_used`, `diag_report_viewed`, `diag_pro_tapped`, `consult_tapped`, `referral_landed`,
+`referral_link_copied`, `referral_completed`, `real_score_shared`, `class_joined`, `class_created`,
+`assignment_created`, `assignment_done`, `parent_report_printed`, `mock_started`, `mock_finished`, and `signed_in` now
+has `method: apple` too. The diagnostic funnel to watch in PostHog: `test_finished` (test_id `diagnostic-mini`) →
+`diag_report_viewed` → `diag_pro_tapped` or `consult_tapped` → `upgrade_opened` → `pay_note_sent`.
+
+### Not built (needs you, or a server)
+
+- A Telegram bot for reminders, results and vocabulary review (needs a bot token and a server or Worker).
+- Weekly "hard question" videos, Reels and TikToks, the monthly live session teaser, school partnerships: content and
+  outreach.
+- The 20 extra full tests and about 1,400 extra skill questions.
 
 ## About official College Board questions
 

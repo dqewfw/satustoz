@@ -1,0 +1,212 @@
+<!doctype html>
+<html lang="uz">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>SAT ballini hisoblash: Digital SAT ball kalkulyatori | SAT Ustoz</title>
+<meta name="description" content="SAT ballini hisoblash: har bir moduldagi toʻgʻri javoblaringizni kiriting va taxminiy Digital SAT ballingizni hamda qaysi 2-modulga tushishingizni koʻring. Digital SAT score calculator in Uzbek, Russian and English.">
+<link rel="canonical" href="https://satustoz.academy/score-calculator.html">
+<meta property="og:type" content="website">
+<meta property="og:title" content="SAT ballini hisoblash: Digital SAT ball kalkulyatori">
+<meta property="og:description" content="Toʻgʻri javoblaringizdan taxminiy SAT ballingizni hisoblang. Bepul, hisob kerak emas.">
+<meta property="og:image" content="https://satustoz.academy/og-image.png">
+<meta name="theme-color" content="#2D5038">
+<link rel="icon" href="favicon.ico" sizes="32x32">
+<link rel="icon" href="icon-192.png" type="image/png" sizes="192x192">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="manifest" href="site.webmanifest">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Jost:wght@500;600&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/sh.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "SAT ball kalkulyatori (Digital SAT score calculator)",
+  "url": "https://satustoz.academy/score-calculator.html",
+  "applicationCategory": "EducationalApplication",
+  "inLanguage": ["uz", "ru", "en"],
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "UZS" },
+  "publisher": { "@type": "EducationalOrganization", "name": "SAT Ustoz", "url": "https://satustoz.academy/" }
+}
+</script>
+<style>
+  .sc { padding-top: 26px; min-height: 60vh; }
+  .sc-head { max-width: 46em; margin-bottom: 22px; }
+  .sc-head h1 { font-size: clamp(2rem, 4.8vw, 2.8rem); margin-bottom: .3em; }
+  .sc-head p { color: var(--ink-2); font-size: 1.08rem; margin: 0; }
+  .sc-grid { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, .9fr); gap: 22px; align-items: start; }
+  .sec-box + .sec-box { margin-top: 18px; padding-top: 18px; border-top: 1px solid var(--line); }
+  .sec-box h2 { font-size: 1.3rem; margin-bottom: 4px; }
+  .mods { display: grid; grid-template-columns: 1fr 1fr; gap: 12px 16px; margin-top: 12px; }
+  .mod label { display: block; font-weight: 600; font-size: .92rem; color: var(--ink-2); margin-bottom: 6px; }
+  .stepper { display: grid; grid-template-columns: 44px minmax(0, 1fr) 44px; border: 1.5px solid var(--line-2); border-radius: var(--r-sm); overflow: hidden; background: var(--paper); }
+  .stepper button { border: 0; background: var(--sunk); font: inherit; font-size: 1.3rem; font-weight: 700; color: var(--brand); cursor: pointer; }
+  .stepper button:hover { background: var(--brand-tint); }
+  .stepper input { border: 0; text-align: center; font-size: 1.25rem; font-weight: 700; min-height: 46px; width: 100%; font-variant-numeric: tabular-nums; -moz-appearance: textfield; }
+  .stepper input::-webkit-outer-spin-button, .stepper input::-webkit-inner-spin-button { -webkit-appearance: none; margin: 0; }
+  .stepper input:focus { outline: none; box-shadow: inset 0 0 0 2px var(--brand); }
+  .mod small { display: block; margin-top: 4px; color: var(--muted); font-size: .84rem; }
+  .route { margin-top: 12px; font-size: .95rem; }
+  .route-pill { display: inline-flex; align-items: center; gap: 6px; padding: 2px 10px; border-radius: var(--r-xs); font-weight: 700; font-size: .88rem; }
+  .route-pill.hard { background: var(--brand); color: #fff; }
+  .route-pill.easy { background: var(--sunk); color: var(--ink-2); }
+  .route select { width: auto; min-height: 36px; padding: 4px 34px 4px 10px; display: inline-block; margin-left: 6px; }
+  .res { position: sticky; top: 90px; }
+  .res-total { font-family: var(--display); font-weight: 600; font-size: clamp(3.4rem, 9vw, 4.6rem); color: var(--brand); line-height: 1; letter-spacing: -.03em; font-variant-numeric: tabular-nums; margin: 4px 0 6px; }
+  .res-row { display: flex; justify-content: space-between; align-items: baseline; padding: 10px 0; border-bottom: 1px solid var(--line); }
+  .res-row b { font-family: var(--display); font-size: 1.6rem; font-weight: 600; font-variant-numeric: tabular-nums; }
+  .res .note { font-size: .88rem; color: var(--muted); margin: 12px 0 16px; }
+  .faq-sc details { border-bottom: 1px solid var(--line); }
+  .faq-sc details:first-of-type { border-top: 1px solid var(--line); }
+  .faq-sc summary { cursor: pointer; padding: 16px 0; font-weight: 700; }
+  .faq-sc details p { margin: 0 0 16px; color: var(--ink-2); max-width: 44em; }
+  @media (max-width: 860px) { .sc-grid { grid-template-columns: 1fr; } .res { position: static; } }
+  @media (max-width: 420px) { .mods { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+<a class="skip-link" href="#main" data-nav="skip">Skip to content</a>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="index.html"><picture><source media="(max-width: 359px)" srcset="assets/brand/mark.svg"><img class="brand-logo" src="assets/brand/logo-horizontal.svg" alt="SAT Ustoz" width="171" height="40"></picture></a>
+    <button class="menu-btn" type="button" aria-label="Menu" aria-expanded="false" aria-controls="nav"><span></span></button>
+    <nav class="nav" id="nav" aria-label="Main">
+      <a href="practice.html#home" data-nav="dash">Dashboard</a>
+      <a href="practice.html#sets" data-nav="sets">Practice sets</a>
+      <a href="practice.html#tests" data-nav="tests">Practice tests</a>
+      <a href="vocab.html" data-nav="vocab">Vocabulary</a>
+      <a href="lessons.html" data-nav="lessons">Lessons</a>
+      <a href="practice.html#plans" data-nav="plans">Plans</a>
+    </nav>
+    <div class="lang-switch" role="group" aria-label="Language"><button type="button" data-lang="en" aria-pressed="false">EN</button><button type="button" data-lang="uz" aria-pressed="true">UZ</button><button type="button" data-lang="ru" aria-pressed="false">RU</button></div>
+    <div data-auth-slot></div>
+  </div>
+</header>
+
+<main id="main" tabindex="-1">
+  <div class="wrap sc">
+    <div class="sc-head">
+      <span class="kicker" data-t="kicker">Bepul vosita</span>
+      <h1 data-t="h1">SAT ballini hisoblash</h1>
+      <p data-t="lede">Har bir moduldagi toʻgʻri javoblaringizni kiriting. Kalkulyator qaysi 2-modulga tushishingizni va taxminiy Digital SAT ballingizni koʻrsatadi.</p>
+    </div>
+    <div class="sc-grid">
+      <form class="card" id="calc" novalidate>
+        <div class="sec-box" data-sec="rw">
+          <h2>Reading and Writing</h2><p class="small muted" data-t="rw_p">Har bir modulda 27 ta savol, 32 daqiqa.</p>
+          <div class="mods">
+            <div class="mod"><label for="rw1" data-t="m1">1-modul: toʻgʻri javoblar</label><div class="stepper"><button type="button" data-step="rw1" data-d="-1" aria-label="−1">−</button><input id="rw1" type="number" inputmode="numeric" min="0" max="27" value="18"><button type="button" data-step="rw1" data-d="1" aria-label="+1">+</button></div><small data-t="of27">27 tadan</small></div>
+            <div class="mod"><label for="rw2" data-t="m2">2-modul: toʻgʻri javoblar</label><div class="stepper"><button type="button" data-step="rw2" data-d="-1" aria-label="−1">−</button><input id="rw2" type="number" inputmode="numeric" min="0" max="27" value="16"><button type="button" data-step="rw2" data-d="1" aria-label="+1">+</button></div><small data-t="of27">27 tadan</small></div>
+          </div>
+          <div class="route" id="route-rw"></div>
+        </div>
+        <div class="sec-box" data-sec="math">
+          <h2>Math</h2><p class="small muted" data-t="m_p">Har bir modulda 22 ta savol, 35 daqiqa.</p>
+          <div class="mods">
+            <div class="mod"><label for="m1" data-t="m1">1-modul: toʻgʻri javoblar</label><div class="stepper"><button type="button" data-step="m1" data-d="-1" aria-label="−1">−</button><input id="m1" type="number" inputmode="numeric" min="0" max="22" value="15"><button type="button" data-step="m1" data-d="1" aria-label="+1">+</button></div><small data-t="of22">22 tadan</small></div>
+            <div class="mod"><label for="m2" data-t="m2">2-modul: toʻgʻri javoblar</label><div class="stepper"><button type="button" data-step="m2" data-d="-1" aria-label="−1">−</button><input id="m2" type="number" inputmode="numeric" min="0" max="22" value="13"><button type="button" data-step="m2" data-d="1" aria-label="+1">+</button></div><small data-t="of22">22 tadan</small></div>
+          </div>
+          <div class="route" id="route-math"></div>
+        </div>
+      </form>
+      <aside class="card res" aria-live="polite">
+        <span class="kicker" data-t="est">Taxminiy ball</span>
+        <div class="res-total" id="total">–</div>
+        <div class="res-row"><span>Reading and Writing</span><b id="s-rw">–</b></div>
+        <div class="res-row"><span>Math</span><b id="s-math">–</b></div>
+        <p class="note" data-t="note">Bu taxmin. Haqiqiy SAT har bir savolni item response theory usulida baholaydi va College Board aniq jadvalini eʼlon qilmaydi. Biz sinov testlarimizdagi hisoblash usulidan foydalanamiz.</p>
+        <a class="btn btn-primary btn-block" href="test.html?id=diagnostic-mini" data-t="cta">Haqiqiy ballingizni bilish: bepul diagnostika</a>
+        <p class="small muted" style="margin:10px 0 0" data-t="cta_p">Taxminan 50 daqiqa, adaptiv, xuddi imtihondagidek. Hisob kerak emas.</p>
+      </aside>
+    </div>
+
+    <section class="faq-sc" style="margin-top:44px;max-width:860px">
+      <h2 data-t="faq_h">Ball qanday hisoblanadi?</h2>
+      <details><summary data-t="q1">Qaysi 2-modulga tushishimni nima belgilaydi?</summary><p data-t="a1">1-moduldagi natijangiz. Kalkulyatorimiz 1-modul savollarining kamida 60 foiziga toʻgʻri javob bergan oʻquvchini qiyinroq 2-modulga yuboradi: Reading and Writingda 27 tadan 17 ta, Mathda 22 tadan 14 ta. College Board oʻz qoidasini eʼlon qilmaydi, shuning uchun bu bizning taxminimiz.</p></details>
+      <details><summary data-t="q2">Nega osonroq 2-modulda ball cheklangan?</summary><p data-t="a2">Osonroq 2-moduldagi savollar kamroq ball beradi. Shuning uchun u yerda hamma savolga toʻgʻri javob bersangiz ham, boʻlim bali taxminan 640 atrofida toʻxtaydi. Yuqori ball uchun 1-modulni yaxshi topshirish juda muhim.</p></details>
+      <details><summary data-t="q3">Natija qanchalik aniq?</summary><p data-t="a3">Uni taxminiy koʻrsatkich deb qabul qiling. Haqiqiy SATda har bir savolning qiyinligi alohida hisobga olinadi, shuning uchun bir xil toʻgʻri javoblar soni turli ballarga olib kelishi mumkin. Oʻsishni kuzatish uchun bizning toʻliq sinov testlarimizdan foydalaning.</p></details>
+    </section>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="footer-brand"><span class="brand-name">SAT Ustoz</span><p style="margin-top:10px" data-nav="tag">Digital SAT practice built by someone who has taken the test, for students in Uzbekistan and beyond.</p></div>
+      <div><h3 class="f-head" data-nav="practice">Practice</h3><ul><li><a href="practice.html#tests" data-nav="tests">Practice tests</a></li><li><a href="vocab.html" data-nav="vocab">Vocabulary</a></li><li><a href="lessons.html" data-nav="lessons">Lessons</a></li><li><a href="daily.html" data-nav="daily">Question of the day</a></li><li><a href="mock.html" data-nav="mock">National mock</a></li><li><a href="teacher.html" data-nav="teach">For teachers</a></li></ul></div>
+      <div><h3 class="f-head" data-nav="contact">Contact</h3><ul><li><a data-link="telegram" href="https://t.me/azizbek7_t" target="_blank" rel="noopener">Telegram: @azizbek7_t</a></li><li><a data-link="channel" href="https://t.me/satustoz_off" target="_blank" rel="noopener" data-nav="channel">Telegram channel</a></li><li><a data-link="instagram" href="https://www.instagram.com/satustoz" target="_blank" rel="noopener">Instagram</a></li><li><a href="#" data-feedback data-nav="feedback">Send feedback</a></li></ul></div>
+    </div>
+    <div class="footer-legal">&copy; <span data-year>2026</span> SAT Ustoz. <span data-nav="legal">SAT&reg; is a trademark registered by the College Board, which is not affiliated with, and does not endorse, this website. All practice questions on this site are written by SAT Ustoz.</span></div>
+  </div>
+</footer>
+
+<script src="assets/sh.js" data-analytics defer></script>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  'use strict';
+  const SH = window.SH;
+  const { $, $$ } = SH;
+  const t = SH.i18n({
+    uz: {}, // the page is written in Uzbek; these come from the HTML
+    en: { kicker: 'Free tool', h1: 'Digital SAT score calculator', lede: 'Enter how many questions you got right in each module. The calculator shows which Module 2 you reach and your estimated Digital SAT score.',
+      rw_p: '27 questions per module, 32 minutes.', m_p: '22 questions per module, 35 minutes.', m1: 'Module 1: correct answers', m2: 'Module 2: correct answers', of27: 'out of 27', of22: 'out of 22',
+      est: 'Estimated score', note: 'This is an estimate. The real SAT scores each question with item response theory, and the College Board does not publish an exact table. We use the same scoring as our practice tests.',
+      cta: 'Find your real level: free diagnostic', cta_p: 'About 50 minutes, adaptive like test day. No account needed.',
+      route: 'Module 2:', hard: 'harder', easy: 'easier', auto: 'from your Module 1', pick: 'I got the', need: 'You need {n} right in Module 1 for the harder Module 2.',
+      faq_h: 'How is the score worked out?', q1: 'What decides which Module 2 I get?', a1: 'Your Module 1 result. Our calculator sends a student who gets at least 60% of Module 1 right to the harder Module 2: 17 of 27 in Reading and Writing, 14 of 22 in Math. The College Board does not publish its rule, so this is our estimate.',
+      q2: 'Why is the score capped on the easier Module 2?', a2: 'Questions on the easier Module 2 are worth less. Even with every question right there, the section score stops at about 640. Doing well on Module 1 is what opens the top scores.',
+      q3: 'How accurate is it?', a3: 'Treat it as a ballpark. The real SAT weighs each question by its difficulty, so the same number of right answers can lead to different scores. Use our full practice tests to track your progress.' },
+    ru: { kicker: 'Бесплатный инструмент', h1: 'Калькулятор баллов Digital SAT', lede: 'Введите число верных ответов в каждом модуле. Калькулятор покажет, какой модуль 2 вам достанется, и примерный балл Digital SAT.',
+      rw_p: '27 вопросов в модуле, 32 минуты.', m_p: '22 вопроса в модуле, 35 минут.', m1: 'Модуль 1: верных ответов', m2: 'Модуль 2: верных ответов', of27: 'из 27', of22: 'из 22',
+      est: 'Примерный балл', note: 'Это оценка. Настоящий SAT оценивает каждый вопрос по модели item response theory, а College Board не публикует точную таблицу. Мы используем тот же подсчёт, что и в наших пробных тестах.',
+      cta: 'Узнайте свой уровень: бесплатная диагностика', cta_p: 'Около 50 минут, адаптивно, как на экзамене. Аккаунт не нужен.',
+      route: 'Модуль 2:', hard: 'сложный', easy: 'лёгкий', auto: 'по результату модуля 1', pick: 'Мне достался', need: 'Для сложного модуля 2 нужно {n} верных в модуле 1.',
+      faq_h: 'Как считается балл?', q1: 'Что определяет, какой модуль 2 мне достанется?', a1: 'Результат модуля 1. Наш калькулятор отправляет в сложный модуль 2 ученика, который верно ответил хотя бы на 60% вопросов модуля 1: 17 из 27 в Reading and Writing и 14 из 22 в Math. College Board не публикует своё правило, так что это наша оценка.',
+      q2: 'Почему в лёгком модуле 2 балл ограничен?', a2: 'Вопросы лёгкого модуля 2 весят меньше. Даже если ответить на все верно, балл раздела остановится примерно на 640. Высокие баллы открывает хороший результат в модуле 1.',
+      q3: 'Насколько это точно?', a3: 'Считайте это ориентиром. Настоящий SAT учитывает сложность каждого вопроса, поэтому одно и то же число верных ответов может дать разные баллы. Для отслеживания прогресса проходите наши полные пробные тесты.' }
+  });
+  const UZ = { route: '2-modul:', hard: 'qiyinroq', easy: 'osonroq', auto: '1-modul natijangizga koʻra', pick: 'Menga tushgani', need: 'Qiyinroq 2-modul uchun 1-modulda {n} ta toʻgʻri javob kerak.' };
+  // Uzbek is the page's own text: keep it, and use it as the dictionary for 'uz'.
+  const uzText = {};
+  $$('[data-t]').forEach(el => { uzText[el.dataset.t] = el.textContent; });
+  const tt = (k, v) => { if (SH.langNow() !== 'uz') return t(k, v); let s = uzText[k] != null ? uzText[k] : UZ[k] != null ? UZ[k] : t(k); Object.keys(v || {}).forEach(x => { s = s.split('{' + x + '}').join(v[x]); }); return s; };
+  // Same scoring as practice tests (sectionScore in test.html): Module 2 weighs
+  // 1.4 on the harder route and 0.75 on the easier one; routing at 60% of Module 1.
+  const W = { harder: 1.4, easier: .75 }, THRESHOLD = .6;
+  const SEC = { rw: { n: 27, a: 'rw1', b: 'rw2' }, math: { n: 22, a: 'm1', b: 'm2' } };
+  const forced = { rw: '', math: '' };
+  function score(sec) {
+    const s = SEC[sec], c1 = val(s.a, s.n), c2 = val(s.b, s.n);
+    const auto = c1 / s.n >= THRESHOLD ? 'harder' : 'easier';
+    const route = forced[sec] || auto;
+    const frac = (c1 + W[route] * c2) / (s.n + W.harder * s.n);
+    return { score: Math.max(200, Math.min(800, Math.round((200 + 600 * frac) / 10) * 10)), route, auto, need: Math.ceil(THRESHOLD * s.n) };
+  }
+  function val(id, max) { const el = $('#' + id); let v = Math.round(+el.value || 0); v = Math.max(0, Math.min(max, v)); return v; }
+  let tracked = false;
+  function draw() {
+    $$('[data-t]').forEach(el => { el.textContent = tt(el.dataset.t); });
+    let total = 0;
+    ['rw', 'math'].forEach(sec => {
+      const r = score(sec);
+      total += r.score;
+      $('#s-' + sec).textContent = r.score;
+      $('#route-' + sec).innerHTML = tt('route') + ' <span class="route-pill ' + (r.route === 'harder' ? 'hard' : 'easy') + '">' + tt(r.route === 'harder' ? 'hard' : 'easy') + '</span> ' +
+        '<select class="input" data-force="' + sec + '" aria-label="' + tt('route') + '"><option value="">' + tt('auto') + '</option><option value="harder"' + (forced[sec] === 'harder' ? ' selected' : '') + '>' + tt('pick') + ': ' + tt('hard') + '</option><option value="easier"' + (forced[sec] === 'easier' ? ' selected' : '') + '>' + tt('pick') + ': ' + tt('easy') + '</option></select>' +
+        (r.auto === 'easier' && !forced[sec] ? '<div class="small muted" style="margin-top:6px">' + tt('need', { n: r.need }) + '</div>' : '');
+    });
+    $('#total').textContent = total;
+    $$('[data-force]').forEach(s => s.addEventListener('change', () => { forced[s.dataset.force] = s.value; draw(); }));
+  }
+  $$('#calc input').forEach(i => i.addEventListener('input', () => { draw(); if (!tracked) { tracked = true; SH.track('score_calculator_used', {}); } }));
+  $$('#calc input').forEach(i => i.addEventListener('blur', () => { i.value = val(i.id, +i.max); draw(); }));
+  $$('[data-step]').forEach(b => b.addEventListener('click', () => { const i = $('#' + b.dataset.step); i.value = Math.max(0, Math.min(+i.max, (+i.value || 0) + +b.dataset.d)); draw(); }));
+  $('#calc').addEventListener('submit', e => e.preventDefault());
+  SH.langSwitch(draw);
+  draw();
+});
+</script>
+</body>
+</html>

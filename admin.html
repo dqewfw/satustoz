@@ -78,7 +78,7 @@
   <div class="a-head">
     <span class="kicker">For the SAT Ustoz owner</span>
     <h1>Card transfers</h1>
-    <p class="muted">Students who tapped “I’ve paid”, newest first. Find the transfer in your bank app (same amount, sender card ending in these 4 digits, around this time), then approve it. Approving switches Pro on for the months they paid for (30 days each), added to any time they still have. The Max waitlist is at the bottom.</p>
+    <p class="muted">Students who tapped “I’ve paid”, newest first. Find the transfer in your bank app (same amount, sender card ending in these 4 digits, around this time), then approve it. Approving switches Pro on for the months they paid for (30 days each), added to any time they still have. Further down: reports and feedback, the question of the day for Telegram, invite rewards, the national mock, teachers, real SAT scores and the Max waitlist.</p>
   </div>
   <div id="admin"><p class="muted">Loading…</p></div>
 </main>
@@ -98,6 +98,8 @@ document.addEventListener('DOMContentLoaded', async function () {
   const monthsOf = r => Math.max(1, Math.min(12, Number(r && r.months) || 1));
   let waitlist = null;     // Max waitlist entries, or an Error when they can't be read
   let reports = null;      // "Report a mistake" and feedback messages, or an Error
+  let referrals = null, inviters = {}, realScores = null, teachers = null, mocks = null; // each an Error when it can't be read
+  let catalog = { sets: [], tests: [] };
   const CURRENCY = CONFIG.PLANS.CURRENCY.en;
   const items = new Map(); // uid -> { r: payRequest, u: users doc (null: none, undefined: unreadable) }
   let viewFor = null;      // uid whose list is on screen
@@ -203,6 +205,20 @@ document.addEventListener('DOMContentLoaded', async function () {
         .then(s => s.docs.map(d => Object.assign({}, d.data(), { uid: d.id })), e => { console.warn('[SAT Ustoz] Could not load the Max waitlist:', e); return e; });
       reports = await fs.getDocs(fs.query(fs.collection(sync.db, 'reports'), fs.orderBy('createdAt', 'desc'), fs.limit(300)))
         .then(s => s.docs.map(d => Object.assign({}, d.data(), { id: d.id })), e => { console.warn('[SAT Ustoz] Could not load reports:', e); return e; });
+      // The newer sections need the newest firestore.rules; each one says so on its own if they're missing.
+      const many = (q, idKey) => fs.getDocs(q).then(s => s.docs.map(d => Object.assign({}, d.data(), { [idKey || 'id']: d.id })), e => { console.warn('[SAT Ustoz] Could not load a section:', e); return e; });
+      [referrals, realScores, teachers, mocks] = await Promise.all([
+        many(fs.query(fs.collection(sync.db, 'referrals'), fs.orderBy('createdAt', 'desc'), fs.limit(200))),
+        many(fs.query(fs.collection(sync.db, 'realScores'), fs.orderBy('createdAt', 'desc'), fs.limit(500))),
+        many(fs.collection(sync.db, 'teachers')),
+        many(fs.query(fs.collection(sync.db, 'mocks'), fs.orderBy('startsAt', 'desc'), fs.limit(24)))
+      ]);
+      inviters = {};
+      if (Array.isArray(referrals)) {
+        const ids = Array.from(new Set(referrals.filter(r => !r.rewardedAt).map(r => r.referrer)));
+        await Promise.all(ids.map(id => fs.getDoc(fs.doc(sync.db, 'users', id)).then(x => { inviters[id] = x.exists() ? x.data() : null; }, () => { inviters[id] = undefined; })));
+      }
+      try { catalog = await SH.loadCatalog(); } catch (e) { /* the mock form lists no tests */ }
     } catch (e) {
       if (my !== seq) return;
       if (e && e.code === 'permission-denied') { notAdminView(); return; }
@@ -221,7 +237,7 @@ document.addEventListener('DOMContentLoaded', async function () {
     const now = Date.now();
     box.innerHTML = '<div class="a-bar"><p><b class="num-tab" data-count></b></p>' +
       '<div class="a-row" style="margin:0"><span class="who">Signed in as ' + esc(auth.user.email) + '</span><button type="button" class="btn btn-ghost btn-sm" data-reload>Reload</button></div></div>' +
-      '<div data-list>' + Array.from(items.values()).map(it => card(it.r, it.u, now)).join('') + '</div>' + reportsHtml() + waitHtml();
+      '<div data-list>' + Array.from(items.values()).map(it => card(it.r, it.u, now)).join('') + '</div>' + reportsHtml() + dailyHtml() + referralsHtml(now) + mocksHtml(now) + teachersHtml() + calibHtml() + waitHtml();
     $('[data-reload]', box).addEventListener('click', load);
     const cp = $('[data-copy-wait]', box);
     if (cp) cp.addEventListener('click', () => {
@@ -230,6 +246,7 @@ document.addEventListener('DOMContentLoaded', async function () {
       else toast(all);
     });
     count();
+    bindExtras();
   }
   // Mistakes students reported on questions, and feedback. "Done" deletes one.
   // Feedback marked "may quote" can go into data/testimonials.json (README).
@@ -241,7 +258,7 @@ document.addEventListener('DOMContentLoaded', async function () {
       '<article class="card rep" data-rep="' + esc(r.id) + '"><div class="req-head"><div class="req-who"><b>' + (r.kind === 'mistake' ? 'Mistake' : 'Feedback') + (r.quoteOk ? ' <span class="tag tag-easy">may quote</span>' : '') + '</b>' +
       '<span>' + esc(r.name || '') + ' ' + esc(r.email || '') + '</span></div><span class="req-when">' + esc(when(ms(r.createdAt))) + '</span></div>' +
       (r.kind === 'mistake' ? '<p class="small muted" style="margin:6px 0">' + esc(r.where || '') + (r.qid ? ', question <code>' + esc(r.qid) + '</code>' : '') + '</p>' : '') +
-      '<p class="rep-text">' + esc(r.text || '') + '</p><div class="a-row" style="margin:0"><button type="button" class="btn btn-ghost btn-sm" data-done>Done</button></div>' +
+      '<p class="rep-text">' + esc(r.text || '') + '</p><div class="a-row" style="margin:0">' + (r.kind === 'mistake' && r.uid ? '<button type="button" class="btn btn-primary btn-sm" data-fixed>Fixed: tell the student</button>' : '') + '<button type="button" class="btn btn-ghost btn-sm" data-done>Done</button></div>' +
       '<p class="pay-err" role="alert" hidden></p></article>').join('') + '</section>';
   }
 
@@ -258,6 +275,164 @@ document.addEventListener('DOMContentLoaded', async function () {
           '<td>' + esc(w.name || '') + '</td><td>' + esc(w.email || '') + '</td><td>' + esc(fmtDate(ms(w.createdAt))) + '</td></tr>';
       }).join('') + '</tbody></table></div></section>';
   }
+  const sectionErr = (title, e) => '<section class="a-wait"><div class="a-bar"><h2>' + title + '</h2></div><div class="notice notice-warn"><p>' + esc(friendly(e)) + ' This section needs the newest firestore.rules.</p></div></section>';
+
+  // Question of the day, ready to paste into the Telegram channel.
+  function dailyHtml() {
+    return '<section class="a-wait"><div class="a-bar"><h2>Question of the day</h2><button type="button" class="btn btn-ghost btn-sm" data-copy-daily>Copy today’s for Telegram</button></div>' +
+      '<p class="muted">Post it in the channel each morning. The link opens the same question with the explanation and the student’s streak.</p></section>';
+  }
+  async function copyDaily() {
+    const q = await SH.daily.question();
+    if (!q) { toast('No questions in the practice sets yet'); return; }
+    const plain = s => String(s || '').replace(/\\\$/g, '$').replace(/\$\$?([^$]+)\$\$?/g, '$1').replace(/\*\*|__|\*/g, '').replace(/_{3,}/g, '______').trim();
+    const text = 'SAT Ustoz · Kun savoli / Question of the day #' + SH.daily.number() + '\n\n' +
+      (q.passage ? plain(q.passage) + '\n\n' : '') + plain(q.prompt) + '\n\n' +
+      (q.type === 'mc' ? q.choices.map((c, i) => SH.LETTERS[i] + ') ' + plain(c)).join('\n') + '\n\n' : '(Javobni yozing / Type your answer)\n\n') +
+      'Javob va izoh / Answer and explanation: https://satustoz.academy/daily.html';
+    SH.copyText(text, 'Copied. Paste it into the Telegram channel.');
+  }
+
+  // Invite-a-friend rewards: the friend finished the diagnostic; give the inviter 7 days of Pro.
+  const REF_DAYS = 7;
+  function referralsHtml(now) {
+    const head = '<section class="a-wait"><div class="a-bar"><h2>Invite rewards</h2>';
+    if (referrals instanceof Error) return sectionErr('Invite rewards', referrals);
+    const open = (referrals || []).filter(r => !r.rewardedAt);
+    if (!open.length) return head + '</div><p class="muted">Nothing to reward. When a student’s invited friend signs up and finishes the free mini diagnostic, it shows up here.</p></section>';
+    return head + '<span class="who">' + open.length + ' waiting</span></div>' + open.map(r => {
+      const u = inviters[r.referrer];
+      const g = u === undefined ? null : grantDays(u, now, REF_DAYS);
+      return '<article class="card rep" data-ref="' + esc(r.id) + '"><div class="req-head"><div class="req-who"><b>' + esc(u && u.name ? u.name : 'Inviter') + '</b><span>' + esc(u && u.email ? u.email : r.referrer) + '</span></div><span class="req-when">' + esc(when(ms(r.createdAt))) + '</span></div>' +
+        '<p class="small muted" style="margin:6px 0">Invited <b>' + esc(r.name || '') + '</b> ' + esc(r.email || '') + ', who finished the mini diagnostic.</p>' +
+        '<div class="req-foot"><p class="req-effect">' + (g ? 'Gives ' + planName(g.plan) + ' until <b>' + esc(fmtDate(g.until)) + '</b>' : u === undefined ? 'Gives ' + REF_DAYS + ' days of Pro.' : 'They have Pro with no end date: this only marks it done.') + '</p>' +
+        '<div class="req-btns"><button type="button" class="btn btn-ghost btn-sm" data-ref-skip>Not valid</button><button type="button" class="btn btn-primary btn-sm" data-ref-give>Give ' + REF_DAYS + ' days of Pro</button></div></div><p class="pay-err" role="alert" hidden></p></article>';
+    }).join('') + '<p class="small muted">Check that the friend is a real new student (not the same person with a second Google account) before you give the week.</p></section>';
+  }
+  function grantDays(u, now, days) {
+    const plan = u && u.plan, cur = ms(u && u.planUntil);
+    const active = !(u && u.planSource === 'pending') && (plan === 'pro' || plan === 'max') && (!cur || cur > now);
+    if (active && !cur) return null;
+    return { plan: active && plan === 'max' ? 'max' : 'pro', until: (active ? Math.max(now, cur) : now) + days * DAY };
+  }
+  async function rewardReferral(el, give) {
+    const r = (referrals || []).find(x => x.id === el.dataset.ref);
+    if (!r) return;
+    busy(el, true); fail(el, '');
+    try {
+      const fs = await sync._lib();
+      const refRef = fs.doc(sync.db, 'referrals', r.id), userRef = fs.doc(sync.db, 'users', r.referrer);
+      const g = await fs.runTransaction(sync.db, async tx => {
+        const us = await tx.get(userRef);
+        const out = give ? grantDays(us.exists() ? us.data() : null, Date.now(), REF_DAYS) : null;
+        if (out) tx.set(userRef, { plan: out.plan, planUntil: fs.Timestamp.fromMillis(out.until), planSource: 'referral' }, { merge: true });
+        tx.update(refRef, { rewardedAt: fs.serverTimestamp(), rewarded: !!give });
+        return out;
+      });
+      r.rewardedAt = Date.now();
+      el.remove();
+      toast(g ? planName(g.plan) + ' extended to ' + fmtDate(g.until) : 'Marked as done', 4000);
+    } catch (e) { busy(el, false); fail(el, friendly(e)); }
+  }
+
+  // National mock: one test, one time window, for everyone (mock.html).
+  function mocksHtml(now) {
+    if (mocks instanceof Error) return sectionErr('National mock', mocks);
+    const tests = (catalog.tests || []).filter(t => t.kind !== 'mini');
+    const today = new Date(Date.now() + 5 * 3600000 + 7 * DAY).toISOString().slice(0, 10);
+    return '<section class="a-wait"><div class="a-bar"><h2>National mock</h2></div>' +
+      '<form class="card" data-mock-form style="margin-bottom:12px"><div class="a-row" style="margin:0 0 10px">' +
+      '<div class="field" style="flex:2 1 220px;margin:0"><label for="mk-title">Title</label><input class="input" id="mk-title" maxlength="80" value="National SAT mock, ' + esc(new Date(Date.now() + 7 * DAY).toLocaleDateString('en-GB', { month: 'long', year: 'numeric' })) + '"></div>' +
+      '<div class="field" style="flex:1 1 180px;margin:0"><label for="mk-test">Test</label><select class="input" id="mk-test">' + tests.map(t => '<option value="' + esc(t.id) + '">' + esc(t.title) + '</option>').join('') + '</select></div></div>' +
+      '<div class="a-row" style="margin:0 0 10px"><div class="field" style="flex:1 1 150px;margin:0"><label for="mk-day">Day</label><input class="input" id="mk-day" type="date" value="' + today + '"></div>' +
+      '<div class="field" style="flex:1 1 120px;margin:0"><label for="mk-time">Opens (Tashkent)</label><input class="input" id="mk-time" type="time" value="10:00"></div>' +
+      '<div class="field" style="flex:1 1 150px;margin:0"><label for="mk-win">Students may start for</label><select class="input" id="mk-win"><option value="1">1 hour</option><option value="2" selected>2 hours</option><option value="4">4 hours</option><option value="12">12 hours</option></select></div></div>' +
+      '<div class="field" style="margin:0 0 10px"><label for="mk-prize">Prize (optional)</label><input class="input" id="mk-prize" maxlength="120" value="Top 10 win a free month of Max"></div>' +
+      '<p class="pay-err" role="alert" hidden></p><button type="submit" class="btn btn-primary">Schedule the mock</button>' +
+      '<p class="small muted" style="margin:10px 0 0">Use a test students haven’t seen yet if you can. Results are accepted until 4 hours after the start window closes. Check the top scores before giving prizes: scores are sent from the student’s browser.</p></form>' +
+      ((mocks || []).length ? '<div class="card"><table class="wait-table"><thead><tr><th>Mock</th><th>Test</th><th>Opens</th><th></th></tr></thead><tbody>' + mocks.map(m =>
+        '<tr><td><a href="mock.html?id=' + encodeURIComponent(m.id) + '" target="_blank" rel="noopener">' + esc(m.title) + '</a></td><td>' + esc(m.testId) + '</td><td>' + esc(when(ms(m.startsAt))) + (ms(m.startsAt) <= now && ms(m.endsAt) >= now ? ' <span class="tag tag-easy">open</span>' : '') + '</td>' +
+        '<td><button type="button" class="link-btn" data-del-mock="' + esc(m.id) + '">Delete</button></td></tr>').join('') + '</tbody></table></div>' : '') + '</section>';
+  }
+
+  // Teachers (the center plan): who can use teacher.html.
+  function teachersHtml() {
+    if (teachers instanceof Error) return sectionErr('Teachers', teachers);
+    return '<section class="a-wait"><div class="a-bar"><h2>Teachers</h2><span class="who">' + (teachers || []).length + '</span></div>' +
+      '<form class="card" data-teacher-form style="margin-bottom:12px"><div class="a-row" style="margin:0 0 10px">' +
+      '<div class="field" style="flex:2 1 220px;margin:0"><label for="tc-email">Google email</label><input class="input" id="tc-email" type="email" autocomplete="off"></div>' +
+      '<div class="field" style="flex:1 1 160px;margin:0"><label for="tc-name">Name</label><input class="input" id="tc-name" maxlength="80"></div></div>' +
+      '<div class="a-row" style="margin:0 0 10px"><div class="field" style="flex:2 1 220px;margin:0"><label for="tc-center">Center (shown on parent reports)</label><input class="input" id="tc-center" maxlength="80" value="' + esc((SH.CONFIG.LEARNING_CENTER || {}).NAME || '') + '"></div>' +
+      '<div class="field" style="flex:1 1 120px;margin:0"><label for="tc-seats">Student seats</label><input class="input" id="tc-seats" type="number" min="1" max="2000" value="30"></div></div>' +
+      '<p class="pay-err" role="alert" hidden></p><button type="submit" class="btn btn-primary">Add teacher</button></form>' +
+      ((teachers || []).length ? '<div class="card"><table class="wait-table"><thead><tr><th>Email</th><th>Name</th><th>Center</th><th>Seats</th><th></th></tr></thead><tbody>' + teachers.map(t =>
+        '<tr><td>' + esc(t.id) + '</td><td>' + esc(t.name || '') + '</td><td>' + esc(t.center || '') + '</td><td>' + esc(t.seats || '') + '</td><td><button type="button" class="link-btn" data-del-teacher="' + esc(t.id) + '">Remove</button></td></tr>').join('') + '</tbody></table></div>' : '<p class="muted">No teachers yet. Students of a center need Pro for Pro tests and sets: approve it for them like any payment.</p>') + '</section>';
+  }
+
+  // How close the practice scores are to the real SAT, for data/calibration.json.
+  function calibStats() {
+    const rows = (realScores || []).map(r => ({ r, p: r.practiceAvg3 || r.practiceLast || 0 })).filter(x => x.p > 0);
+    const n = rows.length;
+    if (!n) return { n: 0, meanDiff: 0, meanAbsDiff: 0, within50: 0 };
+    const diffs = rows.map(x => x.p - x.r.total);
+    return { n, meanDiff: Math.round(diffs.reduce((a, b) => a + b, 0) / n), meanAbsDiff: Math.round(diffs.reduce((a, b) => a + Math.abs(b), 0) / n), within50: Math.round(diffs.filter(d => Math.abs(d) <= 50).length / n * 100) };
+  }
+  function calibHtml() {
+    if (realScores instanceof Error) return sectionErr('Real SAT scores', realScores);
+    const list = realScores || [], c = calibStats();
+    return '<section class="a-wait"><div class="a-bar"><h2>Real SAT scores</h2>' + (c.n ? '<button type="button" class="btn btn-ghost btn-sm" data-copy-calib>Copy calibration.json</button>' : '') + '</div>' +
+      (list.length ? '<p class="muted">' + c.n + ' with practice scores to compare. Average gap ' + c.meanAbsDiff + ' points; ' + c.within50 + '% within 50 points; our estimates run ' + (c.meanDiff >= 0 ? c.meanDiff + ' points high' : -c.meanDiff + ' points low') + ' on average. ' +
+        'Paste the copied text into <code>data/calibration.json</code> and upload it: the landing page shows it from 5 students up.</p>' +
+        '<div class="card"><table class="wait-table"><thead><tr><th>Student</th><th>Real</th><th>Practice (last 3)</th><th>Taken</th></tr></thead><tbody>' + list.map(r =>
+          '<tr><td>' + esc(r.name || r.email || '') + '</td><td><b>' + esc(r.total) + '</b> <span class="muted">(' + esc(r.rw) + ' + ' + esc(r.math) + ')</span></td><td>' + (r.practiceAvg3 || r.practiceLast || '–') + ' <span class="muted">(' + (r.practiceTests || 0) + ' tests)</span></td><td>' + esc(r.month || '') + '</td></tr>').join('') + '</tbody></table></div>'
+        : '<p class="muted">None yet. Students share their real score from the dashboard after their test date.</p>') + '</section>';
+  }
+
+  function bindExtras() {
+    const cd = $('[data-copy-daily]', box); if (cd) cd.addEventListener('click', () => copyDaily().catch(e => toast(friendly(e))));
+    $$('[data-ref]', box).forEach(el => {
+      el.querySelector('[data-ref-give]').addEventListener('click', () => rewardReferral(el, true));
+      el.querySelector('[data-ref-skip]').addEventListener('click', () => rewardReferral(el, false));
+    });
+    const cc = $('[data-copy-calib]', box);
+    if (cc) cc.addEventListener('click', () => SH.copyText(JSON.stringify(Object.assign(calibStats(), { updated: new Date().toISOString().slice(0, 10) }), null, 2), 'Copied. Paste it into data/calibration.json.'));
+    const mf = $('[data-mock-form]', box);
+    if (mf) mf.addEventListener('submit', async e => {
+      e.preventDefault();
+      const start = Date.parse($('#mk-day', mf).value + 'T' + ($('#mk-time', mf).value || '10:00') + ':00+05:00');
+      const title = $('#mk-title', mf).value.trim(), testId = $('#mk-test', mf).value;
+      if (!title || !testId || !start) { fail(mf, 'Fill in the title, test, day and time.'); return; }
+      busy(mf, true); fail(mf, '');
+      try {
+        const fs = await sync._lib();
+        await fs.addDoc(fs.collection(sync.db, 'mocks'), { title: title.slice(0, 80), testId, startsAt: fs.Timestamp.fromMillis(start), endsAt: fs.Timestamp.fromMillis(start + (+$('#mk-win', mf).value) * 3600000), prize: $('#mk-prize', mf).value.trim().slice(0, 120), createdAt: fs.serverTimestamp() });
+        toast('Mock scheduled. Announce it in the channel with the link satustoz.academy/mock.html', 6000);
+        load();
+      } catch (ex) { busy(mf, false); fail(mf, friendly(ex)); }
+    });
+    $$('[data-del-mock]', box).forEach(b => b.addEventListener('click', async () => {
+      if (!confirm('Delete this mock? Its results stay in mockResults but the page no longer lists it.')) return;
+      try { const fs = await sync._lib(); await fs.deleteDoc(fs.doc(sync.db, 'mocks', b.dataset.delMock)); load(); } catch (e) { toast(friendly(e)); }
+    }));
+    const tf = $('[data-teacher-form]', box);
+    if (tf) tf.addEventListener('submit', async e => {
+      e.preventDefault();
+      const email = $('#tc-email', tf).value.trim().toLowerCase();
+      if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) { fail(tf, 'Enter the teacher’s Google email.'); return; }
+      busy(tf, true); fail(tf, '');
+      try {
+        const fs = await sync._lib();
+        await fs.setDoc(fs.doc(sync.db, 'teachers', email), { email, name: $('#tc-name', tf).value.trim().slice(0, 80), center: $('#tc-center', tf).value.trim().slice(0, 80), seats: Math.max(1, Math.min(2000, Math.round(+$('#tc-seats', tf).value || 30))), createdAt: fs.serverTimestamp() });
+        toast(email + ' can now use satustoz.academy/teacher.html', 5000);
+        load();
+      } catch (ex) { busy(tf, false); fail(tf, friendly(ex)); }
+    });
+    $$('[data-del-teacher]', box).forEach(b => b.addEventListener('click', async () => {
+      if (!confirm('Remove ' + b.dataset.delTeacher + '? Their classes stay, but they can’t open teacher.html.')) return;
+      try { const fs = await sync._lib(); await fs.deleteDoc(fs.doc(sync.db, 'teachers', b.dataset.delTeacher)); load(); } catch (e) { toast(friendly(e)); }
+    }));
+  }
+
   function count() {
     const n = items.size;
     $('[data-count]', box).textContent = !n ? 'No payments waiting' : n === 1 ? '1 payment waiting' : n + ' payments waiting';
@@ -353,6 +528,31 @@ document.addEventListener('DOMContentLoaded', async function () {
     }
   }
 
+  // "Fixed: tell the student": a notice on their dashboard, then the report goes.
+  box.addEventListener('click', e => {
+    const f = e.target.closest('[data-fixed]');
+    const rep = f && f.closest('.rep');
+    if (!rep) return;
+    const r = (reports || []).find(x => x.id === rep.dataset.rep);
+    if (!r) return;
+    const md = modal({
+      title: 'Tell the student it’s fixed',
+      html: '<p>' + esc(r.name || r.email || 'The student') + ' sees this on their dashboard: “Fixed, thank you! The mistake you reported' + (r.qid ? ' on question ' + esc(r.qid) : '') + (r.where ? ' in ' + esc(r.where) : '') + ' is corrected.”</p>' +
+        '<div class="field"><label for="fx-note">Add a line (optional)</label><input class="input" id="fx-note" maxlength="300" placeholder="e.g. The answer key now says C."></div><p class="pay-err" role="alert" hidden></p>',
+      actions: [{ label: 'Cancel', kind: 'ghost' }, { label: 'Send and close the report', kind: 'primary', onClick: back => {
+        back.querySelectorAll('button').forEach(b => { b.disabled = true; });
+        (async () => {
+          const fs = await sync._lib();
+          const batch = fs.writeBatch(sync.db);
+          batch.set(fs.doc(fs.collection(sync.db, 'users', r.uid, 'notices')), { kind: 'fixed', qid: String(r.qid || '').slice(0, 100), where: String(r.where || '').slice(0, 120), text: back.querySelector('#fx-note').value.trim().slice(0, 300), createdAt: fs.serverTimestamp() });
+          batch.delete(fs.doc(sync.db, 'reports', r.id));
+          await batch.commit();
+        })().then(() => { md.close(); reports = reports.filter(x => x !== r); rep.remove(); toast('Sent. They’ll see it next time they open their dashboard.'); })
+          .catch(ex => { const er = back.querySelector('.pay-err'); er.textContent = friendly(ex); er.hidden = false; back.querySelectorAll('button').forEach(b => { b.disabled = false; }); });
+        return false;
+      } }]
+    });
+  });
   box.addEventListener('click', async e => {
     const d = e.target.closest('[data-done]');
     const rep = d && d.closest('.rep');

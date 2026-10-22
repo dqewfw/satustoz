@@ -1,0 +1,361 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Teacher classes | SAT Ustoz</title>
+<meta name="description" content="SAT Ustoz for learning centers and schools: classes, homework with automatic grading, a results grid and parent reports in Uzbek or Russian.">
+<link rel="canonical" href="https://satustoz.academy/teacher.html">
+<meta name="theme-color" content="#2D5038">
+<link rel="icon" href="favicon.ico" sizes="32x32">
+<link rel="icon" href="icon-192.png" type="image/png" sizes="192x192">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Jost:wght@500;600&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/sh.css">
+<style>
+  .tc { padding-top: 26px; min-height: 60vh; }
+  .tc-head { display: flex; justify-content: space-between; align-items: flex-end; gap: 12px 20px; flex-wrap: wrap; margin-bottom: 18px; }
+  .tc-head h1 { font-size: clamp(1.9rem, 4.5vw, 2.5rem); margin: 0 0 4px; }
+  .tc-head p { margin: 0; color: var(--muted); }
+  .cls { display: flex; flex-direction: column; gap: 6px; text-decoration: none; color: var(--ink); }
+  .cls:hover { border-color: var(--brand); color: var(--ink); }
+  .code { font-family: var(--display); font-weight: 600; font-size: 1.6rem; letter-spacing: .12em; color: var(--brand); }
+  .tabs2 { display: flex; gap: 4px; padding: 4px; background: var(--sunk); border-radius: var(--r-sm); margin: 18px 0; width: fit-content; max-width: 100%; overflow-x: auto; }
+  .tabs2 button { border: 0; background: none; font: inherit; font-weight: 700; color: var(--ink-2); padding: 8px 16px; border-radius: 6px; cursor: pointer; white-space: nowrap; }
+  .tabs2 button[aria-pressed="true"] { background: var(--paper); color: var(--brand); box-shadow: 0 0 0 1px var(--line-2); }
+  .tbl-wrap { overflow-x: auto; }
+  .tbl { width: 100%; border-collapse: collapse; font-size: .95rem; font-variant-numeric: tabular-nums; }
+  .tbl th, .tbl td { text-align: left; padding: 9px 10px; border-bottom: 1px solid var(--line); vertical-align: top; }
+  .tbl th { font-size: .82rem; color: var(--muted); font-weight: 600; white-space: nowrap; }
+  .tbl td.c, .tbl th.c { text-align: center; }
+  .tbl tr:last-child td { border-bottom: 0; }
+  .cell-ok { color: var(--ok); font-weight: 700; }
+  .cell-no { color: var(--edge); }
+  .hw-form .row > .field { flex: 1 1 180px; margin-bottom: 10px; }
+  .skill-boxes { display: flex; flex-wrap: wrap; gap: 6px 14px; max-height: 180px; overflow-y: auto; padding: 8px 10px; border: 1px solid var(--line); border-radius: var(--r-sm); }
+  .skill-boxes label { display: flex; gap: 6px; align-items: center; font-size: .92rem; }
+  /* Parent report: a printable sheet */
+  .report-sheet { position: fixed; inset: 0; z-index: 1100; background: rgba(29,42,32,.5); overflow-y: auto; padding: 24px 12px; }
+  .report-page { background: #fff; max-width: 760px; margin: 0 auto; border-radius: var(--r); padding: 32px 36px; box-shadow: var(--shadow-float); }
+  .report-page h2 { font-size: 1.6rem; margin: 0 0 4px; }
+  .report-page h3 { font-size: 1.1rem; margin: 22px 0 8px; font-family: var(--sans); font-weight: 700; }
+  .rp-top { display: flex; justify-content: space-between; align-items: flex-start; gap: 16px; border-bottom: 2px solid var(--brand); padding-bottom: 14px; margin-bottom: 14px; }
+  .rp-top img { height: 34px; width: auto; }
+  .rp-stats { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 10px; }
+  .rp-tools { display: flex; gap: 10px; flex-wrap: wrap; align-items: center; justify-content: flex-end; max-width: 760px; margin: 0 auto 12px; }
+  .rp-tools .lang-switch { background: #fff; }
+  .report-page textarea { width: 100%; min-height: 80px; }
+  @media print {
+    body > *:not(.report-sheet) { display: none !important; }
+    .report-sheet { position: static; background: none; padding: 0; overflow: visible; }
+    .report-page { box-shadow: none; padding: 0; max-width: none; }
+    .rp-tools { display: none; }
+    .report-page textarea { border: 0; padding: 0; resize: none; }
+  }
+  @media (max-width: 600px) { .rp-stats { grid-template-columns: repeat(2, minmax(0, 1fr)); } .report-page { padding: 20px 16px; } }
+</style>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="index.html"><picture><source media="(max-width: 359px)" srcset="assets/brand/mark.svg"><img class="brand-logo" src="assets/brand/logo-horizontal.svg" alt="SAT Ustoz" width="171" height="40"></picture><span class="brand-tag" style="margin:0 0 0 4px">Teachers</span></a>
+    <div data-auth-slot></div>
+  </div>
+</header>
+<main id="main" tabindex="-1">
+  <div class="wrap tc" id="tc"><p class="muted">Loading…</p></div>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-legal" style="border:0;margin:0;padding:0">&copy; <span data-year>2026</span> SAT Ustoz. Questions about the center plan? <a data-link="telegram" href="https://t.me/azizbek7_t" target="_blank" rel="noopener">Message us on Telegram</a>.</div>
+  </div>
+</footer>
+
+<script src="assets/sh.js" data-analytics defer></script>
+<script>
+document.addEventListener('DOMContentLoaded', async function () {
+  'use strict';
+  const SH = window.SH;
+  const { esc, $, $$, auth, sync, toast } = SH;
+  const box = $('#tc');
+  const ms = x => !x ? 0 : typeof x.toMillis === 'function' ? x.toMillis() : Number(x) || 0;
+  let me = null;           // teachers/<email>: { name, center, seats }
+  let classes = [];        // this teacher's classes
+  let catalog = { sets: [], tests: [] }, lessons = [];
+  let cur = null, tab = 'students', members = [], tasks = [], results = [];
+
+  function friendly(e) {
+    if (e && e.code === 'permission-denied') return 'Firebase refused this. Are the newest firestore.rules published?';
+    if (e && e.code === 'unavailable') return 'No connection to Firebase. Check your internet and try again.';
+    return (e && e.message) || 'Something went wrong. Please try again.';
+  }
+  async function fs() { return sync._lib(); }
+
+  auth.onChange(start);
+  if (auth.enabled()) await auth.ready();
+  start();
+  window.addEventListener('hashchange', route);
+
+  async function start() {
+    if (!auth.enabled()) { box.innerHTML = '<div class="notice notice-warn">Sign-in is off: <code>FIREBASE</code> at the top of <code>assets/sh.js</code> is empty.</div>'; return; }
+    if (!auth.user) {
+      box.innerHTML = '<div class="card" style="max-width:560px"><h1 style="font-size:2rem">Teacher sign-in</h1><p class="muted">Classes, homework with automatic grading, a results grid and parent reports in Uzbek or Russian. Sign in with the Google account your center registered.</p>' +
+        '<button type="button" class="btn btn-primary" data-signin>Sign in with Google</button><p class="pay-err" role="alert" hidden></p></div>';
+      $('[data-signin]').addEventListener('click', async () => {
+        try { await auth.signInWithGoogle(); } catch (e) { const er = $('.pay-err'); if (e.message) { er.textContent = e.message; er.hidden = false; } }
+      });
+      return;
+    }
+    try {
+      const f = await fs();
+      const s = await f.getDoc(f.doc(sync.db, 'teachers', String(auth.user.email || '').toLowerCase()));
+      me = s.exists() ? s.data() : null;
+    } catch (e) { me = null; console.warn('[SAT Ustoz] Could not check teacher access:', e); }
+    if (!me) {
+      box.innerHTML = '<div class="card" style="max-width:620px"><h1 style="font-size:2rem">Teacher accounts are part of the center plan</h1>' +
+        '<p>You are signed in as <b>' + esc(auth.user.email) + '</b>, which is not registered as a teacher yet.</p>' +
+        '<p class="muted">Learning centers and schools get classes with join codes, homework graded automatically, a results grid for each group and parent reports in Uzbek or Russian with the center’s name. Pricing is per student, in so’m.</p>' +
+        '<div class="row"><a class="btn btn-primary" href="' + esc(SH.CONFIG.CONTACT_TELEGRAM + '?text=' + encodeURIComponent('Hi! I would like SAT Ustoz for my learning center. Teacher email: ' + auth.user.email)) + '" target="_blank" rel="noopener">Ask about the center plan</a>' +
+        '<button type="button" class="btn btn-ghost" data-out>Use another account</button></div></div>';
+      $('[data-out]').addEventListener('click', () => auth.signOut());
+      return;
+    }
+    try { catalog = await SH.loadCatalog(); } catch (e) { /* lists stay empty */ }
+    try { lessons = (await SH.getJSON('data/lessons.json')).lessons || []; } catch (e) { /* none */ }
+    await loadClasses();
+    route();
+  }
+  async function loadClasses() {
+    const f = await fs();
+    const snap = await f.getDocs(f.query(f.collection(sync.db, 'classes'), f.where('owner', '==', auth.user.uid), f.limit(100)));
+    classes = snap.docs.map(d => Object.assign({ id: d.id }, d.data())).filter(c => !c.archived).sort((a, b) => ms(b.createdAt) - ms(a.createdAt));
+  }
+  function route() {
+    if (!me) return;
+    const m = (location.hash || '').match(/^#class=([\w-]+)/);
+    cur = m ? classes.find(c => c.id === m[1]) || null : null;
+    if (cur) openClass(); else drawHome();
+  }
+
+  /* ---------------- Classes list ---------------- */
+  async function drawHome() {
+    box.innerHTML = '<div class="tc-head"><div><span class="kicker">' + esc(me.center || 'Your center') + '</span><h1>Your classes</h1><p>Signed in as ' + esc(auth.user.email) + (me.seats ? ' · <span id="seats">' + me.seats + ' student seats</span>' : '') + '</p></div>' +
+      '<button type="button" class="btn btn-primary" data-new>New class</button></div>' +
+      (classes.length ? '<div class="grid grid-3">' + classes.map(c => '<a class="card cls" href="#class=' + esc(c.id) + '"><b style="font-size:1.15rem">' + esc(c.name) + '</b><span class="small muted">Join code</span><span class="code">' + esc(c.code) + '</span></a>').join('') + '</div>'
+        : '<div class="card"><h2 style="font-size:1.4rem">Create your first class</h2><p class="muted">Each class gets a code. Students enter it on their dashboard (or open the join link) and their homework and results appear here.</p></div>') +
+      '<div class="card" style="margin-top:22px"><h3>How it works</h3><ol class="up-steps"><li>Create a class and give students its code or join link.</li><li>Assign practice sets, lessons, drills or full practice tests, with a due date.</li><li>Results arrive as students finish: graded automatically, with each student’s weakest skills.</li><li>Print or send a parent report in Uzbek, Russian or English.</li></ol></div>';
+    $('[data-new]').addEventListener('click', newClass);
+    if (me.seats && classes.length) {
+      // Seats in use: every student across your classes, counted once.
+      const f = await fs();
+      const uids = new Set();
+      await Promise.all(classes.map(c => f.getDocs(f.collection(sync.db, 'classes', c.id, 'members')).then(s => s.docs.forEach(d => uids.add(d.id))).catch(() => {})));
+      const el = $('#seats'); if (el) el.textContent = uids.size + ' of ' + me.seats + ' student seats used';
+    }
+  }
+  const CODE_CHARS = 'ABCDEFGHJKLMNPQRSTUVWXYZ23456789';
+  const newCode = () => Array.from({ length: 6 }, () => CODE_CHARS[Math.floor(Math.random() * CODE_CHARS.length)]).join('');
+  function newClass() {
+    const md = SH.modal({
+      title: 'New class',
+      html: '<div class="field"><label for="nc-name">Class name</label><input class="input" id="nc-name" maxlength="60" placeholder="e.g. SAT Math, evening group"></div><p class="pay-err" role="alert" hidden></p>',
+      actions: [{ label: 'Cancel', kind: 'ghost' }, { label: 'Create', kind: 'primary', onClick: back => {
+        const name = back.querySelector('#nc-name').value.trim(), err = back.querySelector('.pay-err');
+        if (!name) { err.textContent = 'Give the class a name.'; err.hidden = false; return false; }
+        back.querySelectorAll('button').forEach(b => { b.disabled = true; });
+        (async () => {
+          const f = await fs();
+          for (let tries = 0; tries < 4; tries++) {
+            const code = newCode();
+            const exists = await f.getDoc(f.doc(sync.db, 'classCodes', code)).then(s => s.exists(), () => false);
+            if (exists) continue;
+            const ref = f.doc(f.collection(sync.db, 'classes'));
+            const batch = f.writeBatch(sync.db);
+            batch.set(ref, { owner: auth.user.uid, ownerEmail: auth.user.email || '', teacher: (me.name || auth.user.name || '').slice(0, 80), center: String(me.center || '').slice(0, 80), name: name.slice(0, 60), code, createdAt: f.serverTimestamp() });
+            batch.set(f.doc(sync.db, 'classCodes', code), { classId: ref.id, name: name.slice(0, 60), teacher: (me.name || auth.user.name || '').slice(0, 80), center: String(me.center || '').slice(0, 80), owner: auth.user.uid });
+            await batch.commit();
+            return ref.id;
+          }
+          throw new Error('Could not make a unique code. Try again.');
+        })().then(async id => { md.close(); await loadClasses(); location.hash = '#class=' + id; SH.track('class_created', {}); })
+          .catch(e => { err.textContent = friendly(e); err.hidden = false; back.querySelectorAll('button').forEach(b => { b.disabled = false; }); });
+        return false;
+      } }]
+    });
+  }
+
+  /* ---------------- One class ---------------- */
+  async function openClass() {
+    box.innerHTML = '<p class="muted">Loading ' + esc(cur.name) + '…</p>';
+    try {
+      const f = await fs();
+      const [m, a, r] = await Promise.all([
+        f.getDocs(f.collection(sync.db, 'classes', cur.id, 'members')),
+        f.getDocs(f.query(f.collection(sync.db, 'classes', cur.id, 'assignments'), f.orderBy('createdAt', 'desc'), f.limit(60))),
+        f.getDocs(f.collection(sync.db, 'classes', cur.id, 'results'))
+      ]);
+      members = m.docs.map(d => Object.assign({ uid: d.id }, d.data())).sort((x, y) => String(x.name).localeCompare(String(y.name)));
+      tasks = a.docs.map(d => Object.assign({ id: d.id }, d.data()));
+      results = r.docs.map(d => d.data());
+    } catch (e) { box.innerHTML = '<div class="notice notice-bad">' + esc(friendly(e)) + '</div>'; return; }
+    drawClass();
+  }
+  const joinLink = () => 'https://satustoz.academy/practice.html?join=' + cur.code;
+  function drawClass() {
+    box.innerHTML = '<a class="small" href="#">&larr; All classes</a><div class="tc-head" style="margin-top:10px"><div><h1>' + esc(cur.name) + '</h1><p>' + members.length + ' student' + (members.length === 1 ? '' : 's') + ' · ' + tasks.length + ' assignment' + (tasks.length === 1 ? '' : 's') + '</p></div>' +
+      '<div class="card" style="padding:12px 16px"><span class="small muted">Join code</span> <span class="code">' + esc(cur.code) + '</span><div class="row" style="gap:8px;margin-top:6px"><button type="button" class="btn btn-ghost btn-sm" data-copy-link>Copy join link</button><button type="button" class="btn btn-ghost btn-sm" data-copy-code>Copy code</button></div></div></div>' +
+      '<div class="tabs2" role="group" aria-label="Class view">' + [['students', 'Students'], ['homework', 'Homework'], ['results', 'Results grid']].map(x => '<button type="button" data-tab="' + x[0] + '" aria-pressed="' + (tab === x[0]) + '">' + x[1] + '</button>').join('') + '</div><div id="pane"></div>' +
+      '<p class="small muted" style="margin-top:28px"><button type="button" class="link-btn" data-archive>Archive this class</button> (students keep their own progress; the code stops working)</p>';
+    $('[data-copy-link]').addEventListener('click', () => SH.copyText(joinLink(), 'Join link copied'));
+    $('[data-copy-code]').addEventListener('click', () => SH.copyText(cur.code, 'Code copied'));
+    $$('[data-tab]').forEach(b => b.addEventListener('click', () => { tab = b.dataset.tab; drawClass(); }));
+    $('[data-archive]').addEventListener('click', archive);
+    ({ students: drawStudents, homework: drawHomework, results: drawGrid })[tab]();
+  }
+  const doneBy = uid => results.filter(r => r.uid === uid && tasks.some(t => t.id === r.aid));
+  function drawStudents() {
+    const pane = $('#pane');
+    if (!members.length) { pane.innerHTML = '<div class="card"><p style="margin:0">No students yet. Share the code <b>' + esc(cur.code) + '</b> or the join link. Students sign in with Google, then enter the code on their dashboard.</p></div>'; return; }
+    pane.innerHTML = '<div class="card tbl-wrap" style="padding:6px 14px"><table class="tbl"><thead><tr><th>Student</th><th class="c">Homework</th><th class="c">Best test</th><th class="c">Questions</th><th class="c">Accuracy</th><th>Weakest skills</th><th></th></tr></thead><tbody>' +
+      members.map(m => {
+        const s = m.stats || {}, d = doneBy(m.uid).length;
+        return '<tr><td><b>' + esc(m.name || '') + '</b><div class="small muted">' + esc(m.email || '') + '</div></td><td class="c">' + d + '/' + tasks.length + '</td><td class="c">' + (s.bestScore || '–') + '</td><td class="c">' + (s.questions || 0) + '</td><td class="c">' + (s.questions ? s.accuracy + '%' : '–') + '</td>' +
+          '<td class="small">' + esc((s.weak || []).join(', ') || '–') + '</td><td style="white-space:nowrap"><button type="button" class="btn btn-ghost btn-sm" data-report-for="' + esc(m.uid) + '">Parent report</button> <button type="button" class="link-btn small" data-remove="' + esc(m.uid) + '">Remove</button></td></tr>';
+      }).join('') + '</tbody></table></div>';
+    $$('[data-report-for]').forEach(b => b.addEventListener('click', () => parentReport(members.find(m => m.uid === b.dataset.reportFor))));
+    $$('[data-remove]').forEach(b => b.addEventListener('click', async () => {
+      const m = members.find(x => x.uid === b.dataset.remove);
+      if (!confirm('Remove ' + (m.name || m.email) + ' from ' + cur.name + '?')) return;
+      try { const f = await fs(); await f.deleteDoc(f.doc(sync.db, 'classes', cur.id, 'members', m.uid)); members = members.filter(x => x !== m); drawClass(); }
+      catch (e) { toast(friendly(e)); }
+    }));
+  }
+
+  /* ---------------- Homework ---------------- */
+  const KIND = { set: 'Practice set', test: 'Practice test', lesson: 'Lesson', drill: 'Drill' };
+  function itemsFor(kind) {
+    if (kind === 'set') return catalog.sets.map(s => [s.id, s.title]);
+    if (kind === 'test') return catalog.tests.map(t => [t.id, t.title]);
+    if (kind === 'lesson') return lessons.map(l => [l.id, (l.title && l.title.en) || l.id]);
+    return [];
+  }
+  function drawHomework() {
+    const pane = $('#pane');
+    const due = new Date(Date.now() + 7 * 86400000).toISOString().slice(0, 10);
+    pane.innerHTML = '<form class="card hw-form" novalidate><h3>Assign homework</h3><div class="row">' +
+      '<div class="field"><label for="hw-kind">Type</label><select class="input" id="hw-kind">' + Object.keys(KIND).map(k => '<option value="' + k + '">' + KIND[k] + '</option>').join('') + '</select></div>' +
+      '<div class="field" id="hw-item-f"><label for="hw-item">Which one</label><select class="input" id="hw-item"></select></div>' +
+      '<div class="field"><label for="hw-due">Due</label><input class="input" id="hw-due" type="date" value="' + due + '"></div></div>' +
+      '<div id="hw-drill" hidden><div class="row"><div class="field"><label for="hw-sec">Section</label><select class="input" id="hw-sec"><option value="rw">Reading and Writing</option><option value="math">Math</option></select></div>' +
+      '<div class="field"><label for="hw-diff">Difficulty</label><select class="input" id="hw-diff"><option value="">Any</option><option value="easy">Easy</option><option value="medium">Medium</option><option value="hard">Hard</option></select></div>' +
+      '<div class="field"><label for="hw-n">Questions</label><select class="input" id="hw-n"><option>5</option><option selected>10</option><option>20</option></select></div>' +
+      '<div class="field"><label for="hw-time">Timer</label><select class="input" id="hw-time"><option value="">No timer</option><option value="pace">SAT pace</option><option value="60">1 minute a question</option></select></div></div>' +
+      '<div class="label" style="margin-bottom:6px">Skills (none ticked: a mix)</div><div class="skill-boxes" id="hw-skills"></div>' +
+      '<div class="field" style="margin-top:10px"><label for="hw-title">Title</label><input class="input" id="hw-title" maxlength="80" placeholder="e.g. Boundaries drill"></div></div>' +
+      '<p class="pay-err" role="alert" hidden></p><button type="submit" class="btn btn-primary">Assign to ' + esc(cur.name) + '</button></form>' +
+      '<h2 class="section-title" style="font-size:1.3rem;margin:28px 0 10px">Assigned</h2>' +
+      (tasks.length ? '<div class="card tbl-wrap" style="padding:6px 14px"><table class="tbl"><thead><tr><th>Assignment</th><th>Due</th><th class="c">Done</th><th></th></tr></thead><tbody>' + tasks.map(x =>
+        '<tr><td><b>' + esc(x.title) + '</b><div class="small muted">' + KIND[x.kind] + '</div></td><td>' + esc(x.due || '–') + '</td><td class="c">' + results.filter(r => r.aid === x.id).length + '/' + members.length + '</td><td><button type="button" class="link-btn small" data-del-task="' + esc(x.id) + '">Delete</button></td></tr>').join('') + '</tbody></table></div>'
+        : '<p class="muted">Nothing assigned yet.</p>');
+    const kind = $('#hw-kind'), item = $('#hw-item');
+    const fill = () => {
+      const k = kind.value;
+      $('#hw-drill').hidden = k !== 'drill'; $('#hw-item-f').hidden = k === 'drill';
+      item.innerHTML = itemsFor(k).map(i => '<option value="' + esc(i[0]) + '">' + esc(i[1]) + '</option>').join('');
+    };
+    const skills = () => { const sec = $('#hw-sec').value; $('#hw-skills').innerHTML = [].concat.apply([], Object.values(SH.TAXONOMY[sec].domains)).map(s => '<label><input type="checkbox" value="' + esc(s) + '"> ' + esc(s) + '</label>').join(''); };
+    kind.addEventListener('change', fill); $('#hw-sec').addEventListener('change', skills);
+    fill(); skills();
+    $('form', pane).addEventListener('submit', async e => {
+      e.preventDefault();
+      const k = kind.value, err = $('.pay-err', pane);
+      const doc = { kind: k, ref: '', title: '', due: $('#hw-due').value || '' };
+      if (k === 'drill') {
+        const picked = $$('#hw-skills input:checked').map(i => i.value);
+        doc.drill = { sec: $('#hw-sec').value, diff: $('#hw-diff').value, n: +$('#hw-n').value, skills: picked, time: $('#hw-time').value };
+        doc.title = $('#hw-title').value.trim() || ((picked[0] || ($('#hw-sec').value === 'math' ? 'Math' : 'Reading and Writing')) + ' drill');
+      } else {
+        doc.ref = item.value;
+        doc.title = (itemsFor(k).find(i => i[0] === item.value) || [])[1] || item.value;
+      }
+      if (!doc.title) { err.textContent = 'Pick what to assign.'; err.hidden = false; return; }
+      try {
+        const f = await fs();
+        doc.title = doc.title.slice(0, 80);
+        const ref = await f.addDoc(f.collection(sync.db, 'classes', cur.id, 'assignments'), Object.assign(doc, { createdAt: f.serverTimestamp() }));
+        tasks.unshift(Object.assign({ id: ref.id, createdAt: Date.now() }, doc));
+        toast('Assigned: ' + doc.title); SH.track('assignment_created', { kind: k });
+        drawClass();
+      } catch (ex) { err.textContent = friendly(ex); err.hidden = false; }
+    });
+    $$('[data-del-task]').forEach(b => b.addEventListener('click', async () => {
+      if (!confirm('Delete this assignment? Results already sent stay in the grid only while it exists.')) return;
+      try { const f = await fs(); await f.deleteDoc(f.doc(sync.db, 'classes', cur.id, 'assignments', b.dataset.delTask)); tasks = tasks.filter(x => x.id !== b.dataset.delTask); drawClass(); }
+      catch (e) { toast(friendly(e)); }
+    }));
+  }
+
+  /* ---------------- Results grid ---------------- */
+  const cellOf = r => !r ? '' : r.score != null ? String(r.score) : r.count ? r.correct + '/' + r.count : '✓';
+  function drawGrid() {
+    const pane = $('#pane');
+    if (!members.length || !tasks.length) { pane.innerHTML = '<div class="card"><p style="margin:0">The grid fills in once the class has students and homework.</p></div>'; return; }
+    const cols = tasks.slice().reverse();
+    pane.innerHTML = '<div class="card tbl-wrap" style="padding:6px 14px"><table class="tbl"><thead><tr><th>Student</th>' + cols.map(x => '<th class="c" title="' + esc(x.title) + '">' + esc(x.title.length > 18 ? x.title.slice(0, 17) + '…' : x.title) + '<div class="small muted" style="font-weight:400">' + esc(x.due || '') + '</div></th>').join('') + '</tr></thead><tbody>' +
+      members.map(m => '<tr><td><b>' + esc(m.name || m.email) + '</b></td>' + cols.map(x => { const r = results.find(y => y.aid === x.id && y.uid === m.uid); return '<td class="c ' + (r ? 'cell-ok' : 'cell-no') + '">' + (r ? esc(cellOf(r)) : '–') + '</td>'; }).join('') + '</tr>').join('') +
+      '</tbody></table></div><p class="small muted">Scores are estimated totals for practice tests and correct answers for sets, drills and lessons. “–” means not done yet.</p>';
+  }
+
+  async function archive() {
+    if (!confirm('Archive ' + cur.name + '? The join code stops working.')) return;
+    try {
+      const f = await fs();
+      const batch = f.writeBatch(sync.db);
+      batch.update(f.doc(sync.db, 'classes', cur.id), { archived: true });
+      batch.delete(f.doc(sync.db, 'classCodes', cur.code));
+      await batch.commit();
+      await loadClasses(); location.hash = '#';
+    } catch (e) { toast(friendly(e)); }
+  }
+
+  /* ---------------- Parent report (Uzbek, Russian or English), printable ---------------- */
+  const RT = {
+    uz: { title: 'Oʻquvchi hisoboti', for: 'Ota-onalar uchun', date: 'Sana', best: 'Eng yaxshi test natijasi', target: 'Maqsad', test: 'SAT sanasi', q: 'Yechilgan savollar', acc: 'Aniqlik', hw: 'Uy vazifalari', hw_done: '{n} tadan {d} tasi bajarilgan', weak: 'Ustida ishlash kerak boʻlgan koʻnikmalar', none: 'Hali maʼlumot yetarli emas', last: 'Oxirgi sinov testi', note: 'Oʻqituvchi izohi', teacher: 'Oʻqituvchi', scale: 'SAT ballari 400 dan 1600 gacha. Sinov testlari natijasi taxminiy.', task: 'Vazifa', res: 'Natija', due: 'Muddat', notdone: 'bajarilmagan' },
+    ru: { title: 'Отчёт об ученике', for: 'Для родителей', date: 'Дата', best: 'Лучший результат теста', target: 'Цель', test: 'Дата SAT', q: 'Решено вопросов', acc: 'Точность', hw: 'Домашние задания', hw_done: 'выполнено {d} из {n}', weak: 'Навыки, над которыми нужно работать', none: 'Пока мало данных', last: 'Последний пробный тест', note: 'Комментарий преподавателя', teacher: 'Преподаватель', scale: 'Баллы SAT от 400 до 1600. Результаты пробных тестов примерные.', task: 'Задание', res: 'Результат', due: 'Срок', notdone: 'не выполнено' },
+    en: { title: 'Student report', for: 'For parents', date: 'Date', best: 'Best practice test', target: 'Goal', test: 'SAT date', q: 'Questions practiced', acc: 'Accuracy', hw: 'Homework', hw_done: '{d} of {n} done', weak: 'Skills to work on', none: 'Not enough data yet', last: 'Latest practice test', note: 'Teacher’s note', teacher: 'Teacher', scale: 'SAT scores run from 400 to 1600. Practice test scores are estimates.', task: 'Assignment', res: 'Result', due: 'Due', notdone: 'not done' }
+  };
+  function parentReport(m) {
+    let lang = 'uz', note = '';
+    const sheet = document.createElement('div');
+    sheet.className = 'report-sheet';
+    document.body.appendChild(sheet);
+    const close = () => { sheet.remove(); document.removeEventListener('keydown', onKey); };
+    const onKey = e => { if (e.key === 'Escape') close(); };
+    document.addEventListener('keydown', onKey);
+    function paint() {
+      const T = RT[lang], s = m.stats || {}, done = doneBy(m.uid);
+      const fmt = d => SH.dateText(typeof d === 'string' ? Date.parse(d) : d, { year: true }, lang);
+      const stat = (v, k) => '<div class="stat"><b>' + esc(v) + '</b><span>' + esc(T[k]) + '</span></div>';
+      sheet.innerHTML = '<div class="rp-tools"><div class="lang-switch" role="group" aria-label="Report language">' + ['uz', 'ru', 'en'].map(l => '<button type="button" data-rl="' + l + '" aria-pressed="' + (l === lang) + '">' + l.toUpperCase() + '</button>').join('') + '</div>' +
+        '<button type="button" class="btn btn-primary btn-sm" data-print>Print or save as PDF</button><button type="button" class="btn btn-ghost btn-sm" data-close>Close</button></div>' +
+        '<article class="report-page" lang="' + lang + '"><div class="rp-top"><div><span class="kicker">' + esc(T.for) + '</span><h2>' + esc(T.title) + ': ' + esc(m.name || '') + '</h2><p class="muted" style="margin:0">' + esc((me.center ? me.center + ' · ' : '') + cur.name) + ' · ' + esc(T.date) + ': ' + esc(fmt(Date.now())) + '</p></div><img src="assets/brand/logo-horizontal.svg" alt="SAT Ustoz"></div>' +
+        '<div class="rp-stats">' + stat(s.bestScore || '–', 'best') + stat(s.target || '–', 'target') + stat(s.questions || 0, 'q') + stat(s.questions ? s.accuracy + '%' : '–', 'acc') + '</div>' +
+        (s.lastTest ? '<p style="margin:12px 0 0">' + esc(T.last) + ': <b>' + esc(s.lastTest.title) + ', ' + s.lastTest.total + '</b> (' + esc(fmt(s.lastTest.at)) + ')' + (s.testDate ? ' · ' + esc(T.test) + ': ' + esc(fmt(s.testDate + 'T12:00:00')) : '') + '</p>' : '') +
+        '<h3>' + esc(T.hw) + ' <span class="muted" style="font-weight:400">(' + esc(T.hw_done.replace('{d}', done.length).replace('{n}', tasks.length)) + ')</span></h3>' +
+        (tasks.length ? '<table class="tbl"><thead><tr><th>' + esc(T.task) + '</th><th>' + esc(T.due) + '</th><th class="c">' + esc(T.res) + '</th></tr></thead><tbody>' + tasks.slice(0, 12).map(x => { const r = results.find(y => y.aid === x.id && y.uid === m.uid); return '<tr><td>' + esc(x.title) + '</td><td>' + esc(x.due || '–') + '</td><td class="c">' + (r ? esc(cellOf(r)) : '<span class="muted">' + esc(T.notdone) + '</span>') + '</td></tr>'; }).join('') + '</tbody></table>' : '<p class="muted">–</p>') +
+        '<h3>' + esc(T.weak) + '</h3><p>' + esc((s.weak || []).join(', ') || T.none) + '</p>' +
+        '<h3>' + esc(T.note) + '</h3><textarea class="input" id="rp-note" placeholder="…">' + esc(note) + '</textarea>' +
+        '<p class="small muted" style="margin-top:18px">' + esc(T.teacher) + ': ' + esc(me.name || auth.user.name || '') + ' · ' + esc(T.scale) + ' satustoz.academy</p></article>';
+      $$('[data-rl]', sheet).forEach(b => b.addEventListener('click', () => { note = $('#rp-note', sheet).value; lang = b.dataset.rl; paint(); }));
+      $('[data-print]', sheet).addEventListener('click', () => { note = $('#rp-note', sheet).value; SH.track('parent_report_printed', { lang }); window.print(); });
+      $('[data-close]', sheet).addEventListener('click', close);
+    }
+    paint();
+  }
+});
+</script>
+</body>
+</html>

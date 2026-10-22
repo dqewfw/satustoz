@@ -285,6 +285,8 @@
     .qcell { height: 46px; }
     .qcell:hover { transform: none; }
   }
+  .diag-row { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 6px 16px; align-items: center; padding: 10px 0; border-bottom: 1px solid var(--line); }
+  .diag-pts { white-space: nowrap; color: var(--bad); }
 </style>
 </head>
 <body class="tr">
@@ -337,6 +339,8 @@ document.addEventListener('DOMContentLoaded', function () {
   const params = new URLSearchParams(location.search);
   const testId = (params.get('id') || 'diagnostic-mini').replace(/[^\w-]/g, '');
   const reviewId = params.get('review');
+  const mockId = (params.get('mock') || '').replace(/[^\w-]/g, '');
+  let mockMeta = null; // the national mock this run counts for
   const RUN_KEY = 'run.' + testId;
   const app = $('#app');
   let test = null;
@@ -380,6 +384,15 @@ document.addEventListener('DOMContentLoaded', function () {
       if (rec) return showResults(rec);
     }
     const saved = SH.store.get(RUN_KEY, null);
+    // National mock (test.html?id=...&mock=...): signed in, inside the time window, once.
+    if (mockId && !(saved && saved.mock && saved.mock.id === mockId)) {
+      let m = null;
+      try { m = await SH.mock.get(mockId); } catch (e) { return fatal('We could not load this mock.', e.message); }
+      if (!m || m.testId !== testId) return fatal('This mock link is not valid.', 'Open the national mock from the mock page.');
+      if (!SH.auth.user) return fatal('Sign in to take the national mock.', 'Your result goes on the leaderboard under your account. Sign in with Google, then open the mock page again.');
+      if (!SH.mock.isOpen(m)) return fatal(Date.now() < m.startsAt ? m.title + ' has not started yet.' : m.title + ' has ended.', Date.now() < m.startsAt ? 'It opens on ' + new Date(m.startsAt).toLocaleString('en-GB', { day: 'numeric', month: 'long', hour: '2-digit', minute: '2-digit' }) + '.' : 'See the results on the leaderboard.');
+      mockMeta = m;
+    }
     renderIntro(saved && saved.v === 1 ? saved : null);
   }
 
@@ -435,6 +448,8 @@ document.addEventListener('DOMContentLoaded', function () {
       if (i === 0 && test.sections.length > 1 && test.breakMinutes > 0) rows += '<tr><td class="muted">Break</td><td></td><td class="muted">' + test.breakMinutes + ' min</td></tr>';
     });
     const resume = saved ? '<div class="notice notice-warn" style="margin-bottom:18px"><b>You have a test in progress.</b> You were in ' + esc(saved.phase === 'break' ? 'the break' : 'Section ' + (saved.sec + 1) + ', Module ' + (saved.mod + 1)) + '. The clock paused when you left.</div>' : '';
+    const mockBox = mockMeta && !saved ? '<div class="notice notice-ok" style="margin-bottom:18px"><b>' + esc(mockMeta.title) + '.</b> Your score goes on the national leaderboard, ranked by region and school. You get one try.' +
+      '<label class="nt-quote" style="margin:10px 0 0"><input type="checkbox" id="mock-show" checked> Show my first name on the leaderboard (otherwise “A student”)</label></div>' : '';
     const allMin = totalMin + (test.sections.length > 1 ? test.breakMinutes : 0);
     const hm = allMin >= 60 ? Math.floor(allMin / 60) + 'h ' + (allMin % 60 ? (allMin % 60) + 'm' : '') : allMin + ' min';
     app.innerHTML =
@@ -444,7 +459,7 @@ document.addEventListener('DOMContentLoaded', function () {
       '<h1 style="font-size:clamp(1.9rem,5vw,2.6rem)">' + esc(test.title) + '</h1>' +
       (test.description ? '<p class="muted">' + esc(test.description) + '</p>' : '') +
       '<div class="intro-meta"><div><b>' + totalQ + '</b><span>questions</span></div><div><b>' + hm.trim() + '</b><span>including the break</span></div><div><b>' + test.sections.length * 2 + '</b><span>timed modules</span></div></div>' +
-      resume +
+      resume + mockBox +
       '<table class="structure"><thead><tr><th>Section</th><th>Questions</th><th>Time</th></tr></thead><tbody>' + rows +
       '<tr><td><b>Total</b></td><td><b>' + totalQ + '</b></td><td><b>' + (totalMin + (test.sections.length > 1 ? test.breakMinutes : 0)) + ' min</b></td></tr></tbody></table>' +
       '<h3>How it works</h3><ul class="intro-list">' +
@@ -466,6 +481,7 @@ document.addEventListener('DOMContentLoaded', function () {
       const name = ($('#sname').value || '').trim();
       if (name) SH.setProfile({ name });
       startRun(name);
+      if (mockMeta) { const sh = $('#mock-show'); S.mock = { id: mockMeta.id, show: !sh || sh.checked }; save(); SH.track('mock_started', { mock_id: mockMeta.id }); }
     });
     const rs = $('#restart');
     if (rs) rs.addEventListener('click', () => {
@@ -1117,8 +1133,20 @@ document.addEventListener('DOMContentLoaded', function () {
       qid: t.q.id, section: t.q.section, domain: t.q.domain, skill: t.q.skill, difficulty: t.q.difficulty,
       correct: SH.isCorrect(t.q, responses[t.q.id]), ms: S.time[t.q.id] || 0, source: 'test'
     })));
+    // Every wrong or blank answer goes into the mistake notebook (Pro sees test mistakes there).
+    SH.mistakes.recordMany(taken.map(t => ({ q: t.q, ok: SH.isCorrect(t.q, responses[t.q.id]), src: { type: 'test', id: testId, where: test.title } })));
+    if (S.mock) rec.mock = S.mock.id;
     SH.addTestHistory(rec);
     SH.track('test_finished', { test_id: testId, test_plan: test.plan, total: rec.total, rw: rec.sections.rw ? rec.sections.rw.score : null, math: rec.sections.math ? rec.sections.math.score : null, minutes: Math.round((rec.finishedAt - rec.startedAt) / 60000) });
+    const right = taken.filter(t => SH.isCorrect(t.q, responses[t.q.id])).length;
+    SH.classes.submit({ kind: 'test', ref: testId }, { title: test.title, score: rec.total, rw: rec.sections.rw ? rec.sections.rw.score : null, math: rec.sections.math ? rec.sections.math.score : null, correct: right, count: taken.length })
+      .catch(e => console.warn('[SAT Ustoz] Could not send the result to your teacher:', e));
+    if (testId === 'diagnostic-mini') SH.referral.complete(testId);
+    if (S.mock && rec.total != null) {
+      const m = { id: S.mock.id };
+      SH.mock.submit(m, rec, S.mock.show).then(() => { rec.mockSaved = true; const el = $('#mock-res'); if (el) el.innerHTML = mockResHtml(rec, true); })
+        .catch(e => { console.warn('[SAT Ustoz] Could not save the mock result:', e); const el = $('#mock-res'); if (el) el.innerHTML = mockResHtml(rec, false); });
+    }
     SH.store.del(RUN_KEY);
     S = null;
     try { history.replaceState(null, '', 'test.html?id=' + encodeURIComponent(testId) + '&review=' + encodeURIComponent(rec.id)); } catch (e) { /* ignore */ }
@@ -1169,6 +1197,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const weakest = Object.values(skills).filter(s => s.n >= 2).sort((a, b) => a.c / a.n - b.c / b.n || b.n - a.n).slice(0, 3);
     const weakRows = weakest.map(d => '<div class="dom-row"><div><span class="tag tag-' + d.sec + '">' + (d.sec === 'rw' ? 'R&amp;W' : 'Math') + '</span> ' + esc(d.name) + '</div><div class="bar"><i style="width:' + SH.pct(d.c, d.n) + '%"></i></div><div><b>' + d.c + '/' + d.n + '</b></div></div>').join('');
     const wrongCount = filterCount('wrong');
+    const isDiag = rec.testId === 'diagnostic-mini';
 
     app.className = '';
     app.innerHTML =
@@ -1179,10 +1208,12 @@ document.addEventListener('DOMContentLoaded', function () {
       (rec.total != null ? '<div class="score-big">' + rec.total + '<small>Estimated total score (400–1600)</small></div>' + scaleHtml(rec.total) : '') +
       '</div><div class="sec-scores">' + secRows + '<p class="small muted" style="margin:0">This is an estimate. The real SAT scores each question with item response theory, so treat it as a ballpark, not a prediction.</p></div></section>' +
       '<div class="row" style="margin:16px 0 26px"><a class="btn btn-primary" href="test.html?id=' + encodeURIComponent(rec.testId) + '">Retake this test</a><a class="btn btn-ghost" href="practice.html#home">Practice my weak skills</a><button type="button" class="btn btn-ghost" id="share-score">Share my score</button></div>' +
+      (rec.mock ? '<section class="card notice-ok" id="mock-res" style="margin-bottom:26px">' + mockResHtml(rec, rec.mockSaved ? true : null) + '</section>' : '') +
+      (isDiag ? '<section class="card diag" id="diag" style="margin-bottom:26px"></section>' : '') +
       (full
         ? '<div class="grid grid-2"><section class="card"><h3>Modules</h3><table class="mod-table"><thead><tr><th>Module</th><th>Correct</th><th>Time used</th></tr></thead><tbody>' + modRows + '</tbody></table></section>' +
           '<section class="card"><h3>By content domain</h3>' + domRows + '</section></div>'
-        : '<section class="card"><h3>Your three weakest skills</h3>' + SH.lockBox(weakRows || domRows, 'See which skills cost you points', 'Pro breaks your score down by skill and module, so you know exactly what to practice next.', 'weak_skills') + '</section>') +
+        : isDiag ? '' : '<section class="card"><h3>Your three weakest skills</h3>' + SH.lockBox(weakRows || domRows, 'See which skills cost you points', 'Pro breaks your score down by skill and module, so you know exactly what to practice next.', 'weak_skills') + '</section>') +
       (full ? '' : '<section style="margin-top:26px"><h2 style="font-size:1.6rem">Review every question</h2><div class="card">' +
         SH.lockBox('<div id="qprev"></div>', 'Review all ' + taken.length + ' questions', 'You missed ' + wrongCount + '. Pro shows each one with the right answer and an explanation.', 'review') + '</div></section>') +
       (!full ? '' : '<section style="margin-top:26px"><h2 style="font-size:1.6rem">Review every question</h2>' +
@@ -1271,6 +1302,7 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     $('#share-score').addEventListener('click', openShare);
+    if (isDiag) drawDiagReport(rec, taken);
     const list = $('#qlist') || $('#qprev');
     function draw(filter) {
       const items = taken.filter(t => keep(t, filter));
@@ -1307,6 +1339,78 @@ document.addEventListener('DOMContentLoaded', function () {
     }));
     window.scrollTo(0, 0);
   }
+  function mockResHtml(rec, ok) {
+    const link = '<a class="btn btn-primary btn-sm" href="mock.html?id=' + encodeURIComponent(rec.mock) + '">See the leaderboard</a>';
+    if (ok === true) return '<div class="row" style="justify-content:space-between"><span><b>National mock: your score is on the leaderboard.</b> Rankings by region and school update as students finish.</span>' + link + '</div>';
+    if (ok === false) return '<p style="margin:0"><b>We could not put this score on the leaderboard.</b> Each mock counts once per student, and only while it is open. If that’s not the reason, message us on <a href="' + esc(SH.CONFIG.CONTACT_TELEGRAM) + '" target="_blank" rel="noopener">Telegram</a>.</p>';
+    return '<p style="margin:0" aria-live="polite">Saving your score to the national leaderboard…</p>';
+  }
+
+  /* ---------------- Diagnostic report (free) ----------------
+     The funnel after the mini diagnostic: the three skills that cost the most
+     points, in the student's language, then Pro for those exact skills, then a
+     free call or a trial lesson at the learning center. */
+  const DIAG_T = SH.i18n({
+    en: { h: 'Your diagnostic report', lead: 'Estimated score {s}. These three skills cost you the most points:', pts: 'about {n} points', missed: '{m} of {n} missed',
+      pro_h: 'Practice exactly these skills', pro_p: 'Pro gives you drills for these skills, an explanation for every question you missed and a study plan to your test date.', pro_btn: 'See what Pro adds', drill_btn: 'Drill these skills',
+      t_h: 'Want a teacher to go through it with you?', t_p: 'Book a free 15-minute call with Azizbek, or a free trial lesson at {c}.', t_btn: 'Book a free call',
+      t_msg: 'Hi! I took the SAT Ustoz mini diagnostic and got {s}. My weakest skills: {k}. I would like a free 15-minute call or a trial lesson.',
+      none: 'You missed almost nothing. Take a full practice test to find what to work on next.', est: 'Points are estimated with the same scoring that gives your score above.' },
+    uz: { h: 'Diagnostika hisobotingiz', lead: 'Taxminiy ball: {s}. Eng koʻp ball yoʻqotgan uchta koʻnikmangiz:', pts: 'taxminan {n} ball', missed: '{n} tadan {m} tasi xato',
+      pro_h: 'Aynan shu koʻnikmalarni mashq qiling', pro_p: 'Pro sizga shu koʻnikmalar boʻyicha mashqlar, xato qilgan har bir savolingizga izoh va imtihon sanangizgacha oʻqish rejasini beradi.', pro_btn: 'Pro nimalar berishini koʻrish', drill_btn: 'Shu koʻnikmalarni mashq qilish',
+      t_h: 'Natijani oʻqituvchi bilan koʻrib chiqmoqchimisiz?', t_p: 'Azizbek bilan bepul 15 daqiqalik suhbatga yoki {c} markazida bepul sinov darsiga yoziling.', t_btn: 'Bepul suhbatga yozilish',
+      t_msg: 'Salom! SAT Ustoz mini diagnostikasini topshirdim, natijam {s}. Eng zaif koʻnikmalarim: {k}. Bepul 15 daqiqalik suhbat yoki sinov darsiga yozilmoqchiman.',
+      none: 'Deyarli xato qilmadingiz. Nimani mashq qilish kerakligini bilish uchun toʻliq sinov testini topshiring.', est: 'Ballar yuqoridagi natijangizni hisoblagan usul bilan taxminiy hisoblangan.' },
+    ru: { h: 'Ваш отчёт по диагностике', lead: 'Примерный балл: {s}. Больше всего баллов вы потеряли на этих трёх навыках:', pts: 'около {n} баллов', missed: 'ошибок: {m} из {n}',
+      pro_h: 'Тренируйте именно эти навыки', pro_p: 'Pro даёт тренировки по этим навыкам, объяснение к каждому вопросу с ошибкой и план подготовки до даты экзамена.', pro_btn: 'Что даёт Pro', drill_btn: 'Тренировать эти навыки',
+      t_h: 'Хотите разобрать результат с преподавателем?', t_p: 'Запишитесь на бесплатный 15-минутный разговор с Азизбеком или на бесплатный пробный урок в {c}.', t_btn: 'Записаться бесплатно',
+      t_msg: 'Здравствуйте! Я прошёл(ла) мини-диагностику SAT Ustoz, результат {s}. Самые слабые навыки: {k}. Хочу записаться на бесплатный 15-минутный разговор или пробный урок.',
+      none: 'Вы почти не ошиблись. Пройдите полный пробный тест, чтобы понять, над чем работать.', est: 'Баллы оценены тем же способом, что и ваш результат выше.' }
+  });
+  // Points each skill cost, by the estimator in sectionScore(): a Module 1 miss
+  // costs 600 / (n1 + hardWeight × n2), a Module 2 miss that times its route's weight.
+  function lostBySkill(rec, taken) {
+    const out = {};
+    test.sections.forEach(s => {
+      const route = rec.routes[s.id]; if (!route) return;
+      const denom = s.module1.questions.length + test.scoring.m2HardWeight * s.module2[route].questions.length;
+      const w = route === 'harder' ? test.scoring.m2HardWeight : test.scoring.m2EasyWeight;
+      taken.filter(t => t.sec === s).forEach(t => {
+        const k = s.id + '|' + (t.q.skill || 'Other');
+        const o = out[k] = out[k] || { sec: s.id, skill: t.q.skill || 'Other', pts: 0, miss: 0, n: 0 };
+        o.n++;
+        if (!SH.isCorrect(t.q, rec.responses[t.q.id])) { o.miss++; o.pts += 600 * (t.mod === 0 ? 1 : w) / denom; }
+      });
+    });
+    return Object.values(out).filter(o => o.miss).sort((a, b) => b.pts - a.pts).slice(0, 3);
+  }
+  function drawDiagReport(rec, taken) {
+    const box = $('#diag'); if (!box) return;
+    if (!SH.store.get('lang', null)) document.documentElement.lang = SH.pickLang();
+    const top = lostBySkill(rec, taken);
+    const pro = SH.plan.allows('pro');
+    const score = rec.total != null ? rec.total : '–';
+    const center = SH.CONFIG.LEARNING_CENTER || {};
+    const msg = DIAG_T('t_msg', { s: score, k: top.map(o => o.skill).join(', ') || '-' });
+    const callUrl = center.URL || (SH.CONFIG.CONTACT_TELEGRAM + '?text=' + encodeURIComponent(msg));
+    const focus = top.length ? top.filter(o => o.sec === top[0].sec) : [];
+    const drillUrl = focus.length ? 'practice.html?drill=' + btoa(unescape(encodeURIComponent(JSON.stringify({ s: focus[0].sec, d: '', n: 10, k: focus.map(o => o.skill), t: '', m: 'Diagnostic focus' })))).replace(/=+$/, '') : 'practice.html#sets';
+    box.innerHTML = '<div class="row" style="justify-content:space-between;margin-bottom:6px"><h2 style="font-size:1.5rem;margin:0">' + esc(DIAG_T('h')) + '</h2>' +
+      '<div class="lang-switch" role="group" aria-label="Language">' + ['en', 'uz', 'ru'].map(l => '<button type="button" data-dl="' + l + '" aria-pressed="' + (SH.langNow() === l) + '">' + l.toUpperCase() + '</button>').join('') + '</div></div>' +
+      (top.length ? '<p>' + esc(DIAG_T('lead', { s: score })) + '</p>' + top.map(o => '<div class="diag-row"><div><span class="tag tag-' + o.sec + '">' + (o.sec === 'rw' ? 'R&amp;W' : 'Math') + '</span> <b>' + esc(o.skill) + '</b><div class="small muted">' + esc(DIAG_T('missed', { m: o.miss, n: o.n })) + '</div></div><b class="diag-pts">' + esc(DIAG_T('pts', { n: Math.max(10, Math.round(o.pts / 10) * 10) })) + '</b></div>').join('') +
+        '<p class="small muted" style="margin:8px 0 0">' + esc(DIAG_T('est')) + '</p>' : '<p>' + esc(DIAG_T('none')) + '</p>') +
+      '<div class="grid grid-2" style="margin-top:18px"><div class="card" style="background:var(--brand-tint);border-color:var(--brand-tint-2)"><h3>' + esc(DIAG_T('pro_h')) + '</h3><p class="small">' + esc(DIAG_T('pro_p')) + '</p>' +
+      (pro ? '<a class="btn btn-primary btn-sm" href="' + esc(drillUrl) + '" data-diag="drill">' + esc(DIAG_T('drill_btn')) + '</a>' : '<button type="button" class="btn btn-primary btn-sm" data-diag="pro">' + esc(DIAG_T('pro_btn')) + '</button>') + '</div>' +
+      '<div class="card"><h3>' + esc(DIAG_T('t_h')) + '</h3><p class="small">' + esc(DIAG_T('t_p', { c: center.NAME || 'our center' })) + '</p><a class="btn btn-ghost btn-sm" href="' + esc(callUrl) + '" target="_blank" rel="noopener" data-diag="call">' + esc(DIAG_T('t_btn')) + '</a></div></div>';
+    $$('[data-dl]', box).forEach(b => b.addEventListener('click', () => { SH.store.set('lang', b.dataset.dl); document.documentElement.lang = b.dataset.dl; drawDiagReport(rec, taken); }));
+    $$('[data-diag]', box).forEach(b => b.addEventListener('click', () => {
+      const k = b.dataset.diag;
+      SH.track(k === 'call' ? 'consult_tapped' : 'diag_pro_tapped', { total: rec.total, action: k });
+      if (k === 'pro') SH.plan.pitch({ title: DIAG_T('pro_h'), text: top.map(o => o.skill).join(', ') });
+    }));
+    if (!box.dataset.seen) { box.dataset.seen = '1'; SH.track('diag_report_viewed', { total: rec.total, skills: top.map(o => o.skill).join(', ') }); }
+  }
+
   function scaleHtml(total) {
     const pos = v => Math.max(0, Math.min(100, (v - 400) / 12));
     const goal = +SH.getProfile().target || 0;

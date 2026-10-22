@@ -50,7 +50,7 @@
         { "@type": "Question", "name": "How accurate is the score estimate?", "acceptedAnswer": { "@type": "Answer", "text": "It is a ballpark. The real SAT scores each question with item response theory. Our estimate uses how many questions you got right and which Module 2 you reached." } },
         { "@type": "Question", "name": "Where is my progress saved?", "acceptedAnswer": { "@type": "Answer", "text": "If you sign in with Google, your progress is saved to your account and follows you to any device. Without an account, it stays in the browser on the device you use." } },
         { "@type": "Question", "name": "Does it work on a phone?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Everything works on phones, though a laptop feels closer to test day for full practice tests." } },
-        { "@type": "Question", "name": "What is free, and what needs Pro?", "acceptedAnswer": { "@type": "Answer", "text": "The mini diagnostic, Practice Test 1, the starter sets and your total score are free. Pro opens all 10 practice tests, your score broken down by skill, a review of every question and drills built from your weakest skills. Max, coming soon, adds the AI tutor, a study plan to your test date and a monthly live group session." } },
+        { "@type": "Question", "name": "What is free, and what needs Pro?", "acceptedAnswer": { "@type": "Answer", "text": "The mini diagnostic, Practice Test 1, the starter sets and your total score are free. Pro opens all 10 practice tests, your score broken down by skill, a review of every question and drills built from your weakest skills and a study plan to your test date. Max adds the AI tutor, a plan re-made every week and a monthly live group session." } },
         { "@type": "Question", "name": "Can you help me register for the SAT?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Message us on Telegram and we'll walk you through creating your College Board account, picking a test date and center, and paying the registration fee." } },
         { "@type": "Question", "name": "Is this the same as Bluebook?", "acceptedAnswer": { "@type": "Answer", "text": "It follows the same structure and tools, but it is an independent practice site and is not affiliated with the College Board." } }
       ]
@@ -179,12 +179,32 @@
   .why-item { border-top: 3px solid var(--gold); padding-top: 14px; }
   .why-item h3 { font-size: 1.2rem; margin-bottom: .35em; }
   .why-item p { margin: 0; color: var(--muted); }
-  /* What students say */
-  .says { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
-  .says blockquote { margin: 0; background: var(--ivory); border-radius: var(--r); padding: 18px 20px; }
-  .says blockquote p { margin: 0 0 10px; color: var(--ink); }
-  .says cite { font-style: normal; font-size: .9rem; color: var(--muted); }
-  @media (max-width: 760px) { .why-grid, .says { grid-template-columns: 1fr; } }
+  /* What students say: quotes with their score, a jump when there's a "from" */
+  .says { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; align-items: start; }
+  .says blockquote { margin: 0; background: var(--ivory); border-radius: var(--r); padding: 20px 22px; display: flex; flex-direction: column; gap: 12px; }
+  .says blockquote p { margin: 0; color: var(--ink); }
+  .says cite { font-style: normal; font-size: .92rem; color: var(--muted); }
+  .says cite b { display: block; color: var(--ink); font-size: 1rem; }
+  .say-score { display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap; padding-bottom: 12px; border-bottom: 1px solid var(--line); }
+  .say-score b { font-family: var(--display); font-weight: 600; font-size: 2.3rem; line-height: 1; color: var(--brand); letter-spacing: -.02em; font-variant-numeric: tabular-nums; }
+  .say-score s { font-family: var(--display); font-size: 1.3rem; color: var(--muted); text-decoration-thickness: 1.5px; font-variant-numeric: tabular-nums; }
+  .say-score span { font-size: .88rem; font-weight: 700; color: var(--gold-text); }
+  .say-photo img { border-radius: var(--r-sm); border: 1px solid var(--line); max-height: 220px; width: auto; }
+  /* Free tools */
+  .tools { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
+  .tool { display: flex; flex-direction: column; gap: 8px; }
+  .tool p { margin: 0; color: var(--muted); flex: 1; }
+  .tool .btn { align-self: flex-start; margin-top: 6px; }
+  /* For learning centers */
+  .centers { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 36px; align-items: center; }
+  .centers ul { margin: 0; padding: 0; list-style: none; display: grid; gap: 10px; }
+  .centers li { padding-left: 26px; position: relative; color: var(--ink-2); }
+  .centers li::before { content: ''; position: absolute; left: 0; top: 7px; width: 14px; height: 14px; border-radius: 3px; border: 2px solid var(--gold); }
+  /* How close are our scores */
+  .calib { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; margin-top: 4px; }
+  .hero-uz { display: inline-flex; align-items: center; gap: 8px; margin-bottom: 18px; padding: 5px 12px; border-radius: var(--r-sm); background: var(--gold-soft); color: var(--gold-text); font-weight: 700; font-size: .95rem; }
+  @media (max-width: 900px) { .tools, .says { grid-template-columns: 1fr 1fr; } }
+  @media (max-width: 760px) { .why-grid, .says, .tools, .centers, .calib { grid-template-columns: 1fr; } }
   @media (max-width: 920px) {
     .hero .wrap, .how-grid, .feat { grid-template-columns: 1fr; gap: 32px; }
     .stage { justify-self: stretch; max-width: none; }
@@ -235,6 +255,7 @@
   <section class="hero">
     <div class="wrap">
       <div>
+        <span class="hero-uz" data-i18n="hero_uz">SAT prep explained in Uzbek and Russian</span>
         <h1 data-i18n="hero_h1">Practice for the SAT the way you&rsquo;ll take it.</h1>
         <p class="lede" data-i18n="hero_sub">Timed adaptive tests in the real two-module format, question sets from our own lessons, and an explanation for every question. AI tutor coming with Max.</p>
         <div class="hero-ctas">
@@ -245,6 +266,7 @@
           <li data-i18n="fact1">Module 2 adapts to how you did on Module 1</li>
           <li data-i18n="fact2">Calculator, reference sheet and annotation built in</li>
           <li data-i18n="fact3">An explanation for every question</li>
+          <li data-i18n="fact4">Lessons, vocabulary and the AI tutor in Uzbek and Russian</li>
         </ul>
       </div>
       <div class="stage">
@@ -301,6 +323,9 @@
         <div><dt><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="3" width="16" height="18" rx="2.5" fill="none" stroke="currentColor" stroke-width="2"/><path d="M8 8h8M8 12h8M8 16h5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg><span data-i18n="f2_t">Practice sets from our lessons</span></dt><dd data-i18n="f2_d">Questions written by our team and grouped by SAT skill. Build a drill on exactly the skills you need.</dd></div>
         <div><dt><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l1.8 4.7L18.5 9.5l-4.7 1.8L12 16l-1.8-4.7L5.5 9.5l4.7-1.8z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M18.5 15.5l.8 2.2 2.2.8-2.2.8-.8 2.2-.8-2.2-2.2-.8 2.2-.8z" fill="currentColor"/></svg><span data-i18n="f3_t">AI tutor, coming with Max</span></dt><dd data-i18n="f3_d">Stuck on a question? The AI tutor will explain the reasoning step by step, in English, Uzbek or Russian. It comes with the Max plan: join the waitlist below to hear first.</dd></div>
         <div><dt><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="5" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="1.6" fill="currentColor"/></svg><span data-i18n="f4_t">Progress by skill</span></dt><dd data-i18n="f4_d">Every answer is tracked by SAT skill, so you can see your weakest areas and work on those first.</dd></div>
+        <div><dt><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5.5A1.5 1.5 0 015.5 4H11v16H5.5A1.5 1.5 0 014 18.5zM20 5.5A1.5 1.5 0 0018.5 4H13v16h5.5a1.5 1.5 0 001.5-1.5z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg><span data-i18n="f5_t">Vocabulary with Uzbek and Russian meanings</span></dt><dd data-i18n="f5_d">SAT words with meanings in Uzbek and Russian, an example sentence and audio. Spaced repetition brings each word back just before you would forget it, and words from questions you missed get their own deck.</dd></div>
+        <div><dt><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4h14v16H5z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M9 9l6 6M15 9l-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg><span data-i18n="f6_t">A mistake notebook that empties itself</span></dt><dd data-i18n="f6_d">Every question you get wrong is saved by skill. Retry them in one tap; answer one right twice in a row and it is marked fixed.</dd></div>
+        <div><dt><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12 7v5l3 2" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg><span data-i18n="f7_t">5-minute lessons in Uzbek and Russian</span></dt><dd data-i18n="f7_d">Short lessons on the most-tested skills, each ending with a 5-question check.</dd></div>
       </dl>
     </div>
   </section>
@@ -339,7 +364,9 @@
         <div class="why-item"><h3 data-i18n="w1_t">Fair price, local payment</h3><p data-i18n="w1_d">Big prep platforms charge around $20 a month. Pro here is 79 000 so&rsquo;m a month, and in Uzbekistan you pay from any banking app with Uzcard or Humo, no Visa or Mastercard needed.</p></div>
         <div class="why-item"><h3 data-i18n="w2_t">Help in Uzbek, Russian and English</h3><p data-i18n="w2_d">Stuck on a question or a payment? Message a real person on Telegram. We reply within 2 hours, 9:00 to 23:00 Tashkent time.</p></div>
         <div class="why-item"><h3 data-i18n="w3_t">Written by a 1530 scorer</h3><p data-i18n="w3_d">Questions and explanations come from an SAT instructor who scored 1530 (790 Math) and knows the mistakes international students make most.</p></div>
-        <div class="why-item"><h3 data-i18n="w4_t">Report a mistake, see it fixed</h3><p data-i18n="w4_d">Every question has a &ldquo;Report a mistake&rdquo; button. We read every report and fix what&rsquo;s wrong.</p></div>
+        <div class="why-item"><h3 data-i18n="w4_t">Report a mistake, see it fixed</h3><p data-i18n="w4_d">Every question has a &ldquo;Report a mistake&rdquo; button. We fix what&rsquo;s wrong and tell you on your dashboard when it&rsquo;s done.</p></div>
+        <div class="why-item"><h3 data-i18n="w5_t">SAT in Uzbek</h3><p data-i18n="w5_d">Lessons, word meanings and the AI tutor work in Uzbek and Russian, so you learn the reasoning in the language you think in, then answer in English like on test day.</p></div>
+        <div class="why-item"><h3 data-i18n="w6_t">Original questions only</h3><p data-i18n="w6_d">Every question is written by our team. We never use leaked or &ldquo;recalled&rdquo; exam questions: they break College Board rules and can get a student&rsquo;s scores cancelled.</p></div>
       </div>
     </div>
   </section>
@@ -355,8 +382,28 @@
 
   <section class="block" id="students" hidden>
     <div class="wrap">
-      <div class="sec-head"><h2 data-i18n="says_h2">What students say</h2><p class="muted" data-i18n="says_p">Real messages from SAT Ustoz students, shared with their permission. We never change the words.</p></div>
+      <div class="sec-head"><h2 data-i18n="says_h2">What students say</h2><p class="muted" data-i18n="says_p">Real messages from SAT Ustoz students, shared with their permission.</p></div>
       <div class="says" id="says"></div>
+      <span hidden data-i18n="say_score">SAT score</span><span hidden data-i18n="say_up">+{n} points</span><span hidden data-i18n="say_photo">Score report</span>
+    </div>
+  </section>
+
+  <section class="block" id="calibration" hidden>
+    <div class="wrap">
+      <div class="sec-head"><h2 data-i18n="cal_h2">How close are our scores to the real SAT?</h2><p class="muted" data-i18n="cal_p">Students who took the real SAT told us their score. Here is how it compares with their last practice tests on SAT Ustoz.</p></div>
+      <div class="calib" id="calib"></div>
+      <span hidden data-i18n="cal_n">students compared</span><span hidden data-i18n="cal_abs">points apart on average</span><span hidden data-i18n="cal_50">within 50 points of their real score</span>
+    </div>
+  </section>
+
+  <section class="block" id="tools">
+    <div class="wrap">
+      <div class="sec-head"><h2 data-i18n="tools_h2">Free tools, no account needed</h2></div>
+      <div class="tools">
+        <div class="card tool"><span class="kicker" data-i18n="tool1_k">Score calculator</span><h3 data-i18n="tool1_t">How many correct answers is your score?</h3><p data-i18n="tool1_p">Enter your correct answers per module and see which Module 2 you reach and your estimated score.</p><a class="btn btn-ghost" href="score-calculator.html" data-i18n="tool1_b">Open the calculator</a></div>
+        <div class="card tool"><span class="kicker" data-i18n="tool2_k">Every day</span><h3 data-i18n="tool2_t">Question of the day</h3><p data-i18n="tool2_p">One new SAT question every day, with the explanation. Keep your streak going.</p><a class="btn btn-ghost" href="daily.html" data-i18n="tool2_b">Answer today&rsquo;s question</a></div>
+        <div class="card tool"><span class="kicker" data-i18n="tool3_k">Once a month</span><h3 data-i18n="tool3_t">National mock</h3><p data-i18n="tool3_p">The same full test, at the same time, for students across Uzbekistan. See where you rank in your region and school.</p><a class="btn btn-ghost" href="mock.html" data-i18n="tool3_b">See the next mock</a></div>
+      </div>
     </div>
   </section>
 
@@ -364,6 +411,23 @@
     <div class="wrap">
       <div class="sec-head"><h2 data-i18n="pricing_h2">Start free. Upgrade when you&rsquo;re ready.</h2><p class="muted" data-i18n="pricing_p">The mini diagnostic and Practice Test 1 are free, no card needed. Pro opens all ten tests and shows exactly which skills cost you points.</p></div>
       <div id="plans-mount"></div>
+    </div>
+  </section>
+
+  <section class="block" id="centers-sec">
+    <div class="wrap centers">
+      <div>
+        <span class="kicker" data-i18n="cen_k">For learning centers and schools</span>
+        <h2 data-i18n="cen_h2">Run your SAT groups on SAT Ustoz</h2>
+        <p class="muted" data-i18n="cen_p">One place for your teachers and students: assign work, see who did it, and send parents a clear report. Priced per student in so&rsquo;m.</p>
+        <div class="row" style="margin-top:18px"><a class="btn btn-primary" data-link="telegram" href="https://t.me/azizbek7_t" target="_blank" rel="noopener" data-i18n="cen_btn">Ask about the center plan</a><a class="btn btn-ghost" href="teacher.html" data-i18n="cen_btn2">Teacher sign-in</a></div>
+      </div>
+      <ul>
+        <li data-i18n="cen_1">Classes with a join code, and seats for every teacher</li>
+        <li data-i18n="cen_2">Homework: practice sets, lessons, drills and full tests, graded automatically</li>
+        <li data-i18n="cen_3">A results grid for each group, with every student&rsquo;s weakest skills</li>
+        <li data-i18n="cen_4">Parent reports in Uzbek or Russian, with your center&rsquo;s name</li>
+      </ul>
     </div>
   </section>
 
@@ -395,7 +459,7 @@
       <details><summary data-i18n="q2">How accurate is the score estimate?</summary><p data-i18n="a2">Treat it as a ballpark. The real SAT scores each question with item response theory. Our estimate uses how many you got right and which Module 2 you reached, which is good for tracking progress but is not a guarantee.</p></details>
       <details><summary data-i18n="q3">Where is my progress saved?</summary><p data-i18n="a3">If you sign in with Google, your progress is saved to your account and follows you to any device. Without an account, it stays in this browser on this device, and clearing your browser data starts fresh.</p></details>
       <details><summary data-i18n="q5">Does it work on a phone?</summary><p data-i18n="a5">Yes. Everything works on phones. For full practice tests, a laptop feels closer to test day.</p></details>
-      <details><summary data-i18n="q7">What is free, and what needs Pro?</summary><p data-i18n="a7">The mini diagnostic, Practice Test 1, the starter sets and your total score are free. Pro opens all 10 practice tests, your score broken down by skill, a review of every question with explanations, and drills built from your weakest skills. Max, coming soon, adds the AI tutor, a study plan to your test date and a monthly live group session with Azizbek.</p></details>
+      <details><summary data-i18n="q7">What is free, and what needs Pro?</summary><p data-i18n="a7">The mini diagnostic, Practice Test 1, the starter sets and your total score are free. Pro opens all 10 practice tests, your score broken down by skill, a review of every question with explanations, drills built from your weakest skills and a study plan to your test date. Max, coming soon, adds the AI tutor, a plan re-made every week and a monthly live group session with Azizbek.</p></details>
       <details><summary data-i18n="q8">Can you help me register for the SAT?</summary><p data-i18n="a8">Yes. Message us on Telegram and we&rsquo;ll walk you through creating your College Board account, picking a test date and center, and paying the registration fee.</p></details>
       <details><summary data-i18n="q6">Is this the same as Bluebook?</summary><p data-i18n="a6">It follows the same structure and tools: timer, question navigator, mark for review, answer eliminator, annotation, calculator and reference sheet. It is our own practice site and is not affiliated with the College Board.</p></details>
     </div>
@@ -411,7 +475,7 @@
         <span class="brand-name">SAT Ustoz</span>
         <p style="margin-top:10px" data-i18n="footer_tag">Digital SAT practice built by someone who has taken the test, for students in Uzbekistan and beyond.</p>
       </div>
-      <div><h3 class="f-head" data-i18n="f_practice">Practice</h3><ul><li><a href="practice.html#sets" data-i18n="l_sets">Practice sets</a></li><li><a href="practice.html#plans" data-i18n="l_plans">Plans</a></li><li><a href="practice.html#tests" data-i18n="nav_tests">Practice tests</a></li></ul></div>
+      <div><h3 class="f-head" data-i18n="f_practice">Practice</h3><ul><li><a href="practice.html#sets" data-i18n="l_sets">Practice sets</a></li><li><a href="practice.html#tests" data-i18n="nav_tests">Practice tests</a></li><li><a href="vocab.html" data-i18n="l_vocab">Vocabulary</a></li><li><a href="lessons.html" data-i18n="l_lessons">Lessons</a></li><li><a href="daily.html" data-i18n="tool2_t">Question of the day</a></li><li><a href="score-calculator.html" data-i18n="tool1_k">Score calculator</a></li><li><a href="mock.html" data-i18n="tool3_t">National mock</a></li><li><a href="practice.html#plans" data-i18n="l_plans">Plans</a></li><li><a href="teacher.html" data-i18n="l_teachers">For teachers</a></li></ul></div>
       <div><h3 class="f-head" data-i18n="f_contact">Contact</h3><ul><li><a href="tel:+998970550033">+998 97 055 00 33</a></li><li><a data-link="telegram" href="https://t.me/azizbek7_t" target="_blank" rel="noopener">Telegram: @azizbek7_t</a></li><li><a data-link="channel" href="https://t.me/satustoz_off" target="_blank" rel="noopener" data-i18n="l_channel">Telegram channel</a></li><li><a data-link="instagram" href="https://www.instagram.com/satustoz" target="_blank" rel="noopener">Instagram: satustoz</a></li><li><a href="#" data-feedback data-i18n="l_feedback">Send feedback</a></li></ul></div>
     </div>
     <div class="footer-legal">&copy; <span data-year>2026</span> SAT Ustoz. <span data-i18n="legal">SAT&reg; is a trademark registered by the College Board, which is not affiliated with, and does not endorse, this website. All practice questions on this site are written by SAT Ustoz.</span></div>
@@ -424,6 +488,22 @@ document.addEventListener('DOMContentLoaded', function () {
   'use strict';
   var I18N = {
     uz: {
+      hero_uz: "SATga tayyorgarlik oʻzbek va rus tillarida", fact4: "Darslar, lugʻat va AI ustoz oʻzbek va rus tillarida", nav_tools: "Bepul vositalar",
+      f5_t: "Oʻzbekcha va ruscha maʼnolari bilan lugʻat", f5_d: "SAT soʻzlari oʻzbek va rus tilidagi maʼnosi, misol gap va talaffuzi bilan. Takrorlash tizimi har bir soʻzni unutishingizdan oldin qaytaradi, xato qilgan savollaringizdagi soʻzlar esa alohida toʻplamga tushadi.",
+      f6_t: "Oʻzi boʻshaydigan xatolar daftari", f6_d: "Xato javob bergan har bir savolingiz koʻnikma boʻyicha saqlanadi. Ularni bir bosishda qayta yeching: ketma-ket ikki marta toʻgʻri javob bersangiz, xato tuzatilgan deb belgilanadi.",
+      f7_t: "Oʻzbek va rus tilida 5 daqiqalik darslar", f7_d: "Eng koʻp tushadigan koʻnikmalar boʻyicha qisqa darslar, har biri 5 ta savollik tekshiruv bilan tugaydi.",
+      w5_t: "SAT oʻzbek tilida", w5_d: "Darslar, soʻz maʼnolari va AI ustoz oʻzbek va rus tillarida ishlaydi: mantiqni oʻzingiz oʻylaydigan tilda tushunasiz, javobni esa imtihondagidek ingliz tilida berasiz.",
+      w6_t: "Faqat original savollar", w6_d: "Har bir savolni jamoamiz yozgan. Sizib chiqqan yoki «eslab qolingan» imtihon savollaridan hech qachon foydalanmaymiz: bu College Board qoidalarini buzadi va oʻquvchining natijasi bekor qilinishiga olib kelishi mumkin.",
+      say_score: "SAT bali", say_up: "+{n} ball", say_photo: "Natija varaqasi",
+      cal_h2: "Ballarimiz haqiqiy SATga qanchalik yaqin?", cal_p: "Haqiqiy SAT topshirgan oʻquvchilar bizga ballarini aytishdi. Mana ular SAT Ustozdagi oxirgi sinov testlari bilan qanday solishtiriladi.",
+      cal_n: "oʻquvchi solishtirildi", cal_abs: "ball oʻrtacha farq", cal_50: "haqiqiy balidan 50 ball ichida",
+      tools_h2: "Bepul vositalar, hisob kerak emas",
+      tool1_k: "Ball kalkulyatori", tool1_t: "Nechta toʻgʻri javob qancha ball?", tool1_p: "Har bir moduldagi toʻgʻri javoblaringizni kiriting va qaysi 2-modulga tushishingiz hamda taxminiy ballingizni koʻring.", tool1_b: "Kalkulyatorni ochish",
+      tool2_k: "Har kuni", tool2_t: "Kun savoli", tool2_p: "Har kuni bitta yangi SAT savoli va uning izohi. Ketma-ketlikni uzmang.", tool2_b: "Bugungi savolga javob berish",
+      tool3_k: "Oyda bir marta", tool3_t: "Milliy sinov imtihoni", tool3_p: "Butun Oʻzbekiston boʻylab oʻquvchilar uchun bir vaqtda bir xil toʻliq test. Viloyatingiz va maktabingizda nechanchi oʻrinda ekaningizni koʻring.", tool3_b: "Keyingi imtihonni koʻrish",
+      cen_k: "Oʻquv markazlari va maktablar uchun", cen_h2: "SAT guruhlaringizni SAT Ustozda olib boring", cen_p: "Oʻqituvchilar va oʻquvchilar uchun bitta joy: vazifa bering, kim bajarganini koʻring va ota-onalarga tushunarli hisobot yuboring. Narx har bir oʻquvchi uchun soʻmda.", cen_btn: "Markaz tarifi haqida soʻrash", cen_btn2: "Oʻqituvchi kirishi",
+      cen_1: "Kod orqali qoʻshiladigan sinflar va har bir oʻqituvchi uchun joy", cen_2: "Uy vazifalari: savollar toʻplamlari, darslar, mashqlar va toʻliq testlar, avtomatik tekshiriladi", cen_3: "Har bir guruh uchun natijalar jadvali va har bir oʻquvchining eng zaif koʻnikmalari", cen_4: "Markazingiz nomi bilan oʻzbek yoki rus tilida ota-onalar uchun hisobot",
+      l_vocab: "Lugʻat", l_lessons: "Darslar", l_teachers: "Oʻqituvchilar uchun",
       skip: "Asosiy qismga oʻtish",
       try_h2: "Hoziroq sinab koʻring. Hisob kerak emas.", try_p: "Haqiqiy Digital SAT uslubidagi ikkita savol. Javob bering va tushuntirishni ingliz, oʻzbek yoki rus tilida koʻring: tilni yuqorida oʻzgartirasiz.",
       try_rw_ex: "Toʻgʻri javob B. Ikki nuqtadan keyingi qism dalil beradi: baliqlar qaytgan va baliq ovlash qayta boshlangan, demak saʼy-harakatlar umid beruvchi (encouraging). “Negligible” va “disastrous” bu dalilga zid, natija “inevitable” (muqarrar) boʻlgani haqida esa matnda hech narsa yoʻq.",
@@ -436,11 +516,11 @@ document.addEventListener('DOMContentLoaded', function () {
       w1_t: "Adolatli narx, qulay toʻlov", w1_d: "Yirik platformalar oyiga taxminan 20 dollar oladi. Bu yerda Pro oyiga 79 000 soʻm, Oʻzbekistonda esa istalgan bank ilovasi orqali Uzcard yoki Humo bilan toʻlaysiz, Visa yoki Mastercard kerak emas.",
       w2_t: "Oʻzbek, rus va ingliz tilida yordam", w2_d: "Savol yoki toʻlovda qiyinchilik bormi? Telegramda haqiqiy insonga yozing. Toshkent vaqti bilan 9:00 dan 23:00 gacha 2 soat ichida javob beramiz.",
       w3_t: "1530 ball olgan ustoz tomonidan yozilgan", w3_d: "Savollar va izohlar 1530 ball (Math 790) olgan va xalqaro oʻquvchilar eng koʻp qiladigan xatolarni biladigan SAT ustozidan.",
-      w4_t: "Xatoni xabar qiling, biz tuzatamiz", w4_d: "Har bir savolda “Xato haqida xabar berish” tugmasi bor. Har bir xabarni oʻqiymiz va xatoni tuzatamiz.",
-      says_h2: "Oʻquvchilar fikri", says_p: "SAT Ustoz oʻquvchilarining haqiqiy xabarlari, ularning ruxsati bilan. Soʻzlarini hech qachon oʻzgartirmaymiz.",
+      w4_t: "Xatoni xabar qiling, biz tuzatamiz", w4_d: "Har bir savolda “Xato haqida xabar berish” tugmasi bor. Xatoni tuzatamiz va tuzatilgach sahifangizda xabar beramiz.",
+      says_h2: "Oʻquvchilar fikri", says_p: "SAT Ustoz oʻquvchilarining haqiqiy fikrlari, ularning ruxsati bilan.",
       nav_practice: "Mashq", nav_tests: "Sinov testlar", nav_how: "Qanday ishlaydi", nav_pricing: "Tariflar", nav_faq: "Savollar",
       pricing_h2: "Bepul boshlang. Tayyor boʻlganingizda tarifni oshiring.", pricing_p: "Mini diagnostika va 1-sinov testi bepul, karta kerak emas. Pro barcha oʻnta testni ochadi va qaysi koʻnikmalarda ball yoʻqotayotganingizni aniq koʻrsatadi.",
-      q7: "Nimalar bepul, nimalar uchun Pro kerak?", a7: "Mini diagnostika, 1-sinov testi, boshlangʻich toʻplamlar va umumiy ballingiz bepul. Pro barcha 10 ta sinov testini, koʻnikmalar boʻyicha ball tahlilini, har bir savolni izohlari bilan koʻrib chiqishni va eng zaif koʻnikmalaringiz boʻyicha mashqlarni ochadi. Tez kunda chiqadigan Max esa AI ustoz, imtihon sanangizgacha oʻqish rejasi va Azizbek bilan oylik jonli guruh darsini qoʻshadi.",
+      q7: "Nimalar bepul, nimalar uchun Pro kerak?", a7: "Mini diagnostika, 1-sinov testi, boshlangʻich toʻplamlar va umumiy ballingiz bepul. Pro barcha 10 ta sinov testini, koʻnikmalar boʻyicha ball tahlilini, har bir savolni izohlari bilan koʻrib chiqishni va eng zaif koʻnikmalaringiz boʻyicha mashqlarni va imtihon sanangizgacha oʻqish rejasini ochadi. Tez kunda chiqadigan Max esa AI ustoz, har hafta yangilanadigan reja va Azizbek bilan oylik jonli guruh darsini qoʻshadi.",
       cta_start: "Mashqni boshlash",
       hero_h1: "SATga xuddi imtihondagidek tayyorlaning.",
       hero_sub: "Haqiqiy ikki modulli formatdagi vaqtli adaptiv testlar, darslarimizdan olingan savollar toʻplamlari va har bir savolga tushuntirish. AI ustoz Max tarifi bilan keladi.",
@@ -470,6 +550,22 @@ document.addEventListener('DOMContentLoaded', function () {
       legal: "SAT® College Board tomonidan roʻyxatdan oʻtkazilgan savdo belgisidir. College Board ushbu sayt bilan bogʻliq emas va uni qoʻllab-quvvatlamaydi. Saytdagi barcha mashq savollari SAT Ustoz tomonidan yozilgan."
     },
     ru: {
+      hero_uz: "Подготовка к SAT на узбекском и русском", fact4: "Уроки, словарь и ИИ-репетитор на узбекском и русском", nav_tools: "Бесплатные инструменты",
+      f5_t: "Словарь со значениями на узбекском и русском", f5_d: "Слова SAT со значением на узбекском и русском, примером и произношением. Интервальное повторение возвращает слово как раз перед тем, как вы его забудете, а слова из вопросов, где вы ошиблись, попадают в отдельную колоду.",
+      f6_t: "Тетрадь ошибок, которая сама пустеет", f6_d: "Каждый вопрос, где вы ошиблись, сохраняется по навыку. Перерешайте их в одно касание: ответьте верно два раза подряд, и ошибка отмечается исправленной.",
+      f7_t: "5-минутные уроки на узбекском и русском", f7_d: "Короткие уроки по самым частым навыкам, каждый заканчивается проверкой из 5 вопросов.",
+      w5_t: "SAT на узбекском", w5_d: "Уроки, значения слов и ИИ-репетитор работают на узбекском и русском: вы понимаете логику на языке, на котором думаете, а отвечаете на английском, как на экзамене.",
+      w6_t: "Только оригинальные вопросы", w6_d: "Все вопросы написаны нашей командой. Мы никогда не используем слитые или «вспомненные» экзаменационные вопросы: это нарушает правила College Board и может привести к аннулированию результатов ученика.",
+      say_score: "Балл SAT", say_up: "+{n} баллов", say_photo: "Отчёт о баллах",
+      cal_h2: "Насколько наши баллы близки к настоящему SAT?", cal_p: "Ученики, сдавшие настоящий SAT, сообщили нам свой балл. Вот как он соотносится с их последними пробными тестами на SAT Ustoz.",
+      cal_n: "учеников в сравнении", cal_abs: "баллов разница в среднем", cal_50: "в пределах 50 баллов от настоящего результата",
+      tools_h2: "Бесплатные инструменты без аккаунта",
+      tool1_k: "Калькулятор баллов", tool1_t: "Сколько баллов дают ваши верные ответы?", tool1_p: "Введите число верных ответов в каждом модуле и узнайте, какой модуль 2 вам достанется и какой примерный балл.", tool1_b: "Открыть калькулятор",
+      tool2_k: "Каждый день", tool2_t: "Вопрос дня", tool2_p: "Каждый день новый вопрос SAT с объяснением. Не прерывайте серию.", tool2_b: "Ответить на вопрос дня",
+      tool3_k: "Раз в месяц", tool3_t: "Национальный пробный экзамен", tool3_p: "Один и тот же полный тест в одно и то же время для учеников со всего Узбекистана. Узнайте своё место в регионе и школе.", tool3_b: "Ближайший экзамен",
+      cen_k: "Для учебных центров и школ", cen_h2: "Ведите группы SAT на SAT Ustoz", cen_p: "Одно место для преподавателей и учеников: выдавайте задания, смотрите, кто их выполнил, и отправляйте родителям понятный отчёт. Цена за ученика в сумах.", cen_btn: "Узнать о тарифе для центров", cen_btn2: "Вход для преподавателей",
+      cen_1: "Классы с кодом для входа и места для каждого преподавателя", cen_2: "Домашние задания: наборы вопросов, уроки, тренировки и полные тесты с автоматической проверкой", cen_3: "Таблица результатов по каждой группе и самые слабые навыки каждого ученика", cen_4: "Отчёты для родителей на узбекском или русском с названием вашего центра",
+      l_vocab: "Словарь", l_lessons: "Уроки", l_teachers: "Для преподавателей",
       skip: "Перейти к содержанию",
       try_h2: "Попробуйте прямо сейчас. Аккаунт не нужен.", try_p: "Два вопроса в стиле настоящего Digital SAT. Ответьте, чтобы увидеть объяснение на английском, узбекском или русском: язык можно сменить вверху.",
       try_rw_ex: "Верный ответ B. После двоеточия идёт доказательство: рыба вернулась и рыболовство возобновилось, значит, усилия обнадёживают (encouraging). «Negligible» и «disastrous» противоречат этому, а о том, что результат был «inevitable» (неизбежным), в тексте ничего нет.",
@@ -482,11 +578,11 @@ document.addEventListener('DOMContentLoaded', function () {
       w1_t: "Честная цена, удобная оплата", w1_d: "Крупные платформы берут около 20 долларов в месяц. Здесь Pro стоит 79 000 сум в месяц, а в Узбекистане вы платите из любого банковского приложения картой Uzcard или Humo, без Visa или Mastercard.",
       w2_t: "Помощь на узбекском, русском и английском", w2_d: "Застряли на вопросе или с оплатой? Напишите живому человеку в Telegram. Отвечаем в течение 2 часов, с 9:00 до 23:00 по Ташкенту.",
       w3_t: "Написано преподавателем с 1530", w3_d: "Вопросы и объяснения — от преподавателя SAT с результатом 1530 (Math 790), который знает, где иностранные ученики ошибаются чаще всего.",
-      w4_t: "Сообщите об ошибке, и мы её исправим", w4_d: "У каждого вопроса есть кнопка «Сообщить об ошибке». Мы читаем каждое сообщение и исправляем ошибки.",
-      says_h2: "Что говорят ученики", says_p: "Настоящие сообщения учеников SAT Ustoz, опубликованные с их разрешения. Мы никогда не меняем их слова.",
+      w4_t: "Сообщите об ошибке, и мы её исправим", w4_d: "У каждого вопроса есть кнопка «Сообщить об ошибке». Мы исправляем ошибку и сообщаем вам в кабинете, когда всё готово.",
+      says_h2: "Что говорят ученики", says_p: "Настоящие отзывы учеников SAT Ustoz, опубликованные с их разрешения.",
       nav_practice: "Практика", nav_tests: "Пробные тесты", nav_how: "Как это работает", nav_pricing: "Тарифы", nav_faq: "Вопросы",
       pricing_h2: "Начните бесплатно. Перейдите на Pro, когда будете готовы.", pricing_p: "Мини-диагностика и пробный тест 1 бесплатны, карта не нужна. Pro открывает все десять тестов и точно показывает, на каких навыках вы теряете баллы.",
-      q7: "Что бесплатно, а для чего нужен Pro?", a7: "Мини-диагностика, пробный тест 1, стартовые наборы и общий балл бесплатны. Pro открывает все 10 пробных тестов, разбор балла по навыкам, разбор каждого вопроса с объяснениями и тренировки по вашим самым слабым навыкам. Max, который скоро появится, добавит ИИ-репетитора, план подготовки до даты экзамена и ежемесячное живое групповое занятие с Азизбеком.",
+      q7: "Что бесплатно, а для чего нужен Pro?", a7: "Мини-диагностика, пробный тест 1, стартовые наборы и общий балл бесплатны. Pro открывает все 10 пробных тестов, разбор балла по навыкам, разбор каждого вопроса с объяснениями и тренировки по вашим самым слабым навыкам и план подготовки до даты экзамена. Max, который скоро появится, добавит ИИ-репетитора, еженедельное обновление плана и ежемесячное живое групповое занятие с Азизбеком.",
       cta_start: "Начать практику",
       hero_h1: "Готовьтесь к SAT так, как будете его сдавать.",
       hero_sub: "Адаптивные тесты с таймером в настоящем двухмодульном формате, наборы вопросов из наших занятий и объяснение к каждому вопросу. ИИ-репетитор появится в тарифе Max.",
@@ -535,15 +631,15 @@ document.addEventListener('DOMContentLoaded', function () {
   var LAUNCH = {
     en: {
       pricing_p: "All 10 practice tests are free while we launch, no card needed. Pro shows exactly which skills cost you points, with every question explained.",
-      a7: "While we launch, all 10 practice tests are free, along with the mini diagnostic, the starter sets, your total score and 3 AI tutor questions a day. Pro adds your score broken down by skill, a review of every question with explanations, skill practice sets and drills built from your weakest skills. Max adds an unlimited AI tutor, new AI practice questions, a study plan to your test date and a monthly live group session with Azizbek."
+      a7: "While we launch, all 10 practice tests are free, along with the mini diagnostic, the starter sets, your total score and 3 AI tutor questions a day. Pro adds your score broken down by skill, a review of every question with explanations, skill practice sets and drills built from your weakest skills and a study plan to your test date. Max adds an unlimited AI tutor, new AI practice questions, a plan re-made every week and a monthly live group session with Azizbek."
     },
     uz: {
       pricing_p: "Ishga tushish munosabati bilan barcha 10 ta sinov testi bepul, karta kerak emas. Pro qaysi koʻnikmalarda ball yoʻqotayotganingizni aniq koʻrsatadi va har bir savolni tushuntiradi.",
-      a7: "Ishga tushish davrida barcha 10 ta sinov testi bepul, shuningdek mini diagnostika, boshlangʻich toʻplamlar, umumiy ballingiz va kuniga 3 ta AI ustoz savoli. Pro koʻnikmalar boʻyicha ball tahlilini, har bir savolni izohlari bilan koʻrib chiqishni, koʻnikma toʻplamlari va eng zaif koʻnikmalaringiz boʻyicha mashqlarni qoʻshadi. Max esa cheksiz AI ustoz, yangi AI mashq savollari, imtihon sanangizgacha oʻqish rejasi va Azizbek bilan oylik jonli guruh darsini qoʻshadi."
+      a7: "Ishga tushish davrida barcha 10 ta sinov testi bepul, shuningdek mini diagnostika, boshlangʻich toʻplamlar, umumiy ballingiz va kuniga 3 ta AI ustoz savoli. Pro koʻnikmalar boʻyicha ball tahlilini, har bir savolni izohlari bilan koʻrib chiqishni, koʻnikma toʻplamlari va eng zaif koʻnikmalaringiz boʻyicha mashqlarni va imtihon sanangizgacha oʻqish rejasini qoʻshadi. Max esa cheksiz AI ustoz, yangi AI mashq savollari, har hafta yangilanadigan reja va Azizbek bilan oylik jonli guruh darsini qoʻshadi."
     },
     ru: {
       pricing_p: "В честь запуска все 10 пробных тестов бесплатны, карта не нужна. Pro точно показывает, на каких навыках вы теряете баллы, и объясняет каждый вопрос.",
-      a7: "Пока идёт запуск, все 10 пробных тестов бесплатны, как и мини-диагностика, стартовые наборы, общий балл и 3 вопроса ИИ-репетитору в день. Pro добавляет разбор балла по навыкам, разбор каждого вопроса с объяснениями, наборы по навыкам и тренировки по самым слабым навыкам. Max добавляет безлимитного ИИ-репетитора, новые ИИ-вопросы, план подготовки до даты экзамена и ежемесячное живое групповое занятие с Азизбеком."
+      a7: "Пока идёт запуск, все 10 пробных тестов бесплатны, как и мини-диагностика, стартовые наборы, общий балл и 3 вопроса ИИ-репетитору в день. Pro добавляет разбор балла по навыкам, разбор каждого вопроса с объяснениями, наборы по навыкам и тренировки по самым слабым навыкам и план подготовки до даты экзамена. Max добавляет безлимитного ИИ-репетитора, новые ИИ-вопросы, еженедельное обновление плана и ежемесячное живое групповое занятие с Азизбеком."
     }
   };
   var AI_LIVE = {
@@ -551,19 +647,19 @@ document.addEventListener('DOMContentLoaded', function () {
       hero_sub: "Timed adaptive tests in the real two-module format, question sets from our own lessons, an explanation for every question, and an AI tutor that answers in English, Uzbek or Russian.",
       f3_t: "AI tutor: 3 free questions a day",
       f3_d: "Stuck on a question? Ask the AI tutor why, step by step, in English, Uzbek or Russian. Everyone gets 3 tutor questions a day; Max makes it unlimited and writes new practice questions on any skill.",
-      a7: "The mini diagnostic, Practice Test 1, the starter sets, your total score and 3 AI tutor questions a day are free. Pro opens all 10 practice tests, your score broken down by skill, a review of every question with explanations, and drills built from your weakest skills. Max adds an unlimited AI tutor, new AI practice questions, a study plan to your test date and a monthly live group session with Azizbek."
+      a7: "The mini diagnostic, Practice Test 1, the starter sets, your total score and 3 AI tutor questions a day are free. Pro opens all 10 practice tests, your score broken down by skill, a review of every question with explanations, and drills built from your weakest skills and a study plan to your test date. Max adds an unlimited AI tutor, new AI practice questions, a plan re-made every week and a monthly live group session with Azizbek."
     },
     uz: {
       hero_sub: "Haqiqiy ikki modulli formatdagi vaqtli adaptiv testlar, darslarimizdan olingan savollar toʻplamlari, har bir savolga tushuntirish va ingliz, oʻzbek yoki rus tilida javob beradigan AI ustoz.",
       f3_t: "AI ustoz: kuniga 3 ta bepul savol",
       f3_d: "Savolda qoqilib qoldingizmi? AI ustozdan sababini soʻrang: u bosqichma-bosqich, ingliz, oʻzbek yoki rus tilida tushuntiradi. Har kimga kuniga 3 ta savol bepul; Max esa cheklovni olib tashlaydi va istalgan koʻnikma boʻyicha yangi mashq savollari yozadi.",
-      a7: "Mini diagnostika, 1-sinov testi, boshlangʻich toʻplamlar, umumiy ballingiz va kuniga 3 ta AI ustoz savoli bepul. Pro barcha 10 ta sinov testini, koʻnikmalar boʻyicha ball tahlilini, har bir savolni izohlari bilan koʻrib chiqishni va eng zaif koʻnikmalaringiz boʻyicha mashqlarni ochadi. Max esa cheksiz AI ustoz, yangi AI mashq savollari, imtihon sanangizgacha oʻqish rejasi va Azizbek bilan oylik jonli guruh darsini qoʻshadi."
+      a7: "Mini diagnostika, 1-sinov testi, boshlangʻich toʻplamlar, umumiy ballingiz va kuniga 3 ta AI ustoz savoli bepul. Pro barcha 10 ta sinov testini, koʻnikmalar boʻyicha ball tahlilini, har bir savolni izohlari bilan koʻrib chiqishni va eng zaif koʻnikmalaringiz boʻyicha mashqlarni va imtihon sanangizgacha oʻqish rejasini ochadi. Max esa cheksiz AI ustoz, yangi AI mashq savollari, har hafta yangilanadigan reja va Azizbek bilan oylik jonli guruh darsini qoʻshadi."
     },
     ru: {
       hero_sub: "Адаптивные тесты с таймером в настоящем двухмодульном формате, наборы вопросов из наших занятий, объяснение к каждому вопросу и ИИ-репетитор, который отвечает на английском, узбекском или русском.",
       f3_t: "ИИ-репетитор: 3 бесплатных вопроса в день",
       f3_d: "Застряли на вопросе? Спросите ИИ-репетитора, почему: он объяснит пошагово на английском, узбекском или русском. Каждому доступно 3 вопроса в день; Max снимает лимит и пишет новые тренировочные вопросы по любому навыку.",
-      a7: "Мини-диагностика, пробный тест 1, стартовые наборы, общий балл и 3 вопроса ИИ-репетитору в день бесплатны. Pro открывает все 10 пробных тестов, разбор балла по навыкам, разбор каждого вопроса с объяснениями и тренировки по самым слабым навыкам. Max добавляет безлимитного ИИ-репетитора, новые ИИ-вопросы, план подготовки до даты экзамена и ежемесячное живое групповое занятие с Азизбеком."
+      a7: "Мини-диагностика, пробный тест 1, стартовые наборы, общий балл и 3 вопроса ИИ-репетитору в день бесплатны. Pro открывает все 10 пробных тестов, разбор балла по навыкам, разбор каждого вопроса с объяснениями и тренировки по самым слабым навыкам и план подготовки до даты экзамена. Max добавляет безлимитного ИИ-репетитора, новые ИИ-вопросы, еженедельное обновление плана и ежемесячное живое групповое занятие с Азизбеком."
     }
   };
   function apply(lang) {
@@ -580,6 +676,8 @@ document.addEventListener('DOMContentLoaded', function () {
     Array.prototype.forEach.call(document.querySelectorAll('[data-lang]'), function (b) { b.setAttribute('aria-pressed', String(b.dataset.lang === lang)); });
     if (window.SH) { window.SH.store.set('lang', lang); window.SH.renderAuthSlots(); window.SH.renderPlans(plansMount, { context: 'landing' }); }
     tryVerdicts();
+    drawQuotes();
+    drawCalib();
   }
 
   // Try a question: tabs, answer, verdict and explanation in the page language.
@@ -622,26 +720,43 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   }
 
+  var esc = function (s) { return String(s == null ? '' : s).replace(/[&<>"']/g, function (ch) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[ch]; }); };
+  var word = function (k) { var el = document.querySelector('[data-i18n="' + k + '"]'); return el ? el.textContent : ''; };
   // What students say: quotes from data/testimonials.json (empty: the section stays hidden).
-  fetch('data/testimonials.json', { cache: 'no-cache' }).then(function (r) { return r.ok ? r.json() : []; }).then(function (list) {
-    list = Array.isArray(list) ? list.filter(function (q) { return q && q.text; }) : [];
-    if (!list.length) return;
-    var esc = function (s) { return String(s == null ? '' : s).replace(/[&<>"']/g, function (ch) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[ch]; }); };
-    document.getElementById('says').innerHTML = list.slice(0, 9).map(function (q) {
-      return '<blockquote><p>' + esc(q.text) + '</p>' + (q.who ? '<cite>' + esc(q.who) + '</cite>' : '') + '</blockquote>';
+  // "score" shows as a big number; with "from" too it shows the jump.
+  var quotes = [];
+  function drawQuotes() {
+    if (!quotes.length) return;
+    document.getElementById('says').innerHTML = quotes.slice(0, 9).map(function (q) {
+      var to = Number(q.score) || 0, from = Number(q.from) || 0;
+      var score = to ? '<div class="say-score">' + (from && from < to ? '<s>' + from + '</s>' : '') + '<b>' + to + '</b><span>' +
+        esc(from && from < to ? word('say_up').replace('{n}', to - from) : word('say_score')) + '</span></div>' : '';
+      var photo = q.photo && /^[\w./-]+$/.test(q.photo) ? '<a class="say-photo" href="' + esc(q.photo) + '" target="_blank" rel="noopener"><img src="' + esc(q.photo) + '" alt="' + esc(word('say_photo') + (q.who ? ', ' + q.who : '')) + '" loading="lazy"></a>' : '';
+      return '<blockquote>' + score + '<p>' + esc(q.text) + '</p>' + photo + (q.who ? '<cite><b>' + esc(q.who) + '</b>' + (q.school ? esc(q.school) : '') + '</cite>' : '') + '</blockquote>';
     }).join('');
     document.getElementById('students').hidden = false;
+  }
+  fetch('data/testimonials.json', { cache: 'no-cache' }).then(function (r) { return r.ok ? r.json() : []; }).then(function (list) {
+    quotes = Array.isArray(list) ? list.filter(function (q) { return q && q.text; }) : [];
+    drawQuotes();
   }).catch(function () { /* no quotes yet */ });
+  // How close are our scores: data/calibration.json, written from admin.html once
+  // enough students have shared their real SAT score (hidden below 5).
+  var calib = null;
+  function drawCalib() {
+    if (!calib || !(calib.n >= 5)) return;
+    var tile = function (v, k) { return '<div class="stat"><b>' + esc(v) + '</b><span>' + esc(word(k)) + '</span></div>'; };
+    document.getElementById('calib').innerHTML = tile(calib.n, 'cal_n') + tile(Math.round(calib.meanAbsDiff), 'cal_abs') + tile(Math.round(calib.within50) + '%', 'cal_50');
+    document.getElementById('calibration').hidden = false;
+  }
+  fetch('data/calibration.json', { cache: 'no-cache' }).then(function (r) { return r.ok ? r.json() : null; }).then(function (c) { calib = c; drawCalib(); }).catch(function () { /* none yet */ });
   var plansMount = document.getElementById('plans-mount');
   if (window.SH) window.SH.auth.onChange(function () { window.SH.renderPlans(plansMount, { context: 'landing' }); });
   Array.prototype.forEach.call(document.querySelectorAll('[data-lang]'), function (b) {
     b.addEventListener('click', function () { apply(b.dataset.lang); });
   });
-  var saved = window.SH ? window.SH.store.get('lang', null) : null;
-  if (!saved) {
-    var nav = (navigator.language || '').slice(0, 2).toLowerCase();
-    saved = nav === 'uz' ? 'uz' : nav === 'ru' ? 'ru' : 'en';
-  }
+  // Uzbek first for visitors in Uzbekistan (SH.pickLang); English elsewhere.
+  var saved = window.SH ? window.SH.pickLang() : 'en';
   apply(saved);
 
   // Phone: show the bottom "Start practicing" bar only once the hero buttons scroll away

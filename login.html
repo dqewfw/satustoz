@@ -109,7 +109,7 @@ document.addEventListener('DOMContentLoaded', async function () {
       b2: 'Keep every practice test score and see your progress by skill.',
       b3: 'Use the AI tutor on any question.',
       card_h: 'Sign in or create an account', card_p: 'One tap with your Google account. No password to remember.',
-      google: 'Continue with Google', working: 'Waiting for Google…',
+      google: 'Continue with Google', apple: 'Continue with Apple', working: 'Waiting for Google…', f_region: 'Region (for the national mock rankings)',
       privacy: 'We only use your name and email to create your account and save your progress. We never post anything or read your email. If you are under 18, check with a parent first.',
       skip: 'Continue without an account',
       ia_h: 'Open SAT Ustoz in your browser', ia_p: 'Google sign-in doesn’t work inside {app}. Open this page in {browser} to sign in.', this_app: 'this app',
@@ -131,7 +131,7 @@ document.addEventListener('DOMContentLoaded', async function () {
       b2: 'Har bir sinov testi natijasini saqlang va koʻnikmalar boʻyicha oʻsishingizni koʻring.',
       b3: 'Istalgan savolda AI ustozdan foydalaning.',
       card_h: 'Kiring yoki roʻyxatdan oʻting', card_p: 'Google hisobingiz bilan bir bosishda. Parol eslab qolish shart emas.',
-      google: 'Google orqali davom etish', working: 'Google kutilmoqda…',
+      google: 'Google orqali davom etish', apple: 'Apple orqali davom etish', working: 'Google kutilmoqda…', f_region: 'Viloyat (milliy imtihon reytingi uchun)',
       privacy: 'Ismingiz va emailingizdan faqat hisob yaratish va natijalaringizni saqlash uchun foydalanamiz. Hech narsa joylamaymiz va xatlaringizni oʻqimaymiz. 18 yoshga toʻlmagan boʻlsangiz, avval ota-onangiz bilan maslahatlashing.',
       skip: 'Hisobsiz davom etish',
       ia_h: 'SAT Ustozni brauzerda oching', ia_p: '{app} ichida Google orqali kirish ishlamaydi. Kirish uchun sahifani {browser} brauzerida oching.', this_app: 'bu ilova',
@@ -153,7 +153,7 @@ document.addEventListener('DOMContentLoaded', async function () {
       b2: 'Сохраняйте результаты всех пробных тестов и следите за прогрессом по навыкам.',
       b3: 'Пользуйтесь ИИ-репетитором на любом вопросе.',
       card_h: 'Войдите или зарегистрируйтесь', card_p: 'Один клик через аккаунт Google. Никаких паролей.',
-      google: 'Продолжить с Google', working: 'Ждём Google…',
+      google: 'Продолжить с Google', apple: 'Продолжить с Apple', working: 'Ждём Google…', f_region: 'Регион (для рейтинга национального экзамена)',
       privacy: 'Мы используем ваше имя и email только для создания аккаунта и сохранения прогресса. Мы ничего не публикуем и не читаем вашу почту. Если вам нет 18, сначала посоветуйтесь с родителями.',
       skip: 'Продолжить без аккаунта',
       ia_h: 'Откройте SAT Ustoz в браузере', ia_p: 'Внутри {app} вход через Google не работает. Чтобы войти, откройте страницу в {browser}.', this_app: 'этого приложения',
@@ -170,8 +170,7 @@ document.addEventListener('DOMContentLoaded', async function () {
       back: 'Вернуться на сайт'
     }
   };
-  let lang = SH.store.get('lang', null);
-  if (!T[lang]) { const n = (navigator.language || '').slice(0, 2).toLowerCase(); lang = T[n] ? n : 'en'; }
+  let lang = SH.pickLang(); // Uzbek first for students in Uzbekistan
   const t = (k, vars) => { let s = (T[lang] && T[lang][k]) || T.en[k] || k; Object.keys(vars || {}).forEach(v => { s = s.split('{' + v + '}').join(vars[v]); }); return s; };
 
   const params = new URLSearchParams(location.search);
@@ -187,6 +186,7 @@ document.addEventListener('DOMContentLoaded', async function () {
 
   const G_LOGO = '<svg viewBox="0 0 48 48" aria-hidden="true"><path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"/><path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"/><path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"/><path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.15 1.45-4.92 2.3-8.16 2.3-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/></svg>';
 
+  const APPLE_LOGO = '<svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M16.4 12.6c0-2.6 2.1-3.8 2.2-3.9-1.2-1.8-3.1-2-3.7-2-1.6-.2-3.1.9-3.9.9-.8 0-2-.9-3.4-.9-1.7 0-3.3 1-4.2 2.6-1.8 3.1-.5 7.7 1.3 10.2.8 1.2 1.8 2.6 3.1 2.5 1.3-.1 1.7-.8 3.2-.8s1.9.8 3.2.8c1.3 0 2.2-1.2 3-2.4.9-1.4 1.3-2.7 1.3-2.8-.1 0-2.6-1-2.6-4.2zM13.9 4.9c.7-.8 1.2-2 1-3.1-1 0-2.2.7-2.9 1.5-.6.7-1.2 1.9-1 3 1.1.1 2.2-.6 2.9-1.4z"/></svg>';
   function applyStatic() {
     document.documentElement.lang = lang;
     $$('[data-t]').forEach(el => { el.textContent = t(el.dataset.t); });
@@ -212,10 +212,12 @@ document.addEventListener('DOMContentLoaded', async function () {
       if (app && !forceGoogle) { renderInApp(app); return; }
       card.innerHTML = '<h2>' + esc(t('card_h')) + '</h2><p class="muted">' + esc(t('card_p')) + '</p>' +
         '<button type="button" class="gbtn" id="google"' + (busy ? ' disabled' : '') + '>' + (busy ? '<span class="spin" aria-hidden="true"></span>' + esc(t('working')) : G_LOGO + esc(t('google'))) + '</button>' +
+        (SH.CONFIG.APPLE_SIGNIN && !busy ? '<button type="button" class="gbtn" id="apple" style="margin-top:10px">' + APPLE_LOGO + esc(t('apple')) + '</button>' : '') +
         (errorMsg ? '<div class="notice notice-bad msg" role="alert">' + esc(errorMsg) + '</div>' : '') +
         '<p class="fine">' + esc(t('privacy')) + '</p>' +
         (SH.CONFIG.REQUIRE_LOGIN ? '' : '<a class="skip" href="' + esc(next) + '">' + esc(t('skip')) + '</a>');
-      $('#google').addEventListener('click', signIn);
+      $('#google').addEventListener('click', () => signIn('google'));
+      const ap = $('#apple'); if (ap) ap.addEventListener('click', () => signIn('apple'));
       return;
     }
     if (!p.onboarded) {
@@ -230,13 +232,14 @@ document.addEventListener('DOMContentLoaded', async function () {
         '<div class="row"><div class="grow field"><label for="o-grade">' + esc(t('f_grade')) + '</label><select class="input" id="o-grade">' + grades.map(g => '<option value="' + g[0] + '"' + (p.grade === g[0] ? ' selected' : '') + '>' + esc(g[1]) + '</option>').join('') + '</select></div>' +
         '<div class="grow field"><label for="o-target">' + esc(t('f_target')) + '</label><select class="input" id="o-target">' + targets.map(g => '<option value="' + g[0] + '"' + (curTarget === g[0] ? ' selected' : '') + '>' + esc(g[1]) + '</option>').join('') + '</select></div></div>' +
         '<div class="field"><label for="o-date">' + esc(t('f_date')) + '</label><input class="input" id="o-date" type="date" value="' + esc(p.testDate || '') + '"></div>' +
+        '<div class="field"><label for="o-region">' + esc(t('f_region')) + '</label><select class="input" id="o-region"><option value="">' + esc(t('g_choose')) + '</option>' + SH.REGIONS.map(r => '<option' + (p.region === r ? ' selected' : '') + '>' + esc(r) + '</option>').join('') + '</select></div>' +
         '<div id="o-err"></div><button class="btn btn-primary btn-block" type="submit">' + esc(t('save')) + '</button></form>';
       $('#onb').addEventListener('submit', async e => {
         e.preventDefault();
         const name = $('#o-name').value.trim();
         if (!name) { $('#o-err').innerHTML = '<div class="notice notice-bad" style="margin-bottom:12px">' + esc(t('need_name')) + '</div>'; $('#o-name').focus(); return; }
         const btn = e.target.querySelector('button[type=submit]'); btn.disabled = true;
-        SH.setProfile({ name, grade: $('#o-grade').value, target: +$('#o-target').value || 1400, testDate: $('#o-date').value, onboarded: true });
+        SH.setProfile({ name, grade: $('#o-grade').value, target: +$('#o-target').value || 1400, testDate: $('#o-date').value, region: $('#o-region').value, onboarded: true });
         await SH.sync.flush();
         location.href = next;
       });
@@ -271,11 +274,11 @@ document.addEventListener('DOMContentLoaded', async function () {
     $('#ia-try').addEventListener('click', () => { forceGoogle = true; render(); });
   }
 
-  async function signIn() {
+  async function signIn(how) {
     if (busy) return;
     busy = true; errorMsg = ''; render();
     try {
-      await SH.auth.signInWithGoogle();
+      await (how === 'apple' ? SH.auth.signInWithApple() : SH.auth.signInWithGoogle());
       busy = false;
       if (SH.getProfile().onboarded) { location.href = next; return; }
       render();

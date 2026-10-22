@@ -126,6 +126,47 @@
     .teaser-demo { padding: 14px; }
     .t-summary { padding: 14px 16px; }
   }
+  /* Study tools, homework, plan, chart, notebook */
+  .tools-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; }
+  .tool-card { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 2px 12px; align-items: center; text-decoration: none; color: var(--ink); background: var(--paper); border: 1px solid var(--line); border-radius: var(--r-sm); padding: 14px 16px; transition: border-color var(--t-fast); }
+  .tool-card:hover { border-color: var(--brand); color: var(--ink); }
+  .tool-card b { font-size: 1.02rem; }
+  .tool-card span { grid-column: 1; font-size: .88rem; color: var(--muted); }
+  .tool-card em { grid-row: 1 / span 2; grid-column: 2; font-style: normal; font-family: var(--display); font-weight: 600; font-size: 1.6rem; color: var(--brand); font-variant-numeric: tabular-nums; }
+  .note-row { display: flex; gap: 12px; align-items: center; justify-content: space-between; flex-wrap: wrap; margin-bottom: 10px; }
+  .hw-row { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 6px 14px; align-items: center; padding: 12px 0; border-bottom: 1px solid var(--line); }
+  .hw-row:last-child { border-bottom: 0; }
+  .hw-row .small { display: block; }
+  .plan-week { display: grid; gap: 0; }
+  .task { display: grid; grid-template-columns: minmax(0, 1fr) 110px 52px 92px; gap: 14px; align-items: center; padding: 11px 0; border-bottom: 1px solid var(--line); }
+  .task > :last-child { justify-self: end; }
+  .task:last-child { border-bottom: 0; }
+  .task .acc { font-weight: 700; font-size: .92rem; text-align: right; font-variant-numeric: tabular-nums; }
+  .task.is-done b { color: var(--ok); }
+  .plan-head { display: flex; gap: 10px 24px; flex-wrap: wrap; align-items: baseline; margin-bottom: 8px; }
+  .plan-head b { font-family: var(--display); font-size: 1.25rem; font-weight: 600; }
+  .chart-card { position: relative; }
+  .chart-card svg { display: block; width: 100%; height: auto; overflow: visible; }
+  .chart-card .ax { font: 600 12px var(--sans); fill: var(--muted); }
+  .chart-tip { position: absolute; pointer-events: none; background: var(--ink); color: #fff; border-radius: var(--r-sm); padding: 8px 10px; font-size: .86rem; line-height: 1.35; white-space: nowrap; transform: translate(-50%, calc(-100% - 12px)); box-shadow: var(--shadow-float); }
+  .chart-tip b { font-size: 1.05rem; }
+  .chart-sum { display: flex; gap: 6px 22px; flex-wrap: wrap; margin: 0 0 10px; font-size: .95rem; color: var(--muted); }
+  .chart-sum b { color: var(--ink); font-variant-numeric: tabular-nums; }
+  .mk-row { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 4px 14px; align-items: center; padding: 12px 0; border-bottom: 1px solid var(--line); }
+  .mk-row:last-child { border-bottom: 0; }
+  .dots { display: inline-flex; gap: 4px; vertical-align: middle; margin-left: 6px; }
+  .dots i { width: 10px; height: 10px; border-radius: 50%; border: 1.5px solid var(--ok); }
+  .dots i.on { background: var(--ok); }
+  .saved-drill { display: flex; gap: 10px; align-items: center; justify-content: space-between; flex-wrap: wrap; padding: 10px 0; border-bottom: 1px solid var(--line); }
+  .saved-drill:last-child { border-bottom: 0; }
+  .p-timer { font-weight: 700; color: var(--ink); }
+  .p-timer.low { color: var(--bad); }
+  @media (max-width: 900px) { .tools-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+  @media (max-width: 600px) {
+    .tools-grid { grid-template-columns: minmax(0, 1fr); }
+    .task { grid-template-columns: minmax(0, 1fr) 44px auto; gap: 10px; }
+    .task .bar { display: none; }
+  }
   .ai-loading { display: flex; align-items: center; gap: 14px; }
   .spinner { width: 28px; height: 28px; border-radius: 50%; border: 3px solid var(--gold-soft); border-top-color: var(--brand); animation: spin 1s linear infinite; flex: 0 0 auto; }
 
@@ -194,11 +235,12 @@
     <a class="brand" href="index.html"><picture><source media="(max-width: 359px)" srcset="assets/brand/mark.svg"><img class="brand-logo" src="assets/brand/logo-horizontal.svg" alt="SAT Ustoz" width="171" height="40"></picture></a>
     <button class="menu-btn" type="button" aria-label="Menu" aria-expanded="false" aria-controls="nav"><span></span></button>
     <nav class="nav" id="nav" aria-label="Main">
-      <a href="index.html">Home</a>
       <a href="practice.html#home">Dashboard</a>
       <a href="practice.html#sets">Practice sets</a>
       <a href="practice.html#ai" data-ai-only>AI practice</a>
       <a href="practice.html#tests">Practice tests</a>
+      <a href="vocab.html">Vocabulary</a>
+      <a href="lessons.html">Lessons</a>
       <a href="practice.html#plans">Plans</a>
     </nav>
     <div data-auth-slot></div>
@@ -226,7 +268,7 @@
         <span class="brand-name">SAT Ustoz</span>
         <p style="margin-top:10px">Digital SAT practice built by someone who has taken the test, for students in Uzbekistan and beyond.</p>
       </div>
-      <div><h3 class="f-head">Practice</h3><ul><li><a href="practice.html#sets">Practice sets</a></li><li><a href="practice.html#tests">Practice tests</a></li><li><a href="practice.html#plans">Plans</a></li></ul></div>
+      <div><h3 class="f-head">Practice</h3><ul><li><a href="practice.html#sets">Practice sets</a></li><li><a href="practice.html#tests">Practice tests</a></li><li><a href="practice.html#mistakes">Mistake notebook</a></li><li><a href="vocab.html">Vocabulary</a></li><li><a href="lessons.html">Lessons</a></li><li><a href="daily.html">Question of the day</a></li><li><a href="mock.html">National mock</a></li><li><a href="score-calculator.html">Score calculator</a></li><li><a href="practice.html#plans">Plans</a></li></ul></div>
       <div><h3 class="f-head">Contact</h3><ul><li><a data-link="telegram" href="https://t.me/azizbek7_t" target="_blank" rel="noopener">Telegram: @azizbek7_t</a></li><li><a data-link="channel" href="https://t.me/satustoz_off" target="_blank" rel="noopener">Telegram channel</a></li><li><a data-link="instagram" href="https://www.instagram.com/satustoz" target="_blank" rel="noopener">Instagram</a></li><li><a href="#" data-feedback>Send feedback</a></li></ul></div>
     </div>
     <div class="footer-legal">&copy; <span data-year>2026</span> SAT Ustoz. SAT&reg; is a trademark registered by the College Board, which is not affiliated with, and does not endorse, this website. All practice questions on this site are written by SAT Ustoz.</div>
@@ -244,6 +286,8 @@ document.addEventListener('DOMContentLoaded', function () {
   let bank = [];
   let catalog = { sets: [], tests: [] };
   let session = null;
+  let pendingDrill = null; // a drill opened from a shared link, shown in the builder
+  let timerHandle = null;
 
   const DIFF = { easy: 'Easy', medium: 'Medium', hard: 'Hard' };
   const accClass = a => a >= .8 ? 'ok' : a >= .6 ? 'mid' : 'low';
@@ -271,8 +315,16 @@ document.addEventListener('DOMContentLoaded', function () {
     } catch (e) {
       view.innerHTML = '<div class="notice notice-bad">Could not load the question bank. ' + esc(e.message) + '</div>';
     }
+    // practice.html?join=CODE (a teacher's class link) and ?drill=... (a shared drill)
+    const params = new URLSearchParams(location.search);
+    const joinCode = params.get('join'), sharedDrill = params.get('drill');
+    if (joinCode || sharedDrill) {
+      try { history.replaceState(null, '', location.pathname + (sharedDrill ? '#sets' : location.hash || '#home')); } catch (e) { /* ignore */ }
+      if (sharedDrill) pendingDrill = decodeDrill(sharedDrill);
+    }
     window.addEventListener('hashchange', route);
     route();
+    if (joinCode) setTimeout(() => joinClass(joinCode), 0);
     SH.auth.onChange(() => { if (!session) route(); });
     document.addEventListener('sh:synced', () => { if (!session) route(); });
   }
@@ -282,14 +334,14 @@ document.addEventListener('DOMContentLoaded', function () {
     if (tab === 'play') { if (!session) { location.hash = '#home'; return; } return; }
     if (session && !confirmLeave()) return;
     player.hidden = true; hub.hidden = false;
-    const tabs = ['home', 'sets', 'tests', 'plans'].concat(SH.ai.enabled() ? ['ai'] : []);
+    const tabs = ['home', 'sets', 'tests', 'plans', 'mistakes'].concat(SH.ai.enabled() ? ['ai'] : []);
     const t = tabs.indexOf(tab) > -1 ? tab : 'home';
     $$('.tabs a').forEach(a => a.setAttribute('aria-current', a.dataset.tab === t ? 'page' : 'false'));
     $$('.nav a').forEach(a => a.removeAttribute('aria-current'));
     const navA = $('.nav a[href="practice.html#' + t + '"]'); if (navA) navA.setAttribute('aria-current', 'page');
-    ({ home: renderHome, sets: renderSets, ai: renderAI, tests: renderTests, plans: renderPlansTab })[t]();
+    ({ home: renderHome, sets: renderSets, ai: renderAI, tests: renderTests, plans: renderPlansTab, mistakes: renderMistakes })[t]();
   }
-  function confirmLeave() { session = null; SH.calculator.close(); return true; }
+  function confirmLeave() { stopTimer(); session = null; SH.calculator.close(); return true; }
 
   /* ======================= DASHBOARD ======================= */
   function renderHome() {
@@ -301,9 +353,11 @@ document.addEventListener('DOMContentLoaded', function () {
     const weak = SH.weakSkills(4);
     const stats = SH.skillStats();
     const insights = SH.plan.insights();
+    const signedIn = SH.auth.enabled() && !!SH.auth.user;
     let html = '<div class="hub-head"><div><h1>' + (p.name ? (attempts.length ? 'Welcome back, ' : 'Welcome, ') + esc(p.name.split(/\s+/)[0]) : 'Welcome') + '</h1></div>' +
       '<div class="hub-acts">' + planChip() + '<button class="btn btn-ghost btn-sm" type="button" id="edit-goals">' + (p.testDate || p.name ? 'Edit goals' : 'Set your goals') + '</button></div></div>';
     html += goalStrip(p, best);
+    html += noticesHtml();
     if (SH.auth.enabled() && SH.auth.settled && !SH.auth.user) {
       html += '<div class="notice" style="display:flex;gap:14px;align-items:center;justify-content:space-between;flex-wrap:wrap;margin-bottom:18px"><span><b>Save your progress.</b> Sign in with Google to keep your results on every device' + (SH.ai.enabled() && SH.CONFIG.AI_REQUIRES_LOGIN ? ' and use the AI tutor' : '') + '.</span><a class="btn btn-primary btn-sm" href="' + esc(SH.loginUrl('practice.html#home')) + '">Sign in with Google</a></div>';
     }
@@ -318,6 +372,10 @@ document.addEventListener('DOMContentLoaded', function () {
       tile(best || '–', 'best test estimate (goal ' + esc(p.target) + ')') +
       tile(hist.length, 'practice test' + (hist.length === 1 ? '' : 's') + ' taken') + '</div>' +
       '<p class="small muted" style="margin:10px 0 0">Something missing or confusing? <button type="button" class="link-btn" data-feedback>Tell us what you think</button></p>';
+
+    // Homework from a teacher's class (filled in once it loads).
+    if (signedIn && SH.classes.mine().length) html += '<h2 class="section-title">Homework</h2><div class="card" id="hw"><p class="muted" style="margin:0">Loading your homework…</p></div>';
+    html += '<h2 class="section-title">Study tools</h2>' + toolsHtml();
 
     if (!attempts.length) {
       html += '<h2 class="section-title">Start here</h2><div class="grid grid-3">' +
@@ -334,6 +392,8 @@ document.addEventListener('DOMContentLoaded', function () {
         html += '<div class="card"><p class="muted" style="margin:0">No weak spots so far: every skill you’ve tried is at 100%. Try a harder set or a practice test.</p></div>';
       }
     }
+    html += studyPlanHtml(p);
+    html += scoreChartHtml(hist, p);
     // The Max preview shows the student's own weak skills only to Pro, which already sees them.
     html += tutorTeaser(insights ? weak : []);
     if (attempts.length) {
@@ -353,12 +413,241 @@ document.addEventListener('DOMContentLoaded', function () {
     if (hist.length) {
       html += '<h2 class="section-title">Recent practice tests</h2>' + histTable(hist.slice(0, 3));
     }
+    html += extrasHtml(p, signedIn);
     view.innerHTML = html;
     $('#edit-goals').addEventListener('click', editGoals);
     $$('[data-goals]').forEach(b => b.addEventListener('click', editGoals));
     const gp = $('[data-goal-pitch]');
     if (gp) gp.addEventListener('click', () => SH.plan.pitch({ title: gp.dataset.title, text: gp.dataset.text }));
     bindSkillButtons();
+    bindHomeExtras();
+  }
+
+  // "Your report on question X was fixed" and other notes from the team (admin.html).
+  function noticesHtml() {
+    const list = SH.notices.list();
+    if (!list.length) return '';
+    return list.map(n => '<div class="notice notice-ok note-row" data-notice="' + esc(n.id) + '"><span>' +
+      (n.kind === 'fixed' ? '<b>Fixed, thank you!</b> The mistake you reported' + (n.qid ? ' on question <b>' + esc(n.qid) + '</b>' : '') + (n.where ? ' in ' + esc(n.where) : '') + ' is corrected.' + (n.text ? ' ' + esc(n.text) : '')
+        : esc(n.text)) + '</span><button type="button" class="btn btn-ghost btn-sm" data-dismiss>OK</button></div>').join('');
+  }
+
+  function toolsHtml() {
+    const st = SH.daily.streak(), doneToday = !!SH.daily.answered();
+    const open = SH.mistakes.open().filter(e => SH.plan.allows('pro') || e.ref.type !== 'test').length;
+    const v = SH.vocab.get();
+    const learning = Object.keys(v.cards).filter(k => v.cards[k] && !v.cards[k].deleted).length;
+    const card = (href, title, sub, big) => '<a class="tool-card" href="' + href + '"><b>' + title + '</b><span>' + sub + '</span>' + (big != null ? '<em>' + esc(big) + '</em>' : '') + '</a>';
+    return '<div class="tools-grid">' +
+      card('daily.html', 'Question of the day', doneToday ? 'Done today. Back tomorrow' : st.current ? 'Keep your ' + st.current + '-day streak' : 'One question, two minutes', st.current ? st.current + 'd' : null) +
+      card('#mistakes', 'Mistake notebook', open ? open + ' to fix. Two right in a row fixes one' : 'Nothing to fix right now', open || null) +
+      card('vocab.html', 'Vocabulary', learning ? learning + ' words in your deck' : 'SAT words in Uzbek and Russian', learning || null) +
+      card('lessons.html', '5-minute lessons', 'Short lessons with a 5-question check', null) +
+      card('mock.html', 'National mock', 'Same test, same time, all of Uzbekistan', null) +
+      card('score-calculator.html', 'Score calculator', 'Correct answers to an estimated score', null) + '</div>';
+  }
+
+  /* ---------- Study plan: Pro gets one plan to the test date, Max re-makes it weekly ---------- */
+  const WEEK = 7 * 86400000;
+  function studyPlanHtml(p) {
+    const head = '<h2 class="section-title">Your study plan</h2>';
+    const days = p.testDate ? Math.ceil((new Date(p.testDate + 'T08:00:00') - new Date()) / 86400000) : null;
+    if (days == null || days < 1) {
+      return head + '<div class="card note-row" style="margin:0"><span>' + (days == null ? 'Set your SAT date and get a week-by-week plan: tests to take, skills to drill, mistakes to fix.' : 'Your test date has passed. Set your next one for a new plan.') +
+        '</span><button type="button" class="btn btn-primary btn-sm" data-goals>Set your test date</button></div>';
+    }
+    if (!SH.plan.allows('pro')) {
+      const demo = '<div class="plan-week">' + ['Take Practice Test 4', 'Drill Boundaries: 20 questions', 'Drill Nonlinear functions: 20 questions', 'Fix 5 mistakes', 'Vocabulary on 4 days'].map((t, i) =>
+        '<div class="task"><div>' + t + '</div><div class="bar"><i style="width:' + [100, 60, 30, 40, 75][i] + '%"></i></div><div class="acc">–</div><span></span></div>').join('') + '</div>';
+      return head + '<div class="card">' + SH.lockBox(demo, 'A plan to your test date', 'Pro turns your ' + days + ' days into a weekly plan built from your weakest skills.', 'plan') + '</div>';
+    }
+    const plan = currentPlan(p);
+    const weeksLeft = Math.max(1, Math.ceil(days / 7));
+    const phase = weeksLeft <= 2 ? ['Final weeks', 'Two full tests a week, and every mistake retried.'] : weeksLeft <= 6 ? ['Test practice', 'One full test a week, with drills on what it shows.'] : ['Build skills', 'Fix your weakest skills first; one full test to check progress.'];
+    const from = SH.weekStart();
+    const inWeek = ts => ts >= from && ts < from + WEEK;
+    const attempts = SH.getAttempts().filter(a => inWeek(a.ts));
+    const tasks = [];
+    const testsDone = SH.getTestHistory().filter(h => inWeek(h.finishedAt) && h.total != null).length;
+    tasks.push({ label: weeksLeft <= 2 ? 'Take 2 full practice tests' : 'Take a full practice test', done: testsDone, goal: weeksLeft <= 2 ? 2 : 1, btn: '<a class="btn btn-ghost btn-sm" href="#tests">Tests</a>' });
+    plan.focus.forEach(f => {
+      const inBank = bank.some(q => q.skill === f.skill && q.section === f.section);
+      tasks.push({ label: 'Drill ' + f.skill, done: attempts.filter(a => a.skill === f.skill && a.section === f.section).length, goal: 20,
+        btn: inBank ? '<button class="btn btn-ghost btn-sm" type="button" data-drill="' + esc(f.skill) + '" data-sec="' + f.section + '">Drill</button>' : '<a class="btn btn-ghost btn-sm" href="lessons.html">Lessons</a>' });
+    });
+    tasks.push({ label: 'Fix 5 mistakes', done: SH.mistakes.all().filter(e => e.fixed && inWeek(e.fixedAt || 0)).length, goal: 5, btn: '<a class="btn btn-ghost btn-sm" href="#mistakes">Retry</a>' });
+    tasks.push({ label: 'Review vocabulary on 4 days', done: Object.keys(SH.vocab.get().days).filter(d => inWeek(Date.parse(d + 'T12:00:00+05:00'))).length, goal: 4, btn: '<a class="btn btn-ghost btn-sm" href="vocab.html">Review</a>' });
+    tasks.push({ label: 'Question of the day on 5 days', done: Object.keys(SH.daily.days()).filter(d => inWeek(Date.parse(d + 'T12:00:00+05:00'))).length, goal: 5, btn: '<a class="btn btn-ghost btn-sm" href="daily.html">Today’s</a>' });
+    const rows = tasks.map(t => {
+      const ok = t.done >= t.goal;
+      return '<div class="task' + (ok ? ' is-done' : '') + '"><div><b>' + esc(t.label) + '</b></div><div class="bar ' + (ok ? 'ok' : 'mid') + '"><i style="width:' + Math.min(100, Math.round(t.done / t.goal * 100)) + '%"></i></div><div class="acc">' + Math.min(t.done, t.goal) + '/' + t.goal + '</div>' + t.btn + '</div>';
+    }).join('');
+    const max = SH.plan.allows('max');
+    return head + '<div class="card"><div class="plan-head"><b>Week of ' + new Date(from + 5 * 3600000).toLocaleDateString('en-GB', { day: 'numeric', month: 'long' }) + '</b><span class="muted">' + weeksLeft + ' week' + (weeksLeft === 1 ? '' : 's') + ' to your SAT · ' + phase[0] + ': ' + phase[1] + '</span></div>' +
+      '<div class="plan-week">' + rows + '</div>' +
+      '<p class="small muted" style="margin:12px 0 0">' + (max ? 'Max re-makes your focus skills every Monday from your latest results.'
+        : 'Focus skills were picked from your results on ' + SH.fmtDate(plan.made) + '. <button type="button" class="link-btn" data-replan>Rebuild my plan</button> · Max re-makes it every week.') + '</p></div>';
+  }
+  function currentPlan(p) {
+    const max = SH.plan.allows('max');
+    const week = SH.weekStart();
+    let plan = SH.store.get('studyPlan', null);
+    const stale = !plan || plan.deleted || plan.testDate !== p.testDate || plan.target !== p.target || (max && plan.week !== week) || !(plan.focus || []).length;
+    if (stale) {
+      let focus = SH.weakSkills(2, 3).map(w => ({ section: w.section, skill: w.skill }));
+      // No results yet: the two skills tested most often on the SAT.
+      if (!focus.length) focus = [{ section: 'rw', skill: 'Boundaries' }, { section: 'math', skill: 'Linear equations in one variable' }];
+      plan = { t: Date.now(), made: Date.now(), week, testDate: p.testDate, target: p.target, focus };
+      SH.store.set('studyPlan', plan);
+    }
+    return plan;
+  }
+
+  /* ---------- Score history: every test total over time, with the goal and test day ---------- */
+  function scoreChartHtml(hist, p) {
+    const pts = hist.filter(h => h.total != null).slice().sort((a, b) => a.finishedAt - b.finishedAt);
+    if (!pts.length) return '';
+    const goal = +p.target || 0;
+    const testDay = p.testDate ? Date.parse(p.testDate + 'T08:00:00+05:00') : 0;
+    const W = 640, H = 230, L = 44, R = 18, T = 18, B = 30;
+    let x0 = pts[0].finishedAt, x1 = pts[pts.length - 1].finishedAt;
+    if (testDay > x1 && testDay - x0 < 400 * 86400000) x1 = testDay;
+    if (x1 - x0 < 7 * 86400000) { x0 -= 3 * 86400000; x1 += 4 * 86400000; }
+    const vals = pts.map(h => h.total).concat(goal ? [goal] : []);
+    const y0 = Math.max(400, Math.floor((Math.min.apply(null, vals) - 60) / 100) * 100), y1 = Math.min(1600, Math.ceil((Math.max.apply(null, vals) + 60) / 100) * 100);
+    const sx = t => L + (t - x0) / (x1 - x0) * (W - L - R), sy = v => T + (y1 - v) / (y1 - y0) * (H - T - B);
+    const step = y1 - y0 > 600 ? 200 : 100;
+    let g = '';
+    for (let v = y0; v <= y1; v += step) g += '<line x1="' + L + '" x2="' + (W - R) + '" y1="' + sy(v) + '" y2="' + sy(v) + '" stroke="var(--line)" stroke-width="1"/><text class="ax" x="' + (L - 8) + '" y="' + (sy(v) + 4) + '" text-anchor="end">' + v + '</text>';
+    const day = t => new Date(t).toLocaleDateString('en-GB', { day: 'numeric', month: 'short' });
+    g += '<text class="ax" x="' + L + '" y="' + (H - 8) + '">' + day(x0) + '</text>';
+    if (goal >= y0 && goal <= y1) g += '<line x1="' + L + '" x2="' + (W - R) + '" y1="' + sy(goal) + '" y2="' + sy(goal) + '" stroke="var(--gold-text)" stroke-width="1.5" stroke-dasharray="5 4"/><text class="ax" x="' + (L + 6) + '" y="' + (sy(goal) - 6) + '">Goal ' + goal + '</text>';
+    if (testDay && testDay <= x1 && testDay >= x0) g += '<line x1="' + sx(testDay) + '" x2="' + sx(testDay) + '" y1="' + T + '" y2="' + (H - B) + '" stroke="var(--edge)" stroke-width="1.5" stroke-dasharray="3 4"/><text class="ax" x="' + sx(testDay) + '" y="' + (H - 8) + '" text-anchor="end">Test day ' + day(testDay) + '</text>';
+    else g += '<text class="ax" x="' + (W - R) + '" y="' + (H - 8) + '" text-anchor="end">' + day(x1) + '</text>';
+    const line = pts.map((h, i) => (i ? 'L' : 'M') + sx(h.finishedAt).toFixed(1) + ' ' + sy(h.total).toFixed(1)).join(' ');
+    g += '<path d="' + line + '" fill="none" stroke="var(--brand)" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>';
+    g += pts.map((h, i) => '<circle cx="' + sx(h.finishedAt) + '" cy="' + sy(h.total) + '" r="5" fill="var(--brand)" stroke="#fff" stroke-width="2"/>' +
+      '<circle cx="' + sx(h.finishedAt) + '" cy="' + sy(h.total) + '" r="16" fill="transparent" tabindex="0" role="img" data-pt="' + i + '" aria-label="' + esc(h.title + ', ' + SH.fmtDate(h.finishedAt) + ': ' + h.total) + '"/>').join('');
+    const last = pts[pts.length - 1].total, top = Math.max.apply(null, pts.map(h => h.total));
+    const first = pts[0].total;
+    return '<h2 class="section-title">Score history</h2><div class="card chart-card" id="chart" data-pts="' + esc(JSON.stringify(pts.map(h => [h.title, h.finishedAt, h.total, h.sections.rw ? h.sections.rw.score : null, h.sections.math ? h.sections.math.score : null]))) + '">' +
+      '<p class="chart-sum"><span>Latest <b>' + last + '</b></span><span>Best <b>' + top + '</b></span>' + (pts.length > 1 ? '<span>Since your first test <b>' + (last - first >= 0 ? '+' : '') + (last - first) + '</b></span>' : '') + (goal ? '<span>Goal <b>' + goal + '</b></span>' : '') + '</p>' +
+      '<svg viewBox="0 0 ' + W + ' ' + H + '" role="group" aria-label="Your practice test scores over time">' + g + '</svg><div class="chart-tip" hidden></div></div>';
+  }
+
+  // Invite friends, and the real SAT score once the student has taken it.
+  function extrasHtml(p, signedIn) {
+    if (!signedIn) return '';
+    const passed = p.testDate && new Date(p.testDate + 'T23:59:00') < new Date();
+    return '<div class="grid grid-2" style="margin-top:34px">' +
+      '<div class="card"><h3>Invite a friend, get a free Pro week</h3><p class="muted small">When a friend signs up with your link and finishes the free mini diagnostic, you get 7 days of Pro. <span id="ref-count"></span></p>' +
+      '<div class="row"><button type="button" class="btn btn-primary btn-sm" data-ref-copy>Copy my link</button><a class="btn btn-ghost btn-sm" target="_blank" rel="noopener" href="https://t.me/share/url?url=' + encodeURIComponent(SH.referral.link()) + '&text=' + encodeURIComponent('Free SAT practice tests with explanations. Try the mini diagnostic:') + '">Share on Telegram</a></div></div>' +
+      '<div class="card"><h3>' + (passed ? 'How did your SAT go?' : 'Took the real SAT?') + '</h3><p class="muted small">Tell us your real score. We compare it with your practice scores so every student knows how close our estimates are.</p>' +
+      '<div class="row"><button type="button" class="btn ' + (passed ? 'btn-primary' : 'btn-ghost') + ' btn-sm" data-real>Share my real score</button></div></div></div>';
+  }
+
+  function bindHomeExtras() {
+    $$('[data-notice]').forEach(el => el.querySelector('[data-dismiss]').addEventListener('click', () => {
+      el.remove();
+      SH.notices.dismiss(el.dataset.notice).catch(e => console.warn('[SAT Ustoz] Could not dismiss the notice:', e));
+    }));
+    const rp = $('[data-replan]');
+    if (rp) rp.addEventListener('click', () => { SH.store.set('studyPlan', { deleted: true, t: Date.now() }); renderHome(); SH.toast('Plan rebuilt from your latest results'); });
+    const rc = $('[data-ref-copy]');
+    if (rc) {
+      rc.addEventListener('click', () => { SH.copyText(SH.referral.link(), 'Link copied. Send it to a friend.'); SH.track('referral_link_copied', {}); });
+      SH.referral.mine().then(list => {
+        const el = $('#ref-count'); if (!el || !list.length) return;
+        const got = list.filter(r => r.rewardedAt).length;
+        el.textContent = list.length + ' friend' + (list.length === 1 ? '' : 's') + ' finished the diagnostic so far' + (got ? ', ' + got + ' Pro week' + (got === 1 ? '' : 's') + ' added.' : '. Your Pro week is added within a day.');
+      }).catch(() => { /* rules not published yet */ });
+    }
+    const rs = $('[data-real]'); if (rs) rs.addEventListener('click', openRealScore);
+    bindChart();
+    const hw = $('#hw');
+    if (hw) SH.classes.tasks().then(list => drawHomework(hw, list)).catch(e => { hw.innerHTML = '<p class="muted" style="margin:0">Could not load your homework. ' + esc(e.message || '') + '</p>'; });
+  }
+
+  function bindChart() {
+    const box = $('#chart'); if (!box) return;
+    const pts = JSON.parse(box.dataset.pts), tip = $('.chart-tip', box), svg = $('svg', box);
+    const show = el => {
+      const h = pts[+el.dataset.pt], r = el.getBoundingClientRect(), b = box.getBoundingClientRect();
+      tip.innerHTML = esc(h[0]) + ' · ' + esc(SH.fmtDate(h[1])) + '<br><b>' + h[2] + '</b>' + (h[3] != null ? ' &nbsp;R&amp;W ' + h[3] : '') + (h[4] != null ? ' · Math ' + h[4] : '');
+      tip.hidden = false;
+      tip.style.left = Math.max(80, Math.min(b.width - 80, r.left + r.width / 2 - b.left)) + 'px';
+      tip.style.top = (r.top + r.height / 2 - b.top) + 'px';
+    };
+    $$('[data-pt]', svg).forEach(c => { c.addEventListener('mouseenter', () => show(c)); c.addEventListener('focus', () => show(c)); c.addEventListener('click', () => show(c)); });
+    svg.addEventListener('mouseleave', () => { tip.hidden = true; });
+    $$('[data-pt]', svg).forEach(c => c.addEventListener('blur', () => { tip.hidden = true; }));
+  }
+
+  /* ---------- Classes: join with a code, homework on the dashboard ---------- */
+  function joinClass(prefill) {
+    if (SH.auth.enabled() && !SH.auth.user) { SH.modal({ title: 'Join your class', html: '<p>Sign in first, so your teacher sees your results.</p>', actions: [{ label: 'Close', kind: 'ghost' }, { label: 'Sign in with Google', kind: 'primary', onClick: () => { location.href = SH.loginUrl('practice.html?join=' + encodeURIComponent(prefill || '')); } }] }); return; }
+    const md = SH.modal({
+      title: 'Join your class',
+      html: '<div class="field"><label for="cls-code">Class code from your teacher</label><input class="input" id="cls-code" maxlength="12" autocomplete="off" autocapitalize="characters" value="' + esc(prefill || '') + '" style="text-transform:uppercase;letter-spacing:.08em"></div><p class="pay-err" role="alert" hidden></p>',
+      actions: [{ label: 'Cancel', kind: 'ghost' }, { label: 'Join', kind: 'primary', onClick: back => {
+        const err = back.querySelector('.pay-err'), btns = back.querySelectorAll('button');
+        btns.forEach(b => { b.disabled = true; });
+        SH.classes.join(back.querySelector('#cls-code').value).then(c => {
+          md.close(); SH.toast('You joined ' + (c.name || 'the class') + '.'); renderHome();
+        }).catch(e => { err.textContent = e.code === 'nocode' ? e.message : 'Could not join. ' + (e.message || ''); err.hidden = false; btns.forEach(b => { b.disabled = false; }); });
+        return false;
+      } }]
+    });
+  }
+  function drawHomework(host, list) {
+    const mine = SH.classes.mine();
+    const open = list.filter(x => !x.result), done = list.filter(x => x.result);
+    const kindName = { set: 'Practice set', test: 'Practice test', lesson: 'Lesson', drill: 'Drill' };
+    const row = x => {
+      const r = x.result;
+      const res = r ? (r.score != null ? 'Score ' + r.score : r.count ? r.correct + '/' + r.count + ' correct' : 'Done') : '';
+      const due = x.due ? ' · due ' + new Date(x.due + 'T12:00:00').toLocaleDateString('en-GB', { day: 'numeric', month: 'short' }) : '';
+      return '<div class="hw-row"><div><b>' + esc(x.title || '') + '</b><span class="small muted">' + esc(kindName[x.kind] || '') + ' · ' + esc(x.className || '') + due + '</span></div>' +
+        (r ? '<span class="status status-done">' + ICON.check + esc(res) + '</span>' : '<button type="button" class="btn btn-primary btn-sm" data-hw="' + esc(x.classId + '/' + x.id) + '">Start</button>') + '</div>';
+    };
+    host.innerHTML = (open.length ? open.map(row).join('') : '<p class="muted" style="margin:0 0 8px">All homework done. Nice work.</p>') +
+      (done.length ? '<details style="margin-top:10px"><summary class="small">Done (' + done.length + ')</summary>' + done.slice(0, 15).map(row).join('') + '</details>' : '') +
+      '<p class="small muted" style="margin:12px 0 0">' + mine.map(c => esc(c.name) + (c.teacher ? ' (' + esc(c.teacher) + ')' : '')).join(', ') + ' · <button type="button" class="link-btn" data-join>Join another class</button></p>';
+    $$('[data-hw]', host).forEach(b => b.addEventListener('click', () => {
+      const x = list.find(t => t.classId + '/' + t.id === b.dataset.hw);
+      if (!x) return;
+      if (x.kind === 'test') location.href = 'test.html?id=' + encodeURIComponent(x.ref);
+      else if (x.kind === 'lesson') location.href = 'lessons.html#' + encodeURIComponent(x.ref);
+      else if (x.kind === 'set') startSet(x.ref, true);
+      else if (x.kind === 'drill' && x.drill) {
+        const qs = drillPool(x.drill);
+        startSession({ title: x.title || 'Drill', questions: SH.shuffle(qs).slice(0, x.drill.n || 10), source: 'drill', limit: drillLimit(x.drill), assign: { aid: x.id, classId: x.classId } });
+      }
+    }));
+    const j = $('[data-join]', host); if (j) j.addEventListener('click', () => joinClass(''));
+  }
+
+  function openRealScore() {
+    const months = [];
+    for (let i = 0; i < 12; i++) { const d = new Date(); d.setDate(1); d.setMonth(d.getMonth() - i); months.push(d.toISOString().slice(0, 7)); }
+    const md = SH.modal({
+      title: 'Your real SAT score',
+      html: '<p class="muted">Only you and the SAT Ustoz team see this. We use it to check how close our practice scores are.</p>' +
+        '<div class="row"><div class="grow field"><label for="rs-rw">Reading and Writing</label><input class="input" id="rs-rw" type="number" min="200" max="800" step="10" inputmode="numeric"></div>' +
+        '<div class="grow field"><label for="rs-m">Math</label><input class="input" id="rs-m" type="number" min="200" max="800" step="10" inputmode="numeric"></div></div>' +
+        '<div class="field"><label for="rs-mo">When did you take it?</label><select class="input" id="rs-mo">' + months.map(m => '<option value="' + m + '">' + new Date(m + '-15').toLocaleDateString('en-GB', { month: 'long', year: 'numeric' }) + '</option>').join('') + '</select></div>' +
+        '<p class="pay-err" role="alert" hidden></p>',
+      actions: [{ label: 'Cancel', kind: 'ghost' }, { label: 'Send', kind: 'primary', onClick: back => {
+        const rw = +back.querySelector('#rs-rw').value, mt = +back.querySelector('#rs-m').value, err = back.querySelector('.pay-err');
+        const ok = v => v >= 200 && v <= 800 && v % 10 === 0;
+        if (!ok(rw) || !ok(mt)) { err.textContent = 'Enter each section score, 200 to 800 in steps of 10.'; err.hidden = false; return false; }
+        back.querySelectorAll('button').forEach(b => { b.disabled = true; });
+        SH.realScore.save({ total: rw + mt, rw, math: mt, month: back.querySelector('#rs-mo').value })
+          .then(() => { md.close(); SH.toast('Thank you! Score saved: ' + (rw + mt) + '.'); })
+          .catch(e => { err.textContent = 'Could not save. ' + (e.message || ''); err.hidden = false; back.querySelectorAll('button').forEach(b => { b.disabled = false; }); });
+        return false;
+      } }]
+    });
   }
   // Countdown to test day and the points still missing to the goal. Free
   // students also get one line on how Pro (or the pass, close to the test) helps.
@@ -453,22 +742,95 @@ document.addEventListener('DOMContentLoaded', function () {
     SH.modal({
       title: 'Your goals',
       html: '<div class="field"><label for="g-name">Name</label><input class="input" id="g-name" maxlength="40" value="' + esc(p.name) + '"></div>' +
-        '<div class="field"><label for="g-target">Target score</label><input class="input" id="g-target" type="number" min="400" max="1600" step="10" value="' + esc(p.target) + '"></div>' +
-        '<div class="field"><label for="g-date">Test date</label><input class="input" id="g-date" type="date" value="' + esc(p.testDate) + '"></div>' +
-        '<p class="small muted">' + (SH.auth.user ? 'Saved to your account.' : 'Saved on this device. Sign in to keep it on every device.') + '</p>',
+        '<div class="row"><div class="grow field"><label for="g-target">Target score</label><input class="input" id="g-target" type="number" min="400" max="1600" step="10" value="' + esc(p.target) + '"></div>' +
+        '<div class="grow field"><label for="g-date">Test date</label><input class="input" id="g-date" type="date" value="' + esc(p.testDate) + '"></div></div>' +
+        '<div class="row"><div class="grow field"><label for="g-region">Region</label><select class="input" id="g-region"><option value="">Choose…</option>' + SH.REGIONS.map(r => '<option' + (p.region === r ? ' selected' : '') + '>' + esc(r) + '</option>').join('') + '</select></div>' +
+        '<div class="grow field"><label for="g-school">School or lyceum (optional)</label><input class="input" id="g-school" maxlength="80" value="' + esc(p.school) + '" placeholder="e.g. Lyceum No. 1, Tashkent"></div></div>' +
+        '<p class="small muted">Region and school place you in the national mock rankings. ' + (SH.auth.user ? 'Saved to your account.' : 'Saved on this device. Sign in to keep it on every device.') + '</p>',
       actions: [{ label: 'Cancel', kind: 'ghost' }, {
         label: 'Save', kind: 'primary', onClick: back => {
           const t = Math.max(400, Math.min(1600, Math.round((+back.querySelector('#g-target').value || 1400) / 10) * 10));
-          SH.setProfile({ name: back.querySelector('#g-name').value.trim(), target: t, testDate: back.querySelector('#g-date').value });
+          SH.setProfile({ name: back.querySelector('#g-name').value.trim(), target: t, testDate: back.querySelector('#g-date').value,
+            region: back.querySelector('#g-region').value, school: back.querySelector('#g-school').value.trim().slice(0, 80) });
           renderHome();
         }
       }]
     });
   }
 
+  /* ======================= MISTAKE NOTEBOOK ======================= */
+  // Every wrong answer, by skill. Practice test mistakes are part of Pro (they
+  // show the question review that Pro sells); practice sets are open to all.
+  function renderMistakes() {
+    const pro = SH.plan.allows('pro');
+    const all = SH.mistakes.all();
+    const mine = all.filter(e => pro || e.ref.type !== 'test');
+    const lockedTests = all.filter(e => !pro && e.ref.type === 'test' && !e.fixed).length;
+    const open = mine.filter(e => !e.fixed).sort((a, b) => b.t - a.t), fixed = mine.filter(e => e.fixed).sort((a, b) => (b.fixedAt || 0) - (a.fixedAt || 0));
+    const week = SH.weekStart();
+    let html = '<div class="hub-head"><div><h1>Mistake notebook</h1><p class="hub-sub">Every question you got wrong, sorted by skill. Answer one right ' + SH.FIX_AFTER + ' times in a row and it’s fixed.</p></div>' +
+      (open.length ? '<div class="hub-acts"><button class="btn btn-primary" type="button" data-retry-all>Retry my mistakes (' + Math.min(open.length, 20) + ')</button></div>' : '') + '</div>';
+    html += '<div class="grid grid-3" style="margin-bottom:18px">' + tile(open.length, 'to fix') + tile(fixed.length, 'fixed so far') + tile(fixed.filter(e => (e.fixedAt || 0) >= week).length, 'fixed this week') + '</div>';
+    if (!mine.length && !lockedTests) {
+      html += '<div class="card empty"><h3>Nothing here yet</h3><p class="muted">Questions you get wrong in practice sets, drills, lessons and the question of the day land here, so you can fix them before test day.</p><div class="row" style="justify-content:center"><a class="btn btn-primary" href="#sets">Practice a set</a><a class="btn btn-ghost" href="daily.html">Question of the day</a></div></div>';
+    }
+    if (open.length) {
+      const by = {};
+      open.forEach(e => { const k = e.section + '|' + e.skill; (by[k] = by[k] || { section: e.section, skill: e.skill, list: [] }).list.push(e); });
+      html += '<h2 class="section-title">By skill</h2><div class="card">' + Object.values(by).sort((a, b) => b.list.length - a.list.length).map(g =>
+        '<div class="mk-row"><div>' + secTag(g.section) + ' <b>' + esc(g.skill) + '</b><div class="small muted">' + g.list.length + ' to fix</div></div>' +
+        '<button class="btn btn-ghost btn-sm" type="button" data-retry-skill="' + esc(g.section + '|' + g.skill) + '">Retry these</button></div>').join('') + '</div>';
+      html += '<h2 class="section-title">Most recent</h2><div class="card">' + open.slice(0, 40).map(e =>
+        '<div class="mk-row"><div><span class="small muted">' + esc(e.where || '') + ' · ' + esc(e.skill) + ' · ' + esc(DIFF[e.difficulty] || '') + '</span><br>' + (e.p ? esc(e.p) + (e.p.length >= 110 ? '…' : '') : '<b>' + esc(e.qid) + '</b>') +
+        (e.misses > 1 ? ' <span class="small muted">missed ' + e.misses + ' times</span>' : '') +
+        '<span class="dots" aria-label="' + (e.streak || 0) + ' of ' + SH.FIX_AFTER + ' right in a row">' + Array.from({ length: SH.FIX_AFTER }, (_, i) => '<i class="' + (i < (e.streak || 0) ? 'on' : '') + '"></i>').join('') + '</span></div>' +
+        '<button class="link-btn small" type="button" data-forget="' + esc(e.qid) + '">Remove</button></div>').join('') + '</div>';
+    }
+    if (lockedTests) {
+      html += '<h2 class="section-title">From practice tests</h2><div class="card">' + SH.lockBox('<div style="height:120px"></div>', lockedTests + ' mistake' + (lockedTests === 1 ? '' : 's') + ' from practice tests', 'Pro adds the questions you missed in practice tests to your notebook, with explanations, so you can retry them.', 'mistakes') + '</div>';
+    }
+    if (fixed.length) {
+      html += '<details style="margin-top:26px"><summary><b>Fixed (' + fixed.length + ')</b></summary><div class="card" style="margin-top:10px">' + fixed.slice(0, 40).map(e =>
+        '<div class="mk-row"><div><span class="small muted">' + esc(e.skill) + ' · fixed ' + SH.fmtDate(e.fixedAt) + '</span><br>' + (e.p ? esc(e.p) + (e.p.length >= 110 ? '…' : '') : '<b>' + esc(e.qid) + '</b>') + '</div><span class="status status-done">' + ICON.check + 'Fixed</span></div>').join('') + '</div></details>';
+    }
+    view.innerHTML = html;
+    const retry = async (entries, title) => {
+      const pick = entries.slice().sort((a, b) => a.t - b.t).slice(0, 20);
+      SH.toast('Loading your questions…', 1500);
+      const qs = await SH.mistakes.questions(pick);
+      if (!qs.length) { SH.toast('Could not load these questions. Check your connection.'); return; }
+      SH.track('mistakes_retried', { n: qs.length });
+      startSession({ title, questions: SH.shuffle(qs), source: 'mistakes' });
+    };
+    const ra = $('[data-retry-all]'); if (ra) ra.addEventListener('click', () => retry(open, 'Retry my mistakes'));
+    $$('[data-retry-skill]').forEach(b => b.addEventListener('click', () => retry(open.filter(e => e.section + '|' + e.skill === b.dataset.retrySkill), 'Retry: ' + b.dataset.retrySkill.split('|')[1])));
+    $$('[data-forget]').forEach(b => b.addEventListener('click', () => { SH.mistakes.remove(b.dataset.forget); renderMistakes(); }));
+  }
+
   /* ======================= PRACTICE SETS ======================= */
+  // assigned: opened from a teacher's homework, so a Pro set opens on any plan.
+  async function startSet(id, assigned) {
+    const meta = catalog.sets.find(s => s.id === id);
+    if (meta && !assigned && !SH.plan.allows(meta.plan || 'free')) { SH.plan.pitch({ title: meta.title + ' is part of Pro' }); return; }
+    const set = await SH.loadSet(id);
+    startSession({ title: set.title, questions: set.questions.map(q => Object.assign({ setId: set.id }, q)), source: 'set', setId: set.id });
+  }
+  // Drills: { sec, diff, n, skills: [], time: '' | 'pace' | '60' }. Saved ones live in SH.store 'drills'.
+  const PACE = { rw: 71, math: 95 }; // seconds per question on the real SAT
+  function drillPool(d) { return bank.filter(q => q.section === d.sec && (!d.diff || q.difficulty === d.diff) && (!(d.skills || []).length || d.skills.indexOf(q.skill) > -1)); }
+  function drillLimit(d) { const n = Math.min(d.n || 10, drillPool(d).length); return d.time === 'pace' ? n * PACE[d.sec] : d.time === '60' ? n * 60 : 0; }
+  function encodeDrill(d) { return btoa(unescape(encodeURIComponent(JSON.stringify({ s: d.sec, d: d.diff || '', n: d.n, k: d.skills || [], t: d.time || '', m: d.name || '' })))).replace(/=+$/, ''); }
+  function decodeDrill(str) {
+    try {
+      const o = JSON.parse(decodeURIComponent(escape(atob(String(str).replace(/[^A-Za-z0-9+/]/g, '')))));
+      const sec = o.s === 'math' ? 'math' : 'rw', all = [].concat.apply([], Object.values(SH.TAXONOMY[sec].domains));
+      return { sec, diff: ['easy', 'medium', 'hard'].indexOf(o.d) > -1 ? o.d : '', n: [5, 10, 20].indexOf(+o.n) > -1 ? +o.n : 10,
+        skills: (Array.isArray(o.k) ? o.k : []).filter(k => all.indexOf(k) > -1), time: ['pace', '60'].indexOf(o.t) > -1 ? o.t : '', name: String(o.m || '').slice(0, 60) };
+    } catch (e) { return null; }
+  }
+  function drillLink(d) { return 'https://satustoz.academy/practice.html?drill=' + encodeDrill(d); }
   function renderSets() {
-    let html = '<div class="hub-head"><div><h1>Practice sets</h1></div></div>';
+    let html = '<div class="hub-head"><div><h1>Practice sets</h1></div><div class="hub-acts"><a class="chip" href="#mistakes">Mistake notebook (' + SH.mistakes.open().filter(e => SH.plan.allows('pro') || e.ref.type !== 'test').length + ')</a><a class="chip" href="lessons.html">Lessons</a></div></div>';
     if (!catalog.sets.length) html += '<div class="card empty"><p class="muted">No practice sets yet.</p></div>';
     else {
       html += '<div class="grid grid-3">' + catalog.sets.map(s => {
@@ -486,43 +848,73 @@ document.addEventListener('DOMContentLoaded', function () {
     const drillForm = (id => '<form' + id('drill-form') + '>' +
       '<div class="row" style="margin-bottom:14px"><div class="grow field" style="margin:0"><label for="d-sec">Section</label><select class="input"' + id('d-sec') + '><option value="rw">Reading and Writing</option><option value="math">Math</option></select></div>' +
       '<div class="grow field" style="margin:0"><label for="d-diff">Difficulty</label><select class="input"' + id('d-diff') + '><option value="">Any</option><option value="easy">Easy</option><option value="medium">Medium</option><option value="hard">Hard</option></select></div>' +
-      '<div class="grow field" style="margin:0"><label for="d-n">Questions</label><select class="input"' + id('d-n') + '><option>5</option><option selected>10</option><option>20</option></select></div></div>' +
+      '<div class="grow field" style="margin:0"><label for="d-n">Questions</label><select class="input"' + id('d-n') + '><option>5</option><option selected>10</option><option>20</option></select></div>' +
+      '<div class="grow field" style="margin:0"><label for="d-time">Timer</label><select class="input"' + id('d-time') + '><option value="">No timer</option><option value="pace">SAT pace</option><option value="60">1 minute a question</option></select></div></div>' +
       '<div class="label" style="margin-bottom:6px">Skills <span class="small muted">(leave all unticked for a mix)</span></div><div class="skill-pick"' + id('d-skills') + '>' +
       (pro ? '' : '<fieldset><legend>Standard English Conventions</legend><label><input type="checkbox"> Boundaries</label><label><input type="checkbox"> Form, Structure, and Sense</label></fieldset>') + '</div>' +
-      '<div class="row" style="margin-top:14px"><button class="btn btn-primary" type="submit">Start drill</button><span class="small muted"' + id('d-count') + '></span></div></form>')(n => pro ? ' id="' + n + '"' : '');
+      '<div class="row" style="margin-top:14px"><button class="btn btn-primary" type="submit">Start drill</button><button class="btn btn-ghost" type="button"' + id('d-save') + '>Save drill</button><span class="small muted"' + id('d-count') + '></span></div></form>')(n => pro ? ' id="' + n + '"' : '');
     html += '<h2 class="section-title">Build a skill drill</h2><div class="card">' +
-      (pro ? drillForm : SH.lockBox(drillForm, 'Skill drills are part of Pro', 'Pick any skills and get a drill from the whole question bank, or practice your weakest skills straight from the dashboard.', 'drills')) + '</div>';
+      (pro ? drillForm : SH.lockBox(drillForm, 'Skill drills are part of Pro', 'Pick any skills, a difficulty and a timer, save your drills and share them with friends.', 'drills')) + '</div>';
+    const saved = Object.keys(SH.store.get('drills', {}) || {}).map(k => Object.assign({ id: k }, SH.store.get('drills', {})[k])).filter(d => !d.deleted).sort((a, b) => b.t - a.t);
+    if (pro && saved.length) {
+      html += '<h2 class="section-title">Your saved drills</h2><div class="card">' + saved.map(d =>
+        '<div class="saved-drill"><div><b>' + esc(d.name || 'Drill') + '</b><div class="small muted">' + secName(d.sec) + ' · ' + (d.skills.length ? esc(d.skills.join(', ')) : 'all skills') + ' · ' + d.n + ' questions' + (d.diff ? ', ' + d.diff : '') + (d.time ? ', timed' : '') + '</div></div>' +
+        '<div class="row" style="gap:6px"><button class="btn btn-primary btn-sm" type="button" data-run-drill="' + esc(d.id) + '">Start</button><button class="btn btn-ghost btn-sm" type="button" data-share-drill="' + esc(d.id) + '">Copy link</button><button class="link-btn small" type="button" data-del-drill="' + esc(d.id) + '">Delete</button></div></div>').join('') + '</div>';
+    }
     view.innerHTML = html;
-    $$('[data-set]').forEach(b => b.addEventListener('click', async () => {
-      const set = await SH.loadSet(b.dataset.set);
-      startSession({ title: set.title, questions: set.questions.map(q => Object.assign({ setId: set.id }, q)), source: 'set' });
-    }));
+    $$('[data-set]').forEach(b => b.addEventListener('click', () => startSet(b.dataset.set)));
+    if (pendingDrill && !pro) { pendingDrill = null; SH.plan.pitch({ title: 'Shared drills are part of Pro', text: 'A friend shared a skill drill with you. Pro opens it, along with every skill set and drill.' }); }
     if (!pro) return;
     const secSel = $('#d-sec'), diffSel = $('#d-diff');
-    function drawSkills() {
+    function drawSkills(picked) {
       const sec = secSel.value;
       const doms = SH.TAXONOMY[sec].domains;
       $('#d-skills').innerHTML = Object.keys(doms).map(d => '<fieldset><legend>' + esc(d) + '</legend>' + doms[d].map(s => {
         const n = bank.filter(q => q.section === sec && q.skill === s).length;
-        return '<label><input type="checkbox" value="' + esc(s) + '"' + (n ? '' : ' disabled') + '> ' + esc(s) + '<span class="cnt">' + n + '</span></label>';
+        return '<label><input type="checkbox" value="' + esc(s) + '"' + (n ? '' : ' disabled') + ((picked || []).indexOf(s) > -1 && n ? ' checked' : '') + '> ' + esc(s) + '<span class="cnt">' + n + '</span></label>';
       }).join('') + '</fieldset>').join('');
       $$('#d-skills input').forEach(i => i.addEventListener('change', count));
       count();
     }
-    function pool() {
-      const sec = secSel.value, diff = diffSel.value;
-      const picked = $$('#d-skills input:checked').map(i => i.value);
-      return bank.filter(q => q.section === sec && (!diff || q.difficulty === diff) && (!picked.length || picked.indexOf(q.skill) > -1));
-    }
-    function count() { const n = pool().length; $('#d-count').textContent = n + ' matching question' + (n === 1 ? '' : 's') + ' in the bank'; }
-    secSel.addEventListener('change', drawSkills); diffSel.addEventListener('change', count);
-    drawSkills();
-    $('#drill-form').addEventListener('submit', e => {
-      e.preventDefault();
-      const qs = SH.shuffle(pool()).slice(0, +$('#d-n').value);
+    const spec = () => ({ sec: secSel.value, diff: diffSel.value, n: +$('#d-n').value, time: $('#d-time').value, skills: $$('#d-skills input:checked').map(i => i.value) });
+    function count() { const n = drillPool(spec()).length; $('#d-count').textContent = n + ' matching question' + (n === 1 ? '' : 's') + ' in the bank'; }
+    secSel.addEventListener('change', () => drawSkills([])); diffSel.addEventListener('change', count);
+    const run = d => {
+      const qs = SH.shuffle(drillPool(d)).slice(0, d.n);
       if (!qs.length) { SH.toast('No questions match. Try fewer filters' + (SH.ai.enabled() ? ', or use AI practice.' : '.')); return; }
-      startSession({ title: 'Skill drill', questions: qs, source: 'drill' });
+      startSession({ title: d.name || 'Skill drill', questions: qs, source: 'drill', limit: drillLimit(d) });
+    };
+    if (pendingDrill) {
+      const d = pendingDrill; pendingDrill = null;
+      secSel.value = d.sec; diffSel.value = d.diff; $('#d-n').value = String(d.n); $('#d-time').value = d.time;
+      drawSkills(d.skills);
+      $('#drill-form').scrollIntoView({ block: 'start' });
+      SH.toast((d.name ? '“' + d.name + '”' : 'A shared drill') + ' is ready. Tap Start drill.', 4000);
+    } else drawSkills([]);
+    $('#drill-form').addEventListener('submit', e => { e.preventDefault(); run(spec()); });
+    $('#d-save').addEventListener('click', () => {
+      const d = spec();
+      if (!drillPool(d).length) { SH.toast('No questions match these filters yet.'); return; }
+      const md = SH.modal({
+        title: 'Save this drill',
+        html: '<div class="field"><label for="d-name">Name</label><input class="input" id="d-name" maxlength="60" value="' + esc((d.skills[0] || secName(d.sec)) + (d.diff ? ' (' + d.diff + ')' : '')) + '"></div>',
+        actions: [{ label: 'Cancel', kind: 'ghost' }, { label: 'Save', kind: 'primary', onClick: back => {
+          const all = Object.assign({}, SH.store.get('drills', {}) || {});
+          all[SH.uid('d')] = Object.assign(d, { name: back.querySelector('#d-name').value.trim().slice(0, 60) || 'Drill', t: Date.now() });
+          SH.store.set('drills', all);
+          setTimeout(renderSets, 0);
+        } }]
+      });
+      setTimeout(() => { const i = $('#d-name', md.el); if (i) i.select(); }, 0);
     });
+    const byId = id => saved.find(d => d.id === id);
+    $$('[data-run-drill]').forEach(b => b.addEventListener('click', () => run(byId(b.dataset.runDrill))));
+    $$('[data-share-drill]').forEach(b => b.addEventListener('click', () => { SH.copyText(drillLink(byId(b.dataset.shareDrill)), 'Link copied. Anyone with Pro can open this drill.'); SH.track('drill_shared', {}); }));
+    $$('[data-del-drill]').forEach(b => b.addEventListener('click', () => {
+      const all = Object.assign({}, SH.store.get('drills', {}) || {});
+      all[b.dataset.delDrill] = { deleted: true, t: Date.now() };
+      SH.store.set('drills', all); renderSets();
+    }));
   }
 
   /* ======================= AI PRACTICE ======================= */
@@ -616,7 +1008,7 @@ document.addEventListener('DOMContentLoaded', function () {
       : s.status === 'done' ? '<a class="btn btn-ghost btn-sm" href="' + href + '">Retake</a>'
       : '<a class="btn btn-primary btn-sm" href="' + href + '">Start</a>';
     return '<article class="tcard' + (s.locked ? ' is-locked' : '') + '" aria-label="' + esc(t.title + ', ' + STATUS[s.status][2]) + '"><span class="tcard-num" aria-hidden="true">' + esc(num) + '</span>' + statusTag(s.status) +
-      '<div class="tcard-body"><h3>' + esc(t.title) + '</h3><p class="tcard-info">' + info + '</p></div><div class="tcard-cta">' + cta + '</div></article>';
+      '<div class="tcard-body"><h3>' + esc(t.title) + '</h3><p class="tcard-info">' + info + '</p>' + (t.level ? '<p class="tcard-info" style="margin-top:4px"><span class="tag" title="Difficulty compared with Bluebook">' + esc(t.level) + '</span></p>' : '') + '</div><div class="tcard-cta">' + cta + '</div></article>';
   }
   function renderTests() {
     const hist = SH.getTestHistory();
@@ -675,13 +1067,32 @@ document.addEventListener('DOMContentLoaded', function () {
   /* ======================= PLAYER ======================= */
   function startSession(opts) {
     if (!opts.questions || !opts.questions.length) { SH.toast('No questions in this set yet.'); return; }
-    session = { title: opts.title, source: opts.source, questions: opts.questions, i: 0, responses: {}, checked: {}, struck: {}, elim: false, started: Date.now(), shownAt: Date.now(), time: {} };
+    session = { title: opts.title, source: opts.source, setId: opts.setId || '', assign: opts.assign || null, questions: opts.questions, i: 0, responses: {}, checked: {}, struck: {}, elim: false, started: Date.now(), shownAt: Date.now(), time: {},
+      endsAt: opts.limit ? Date.now() + opts.limit * 1000 : 0 };
     hub.hidden = true; player.hidden = false;
     history.pushState(null, '', '#play');
     drawQuestion();
     window.scrollTo(0, 0);
+    stopTimer();
+    if (session.endsAt) timerHandle = setInterval(tickTimer, 1000);
   }
-  window.addEventListener('popstate', () => { if (session && location.hash !== '#play') { session = null; route(); } });
+  window.addEventListener('popstate', () => { if (session && location.hash !== '#play') { stopTimer(); session = null; route(); } });
+  // Timed drills: the clock sits in the progress line; at zero the drill ends.
+  function stopTimer() { if (timerHandle) clearInterval(timerHandle); timerHandle = null; }
+  function tickTimer() {
+    const el = $('#p-timer');
+    if (!session || !session.endsAt) { stopTimer(); return; }
+    const left = Math.max(0, Math.round((session.endsAt - Date.now()) / 1000));
+    if (el) { el.textContent = SH.fmtClock(left); el.classList.toggle('low', left <= 30); }
+    if (left <= 0) { stopTimer(); SH.toast('Time is up.'); finishSession(); }
+  }
+  // Where a question came from, for the mistake notebook.
+  function srcOf(q, s) {
+    if (q.ai) return { type: 'ai', where: s.title };
+    if (q.testId) return { type: 'test', id: q.testId, where: s.title };
+    if (q.setId) return { type: 'set', id: q.setId, where: s.title };
+    return null;
+  }
 
   function drawQuestion() {
     const s = session, q = s.questions[s.i];
@@ -690,7 +1101,8 @@ document.addEventListener('DOMContentLoaded', function () {
     const stim = (q.passage || q.table || q.image) ? '<div class="p-stim rich">' + SH.renderStimulus(q) + '</div>' : '';
     player.innerHTML =
       '<div class="p-top"><h1>' + esc(s.title) + '</h1><button class="btn btn-ghost btn-sm" type="button" id="p-exit">Finish</button></div>' +
-      '<div class="p-progress"><span>Question ' + (s.i + 1) + ' of ' + s.questions.length + '</span><div class="bar"><i style="width:' + SH.pct(done, s.questions.length) + '%"></i></div><span>' + done + ' done</span></div>' +
+      '<div class="p-progress"><span>Question ' + (s.i + 1) + ' of ' + s.questions.length + '</span><div class="bar"><i style="width:' + SH.pct(done, s.questions.length) + '%"></i></div><span>' + done + ' done</span>' +
+      (s.endsAt ? '<span class="p-timer" id="p-timer" role="timer" aria-label="Time left">' + SH.fmtClock(Math.max(0, (s.endsAt - Date.now()) / 1000)) + '</span>' : '') + '</div>' +
       '<div class="p-card"><div class="p-grid' + (two ? ' two' : '') + '">' + (two ? stim : '') +
       '<div class="p-q"><div class="p-qbar">' + secTag(q.section) + '<span class="tag tag-' + q.difficulty + '">' + DIFF[q.difficulty] + '</span>' + (q.ai ? '<span class="tag tag-ai">AI</span>' : '') +
       '<span class="small muted">' + esc(q.skill || '') + '</span>' +
@@ -800,6 +1212,8 @@ document.addEventListener('DOMContentLoaded', function () {
     const ms = Date.now() - s.shownAt;
     s.checked[q.id] = { ok, ms };
     SH.recordAttempts([{ qid: q.id, section: q.section, domain: q.domain, skill: q.skill, difficulty: q.difficulty, correct: ok, ms, source: s.source }]);
+    const src = srcOf(q, s);
+    if (src) SH.mistakes.record(q, ok, src);
     drawAnswer(); drawActions(); drawFeedback();
     const fb = $('#p-feedback'); if (fb) fb.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
     const nx = $('#p-next'); if (nx) nx.focus({ preventScroll: true });
@@ -816,16 +1230,25 @@ document.addEventListener('DOMContentLoaded', function () {
     const tb = $('#p-tutor'); if (tb) tb.addEventListener('click', () => SH.openTutor({ question: q, response: s.responses[q.id], correct: c.ok }));
   }
   function finishSession() {
+    stopTimer();
     const s = session;
+    if (!s) return;
     const answered = s.questions.filter(q => s.checked[q.id]);
     const right = answered.filter(q => s.checked[q.id].ok);
     const missed = answered.filter(q => !s.checked[q.id].ok);
     const secs = Math.round((Date.now() - s.started) / 1000);
+    // Homework: a finished set or assigned drill is sent to the teacher.
+    if (answered.length && (s.assign || (s.source === 'set' && s.setId))) {
+      SH.classes.submit(s.assign ? s.assign : { kind: 'set', ref: s.setId }, { title: s.title, correct: right.length, count: s.questions.length })
+        .catch(e => console.warn('[SAT Ustoz] Could not send the result to your teacher:', e));
+    }
+    const fixedNow = s.source === 'mistakes' ? s.questions.filter(q => { const e = SH.mistakes.map()[q.id]; return e && e.fixed && e.fixedAt >= s.started; }).length : 0;
     const bySkill = {};
     answered.forEach(q => { const k = q.skill || 'Other'; bySkill[k] = bySkill[k] || { n: 0, c: 0 }; bySkill[k].n++; if (s.checked[q.id].ok) bySkill[k].c++; });
     player.innerHTML = '<div class="p-top"><h1>' + esc(s.title) + '</h1></div>' +
       '<div class="grid grid-2"><div class="card"><span class="kicker">Session complete</span><div class="summary-score">' + right.length + '/' + answered.length + '</div><p class="muted">' +
       (answered.length ? SH.pct(right.length, answered.length) + '% correct' : 'No questions checked') + ' in ' + SH.fmtClock(secs) + (answered.length < s.questions.length ? ', ' + (s.questions.length - answered.length) + ' skipped' : '') + '</p>' +
+      (s.source === 'mistakes' ? '<p class="small">' + (fixedNow ? '<b>' + fixedNow + ' mistake' + (fixedNow === 1 ? '' : 's') + ' fixed.</b> ' : '') + 'Each one needs ' + SH.FIX_AFTER + ' right answers in a row.</p>' : missed.length ? '<p class="small muted">Your ' + missed.length + ' missed question' + (missed.length === 1 ? ' is' : 's are') + ' in your <a href="#mistakes">mistake notebook</a>.</p>' : '') +
       '<div class="row">' + (missed.length ? '<button class="btn btn-primary" type="button" id="s-retry">Retry the ' + missed.length + ' I missed</button>' : '') + '<a class="btn btn-ghost" href="#home" id="s-home">Back to dashboard</a></div></div>' +
       '<div class="card"><h3>By skill</h3>' + (Object.keys(bySkill).length ? Object.keys(bySkill).map(k => '<div class="skill-row dom" style="grid-template-columns:minmax(0,1fr) 70px 44px"><div>' + esc(k) + '</div><div class="bar ' + accClass(bySkill[k].c / bySkill[k].n) + '"><i style="width:' + SH.pct(bySkill[k].c, bySkill[k].n) + '%"></i></div><div class="acc">' + bySkill[k].c + '/' + bySkill[k].n + '</div></div>').join('') : '<p class="muted">Nothing checked yet.</p>') + '</div></div>' +
       (missed.length ? '<h2 class="section-title">Questions to review</h2>' + missed.map((q, i) =>

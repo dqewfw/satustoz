@@ -1,14 +1,19 @@
 {
   "name": "SAT Ustoz practice",
   "short_name": "SAT Ustoz",
-  "description": "Digital SAT practice tests and question sets.",
+  "description": "Digital SAT practice tests, vocabulary in Uzbek and Russian, and question sets.",
   "start_url": "/practice.html",
   "scope": "/",
   "display": "standalone",
   "background_color": "#FFFFFF",
-  "theme_color": "#6E1F2B",
+  "theme_color": "#2D5038",
   "icons": [
     { "src": "/icon-192.png", "sizes": "192x192", "type": "image/png" },
     { "src": "/icon-512.png", "sizes": "512x512", "type": "image/png" }
+  ],
+  "shortcuts": [
+    { "name": "Vocabulary", "short_name": "Words", "url": "/vocab.html", "icons": [{ "src": "/icon-192.png", "sizes": "192x192" }] },
+    { "name": "Question of the day", "short_name": "Daily", "url": "/daily.html", "icons": [{ "src": "/icon-192.png", "sizes": "192x192" }] },
+    { "name": "Mistake notebook", "short_name": "Mistakes", "url": "/practice.html#mistakes", "icons": [{ "src": "/icon-192.png", "sizes": "192x192" }] }
   ]
 }
