@@ -1,0 +1,2374 @@
+{
+ "id": "practice-test-13",
+ "title": "Practice Test 13",
+ "description": "A full-length adaptive digital SAT practice test written by SAT Ustoz: 98 questions, two modules per section, with an explanation for every question.",
+ "routing": {
+  "threshold": 0.6
+ },
+ "breakMinutes": 10,
+ "sections": [
+  {
+   "id": "rw",
+   "title": "Reading and Writing",
+   "module1": {
+    "minutes": 32,
+    "questions": [
+     {
+      "id": "t13-rw1-01",
+      "section": "rw",
+      "skill": "Words in Context",
+      "difficulty": "easy",
+      "passage": "After the storm knocked down several power lines, the town's electricity was ______ for two days, and residents used candles and flashlights at night.",
+      "prompt": "Which choice completes the text with the most logical and precise word or phrase?",
+      "choices": [
+       "improved",
+       "measured",
+       "shared",
+       "interrupted"
+      ],
+      "answer": "D",
+      "explanation": "Downed power lines and residents using candles show the electricity was cut off, or **interrupted**. Nothing suggests it was *improved* or *measured*."
+     },
+     {
+      "id": "t13-rw1-02",
+      "section": "rw",
+      "skill": "Words in Context",
+      "difficulty": "medium",
+      "passage": "The violinist's performance was praised for its ______: even in the fastest passages, every note was clear and exactly in tune.",
+      "prompt": "Which choice completes the text with the most logical and precise word or phrase?",
+      "choices": [
+       "volume",
+       "precision",
+       "spontaneity",
+       "brevity"
+      ],
+      "answer": "B",
+      "explanation": "Clear, perfectly tuned notes even at high speed describe exactness, or **precision**. *Volume* is about loudness and *brevity* about length, neither of which the text discusses."
+     },
+     {
+      "id": "t13-rw1-03",
+      "section": "rw",
+      "skill": "Words in Context",
+      "difficulty": "medium",
+      "passage": "Although many readers found the novel's ending ______, the author insisted that she had planned it from the very first chapter, leaving small clues throughout the book.",
+      "prompt": "Which choice completes the text with the most logical and precise word or phrase?",
+      "choices": [
+       "predictable",
+       "lengthy",
+       "abrupt",
+       "cheerful"
+      ],
+      "answer": "C",
+      "explanation": "The author defends the ending by saying she planned it from the start and left clues, which answers a complaint that it seemed sudden, or **abrupt**. If readers found it *predictable*, pointing to the clues would not answer them."
+     },
+     {
+      "id": "t13-rw1-04",
+      "section": "rw",
+      "skill": "Words in Context",
+      "difficulty": "hard",
+      "passage": "Economist Grace Mbeki's proposal for reducing traffic was ______: rather than building new roads or raising taxes, she suggested simply staggering school and office start times so that fewer people traveled at once.",
+      "prompt": "Which choice completes the text with the most logical and precise word or phrase?",
+      "choices": [
+       "ingenious",
+       "extravagant",
+       "convoluted",
+       "unprecedented"
+      ],
+      "answer": "A",
+      "explanation": "A simple, inexpensive idea that solves the problem cleverly is **ingenious**. *Extravagant* and *convoluted* contradict \"simply,\" and the text does not say no one had suggested it before."
+     },
+     {
+      "id": "t13-rw1-05",
+      "section": "rw",
+      "skill": "Text Structure and Purpose",
+      "difficulty": "medium",
+      "passage": "Many people imagine Antarctica as a place where nothing grows. Yet along its coasts and on its warmer islands, mosses and lichens cover rocks in patches of green and orange. Two kinds of flowering plants also grow there, Antarctic hair grass and Antarctic pearlwort, sheltering in cracks where they can catch the brief summer sun.",
+      "prompt": "Which choice best describes the main purpose of the text?",
+      "choices": [
+       "To explain why few people visit Antarctica",
+       "To argue that Antarctica's climate is warming quickly",
+       "To compare Antarctic plants with plants in deserts",
+       "To show that, despite common belief, some plants do grow in Antarctica"
+      ],
+      "answer": "D",
+      "explanation": "The text begins with the idea that nothing grows in Antarctica and then describes the plants that do. It does not discuss visitors, climate change or deserts."
+     },
+     {
+      "id": "t13-rw1-06",
+      "section": "rw",
+      "skill": "Text Structure and Purpose",
+      "difficulty": "hard",
+      "passage": "The following text is adapted from a 1915 short story. Sam, a young fisherman, is waiting on the dock for his father's boat to return.\nThe other boats had come in an hour ago, their decks shining with fish, and the men had gone home to supper. Sam sat on the end of the dock with his knees drawn up. He told himself that his father often stayed out late when the fishing was good. Still, every few minutes he stood, shaded his eyes against the low sun, and searched the empty water.",
+      "prompt": "Which choice best describes the function of the final sentence in the text as a whole?",
+      "choices": [
+       "It shows that Sam is bored and wants to go home to supper.",
+       "It reveals that Sam is more worried than his reassuring thoughts suggest.",
+       "It explains why the other boats returned earlier than Sam's father's boat.",
+       "It suggests that Sam's eyesight is poor."
+      ],
+      "answer": "B",
+      "explanation": "Sam tells himself his father is just fishing late, but \"still\" he keeps standing to search the water, which shows his worry. The sentence does not explain the other boats' timing or say anything about his eyesight."
+     },
+     {
+      "id": "t13-rw1-07",
+      "section": "rw",
+      "skill": "Cross-Text Connections",
+      "difficulty": "medium",
+      "passage": "**Text 1**\nMany historians have described medieval European peasants as isolated villagers who rarely traveled more than a few miles from home and knew little of the wider world.\n**Text 2**\nHistorian Marta Kowalczyk studied court records, tax lists, and pilgrimage accounts from several regions. She found that many peasants traveled regularly to distant markets, fairs, and religious sites, sometimes over hundreds of miles. Such travel, she argues, brought news and goods from far away into village life.",
+      "prompt": "Based on the texts, how would Kowalczyk (Text 2) most likely respond to the description in Text 1?",
+      "choices": [
+       "She would agree that peasants rarely left their villages.",
+       "She would argue that peasants traveled only to religious sites.",
+       "She would argue that the description underestimates how often peasants traveled and how connected they were to the wider world.",
+       "She would claim that court records are not reliable sources about peasants."
+      ],
+      "answer": "C",
+      "explanation": "Kowalczyk's evidence shows peasants traveled widely and brought outside news home, which contradicts the picture of isolated villagers. She lists markets and fairs as well as religious sites, and she relies on court records rather than dismissing them."
+     },
+     {
+      "id": "t13-rw1-08",
+      "section": "rw",
+      "skill": "Central Ideas and Details",
+      "difficulty": "easy",
+      "passage": "In 1953, Edmund Hillary of New Zealand and Tenzing Norgay of Nepal became the first people known to reach the summit of Mount Everest. Their success depended on the work of a large team. Hundreds of porters carried supplies up the mountain, and other climbers set up a series of camps so that the two men could make the final climb.",
+      "prompt": "Which choice best states the main idea of the text?",
+      "choices": [
+       "The first known climb to the top of Everest relied on the efforts of many people, not just the two who reached the summit.",
+       "Hillary and Norgay climbed Everest alone and without supplies.",
+       "Mount Everest is the tallest mountain in New Zealand.",
+       "Most people who climb Everest today do not use porters."
+      ],
+      "answer": "A",
+      "explanation": "The text stresses that porters and other climbers made the summit possible. It contradicts the idea that the two climbed alone, and it says nothing about climbers today."
+     },
+     {
+      "id": "t13-rw1-09",
+      "section": "rw",
+      "skill": "Central Ideas and Details",
+      "difficulty": "medium",
+      "passage": "For centuries, people in the Andes mountains have stored potatoes by freeze-drying them. Farmers spread the potatoes on the ground during cold nights, when they freeze, and then let them thaw in the daytime sun. After several days, they press out the remaining water by walking on the potatoes. The result, called chuño, can be stored for years without spoiling, an important protection against poor harvests.",
+      "prompt": "Which choice best states the main idea of the text?",
+      "choices": [
+       "Potatoes grow best in cold mountain climates.",
+       "Freezing destroys most of the nutrients in potatoes.",
+       "Chuño is eaten only during festivals in the Andes.",
+       "Andean farmers developed a freeze-drying method that lets potatoes be stored for years, guarding against bad harvests."
+      ],
+      "answer": "D",
+      "explanation": "The text describes how chuño is made and why it matters: it lasts for years and protects against poor harvests. It does not discuss where potatoes grow best, nutrients, or festivals."
+     },
+     {
+      "id": "t13-rw1-10",
+      "section": "rw",
+      "skill": "Command of Evidence: Textual",
+      "difficulty": "medium",
+      "passage": "Sociologist Henrik Olsen claims that people who live in neighborhoods with more parks and public squares tend to know more of their neighbors by name.",
+      "prompt": "Which finding, if true, would most directly support Olsen's claim?",
+      "choices": [
+       "People who live near parks report exercising more often than people who do not.",
+       "In a survey of 40 neighborhoods, residents of neighborhoods with the most parks and squares could name, on average, twice as many neighbors as residents of neighborhoods with the fewest.",
+       "Most parks are busiest on weekends.",
+       "Many people say they would like their neighborhoods to have more parks."
+      ],
+      "answer": "B",
+      "explanation": "Olsen's claim links parks and squares to knowing neighbors by name. Only the second choice compares neighborhoods on exactly those two things. Exercise and park schedules are beside the point."
+     },
+     {
+      "id": "t13-rw1-11",
+      "section": "rw",
+      "skill": "Command of Evidence: Textual",
+      "difficulty": "medium",
+      "passage": "In the novel *The Quiet Orchard*, the narrator suggests that his grandmother was more generous than she wanted others to know. ______",
+      "prompt": "Which quotation from the novel most effectively illustrates the claim?",
+      "choices": [
+       "\"Every winter she left baskets of apples on the neighbors' steps before dawn, and if anyone thanked her, she claimed to know nothing about it.\"",
+       "\"She rose at five each morning and worked in the orchard until the sun was high.\"",
+       "\"Her kitchen always smelled of cinnamon and baking bread.\"",
+       "\"She told me stories about the orchard as it was when she was a girl.\""
+      ],
+      "answer": "A",
+      "explanation": "Leaving gifts secretly and denying it shows generosity she wanted to hide. The other quotations describe her habits or stories, not hidden generosity."
+     },
+     {
+      "id": "t13-rw1-12",
+      "section": "rw",
+      "skill": "Command of Evidence: Quantitative",
+      "difficulty": "hard",
+      "passage": "A transportation researcher compared commuting times in four cities before and after each city added dedicated bus lanes. She claims that the cities that added the most kilometers of bus lanes saw the largest reductions in average bus commute time.",
+      "table": {
+       "title": "Bus lanes added and change in average bus commute time",
+       "head": [
+        "City",
+        "Kilometers of bus lanes added",
+        "Change in average bus commute time (minutes)"
+       ],
+       "rows": [
+        [
+         "Arden",
+         "5",
+         "−2"
+        ],
+        [
+         "Belmar",
+         "32",
+         "−11"
+        ],
+        [
+         "Castillo",
+         "18",
+         "−6"
+        ],
+        [
+         "Delmont",
+         "12",
+         "−4"
+        ]
+       ]
+      },
+      "prompt": "Which choice most effectively uses data from the table to support the researcher's claim?",
+      "choices": [
+       "Belmar added 32 kilometers of bus lanes, more than any other city.",
+       "Arden's average bus commute time fell by only 2 minutes.",
+       "As the kilometers of bus lanes added rise from Arden (5) to Delmont (12), Castillo (18), and Belmar (32), the reductions in commute time grow from 2 to 4, 6, and 11 minutes.",
+       "All four cities saw their average bus commute times decrease."
+      ],
+      "answer": "C",
+      "explanation": "The claim is about a pattern across cities, so all four must be compared in order. Only the third choice shows larger reductions going with more bus lanes. Choice D notes that all times fell but not that more lanes meant bigger drops."
+     },
+     {
+      "id": "t13-rw1-13",
+      "section": "rw",
+      "skill": "Inferences",
+      "difficulty": "medium",
+      "passage": "Researchers studying a lake found that the number of a small fish species dropped sharply in the years after a larger predatory fish was introduced. During the same years, the number of tiny water insects that the small fish eat increased greatly. Based on these observations, the researchers suggest that ______",
+      "prompt": "Which choice most logically completes the text?",
+      "choices": [
+       "the predatory fish reduced the small fish population, which allowed the insects that small fish eat to multiply.",
+       "the water insects were eating the small fish.",
+       "the predatory fish ate mostly water insects.",
+       "the small fish moved to another lake to find more insects."
+      ],
+      "answer": "A",
+      "explanation": "Fewer small fish (eaten by the predator) means less pressure on the insects they eat, so the insects increased. Nothing suggests insects eat fish, that the predator eats insects, or that the small fish moved."
+     },
+     {
+      "id": "t13-rw1-14",
+      "section": "rw",
+      "skill": "Inferences",
+      "difficulty": "hard",
+      "passage": "Chemist Elena Varga found that a newly developed paint dries quickly on sunny days but stays wet for hours on cloudy days, even when the temperature and humidity are the same on both kinds of days. In the laboratory, the paint dried quickly under an ultraviolet lamp but slowly under an ordinary lamp that produced the same amount of heat. Varga concludes that ______",
+      "prompt": "Which choice most logically completes the text?",
+      "choices": [
+       "the paint dries quickly only when the air is very dry.",
+       "ordinary lamps produce more ultraviolet light than sunlight does.",
+       "the paint dries faster when the temperature is higher.",
+       "ultraviolet light, rather than heat, is likely what speeds up the drying of the paint."
+      ],
+      "answer": "D",
+      "explanation": "Drying speed changed with ultraviolet light while heat, temperature and humidity were held equal, so ultraviolet light is the likely cause. Temperature and humidity were the same, so choices A and C are not supported."
+     },
+     {
+      "id": "t13-rw1-15",
+      "section": "rw",
+      "skill": "Boundaries",
+      "difficulty": "easy",
+      "passage": "Some of the oldest trees on Earth are bristlecone ______ one in California is estimated to be more than 4,800 years old.",
+      "prompt": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+      "choices": [
+       "pines,",
+       "pines;",
+       "pines",
+       "pines, and,"
+      ],
+      "answer": "B",
+      "explanation": "Two complete sentences are joined, so a semicolon is needed. A comma alone makes a comma splice, and no punctuation makes a run-on."
+     },
+     {
+      "id": "t13-rw1-16",
+      "section": "rw",
+      "skill": "Boundaries",
+      "difficulty": "medium",
+      "passage": "The museum's summer program offers workshops in three ______ painting, pottery, and photography.",
+      "prompt": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+      "choices": [
+       "areas;",
+       "areas",
+       "areas:",
+       "areas, including:"
+      ],
+      "answer": "C",
+      "explanation": "A complete sentence introduces a list, so a colon is correct. A semicolon cannot introduce a list, and \"including:\" puts a colon after an incomplete phrase."
+     },
+     {
+      "id": "t13-rw1-17",
+      "section": "rw",
+      "skill": "Boundaries",
+      "difficulty": "medium",
+      "passage": "The scientist Chien-Shiung Wu, whose experiments in the 1950s overturned a widely accepted law of ______ is remembered as one of the most skilled experimental physicists of her time.",
+      "prompt": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+      "choices": [
+       "physics;",
+       "physics",
+       "physics:",
+       "physics,"
+      ],
+      "answer": "D",
+      "explanation": "The clause beginning \"whose experiments...\" interrupts the sentence after a comma, so it must close with a comma before the verb \"is.\""
+     },
+     {
+      "id": "t13-rw1-18",
+      "section": "rw",
+      "skill": "Boundaries",
+      "difficulty": "hard",
+      "passage": "The tour includes visits to three historic sites: a fortress that dates to the 1200s, when the town was first ______ a cathedral finished in 1510; and a bridge that has carried traffic for over four hundred years.",
+      "prompt": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+      "choices": [
+       "settled;",
+       "settled,",
+       "settled:",
+       "settled"
+      ],
+      "answer": "A",
+      "explanation": "The list items contain commas, so semicolons separate the items. A semicolon after \"settled\" closes the first item, matching the semicolon after \"1510.\""
+     },
+     {
+      "id": "t13-rw1-19",
+      "section": "rw",
+      "skill": "Form, Structure, and Sense",
+      "difficulty": "easy",
+      "passage": "Each morning, the bakers ______ the ovens before sunrise so that fresh bread is ready when the shop opens.",
+      "prompt": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+      "choices": [
+       "lighting",
+       "to light",
+       "light",
+       "having lit"
+      ],
+      "answer": "C",
+      "explanation": "The subject \"bakers\" needs a main verb. The plural present tense **light** fits \"Each morning.\" The other choices are not complete verbs."
+     },
+     {
+      "id": "t13-rw1-20",
+      "section": "rw",
+      "skill": "Form, Structure, and Sense",
+      "difficulty": "medium",
+      "passage": "The photographs in the exhibit, which were taken by a little-known traveler in the 1880s, ______ some of the earliest images of the region's mountain villages.",
+      "prompt": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+      "choices": [
+       "is",
+       "are",
+       "was",
+       "has been"
+      ],
+      "answer": "B",
+      "explanation": "The subject is \"photographs,\" which is plural, so **are** is correct. The clause about the traveler does not change the subject."
+     },
+     {
+      "id": "t13-rw1-21",
+      "section": "rw",
+      "skill": "Form, Structure, and Sense",
+      "difficulty": "hard",
+      "passage": "Hoping to see the comet before dawn, ______",
+      "prompt": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+      "choices": [
+       "the telescope was set up on the hill by the students.",
+       "the hill was where the students set up their telescope.",
+       "the students' telescope was set up on the hill.",
+       "the students set up their telescope on the hill."
+      ],
+      "answer": "D",
+      "explanation": "The opening phrase describes people hoping to see the comet, so the subject right after the comma must be **the students**. The other choices make the telescope or the hill do the hoping."
+     },
+     {
+      "id": "t13-rw1-22",
+      "section": "rw",
+      "skill": "Transitions",
+      "difficulty": "easy",
+      "passage": "The library was crowded on Saturday afternoon. ______ every table was taken, and some students were studying on the floor.",
+      "prompt": "Which choice completes the text with the most logical transition?",
+      "choices": [
+       "In fact,",
+       "However,",
+       "Instead,",
+       "Previously,"
+      ],
+      "answer": "A",
+      "explanation": "The second sentence gives a strong detail that supports the first, so **In fact** fits. There is no contrast or change of time."
+     },
+     {
+      "id": "t13-rw1-23",
+      "section": "rw",
+      "skill": "Transitions",
+      "difficulty": "medium",
+      "passage": "The first steam engines were enormous and inefficient. ______ they were used mainly to pump water out of mines, where their size did not matter.",
+      "prompt": "Which choice completes the text with the most logical transition?",
+      "choices": [
+       "In contrast,",
+       "For instance,",
+       "As a result,",
+       "Similarly,"
+      ],
+      "answer": "C",
+      "explanation": "Being large and inefficient led to their limited use in mines, so the cause-and-effect transition **As a result** fits."
+     },
+     {
+      "id": "t13-rw1-24",
+      "section": "rw",
+      "skill": "Transitions",
+      "difficulty": "hard",
+      "passage": "For most of the twentieth century, scientists believed that adult human brains could not grow new neurons. Studies in the 1990s, ______ found evidence of new neurons forming in at least one region of the adult brain.",
+      "prompt": "Which choice completes the text with the most logical transition?",
+      "choices": [
+       "for example,",
+       "therefore,",
+       "similarly,",
+       "however,"
+      ],
+      "answer": "D",
+      "explanation": "The 1990s studies contradict the earlier belief, so **however** fits. They are not an example of the belief or a result of it."
+     },
+     {
+      "id": "t13-rw1-25",
+      "section": "rw",
+      "skill": "Rhetorical Synthesis",
+      "difficulty": "medium",
+      "passage": "While researching a topic, a student has taken the following notes:\n• The Hubble Space Telescope was launched in 1990.\n• It orbits about 540 kilometers above Earth.\n• Because it is above the atmosphere, its images are not blurred by air.\n• It has helped astronomers estimate the age of the universe.",
+      "prompt": "The student wants to explain why Hubble's images are so clear. Which choice most effectively uses relevant information from the notes to accomplish this goal?",
+      "choices": [
+       "Orbiting above Earth's atmosphere, the Hubble Space Telescope takes images that are not blurred by air.",
+       "The Hubble Space Telescope was launched in 1990.",
+       "The Hubble Space Telescope has helped astronomers estimate the age of the universe.",
+       "The Hubble Space Telescope orbits about 540 kilometers above Earth."
+      ],
+      "answer": "A",
+      "explanation": "The clarity comes from being above the atmosphere, so its images are not blurred. Only the first choice gives that reason. Choice D gives its height without explaining the clarity."
+     },
+     {
+      "id": "t13-rw1-26",
+      "section": "rw",
+      "skill": "Rhetorical Synthesis",
+      "difficulty": "medium",
+      "passage": "While researching a topic, a student has taken the following notes:\n• Frida Kahlo (1907–1954) was a Mexican painter.\n• She painted many self-portraits.\n• Her paintings often included symbols from Mexican folk culture.\n• She said, \"I paint myself because I am so often alone.\"",
+      "prompt": "The student wants to explain why Kahlo painted so many self-portraits, using her own words. Which choice most effectively uses relevant information from the notes to accomplish this goal?",
+      "choices": [
+       "Frida Kahlo, a Mexican painter, lived from 1907 to 1954.",
+       "Frida Kahlo's paintings often included symbols from Mexican folk culture.",
+       "Frida Kahlo painted many self-portraits.",
+       "Explaining her many self-portraits, Frida Kahlo said, \"I paint myself because I am so often alone.\""
+      ],
+      "answer": "D",
+      "explanation": "Only the last choice uses Kahlo's own words to explain the self-portraits. Choice C states the fact without the reason."
+     },
+     {
+      "id": "t13-rw1-27",
+      "section": "rw",
+      "skill": "Rhetorical Synthesis",
+      "difficulty": "hard",
+      "passage": "While researching a topic, a student has taken the following notes:\n• Hummingbirds and sunbirds both feed on flower nectar.\n• Hummingbirds live only in the Americas.\n• Sunbirds live in Africa, Asia, and Australia.\n• Hummingbirds can hover in place while feeding.\n• Most sunbirds perch on branches while they feed.",
+      "prompt": "The student wants to emphasize a difference in how the two kinds of birds feed. Which choice most effectively uses relevant information from the notes to accomplish this goal?",
+      "choices": [
+       "Hummingbirds live in the Americas, while sunbirds live in Africa, Asia, and Australia.",
+       "Whereas hummingbirds can hover in place while feeding on nectar, most sunbirds perch on branches while they feed.",
+       "Both hummingbirds and sunbirds feed on flower nectar.",
+       "Sunbirds live in Africa, Asia, and Australia and feed on nectar."
+      ],
+      "answer": "B",
+      "explanation": "The goal is a difference in how they feed. Only the second choice contrasts hovering with perching. Choice A is a difference in where they live, and choice C is a similarity."
+     }
+    ]
+   },
+   "module2": {
+    "easier": {
+     "minutes": 32,
+     "questions": [
+      {
+       "id": "t13-rw2e-01",
+       "section": "rw",
+       "skill": "Words in Context",
+       "difficulty": "easy",
+       "passage": "The new bridge is much ______ than the old one: it has four lanes instead of two, so more cars can cross at the same time.",
+       "prompt": "Which choice completes the text with the most logical and precise word or phrase?",
+       "choices": [
+        "wider",
+        "older",
+        "quieter",
+        "shorter"
+       ],
+       "answer": "A",
+       "explanation": "Four lanes instead of two means the bridge is **wider**. Nothing in the text is about age, noise, or length."
+      },
+      {
+       "id": "t13-rw2e-02",
+       "section": "rw",
+       "skill": "Words in Context",
+       "difficulty": "easy",
+       "passage": "The teacher asked the students to ______ their essays before turning them in, checking each sentence for spelling and grammar mistakes.",
+       "prompt": "Which choice completes the text with the most logical and precise word or phrase?",
+       "choices": [
+        "shorten",
+        "decorate",
+        "proofread",
+        "memorize"
+       ],
+       "answer": "C",
+       "explanation": "Checking each sentence for spelling and grammar mistakes is what it means to **proofread**."
+      },
+      {
+       "id": "t13-rw2e-03",
+       "section": "rw",
+       "skill": "Words in Context",
+       "difficulty": "medium",
+       "passage": "Because the old map was so ______, the travelers often had to stop and ask local residents for directions.",
+       "prompt": "Which choice completes the text with the most logical and precise word or phrase?",
+       "choices": [
+        "colorful",
+        "valuable",
+        "detailed",
+        "unreliable"
+       ],
+       "answer": "D",
+       "explanation": "Having to ask for directions often means the map could not be trusted, so it was **unreliable**. A *detailed* map would make asking for directions less necessary."
+      },
+      {
+       "id": "t13-rw2e-04",
+       "section": "rw",
+       "skill": "Words in Context",
+       "difficulty": "medium",
+       "passage": "The following text is from a 1910 novel. Anna is preparing for a long journey.\nAnna packed only what she could carry herself: two dresses, a warm coat, and a few books. Her aunt said the trunk looked empty, but Anna replied that she preferred to **travel light**.",
+       "prompt": "As used in the text, what does the phrase \"travel light\" most nearly mean?",
+       "choices": [
+        "travel during the daytime",
+        "travel with few belongings",
+        "travel happily",
+        "travel quickly"
+       ],
+       "answer": "B",
+       "explanation": "Anna packs only a few items and her trunk looks empty, so \"travel light\" means traveling with few belongings."
+      },
+      {
+       "id": "t13-rw2e-05",
+       "section": "rw",
+       "skill": "Text Structure and Purpose",
+       "difficulty": "easy",
+       "passage": "Many people think that sharks must keep swimming all the time or they will die. This is true for some species, which need moving water to pass over their gills. Other sharks, however, such as the nurse shark, can rest on the sea floor and pump water over their gills while staying still.",
+       "prompt": "Which choice best describes the main purpose of the text?",
+       "choices": [
+        "To explain how sharks find food",
+        "To argue that sharks are dangerous to people",
+        "To describe the largest species of shark",
+        "To show that a common belief about sharks is not true of all species"
+       ],
+       "answer": "D",
+       "explanation": "The text tests the belief that all sharks must swim constantly and shows it applies only to some species. It does not discuss food, danger or size."
+      },
+      {
+       "id": "t13-rw2e-06",
+       "section": "rw",
+       "skill": "Text Structure and Purpose",
+       "difficulty": "medium",
+       "passage": "Architect Lina Bo Bardi designed a museum in São Paulo that seems to float above the street. __Its main gallery is lifted on four large red columns, leaving a wide open plaza underneath where people can gather, sit in the shade, or attend concerts.__ Bo Bardi believed that public buildings should give space back to the city rather than take it away.",
+       "prompt": "Which choice best describes the function of the underlined sentence in the text as a whole?",
+       "choices": [
+        "It describes a feature of the museum's design that reflects the architect's belief stated in the final sentence.",
+        "It explains why the museum's columns were painted red.",
+        "It describes a concert that took place at the museum.",
+        "It argues that most museums should be built on columns."
+       ],
+       "answer": "A",
+       "explanation": "The underlined sentence describes the open plaza under the raised gallery, and the final sentence explains the belief behind it: buildings should give space back to the city. It does not explain the color or argue for all museums."
+      },
+      {
+       "id": "t13-rw2e-07",
+       "section": "rw",
+       "skill": "Cross-Text Connections",
+       "difficulty": "medium",
+       "passage": "**Text 1**\nSome people believe that learning a second language as an adult is nearly impossible, because only children can absorb new languages easily.\n**Text 2**\nLinguist Tomás Herrera studied adults who moved to new countries. He found that many reached high levels of fluency within a few years, especially those who spoke the new language daily at work. Children may have an advantage in pronunciation, he says, but adults often learn grammar and vocabulary faster.",
+       "prompt": "Based on the texts, how would Herrera (Text 2) most likely respond to the belief in Text 1?",
+       "choices": [
+        "He would agree that adults cannot learn new languages.",
+        "He would argue that children learn grammar faster than adults do.",
+        "He would claim that pronunciation is the most important part of a language.",
+        "He would argue that the belief is too pessimistic, since many adults become fluent and learn some parts of a language faster than children."
+       ],
+       "answer": "D",
+       "explanation": "Herrera found many adults becoming fluent and learning grammar and vocabulary faster than children, so he would reject the claim that adult learning is nearly impossible. He says adults, not children, learn grammar faster."
+      },
+      {
+       "id": "t13-rw2e-08",
+       "section": "rw",
+       "skill": "Central Ideas and Details",
+       "difficulty": "easy",
+       "passage": "Every autumn, millions of monarch butterflies fly from Canada and the United States to forests in central Mexico, a trip of up to 4,000 kilometers. No single butterfly makes the round trip. The butterflies that return north in spring lay eggs along the way, and it takes several generations to complete the journey back to Canada.",
+       "prompt": "Which choice best states the main idea of the text?",
+       "choices": [
+        "Monarch butterflies spend the whole year in Canada.",
+        "Monarch butterflies make a long migration that takes several generations to complete.",
+        "Monarch butterflies lay all their eggs in Mexico.",
+        "Most butterflies migrate shorter distances than birds."
+       ],
+       "answer": "B",
+       "explanation": "The text describes the long trip to Mexico and explains that the return takes several generations. It says they lay eggs along the way north, not only in Mexico."
+      },
+      {
+       "id": "t13-rw2e-09",
+       "section": "rw",
+       "skill": "Central Ideas and Details",
+       "difficulty": "medium",
+       "passage": "Before refrigerators, many households in cold regions stored food in icehouses, buildings packed with blocks of ice cut from frozen lakes in winter. Thick walls and layers of sawdust or straw kept the ice from melting, so that it often lasted through the summer. The ice was used to keep milk, meat, and other foods cool for months.",
+       "prompt": "Which choice best states the main idea of the text?",
+       "choices": [
+        "Refrigerators were invented by people who owned icehouses.",
+        "Sawdust was mainly used for building houses in cold regions.",
+        "Before refrigerators, people in cold regions used insulated icehouses to keep ice, and food, cold through the summer.",
+        "Frozen lakes were dangerous to walk on in winter."
+       ],
+       "answer": "C",
+       "explanation": "The text explains how icehouses stored winter ice through the summer to keep food cool. It does not discuss who invented refrigerators or the dangers of frozen lakes."
+      },
+      {
+       "id": "t13-rw2e-10",
+       "section": "rw",
+       "skill": "Command of Evidence: Textual",
+       "difficulty": "easy",
+       "passage": "Physical therapist Nadia Brennan hypothesizes that stretching for ten minutes a day reduces back pain in office workers.",
+       "prompt": "Which finding, if true, would most directly support Brennan's hypothesis?",
+       "choices": [
+        "Office workers who stretched for ten minutes a day reported less back pain after two months than similar workers who did not stretch.",
+        "Many office workers sit for more than six hours a day.",
+        "Office workers who exercise on weekends say they feel more energetic.",
+        "Back pain is more common in older workers than in younger ones."
+       ],
+       "answer": "A",
+       "explanation": "Only the first choice compares office workers who stretched daily with those who did not and shows less back pain for the stretching group."
+      },
+      {
+       "id": "t13-rw2e-11",
+       "section": "rw",
+       "skill": "Command of Evidence: Textual",
+       "difficulty": "easy",
+       "passage": "The diary of the ship's cook, Thomas Bell, suggests that the crew was running short of food near the end of the voyage.",
+       "prompt": "Which quotation from Bell's diary most effectively illustrates this suggestion?",
+       "choices": [
+        "\"The captain has ordered the sails mended before we reach port.\"",
+        "\"The weather has been fair for a week, and the men are cheerful.\"",
+        "\"I have cut each man's bread ration in half, and only two barrels of salted fish remain.\"",
+        "\"We passed a large whale this morning, close enough to see its eye.\""
+       ],
+       "answer": "C",
+       "explanation": "Halving bread rations and having only two barrels of fish left shows the food supply running low. The other entries describe sails, weather, or a whale."
+      },
+      {
+       "id": "t13-rw2e-12",
+       "section": "rw",
+       "skill": "Command of Evidence: Quantitative",
+       "difficulty": "medium",
+       "passage": "A student is studying a local recycling program. She notes that the amount of paper recycled increased every year from 2019 to 2022, rising from ______",
+       "table": {
+        "title": "Paper recycled by a town's residents (metric tons)",
+        "head": [
+         "Year",
+         "Paper recycled"
+        ],
+        "rows": [
+         [
+          "2019",
+          "410"
+         ],
+         [
+          "2020",
+          "455"
+         ],
+         [
+          "2021",
+          "490"
+         ],
+         [
+          "2022",
+          "532"
+         ]
+        ]
+       },
+       "prompt": "Which choice most effectively uses data from the table to complete the statement?",
+       "choices": [
+        "455 metric tons in 2020 to 490 metric tons in 2021.",
+        "410 metric tons in 2019 to 532 metric tons in 2022.",
+        "410 metric tons in 2019 to 455 metric tons in 2020.",
+        "490 metric tons in 2021 to 532 metric tons in 2022."
+       ],
+       "answer": "B",
+       "explanation": "The statement covers 2019 to 2022, so it needs the 2019 and 2022 values: 410 and 532 metric tons. The other choices cover only part of that period."
+      },
+      {
+       "id": "t13-rw2e-13",
+       "section": "rw",
+       "skill": "Inferences",
+       "difficulty": "easy",
+       "passage": "Two friends planted sunflower seeds from the same packet on the same day. One watered her seeds every day, while the other watered his only once a week. After a month, the sunflowers that were watered daily were twice as tall. This suggests that ______",
+       "prompt": "Which choice most logically completes the text?",
+       "choices": [
+        "sunflowers grow best in shade.",
+        "the seeds came from two different packets.",
+        "watering does not affect sunflower growth.",
+        "more frequent watering likely helped the sunflowers grow taller."
+       ],
+       "answer": "D",
+       "explanation": "The seeds and planting day were the same, and only the watering differed, so watering is the likely reason for the height difference. The text says the seeds came from the same packet."
+      },
+      {
+       "id": "t13-rw2e-14",
+       "section": "rw",
+       "skill": "Inferences",
+       "difficulty": "medium",
+       "passage": "An airline noticed that passengers complained much less about long waits at the baggage claim after the company moved arrival gates farther from the baggage area. Passengers now spent most of the waiting time walking instead of standing still, even though the total time from leaving the plane to receiving bags did not change. This suggests that ______",
+       "prompt": "Which choice most logically completes the text?",
+       "choices": [
+        "passengers may mind a wait less when they are kept busy than when they stand idle.",
+        "passengers prefer airports with fewer gates.",
+        "bags arrived faster after the gates were moved.",
+        "walking long distances makes passengers more likely to complain."
+       ],
+       "answer": "A",
+       "explanation": "The total wait stayed the same, but complaints fell when passengers spent the time walking instead of standing. That suggests an active wait feels shorter. The text says bags did not arrive faster."
+      },
+      {
+       "id": "t13-rw2e-15",
+       "section": "rw",
+       "skill": "Boundaries",
+       "difficulty": "easy",
+       "passage": "Owls can turn their heads about 270 ______ this ability helps them look around without moving their bodies.",
+       "prompt": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+       "choices": [
+        "degrees,",
+        "degrees",
+        "degrees, and,",
+        "degrees;"
+       ],
+       "answer": "D",
+       "explanation": "Two complete sentences are joined, so a semicolon is needed. A comma alone is a comma splice, and no punctuation is a run-on."
+      },
+      {
+       "id": "t13-rw2e-16",
+       "section": "rw",
+       "skill": "Boundaries",
+       "difficulty": "easy",
+       "passage": "The farmer grows two main ______ corn and soybeans.",
+       "prompt": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+       "choices": [
+        "crops:",
+        "crops;",
+        "crops,",
+        "crops, which:"
+       ],
+       "answer": "A",
+       "explanation": "A complete sentence introduces the list of crops, so a colon fits. A semicolon cannot introduce a list."
+      },
+      {
+       "id": "t13-rw2e-17",
+       "section": "rw",
+       "skill": "Boundaries",
+       "difficulty": "medium",
+       "passage": "The concert hall's ceiling, which is covered with curved wooden ______ helps spread sound evenly to every seat.",
+       "prompt": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+       "choices": [
+        "panels;",
+        "panels",
+        "panels,",
+        "panels:"
+       ],
+       "answer": "C",
+       "explanation": "The clause \"which is covered with curved wooden panels\" began with a comma after \"ceiling,\" so it must end with a comma before the verb \"helps.\""
+      },
+      {
+       "id": "t13-rw2e-18",
+       "section": "rw",
+       "skill": "Boundaries",
+       "difficulty": "medium",
+       "passage": "Wildfires can actually benefit some ______ the heat causes certain pine cones to open and release their seeds.",
+       "prompt": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+       "choices": [
+        "forests,",
+        "forests;",
+        "forests",
+        "forests, the"
+       ],
+       "answer": "B",
+       "explanation": "Two complete sentences are joined, so a semicolon is needed. A comma alone creates a comma splice."
+      },
+      {
+       "id": "t13-rw2e-19",
+       "section": "rw",
+       "skill": "Form, Structure, and Sense",
+       "difficulty": "easy",
+       "passage": "Last summer, the community garden ______ more than two hundred kilograms of vegetables for the local food bank.",
+       "prompt": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+       "choices": [
+        "produces",
+        "will produce",
+        "is producing",
+        "produced"
+       ],
+       "answer": "D",
+       "explanation": "\"Last summer\" places the action in the past, so the past-tense **produced** is correct."
+      },
+      {
+       "id": "t13-rw2e-20",
+       "section": "rw",
+       "skill": "Form, Structure, and Sense",
+       "difficulty": "medium",
+       "passage": "One of the paintings in the hallway ______ a portrait of the school's founder.",
+       "prompt": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+       "choices": [
+        "is",
+        "are",
+        "were",
+        "have been"
+       ],
+       "answer": "A",
+       "explanation": "The subject is \"One,\" which is singular, so the verb must be **is**. \"Paintings\" is part of a prepositional phrase."
+      },
+      {
+       "id": "t13-rw2e-21",
+       "section": "rw",
+       "skill": "Form, Structure, and Sense",
+       "difficulty": "medium",
+       "passage": "The penguins at the zoo get excited when ______ keepers arrive with buckets of fish.",
+       "prompt": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+       "choices": [
+        "its",
+        "it's",
+        "their",
+        "they're"
+       ],
+       "answer": "C",
+       "explanation": "The keepers belong to the penguins, a plural noun, so the plural possessive **their** is correct. *They're* means \"they are,\" and *its* is singular."
+      },
+      {
+       "id": "t13-rw2e-22",
+       "section": "rw",
+       "skill": "Transitions",
+       "difficulty": "easy",
+       "passage": "The weather forecast called for heavy rain on Saturday. ______ the school moved its outdoor sports day to the following week.",
+       "prompt": "Which choice completes the text with the most logical transition?",
+       "choices": [
+        "However,",
+        "Therefore,",
+        "For example,",
+        "In contrast,"
+       ],
+       "answer": "B",
+       "explanation": "Moving sports day is a result of the rain forecast, so **Therefore** fits."
+      },
+      {
+       "id": "t13-rw2e-23",
+       "section": "rw",
+       "skill": "Transitions",
+       "difficulty": "medium",
+       "passage": "Most bats eat insects. ______ vampire bats feed on the blood of other animals.",
+       "prompt": "Which choice completes the text with the most logical transition?",
+       "choices": [
+        "Similarly,",
+        "As a result,",
+        "For example,",
+        "By contrast,"
+       ],
+       "answer": "D",
+       "explanation": "Vampire bats differ from most bats in what they eat, so **By contrast** fits. *Similarly* would suggest they also eat insects."
+      },
+      {
+       "id": "t13-rw2e-24",
+       "section": "rw",
+       "skill": "Transitions",
+       "difficulty": "medium",
+       "passage": "The team's first robot design was too heavy to climb the ramp. ______ the engineers replaced its steel frame with one made of aluminum.",
+       "prompt": "Which choice completes the text with the most logical transition?",
+       "choices": [
+        "In addition,",
+        "Similarly,",
+        "To solve this problem,",
+        "For instance,"
+       ],
+       "answer": "C",
+       "explanation": "Replacing the heavy frame responds directly to the problem in the first sentence, so **To solve this problem** fits."
+      },
+      {
+       "id": "t13-rw2e-25",
+       "section": "rw",
+       "skill": "Rhetorical Synthesis",
+       "difficulty": "easy",
+       "passage": "While researching a topic, a student has taken the following notes:\n• The Sahara is the largest hot desert in the world.\n• It covers about 9 million square kilometers.\n• It stretches across 11 countries in North Africa.\n• Some of its sand dunes are over 150 meters tall.",
+       "prompt": "The student wants to emphasize the size of the Sahara. Which choice most effectively uses relevant information from the notes to accomplish this goal?",
+       "choices": [
+        "Covering about 9 million square kilometers across 11 countries, the Sahara is the largest hot desert in the world.",
+        "Some sand dunes in the Sahara are over 150 meters tall.",
+        "The Sahara is a desert in North Africa.",
+        "The Sahara has many sand dunes."
+       ],
+       "answer": "A",
+       "explanation": "The first choice uses the area, number of countries and \"largest hot desert\" to emphasize size. The others describe dunes or location."
+      },
+      {
+       "id": "t13-rw2e-26",
+       "section": "rw",
+       "skill": "Rhetorical Synthesis",
+       "difficulty": "medium",
+       "passage": "While researching a topic, a student has taken the following notes:\n• Jacques Cousteau (1910–1997) was a French ocean explorer.\n• In 1943, he helped invent the Aqua-Lung, an early scuba device.\n• The Aqua-Lung let divers breathe underwater for long periods.\n• Cousteau made films that showed underwater life to millions of viewers.",
+       "prompt": "The student wants to explain how the Aqua-Lung changed diving. Which choice most effectively uses relevant information from the notes to accomplish this goal?",
+       "choices": [
+        "Jacques Cousteau was a French ocean explorer who lived from 1910 to 1997.",
+        "Cousteau's films showed underwater life to millions of viewers.",
+        "The Aqua-Lung, which Cousteau helped invent in 1943, let divers breathe underwater for long periods.",
+        "Jacques Cousteau helped invent the Aqua-Lung."
+       ],
+       "answer": "C",
+       "explanation": "Only the third choice says what the Aqua-Lung made possible: breathing underwater for long periods. Choice D names the invention without explaining its effect."
+      },
+      {
+       "id": "t13-rw2e-27",
+       "section": "rw",
+       "skill": "Rhetorical Synthesis",
+       "difficulty": "medium",
+       "passage": "While researching a topic, a student has taken the following notes:\n• Both the Eiffel Tower and the Statue of Liberty have iron frameworks.\n• Gustave Eiffel designed the Eiffel Tower.\n• Eiffel also designed the inner iron framework of the Statue of Liberty.\n• The Statue of Liberty was completed in 1886.\n• The Eiffel Tower was completed in 1889.",
+       "prompt": "The student wants to emphasize a connection between the two structures. Which choice most effectively uses relevant information from the notes to accomplish this goal?",
+       "choices": [
+        "The Statue of Liberty was completed in 1886, three years before the Eiffel Tower.",
+        "Gustave Eiffel designed both the Eiffel Tower and the iron framework inside the Statue of Liberty.",
+        "The Eiffel Tower was completed in 1889.",
+        "The Statue of Liberty is in the United States, and the Eiffel Tower is in France."
+       ],
+       "answer": "B",
+       "explanation": "The connection is that the same engineer designed both. Only the second choice states it. Choices A and D focus on differences."
+      }
+     ]
+    },
+    "harder": {
+     "minutes": 32,
+     "questions": [
+      {
+       "id": "t13-rw2h-01",
+       "section": "rw",
+       "skill": "Words in Context",
+       "difficulty": "hard",
+       "passage": "The diplomat's statement was deliberately ______: it neither confirmed nor denied the reports, leaving reporters unsure what her government actually intended.",
+       "prompt": "Which choice completes the text with the most logical and precise word or phrase?",
+       "choices": [
+        "emphatic",
+        "equivocal",
+        "candid",
+        "celebratory"
+       ],
+       "answer": "B",
+       "explanation": "A statement that neither confirms nor denies, leaving listeners unsure, is **equivocal**. *Emphatic* and *candid* suggest clear, direct statements."
+      },
+      {
+       "id": "t13-rw2h-02",
+       "section": "rw",
+       "skill": "Words in Context",
+       "difficulty": "hard",
+       "passage": "Although the inventor's notebooks are filled with ______ sketches, rough drawings dashed off in a few seconds, they record ideas that took her years to develop into working machines.",
+       "prompt": "Which choice completes the text with the most logical and precise word or phrase?",
+       "choices": [
+        "meticulous",
+        "ornamental",
+        "permanent",
+        "cursory"
+       ],
+       "answer": "D",
+       "explanation": "Rough drawings \"dashed off in a few seconds\" are quick and hasty, or **cursory**. *Meticulous* means extremely careful, the opposite."
+      },
+      {
+       "id": "t13-rw2h-03",
+       "section": "rw",
+       "skill": "Words in Context",
+       "difficulty": "hard",
+       "passage": "The following text is adapted from a 1909 novel. Mrs. Corwin is speaking with a visitor.\nMrs. Corwin listened to the young man's plans with a polite smile, but her questions were few and her answers **guarded**; he left with the feeling that she had told him nothing she had not meant to tell.",
+       "prompt": "As used in the text, what does the word \"guarded\" most nearly mean?",
+       "choices": [
+        "cautious",
+        "protected",
+        "watched",
+        "imprisoned"
+       ],
+       "answer": "A",
+       "explanation": "She says little and reveals nothing she did not intend to, so her answers are **cautious**. \"Guarded\" can mean protected or watched over, but here it describes how she speaks."
+      },
+      {
+       "id": "t13-rw2h-04",
+       "section": "rw",
+       "skill": "Words in Context",
+       "difficulty": "hard",
+       "passage": "Some historians argue that the treaty's importance has been ______; they point out that most of its terms were ignored within a decade and that it changed little about how the two countries behaved.",
+       "prompt": "Which choice completes the text with the most logical and precise word or phrase?",
+       "choices": [
+        "underestimated",
+        "documented",
+        "exaggerated",
+        "misquoted"
+       ],
+       "answer": "C",
+       "explanation": "Arguing that the treaty was soon ignored and changed little means its importance has been overstated, or **exaggerated**. *Underestimated* would mean the opposite."
+      },
+      {
+       "id": "t13-rw2h-05",
+       "section": "rw",
+       "skill": "Text Structure and Purpose",
+       "difficulty": "hard",
+       "passage": "Many people assume that mathematical discoveries are the work of isolated geniuses. Recent progress on a famous problem about prime numbers, however, came partly from an unusual collaboration. In 2013, after one mathematician published a major breakthrough, dozens of researchers joined an online project to improve on it, posting partial results and checking one another's work in public. Within months, the group had sharpened the result far beyond what any single member had achieved.",
+       "prompt": "Which choice best describes the overall structure of the text?",
+       "choices": [
+        "It explains a mathematical problem in detail and then describes how it was solved.",
+        "It describes a researcher's career and lists her achievements.",
+        "It compares mathematics with other sciences and argues that mathematics is harder.",
+        "It presents a common assumption and then describes an example that complicates it."
+       ],
+       "answer": "D",
+       "explanation": "The text begins with the belief in isolated geniuses and then describes a large online collaboration that advanced a result, complicating that belief. It does not explain the problem's mathematics or compare fields."
+      },
+      {
+       "id": "t13-rw2h-06",
+       "section": "rw",
+       "skill": "Text Structure and Purpose",
+       "difficulty": "hard",
+       "passage": "Before the 1800s, most clocks in a country showed slightly different times, since each town set its clocks by the position of the Sun overhead. This caused few problems when travel was slow. __As railways spread, however, running trains on schedules that used dozens of different local times became confusing and even dangerous.__ Railway companies began to adopt standard time zones, and governments eventually followed.",
+       "prompt": "Which choice best describes the function of the underlined sentence in the text as a whole?",
+       "choices": [
+        "It explains how towns set their clocks by the Sun.",
+        "It identifies the problem that led to the adoption of standard time zones.",
+        "It describes an accident caused by a faulty clock.",
+        "It argues that railways should have used local times."
+       ],
+       "answer": "B",
+       "explanation": "The underlined sentence explains why local times became a problem with railways, and the next sentence describes the solution: standard time zones. It does not describe a specific accident."
+      },
+      {
+       "id": "t13-rw2h-07",
+       "section": "rw",
+       "skill": "Cross-Text Connections",
+       "difficulty": "hard",
+       "passage": "**Text 1**\nSome ecologists argue that reintroducing wolves to Yellowstone National Park in 1995 set off a chain of changes: wolves reduced the number of elk, so riverbank plants such as willows, which elk eat, grew back, and the recovering plants stabilized the riverbanks.\n**Text 2**\nEcologist Rebecca Halvorsen agrees that willows have recovered in parts of Yellowstone. But she notes that elk numbers also fell because of drought, human hunting outside the park, and growing populations of bears and cougars. Halvorsen argues that wolves were one of several factors, and that crediting them alone oversimplifies the story.",
+       "prompt": "Based on the texts, how would Halvorsen (Text 2) most likely respond to the ecologists' argument in Text 1?",
+       "choices": [
+        "She would say that it gives wolves too much credit for changes that had several causes.",
+        "She would argue that willows have not recovered anywhere in Yellowstone.",
+        "She would claim that wolves increased the number of elk in the park.",
+        "She would argue that drought was the only cause of the drop in elk numbers."
+       ],
+       "answer": "A",
+       "explanation": "Halvorsen accepts that willows recovered but lists other causes of the elk decline, so she would say Text 1 oversimplifies by crediting wolves alone. She does not deny the recovery or name drought as the only cause."
+      },
+      {
+       "id": "t13-rw2h-08",
+       "section": "rw",
+       "skill": "Central Ideas and Details",
+       "difficulty": "hard",
+       "passage": "The following text is adapted from a 1919 novel. Robert, an elderly clockmaker, is showing his workshop to his new apprentice.\n\"You will think the work slow,\" Robert said, turning a tiny gear in the lamplight. \"In your first year you will clean more clocks than you mend, and in your second you will mend more than you build. But one day a clock will stop in some house in this town, and they will send for you, and you will know at once what is wrong. Then you will understand why I made you wait.\"",
+       "prompt": "Which choice best states the main idea of the text?",
+       "choices": [
+        "Robert regrets having become a clockmaker.",
+        "Robert believes his apprentice will never become skilled.",
+        "Robert explains that the slow, patient training will eventually give the apprentice real expertise.",
+        "Robert describes the history of clockmaking in the town."
+       ],
+       "answer": "C",
+       "explanation": "Robert admits the work will seem slow but says it will lead to the skill to diagnose a broken clock at once. He expects the apprentice to succeed and shows no regret."
+      },
+      {
+       "id": "t13-rw2h-09",
+       "section": "rw",
+       "skill": "Central Ideas and Details",
+       "difficulty": "hard",
+       "passage": "Since the 1970s, scientists have known that some bacteria live in hot springs at temperatures that would kill most life. More recently, researchers drilling deep beneath the seafloor have found microbes living kilometers below the surface, in rock with no sunlight and little food. These microbes appear to grow extremely slowly, some perhaps dividing only once every few centuries. Their discovery has led scientists to suspect that a large share of Earth's living things may exist far below the surface.",
+       "prompt": "Which choice best states the main idea of the text?",
+       "choices": [
+        "Hot spring bacteria grow faster than any other microbes.",
+        "Scientists have proved that most life on Earth lives beneath the seafloor.",
+        "Deep-sea drilling harms the microbes that live beneath the seafloor.",
+        "The discovery of slow-growing microbes deep beneath the seafloor suggests that much of Earth's life may live far below the surface."
+       ],
+       "answer": "D",
+       "explanation": "The text describes microbes found deep underground and the suspicion that much of Earth's life lives there. It says scientists \"suspect,\" not that they have proved it, and it says nothing about drilling harming microbes."
+      },
+      {
+       "id": "t13-rw2h-10",
+       "section": "rw",
+       "skill": "Command of Evidence: Textual",
+       "difficulty": "hard",
+       "passage": "Art historian Nicholas Avery argues that the painter Anna Brandt sold far more of her landscapes after 1890 because she began exhibiting in the large public galleries of the capital, rather than only in her home town.",
+       "prompt": "Which finding, if true, would most directly support Avery's argument?",
+       "choices": [
+        "Brandt painted more landscapes after 1890 than before.",
+        "Gallery records show that most of Brandt's sales after 1890 were made to buyers who first saw her work at exhibitions in the capital.",
+        "Brandt's landscapes became larger after 1890.",
+        "Several other painters also exhibited in the capital's public galleries."
+       ],
+       "answer": "B",
+       "explanation": "Avery links the rise in sales to exhibiting in the capital. Records showing most buyers first saw her work there tie the sales to those exhibitions. Painting more or bigger works offers a different explanation."
+      },
+      {
+       "id": "t13-rw2h-11",
+       "section": "rw",
+       "skill": "Command of Evidence: Quantitative",
+       "difficulty": "hard",
+       "passage": "Researchers compared two methods of teaching students to type. They claim that Method 2 produced faster typists, but that the advantage came at a cost in accuracy.",
+       "table": {
+        "title": "Average typing results after six weeks",
+        "head": [
+         "Method",
+         "Speed (words per minute)",
+         "Accuracy (%)"
+        ],
+        "rows": [
+         [
+          "Method 1",
+          "38",
+          "97"
+         ],
+         [
+          "Method 2",
+          "46",
+          "91"
+         ]
+        ]
+       },
+       "prompt": "Which choice most effectively uses data from the table to support the researchers' claim?",
+       "choices": [
+        "Students taught with Method 2 typed 46 words per minute compared with 38 for Method 1, but with 91% accuracy compared with 97%.",
+        "Students taught with Method 1 had an accuracy of 97%.",
+        "Students taught with Method 2 typed 46 words per minute.",
+        "Both methods produced accuracy above 90%."
+       ],
+       "answer": "A",
+       "explanation": "The claim has two parts: Method 2 is faster but less accurate. Only the first choice gives both comparisons."
+      },
+      {
+       "id": "t13-rw2h-12",
+       "section": "rw",
+       "skill": "Command of Evidence: Quantitative",
+       "difficulty": "hard",
+       "passage": "A city surveyed residents about their main way of getting to work in 2015 and 2025. An analyst claims that the share of residents who bike to work more than doubled over the decade, while the share who drive alone fell.",
+       "table": {
+        "title": "Residents' main way of getting to work (% of residents)",
+        "head": [
+         "Method",
+         "2015",
+         "2025"
+        ],
+        "rows": [
+         [
+          "Drive alone",
+          "62",
+          "55"
+         ],
+         [
+          "Public transit",
+          "21",
+          "22"
+         ],
+         [
+          "Bike",
+          "4",
+          "10"
+         ],
+         [
+          "Walk",
+          "13",
+          "13"
+         ]
+        ]
+       },
+       "prompt": "Which choice most effectively uses data from the table to support the analyst's claim?",
+       "choices": [
+        "In both 2015 and 2025, more residents drove alone than used any other method.",
+        "The share of residents who walked to work stayed at 13% from 2015 to 2025.",
+        "The share of residents who biked rose from 4% to 10%, while the share who drove alone fell from 62% to 55%.",
+        "The share of residents who used public transit rose from 21% to 22%."
+       ],
+       "answer": "C",
+       "explanation": "The claim is about biking more than doubling and driving alone falling. Biking rose from 4% to 10% (more than double), and driving alone fell from 62% to 55%. The other choices are about other methods."
+      },
+      {
+       "id": "t13-rw2h-13",
+       "section": "rw",
+       "skill": "Inferences",
+       "difficulty": "hard",
+       "passage": "Many coastal birds build their nests on the ground. On one island, researchers found that a species of tern nested mostly on bare sand in years when rats were absent, but nested mostly on rocky cliffs in years after rats were accidentally introduced. Rats eat eggs but cannot easily climb the island's steep cliffs. The researchers also found that chicks raised on cliffs grew more slowly, because the parents had to fly farther to find food. These findings suggest that ______",
+       "prompt": "Which choice most logically completes the text?",
+       "choices": [
+        "terns prefer cliffs to sand when no predators are present.",
+        "the rats were introduced because the terns moved to the cliffs.",
+        "chicks raised on the cliffs were safer from food shortages than chicks raised on sand.",
+        "the terns' shift to cliffs likely protected their eggs from rats but came at a cost to chick growth."
+       ],
+       "answer": "D",
+       "explanation": "The terns moved to cliffs when rats arrived, and rats cannot climb the cliffs, but cliff chicks grew more slowly. So the move traded safety from rats for slower growth. Without rats, terns chose sand, so they do not prefer cliffs."
+      },
+      {
+       "id": "t13-rw2h-14",
+       "section": "rw",
+       "skill": "Inferences",
+       "difficulty": "hard",
+       "passage": "In a study of reading habits, people who read printed books before bed reported falling asleep faster than people who read on bright tablet screens. However, when the researchers asked tablet readers to switch on a setting that dims the screen and removes blue light, the difference in time to fall asleep largely disappeared. These results suggest that ______",
+       "prompt": "Which choice most logically completes the text?",
+       "choices": [
+        "reading itself makes it harder to fall asleep.",
+        "the light from bright screens, rather than reading on a tablet as such, may delay sleep.",
+        "printed books contain more interesting stories than tablets.",
+        "people who read before bed sleep worse than people who do not read."
+       ],
+       "answer": "B",
+       "explanation": "When the tablet's bright blue light was removed, tablet readers fell asleep about as fast as book readers, so the light, not the tablet reading itself, was likely the problem. The study did not compare readers with nonreaders."
+      },
+      {
+       "id": "t13-rw2h-15",
+       "section": "rw",
+       "skill": "Boundaries",
+       "difficulty": "hard",
+       "passage": "The hikers carried only what they truly ______ a tent, two days' worth of food, and a first-aid kit.",
+       "prompt": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+       "choices": [
+        "needed:",
+        "needed;",
+        "needed,",
+        "needed, which were"
+       ],
+       "answer": "A",
+       "explanation": "A complete sentence introduces the list, so a colon is correct. A semicolon cannot introduce a list, and \"which were\" makes the list awkward and grammatically incomplete."
+      },
+      {
+       "id": "t13-rw2h-16",
+       "section": "rw",
+       "skill": "Boundaries",
+       "difficulty": "hard",
+       "passage": "The astronomer's notebooks reveal that she observed the comet three nights before anyone else ______ she did not publish her observation, however, until several weeks later.",
+       "prompt": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+       "choices": [
+        "did,",
+        "did",
+        "did;",
+        "did, and,"
+       ],
+       "answer": "C",
+       "explanation": "Two complete sentences meet here, and \"however\" sits inside the second one. A semicolon after \"did\" is needed. A comma alone creates a comma splice."
+      },
+      {
+       "id": "t13-rw2h-17",
+       "section": "rw",
+       "skill": "Boundaries",
+       "difficulty": "hard",
+       "passage": "Fewer than one hundred copies of the first edition were ______ almost all of them were bought by libraries and universities rather than by individual readers.",
+       "prompt": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+       "choices": [
+        "printed,",
+        "printed",
+        "printed, and,",
+        "printed;"
+       ],
+       "answer": "D",
+       "explanation": "Two complete sentences are joined, so a semicolon is needed. A comma alone creates a comma splice, and no punctuation creates a run-on."
+      },
+      {
+       "id": "t13-rw2h-18",
+       "section": "rw",
+       "skill": "Boundaries",
+       "difficulty": "hard",
+       "passage": "The novelist's three most celebrated characters—a lighthouse keeper, a traveling ______ and a retired sea captain—all appear briefly in her final book.",
+       "prompt": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+       "choices": [
+        "musician;",
+        "musician,",
+        "musician—",
+        "musician"
+       ],
+       "answer": "B",
+       "explanation": "The items in the list set off by the dashes are separated by commas, so a comma follows \"musician.\" A semicolon or dash here would break the list."
+      },
+      {
+       "id": "t13-rw2h-19",
+       "section": "rw",
+       "skill": "Form, Structure, and Sense",
+       "difficulty": "hard",
+       "passage": "The committee, after hours of debate over the budget, finally ______ to fund the new library.",
+       "prompt": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+       "choices": [
+        "agree",
+        "are agreeing",
+        "agreed",
+        "have agreed"
+       ],
+       "answer": "C",
+       "explanation": "The subject \"committee\" is a singular collective noun here, and the action is past (\"finally\"), so **agreed** fits. *Agree*, *are agreeing* and *have agreed* are plural forms."
+      },
+      {
+       "id": "t13-rw2h-20",
+       "section": "rw",
+       "skill": "Form, Structure, and Sense",
+       "difficulty": "hard",
+       "passage": "The researchers studied the honeybees closely, noting how each colony organized ______ work and divided tasks among its members.",
+       "prompt": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+       "choices": [
+        "its",
+        "their",
+        "it's",
+        "they're"
+       ],
+       "answer": "A",
+       "explanation": "The pronoun refers to \"each colony,\" which is singular, so the singular possessive **its** is correct. *It's* means \"it is.\""
+      },
+      {
+       "id": "t13-rw2h-21",
+       "section": "rw",
+       "skill": "Form, Structure, and Sense",
+       "difficulty": "hard",
+       "passage": "By the time the restored theater reopens next spring, workers ______ more than three thousand seats and every one of its stained-glass windows.",
+       "prompt": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+       "choices": [
+        "replace",
+        "replaced",
+        "are replacing",
+        "will have replaced"
+       ],
+       "answer": "D",
+       "explanation": "The work will be complete before a future moment (\"By the time...reopens next spring\"), so the future perfect **will have replaced** is correct."
+      },
+      {
+       "id": "t13-rw2h-22",
+       "section": "rw",
+       "skill": "Transitions",
+       "difficulty": "hard",
+       "passage": "The new medicine worked well in laboratory tests on cells. ______ in early trials with patients, it caused side effects so serious that researchers stopped testing it.",
+       "prompt": "Which choice completes the text with the most logical transition?",
+       "choices": [
+        "Accordingly,",
+        "Nonetheless,",
+        "For instance,",
+        "Likewise,"
+       ],
+       "answer": "B",
+       "explanation": "The serious side effects contrast with the success in laboratory tests, so **Nonetheless** fits. *Accordingly* would make the failure a result of the success."
+      },
+      {
+       "id": "t13-rw2h-23",
+       "section": "rw",
+       "skill": "Transitions",
+       "difficulty": "hard",
+       "passage": "Many of the town's oldest houses are built from the same yellow sandstone. ______ the stone came from a single quarry just north of town, which closed in 1890.",
+       "prompt": "Which choice completes the text with the most logical transition?",
+       "choices": [
+        "However,",
+        "Nevertheless,",
+        "For example,",
+        "In fact,"
+       ],
+       "answer": "D",
+       "explanation": "The second sentence adds a more specific detail that explains why the houses match, so **In fact** fits. There is no contrast, and the quarry is not an example of a house."
+      },
+      {
+       "id": "t13-rw2h-24",
+       "section": "rw",
+       "skill": "Transitions",
+       "difficulty": "hard",
+       "passage": "Some early critics praised the film for its realistic portrayal of factory life. Others, ______ complained that it made the workers' lives seem far more cheerful than they really were.",
+       "prompt": "Which choice completes the text with the most logical transition?",
+       "choices": [
+        "however,",
+        "therefore,",
+        "similarly,",
+        "for example,"
+       ],
+       "answer": "A",
+       "explanation": "The second group of critics disagrees with the first, so **however** fits. *Similarly* would suggest they agreed."
+      },
+      {
+       "id": "t13-rw2h-25",
+       "section": "rw",
+       "skill": "Rhetorical Synthesis",
+       "difficulty": "hard",
+       "passage": "While researching a topic, a student has taken the following notes:\n• Two archaeologists studied ancient bread-making.\n• Ahmed Saleh studied bread ovens at a site in Egypt dated to about 2500 BCE.\n• Ingrid Dahl studied charred bread remains at a site in Jordan dated to about 12,400 BCE.\n• Saleh's site shows bread baked in large quantities to feed workers.\n• Dahl's site shows that people made bread from wild grains before farming began.",
+       "prompt": "The student wants to emphasize the difference in the ages of the two sites. Which choice most effectively uses relevant information from the notes to accomplish this goal?",
+       "choices": [
+        "Both Saleh and Dahl studied bread-making at ancient sites.",
+        "Saleh's site shows bread baked in large quantities to feed workers.",
+        "Dahl's site in Jordan, dated to about 12,400 BCE, is nearly 10,000 years older than Saleh's site in Egypt, dated to about 2500 BCE.",
+        "Dahl found that people made bread from wild grains."
+       ],
+       "answer": "C",
+       "explanation": "Only the third choice gives both dates and states the gap between them. The first choice is a similarity, and the others describe one site's findings."
+      },
+      {
+       "id": "t13-rw2h-26",
+       "section": "rw",
+       "skill": "Rhetorical Synthesis",
+       "difficulty": "hard",
+       "passage": "While researching a topic, a student has taken the following notes:\n• Octopuses have about 500 million neurons.\n• About two-thirds of these neurons are in the octopus's arms, not its brain.\n• Each arm can respond to touch and taste on its own.\n• An arm can keep reaching for food even after it is separated from the body.",
+       "prompt": "The student wants to emphasize how independently an octopus's arms can act. Which choice most effectively uses relevant information from the notes to accomplish this goal?",
+       "choices": [
+        "Octopuses have about 500 million neurons.",
+        "An octopus has eight arms.",
+        "Octopuses are known for their intelligence.",
+        "With about two-thirds of an octopus's neurons located in its arms, each arm can respond to touch and taste on its own and may keep reaching for food even after being separated from the body."
+       ],
+       "answer": "D",
+       "explanation": "Only the last choice uses details about the arms' own neurons and actions to show their independence. The other choices give general facts."
+      },
+      {
+       "id": "t13-rw2h-27",
+       "section": "rw",
+       "skill": "Rhetorical Synthesis",
+       "difficulty": "hard",
+       "passage": "While researching a topic, a student has taken the following notes:\n• In 1854, a cholera outbreak struck London's Soho neighborhood.\n• Many people believed cholera spread through bad air.\n• Physician John Snow mapped the cases and found that most victims had used one water pump on Broad Street.\n• After the pump's handle was removed, new cases dropped.\n• Snow's work supported the idea that cholera spreads through contaminated water.",
+       "prompt": "The student wants to explain how Snow's work challenged a common belief. Which choice most effectively uses relevant information from the notes to accomplish this goal?",
+       "choices": [
+        "While many people believed cholera spread through bad air, John Snow's map linking cases to a single water pump supported the idea that it spreads through contaminated water.",
+        "In 1854, a cholera outbreak struck London's Soho neighborhood.",
+        "John Snow mapped the cholera cases in Soho.",
+        "After the pump's handle was removed, new cases dropped."
+       ],
+       "answer": "A",
+       "explanation": "The first choice states the common belief and how Snow's evidence pointed elsewhere. The other choices give facts about the outbreak without the challenge to the belief."
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "math",
+   "title": "Math",
+   "module1": {
+    "minutes": 35,
+    "questions": [
+     {
+      "id": "t13-m1-01",
+      "section": "math",
+      "skill": "Linear equations in one variable",
+      "difficulty": "easy",
+      "prompt": "If $9 - 2x = 1$, what is the value of $x$?",
+      "choices": [
+       "$5$",
+       "$-4$",
+       "$8$",
+       "$4$"
+      ],
+      "answer": "D",
+      "explanation": "Subtract 9: $-2x = -8$, so $x = 4$."
+     },
+     {
+      "id": "t13-m1-02",
+      "section": "math",
+      "skill": "Ratios, rates, proportional relationships, and units",
+      "difficulty": "easy",
+      "prompt": "A printer prints 45 pages in 3 minutes. At this rate, how many pages does it print in 8 minutes?",
+      "answer": [
+       "120"
+      ],
+      "explanation": "The printer prints $45 \\div 3 = 15$ pages per minute, so in 8 minutes it prints $15 \\times 8 = 120$ pages."
+     },
+     {
+      "id": "t13-m1-03",
+      "section": "math",
+      "skill": "Linear functions",
+      "difficulty": "easy",
+      "prompt": "The function $f$ is defined by $f(x) = \\dfrac{x}{2} + 6$. What is the value of $f(10)$?",
+      "choices": [
+       "$8$",
+       "$16$",
+       "$11$",
+       "$5$"
+      ],
+      "answer": "C",
+      "explanation": "$f(10) = \\dfrac{10}{2} + 6 = 5 + 6 = 11$."
+     },
+     {
+      "id": "t13-m1-04",
+      "section": "math",
+      "skill": "Percentages",
+      "difficulty": "easy",
+      "prompt": "12 is what percent of 48?",
+      "choices": [
+       "$4\\%$",
+       "$25\\%$",
+       "$36\\%$",
+       "$40\\%$"
+      ],
+      "answer": "B",
+      "explanation": "$\\dfrac{12}{48} = 0.25$, which is 25%."
+     },
+     {
+      "id": "t13-m1-05",
+      "section": "math",
+      "skill": "Equivalent expressions",
+      "difficulty": "medium",
+      "prompt": "Which expression is equivalent to $x(x + 4) - 3(x + 4)$?",
+      "choices": [
+       "$x^2 + x - 12$",
+       "$x^2 + 7x + 12$",
+       "$x^2 - 12$",
+       "$x^2 + x + 12$"
+      ],
+      "answer": "A",
+      "explanation": "Factor out $(x + 4)$: $(x - 3)(x + 4) = x^2 + x - 12$."
+     },
+     {
+      "id": "t13-m1-06",
+      "section": "math",
+      "skill": "Systems of two linear equations in two variables",
+      "difficulty": "medium",
+      "prompt": "$$3x + 2y = 16$$ $$x = 2y$$ If $(x, y)$ is the solution to the system of equations, what is the value of $x$?",
+      "answer": [
+       "4"
+      ],
+      "explanation": "Substitute $x = 2y$: $6y + 2y = 16$, so $y = 2$ and $x = 4$."
+     },
+     {
+      "id": "t13-m1-07",
+      "section": "math",
+      "skill": "Lines, angles, and triangles",
+      "difficulty": "medium",
+      "prompt": "Two angles that form a straight line measure $(2x + 10)^\\circ$ and $(x + 20)^\\circ$. What is the value of $x$?",
+      "answer": [
+       "50"
+      ],
+      "explanation": "Angles that form a straight line add to $180^\\circ$: $3x + 30 = 180$, so $x = 50$."
+     },
+     {
+      "id": "t13-m1-08",
+      "section": "math",
+      "skill": "Nonlinear functions",
+      "difficulty": "medium",
+      "prompt": "The function $f$ is defined by $f(x) = 4\\left(\\dfrac{1}{2}\\right)^x$. What is the value of $f(2)$?",
+      "choices": [
+       "$2$",
+       "$4$",
+       "$16$",
+       "$1$"
+      ],
+      "answer": "D",
+      "explanation": "$f(2) = 4 \\cdot \\dfrac{1}{4} = 1$. Choice C computes $4 \\cdot 2^2$."
+     },
+     {
+      "id": "t13-m1-09",
+      "section": "math",
+      "skill": "One-variable data: distributions and measures of center and spread",
+      "difficulty": "medium",
+      "prompt": "Each value in a data set is increased by 5. Which statement about the new data set is true?",
+      "choices": [
+       "The mean and the range both increase by 5.",
+       "The mean stays the same, and the range increases by 5.",
+       "The mean increases by 5, and the range stays the same.",
+       "The mean and the range both stay the same."
+      ],
+      "answer": "C",
+      "explanation": "Adding 5 to every value shifts the whole set up by 5, so the mean rises by 5. The distance between the largest and smallest values does not change, so the range stays the same."
+     },
+     {
+      "id": "t13-m1-10",
+      "section": "math",
+      "skill": "Linear equations in two variables",
+      "difficulty": "medium",
+      "prompt": "What is the $y$-intercept of the graph of $2x + 5y = 20$ in the $xy$-plane?",
+      "choices": [
+       "$(10, 0)$",
+       "$(0, 4)$",
+       "$(0, 20)$",
+       "$(0, 5)$"
+      ],
+      "answer": "B",
+      "explanation": "Set $x = 0$: $5y = 20$, so $y = 4$. Choice A is the $x$-intercept."
+     },
+     {
+      "id": "t13-m1-11",
+      "section": "math",
+      "skill": "Linear inequalities in one or two variables",
+      "difficulty": "medium",
+      "prompt": "Adult tickets to a play cost \\$8 and child tickets cost \\$5. A group can spend at most \\$100 on tickets. Which inequality represents the possible numbers of adult tickets $a$ and child tickets $c$ the group can buy?",
+      "choices": [
+       "$8a + 5c \\le 100$",
+       "$8a + 5c \\ge 100$",
+       "$5a + 8c \\le 100$",
+       "$13(a + c) \\le 100$"
+      ],
+      "answer": "A",
+      "explanation": "The cost is $8a + 5c$, and \"at most \\$100\" means it is less than or equal to 100."
+     },
+     {
+      "id": "t13-m1-12",
+      "section": "math",
+      "skill": "Nonlinear equations in one variable and systems of equations in two variables",
+      "difficulty": "medium",
+      "prompt": "What is the positive solution to the equation $2x^2 = 50$?",
+      "answer": [
+       "5"
+      ],
+      "explanation": "Divide by 2: $x^2 = 25$, so $x = 5$ or $x = -5$. The positive solution is 5."
+     },
+     {
+      "id": "t13-m1-13",
+      "section": "math",
+      "skill": "Area and volume",
+      "difficulty": "medium",
+      "prompt": "A rectangle that is 6 inches wide and 10 inches long is cut along one of its diagonals into two triangles. What is the area of one of the triangles, in square inches?",
+      "choices": [
+       "$60$",
+       "$16$",
+       "$15$",
+       "$30$"
+      ],
+      "answer": "D",
+      "explanation": "The rectangle's area is $6 \\times 10 = 60$, and the diagonal splits it into two equal triangles, each with area 30."
+     },
+     {
+      "id": "t13-m1-14",
+      "section": "math",
+      "skill": "Probability and conditional probability",
+      "difficulty": "medium",
+      "prompt": "Each of 40 students chose either art or music as an elective. 15 chose art and 25 chose music. If one of the students is chosen at random, what is the probability that the student chose art?",
+      "choices": [
+       "$\\dfrac{3}{5}$",
+       "$\\dfrac{5}{8}$",
+       "$\\dfrac{3}{8}$",
+       "$\\dfrac{1}{15}$"
+      ],
+      "answer": "C",
+      "explanation": "15 of the 40 students chose art, so the probability is $\\dfrac{15}{40} = \\dfrac{3}{8}$."
+     },
+     {
+      "id": "t13-m1-15",
+      "section": "math",
+      "skill": "Nonlinear functions",
+      "difficulty": "hard",
+      "prompt": "The function $f$ is defined by $f(x) = 2(x + 1)^2 - 8$. What is the positive $x$-coordinate of an $x$-intercept of the graph of $y = f(x)$?",
+      "answer": [
+       "1"
+      ],
+      "explanation": "Set $2(x + 1)^2 - 8 = 0$: $(x + 1)^2 = 4$, so $x + 1 = 2$ or $x + 1 = -2$. Then $x = 1$ or $x = -3$; the positive one is 1."
+     },
+     {
+      "id": "t13-m1-16",
+      "section": "math",
+      "skill": "Equivalent expressions",
+      "difficulty": "hard",
+      "prompt": "Which expression is equivalent to $\\dfrac{x^3 - 8}{x - 2}$, for $x \\ne 2$?",
+      "choices": [
+       "$x^2 + 4$",
+       "$x^2 + 2x + 4$",
+       "$x^2 - 2x + 4$",
+       "$x^2 - 4$"
+      ],
+      "answer": "B",
+      "explanation": "$x^3 - 8$ is a difference of cubes: $(x - 2)(x^2 + 2x + 4)$. Dividing by $x - 2$ leaves $x^2 + 2x + 4$."
+     },
+     {
+      "id": "t13-m1-17",
+      "section": "math",
+      "skill": "Right triangles and trigonometry",
+      "difficulty": "hard",
+      "prompt": "For an angle with measure $\\theta$ degrees, where $0 < \\theta < 90$, $\\cos \\theta^\\circ = \\sin 52^\\circ$. What is the value of $\\theta$?",
+      "answer": [
+       "38"
+      ],
+      "explanation": "The sine of an angle equals the cosine of its complement, so $\\theta = 90 - 52 = 38$."
+     },
+     {
+      "id": "t13-m1-18",
+      "section": "math",
+      "skill": "Circles",
+      "difficulty": "hard",
+      "prompt": "A circle has a radius of 6 centimeters. What is the area, in square centimeters, of a sector of the circle with a central angle of $60^\\circ$?",
+      "choices": [
+       "$6\\pi$",
+       "$2\\pi$",
+       "$36\\pi$",
+       "$12\\pi$"
+      ],
+      "answer": "A",
+      "explanation": "The sector is $\\dfrac{60}{360} = \\dfrac{1}{6}$ of the circle, so its area is $\\dfrac{1}{6}(\\pi \\cdot 6^2) = 6\\pi$. Choice B is the arc length."
+     },
+     {
+      "id": "t13-m1-19",
+      "section": "math",
+      "skill": "Linear functions",
+      "difficulty": "hard",
+      "prompt": "The amount of water $W$, in liters, in a tank $t$ minutes after it starts draining is given by $W = 500 - 20t$. After how many minutes will 140 liters remain in the tank?",
+      "choices": [
+       "$7$",
+       "$25$",
+       "$32$",
+       "$18$"
+      ],
+      "answer": "D",
+      "explanation": "Set $500 - 20t = 140$: $20t = 360$, so $t = 18$. Choice B is when the tank is empty."
+     },
+     {
+      "id": "t13-m1-20",
+      "section": "math",
+      "skill": "Two-variable data: models and scatterplots",
+      "difficulty": "hard",
+      "prompt": "A model for a set of data is $y = 3x + 2$. One data point in the set is $(10, 34)$. What is the residual for this data point (the actual $y$-value minus the value predicted by the model)?",
+      "choices": [
+       "$32$",
+       "$-2$",
+       "$2$",
+       "$34$"
+      ],
+      "answer": "C",
+      "explanation": "The model predicts $3(10) + 2 = 32$. The residual is $34 - 32 = 2$. Choice B subtracts in the wrong order."
+     },
+     {
+      "id": "t13-m1-21",
+      "section": "math",
+      "skill": "Nonlinear equations in one variable and systems of equations in two variables",
+      "difficulty": "hard",
+      "prompt": "$$y = 2x^2$$ $$y = 8x$$ The system of equations has two solutions. One of them is $(0, 0)$. What is the $y$-coordinate of the other solution?",
+      "choices": [
+       "$4$",
+       "$32$",
+       "$8$",
+       "$16$"
+      ],
+      "answer": "B",
+      "explanation": "Set $2x^2 = 8x$: $2x(x - 4) = 0$, so $x = 0$ or $x = 4$. For $x = 4$, $y = 8(4) = 32$. Choice A is the $x$-coordinate."
+     },
+     {
+      "id": "t13-m1-22",
+      "section": "math",
+      "skill": "Percentages",
+      "difficulty": "hard",
+      "prompt": "A store prices an item 60% above what the item cost the store. During a sale, the store sells the item at 25% off this price. The sale price is what percent greater than the store's cost?",
+      "choices": [
+       "$20\\%$",
+       "$35\\%$",
+       "$15\\%$",
+       "$45\\%$"
+      ],
+      "answer": "A",
+      "explanation": "The sale price is $1.60 \\times 0.75 = 1.20$ times the cost, which is 20% greater. Choice B subtracts the percentages, $60 - 25 = 35$, which does not work for successive changes."
+     }
+    ]
+   },
+   "module2": {
+    "easier": {
+     "minutes": 35,
+     "questions": [
+      {
+       "id": "t13-m2e-01",
+       "section": "math",
+       "skill": "Linear equations in one variable",
+       "difficulty": "easy",
+       "prompt": "If $x + 12 = 30$, what is the value of $x$?",
+       "choices": [
+        "$18$",
+        "$42$",
+        "$2.5$",
+        "$12$"
+       ],
+       "answer": "A",
+       "explanation": "Subtract 12 from both sides: $x = 18$."
+      },
+      {
+       "id": "t13-m2e-02",
+       "section": "math",
+       "skill": "Percentages",
+       "difficulty": "easy",
+       "prompt": "What is 50% of 64?",
+       "answer": [
+        "32"
+       ],
+       "explanation": "50% is one half, and half of 64 is 32."
+      },
+      {
+       "id": "t13-m2e-03",
+       "section": "math",
+       "skill": "Linear functions",
+       "difficulty": "easy",
+       "prompt": "The function $f$ is defined by $f(x) = 2x - 1$. What is the value of $f(4)$?",
+       "choices": [
+        "$9$",
+        "$7$",
+        "$6$",
+        "$3$"
+       ],
+       "answer": "B",
+       "explanation": "$f(4) = 2(4) - 1 = 7$."
+      },
+      {
+       "id": "t13-m2e-04",
+       "section": "math",
+       "skill": "Ratios, rates, proportional relationships, and units",
+       "difficulty": "easy",
+       "prompt": "There are 100 centimeters in 1 meter. How many centimeters are in 3.5 meters?",
+       "choices": [
+        "$35$",
+        "$3{,}500$",
+        "$350$",
+        "$103.5$"
+       ],
+       "answer": "C",
+       "explanation": "$3.5 \\times 100 = 350$ centimeters."
+      },
+      {
+       "id": "t13-m2e-05",
+       "section": "math",
+       "skill": "Equivalent expressions",
+       "difficulty": "easy",
+       "prompt": "Which expression is equivalent to $5x + 3x - 2x$?",
+       "choices": [
+        "$10x$",
+        "$4x$",
+        "$8x$",
+        "$6x$"
+       ],
+       "answer": "D",
+       "explanation": "$5 + 3 - 2 = 6$, so the expression is $6x$."
+      },
+      {
+       "id": "t13-m2e-06",
+       "section": "math",
+       "skill": "Area and volume",
+       "difficulty": "easy",
+       "prompt": "A rectangle has a length of 9 feet and a width of 4 feet. What is the area of the rectangle, in square feet?",
+       "answer": [
+        "36"
+       ],
+       "explanation": "Area $=$ length $\\times$ width $= 9 \\times 4 = 36$."
+      },
+      {
+       "id": "t13-m2e-07",
+       "section": "math",
+       "skill": "One-variable data: distributions and measures of center and spread",
+       "difficulty": "easy",
+       "prompt": "What is the mode of the data set $2, 3, 3, 5, 7$?",
+       "choices": [
+        "$3$",
+        "$4$",
+        "$5$",
+        "$7$"
+       ],
+       "answer": "A",
+       "explanation": "The mode is the value that appears most often. 3 appears twice; every other value appears once."
+      },
+      {
+       "id": "t13-m2e-08",
+       "section": "math",
+       "skill": "Lines, angles, and triangles",
+       "difficulty": "easy",
+       "prompt": "Two lines intersect. One of the angles formed measures $47^\\circ$. What is the measure of the angle vertical to it?",
+       "choices": [
+        "$133^\\circ$",
+        "$47^\\circ$",
+        "$43^\\circ$",
+        "$94^\\circ$"
+       ],
+       "answer": "B",
+       "explanation": "Vertical angles are equal, so the angle measures $47^\\circ$. Choice A is the measure of the angles next to it."
+      },
+      {
+       "id": "t13-m2e-09",
+       "section": "math",
+       "skill": "Nonlinear functions",
+       "difficulty": "easy",
+       "prompt": "The function $f$ is defined by $f(x) = 3x^2$. What is the value of $f(2)$?",
+       "answer": [
+        "12"
+       ],
+       "explanation": "$f(2) = 3(2^2) = 3(4) = 12$."
+      },
+      {
+       "id": "t13-m2e-10",
+       "section": "math",
+       "skill": "Linear equations in one variable",
+       "difficulty": "easy",
+       "prompt": "If $5x = 3x + 14$, what is the value of $x$?",
+       "choices": [
+        "$2$",
+        "$14$",
+        "$7$",
+        "$\\dfrac{7}{4}$"
+       ],
+       "answer": "C",
+       "explanation": "Subtract $3x$: $2x = 14$, so $x = 7$."
+      },
+      {
+       "id": "t13-m2e-11",
+       "section": "math",
+       "skill": "Systems of two linear equations in two variables",
+       "difficulty": "medium",
+       "prompt": "$$x + y = 10$$ $$y = x + 4$$ If $(x, y)$ is the solution to the system of equations, what is the value of $x$?",
+       "answer": [
+        "3"
+       ],
+       "explanation": "Substitute: $x + (x + 4) = 10$, so $2x = 6$ and $x = 3$."
+      },
+      {
+       "id": "t13-m2e-12",
+       "section": "math",
+       "skill": "Linear inequalities in one or two variables",
+       "difficulty": "medium",
+       "prompt": "Which inequality describes all solutions of $x + 7 < 12$?",
+       "choices": [
+        "$x < 19$",
+        "$x > 5$",
+        "$x \\le 5$",
+        "$x < 5$"
+       ],
+       "answer": "D",
+       "explanation": "Subtract 7 from both sides: $x < 5$."
+      },
+      {
+       "id": "t13-m2e-13",
+       "section": "math",
+       "skill": "Nonlinear equations in one variable and systems of equations in two variables",
+       "difficulty": "medium",
+       "prompt": "What is the positive solution to the equation $x^2 - 25 = 0$?",
+       "choices": [
+        "$5$",
+        "$25$",
+        "$12.5$",
+        "$10$"
+       ],
+       "answer": "A",
+       "explanation": "$x^2 = 25$, so $x = 5$ or $x = -5$. The positive solution is 5."
+      },
+      {
+       "id": "t13-m2e-14",
+       "section": "math",
+       "skill": "Probability and conditional probability",
+       "difficulty": "medium",
+       "prompt": "A fair six-sided die has faces numbered 1 through 6. If the die is rolled once, what is the probability of rolling an even number?",
+       "choices": [
+        "$\\dfrac{1}{3}$",
+        "$\\dfrac{1}{2}$",
+        "$\\dfrac{1}{6}$",
+        "$\\dfrac{2}{3}$"
+       ],
+       "answer": "B",
+       "explanation": "The even numbers are 2, 4 and 6: 3 of the 6 faces. So the probability is $\\dfrac{3}{6} = \\dfrac{1}{2}$."
+      },
+      {
+       "id": "t13-m2e-15",
+       "section": "math",
+       "skill": "Equivalent expressions",
+       "difficulty": "medium",
+       "prompt": "Which expression is equivalent to $(x + 2)(x + 5)$?",
+       "choices": [
+        "$x^2 + 10$",
+        "$x^2 + 7x + 7$",
+        "$x^2 + 7x + 10$",
+        "$x^2 + 10x + 7$"
+       ],
+       "answer": "C",
+       "explanation": "Multiply out: $x^2 + 5x + 2x + 10 = x^2 + 7x + 10$."
+      },
+      {
+       "id": "t13-m2e-16",
+       "section": "math",
+       "skill": "Right triangles and trigonometry",
+       "difficulty": "medium",
+       "prompt": "The legs of a right triangle have lengths 5 and 12. What is the length of the hypotenuse?",
+       "answer": [
+        "13"
+       ],
+       "explanation": "$\\sqrt{5^2 + 12^2} = \\sqrt{169} = 13$."
+      },
+      {
+       "id": "t13-m2e-17",
+       "section": "math",
+       "skill": "Circles",
+       "difficulty": "medium",
+       "prompt": "A circle has a circumference of $18\\pi$ inches. What is the radius of the circle, in inches?",
+       "choices": [
+        "$18$",
+        "$3$",
+        "$36$",
+        "$9$"
+       ],
+       "answer": "D",
+       "explanation": "$2\\pi r = 18\\pi$, so $r = 9$. Choice A is the diameter."
+      },
+      {
+       "id": "t13-m2e-18",
+       "section": "math",
+       "skill": "Linear functions",
+       "difficulty": "medium",
+       "prompt": "A car rental company charges a one-time fee of \\$50 plus \\$30 for each day. What is the total charge, in dollars, for renting a car for 4 days?",
+       "answer": [
+        "170"
+       ],
+       "explanation": "$50 + 30(4) = 50 + 120 = 170$ dollars."
+      },
+      {
+       "id": "t13-m2e-19",
+       "section": "math",
+       "skill": "Nonlinear functions",
+       "difficulty": "medium",
+       "prompt": "A colony of bacteria starts with 100 bacteria and doubles every hour. How many bacteria are in the colony after 3 hours?",
+       "choices": [
+        "$800$",
+        "$600$",
+        "$300$",
+        "$400$"
+       ],
+       "answer": "A",
+       "explanation": "After each hour the number doubles: $100 \\to 200 \\to 400 \\to 800$. Choice B multiplies 100 by $2 \\times 3$."
+      },
+      {
+       "id": "t13-m2e-20",
+       "section": "math",
+       "skill": "Two-variable data: models and scatterplots",
+       "difficulty": "medium",
+       "prompt": "The line of best fit for a scatterplot is $y = -2x + 50$. What value of $y$ does the line predict when $x = 10$?",
+       "choices": [
+        "$70$",
+        "$30$",
+        "$48$",
+        "$40$"
+       ],
+       "answer": "B",
+       "explanation": "$y = -2(10) + 50 = 30$."
+      },
+      {
+       "id": "t13-m2e-21",
+       "section": "math",
+       "skill": "Percentages",
+       "difficulty": "medium",
+       "prompt": "A jacket that usually costs \\$45 is on sale for 20% off. What is the sale price of the jacket?",
+       "choices": [
+        "\\$25",
+        "\\$9",
+        "\\$36",
+        "\\$40"
+       ],
+       "answer": "C",
+       "explanation": "The discount is $0.20 \\times 45 = 9$ dollars, so the sale price is $45 - 9 = 36$ dollars. Choice B is the discount itself."
+      },
+      {
+       "id": "t13-m2e-22",
+       "section": "math",
+       "skill": "Linear equations in two variables",
+       "difficulty": "medium",
+       "prompt": "A line in the $xy$-plane passes through the origin and the point $(3, 12)$. Which equation represents the line?",
+       "choices": [
+        "$y = 3x$",
+        "$y = x + 9$",
+        "$y = 12x$",
+        "$y = 4x$"
+       ],
+       "answer": "D",
+       "explanation": "The slope is $\\dfrac{12 - 0}{3 - 0} = 4$, and the line passes through the origin, so $y = 4x$."
+      }
+     ]
+    },
+    "harder": {
+     "minutes": 35,
+     "questions": [
+      {
+       "id": "t13-m2h-01",
+       "section": "math",
+       "skill": "Linear equations in one variable",
+       "difficulty": "medium",
+       "prompt": "If $0.4x + 1.2 = 0.2x + 2$, what is the value of $x$?",
+       "choices": [
+        "$2$",
+        "$4$",
+        "$8$",
+        "$0.8$"
+       ],
+       "answer": "B",
+       "explanation": "Subtract $0.2x$ and 1.2: $0.2x = 0.8$, so $x = 4$. Choice D is the value of $0.2x$."
+      },
+      {
+       "id": "t13-m2h-02",
+       "section": "math",
+       "skill": "Percentages",
+       "difficulty": "hard",
+       "prompt": "After decreasing by 25%, the number of members of a club is 360. How many members did the club have before the decrease?",
+       "answer": [
+        "480"
+       ],
+       "explanation": "360 is 75% of the original number: $0.75n = 360$, so $n = 480$. Adding 25% of 360 to 360 gives 450, which is a common mistake."
+      },
+      {
+       "id": "t13-m2h-03",
+       "section": "math",
+       "skill": "Nonlinear functions",
+       "difficulty": "hard",
+       "prompt": "The function $f$ is defined by $f(x) = a(x - 2)(x - 6)$, where $a$ is a constant. The vertex of the graph of $y = f(x)$ has a $y$-coordinate of $-8$. What is the value of $f(0)$?",
+       "answer": [
+        "24"
+       ],
+       "explanation": "The vertex is halfway between the zeros, at $x = 4$. So $f(4) = a(2)(-2) = -4a = -8$, giving $a = 2$. Then $f(0) = 2(-2)(-6) = 24$."
+      },
+      {
+       "id": "t13-m2h-04",
+       "section": "math",
+       "skill": "Systems of two linear equations in two variables",
+       "difficulty": "hard",
+       "prompt": "$$2x + 3y = 7$$ $$ax - 6y = 4$$ In the system of equations above, $a$ is a constant. For what value of $a$ does the system have no solution?",
+       "choices": [
+        "$4$",
+        "$2$",
+        "$-4$",
+        "$-2$"
+       ],
+       "answer": "C",
+       "explanation": "The lines must be parallel: multiplying the first equation by $-2$ gives $-4x - 6y = -14$, so $a = -4$. The constants $-14$ and 4 differ, so the lines are distinct and there is no solution."
+      },
+      {
+       "id": "t13-m2h-05",
+       "section": "math",
+       "skill": "Equivalent expressions",
+       "difficulty": "hard",
+       "prompt": "Which expression is equivalent to $\\dfrac{(x^2y^3)^2}{xy^4}$, where $x$ and $y$ are positive?",
+       "choices": [
+        "$x^3y^2$",
+        "$x^3y^5$",
+        "$xy^2$",
+        "$x^4y^2$"
+       ],
+       "answer": "A",
+       "explanation": "The numerator is $x^4y^6$. Dividing by $xy^4$ gives $x^{4 - 1}y^{6 - 4} = x^3y^2$."
+      },
+      {
+       "id": "t13-m2h-06",
+       "section": "math",
+       "skill": "Nonlinear equations in one variable and systems of equations in two variables",
+       "difficulty": "hard",
+       "prompt": "What is the solution to the equation $\\sqrt{x + 6} = x$?",
+       "answer": [
+        "3"
+       ],
+       "explanation": "Squaring gives $x + 6 = x^2$, so $x^2 - x - 6 = 0$ and $(x - 3)(x + 2) = 0$. Check: $x = 3$ gives $\\sqrt{9} = 3$, which works, but $x = -2$ gives $\\sqrt{4} = 2 \\ne -2$. So the solution is 3."
+      },
+      {
+       "id": "t13-m2h-07",
+       "section": "math",
+       "skill": "Linear equations in two variables",
+       "difficulty": "hard",
+       "prompt": "The graphs of $y = 3x - 5$ and $y = -x + 7$ intersect at the point $(a, b)$. What is the value of $a + b$?",
+       "choices": [
+        "$3$",
+        "$4$",
+        "$12$",
+        "$7$"
+       ],
+       "answer": "D",
+       "explanation": "Set $3x - 5 = -x + 7$: $4x = 12$, so $a = 3$ and $b = -3 + 7 = 4$. Then $a + b = 7$."
+      },
+      {
+       "id": "t13-m2h-08",
+       "section": "math",
+       "skill": "Linear functions",
+       "difficulty": "hard",
+       "prompt": "For the linear function $f$, $f(-1) = 8$ and $f(3) = -4$. What is the value of $f(0)$?",
+       "choices": [
+        "$-3$",
+        "$5$",
+        "$8$",
+        "$2$"
+       ],
+       "answer": "B",
+       "explanation": "The slope is $\\dfrac{-4 - 8}{3 - (-1)} = -3$. From $f(-1) = 8$: $8 = -3(-1) + b$, so $b = 5$, which is $f(0)$. Choice A is the slope."
+      },
+      {
+       "id": "t13-m2h-09",
+       "section": "math",
+       "skill": "Linear inequalities in one or two variables",
+       "difficulty": "hard",
+       "prompt": "How many integers $x$ satisfy $3 < 2x - 1 \\le 11$?",
+       "answer": [
+        "4"
+       ],
+       "explanation": "Add 1: $4 < 2x \\le 12$. Divide by 2: $2 < x \\le 6$. The integers are 3, 4, 5 and 6, so there are 4."
+      },
+      {
+       "id": "t13-m2h-10",
+       "section": "math",
+       "skill": "Nonlinear equations in one variable and systems of equations in two variables",
+       "difficulty": "hard",
+       "prompt": "The equation $x^2 - 6x + c = 0$, where $c$ is a constant, has exactly one real solution. What is the value of $c$?",
+       "choices": [
+        "$-9$",
+        "$6$",
+        "$9$",
+        "$36$"
+       ],
+       "answer": "C",
+       "explanation": "For exactly one solution the discriminant must be 0: $36 - 4c = 0$, so $c = 9$. The equation is then $(x - 3)^2 = 0$."
+      },
+      {
+       "id": "t13-m2h-11",
+       "section": "math",
+       "skill": "Probability and conditional probability",
+       "difficulty": "hard",
+       "prompt": "In a group of 60 athletes, 24 play basketball, 30 play soccer, and 10 play both. If an athlete who plays soccer is chosen at random, what is the probability that the athlete also plays basketball?",
+       "choices": [
+        "$\\dfrac{1}{3}$",
+        "$\\dfrac{1}{6}$",
+        "$\\dfrac{5}{12}$",
+        "$\\dfrac{2}{5}$"
+       ],
+       "answer": "A",
+       "explanation": "Of the 30 soccer players, 10 also play basketball, so the probability is $\\dfrac{10}{30} = \\dfrac{1}{3}$. Choice B divides by all 60 athletes, and choice C divides by the 24 basketball players."
+      },
+      {
+       "id": "t13-m2h-12",
+       "section": "math",
+       "skill": "Equivalent expressions",
+       "difficulty": "hard",
+       "prompt": "Which expression is equivalent to $\\dfrac{1}{x + 2} - \\dfrac{1}{x + 3}$, for $x \\ne -2$ and $x \\ne -3$?",
+       "choices": [
+        "$\\dfrac{-1}{(x + 2)(x + 3)}$",
+        "$\\dfrac{1}{2x + 5}$",
+        "$0$",
+        "$\\dfrac{1}{(x + 2)(x + 3)}$"
+       ],
+       "answer": "D",
+       "explanation": "With a common denominator: $\\dfrac{(x + 3) - (x + 2)}{(x + 2)(x + 3)} = \\dfrac{1}{(x + 2)(x + 3)}$."
+      },
+      {
+       "id": "t13-m2h-13",
+       "section": "math",
+       "skill": "Right triangles and trigonometry",
+       "difficulty": "hard",
+       "prompt": "The legs of a right triangle have lengths 7 and 24. What is the sine of the smallest angle in the triangle?",
+       "answer": [
+        "7/25",
+        ".28",
+        "0.28"
+       ],
+       "explanation": "The hypotenuse is $\\sqrt{7^2 + 24^2} = 25$. The smallest angle is opposite the shortest side, 7, so its sine is $\\dfrac{7}{25}$."
+      },
+      {
+       "id": "t13-m2h-14",
+       "section": "math",
+       "skill": "Lines, angles, and triangles",
+       "difficulty": "hard",
+       "prompt": "In a triangle, an exterior angle measures $130^\\circ$. The two interior angles that are not next to it measure $x^\\circ$ and $(2x + 10)^\\circ$. What is the measure of the largest interior angle of the triangle?",
+       "choices": [
+        "$40^\\circ$",
+        "$90^\\circ$",
+        "$130^\\circ$",
+        "$50^\\circ$"
+       ],
+       "answer": "B",
+       "explanation": "An exterior angle equals the sum of the two remote interior angles: $3x + 10 = 130$, so $x = 40$. The angles are $40^\\circ$ and $90^\\circ$, and the third is $180 - 130 = 50^\\circ$. The largest is $90^\\circ$."
+      },
+      {
+       "id": "t13-m2h-15",
+       "section": "math",
+       "skill": "Two-variable data: models and scatterplots",
+       "difficulty": "hard",
+       "prompt": "A line of best fit passes through the points $(2, 7)$ and $(10, 23)$. Which equation represents this line?",
+       "choices": [
+        "$y = 3x + 1$",
+        "$y = 2x + 7$",
+        "$y = 2x + 3$",
+        "$y = \\dfrac{1}{2}x + 6$"
+       ],
+       "answer": "C",
+       "explanation": "The slope is $\\dfrac{23 - 7}{10 - 2} = 2$. Then $7 = 2(2) + b$ gives $b = 3$: $y = 2x + 3$."
+      },
+      {
+       "id": "t13-m2h-16",
+       "section": "math",
+       "skill": "Nonlinear functions",
+       "difficulty": "hard",
+       "prompt": "The function $f$ is defined by $f(x) = (x + 3)^2 - k$, where $k$ is a constant. The graph of $y = f(x)$ crosses the $x$-axis at $x = 1$. What is the value of $k$?",
+       "answer": [
+        "16"
+       ],
+       "explanation": "$f(1) = 0$, so $(1 + 3)^2 - k = 0$ and $k = 16$."
+      },
+      {
+       "id": "t13-m2h-17",
+       "section": "math",
+       "skill": "Circles",
+       "difficulty": "hard",
+       "prompt": "A circle in the $xy$-plane has the equation $x^2 + y^2 + 4x - 10y + 20 = 0$. What are the coordinates of the center of the circle?",
+       "choices": [
+        "$(-2, 5)$",
+        "$(2, -5)$",
+        "$(4, -10)$",
+        "$(-4, 10)$"
+       ],
+       "answer": "A",
+       "explanation": "Complete the square: $(x + 2)^2 + (y - 5)^2 = -20 + 4 + 25 = 9$. The center is $(-2, 5)$ and the radius is 3. Choice B has the signs reversed."
+      },
+      {
+       "id": "t13-m2h-18",
+       "section": "math",
+       "skill": "Inference from sample statistics and margin of error",
+       "difficulty": "hard",
+       "prompt": "A researcher randomly selected 200 members of a city's public library and asked how many books they had borrowed in the past month. To which group can the results of the survey most appropriately be generalized?",
+       "choices": [
+        "All residents of the city",
+        "All readers in the country",
+        "Only the 200 members who were surveyed",
+        "All members of the city's public library"
+       ],
+       "answer": "D",
+       "explanation": "The sample was chosen at random from library members, so the results apply to all library members. They cannot be extended to all residents or all readers, who were not sampled, and a random sample is meant to represent more than just itself."
+      },
+      {
+       "id": "t13-m2h-19",
+       "section": "math",
+       "skill": "Evaluating statistical claims: observational studies and experiments",
+       "difficulty": "hard",
+       "prompt": "A researcher recruited 300 volunteers who wanted to improve their sleep. The volunteers were randomly assigned either to read a printed book or to use a phone for 30 minutes before bed. After four weeks, the book group reported significantly better sleep. Which conclusion is best supported?",
+       "choices": [
+        "Reading a printed book before bed improves sleep for all adults in the country.",
+        "For volunteers like those in the study, reading a printed book before bed instead of using a phone likely causes better sleep.",
+        "Using a phone before bed has no effect on sleep.",
+        "The results cannot support any conclusion because the volunteers were not chosen at random."
+       ],
+       "answer": "B",
+       "explanation": "Random assignment allows a cause-and-effect conclusion, but the volunteers were not a random sample of all adults, so the conclusion applies to people like them. Choice D confuses random selection with random assignment."
+      },
+      {
+       "id": "t13-m2h-20",
+       "section": "math",
+       "skill": "Area and volume",
+       "difficulty": "hard",
+       "prompt": "A rectangle has an area of 48 square meters and a diagonal of length 10 meters. What is the perimeter of the rectangle, in meters?",
+       "choices": [
+        "$24$",
+        "$48$",
+        "$28$",
+        "$14$"
+       ],
+       "answer": "C",
+       "explanation": "If the sides are $a$ and $b$, then $ab = 48$ and $a^2 + b^2 = 100$. The sides 6 and 8 work, since $6 \\times 8 = 48$ and $36 + 64 = 100$. The perimeter is $2(6 + 8) = 28$. Choice D is half the perimeter."
+      },
+      {
+       "id": "t13-m2h-21",
+       "section": "math",
+       "skill": "Nonlinear functions",
+       "difficulty": "hard",
+       "prompt": "The value $V$, in dollars, of a machine $t$ years after it is bought is given by $V = 18{,}000(0.85)^t$. Which statement best describes how the value changes?",
+       "choices": [
+        "The value decreases by 15% each year.",
+        "The value decreases by 85% each year.",
+        "The value decreases by \\$850 each year.",
+        "The value decreases by \\$15 each year."
+       ],
+       "answer": "A",
+       "explanation": "Each year the value is multiplied by 0.85, so it keeps 85% and loses 15%. Choice B confuses the part kept with the part lost."
+      },
+      {
+       "id": "t13-m2h-22",
+       "section": "math",
+       "skill": "Equivalent expressions",
+       "difficulty": "hard",
+       "prompt": "If $3^{2x} = 81^{x - 2}$, what is the value of $x$?",
+       "choices": [
+        "$2$",
+        "$8$",
+        "$-4$",
+        "$4$"
+       ],
+       "answer": "D",
+       "explanation": "Write 81 as $3^4$: $3^{2x} = 3^{4(x - 2)} = 3^{4x - 8}$. Then $2x = 4x - 8$, so $x = 4$."
+      }
+     ]
+    }
+   }
+  }
+ ]
+}

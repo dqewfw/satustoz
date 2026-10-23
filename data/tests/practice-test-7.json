@@ -18,7 +18,7 @@
             "section": "rw",
             "skill": "Words in Context",
             "difficulty": "easy",
-            "passage": "Marathon coach Ilhom Qosimov tells his runners that long races are won through ______ effort: a steady pace held for hours will beat a fast start that cannot be maintained.",
+            "passage": "Marathon coach Peter Walsh tells his runners that long races are won through ______ effort: a steady pace held for hours will beat a fast start that cannot be maintained.",
             "prompt": "Which choice completes the text with the most logical and precise word or phrase?",
             "choices": [
               "sporadic",
@@ -34,7 +34,7 @@
             "section": "rw",
             "skill": "Words in Context",
             "difficulty": "medium",
-            "passage": "Playwright Odina Ferreira's first drafts are famously ______: she often writes more than two hundred pages of scenes, then cuts all but a few dozen once rehearsals begin.",
+            "passage": "Playwright Lúcia Ferreira's first drafts are famously ______: she often writes more than two hundred pages of scenes, then cuts all but a few dozen once rehearsals begin.",
             "prompt": "Which choice completes the text with the most logical and precise word or phrase?",
             "choices": [
               "concise",
@@ -66,7 +66,7 @@
             "section": "rw",
             "skill": "Words in Context",
             "difficulty": "hard",
-            "passage": "According to energy analyst Kamola Yusupova, early reports on floating solar panels were ______: they praised the land the panels saved and the cooling effect of the water beneath them but rarely mentioned the costly anchoring systems and corrosion problems that later troubled several installations.",
+            "passage": "According to energy analyst Hannah Lowe, early reports on floating solar panels were ______: they praised the land the panels saved and the cooling effect of the water beneath them but rarely mentioned the costly anchoring systems and corrosion problems that later troubled several installations.",
             "prompt": "Which choice completes the text with the most logical and precise word or phrase?",
             "choices": [
               "fabricated",
@@ -82,7 +82,7 @@
             "section": "rw",
             "skill": "Text Structure and Purpose",
             "difficulty": "medium",
-            "passage": "Each autumn, demoiselle cranes that breed on the steppes of Kazakhstan and Mongolia fly south to spend the winter in India, and many of them cross the Himalayas to get there. The crossing is among the most demanding journeys any bird makes: some passes on the route lie above 5,000 meters, where the air holds only about half as much oxygen as it does at sea level. __To save energy, the cranes rise on columns of warm air called thermals, gaining height while barely flapping their wings.__",
+            "passage": "Each autumn, demoiselle cranes that breed on the steppes of Mongolia and northern China fly south to spend the winter in India, and many of them cross the Himalayas to get there. The crossing is among the most demanding journeys any bird makes: some passes on the route lie above 5,000 meters, where the air holds only about half as much oxygen as it does at sea level. __To save energy, the cranes rise on columns of warm air called thermals, gaining height while barely flapping their wings.__",
             "prompt": "Which choice best describes the function of the underlined sentence in the text as a whole?",
             "choices": [
               "It describes a strategy the cranes use to cope with the difficulty described in the previous sentence.",
@@ -98,16 +98,16 @@
             "section": "rw",
             "skill": "Text Structure and Purpose",
             "difficulty": "medium",
-            "passage": "Stage designer Farrukh Akbarov rarely builds realistic sets. For a recent production of a family drama set in a Namangan courtyard, he placed only a single carpet and a low wooden table on an otherwise empty stage. Akbarov explains that when audiences are given fewer objects to look at, they pay closer attention to the actors' faces and voices, and they fill in the rest of the courtyard with their own imaginations.",
+            "passage": "Stage designer Lars Eriksen rarely builds realistic sets. For a recent production of a family drama set in a Naples courtyard, he placed only a single carpet and a low wooden table on an otherwise empty stage. Eriksen explains that when audiences are given fewer objects to look at, they pay closer attention to the actors' faces and voices, and they fill in the rest of the courtyard with their own imaginations.",
             "prompt": "Which choice best states the main purpose of the text?",
             "choices": [
               "To argue that realistic sets are too expensive for most theaters",
-              "To describe the history of theater in Namangan",
-              "To compare Akbarov's designs with those of other stage designers",
+              "To describe the history of theater in Naples",
+              "To compare Eriksen's designs with those of other stage designers",
               "To present a designer's approach to building sets and his reasons for it"
             ],
             "answer": "D",
-            "explanation": "The text describes Akbarov's spare sets, gives an example, and then explains his reasoning. Cost and other designers are never discussed."
+            "explanation": "The text describes Eriksen's spare sets, gives an example, and then explains his reasoning. Cost and other designers are never discussed."
           },
           {
             "id": "t7-rw1-07",
@@ -130,13 +130,13 @@
             "section": "rw",
             "skill": "Central Ideas and Details",
             "difficulty": "easy",
-            "passage": "In kurash, a traditional style of wrestling practiced in Uzbekistan for centuries, wrestlers may not grab their opponents below the belt or keep fighting once they are on the ground. Points are scored only for throws made from a standing position. As a result, kurash rewards balance, timing, and quick footwork more than strength on the mat.",
+            "passage": "In Cumberland and Westmorland wrestling, a traditional style practiced in northern England for centuries, wrestlers grip each other around the back and lose as soon as any part of the body other than the feet touches the ground. There is no fighting on the ground at all; bouts are won only by throws made from a standing position. As a result, the style rewards balance, timing, and quick footwork more than strength on the mat.",
             "prompt": "Which choice best states the main idea of the text?",
             "choices": [
-              "Kurash is the oldest form of wrestling in the world.",
-              "Kurash wrestlers train mainly by lifting heavy weights.",
-              "Because kurash is fought only from a standing position, it rewards balance and timing more than ground strength.",
-              "Kurash was invented recently as a safer alternative to other wrestling styles."
+              "Cumberland and Westmorland wrestling is the oldest form of wrestling in the world.",
+              "Wrestlers in this style train mainly by lifting heavy weights.",
+              "Because this style is fought only from a standing position, it rewards balance and timing more than ground strength.",
+              "The style was invented recently as a safer alternative to other wrestling styles."
             ],
             "answer": "C",
             "explanation": "The text explains the standing-only rules and ends with their result: balance and timing matter most."
@@ -146,13 +146,13 @@
             "section": "rw",
             "skill": "Central Ideas and Details",
             "difficulty": "medium",
-            "passage": "The following text is from a short story. Nargiza has written a play that is being performed for the first time.\n\nFrom the last row of the theater, Nargiza could see only the backs of heads. For the first twenty minutes, she studied them the way a farmer studies the sky, reading every cough and every shifting shoulder as a sign of boredom. Then, during the argument between the two brothers, the heads stopped moving altogether, and she realized she had been holding her breath along with everyone else.",
+            "passage": "The following text is from a short story. Sarah has written a play that is being performed for the first time.\n\nFrom the last row of the theater, Sarah could see only the backs of heads. For the first twenty minutes, she studied them the way a farmer studies the sky, reading every cough and every shifting shoulder as a sign of boredom. Then, during the argument between the two brothers, the heads stopped moving altogether, and she realized she had been holding her breath along with everyone else.",
             "prompt": "Which choice best states the main idea of the text?",
             "choices": [
-              "Nargiza's anxiety about how the audience will react gives way when she sees the audience become absorbed in her play.",
-              "Nargiza regrets that she cannot see the actors from the back row.",
-              "Nargiza decides to rewrite the argument between the two brothers.",
-              "Nargiza becomes bored during the first part of her play."
+              "Sarah's anxiety about how the audience will react gives way when she sees the audience become absorbed in her play.",
+              "Sarah regrets that she cannot see the actors from the back row.",
+              "Sarah decides to rewrite the argument between the two brothers.",
+              "Sarah becomes bored during the first part of her play."
             ],
             "answer": "A",
             "explanation": "She first watches nervously for signs of boredom, then sees the audience go still and finds herself caught up with them."
@@ -162,8 +162,8 @@
             "section": "rw",
             "skill": "Command of Evidence: Textual",
             "difficulty": "medium",
-            "passage": "Ornithologist Timur Sadikov hypothesizes that young barn swallows migrating for the first time find their way using an inherited sense of direction rather than by following experienced adults.",
-            "prompt": "Which finding, if true, would most directly support Sadikov's hypothesis?",
+            "passage": "Ornithologist Henrik Dahl hypothesizes that young barn swallows migrating for the first time find their way using an inherited sense of direction rather than by following experienced adults.",
+            "prompt": "Which finding, if true, would most directly support Dahl's hypothesis?",
             "choices": [
               "Adult swallows usually return to the same nesting site each spring.",
               "Young swallows gain weight rapidly in the weeks before migration.",
@@ -178,7 +178,7 @@
             "section": "rw",
             "skill": "Command of Evidence: Textual",
             "difficulty": "hard",
-            "passage": "A team of engineers at a solar farm in southern Uzbekistan claims that the dust that collects on the farm's panels reduces their electricity output mainly by blocking sunlight, not by raising the panels' temperature.",
+            "passage": "A team of engineers at a solar farm in the Atacama Desert of Chile claims that the dust that collects on the farm's panels reduces their electricity output mainly by blocking sunlight, not by raising the panels' temperature.",
             "prompt": "Which finding, if true, would most directly support the engineers' claim?",
             "choices": [
               "On the hottest days, dusty panels were slightly warmer than clean panels.",
@@ -256,13 +256,13 @@
             "section": "rw",
             "skill": "Inferences",
             "difficulty": "hard",
-            "passage": "Ice that forms on wind turbine blades changes their shape and reduces the amount of electricity they generate. Some turbines in northern Kazakhstan are fitted with heaters that melt the ice, but the heaters use part of the electricity the turbine produces. An engineer found that on days with light icing, turbines with their heaters on produced less net electricity than identical turbines with their heaters off, while on days with heavy icing the reverse was true. These results suggest that ______",
+            "passage": "Ice that forms on wind turbine blades changes their shape and reduces the amount of electricity they generate. Some turbines in northern Sweden are fitted with heaters that melt the ice, but the heaters use part of the electricity the turbine produces. An engineer found that on days with light icing, turbines with their heaters on produced less net electricity than identical turbines with their heaters off, while on days with heavy icing the reverse was true. These results suggest that ______",
             "prompt": "Which choice most logically completes the text?",
             "choices": [
               "running the heaters pays off only when icing is heavy enough that the electricity lost to ice exceeds the electricity the heaters use.",
-              "turbines in northern Kazakhstan should not be fitted with heaters at all.",
+              "turbines in northern Sweden should not be fitted with heaters at all.",
               "light icing does not reduce the amount of electricity a turbine generates.",
-              "heavy icing occurs more often than light icing in northern Kazakhstan."
+              "heavy icing occurs more often than light icing in northern Sweden."
             ],
             "answer": "A",
             "explanation": "Heaters helped on heavy-ice days and hurt on light-ice days, so they are worth running only when ice costs more than the heaters do. Light icing may still reduce output; it just costs less than heating."
@@ -400,7 +400,7 @@
             "section": "rw",
             "skill": "Transitions",
             "difficulty": "medium",
-            "passage": "Most playwrights finish their scripts before rehearsals begin. The members of the Navbahor Theater Collective, ______ build their plays during rehearsals, improvising scenes together and writing down only the moments that work.",
+            "passage": "Most playwrights finish their scripts before rehearsals begin. The members of the Lanterna Theater Collective, ______ build their plays during rehearsals, improvising scenes together and writing down only the moments that work.",
             "prompt": "Which choice completes the text with the most logical transition?",
             "choices": [
               "for example,",
@@ -432,13 +432,13 @@
             "section": "rw",
             "skill": "Rhetorical Synthesis",
             "difficulty": "medium",
-            "passage": "While researching a topic, a student has taken the following notes:\n\n• The Nurek Dam stands on the Vakhsh River in Tajikistan.\n• It was completed in 1980.\n• At about 300 meters tall, it was the world's tallest dam for more than thirty years.\n• Hydropower supplies more than 90 percent of Tajikistan's electricity.",
-            "prompt": "The student wants to emphasize the importance of hydropower to Tajikistan. Which choice most effectively uses relevant information from the notes to accomplish this goal?",
+            "passage": "While researching a topic, a student has taken the following notes:\n\n• The Itaipu Dam stands on the Paraná River between Brazil and Paraguay.\n• It began producing electricity in 1984.\n• For decades, it generated more electricity each year than almost any other power plant in the world.\n• Hydropower supplies nearly all of Paraguay's electricity.",
+            "prompt": "The student wants to emphasize the importance of hydropower to Paraguay. Which choice most effectively uses relevant information from the notes to accomplish this goal?",
             "choices": [
-              "Hydropower, from dams such as the Nurek Dam on the Vakhsh River, supplies more than 90 percent of Tajikistan's electricity.",
-              "The Nurek Dam in Tajikistan was completed in 1980.",
-              "At about 300 meters tall, the Nurek Dam was the world's tallest dam for more than thirty years.",
-              "The Nurek Dam stands on the Vakhsh River."
+              "Hydropower, from dams such as the Itaipu Dam on the Paraná River, supplies nearly all of Paraguay's electricity.",
+              "The Itaipu Dam began producing electricity in 1984.",
+              "For decades, the Itaipu Dam generated more electricity each year than almost any other power plant in the world.",
+              "The Itaipu Dam stands on the Paraná River."
             ],
             "answer": "A",
             "explanation": "Only this choice shows how much of the country's electricity comes from hydropower."
@@ -464,13 +464,13 @@
             "section": "rw",
             "skill": "Rhetorical Synthesis",
             "difficulty": "hard",
-            "passage": "While researching a topic, a student has taken the following notes:\n\n• Rano Ismoilova is an Uzbek playwright.\n• Her play *The Silk Ledger* (2019) follows three generations of a family of silk merchants in Kokand.\n• *The Silk Ledger* is performed on a bare stage with only two chairs.\n• Her play *Wells of Nukus* (2023) takes place in a single apartment over one night.\n• *Wells of Nukus* is performed on a set built as a detailed copy of a 1970s apartment.",
+            "passage": "While researching a topic, a student has taken the following notes:\n\n• Clara Moreno is a Spanish playwright.\n• Her play *The Silk Ledger* (2019) follows three generations of a family of silk merchants in Valencia.\n• *The Silk Ledger* is performed on a bare stage with only two chairs.\n• Her play *Nights in Bilbao* (2023) takes place in a single apartment over one night.\n• *Nights in Bilbao* is performed on a set built as a detailed copy of a 1970s apartment.",
             "prompt": "The student wants to emphasize a difference in how the two plays are staged. Which choice most effectively uses relevant information from the notes to accomplish this goal?",
             "choices": [
-              "*The Silk Ledger* spans three generations of a family, while *Wells of Nukus* takes place over a single night.",
-              "*The Silk Ledger* is performed on a bare stage with only two chairs, whereas *Wells of Nukus* uses a detailed copy of a 1970s apartment.",
-              "Both of Ismoilova's plays, *The Silk Ledger* and *Wells of Nukus*, are set in Uzbekistan.",
-              "Ismoilova wrote *The Silk Ledger* in 2019 and *Wells of Nukus* in 2023."
+              "*The Silk Ledger* spans three generations of a family, while *Nights in Bilbao* takes place over a single night.",
+              "*The Silk Ledger* is performed on a bare stage with only two chairs, whereas *Nights in Bilbao* uses a detailed copy of a 1970s apartment.",
+              "Both of Moreno's plays, *The Silk Ledger* and *Nights in Bilbao*, are set in Spain.",
+              "Moreno wrote *The Silk Ledger* in 2019 and *Nights in Bilbao* in 2023."
             ],
             "answer": "B",
             "explanation": "The goal is a difference in **staging**, which means the sets. The first choice contrasts how much time each story covers, not how the plays are staged."
@@ -502,7 +502,7 @@
               "section": "rw",
               "skill": "Words in Context",
               "difficulty": "easy",
-              "passage": "To wait out a storm, the migrating geese ______ on a lake in the Kazakh steppe, resting and feeding for several days until the weather cleared.",
+              "passage": "To wait out a storm, the migrating geese ______ on a lake on the Hungarian plain, resting and feeding for several days until the weather cleared.",
               "prompt": "Which choice completes the text with the most logical and precise word or phrase?",
               "choices": [
                 "lingered",
@@ -566,7 +566,7 @@
               "section": "rw",
               "skill": "Text Structure and Purpose",
               "difficulty": "medium",
-              "passage": "Each autumn, many birds that breed in Siberia and Kazakhstan fly south across Central Asia toward wintering grounds in South Asia and Africa. Along the way, many of them stop at small wetlands in the deserts of Uzbekistan and Turkmenistan. __These wetlands offer some of the only food and fresh water available across hundreds of kilometers of dry land.__ Because so many species depend on them, conservationists consider protecting these stopover sites as important as protecting the birds' breeding grounds.",
+              "passage": "Each autumn, many birds that breed in Europe fly south across the Sahara toward wintering grounds in central and southern Africa. Along the way, many of them stop at small oases and wetlands scattered across the desert. __These wetlands offer some of the only food and fresh water available across hundreds of kilometers of dry land.__ Because so many species depend on them, conservationists consider protecting these stopover sites as important as protecting the birds' breeding grounds.",
               "prompt": "Which choice best describes the function of the underlined sentence in the text as a whole?",
               "choices": [
                 "It describes the breeding grounds of the birds discussed in the text.",
@@ -598,13 +598,13 @@
               "section": "rw",
               "skill": "Central Ideas and Details",
               "difficulty": "easy",
-              "passage": "The Charvak Reservoir, in the mountains northeast of Tashkent, was created in the 1970s when a dam was built across the Chirchiq River. Today, the reservoir serves several purposes. Its dam produces hydroelectric power, its water irrigates farmland downstream, and its shores attract thousands of visitors each summer who come to swim, hike, and escape the city's heat.",
+              "passage": "Lake Mead, about 40 kilometers east of Las Vegas, was created in the 1930s when the Hoover Dam was built across the Colorado River. Today, the reservoir serves several purposes. Its dam produces hydroelectric power, its water irrigates farmland downstream, and its shores attract thousands of visitors each summer who come to swim, boat, and fish.",
               "prompt": "Which choice best states the main idea of the text?",
               "choices": [
-                "The Charvak Reservoir is the largest lake in Central Asia.",
-                "Building the dam at Charvak was difficult and expensive.",
-                "The Charvak Reservoir serves several purposes, from producing electricity to offering a place for recreation.",
-                "Summers in Tashkent have become hotter in recent years."
+                "Lake Mead is the largest lake in the United States.",
+                "Building the Hoover Dam was difficult and expensive.",
+                "Lake Mead serves several purposes, from producing electricity to offering a place for recreation.",
+                "Summers in Las Vegas have become hotter in recent years."
               ],
               "answer": "C",
               "explanation": "The text says the reservoir \"serves several purposes\" and then lists them: power, irrigation, and recreation."
@@ -614,13 +614,13 @@
               "section": "rw",
               "skill": "Central Ideas and Details",
               "difficulty": "medium",
-              "passage": "The following text is from a short story. Akmal has just finished his first season as a goalkeeper on a youth soccer team.\n\nAkmal had let in eleven goals in his first five games, and after each one he had replayed the ball's path in his mind until he fell asleep. By the end of the season, he still let in goals, but fewer, and he had stopped replaying them. Instead, he found himself thinking about the shots he had stopped: the low one in the rain, the one that stung his palms, the one his teammates still talked about.",
+              "passage": "The following text is from a short story. Ben has just finished his first season as a goalkeeper on a youth soccer team.\n\nBen had let in eleven goals in his first five games, and after each one he had replayed the ball's path in his mind until he fell asleep. By the end of the season, he still let in goals, but fewer, and he had stopped replaying them. Instead, he found himself thinking about the shots he had stopped: the low one in the rain, the one that stung his palms, the one his teammates still talked about.",
               "prompt": "Which choice best states the main idea of the text?",
               "choices": [
-                "Akmal decides to stop playing goalkeeper.",
-                "Akmal's teammates blame him for the team's losses.",
-                "Akmal cannot remember the details of his games.",
-                "Over the season, Akmal shifts from dwelling on his mistakes to remembering his successes."
+                "Ben decides to stop playing goalkeeper.",
+                "Ben's teammates blame him for the team's losses.",
+                "Ben cannot remember the details of his games.",
+                "Over the season, Ben shifts from dwelling on his mistakes to remembering his successes."
               ],
               "answer": "D",
               "explanation": "Early on he replays the goals he let in; by the end he thinks \"instead\" about the shots he stopped."
@@ -662,7 +662,7 @@
               "section": "rw",
               "skill": "Command of Evidence: Quantitative",
               "difficulty": "easy",
-              "passage": "Volunteers counted the birds of four species resting at a lake in Uzbekistan during one week of autumn migration. The most numerous of the four species was ______",
+              "passage": "Volunteers counted the birds of four species resting at a lake in Turkey during one week of autumn migration. The most numerous of the four species was ______",
               "prompt": "Which choice most effectively uses data from the table to complete the statement?",
               "choices": [
                 "the common crane, with 315 birds counted.",
@@ -703,7 +703,7 @@
               "section": "rw",
               "skill": "Inferences",
               "difficulty": "easy",
-              "passage": "Wind turbines generate electricity only when the wind blows above a certain speed. In one region of Uzbekistan, winds are strongest in winter and weakest in summer. Engineers would therefore expect the region's wind turbines to ______",
+              "passage": "Wind turbines generate electricity only when the wind blows above a certain speed. In one region of Scotland, winds are strongest in winter and weakest in summer. Engineers would therefore expect the region's wind turbines to ______",
               "prompt": "Which choice most logically completes the text?",
               "choices": [
                 "produce the same amount of electricity in every season.",
@@ -735,13 +735,13 @@
               "section": "rw",
               "skill": "Boundaries",
               "difficulty": "easy",
-              "passage": "Tulips grow wild in the mountains of Central ______ many of the garden varieties sold around the world today are descended from these wild species.",
+              "passage": "Potatoes were first domesticated in the mountains of South ______ nearly all of the varieties grown around the world today are descended from those early crops.",
               "prompt": "Which choice completes the text so that it conforms to the conventions of Standard English?",
               "choices": [
-                "Asia;",
-                "Asia,",
-                "Asia",
-                "Asia, and,"
+                "America;",
+                "America,",
+                "America",
+                "America, and,"
               ],
               "answer": "A",
               "explanation": "Both parts are complete sentences, so they need a semicolon. A comma alone creates a comma splice."
@@ -767,7 +767,7 @@
               "section": "rw",
               "skill": "Boundaries",
               "difficulty": "medium",
-              "passage": "The team's ______ Diyora Rahmonova, performed a routine that included two moves never before attempted at the regional championship.",
+              "passage": "The team's ______ Jessica Moreau, performed a routine that included two moves never before attempted at the regional championship.",
               "prompt": "Which choice completes the text so that it conforms to the conventions of Standard English?",
               "choices": [
                 "captain",
@@ -776,7 +776,7 @@
                 "captain,"
               ],
               "answer": "D",
-              "explanation": "The name \"Diyora Rahmonova\" renames the captain and is followed by a comma, so it must also be preceded by a comma."
+              "explanation": "The name \"Jessica Moreau\" renames the captain and is followed by a comma, so it must also be preceded by a comma."
             },
             {
               "id": "t7-rw2e-18",
@@ -879,7 +879,7 @@
               "section": "rw",
               "skill": "Transitions",
               "difficulty": "medium",
-              "passage": "Kupkari, a traditional horseback game played in Uzbekistan, requires riders to scoop a heavy goat carcass off the ground while galloping at full speed. ______ riders must keep hold of the carcass while dozens of opponents try to pull it away.",
+              "passage": "Pato, a traditional horseback game played in Argentina, requires riders to scoop a ball with leather handles off the ground while galloping at full speed. ______ riders must keep hold of the ball while opponents try to pull it away.",
               "prompt": "Which choice completes the text with the most logical transition?",
               "choices": [
                 "In addition,",
@@ -895,11 +895,11 @@
               "section": "rw",
               "skill": "Rhetorical Synthesis",
               "difficulty": "easy",
-              "passage": "While researching a topic, a student has taken the following notes:\n\n• The bearded vulture lives in high mountains, including the Pamirs and the Tian Shan of Central Asia.\n• Its wingspan can reach nearly 3 meters.\n• Bones make up most of its diet.\n• It drops large bones from great heights onto rocks to break them.",
+              "passage": "While researching a topic, a student has taken the following notes:\n\n• The bearded vulture lives in high mountains, including the Alps and the Pyrenees of Europe.\n• Its wingspan can reach nearly 3 meters.\n• Bones make up most of its diet.\n• It drops large bones from great heights onto rocks to break them.",
               "prompt": "The student wants to explain how the bearded vulture gets food from large bones. Which choice most effectively uses relevant information from the notes to accomplish this goal?",
               "choices": [
                 "The bearded vulture's wingspan can reach nearly 3 meters.",
-                "The bearded vulture lives in the Pamirs and the Tian Shan.",
+                "The bearded vulture lives in the Alps and the Pyrenees.",
                 "The bearded vulture is a large bird that lives in high mountains.",
                 "To feed on large bones, the bearded vulture drops them from great heights onto rocks, breaking them into smaller pieces."
               ],
@@ -927,16 +927,16 @@
               "section": "rw",
               "skill": "Rhetorical Synthesis",
               "difficulty": "medium",
-              "passage": "While researching a topic, a student has taken the following notes:\n\n• The Chiroq Theater is a small theater in Samarkand.\n• It was founded in 2012 by a group of drama students.\n• It seats 60 people.\n• Its plays are performed in both Uzbek and English.",
-              "prompt": "The student wants to emphasize that the theater welcomes visitors who do not speak Uzbek. Which choice most effectively uses relevant information from the notes to accomplish this goal?",
+              "passage": "While researching a topic, a student has taken the following notes:\n\n• The Lumen Theater is a small theater in Lisbon.\n• It was founded in 2012 by a group of drama students.\n• It seats 60 people.\n• Its plays are performed in both Portuguese and English.",
+              "prompt": "The student wants to emphasize that the theater welcomes visitors who do not speak Portuguese. Which choice most effectively uses relevant information from the notes to accomplish this goal?",
               "choices": [
-                "The Chiroq Theater was founded in 2012 by a group of drama students.",
-                "At the Chiroq Theater, a small theater in Samarkand, plays are performed in both Uzbek and English, so visitors who do not speak Uzbek can follow along.",
-                "The Chiroq Theater seats 60 people.",
-                "The Chiroq Theater, in Samarkand, was founded by drama students."
+                "The Lumen Theater was founded in 2012 by a group of drama students.",
+                "At the Lumen Theater, a small theater in Lisbon, plays are performed in both Portuguese and English, so visitors who do not speak Portuguese can follow along.",
+                "The Lumen Theater seats 60 people.",
+                "The Lumen Theater, in Lisbon, was founded by drama students."
               ],
               "answer": "B",
-              "explanation": "Only this choice mentions the English performances, which make the plays open to visitors who do not speak Uzbek."
+              "explanation": "Only this choice mentions the English performances, which make the plays open to visitors who do not speak Portuguese."
             }
           ]
         },
@@ -948,7 +948,7 @@
               "section": "rw",
               "skill": "Words in Context",
               "difficulty": "medium",
-              "passage": "Neuroscientist Elnara Kadyrova notes that the brain's response to sleep loss is far from ______: after one sleepless night, some volunteers in her study performed almost normally on attention tests, while others made dozens of errors.",
+              "passage": "Neuroscientist Rachel Owens notes that the brain's response to sleep loss is far from ______: after one sleepless night, some volunteers in her study performed almost normally on attention tests, while others made dozens of errors.",
               "prompt": "Which choice completes the text with the most logical and precise word or phrase?",
               "choices": [
                 "detectable",
@@ -980,7 +980,7 @@
               "section": "rw",
               "skill": "Words in Context",
               "difficulty": "hard",
-              "passage": "A young cuckoo is raised by birds of another species and never meets its parents, yet according to ornithologist Bahrom Ergashev, its first migration to Africa is far from ______: in his tracking study, young cuckoos from the same breeding area followed remarkably similar routes, even though each one traveled alone.",
+              "passage": "A young cuckoo is raised by birds of another species and never meets its parents, yet according to ornithologist Stefan Huber, its first migration to Africa is far from ______: in his tracking study, young cuckoos from the same breeding area followed remarkably similar routes, even though each one traveled alone.",
               "prompt": "Which choice completes the text with the most logical and precise word or phrase?",
               "choices": [
                 "haphazard",
@@ -1012,10 +1012,10 @@
               "section": "rw",
               "skill": "Text Structure and Purpose",
               "difficulty": "hard",
-              "passage": "Coaches have long assumed that an athlete's reaction time is fixed mainly by genetics. Sports scientist Shirin Mavlonova tested this assumption by training a group of teenage table tennis players with a computer game that required them to respond quickly to flashing lights. __After six weeks, the trained players responded to the lights much faster than an untrained group did, but they returned real serves in matches no faster than before.__ Mavlonova concludes that reaction time can be improved with practice but that the improvement may be limited to the task that was practiced.",
+              "passage": "Coaches have long assumed that an athlete's reaction time is fixed mainly by genetics. Sports scientist Yuki Tanaka tested this assumption by training a group of teenage table tennis players with a computer game that required them to respond quickly to flashing lights. __After six weeks, the trained players responded to the lights much faster than an untrained group did, but they returned real serves in matches no faster than before.__ Tanaka concludes that reaction time can be improved with practice but that the improvement may be limited to the task that was practiced.",
               "prompt": "Which choice best describes the function of the underlined sentence in the text as a whole?",
               "choices": [
-                "It describes a flaw in Mavlonova's study that led her to reject her own hypothesis.",
+                "It describes a flaw in Tanaka's study that led her to reject her own hypothesis.",
                 "It presents evidence that reaction time is fixed mainly by genetics, as coaches have assumed.",
                 "It reports results that challenge a long-held assumption while also revealing a limit on the benefit of the training.",
                 "It explains why table tennis players react faster than athletes in other sports."
@@ -1044,8 +1044,8 @@
               "section": "rw",
               "skill": "Cross-Text Connections",
               "difficulty": "hard",
-              "passage": "**Text 1**\nSome energy analysts argue that because solar and wind output rises and falls with the weather, any electricity grid that relies heavily on these sources will always need a large fleet of fossil-fuel plants ready to take over on calm or cloudy days.\n\n**Text 2**\nEngineer Dilfuza Hamidova notes that weather rarely affects every location at once: when it is calm or cloudy in one region, it is often windy or sunny in another several hundred kilometers away. She argues that linking solar and wind farms across a wide area with long-distance power lines can smooth out much of this variation, greatly reducing the need for backup plants.",
-              "prompt": "Based on the texts, how would Hamidova (Text 2) most likely respond to the analysts' argument in Text 1?",
+              "passage": "**Text 1**\nSome energy analysts argue that because solar and wind output rises and falls with the weather, any electricity grid that relies heavily on these sources will always need a large fleet of fossil-fuel plants ready to take over on calm or cloudy days.\n\n**Text 2**\nEngineer Ingrid Solheim notes that weather rarely affects every location at once: when it is calm or cloudy in one region, it is often windy or sunny in another several hundred kilometers away. She argues that linking solar and wind farms across a wide area with long-distance power lines can smooth out much of this variation, greatly reducing the need for backup plants.",
+              "prompt": "Based on the texts, how would Solheim (Text 2) most likely respond to the analysts' argument in Text 1?",
               "choices": [
                 "She would agree that fossil-fuel plants will remain the main source of electricity on most grids.",
                 "She would argue that the output of solar and wind farms does not actually change with the weather.",
@@ -1053,36 +1053,36 @@
                 "She would contend that the analysts overlook how combining output from distant locations could reduce the variation that concerns them."
               ],
               "answer": "D",
-              "explanation": "Hamidova accepts that local output varies but argues that linking distant farms evens it out, which the analysts do not consider. She never denies that output changes with the weather."
+              "explanation": "Solheim accepts that local output varies but argues that linking distant farms evens it out, which the analysts do not consider. She never denies that output changes with the weather."
             },
             {
               "id": "t7-rw2h-08",
               "section": "rw",
               "skill": "Central Ideas and Details",
               "difficulty": "hard",
-              "passage": "Many migratory songbirds fly at night and rest during the day. One long-standing explanation is that cooler night air helps them avoid overheating during long flights. Ornithologist Saida Nurmatova proposes an additional reason: by flying at night, birds keep the daylight hours free for feeding, so they can refuel at a stopover site each day without losing travel time. Her observations of warblers at stopover sites in eastern Uzbekistan showed that the birds spent most of each day feeding before resuming their journey after dark.",
+              "passage": "Many migratory songbirds fly at night and rest during the day. One long-standing explanation is that cooler night air helps them avoid overheating during long flights. Ornithologist Lucy Hartmann proposes an additional reason: by flying at night, birds keep the daylight hours free for feeding, so they can refuel at a stopover site each day without losing travel time. Her observations of warblers at stopover sites in southern Italy showed that the birds spent most of each day feeding before resuming their journey after dark.",
               "prompt": "Which choice best states the main idea of the text?",
               "choices": [
                 "A researcher has shown that cooler night air is not the reason songbirds migrate at night.",
                 "A researcher suggests that flying at night may benefit songbirds not only by keeping them cool but also by leaving the day free for feeding.",
                 "Songbirds would rather migrate during the day but are forced to fly at night by high temperatures.",
-                "Warblers that stop in eastern Uzbekistan migrate shorter distances than other songbirds."
+                "Warblers that stop in southern Italy migrate shorter distances than other songbirds."
               ],
               "answer": "B",
-              "explanation": "Nurmatova offers an **additional** reason, so she adds to the cooling explanation rather than rejecting it, as the first choice claims."
+              "explanation": "Hartmann offers an **additional** reason, so she adds to the cooling explanation rather than rejecting it, as the first choice claims."
             },
             {
               "id": "t7-rw2h-09",
               "section": "rw",
               "skill": "Central Ideas and Details",
               "difficulty": "hard",
-              "passage": "The following text is from a short story. Mirjalol is a retired stage actor.\n\nMirjalol had played the old king in *The Winter Orchard* more than two hundred times, and in his youth he had thought it a dull role: the king spends most of the play seated on his throne, listening while others argue. Now, watching a young actor rehearse the part, Mirjalol noticed how much the young man was trying to do: frowning, pacing, waving his hands. \"Let them come to you,\" Mirjalol said at last. \"The king's power is that he doesn't need to move.\"",
+              "passage": "The following text is from a short story. Antonio is a retired stage actor.\n\nAntonio had played the old king in *The Winter Orchard* more than two hundred times, and in his youth he had thought it a dull role: the king spends most of the play seated on his throne, listening while others argue. Now, watching a young actor rehearse the part, Antonio noticed how much the young man was trying to do: frowning, pacing, waving his hands. \"Let them come to you,\" Antonio said at last. \"The king's power is that he doesn't need to move.\"",
               "prompt": "Which choice best states the main idea of the text?",
               "choices": [
-                "Experience has led Mirjalol to value a quality of the role that he once considered a weakness.",
-                "Mirjalol is jealous of the young actor who now plays the old king.",
-                "Mirjalol believes that *The Winter Orchard* is a poorly written play.",
-                "Mirjalol regrets that he never had the chance to play the old king."
+                "Experience has led Antonio to value a quality of the role that he once considered a weakness.",
+                "Antonio is jealous of the young actor who now plays the old king.",
+                "Antonio believes that *The Winter Orchard* is a poorly written play.",
+                "Antonio regrets that he never had the chance to play the old king."
               ],
               "answer": "A",
               "explanation": "As a young man he found the king's stillness dull; now he sees that stillness as the source of the king's power."
@@ -1092,8 +1092,8 @@
               "section": "rw",
               "skill": "Command of Evidence: Textual",
               "difficulty": "hard",
-              "passage": "Sports scientist Marat Abenov claims that the home-field advantage in soccer comes mainly from the support of the crowd rather than from players' familiarity with their own stadium or from the visiting team's tiring travel.",
-              "prompt": "Which finding, if true, would most directly weaken Abenov's claim?",
+              "passage": "Sports scientist Mark Evans claims that the home-field advantage in soccer comes mainly from the support of the crowd rather than from players' familiarity with their own stadium or from the visiting team's tiring travel.",
+              "prompt": "Which finding, if true, would most directly weaken Evans's claim?",
               "choices": [
                 "Teams won a greater share of their home games in seasons when attendance at their stadiums was highest.",
                 "Players reported feeling more motivated when playing in front of large crowds.",
@@ -1205,7 +1205,7 @@
               "section": "rw",
               "skill": "Inferences",
               "difficulty": "hard",
-              "passage": "Theater historian Komil Saidov studied the prompt books (scripts marked with notes for actors and stagehands) of a touring company that performed in the 1920s. He found that the company's prompt books for the same play differed from town to town: scenes were cut in some towns and lengthened in others, and jokes were rewritten to mention local figures. Because the company's printed programs described every performance as faithful to the original script, Saidov concludes that ______",
+              "passage": "Theater historian Edward Lyle studied the prompt books (scripts marked with notes for actors and stagehands) of a touring company that performed in the 1920s. He found that the company's prompt books for the same play differed from town to town: scenes were cut in some towns and lengthened in others, and jokes were rewritten to mention local figures. Because the company's printed programs described every performance as faithful to the original script, Lyle concludes that ______",
               "prompt": "Which choice most logically completes the text?",
               "choices": [
                 "the programs may not be reliable evidence of what audiences actually saw on stage.",
@@ -1237,7 +1237,7 @@
               "section": "rw",
               "skill": "Boundaries",
               "difficulty": "hard",
-              "passage": "Writing in a mix of Uzbek and Russian, the way many residents of Tashkent actually speak, award-winning ______ Laylo Umarova creates dialogue that audiences often describe as startlingly realistic.",
+              "passage": "Writing in a mix of Spanish and English, the way many residents of Miami actually speak, award-winning ______ Lucía Navarro creates dialogue that audiences often describe as startlingly realistic.",
               "prompt": "Which choice completes the text so that it conforms to the conventions of Standard English?",
               "choices": [
                 "playwright,",
@@ -1246,14 +1246,14 @@
                 "playwright—"
               ],
               "answer": "B",
-              "explanation": "\"Playwright\" is a title that comes right before the name, so no punctuation should separate \"award-winning playwright\" from \"Laylo Umarova.\""
+              "explanation": "\"Playwright\" is a title that comes right before the name, so no punctuation should separate \"award-winning playwright\" from \"Lucía Navarro.\""
             },
             {
               "id": "t7-rw2h-16",
               "section": "rw",
               "skill": "Boundaries",
               "difficulty": "hard",
-              "passage": "Some engineers see a promising use for the wide, flat roofs of Tashkent's Soviet-era apartment ______ platforms for solar panels that could supply power to the residents below.",
+              "passage": "Some engineers see a promising use for the wide, flat roofs of Warsaw's communist-era apartment ______ platforms for solar panels that could supply power to the residents below.",
               "prompt": "Which choice completes the text so that it conforms to the conventions of Standard English?",
               "choices": [
                 "blocks;",
@@ -1381,7 +1381,7 @@
               "section": "rw",
               "skill": "Transitions",
               "difficulty": "hard",
-              "passage": "In most plays, the audience learns important information at the same moment the characters do. In Komila Nazarova's *The Locked Room*, ______ the audience learns in the first scene that the missing letter is hidden inside the piano, while the characters spend the rest of the play searching for it.",
+              "passage": "In most plays, the audience learns important information at the same moment the characters do. In Helen Ward's *The Locked Room*, ______ the audience learns in the first scene that the missing letter is hidden inside the piano, while the characters spend the rest of the play searching for it.",
               "prompt": "Which choice completes the text with the most logical transition?",
               "choices": [
                 "for example,",
@@ -1390,20 +1390,20 @@
                 "as a result,"
               ],
               "answer": "B",
-              "explanation": "Nazarova's play does the opposite of most plays, so **by contrast** fits. *For example* would wrongly present it as a typical case."
+              "explanation": "Ward's play does the opposite of most plays, so **by contrast** fits. *For example* would wrongly present it as a typical case."
             },
             {
               "id": "t7-rw2h-25",
               "section": "rw",
               "skill": "Rhetorical Synthesis",
               "difficulty": "hard",
-              "passage": "While researching a topic, a student has taken the following notes:\n\n• Neuroscientist Behruz Tursunov wanted to know whether the brain processes sounds differently during light sleep and deep sleep.\n• He recorded the brain activity of 24 volunteers as they slept in a laboratory.\n• Throughout the night, a speaker quietly played recordings of each volunteer's own name and of unfamiliar names.\n• During light sleep, brain responses to the volunteers' own names were much stronger than responses to unfamiliar names; during deep sleep, the difference was small.",
-              "prompt": "The student wants to present Tursunov's research question and the method he used to investigate it. Which choice most effectively uses relevant information from the notes to accomplish this goal?",
+              "passage": "While researching a topic, a student has taken the following notes:\n\n• Neuroscientist Daniel Cho wanted to know whether the brain processes sounds differently during light sleep and deep sleep.\n• He recorded the brain activity of 24 volunteers as they slept in a laboratory.\n• Throughout the night, a speaker quietly played recordings of each volunteer's own name and of unfamiliar names.\n• During light sleep, brain responses to the volunteers' own names were much stronger than responses to unfamiliar names; during deep sleep, the difference was small.",
+              "prompt": "The student wants to present Cho's research question and the method he used to investigate it. Which choice most effectively uses relevant information from the notes to accomplish this goal?",
               "choices": [
-                "Tursunov found that the brain responds much more strongly to a person's own name during light sleep than during deep sleep.",
-                "Tursunov recorded the brain activity of 24 volunteers as they slept in a laboratory.",
+                "Cho found that the brain responds much more strongly to a person's own name during light sleep than during deep sleep.",
+                "Cho recorded the brain activity of 24 volunteers as they slept in a laboratory.",
                 "During deep sleep, the difference between the brain's responses to familiar and unfamiliar names was small.",
-                "Wanting to know whether the brain processes sounds differently in light and deep sleep, Tursunov recorded volunteers' brain activity overnight while playing recordings of their own and unfamiliar names."
+                "Wanting to know whether the brain processes sounds differently in light and deep sleep, Cho recorded volunteers' brain activity overnight while playing recordings of their own and unfamiliar names."
               ],
               "answer": "D",
               "explanation": "The goal has two parts, the question and the method. The first choice gives a finding, and the second gives only part of the method with no question."
@@ -1413,13 +1413,13 @@
               "section": "rw",
               "skill": "Rhetorical Synthesis",
               "difficulty": "hard",
-              "passage": "While researching a topic, a student has taken the following notes:\n\n• The Parkent Solar Furnace stands in the foothills of the Tian Shan, east of Tashkent.\n• It was completed in 1987.\n• Dozens of flat mirrors on a hillside reflect sunlight onto a giant curved mirror made of thousands of smaller mirrors.\n• The curved mirror focuses the light onto a small spot, where temperatures can exceed 3,000°C.\n• Scientists use the furnace to test materials that must withstand extreme heat.",
+              "passage": "While researching a topic, a student has taken the following notes:\n\n• The Odeillo Solar Furnace stands in the Pyrenees in southern France.\n• It was completed in 1970.\n• Dozens of flat mirrors on a hillside reflect sunlight onto a giant curved mirror made of thousands of smaller mirrors.\n• The curved mirror focuses the light onto a small spot, where temperatures can exceed 3,000°C.\n• Scientists use the furnace to test materials that must withstand extreme heat.",
               "prompt": "The student wants to explain how the furnace produces such high temperatures. Which choice most effectively uses relevant information from the notes to accomplish this goal?",
               "choices": [
-                "By reflecting sunlight from dozens of flat mirrors onto a giant curved mirror that focuses it onto a small spot, the Parkent Solar Furnace can reach temperatures above 3,000°C.",
-                "Completed in 1987, the Parkent Solar Furnace stands in the foothills of the Tian Shan, east of Tashkent.",
-                "Scientists use the Parkent Solar Furnace, where temperatures can exceed 3,000°C, to test materials that must withstand extreme heat.",
-                "The Parkent Solar Furnace, which uses many mirrors, was completed in 1987."
+                "By reflecting sunlight from dozens of flat mirrors onto a giant curved mirror that focuses it onto a small spot, the Odeillo Solar Furnace can reach temperatures above 3,000°C.",
+                "Completed in 1970, the Odeillo Solar Furnace stands in the Pyrenees in southern France.",
+                "Scientists use the Odeillo Solar Furnace, where temperatures can exceed 3,000°C, to test materials that must withstand extreme heat.",
+                "The Odeillo Solar Furnace, which uses many mirrors, was completed in 1970."
               ],
               "answer": "A",
               "explanation": "Only this choice explains **how** the heat is produced, by gathering and focusing sunlight. The third choice states the temperature but not how it is reached."
@@ -1481,13 +1481,13 @@
             "section": "math",
             "skill": "Linear functions",
             "difficulty": "easy",
-            "prompt": "A gym charges a one-time membership fee of 150,000 so'm plus 90,000 so'm per month. Which function gives the total cost $C$, in so'm, of a membership for $m$ months?",
-            "explanation": "The monthly charge multiplies $m$, and the one-time fee is added once: $C(m) = 90{,}000m + 150{,}000$.",
+            "prompt": "A gym charges a one-time membership fee of \\$150 plus \\$90 per month. Which function gives the total cost $C$, in dollars, of a membership for $m$ months?",
+            "explanation": "The monthly charge multiplies $m$, and the one-time fee is added once: $C(m) = 90m + 150$.",
             "choices": [
-              "$C(m) = 90{,}000m + 150{,}000$",
-              "$C(m) = 150{,}000m + 90{,}000$",
-              "$C(m) = 240{,}000m$",
-              "$C(m) = 90{,}000(m + 150{,}000)$"
+              "$C(m) = 90m + 150$",
+              "$C(m) = 150m + 90$",
+              "$C(m) = 240m$",
+              "$C(m) = 90(m + 150)$"
             ],
             "answer": "A"
           },
@@ -1634,7 +1634,7 @@
             "section": "math",
             "skill": "Probability and conditional probability",
             "difficulty": "medium",
-            "prompt": "The table shows the activity chosen by each of the 150 participants at a summer sports camp in Namangan. If a participant who chose tennis is selected at random, what is the probability that the participant is 14 or older?",
+            "prompt": "The table shows the activity chosen by each of the 150 participants at a summer sports camp in Denver. If a participant who chose tennis is selected at random, what is the probability that the participant is 14 or older?",
             "explanation": "Only the 38 tennis players count. Of these, 24 are 14 or older, and $\\dfrac{24}{38} = \\dfrac{12}{19}$.",
             "table": {
               "head": [
@@ -1840,13 +1840,13 @@
               "section": "math",
               "skill": "Percentages",
               "difficulty": "easy",
-              "prompt": "A pair of sneakers normally costs 120,000 so'm. During a sale, the price is reduced by 30%. What is the sale price, in so'm?",
-              "explanation": "The discount is $0.30 \\times 120{,}000 = 36{,}000$ so'm, and $120{,}000 - 36{,}000 = 84{,}000$. *36,000* is the discount, not the sale price.",
+              "prompt": "A pair of sneakers normally costs \\$120. During a sale, the price is reduced by 30%. What is the sale price, in dollars?",
+              "explanation": "The discount is $0.30 \\times 120 = 36$ dollars, and $120 - 36 = 84$. *36* is the discount, not the sale price.",
               "choices": [
-                "84,000",
-                "36,000",
-                "90,000",
-                "156,000"
+                "84",
+                "36",
+                "90",
+                "156"
               ],
               "answer": "A"
             },
@@ -1949,8 +1949,8 @@
               "section": "math",
               "skill": "Linear inequalities in one or two variables",
               "difficulty": "medium",
-              "prompt": "Shahzoda has 150,000 so'm to spend on school supplies. She buys one set of pens for 15,000 so'm and some notebooks that cost 9,000 so'm each. What is the greatest number of notebooks she can buy?",
-              "explanation": "$15{,}000 + 9{,}000n \\le 150{,}000$ gives $9{,}000n \\le 135{,}000$, so $n \\le 15$. *16* forgets the cost of the pens.",
+              "prompt": "Isla has \\$150 to spend on school supplies. She buys one set of pens for \\$15 and some notebooks that cost \\$9 each. What is the greatest number of notebooks she can buy?",
+              "explanation": "$15 + 9n \\le 150$ gives $9n \\le 135$, so $n \\le 15$. *16* forgets the cost of the pens.",
               "choices": [
                 "14",
                 "15",
@@ -2123,8 +2123,8 @@
               "section": "math",
               "skill": "Systems of two linear equations in two variables",
               "difficulty": "hard",
-              "prompt": "A theater in Bukhara sold 420 tickets for one performance. Adult tickets cost 45,000 so'm each, and student tickets cost 25,000 so'm each. If ticket sales totaled 15,300,000 so'm, how many student tickets were sold?",
-              "explanation": "Let $a$ and $s$ be the numbers of adult and student tickets. Then $a + s = 420$ and $45{,}000a + 25{,}000s = 15{,}300{,}000$. Substituting $a = 420 - s$ gives $18{,}900{,}000 - 20{,}000s = 15{,}300{,}000$, so $s = 180$. *240* is the number of adult tickets.",
+              "prompt": "A theater in London sold 420 tickets for one performance. Adult tickets cost \\$45 each, and student tickets cost \\$25 each. If ticket sales totaled \\$15,300, how many student tickets were sold?",
+              "explanation": "Let $a$ and $s$ be the numbers of adult and student tickets. Then $a + s = 420$ and $45a + 25s = 15{,}300$. Substituting $a = 420 - s$ gives $18{,}900 - 20s = 15{,}300$, so $s = 180$. *240* is the number of adult tickets.",
               "choices": [
                 "153",
                 "210",

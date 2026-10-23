@@ -402,7 +402,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const signedOut = SH.auth.enabled() && !SH.auth.user;
     app.innerHTML = '<div class="center-screen"><span class="status status-locked" style="margin-bottom:14px"><svg viewBox="0 0 16 16" aria-hidden="true"><rect x="3" y="7.2" width="10" height="6.8" rx="1.6" fill="currentColor"/><path d="M5.4 7.2V5.3a2.6 2.6 0 015.2 0v1.9" fill="none" stroke="currentColor" stroke-width="1.6"/></svg>Locked</span>' +
       '<h1 style="font-size:1.8rem">' + esc(meta.title) + ' is part of Pro</h1>' +
-      '<p class="muted" style="max-width:560px">Pro opens all 10 full-length practice tests, your score broken down by skill and a review of every question. Practice Test 1 and the mini diagnostic stay free.' + (signedOut ? ' Already have Pro? Sign in and it opens.' : '') + '</p>' +
+      '<p class="muted" style="max-width:560px">Pro opens all 15 full-length practice tests, your score broken down by skill and a review of every question. Practice Test 1 and the mini diagnostic stay free.' + (signedOut ? ' Already have Pro? Sign in and it opens.' : '') + '</p>' +
       '<div class="row" style="justify-content:center">' + (signedOut ? '' : '<button class="btn btn-primary" type="button" data-up>Upgrade to Pro</button>') + '<a class="btn ' + (signedOut ? 'btn-primary' : 'btn-ghost') + '" href="practice.html#plans">See plans</a>' +
       (signedOut ? '<a class="btn btn-ghost" href="' + esc(SH.loginUrl()) + '">Sign in</a>' : '') +
       '<a class="btn btn-ghost" href="practice.html#tests">Back to practice tests</a></div></div>';

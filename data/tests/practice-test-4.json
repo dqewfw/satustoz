@@ -18,7 +18,7 @@
             "section": "rw",
             "skill": "Words in Context",
             "difficulty": "easy",
-            "passage": "Farmers in southern Uzbekistan often plant pomegranate orchards on sheltered, sunny slopes because the young trees are ______ to frost: a single cold night in early spring can destroy a whole season's blossoms.",
+            "passage": "Farmers in southern Spain often plant pomegranate orchards on sheltered, sunny slopes because the young trees are ______ to frost: a single cold night in early spring can destroy a whole season's blossoms.",
             "prompt": "Which choice completes the text with the most logical and precise word or phrase?",
             "choices": [
               "resistant",
@@ -50,7 +50,7 @@
             "section": "rw",
             "skill": "Words in Context",
             "difficulty": "medium",
-            "passage": "Recording speakers in a few mountain villages in southern Uzbekistan, linguist Kamola Haydarova found that the oldest residents still use several verb endings that have ______ from the standard language: younger villagers, like speakers elsewhere in the country, no longer use them at all.",
+            "passage": "Recording speakers in a few mountain villages in northern Italy, linguist Giulia Romano found that the oldest residents still use several verb endings that have ______ from the standard language: younger villagers, like speakers elsewhere in the country, no longer use them at all.",
             "prompt": "Which choice completes the text with the most logical and precise word or phrase?",
             "choices": [
               "emerged",
@@ -66,7 +66,7 @@
             "section": "rw",
             "skill": "Words in Context",
             "difficulty": "hard",
-            "passage": "Archivist Javlon Ismoilov warns that the handwritten notes on the backs of old studio photographs are not always ______ guides to who appears in them: many were added decades later by relatives who were guessing at names and dates.",
+            "passage": "Archivist Martin Hughes warns that the handwritten notes on the backs of old studio photographs are not always ______ guides to who appears in them: many were added decades later by relatives who were guessing at names and dates.",
             "prompt": "Which choice completes the text with the most logical and precise word or phrase?",
             "choices": [
               "conjectural",
@@ -82,11 +82,11 @@
             "section": "rw",
             "skill": "Text Structure and Purpose",
             "difficulty": "medium",
-            "passage": "Public health researchers often find it hard to tell whether a new clinic improves a community's health or simply opens in places where people were already healthier. To get around this problem, epidemiologist Shahlo Nurmatova studied a program that used a lottery to decide which of 60 villages would receive clinics first, and she compared the winners with the villages that had not yet won. __Because chance alone decided which villages got clinics, any later difference in health between the two groups could be credited to the clinics themselves.__",
+            "passage": "Public health researchers often find it hard to tell whether a new clinic improves a community's health or simply opens in places where people were already healthier. To get around this problem, epidemiologist Grace Mwangi studied a program that used a lottery to decide which of 60 villages would receive clinics first, and she compared the winners with the villages that had not yet won. __Because chance alone decided which villages got clinics, any later difference in health between the two groups could be credited to the clinics themselves.__",
             "prompt": "Which choice best describes the function of the underlined sentence in the text as a whole?",
             "choices": [
               "It explains why the approach described in the previous sentence addresses the problem identified in the first sentence.",
-              "It presents a result that contradicts Nurmatova's expectations about the clinics.",
+              "It presents a result that contradicts Mwangi's expectations about the clinics.",
               "It describes a weakness of the lottery that the program used.",
               "It introduces a second problem that the study was not designed to solve."
             ],
@@ -98,7 +98,7 @@
             "section": "rw",
             "skill": "Text Structure and Purpose",
             "difficulty": "hard",
-            "passage": "At a ruined fortress in the desert of western Uzbekistan, archaeologists uncovered hundreds of clay jars closed with stamped clay stoppers. The excavation team first assumed that each stamp identified the household that owned a jar. Archaeologist Sherzod Qodirov noticed, however, that jars holding the same kind of grain carried the same stamp no matter where in the fortress they were stored. He now argues that the stamps recorded what each jar contained, working less like signatures than like labels.",
+            "passage": "At a ruined fortress in the desert of southern Egypt, archaeologists uncovered hundreds of clay jars closed with stamped clay stoppers. The excavation team first assumed that each stamp identified the household that owned a jar. Archaeologist Samuel Ortiz noticed, however, that jars holding the same kind of grain carried the same stamp no matter where in the fortress they were stored. He now argues that the stamps recorded what each jar contained, working less like signatures than like labels.",
             "prompt": "Which choice best states the main purpose of the text?",
             "choices": [
               "To argue that the fortress was used mainly to store grain rather than to defend the region",
@@ -107,7 +107,7 @@
               "To show that later evidence confirmed the excavation team's first assumption about the stamps"
             ],
             "answer": "C",
-            "explanation": "The text moves from the team's first assumption to Qodirov's observation and his new reading of the stamps. Grain storage is only a detail, not the point, and the observation overturns the first assumption rather than confirming it."
+            "explanation": "The text moves from the team's first assumption to Ortiz's observation and his new reading of the stamps. Grain storage is only a detail, not the point, and the observation overturns the first assumption rather than confirming it."
           },
           {
             "id": "t4-rw1-07",
@@ -146,16 +146,16 @@
             "section": "rw",
             "skill": "Central Ideas and Details",
             "difficulty": "medium",
-            "passage": "The following text is from a short story. Gulchehra has come back to her family's apricot orchard after several years of university in the city.\n\nThe trees were smaller than she remembered, their trunks knotted and gray, and the irrigation ditch that had seemed a river when she was six was now a step she crossed without noticing. But when her uncle handed her an apricot and she bit into it, the taste was exactly the same, so exactly the same that for a moment she was six again, barefoot on the warm bank.",
+            "passage": "The following text is from a short story. Elena has come back to her family's apricot orchard after several years of university in the city.\n\nThe trees were smaller than she remembered, their trunks knotted and gray, and the irrigation ditch that had seemed a river when she was six was now a step she crossed without noticing. But when her uncle handed her an apricot and she bit into it, the taste was exactly the same, so exactly the same that for a moment she was six again, barefoot on the warm bank.",
             "prompt": "Which choice best states the main idea of the text?",
             "choices": [
-              "Gulchehra is disappointed to find that the orchard has been neglected since she left.",
+              "Elena is disappointed to find that the orchard has been neglected since she left.",
               "Although the orchard seems to have shrunk since her childhood, a familiar taste brings her early memories back with sudden force.",
-              "Gulchehra realizes that she prefers life in the city to life in the orchard.",
-              "Gulchehra's uncle tries to persuade her to stay and help with the harvest."
+              "Elena realizes that she prefers life in the city to life in the orchard.",
+              "Elena's uncle tries to persuade her to stay and help with the harvest."
             ],
             "answer": "B",
-            "explanation": "Everything looks smaller to the grown Gulchehra, but the unchanged taste of the apricot makes her feel six years old again. Nothing suggests the orchard was neglected; it is she who has changed."
+            "explanation": "Everything looks smaller to the grown Elena, but the unchanged taste of the apricot makes her feel six years old again. Nothing suggests the orchard was neglected; it is she who has changed."
           },
           {
             "id": "t4-rw1-10",
@@ -178,8 +178,8 @@
             "section": "rw",
             "skill": "Command of Evidence: Textual",
             "difficulty": "hard",
-            "passage": "Agronomist Bobur Tojiev claims that rows of mulberry trees planted along the edges of cotton fields reduce the harm done by hot, dry summer winds, because the trees slow the wind before it reaches the crop.",
-            "prompt": "Which finding, if true, would most directly support Tojiev's claim?",
+            "passage": "Agronomist Diego Ramos claims that rows of mulberry trees planted along the edges of cotton fields reduce the harm done by hot, dry summer winds, because the trees slow the wind before it reaches the crop.",
+            "prompt": "Which finding, if true, would most directly support Ramos's claim?",
             "choices": [
               "Mulberry leaves are used to feed silkworms, so farmers who plant the trees gain a second source of income.",
               "During a summer of strong, dry winds, wind speeds inside fields bordered by mulberry trees were about 40% lower than inside unbordered fields, and the bordered fields showed far less wilting.",
@@ -194,7 +194,7 @@
             "section": "rw",
             "skill": "Command of Evidence: Quantitative",
             "difficulty": "medium",
-            "passage": "A researcher compared three irrigation methods on test plots of cotton in the Kashkadarya region. She concludes that drip irrigation was the best choice of the three for farmers who want to save water without losing yield: ______",
+            "passage": "A researcher compared three irrigation methods on test plots of cotton on the Texas High Plains. She concludes that drip irrigation was the best choice of the three for farmers who want to save water without losing yield: ______",
             "prompt": "Which choice most effectively uses data from the table to complete the statement?",
             "choices": [
               "furrow irrigation used 9,800 cubic meters of water per hectare.",
@@ -283,7 +283,7 @@
             "section": "rw",
             "skill": "Boundaries",
             "difficulty": "medium",
-            "passage": "Photographer Hana Kobayashi's best-known ______ a series of portraits of beekeepers in the Nuratau Mountains, took her nearly four years to complete.",
+            "passage": "Photographer Hana Kobayashi's best-known ______ a series of portraits of beekeepers in the Carpathian Mountains, took her nearly four years to complete.",
             "prompt": "Which choice completes the text so that it conforms to the conventions of Standard English?",
             "choices": [
               "project:",
@@ -331,7 +331,7 @@
             "section": "rw",
             "skill": "Form, Structure, and Sense",
             "difficulty": "easy",
-            "passage": "The photographs in the exhibition, all taken in Bukhara's markets during the 1970s, ______ traders, shoppers, and craftspeople at work.",
+            "passage": "The photographs in the exhibition, all taken in Marrakesh's markets during the 1970s, ______ traders, shoppers, and craftspeople at work.",
             "prompt": "Which choice completes the text so that it conforms to the conventions of Standard English?",
             "choices": [
               "shows",
@@ -411,7 +411,7 @@
             "section": "rw",
             "skill": "Transitions",
             "difficulty": "medium",
-            "passage": "Over its long history, the Uzbek language has absorbed words from many other languages. ______ the everyday word *kitob* (\"book\") comes from Arabic, and *choy* (\"tea\") can be traced back to Chinese.",
+            "passage": "Over its long history, the English language has absorbed words from many other languages. ______ the everyday word *sofa* can be traced back to Arabic, and *tea* comes from Chinese.",
             "prompt": "Which choice completes the text with the most logical transition?",
             "choices": [
               "Nevertheless,",
@@ -420,7 +420,7 @@
               "Consequently,"
             ],
             "answer": "C",
-            "explanation": "The two words are examples of words Uzbek has absorbed, so **For instance** fits."
+            "explanation": "The two words are examples of words English has absorbed, so **For instance** fits."
           },
           {
             "id": "t4-rw1-25",
@@ -443,13 +443,13 @@
             "section": "rw",
             "skill": "Rhetorical Synthesis",
             "difficulty": "medium",
-            "passage": "While researching a topic, a student has taken the following notes:\n\n• Dilbar Rasulova is a photographer from Bukhara.\n• In 1978, she photographed the same street in Bukhara's old city every morning for a year.\n• In 2018, she returned and photographed the street every morning for another year.\n• An exhibition in Tashkent displayed photographs from the two years side by side.",
-            "prompt": "The student wants to emphasize how long a span of time Rasulova's project covers. Which choice most effectively uses relevant information from the notes to accomplish this goal?",
+            "passage": "While researching a topic, a student has taken the following notes:\n\n• Marta Jiménez is a photographer from Seville.\n• In 1978, she photographed the same street in Seville's old city every morning for a year.\n• In 2018, she returned and photographed the street every morning for another year.\n• An exhibition in Madrid displayed photographs from the two years side by side.",
+            "prompt": "The student wants to emphasize how long a span of time Jiménez's project covers. Which choice most effectively uses relevant information from the notes to accomplish this goal?",
             "choices": [
-              "Rasulova is a photographer from Bukhara.",
-              "An exhibition in Tashkent displayed Rasulova's photographs from two different years side by side.",
-              "In 1978, Rasulova photographed the same street in Bukhara's old city every morning for a year.",
-              "Rasulova's project spans four decades: she photographed the same Bukhara street every morning in 1978 and again in 2018."
+              "Jiménez is a photographer from Seville.",
+              "An exhibition in Madrid displayed Jiménez's photographs from two different years side by side.",
+              "In 1978, Jiménez photographed the same street in Seville's old city every morning for a year.",
+              "Jiménez's project spans four decades: she photographed the same Seville street every morning in 1978 and again in 2018."
             ],
             "answer": "D",
             "explanation": "Only this choice gives both years, which shows that the project stretches across forty years."
@@ -577,8 +577,8 @@
               "section": "rw",
               "skill": "Cross-Text Connections",
               "difficulty": "medium",
-              "passage": "**Text 1**\nMany home gardeners believe that plants grow best when they are watered a little every day, since daily watering keeps the soil from ever drying out.\n\n**Text 2**\nHorticulturist Ravshan Aliev grew pepper plants under two watering plans. Plants watered deeply twice a week grew deeper roots and survived a dry spell better than plants given a small amount of water every day. Deep, infrequent watering, Aliev explains, encourages roots to grow down toward the moisture stored deeper in the soil.",
-              "prompt": "Based on the texts, how would Aliev (Text 2) most likely respond to the gardeners' belief in Text 1?",
+              "passage": "**Text 1**\nMany home gardeners believe that plants grow best when they are watered a little every day, since daily watering keeps the soil from ever drying out.\n\n**Text 2**\nHorticulturist Peter Lang grew pepper plants under two watering plans. Plants watered deeply twice a week grew deeper roots and survived a dry spell better than plants given a small amount of water every day. Deep, infrequent watering, Lang explains, encourages roots to grow down toward the moisture stored deeper in the soil.",
+              "prompt": "Based on the texts, how would Lang (Text 2) most likely respond to the gardeners' belief in Text 1?",
               "choices": [
                 "By arguing that watering a little every day may keep roots shallow and leave plants less able to survive dry periods",
                 "By agreeing that the soil around plants should never be allowed to dry out",
@@ -586,7 +586,7 @@
                 "By suggesting that gardeners should stop watering their plants entirely"
               ],
               "answer": "A",
-              "explanation": "Aliev found that deep, infrequent watering produced deeper roots and better survival, so he would question the daily-watering habit."
+              "explanation": "Lang found that deep, infrequent watering produced deeper roots and better survival, so he would question the daily-watering habit."
             },
             {
               "id": "t4-rw2e-08",
@@ -641,16 +641,16 @@
               "section": "rw",
               "skill": "Command of Evidence: Textual",
               "difficulty": "medium",
-              "passage": "Linguist Ozoda Rahmonova hypothesizes that people in Tashkent who speak both Uzbek and Russian switch to Russian more often when talking about technology than when talking about family.",
-              "prompt": "Which finding, if true, would most directly support Rahmonova's hypothesis?",
+              "passage": "Linguist Sophie Tremblay hypothesizes that people in Montreal who speak both French and English switch to English more often when talking about technology than when talking about family.",
+              "prompt": "Which finding, if true, would most directly support Tremblay's hypothesis?",
               "choices": [
-                "Most of the speakers she recorded learned Uzbek before they learned Russian.",
-                "In recorded conversations, speakers used Russian in about 60% of their sentences about computers and phones but in only about 15% of their sentences about relatives.",
+                "Most of the speakers she recorded learned French before they learned English.",
+                "In recorded conversations, speakers used English in about 60% of their sentences about computers and phones but in only about 15% of their sentences about relatives.",
                 "Speakers switched languages more often when talking with friends than when talking with strangers.",
                 "Many of the speakers said that they enjoy talking about new technology."
               ],
               "answer": "B",
-              "explanation": "This finding compares the two topics directly and shows much more Russian in talk about technology. The choice about friends and strangers concerns the listener, not the topic."
+              "explanation": "This finding compares the two topics directly and shows much more English in talk about technology. The choice about friends and strangers concerns the listener, not the topic."
             },
             {
               "id": "t4-rw2e-12",
@@ -698,7 +698,7 @@
               "section": "rw",
               "skill": "Inferences",
               "difficulty": "easy",
-              "passage": "Snow leopards live in the high mountains of Central Asia, where they hunt wild sheep and goats on steep, rocky slopes. Their long, thick tails help them keep their balance as they leap from ledge to ledge. Without such tails, snow leopards would likely ______",
+              "passage": "Snow leopards live in the high mountains of the Himalayas, where they hunt wild sheep and goats on steep, rocky slopes. Their long, thick tails help them keep their balance as they leap from ledge to ledge. Without such tails, snow leopards would likely ______",
               "prompt": "Which choice most logically completes the text?",
               "choices": [
                 "prefer to live in flat grasslands.",
@@ -762,16 +762,16 @@
               "section": "rw",
               "skill": "Boundaries",
               "difficulty": "medium",
-              "passage": "The ______ a high-speed train that links Tashkent with Samarkand and Bukhara, can travel at more than 200 kilometers per hour.",
+              "passage": "The ______ a high-speed train that links Tokyo with Nagoya and Osaka, can travel at more than 250 kilometers per hour.",
               "prompt": "Which choice completes the text so that it conforms to the conventions of Standard English?",
               "choices": [
-                "Afrosiyob;",
-                "Afrosiyob:",
-                "Afrosiyob",
-                "Afrosiyob,"
+                "Nozomi;",
+                "Nozomi:",
+                "Nozomi",
+                "Nozomi,"
               ],
               "answer": "D",
-              "explanation": "\"A high-speed train... Bukhara\" renames the Afrosiyob and closes with a comma, so it must open with a comma too."
+              "explanation": "\"A high-speed train... Osaka\" renames the Nozomi and closes with a comma, so it must open with a comma too."
             },
             {
               "id": "t4-rw2e-18",
@@ -810,7 +810,7 @@
               "section": "rw",
               "skill": "Form, Structure, and Sense",
               "difficulty": "medium",
-              "passage": "The roots of the licorice plant, which grows wild along rivers in Central Asia, ______ used to sweeten teas and medicines.",
+              "passage": "The roots of the licorice plant, which grows wild along rivers in southern Europe, ______ used to sweeten teas and medicines.",
               "prompt": "Which choice completes the text so that it conforms to the conventions of Standard English?",
               "choices": [
                 "is",
@@ -842,7 +842,7 @@
               "section": "rw",
               "skill": "Transitions",
               "difficulty": "easy",
-              "passage": "Winter wheat must go through a period of cold weather before it can produce grain. ______ farmers in Uzbekistan plant it in autumn, so that the young plants pass the winter in the fields and are ready to harvest in early summer.",
+              "passage": "Winter wheat must go through a period of cold weather before it can produce grain. ______ farmers in Kansas plant it in autumn, so that the young plants pass the winter in the fields and are ready to harvest in early summer.",
               "prompt": "Which choice completes the text with the most logical transition?",
               "choices": [
                 "However,",
@@ -906,12 +906,12 @@
               "section": "rw",
               "skill": "Rhetorical Synthesis",
               "difficulty": "medium",
-              "passage": "While researching a topic, a student has taken the following notes:\n\n• Archaeologist Nigora Abdullayeva studied two ancient pottery workshops in the Zarafshan Valley.\n• The first workshop was active about 2,300 years ago.\n• The second workshop was active about 1,100 years ago.\n• Both workshops made bowls decorated with the same wave-shaped pattern.",
+              "passage": "While researching a topic, a student has taken the following notes:\n\n• Archaeologist Sarah Klein studied two ancient pottery workshops in the Nile Valley.\n• The first workshop was active about 2,300 years ago.\n• The second workshop was active about 1,100 years ago.\n• Both workshops made bowls decorated with the same wave-shaped pattern.",
               "prompt": "The student wants to emphasize a similarity between the two workshops. Which choice most effectively uses relevant information from the notes to accomplish this goal?",
               "choices": [
-                "The first workshop Abdullayeva studied was active about 2,300 years ago.",
-                "The two workshops Abdullayeva studied were active about 1,200 years apart.",
-                "Abdullayeva studied two ancient pottery workshops in the Zarafshan Valley.",
+                "The first workshop Klein studied was active about 2,300 years ago.",
+                "The two workshops Klein studied were active about 1,200 years apart.",
+                "Klein studied two ancient pottery workshops in the Nile Valley.",
                 "Although they were active more than a thousand years apart, both workshops made bowls decorated with the same wave-shaped pattern."
               ],
               "answer": "D",
@@ -975,7 +975,7 @@
               "section": "rw",
               "skill": "Words in Context",
               "difficulty": "hard",
-              "passage": "The editors of the new Uzbek dictionary describe their approach as ______ rather than prescriptive: they aim to record how people actually use words today, not to rule on how words ought to be used.",
+              "passage": "The editors of the new Spanish dictionary describe their approach as ______ rather than prescriptive: they aim to record how people actually use words today, not to rule on how words ought to be used.",
               "prompt": "Which choice completes the text with the most logical and precise word or phrase?",
               "choices": [
                 "descriptive",
@@ -1023,7 +1023,7 @@
               "section": "rw",
               "skill": "Text Structure and Purpose",
               "difficulty": "hard",
-              "passage": "The following text is from a short story. Akmal, a young photographer, is printing pictures of his grandmother.\n\nFor weeks he had photographed her in the courtyard, and in every picture she wore the same polite, careful smile she gave to visitors. Akmal had nearly given up when, on the last frame of the roll, he found an image he did not remember taking: his grandmother turned half away, laughing at something outside the frame, one hand raised against the sun. He held the wet print under the red darkroom light for a long time. It was the only one that looked like her.",
+              "passage": "The following text is from a short story. Lucas, a young photographer, is printing pictures of his grandmother.\n\nFor weeks he had photographed her in the courtyard, and in every picture she wore the same polite, careful smile she gave to visitors. Lucas had nearly given up when, on the last frame of the roll, he found an image he did not remember taking: his grandmother turned half away, laughing at something outside the frame, one hand raised against the sun. He held the wet print under the red darkroom light for a long time. It was the only one that looked like her.",
               "prompt": "Which choice best describes the overall structure of the text?",
               "choices": [
                 "It describes a character's growing frustration and then his decision to abandon a project.",
@@ -1032,15 +1032,15 @@
                 "It describes repeated attempts that fall short and then an unexpected result that succeeds."
               ],
               "answer": "D",
-              "explanation": "Weeks of stiff, posed pictures are followed by one unplanned image that finally captures her. Akmal *nearly* gives up but does not, so the choice about abandoning the project misreads the ending."
+              "explanation": "Weeks of stiff, posed pictures are followed by one unplanned image that finally captures her. Lucas *nearly* gives up but does not, so the choice about abandoning the project misreads the ending."
             },
             {
               "id": "t4-rw2h-07",
               "section": "rw",
               "skill": "Cross-Text Connections",
               "difficulty": "hard",
-              "passage": "**Text 1**\nMany archaeologists have held that farming spread across Central Asia from a single early center: as farming communities grew, they moved into new land and carried their crops with them.\n\n**Text 2**\nA team led by geneticist Elnura Sadykova analyzed ancient grains from twelve sites in the region. At several sites, the earliest barley was most closely related to the wild barley that still grows nearby, suggesting that it was domesticated locally. At the same sites, however, the earliest wheat was genetically almost identical to wheat from distant early farming centers.",
-              "prompt": "Based on the texts, how would Sadykova's team (Text 2) most likely respond to the view described in Text 1?",
+              "passage": "**Text 1**\nMany archaeologists have held that farming spread across North Africa from a single early center: as farming communities grew, they moved into new land and carried their crops with them.\n\n**Text 2**\nA team led by geneticist Laila Mansour analyzed ancient grains from twelve sites in the region. At several sites, the earliest barley was most closely related to the wild barley that still grows nearby, suggesting that it was domesticated locally. At the same sites, however, the earliest wheat was genetically almost identical to wheat from distant early farming centers.",
+              "prompt": "Based on the texts, how would Mansour's team (Text 2) most likely respond to the view described in Text 1?",
               "choices": [
                 "By rejecting the idea that any crop arrived in the region from elsewhere",
                 "By agreeing that the view in Text 1 fully explains how farming spread in the region",
@@ -1055,16 +1055,16 @@
               "section": "rw",
               "skill": "Central Ideas and Details",
               "difficulty": "hard",
-              "passage": "When speakers of two languages live side by side for generations, each language often borrows words from the other. Linguist Timur Rashidov argues, however, that borrowed words tell only part of the story. In the bilingual towns he studied, the two languages had also come to arrange words in sentences in increasingly similar ways, even though speakers rarely noticed the change and continued to think of the languages as entirely separate.",
+              "passage": "When speakers of two languages live side by side for generations, each language often borrows words from the other. Linguist Erik Johansson argues, however, that borrowed words tell only part of the story. In the bilingual towns he studied, the two languages had also come to arrange words in sentences in increasingly similar ways, even though speakers rarely noticed the change and continued to think of the languages as entirely separate.",
               "prompt": "Which choice best states the main idea of the text?",
               "choices": [
-                "Rashidov argues that long contact between two languages can change not only their vocabulary but also their sentence structure, often without speakers being aware of it.",
-                "Rashidov found that speakers in bilingual towns borrow fewer words than linguists had assumed.",
-                "Speakers in the bilingual towns Rashidov studied regard the two languages as a single language.",
-                "Rashidov argues that borrowed words are the most reliable evidence that two languages have been in contact."
+                "Johansson argues that long contact between two languages can change not only their vocabulary but also their sentence structure, often without speakers being aware of it.",
+                "Johansson found that speakers in bilingual towns borrow fewer words than linguists had assumed.",
+                "Speakers in the bilingual towns Johansson studied regard the two languages as a single language.",
+                "Johansson argues that borrowed words are the most reliable evidence that two languages have been in contact."
               ],
               "answer": "A",
-              "explanation": "Rashidov goes beyond borrowed words to show changes in word order that speakers did not notice. He never says fewer words were borrowed, and the speakers still see the languages as separate."
+              "explanation": "Johansson goes beyond borrowed words to show changes in word order that speakers did not notice. He never says fewer words were borrowed, and the speakers still see the languages as separate."
             },
             {
               "id": "t4-rw2h-09",
@@ -1149,16 +1149,16 @@
               "section": "rw",
               "skill": "Command of Evidence: Quantitative",
               "difficulty": "hard",
-              "passage": "Agronomists compared three wheat varieties over a normal year and a drought year. One agronomist argues that a farmer who expects frequent droughts should choose Oltin, even though it is not the highest-yielding variety in a normal year. ______",
+              "passage": "Agronomists compared three wheat varieties over a normal year and a drought year. One agronomist argues that a farmer who expects frequent droughts should choose Sterling, even though it is not the highest-yielding variety in a normal year. ______",
               "prompt": "Which choice most effectively uses data from the table to support the agronomist's argument?",
               "choices": [
-                "Oltin's yield fell by only 1.3 tonnes per hectare in the drought year, far less than the other two varieties' yields fell, leaving Oltin with the highest yield of the three in that year.",
-                "Bahor produced the highest yield of the three varieties in the normal year, 6.2 tonnes per hectare.",
-                "Zilol's yield in the drought year, 3.3 tonnes per hectare, was higher than Bahor's.",
+                "Sterling's yield fell by only 1.3 tonnes per hectare in the drought year, far less than the other two varieties' yields fell, leaving Sterling with the highest yield of the three in that year.",
+                "Aurora produced the highest yield of the three varieties in the normal year, 6.2 tonnes per hectare.",
+                "Crystal's yield in the drought year, 3.3 tonnes per hectare, was higher than Aurora's.",
                 "All three varieties produced less wheat in the drought year than in the normal year."
               ],
               "answer": "A",
-              "explanation": "Oltin dropped from 5.4 to 4.1 (1.3 tonnes), while Bahor dropped 3.3 and Zilol 2.6, so Oltin did best in the drought. The other choices are accurate but do not show that Oltin is the better choice when droughts are common.",
+              "explanation": "Sterling dropped from 5.4 to 4.1 (1.3 tonnes), while Aurora dropped 3.3 and Crystal 2.6, so Sterling did best in the drought. The other choices are accurate but do not show that Sterling is the better choice when droughts are common.",
               "table": {
                 "title": "Wheat yield by variety (tonnes per hectare)",
                 "head": [
@@ -1168,17 +1168,17 @@
                 ],
                 "rows": [
                   [
-                    "Bahor",
+                    "Aurora",
                     "6.2",
                     "2.9"
                   ],
                   [
-                    "Oltin",
+                    "Sterling",
                     "5.4",
                     "4.1"
                   ],
                   [
-                    "Zilol",
+                    "Crystal",
                     "5.9",
                     "3.3"
                   ]
@@ -1222,7 +1222,7 @@
               "section": "rw",
               "skill": "Boundaries",
               "difficulty": "hard",
-              "passage": "The three scripts in which Uzbek has been officially written since the early twentieth century ______ Arabic-based, Latin, and Cyrillic.",
+              "passage": "The three writing systems used in modern Japanese ______ hiragana, katakana, and kanji.",
               "prompt": "Which choice completes the text so that it conforms to the conventions of Standard English?",
               "choices": [
                 "are:",
@@ -1231,14 +1231,14 @@
                 "are—"
               ],
               "answer": "C",
-              "explanation": "A colon or dash must follow a complete sentence, and \"The three scripts... are\" is not one: the verb still needs its complement. No punctuation belongs between a verb and what completes it."
+              "explanation": "A colon or dash must follow a complete sentence, and \"The three writing systems... are\" is not one: the verb still needs its complement. No punctuation belongs between a verb and what completes it."
             },
             {
               "id": "t4-rw2h-16",
               "section": "rw",
               "skill": "Boundaries",
               "difficulty": "hard",
-              "passage": "Award-winning ______ Asante spent two years photographing fishing families on the shores of Lake Issyk-Kul.",
+              "passage": "Award-winning ______ Asante spent two years photographing fishing families on the shores of Lake Malawi.",
               "prompt": "Which choice completes the text so that it conforms to the conventions of Standard English?",
               "choices": [
                 "photographer Kwame",
@@ -1286,7 +1286,7 @@
               "section": "rw",
               "skill": "Form, Structure, and Sense",
               "difficulty": "hard",
-              "passage": "The archive's collection of glass-plate negatives, some of which show streets in Tashkent that no longer exist, ______ being digitized so that researchers can study it online.",
+              "passage": "The archive's collection of glass-plate negatives, some of which show streets in Vienna that no longer exist, ______ being digitized so that researchers can study it online.",
               "prompt": "Which choice completes the text so that it conforms to the conventions of Standard English?",
               "choices": [
                 "are",
@@ -1318,7 +1318,7 @@
               "section": "rw",
               "skill": "Form, Structure, and Sense",
               "difficulty": "medium",
-              "passage": "In 1998, linguist Sevara Bakirova traveled to three mountain villages, recorded the speech of their oldest residents, and ______ that many of them used words unknown to younger speakers.",
+              "passage": "In 1998, linguist Ellen Brooks traveled to three mountain villages, recorded the speech of their oldest residents, and ______ that many of them used words unknown to younger speakers.",
               "prompt": "Which choice completes the text so that it conforms to the conventions of Standard English?",
               "choices": [
                 "notes",
@@ -1334,7 +1334,7 @@
               "section": "rw",
               "skill": "Transitions",
               "difficulty": "hard",
-              "passage": "Several crops that originated in the Americas, including potatoes and tomatoes, were unknown in Central Asia until a few centuries ago. ______ they are now so central to Uzbek cooking that many people assume they have always been grown there.",
+              "passage": "Several crops that originated in the Americas, including tomatoes and peppers, were unknown in Europe until about five hundred years ago. ______ they are now so central to Italian and Hungarian cooking that many people assume they have always been grown there.",
               "prompt": "Which choice completes the text with the most logical transition?",
               "choices": [
                 "Consequently,",
@@ -1414,12 +1414,12 @@
               "section": "rw",
               "skill": "Rhetorical Synthesis",
               "difficulty": "hard",
-              "passage": "While researching a topic, a student has taken the following notes:\n\n• Tepakul is an archaeological site in the Surkhandarya region of Uzbekistan.\n• Excavations there began in 2016.\n• Archaeologists found a workshop containing glass beads at every stage of production.\n• The glass was made from local sand.\n• Before this discovery, archaeologists believed that all the glass beads found in the region had been imported.",
-              "prompt": "The student wants to explain why the discovery at Tepakul changed archaeologists' understanding of the region. Which choice most effectively uses relevant information from the notes to accomplish this goal?",
+              "passage": "While researching a topic, a student has taken the following notes:\n\n• Harrowfield is an archaeological site in northern England.\n• Excavations there began in 2016.\n• Archaeologists found a workshop containing glass beads at every stage of production.\n• The glass was made from local sand.\n• Before this discovery, archaeologists believed that all the glass beads found in the region had been imported.",
+              "prompt": "The student wants to explain why the discovery at Harrowfield changed archaeologists' understanding of the region. Which choice most effectively uses relevant information from the notes to accomplish this goal?",
               "choices": [
-                "Tepakul's workshop, where glass beads were made from local sand, overturned archaeologists' earlier belief that all of the region's glass beads had been imported.",
-                "Excavations at Tepakul, an archaeological site in the Surkhandarya region of Uzbekistan, began in 2016.",
-                "At Tepakul, archaeologists found a workshop containing glass beads at every stage of production.",
+                "Harrowfield's workshop, where glass beads were made from local sand, overturned archaeologists' earlier belief that all of the region's glass beads had been imported.",
+                "Excavations at Harrowfield, an archaeological site in northern England, began in 2016.",
+                "At Harrowfield, archaeologists found a workshop containing glass beads at every stage of production.",
                 "Archaeologists once believed that all of the glass beads found in the region had been imported."
               ],
               "answer": "A",
@@ -1662,7 +1662,7 @@
             "section": "math",
             "skill": "Linear inequalities in one or two variables",
             "difficulty": "hard",
-            "prompt": "A phone plan costs \\$12 per month and includes 200 text messages. Each text message beyond the first 200 costs \\$0.05. Sardor wants his monthly bill to be at most \\$20. What is the greatest total number of text messages he can send in a month?",
+            "prompt": "A phone plan costs \\$12 per month and includes 200 text messages. Each text message beyond the first 200 costs \\$0.05. Ethan wants his monthly bill to be at most \\$20. What is the greatest total number of text messages he can send in a month?",
             "choices": [
               "160",
               "360",
@@ -1974,7 +1974,7 @@
               "section": "math",
               "skill": "Probability and conditional probability",
               "difficulty": "medium",
-              "prompt": "Of the 30 students in a class, 18 have visited Samarkand. If one student from the class is chosen at random, what is the probability that the student has NOT visited Samarkand?",
+              "prompt": "Of the 30 students in a class, 18 have visited Paris. If one student from the class is chosen at random, what is the probability that the student has NOT visited Paris?",
               "choices": [
                 "$\\dfrac{3}{5}$",
                 "$\\dfrac{2}{3}$",
@@ -2169,26 +2169,26 @@
               "section": "math",
               "skill": "Systems of two linear equations in two variables",
               "difficulty": "medium",
-              "prompt": "A museum sells adult tickets for 40,000 so'm each and student tickets for 15,000 so'm each. On one day, it sold 260 tickets for a total of 7,650,000 so'm. How many student tickets did the museum sell that day?",
+              "prompt": "A museum sells adult tickets for \\$40 each and student tickets for \\$15 each. On one day, it sold 260 tickets for a total of \\$7,650. How many student tickets did the museum sell that day?",
               "answer": [
                 "110"
               ],
-              "explanation": "Working in thousands of so'm: $a + s = 260$ and $40a + 15s = 7{,}650$. Substituting $a = 260 - s$ gives $10{,}400 - 25s = 7{,}650$, so $s = 110$."
+              "explanation": "Working in dollars: $a + s = 260$ and $40a + 15s = 7{,}650$. Substituting $a = 260 - s$ gives $10{,}400 - 25s = 7{,}650$, so $s = 110$."
             },
             {
               "id": "t4-m2h-08",
               "section": "math",
               "skill": "Linear functions",
               "difficulty": "hard",
-              "prompt": "A taxi company charges a fixed starting fare plus a constant amount per kilometer. A 6-kilometer ride costs 27,000 so'm, and a 10-kilometer ride costs 39,000 so'm. How much does a 15-kilometer ride cost, in so'm?",
+              "prompt": "A taxi company charges a fixed starting fare plus a constant amount per kilometer. A 6-kilometer ride costs \\$27, and a 10-kilometer ride costs \\$39. How much does a 15-kilometer ride cost, in dollars?",
               "choices": [
-                "58,500",
-                "45,000",
-                "67,500",
-                "54,000"
+                "58.50",
+                "45",
+                "67.50",
+                "54"
               ],
               "answer": "D",
-              "explanation": "The cost rises by $39{,}000 - 27{,}000 = 12{,}000$ over 4 kilometers, or 3,000 per kilometer. The starting fare is $27{,}000 - 6(3{,}000) = 9{,}000$, so 15 kilometers cost $9{,}000 + 15(3{,}000) = 54{,}000$. Scaling 39,000 by 1.5 ignores the fixed fare."
+              "explanation": "The cost rises by $39 - 27 = 12$ dollars over 4 kilometers, or 3 dollars per kilometer. The starting fare is $27 - 6(3) = 9$ dollars, so 15 kilometers cost $9 + 15(3) = 54$ dollars. Scaling 39 by 1.5 ignores the fixed fare."
             },
             {
               "id": "t4-m2h-09",

@@ -18,7 +18,7 @@
             "section": "rw",
             "skill": "Words in Context",
             "difficulty": "easy",
-            "passage": "The road to the village in the Nurata Mountains is so ______ that drivers must slow almost to walking speed at each of its many sharp bends.",
+            "passage": "The road to the village in the Pyrenees is so ______ that drivers must slow almost to walking speed at each of its many sharp bends.",
             "prompt": "Which choice completes the text with the most logical and precise word or phrase?",
             "choices": [
               "level",
@@ -98,16 +98,16 @@
             "section": "rw",
             "skill": "Text Structure and Purpose",
             "difficulty": "medium",
-            "passage": "In many fast-growing cities, new apartment districts are built first and connected to public transit years later, by which time most residents have come to depend on cars. Urban planner Jasur Tillayev proposes reversing that order in the expanding cities of Central Asia: build the rail line first, then permit housing and shops within a ten-minute walk of each station. Residents who move into such districts, he argues, will build their travel habits around the train from the start instead of having to be persuaded to give up their cars later.",
+            "passage": "In many fast-growing cities, new apartment districts are built first and connected to public transit years later, by which time most residents have come to depend on cars. Urban planner Carlos Mendes proposes reversing that order in the expanding cities of Latin America: build the rail line first, then permit housing and shops within a ten-minute walk of each station. Residents who move into such districts, he argues, will build their travel habits around the train from the start instead of having to be persuaded to give up their cars later.",
             "prompt": "Which choice best states the main purpose of the text?",
             "choices": [
               "To argue that new apartment districts should not be built in fast-growing cities",
               "To present a planner's proposal for the order in which new districts should be developed and the reasoning behind it",
-              "To describe the history of rail transit in the cities of Central Asia",
+              "To describe the history of rail transit in the cities of Latin America",
               "To compare the cost of building rail lines with the cost of building roads"
             ],
             "answer": "B",
-            "explanation": "The text describes the usual order of development, then Tillayev's proposal to reverse it and his reason: habits form around the train from the start."
+            "explanation": "The text describes the usual order of development, then Mendes's proposal to reverse it and his reason: habits form around the train from the start."
           },
           {
             "id": "t3-rw1-07",
@@ -146,24 +146,24 @@
             "section": "rw",
             "skill": "Central Ideas and Details",
             "difficulty": "medium",
-            "passage": "The following text is from a short story. Kamola is helping her aunt repair fishing nets on the shore of a lake.\n\nKamola's fingers were clumsy at first, and the knots she tied slipped loose as soon as she pulled on them. Her aunt said nothing. She simply took the net back, retied each knot with three quick twists, and handed it over again. By late afternoon, Kamola noticed that her own hands had begun making the same three twists without being told, and that her aunt had stopped checking her work.",
+            "passage": "The following text is from a short story. Ana is helping her aunt repair fishing nets on the shore of a lake.\n\nAna's fingers were clumsy at first, and the knots she tied slipped loose as soon as she pulled on them. Her aunt said nothing. She simply took the net back, retied each knot with three quick twists, and handed it over again. By late afternoon, Ana noticed that her own hands had begun making the same three twists without being told, and that her aunt had stopped checking her work.",
             "prompt": "Which choice best states the main idea of the text?",
             "choices": [
-              "By watching her aunt, Kamola gradually learns to tie the knots well enough that her aunt comes to trust her work.",
-              "Kamola's aunt grows frustrated with Kamola's clumsy knots and criticizes her repeatedly.",
-              "Kamola decides that repairing nets is too difficult and asks for a different task.",
-              "Kamola shows her aunt a faster way to tie the knots."
+              "By watching her aunt, Ana gradually learns to tie the knots well enough that her aunt comes to trust her work.",
+              "Ana's aunt grows frustrated with Ana's clumsy knots and criticizes her repeatedly.",
+              "Ana decides that repairing nets is too difficult and asks for a different task.",
+              "Ana shows her aunt a faster way to tie the knots."
             ],
             "answer": "A",
-            "explanation": "The aunt teaches silently by example, Kamola's hands learn the three twists, and the aunt stops checking her work, which shows trust. The aunt \"said nothing,\" so she does not criticize Kamola."
+            "explanation": "The aunt teaches silently by example, Ana's hands learn the three twists, and the aunt stops checking her work, which shows trust. The aunt \"said nothing,\" so she does not criticize Ana."
           },
           {
             "id": "t3-rw1-10",
             "section": "rw",
             "skill": "Command of Evidence: Textual",
             "difficulty": "medium",
-            "passage": "Agricultural researcher Sherzod Qodirov hypothesizes that rows of trees planted along the edges of wheat fields reduce water loss from the soil mainly by blocking dry winds rather than by shading the ground.",
-            "prompt": "Which finding, if true, would most directly support Qodirov's hypothesis?",
+            "passage": "Agricultural researcher Pieter de Wit hypothesizes that rows of trees planted along the edges of wheat fields reduce water loss from the soil mainly by blocking dry winds rather than by shading the ground.",
+            "prompt": "Which finding, if true, would most directly support de Wit's hypothesis?",
             "choices": [
               "Fields bordered by trees produced more wheat than fields with no trees along their edges.",
               "Soil moisture was nearly as high in fields bordered by low hedges, which block wind but cast almost no shade on the fields, as in fields bordered by tall trees.",
@@ -336,7 +336,7 @@
             "section": "rw",
             "skill": "Form, Structure, and Sense",
             "difficulty": "easy",
-            "passage": "Every morning, the stalls at Tashkent's Chorsu Bazaar ______ piled high with dried apricots, spices, and round loaves of bread.",
+            "passage": "Every morning, the stalls at Barcelona's Boqueria market ______ piled high with dried figs, spices, and round loaves of bread.",
             "prompt": "Which choice completes the text so that it conforms to the conventions of Standard English?",
             "choices": [
               "is",
@@ -368,7 +368,7 @@
             "section": "rw",
             "skill": "Form, Structure, and Sense",
             "difficulty": "hard",
-            "passage": "The trumpeter's recordings from the 1950s, along with a box of handwritten arrangements discovered in a Tashkent apartment last year, ______ given historians a fuller picture of the city's early jazz scene.",
+            "passage": "The trumpeter's recordings from the 1950s, along with a box of handwritten arrangements discovered in a Lisbon apartment last year, ______ given historians a fuller picture of the city's early jazz scene.",
             "prompt": "Which choice completes the text so that it conforms to the conventions of Standard English?",
             "choices": [
               "has",
@@ -432,16 +432,16 @@
             "section": "rw",
             "skill": "Rhetorical Synthesis",
             "difficulty": "medium",
-            "passage": "While researching a topic, a student has taken the following notes:\n\n• Al-Biruni was a scholar born in 973 in Khwarazm, a region in present-day Uzbekistan.\n• He estimated the size of Earth by climbing a mountain and measuring the angle at which the horizon appeared to dip below a level line of sight.\n• His result was remarkably close to modern measurements.\n• He also wrote a detailed study of the sciences and customs of India.",
-            "prompt": "The student wants to explain how al-Biruni estimated the size of Earth. Which choice most effectively uses relevant information from the notes to accomplish this goal?",
+            "passage": "While researching a topic, a student has taken the following notes:\n\n• Eratosthenes was a scholar born around 276 BCE in Cyrene, a city in present-day Libya.\n• He estimated the size of Earth by comparing the angle of the Sun's rays at noon in two Egyptian cities, Syene and Alexandria, on the same day.\n• His result was remarkably close to modern measurements.\n• He also drew one of the earliest maps of the known world.",
+            "prompt": "The student wants to explain how Eratosthenes estimated the size of Earth. Which choice most effectively uses relevant information from the notes to accomplish this goal?",
             "choices": [
-              "Al-Biruni's estimate of the size of Earth was remarkably close to modern measurements.",
-              "Al-Biruni estimated the size of Earth by climbing a mountain and measuring the angle at which the horizon appeared to dip below a level line of sight.",
-              "Al-Biruni, a scholar from Khwarazm, was born in 973.",
-              "In addition to his work on Earth's size, al-Biruni wrote a detailed study of India."
+              "Eratosthenes's estimate of the size of Earth was remarkably close to modern measurements.",
+              "Eratosthenes estimated the size of Earth by comparing the angle of the Sun's rays at noon in two Egyptian cities, Syene and Alexandria, on the same day.",
+              "Eratosthenes, a scholar from Cyrene, was born around 276 BCE.",
+              "In addition to his work on Earth's size, Eratosthenes drew one of the earliest maps of the known world."
             ],
             "answer": "B",
-            "explanation": "The goal is the method. Only this choice says what al-Biruni actually did; the choice about accuracy gives his result, not how he got it."
+            "explanation": "The goal is the method. Only this choice says what Eratosthenes actually did; the choice about accuracy gives his result, not how he got it."
           },
           {
             "id": "t3-rw1-26",
@@ -550,13 +550,13 @@
               "section": "rw",
               "skill": "Text Structure and Purpose",
               "difficulty": "easy",
-              "passage": "In 2011, high-speed trains called Afrosiyob began running between Tashkent and Samarkand, cutting the trip between the two cities to about two hours. Because a traveler can now leave Tashkent in the morning, spend the day in Samarkand, and be home the same evening, the trains have made day trips between the cities easy.",
+              "passage": "In 1994, high-speed trains called Eurostar began running between London and Paris, cutting the trip between the two cities to about three hours. Because a traveler can now leave London in the morning, spend the day in Paris, and be home the same evening, the trains have made day trips between the cities easy.",
               "prompt": "Which choice best states the main purpose of the text?",
               "choices": [
-                "To compare the history of Tashkent with the history of Samarkand",
-                "To argue that more high-speed railways should be built in Uzbekistan",
+                "To compare the history of London with the history of Paris",
+                "To argue that more high-speed railways should be built in Europe",
                 "To explain how a new train service changed travel between two cities",
-                "To describe how the Afrosiyob trains were designed and built"
+                "To describe how the Eurostar trains were designed and built"
               ],
               "answer": "C",
               "explanation": "The text introduces the trains and then explains their effect: a shorter trip that makes day trips easy."
@@ -735,7 +735,7 @@
               "section": "rw",
               "skill": "Boundaries",
               "difficulty": "easy",
-              "passage": "Because the museum's main hall was being ______ the exhibition of Central Asian textiles moved to a smaller gallery for the summer.",
+              "passage": "Because the museum's main hall was being ______ the exhibition of West African textiles moved to a smaller gallery for the summer.",
               "prompt": "Which choice completes the text so that it conforms to the conventions of Standard English?",
               "choices": [
                 "repaired;",
@@ -895,10 +895,10 @@
               "section": "rw",
               "skill": "Rhetorical Synthesis",
               "difficulty": "easy",
-              "passage": "While researching a topic, a student has taken the following notes:\n\n• The Caspian Sea is the largest enclosed body of water on Earth.\n• It is bordered by five countries, including Kazakhstan and Turkmenistan.\n• Its water is about one-third as salty as ocean water.\n• It is home to the Caspian seal, which is found nowhere else.",
+              "passage": "While researching a topic, a student has taken the following notes:\n\n• The Caspian Sea is the largest enclosed body of water on Earth.\n• It is bordered by five countries, including Russia and Iran.\n• Its water is about one-third as salty as ocean water.\n• It is home to the Caspian seal, which is found nowhere else.",
               "prompt": "The student wants to emphasize how the Caspian Sea's water differs from ocean water. Which choice most effectively uses relevant information from the notes to accomplish this goal?",
               "choices": [
-                "The Caspian Sea is bordered by five countries, including Kazakhstan and Turkmenistan.",
+                "The Caspian Sea is bordered by five countries, including Russia and Iran.",
                 "The Caspian Sea's water is only about one-third as salty as ocean water.",
                 "The Caspian Sea is the largest enclosed body of water on Earth.",
                 "The Caspian seal lives in the Caspian Sea and nowhere else."
@@ -948,7 +948,7 @@
               "section": "rw",
               "skill": "Words in Context",
               "difficulty": "hard",
-              "passage": "Historian Javlon Sharipov's biography of the poet is deliberately ______: he reports what the surviving letters and records show but declines to guess at the poet's private motives wherever the documents are silent.",
+              "passage": "Historian Henry Collins's biography of the poet is deliberately ______: he reports what the surviving letters and records show but declines to guess at the poet's private motives wherever the documents are silent.",
               "prompt": "Which choice completes the text with the most logical and precise word or phrase?",
               "choices": [
                 "restrained",
@@ -980,7 +980,7 @@
               "section": "rw",
               "skill": "Words in Context",
               "difficulty": "hard",
-              "passage": "Composer Anvar Hakimov's arrangements of old Uzbek folk songs are anything but ______: rather than simply writing the melodies down as he heard them, he reharmonizes them, alters their rhythms, and weaves fragments of several songs into a single piece.",
+              "passage": "Composer Béla Kovács's arrangements of old Hungarian folk songs are anything but ______: rather than simply writing the melodies down as he heard them, he reharmonizes them, alters their rhythms, and weaves fragments of several songs into a single piece.",
               "prompt": "Which choice completes the text with the most logical and precise word or phrase?",
               "choices": [
                 "inventive",
@@ -996,7 +996,7 @@
               "section": "rw",
               "skill": "Words in Context",
               "difficulty": "hard",
-              "passage": "Although al-Biruni's eleventh-century estimate of Earth's radius came remarkably close to the modern value, historian of science Nilufar Azimova cautions against treating it as ______ proof of his method's precision: small errors in his measurements may have partly canceled each other out.",
+              "passage": "Although Eratosthenes's third-century BCE estimate of Earth's circumference came remarkably close to the modern value, historian of science Clara Jensen cautions against treating it as ______ proof of his method's precision: small errors in his measurements may have partly canceled each other out.",
               "prompt": "Which choice completes the text with the most logical and precise word or phrase?",
               "choices": [
                 "tentative",
@@ -1005,7 +1005,7 @@
                 "inadvertent"
               ],
               "answer": "B",
-              "explanation": "Azimova warns that the accurate result may partly reflect errors that canceled out, so it is not **unequivocal** (beyond doubt) proof. No warning would be needed against calling it *tentative* proof."
+              "explanation": "Jensen warns that the accurate result may partly reflect errors that canceled out, so it is not **unequivocal** (beyond doubt) proof. No warning would be needed against calling it *tentative* proof."
             },
             {
               "id": "t3-rw2h-05",
@@ -1028,7 +1028,7 @@
               "section": "rw",
               "skill": "Text Structure and Purpose",
               "difficulty": "hard",
-              "passage": "The following text is from a novel. Nasiba, a structural engineer, is inspecting a bridge that her grandfather helped build.\n\nFrom the riverbank, the bridge looked exactly as it did in the photograph that had hung in her grandparents' hallway: three gray arches, steady and sure. Up close, Nasiba saw what the photograph could not show. Rust had bled from the bolts in long orange streaks, and a crack as thin as a hair ran along the underside of the central arch. She photographed the crack from four angles, measured it twice, and wrote the numbers in her notebook in small, careful figures, the way her grandfather had written everything.",
+              "passage": "The following text is from a novel. Helen, a structural engineer, is inspecting a bridge that her grandfather helped build.\n\nFrom the riverbank, the bridge looked exactly as it did in the photograph that had hung in her grandparents' hallway: three gray arches, steady and sure. Up close, Helen saw what the photograph could not show. Rust had bled from the bolts in long orange streaks, and a crack as thin as a hair ran along the underside of the central arch. She photographed the crack from four angles, measured it twice, and wrote the numbers in her notebook in small, careful figures, the way her grandfather had written everything.",
               "prompt": "Which choice best describes the overall structure of the text?",
               "choices": [
                 "It describes a character's childhood memories of a bridge and then explains why the bridge was built.",
@@ -1037,7 +1037,7 @@
                 "It presents the bridge as it appears from a distance, then reveals damage visible only up close, and finally describes the character's careful response."
               ],
               "answer": "D",
-              "explanation": "The text moves from the distant view, to the damage seen up close, to Nasiba's careful recording of it. She measures and records the crack but never plans a repair, which rules out the tempting last choice."
+              "explanation": "The text moves from the distant view, to the damage seen up close, to Helen's careful recording of it. She measures and records the crack but never plans a repair, which rules out the tempting last choice."
             },
             {
               "id": "t3-rw2h-07",
@@ -1221,7 +1221,7 @@
               "section": "rw",
               "skill": "Inferences",
               "difficulty": "hard",
-              "passage": "Archaeologists analyzing bronze objects from an ancient settlement in Central Asia found that tools contained about 10 percent tin, the proportion that makes bronze especially hard, while decorative ornaments contained much less tin and more lead, which helps molten bronze flow into fine, detailed molds. Because both kinds of objects were made in the same workshops during the same period, the archaeologists concluded that ______",
+              "passage": "Archaeologists analyzing bronze objects from an ancient settlement in southern Spain found that tools contained about 10 percent tin, the proportion that makes bronze especially hard, while decorative ornaments contained much less tin and more lead, which helps molten bronze flow into fine, detailed molds. Because both kinds of objects were made in the same workshops during the same period, the archaeologists concluded that ______",
               "prompt": "Which choice most logically completes the text?",
               "choices": [
                 "tin was likely too scarce at the settlement to be used in decorative objects.",
@@ -1413,13 +1413,13 @@
               "section": "rw",
               "skill": "Rhetorical Synthesis",
               "difficulty": "hard",
-              "passage": "While researching a topic, a student has taken the following notes:\n\n• Hermit crabs protect their soft bodies by living in empty snail shells, trading up to larger shells as they grow.\n• Biologist Hana Ilyasova tested whether underwater noise from ships affects how hermit crabs choose new shells.\n• Crabs exposed to recorded ship noise took longer to approach a new shell than crabs exposed to ordinary ocean sounds.\n• Crabs exposed to ship noise also spent less time inspecting a new shell before deciding whether to move into it.",
-              "prompt": "The student wants to present Ilyasova's findings to an audience unfamiliar with hermit crabs. Which choice most effectively uses relevant information from the notes to accomplish this goal?",
+              "passage": "While researching a topic, a student has taken the following notes:\n\n• Hermit crabs protect their soft bodies by living in empty snail shells, trading up to larger shells as they grow.\n• Biologist Hana Mori tested whether underwater noise from ships affects how hermit crabs choose new shells.\n• Crabs exposed to recorded ship noise took longer to approach a new shell than crabs exposed to ordinary ocean sounds.\n• Crabs exposed to ship noise also spent less time inspecting a new shell before deciding whether to move into it.",
+              "prompt": "The student wants to present Mori's findings to an audience unfamiliar with hermit crabs. Which choice most effectively uses relevant information from the notes to accomplish this goal?",
               "choices": [
-                "Hermit crabs live in empty snail shells, trading up to larger ones as they grow, and Ilyasova found that crabs exposed to ship noise were slower to approach a new shell and spent less time inspecting it.",
-                "Ilyasova found that crabs exposed to ship noise took longer to approach a new shell and spent less time inspecting it.",
+                "Hermit crabs live in empty snail shells, trading up to larger ones as they grow, and Mori found that crabs exposed to ship noise were slower to approach a new shell and spent less time inspecting it.",
+                "Mori found that crabs exposed to ship noise took longer to approach a new shell and spent less time inspecting it.",
                 "Hermit crabs live in empty snail shells, which they trade for larger ones as they grow.",
-                "Ilyasova tested whether underwater noise from ships affects how hermit crabs choose new shells."
+                "Mori tested whether underwater noise from ships affects how hermit crabs choose new shells."
               ],
               "answer": "A",
               "explanation": "An unfamiliar audience needs to know why shells matter to hermit crabs, and the goal also requires the findings. Only this choice gives both; the other choice with the findings leaves out that background."
@@ -1429,13 +1429,13 @@
               "section": "rw",
               "skill": "Rhetorical Synthesis",
               "difficulty": "hard",
-              "passage": "While researching a topic, a student has taken the following notes:\n\n• Al-Farabi (c. 870–950) was a philosopher and scholar from Central Asia.\n• His commentaries on Greek philosophy earned him the title \"the Second Teacher,\" after Aristotle.\n• He also wrote the *Great Book of Music*.\n• The book discusses the theory of musical intervals and describes instruments such as the oud.",
-              "prompt": "The student wants to emphasize the range of al-Farabi's scholarship. Which choice most effectively uses relevant information from the notes to accomplish this goal?",
+              "passage": "While researching a topic, a student has taken the following notes:\n\n• Boethius (c. 477–524) was a Roman philosopher and statesman.\n• His *Consolation of Philosophy* became one of the most widely read books of the Middle Ages.\n• He also wrote *On the Foundations of Music*.\n• The book discusses the mathematics of musical intervals and was used to teach music in medieval universities.",
+              "prompt": "The student wants to emphasize the range of Boethius's scholarship. Which choice most effectively uses relevant information from the notes to accomplish this goal?",
               "choices": [
-                "Al-Farabi's *Great Book of Music* discusses the theory of musical intervals and describes instruments such as the oud.",
-                "Al-Farabi, called \"the Second Teacher\" for his commentaries on Greek philosophy, also wrote the *Great Book of Music*, a study of musical intervals and instruments.",
-                "Al-Farabi earned the title \"the Second Teacher,\" after Aristotle, for his commentaries on Greek philosophy.",
-                "Al-Farabi was a philosopher and scholar from Central Asia who lived from about 870 to 950."
+                "Boethius's *On the Foundations of Music* discusses the mathematics of musical intervals and was used in medieval universities.",
+                "Boethius, author of the widely read *Consolation of Philosophy*, also wrote *On the Foundations of Music*, a study of the mathematics of musical intervals.",
+                "Boethius's *Consolation of Philosophy* became one of the most widely read books of the Middle Ages.",
+                "Boethius was a Roman philosopher and statesman who lived from about 477 to 524."
               ],
               "answer": "B",
               "explanation": "Range means more than one field. Only this choice pairs his philosophy with his music theory; each other choice stays within one area or gives only biography."
@@ -1997,7 +1997,7 @@
               "section": "math",
               "skill": "Linear inequalities in one or two variables",
               "difficulty": "medium",
-              "prompt": "Sardor has \\$60 to spend on notebooks that cost \\$4.50 each. Which inequality represents the possible numbers of notebooks, $n$, that Sardor can buy?",
+              "prompt": "Noah has \\$60 to spend on notebooks that cost \\$4.50 each. Which inequality represents the possible numbers of notebooks, $n$, that Noah can buy?",
               "explanation": "$n$ notebooks cost $4.50n$ dollars, and that total can be at most 60 dollars.",
               "choices": [
                 "$4.50n \\le 60$",

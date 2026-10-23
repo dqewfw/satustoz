@@ -98,13 +98,13 @@
             "section": "rw",
             "skill": "Text Structure and Purpose",
             "difficulty": "medium",
-            "passage": "For centuries, visitors to Samarkand admired the turquoise domes of its mosques and madrasas, often assuming that the color came from rare imported minerals. Chemical analyses of the tiles, however, show that the glazes were colored mainly with copper compounds, which were widely available in the region. The finding suggests that the city's builders achieved their striking effect through skilled glazing techniques rather than costly materials.",
+            "passage": "For centuries, visitors to Isfahan admired the turquoise domes of its mosques and palaces, often assuming that the color came from rare imported minerals. Chemical analyses of the tiles, however, show that the glazes were colored mainly with copper compounds, which were widely available in the region. The finding suggests that the city's builders achieved their striking effect through skilled glazing techniques rather than costly materials.",
             "prompt": "Which choice best describes the overall structure of the text?",
             "choices": [
               "It describes a historical puzzle and explains why it is unlikely ever to be solved.",
               "It describes a common assumption, presents evidence that contradicts it, and states a conclusion drawn from that evidence.",
               "It compares two building techniques and argues that one is superior to the other.",
-              "It lists several buildings in Samarkand in the order in which they were constructed."
+              "It lists several buildings in Isfahan in the order in which they were constructed."
             ],
             "answer": "B",
             "explanation": "Sentence 1 gives an assumption, sentence 2 contradicts it (\"however\"), and sentence 3 draws a conclusion from the new evidence."
@@ -130,13 +130,13 @@
             "section": "rw",
             "skill": "Central Ideas and Details",
             "difficulty": "easy",
-            "passage": "Many people picture deserts as lifeless, but the Kyzylkum Desert supports a surprising range of life. Saxaul trees anchor its shifting sands, tortoises spend much of the year underground to escape the heat, and after spring rains, wildflowers briefly cover the ground. These species survive by timing their activity to the short periods when water is available.",
+            "passage": "Many people picture deserts as lifeless, but the Mojave Desert supports a surprising range of life. Creosote bushes dot its gravel plains, desert tortoises spend much of the year underground to escape the heat, and after spring rains, wildflowers briefly cover the ground. These species survive by timing their activity to the short periods when water is available.",
             "prompt": "Which choice best states the main idea of the text?",
             "choices": [
-              "The Kyzylkum Desert is much larger than most people realize.",
-              "Saxaul trees are the most important species in the Kyzylkum Desert.",
-              "Spring rains in the Kyzylkum Desert are becoming more frequent.",
-              "Despite harsh conditions, many organisms survive in the Kyzylkum Desert by adjusting to when water is available."
+              "The Mojave Desert is much larger than most people realize.",
+              "Creosote bushes are the most important species in the Mojave Desert.",
+              "Spring rains in the Mojave Desert are becoming more frequent.",
+              "Despite harsh conditions, many organisms survive in the Mojave Desert by adjusting to when water is available."
             ],
             "answer": "D",
             "explanation": "The text corrects the idea that deserts are lifeless and ends by explaining how species there survive."
@@ -146,13 +146,13 @@
             "section": "rw",
             "skill": "Central Ideas and Details",
             "difficulty": "medium",
-            "passage": "The following text is from a short story. Dilnoza is about to perform in her first violin recital.\n\nDilnoza had practiced the sonata every evening for three months, until her fingers found each note without help from her eyes. Yet now, standing behind the curtain, she could not remember how the first measure began. She closed her eyes, let her bow arm rise the way it had risen a hundred times before, and heard the opening phrase arrive as if someone else were playing it.",
+            "passage": "The following text is from a short story. Clara is about to perform in her first violin recital.\n\nClara had practiced the sonata every evening for three months, until her fingers found each note without help from her eyes. Yet now, standing behind the curtain, she could not remember how the first measure began. She closed her eyes, let her bow arm rise the way it had risen a hundred times before, and heard the opening phrase arrive as if someone else were playing it.",
             "prompt": "Which choice best states the main idea of the text?",
             "choices": [
-              "Although Dilnoza briefly panics, her long practice allows her to play almost automatically.",
-              "Dilnoza regrets choosing such a difficult piece for her recital.",
-              "Dilnoza decides that she is not ready to perform in public.",
-              "Dilnoza's teacher helps her remember how the sonata begins."
+              "Although Clara briefly panics, her long practice allows her to play almost automatically.",
+              "Clara regrets choosing such a difficult piece for her recital.",
+              "Clara decides that she is not ready to perform in public.",
+              "Clara's teacher helps her remember how the sonata begins."
             ],
             "answer": "A",
             "explanation": "She forgets the opening, but months of practice take over and the music comes \"as if someone else were playing it.\""
@@ -162,8 +162,8 @@
             "section": "rw",
             "skill": "Command of Evidence: Textual",
             "difficulty": "medium",
-            "passage": "Ecologist Malika Rahimova hypothesized that songbirds nesting near busy roads begin their morning songs earlier than songbirds nesting in quiet parks, shifting their singing so that it is not drowned out by traffic noise.",
-            "prompt": "Which finding, if true, would most directly support Rahimova's hypothesis?",
+            "passage": "Ecologist Hannah Becker hypothesized that songbirds nesting near busy roads begin their morning songs earlier than songbirds nesting in quiet parks, shifting their singing so that it is not drowned out by traffic noise.",
+            "prompt": "Which finding, if true, would most directly support Becker's hypothesis?",
             "choices": [
               "Birds nesting near roads started singing about 40 minutes earlier than birds in parks, and the difference disappeared on days when the roads were closed to traffic.",
               "The number of songbirds nesting near roads has increased over the past decade.",
@@ -178,8 +178,8 @@
             "section": "rw",
             "skill": "Command of Evidence: Textual",
             "difficulty": "hard",
-            "passage": "Archaeologist Nodira Saidova argues that the residents of an ancient settlement in the Fergana Valley obtained much of their grain through trade rather than growing it themselves.",
-            "prompt": "Which finding, if true, would most directly support Saidova's argument?",
+            "passage": "Archaeologist Elena Moretti argues that the residents of an ancient settlement in the Jordan Valley obtained much of their grain through trade rather than growing it themselves.",
+            "prompt": "Which finding, if true, would most directly support Moretti's argument?",
             "choices": [
               "The settlement contained storage pits large enough to hold a year's supply of grain.",
               "Pollen samples show that wheat grew in the valley during the period when the settlement was occupied.",
@@ -272,13 +272,13 @@
             "section": "rw",
             "skill": "Boundaries",
             "difficulty": "easy",
-            "passage": "The Registan in Samarkand is framed by three ______ the oldest of them, built under Ulugbek, was completed around 1420.",
+            "passage": "The Alhambra in Granada is made up of several ______ the oldest of them, the Alcazaba fortress, dates from the thirteenth century.",
             "prompt": "Which choice completes the text so that it conforms to the conventions of Standard English?",
             "choices": [
-              "madrasas,",
-              "madrasas;",
-              "madrasas",
-              "madrasas, as a result,"
+              "structures,",
+              "structures;",
+              "structures",
+              "structures, as a result,"
             ],
             "answer": "B",
             "explanation": "Both parts are complete sentences, so they need a semicolon. A comma alone creates a comma splice."
@@ -288,7 +288,7 @@
             "section": "rw",
             "skill": "Boundaries",
             "difficulty": "medium",
-            "passage": "The museum's new exhibit features objects from three ______ ceramic bowls from Rishton, silk ikat from Margilan, and carved wooden doors from Khiva.",
+            "passage": "The museum's new exhibit features objects from three ______ ceramic tiles from Lisbon, silk scarves from Lyon, and carved wooden masks from Venice.",
             "prompt": "Which choice completes the text so that it conforms to the conventions of Standard English?",
             "choices": [
               "regions:",
@@ -368,13 +368,13 @@
             "section": "rw",
             "skill": "Form, Structure, and Sense",
             "difficulty": "hard",
-            "passage": "Having spent decades studying glaciers in the Pamir Mountains, ______",
+            "passage": "Having spent decades studying glaciers in the Alps, ______",
             "prompt": "Which choice completes the text so that it conforms to the conventions of Standard English?",
             "choices": [
-              "the observation that some glaciers were advancing rather than retreating was made by geologist Rustam Nazarov.",
-              "some of the glaciers were noticed by geologist Rustam Nazarov to be advancing rather than retreating.",
-              "geologist Rustam Nazarov was among the first to notice that some of them were advancing rather than retreating.",
-              "it was geologist Rustam Nazarov who first noticed some of them advancing rather than retreating."
+              "the observation that some glaciers were advancing rather than retreating was made by geologist Lukas Brenner.",
+              "some of the glaciers were noticed by geologist Lukas Brenner to be advancing rather than retreating.",
+              "geologist Lukas Brenner was among the first to notice that some of them were advancing rather than retreating.",
+              "it was geologist Lukas Brenner who first noticed some of them advancing rather than retreating."
             ],
             "answer": "C",
             "explanation": "The opening phrase describes the person who studied glaciers, so the geologist must come right after the comma."
@@ -432,13 +432,13 @@
             "section": "rw",
             "skill": "Rhetorical Synthesis",
             "difficulty": "medium",
-            "passage": "While researching a topic, a student has taken the following notes:\n\n• Muhammad ibn Musa al-Khwarizmi was a ninth-century scholar from Khwarazm, a region in present-day Uzbekistan.\n• He worked at the House of Wisdom in Baghdad.\n• His book on calculation by \"completion and balancing\" gave its name to the word \"algebra.\"\n• Latin versions of his name produced the word \"algorithm.\"",
-            "prompt": "The student wants to emphasize al-Khwarizmi's influence on modern vocabulary. Which choice most effectively uses relevant information from the notes to accomplish this goal?",
+            "passage": "While researching a topic, a student has taken the following notes:\n\n• Adolphe Sax was a nineteenth-century instrument maker from Dinant, a town in present-day Belgium.\n• He ran a workshop in Paris.\n• In the 1840s, he invented a metal wind instrument played with a reed and named it the \"saxophone.\"\n• A family of valved brass instruments he designed became known as \"saxhorns.\"",
+            "prompt": "The student wants to emphasize Sax's influence on modern vocabulary. Which choice most effectively uses relevant information from the notes to accomplish this goal?",
             "choices": [
-              "Al-Khwarizmi gave modern languages two familiar words: \"algebra,\" from the title of his book, and \"algorithm,\" from Latin versions of his name.",
-              "Al-Khwarizmi wrote a book about calculation by \"completion and balancing.\"",
-              "Al-Khwarizmi, a ninth-century scholar, came from Khwarazm, a region in present-day Uzbekistan.",
-              "Al-Khwarizmi worked at the House of Wisdom in Baghdad."
+              "Sax gave modern languages two familiar words: \"saxophone\" and \"saxhorn,\" the names of instruments he designed.",
+              "Sax invented a metal wind instrument played with a reed.",
+              "Sax, a nineteenth-century instrument maker, came from Dinant, a town in present-day Belgium.",
+              "Sax ran a workshop in Paris."
             ],
             "answer": "A",
             "explanation": "Only this choice names the words that came from his work."
@@ -448,13 +448,13 @@
             "section": "rw",
             "skill": "Rhetorical Synthesis",
             "difficulty": "hard",
-            "passage": "While researching a topic, a student has taken the following notes:\n\n• Tashkent and Almaty are two of the largest cities in Central Asia.\n• Tashkent has a population of about 3 million.\n• Almaty has a population of about 2.2 million.\n• Tashkent lies about 455 meters above sea level.\n• Almaty lies about 800 meters above sea level.",
+            "passage": "While researching a topic, a student has taken the following notes:\n\n• Bogotá and Medellín are two of the largest cities in Colombia.\n• Bogotá has a population of about 7.9 million.\n• Medellín has a population of about 2.5 million.\n• Medellín lies about 1,495 meters above sea level.\n• Bogotá lies about 2,640 meters above sea level.",
             "prompt": "The student wants to emphasize a difference in elevation between the two cities. Which choice most effectively uses relevant information from the notes to accomplish this goal?",
             "choices": [
-              "Tashkent and Almaty are two of the largest cities in Central Asia.",
-              "Almaty sits about 800 meters above sea level, considerably higher than Tashkent, at about 455 meters.",
-              "With about 3 million people, Tashkent is larger than Almaty, which has about 2.2 million.",
-              "Tashkent lies about 455 meters above sea level."
+              "Bogotá and Medellín are two of the largest cities in Colombia.",
+              "Bogotá sits about 2,640 meters above sea level, considerably higher than Medellín, at about 1,495 meters.",
+              "With about 7.9 million people, Bogotá is larger than Medellín, which has about 2.5 million.",
+              "Medellín lies about 1,495 meters above sea level."
             ],
             "answer": "B",
             "explanation": "The goal is a difference in elevation, which requires both elevations compared. The population choice compares the wrong thing."
@@ -464,16 +464,16 @@
             "section": "rw",
             "skill": "Rhetorical Synthesis",
             "difficulty": "medium",
-            "passage": "While researching a topic, a student has taken the following notes:\n\n• The saiga is an antelope native to the steppes of Central Asia.\n• Its large, flexible nose filters dust in summer.\n• The same nose warms cold air before it reaches the lungs in winter.\n• In 2015, a bacterial infection killed more than 200,000 saigas in Kazakhstan.",
-            "prompt": "The student wants to explain how the saiga's nose suits its environment. Which choice most effectively uses relevant information from the notes to accomplish this goal?",
+            "passage": "While researching a topic, a student has taken the following notes:\n\n• The fennec fox is a small fox native to the Sahara Desert.\n• Its very large ears release body heat during the hottest part of the day.\n• The same ears help it hear prey moving beneath the sand at night.\n• In some areas, fennec foxes are trapped and sold as pets.",
+            "prompt": "The student wants to explain how the fennec fox's ears suit its environment. Which choice most effectively uses relevant information from the notes to accomplish this goal?",
             "choices": [
-              "The saiga is an antelope native to the steppes of Central Asia.",
-              "In 2015, a bacterial infection killed more than 200,000 saigas in Kazakhstan.",
-              "The saiga's large, flexible nose suits life on the steppe: it filters dust in summer and warms cold air in winter.",
-              "The saiga, an antelope of the Central Asian steppes, has a large, flexible nose."
+              "The fennec fox is a small fox native to the Sahara Desert.",
+              "In some areas, fennec foxes are trapped and sold as pets.",
+              "The fennec fox's large ears suit life in the desert: they release body heat during the day and help it hear prey beneath the sand at night.",
+              "The fennec fox, a small fox of the Sahara, has very large ears."
             ],
             "answer": "C",
-            "explanation": "Only this choice explains what the nose does in each season."
+            "explanation": "Only this choice explains what the ears do and how each job helps in the desert."
           }
         ]
       },
@@ -566,12 +566,12 @@
               "section": "rw",
               "skill": "Text Structure and Purpose",
               "difficulty": "medium",
-              "passage": "The old inner town of Khiva, known as Itchan Kala, is surrounded by thick mud-brick walls. __Many of the buildings inside the walls date from the eighteenth and nineteenth centuries, and they remain remarkably well preserved.__ Because so much of its historic architecture survives, the inner town was named a UNESCO World Heritage Site in 1990.",
+              "passage": "The old town of Dubrovnik, in Croatia, is surrounded by thick stone walls. __Many of the buildings inside the walls date from the fifteenth to seventeenth centuries, and they remain remarkably well preserved.__ Because so much of its historic architecture survives, the old town was named a UNESCO World Heritage Site in 1979.",
               "prompt": "Which choice best describes the function of the underlined sentence in the text as a whole?",
               "choices": [
                 "It provides details about the town's buildings that help explain the recognition described in the next sentence.",
                 "It describes a problem that threatens the town's historic buildings.",
-                "It compares Khiva with other historic towns in the region.",
+                "It compares Dubrovnik with other historic towns in the region.",
                 "It introduces a disagreement about when the town's walls were built."
               ],
               "answer": "A",
@@ -614,13 +614,13 @@
               "section": "rw",
               "skill": "Central Ideas and Details",
               "difficulty": "medium",
-              "passage": "The following text is from a short story.\n\nGrandfather's workshop smelled of cedar shavings and machine oil. Bekzod had spent every summer there as a boy, handing him tools and watching him turn rough boards into chairs. Now, opening the door for the first time since the funeral, Bekzod found every chisel hanging exactly where it always had, as if his grandfather had only stepped out for a moment.",
+              "passage": "The following text is from a short story.\n\nGrandfather's workshop smelled of cedar shavings and machine oil. Daniel had spent every summer there as a boy, handing him tools and watching him turn rough boards into chairs. Now, opening the door for the first time since the funeral, Daniel found every chisel hanging exactly where it always had, as if his grandfather had only stepped out for a moment.",
               "prompt": "Which choice best states the main idea of the text?",
               "choices": [
-                "Bekzod decides to sell his grandfather's tools.",
-                "Bekzod remembers that he never enjoyed working in the workshop.",
-                "Bekzod discovers that someone has rearranged the workshop.",
-                "Returning to the workshop, Bekzod is struck by how unchanged it is, which makes his grandfather's absence feel strangely temporary."
+                "Daniel decides to sell his grandfather's tools.",
+                "Daniel remembers that he never enjoyed working in the workshop.",
+                "Daniel discovers that someone has rearranged the workshop.",
+                "Returning to the workshop, Daniel is struck by how unchanged it is, which makes his grandfather's absence feel strangely temporary."
               ],
               "answer": "D",
               "explanation": "Everything is in place, \"as if his grandfather had only stepped out,\" which is the emotional focus of the passage."
@@ -783,13 +783,13 @@
               "section": "rw",
               "skill": "Boundaries",
               "difficulty": "medium",
-              "passage": "The festival featured musicians from three cities: Bukhara, Uzbekistan______ Almaty, Kazakhstan; and Bishkek, Kyrgyzstan.",
+              "passage": "The festival featured musicians from three cities: Porto, ______ Seville, Spain; and Lyon, France.",
               "prompt": "Which choice completes the text so that it conforms to the conventions of Standard English?",
               "choices": [
-                "",
-                ",",
-                ";",
-                ":"
+                "Portugal",
+                "Portugal,",
+                "Portugal;",
+                "Portugal:"
               ],
               "answer": "C",
               "explanation": "Items that already contain commas are separated by semicolons, as the rest of the list shows."
@@ -831,7 +831,7 @@
               "section": "rw",
               "skill": "Form, Structure, and Sense",
               "difficulty": "medium",
-              "passage": "The ancient city of Merv, which ______ as a trading center along the Silk Road, was one of the largest cities in the world in the twelfth century.",
+              "passage": "The city of Constantinople, which ______ as a trading center linking Europe and Asia, was one of the largest cities in the world in the twelfth century.",
               "prompt": "Which choice completes the text so that it conforms to the conventions of Standard English?",
               "choices": [
                 "flourished",
@@ -895,16 +895,16 @@
               "section": "rw",
               "skill": "Rhetorical Synthesis",
               "difficulty": "easy",
-              "passage": "While researching a topic, a student has taken the following notes:\n\n• The Aral Sea lies on the border of Kazakhstan and Uzbekistan.\n• It was once the fourth-largest lake in the world.\n• Beginning in the 1960s, the rivers that fed it were diverted to irrigate cotton fields.\n• By the 2010s, much of the sea had dried up.",
-              "prompt": "The student wants to explain a cause of the Aral Sea's shrinking. Which choice most effectively uses relevant information from the notes to accomplish this goal?",
+              "passage": "While researching a topic, a student has taken the following notes:\n\n• Owens Lake lies in eastern California.\n• It once covered about 280 square kilometers.\n• Beginning in 1913, the river that fed it was diverted to supply water to Los Angeles.\n• By the late 1920s, the lake had largely dried up.",
+              "prompt": "The student wants to explain a cause of Owens Lake's shrinking. Which choice most effectively uses relevant information from the notes to accomplish this goal?",
               "choices": [
-                "By the 2010s, much of the Aral Sea had dried up.",
-                "The Aral Sea shrank largely because, beginning in the 1960s, the rivers that fed it were diverted to irrigate cotton fields.",
-                "The Aral Sea was once the fourth-largest lake in the world.",
-                "The Aral Sea lies on the border of Kazakhstan and Uzbekistan."
+                "By the late 1920s, Owens Lake had largely dried up.",
+                "Owens Lake shrank largely because, beginning in 1913, the river that fed it was diverted to supply water to Los Angeles.",
+                "Owens Lake once covered about 280 square kilometers.",
+                "Owens Lake lies in eastern California."
               ],
               "answer": "B",
-              "explanation": "Only this choice gives a cause (the diverted rivers)."
+              "explanation": "Only this choice gives a cause (the diverted river)."
             },
             {
               "id": "t1-rw2e-26",
@@ -964,7 +964,7 @@
               "section": "rw",
               "skill": "Words in Context",
               "difficulty": "hard",
-              "passage": "Historian Feruza Alimova's account of the trade route is admirably ______: rather than claiming that a single empire controlled the route, she traces how dozens of rival merchants, rulers, and caravan leaders shaped it over centuries.",
+              "passage": "Historian Isabel Cortez's account of the trade route is admirably ______: rather than claiming that a single empire controlled the route, she traces how dozens of rival merchants, rulers, and caravan leaders shaped it over centuries.",
               "prompt": "Which choice completes the text with the most logical and precise word or phrase?",
               "choices": [
                 "nuanced",
@@ -996,7 +996,7 @@
               "section": "rw",
               "skill": "Words in Context",
               "difficulty": "hard",
-              "passage": "Biologist Leyla Usmonova cautions that the laboratory results should not be ______ to wild populations: the mice in the study lived at stable temperatures and had unlimited food, conditions rarely found outside the laboratory.",
+              "passage": "Biologist Leah Hoffman cautions that the laboratory results should not be ______ to wild populations: the mice in the study lived at stable temperatures and had unlimited food, conditions rarely found outside the laboratory.",
               "prompt": "Which choice completes the text with the most logical and precise word or phrase?",
               "choices": [
                 "confined",
@@ -1028,13 +1028,13 @@
               "section": "rw",
               "skill": "Text Structure and Purpose",
               "difficulty": "hard",
-              "passage": "In her study of nineteenth-century Bukhara textiles, art historian Gulnora Ergasheva notes that ikat dyers rarely signed their work. Rather than treating this anonymity as a gap in the historical record, she argues that it reflects how production was organized: a single fabric might pass through the hands of dyers, weavers, and finishers, each from a different workshop, so no one artisan could claim it as their own.",
+              "passage": "In her study of nineteenth-century Lyon silks, art historian Claire Dubois notes that silk dyers rarely signed their work. Rather than treating this anonymity as a gap in the historical record, she argues that it reflects how production was organized: a single fabric might pass through the hands of dyers, weavers, and finishers, each from a different workshop, so no one artisan could claim it as their own.",
               "prompt": "Which choice best states the main purpose of the text?",
               "choices": [
-                "To argue that ikat textiles from Bukhara are more valuable than those from other cities",
+                "To argue that silks from Lyon are more valuable than those from other cities",
                 "To present a scholar's explanation for a feature of certain textiles that might otherwise be seen as a limitation of the evidence",
-                "To describe the steps involved in dyeing and weaving ikat fabric",
-                "To criticize historians who have tried to identify individual ikat artisans"
+                "To describe the steps involved in dyeing and weaving silk fabric",
+                "To criticize historians who have tried to identify individual silk artisans"
               ],
               "answer": "B",
               "explanation": "The text reframes unsigned work (a seeming gap) as evidence of shared production."
@@ -1408,13 +1408,13 @@
               "section": "rw",
               "skill": "Rhetorical Synthesis",
               "difficulty": "hard",
-              "passage": "While researching a topic, a student has taken the following notes:\n\n• Days Gone By (O'tkan kunlar) is a novel by Abdulla Qodiriy.\n• It was first published in the 1920s.\n• It is often described as the first Uzbek novel.\n• It is set in nineteenth-century Tashkent and Margilan and follows the love story of Otabek and Kumush.",
-              "prompt": "The student wants to introduce the novel to an audience unfamiliar with Uzbek literature. Which choice most effectively uses relevant information from the notes to accomplish this goal?",
+              "passage": "While researching a topic, a student has taken the following notes:\n\n• The Tale of Genji is a work by Murasaki Shikibu.\n• It was written in the early eleventh century.\n• It is often described as the world's first novel.\n• It is set at the imperial court in Heian-era Kyoto and follows the life and loves of Hikaru Genji, the son of an emperor.",
+              "prompt": "The student wants to introduce the work to an audience unfamiliar with Japanese literature. Which choice most effectively uses relevant information from the notes to accomplish this goal?",
               "choices": [
-                "Days Gone By was first published in the 1920s.",
-                "Abdulla Qodiriy's Days Gone By, often described as the first Uzbek novel, tells a love story set in nineteenth-century Tashkent and Margilan.",
-                "Otabek and Kumush's story in Days Gone By remains moving a century later.",
-                "Like other readers of Qodiriy, many people know Days Gone By well."
+                "The Tale of Genji was written in the early eleventh century.",
+                "Murasaki Shikibu's The Tale of Genji, often described as the world's first novel, follows the life and loves of an emperor's son at the imperial court in Heian-era Kyoto.",
+                "Genji's story in The Tale of Genji remains moving a thousand years later.",
+                "Like other readers of Murasaki Shikibu, many people know The Tale of Genji well."
               ],
               "answer": "B",
               "explanation": "An unfamiliar reader needs the author, what the book is, and what it is about. Only this choice gives all three."

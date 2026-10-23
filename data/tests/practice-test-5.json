@@ -66,7 +66,7 @@
             "section": "rw",
             "skill": "Words in Context",
             "difficulty": "hard",
-            "passage": "Economist Farrukh Jurayev cautions that a falling unemployment rate is not always ______ evidence of a strengthening labor market: the rate also falls when discouraged job seekers stop looking for work, since people who are not looking are no longer counted as unemployed.",
+            "passage": "Economist David Morgan cautions that a falling unemployment rate is not always ______ evidence of a strengthening labor market: the rate also falls when discouraged job seekers stop looking for work, since people who are not looking are no longer counted as unemployed.",
             "prompt": "Which choice completes the text with the most logical and precise word or phrase?",
             "choices": [
               "unambiguous",
@@ -98,7 +98,7 @@
             "section": "rw",
             "skill": "Text Structure and Purpose",
             "difficulty": "hard",
-            "passage": "Film histories often describe the arrival of synchronized sound in the late 1920s as a sudden revolution that ended the silent era almost overnight. Historian Kamola Yusupova points out, however, that many theaters in smaller towns went on showing silent films for years, because installing sound equipment was expensive. In her view, the shift to sound was less a single turning point than a gradual process whose pace depended on local economic conditions.",
+            "passage": "Film histories often describe the arrival of synchronized sound in the late 1920s as a sudden revolution that ended the silent era almost overnight. Historian Margaret Hale points out, however, that many theaters in smaller towns went on showing silent films for years, because installing sound equipment was expensive. In her view, the shift to sound was less a single turning point than a gradual process whose pace depended on local economic conditions.",
             "prompt": "Which choice best states the main purpose of the text?",
             "choices": [
               "To argue that synchronized sound had little lasting influence on the way films were made",
@@ -107,15 +107,15 @@
               "To criticize film historians for overlooking the artistic achievements of silent films"
             ],
             "answer": "C",
-            "explanation": "The text sets up the \"sudden revolution\" story and then gives Yusupova's view that the change was gradual and depended on local conditions. She never says sound had *little lasting influence*, only that it spread slowly."
+            "explanation": "The text sets up the \"sudden revolution\" story and then gives Hale's view that the change was gradual and depended on local conditions. She never says sound had *little lasting influence*, only that it spread slowly."
           },
           {
             "id": "t5-rw1-07",
             "section": "rw",
             "skill": "Cross-Text Connections",
             "difficulty": "hard",
-            "passage": "**Text 1**\nVolcanologists have traditionally treated a sharp rise in small earthquakes beneath a volcano as the most dependable sign that an eruption is near. The quakes, the reasoning goes, occur as rising magma forces its way through the surrounding rock.\n\n**Text 2**\nGeophysicist Eldor Nasriddinov and colleagues reviewed monitoring records from dozens of volcanoes. Swarms of small earthquakes came before many eruptions, but they also occurred often with no eruption following. Swarms accompanied by measurable swelling of the ground, however, were far more likely to end in eruptions, so the team recommends tracking both signals together.",
-            "prompt": "Based on the texts, how would Nasriddinov and colleagues (Text 2) most likely respond to the traditional view described in Text 1?",
+            "passage": "**Text 1**\nVolcanologists have traditionally treated a sharp rise in small earthquakes beneath a volcano as the most dependable sign that an eruption is near. The quakes, the reasoning goes, occur as rising magma forces its way through the surrounding rock.\n\n**Text 2**\nGeophysicist Kenji Watanabe and colleagues reviewed monitoring records from dozens of volcanoes. Swarms of small earthquakes came before many eruptions, but they also occurred often with no eruption following. Swarms accompanied by measurable swelling of the ground, however, were far more likely to end in eruptions, so the team recommends tracking both signals together.",
+            "prompt": "Based on the texts, how would Watanabe and colleagues (Text 2) most likely respond to the traditional view described in Text 1?",
             "choices": [
               "By claiming that earthquakes beneath volcanoes are not caused by rising magma",
               "By arguing that earthquake swarms are a less dependable warning on their own than that view assumes, though they become more informative when combined with evidence of ground swelling",
@@ -130,12 +130,12 @@
             "section": "rw",
             "skill": "Central Ideas and Details",
             "difficulty": "easy",
-            "passage": "The Tian Shan mountains stretch for about 2,500 kilometers across Central Asia, from China through Kyrgyzstan and Kazakhstan into eastern Uzbekistan. Although they formed long ago, the mountains are still rising. The slow collision between the Indian and Eurasian tectonic plates continues to squeeze the region, pushing the ranges upward and causing frequent earthquakes.",
+            "passage": "The Himalayas stretch for about 2,400 kilometers across South Asia, from Pakistan through India and Nepal to Bhutan. Although they formed long ago, the mountains are still rising. The slow collision between the Indian and Eurasian tectonic plates continues to squeeze the region, pushing the ranges upward and causing frequent earthquakes.",
             "prompt": "Which choice best states the main idea of the text?",
             "choices": [
-              "The Tian Shan are the tallest mountains in Central Asia.",
-              "The Tian Shan mountains continue to rise because of an ongoing collision between tectonic plates.",
-              "Earthquakes in the Tian Shan have become less common over time.",
+              "The Himalayas are the oldest mountains in South Asia.",
+              "The Himalayas continue to rise because of an ongoing collision between tectonic plates.",
+              "Earthquakes in the Himalayas have become less common over time.",
               "The Indian and Eurasian plates stopped moving long ago."
             ],
             "answer": "B",
@@ -146,13 +146,13 @@
             "section": "rw",
             "skill": "Central Ideas and Details",
             "difficulty": "medium",
-            "passage": "The following text is from a short story. Saida, a set designer, is visiting the film studio where her father once worked.\n\nThe studio's backlot was quieter than Saida remembered. The painted street where her father had built shopfronts out of plywood was still standing, though its colors had faded to the gray of old photographs. She pressed her palm against a door that had never opened onto anything and was surprised to find that it still felt, somehow, like the entrance to somewhere.",
+            "passage": "The following text is from a short story. Nora, a set designer, is visiting the film studio where her father once worked.\n\nThe studio's backlot was quieter than Nora remembered. The painted street where her father had built shopfronts out of plywood was still standing, though its colors had faded to the gray of old photographs. She pressed her palm against a door that had never opened onto anything and was surprised to find that it still felt, somehow, like the entrance to somewhere.",
             "prompt": "Which choice best states the main idea of the text?",
             "choices": [
-              "Although the old set is faded and was never real, it still gives Saida a sense of possibility.",
-              "Saida is upset to discover that her father's street set has been torn down.",
-              "Saida realizes that her father built his sets carelessly.",
-              "Saida decides to repaint the street set in its original colors."
+              "Although the old set is faded and was never real, it still gives Nora a sense of possibility.",
+              "Nora is upset to discover that her father's street set has been torn down.",
+              "Nora realizes that her father built his sets carelessly.",
+              "Nora decides to repaint the street set in its original colors."
             ],
             "answer": "A",
             "explanation": "The set is faded and the door leads nowhere, yet it still feels like \"the entrance to somewhere.\" The set is still standing, so it was not torn down."
@@ -162,8 +162,8 @@
             "section": "rw",
             "skill": "Command of Evidence: Textual",
             "difficulty": "medium",
-            "passage": "Entomologist Gulshan Ahmedova hypothesizes that males of a certain firefly species flash in unison because females of the species respond more readily to many lights flashing together than to scattered, unsynchronized flashes.",
-            "prompt": "Which finding, if true, would most directly support Ahmedova's hypothesis?",
+            "passage": "Entomologist Rebecca Stone hypothesizes that males of a certain firefly species flash in unison because females of the species respond more readily to many lights flashing together than to scattered, unsynchronized flashes.",
+            "prompt": "Which finding, if true, would most directly support Stone's hypothesis?",
             "choices": [
               "Males of the species flash more often on warm nights than on cool nights.",
               "In a laboratory, females flashed back more often at groups of small lights blinking in unison than at the same number of lights blinking at random times.",
@@ -178,8 +178,8 @@
             "section": "rw",
             "skill": "Command of Evidence: Textual",
             "difficulty": "hard",
-            "passage": "Studying a region where several large warehouses opened within two years, economist Nilufar Haydarova argues that the warehouses raised wages not only for their own employees but also for workers at nearby retail stores, which had to raise pay to keep employees from leaving for warehouse jobs.",
-            "prompt": "Which finding, if true, would most directly support Haydarova's argument?",
+            "passage": "Studying a region where several large warehouses opened within two years, economist Olivia Grant argues that the warehouses raised wages not only for their own employees but also for workers at nearby retail stores, which had to raise pay to keep employees from leaving for warehouse jobs.",
+            "prompt": "Which finding, if true, would most directly support Grant's argument?",
             "choices": [
               "Warehouse employees in the region earned more per hour than retail employees did both before and after the warehouses opened.",
               "Several retail stores in the region closed during the two years in which the warehouses opened.",
@@ -194,10 +194,10 @@
             "section": "rw",
             "skill": "Command of Evidence: Quantitative",
             "difficulty": "medium",
-            "passage": "Architecture students measured indoor temperatures at 3:00 p.m. on a hot July day in four buildings in Bukhara. They note that the building with the thickest walls was the coolest, but that wall thickness alone does not explain their results: ______",
+            "passage": "Architecture students measured indoor temperatures at 3:00 p.m. on a hot July day in four buildings in Seville. They note that the building with the thickest walls was the coolest, but that wall thickness alone does not explain their results: ______",
             "prompt": "Which choice most effectively uses data from the table to complete the statement?",
             "choices": [
-              "the caravanserai, with walls 90 centimeters thick, was 27°C at 3:00 p.m.",
+              "the monastery, with walls 90 centimeters thick, was 27°C at 3:00 p.m.",
               "the apartment block had the thinnest walls of the four buildings, at 30 centimeters.",
               "the office without a courtyard was the warmest of the four buildings, at 34°C.",
               "the two offices had walls of the same thickness, yet the office with a courtyard was 6 degrees cooler than the one without."
@@ -213,7 +213,7 @@
               ],
               "rows": [
                 [
-                  "Caravanserai (16th century)",
+                  "Monastery (16th century)",
                   "90",
                   "27"
                 ],
@@ -275,10 +275,10 @@
             "passage": "The documentary Snow Line was filmed entirely in the mountains near ______ the crew spent four months living in tents above the tree line.",
             "prompt": "Which choice completes the text so that it conforms to the conventions of Standard English?",
             "choices": [
-              "Chimgan,",
-              "Chimgan",
-              "Chimgan;",
-              "Chimgan, in fact,"
+              "Zermatt,",
+              "Zermatt",
+              "Zermatt;",
+              "Zermatt, in fact,"
             ],
             "answer": "C",
             "explanation": "Both parts are complete sentences, so they need a semicolon. A comma alone, even with *in fact*, creates a comma splice."
@@ -288,16 +288,16 @@
             "section": "rw",
             "skill": "Boundaries",
             "difficulty": "medium",
-            "passage": "Built in the tenth century, the Samanid Mausoleum in ______ is one of the oldest surviving examples of baked-brick architecture in Central Asia.",
+            "passage": "Built in the first century, the Pont du Gard near ______ is one of the best-preserved Roman aqueduct bridges in Europe.",
             "prompt": "Which choice completes the text so that it conforms to the conventions of Standard English?",
             "choices": [
-              "Bukhara,",
-              "Bukhara;",
-              "Bukhara:",
-              "Bukhara"
+              "Nîmes,",
+              "Nîmes;",
+              "Nîmes:",
+              "Nîmes"
             ],
             "answer": "D",
-            "explanation": "No punctuation belongs between the subject (\"the Samanid Mausoleum in Bukhara\") and its verb \"is.\""
+            "explanation": "No punctuation belongs between the subject (\"the Pont du Gard near Nîmes\") and its verb \"is.\""
           },
           {
             "id": "t5-rw1-17",
@@ -352,7 +352,7 @@
             "section": "rw",
             "skill": "Form, Structure, and Sense",
             "difficulty": "medium",
-            "passage": "When their studio closed in 1961, the two ______ hand-cranked cameras, which had been used to film nearly every scene of their early comedies, were donated to a museum in Tashkent.",
+            "passage": "When their studio closed in 1961, the two ______ hand-cranked cameras, which had been used to film nearly every scene of their early comedies, were donated to a museum in Prague.",
             "prompt": "Which choice completes the text so that it conforms to the conventions of Standard English?",
             "choices": [
               "directors'",
@@ -368,7 +368,7 @@
             "section": "rw",
             "skill": "Form, Structure, and Sense",
             "difficulty": "hard",
-            "passage": "Among the most unusual features of architect Lola Mirzayeva's design for a new library in Samarkand ______ a roof assembled from thousands of interlocking ceramic tiles.",
+            "passage": "Among the most unusual features of architect Inès Moreau's design for a new library in Lisbon ______ a roof assembled from thousands of interlocking ceramic tiles.",
             "prompt": "Which choice completes the text so that it conforms to the conventions of Standard English?",
             "choices": [
               "is",
@@ -566,13 +566,13 @@
               "section": "rw",
               "skill": "Text Structure and Purpose",
               "difficulty": "medium",
-              "passage": "Traditional houses in the old quarters of Bukhara were built around an inner courtyard. __Their thick mud-brick walls facing the street usually had few or no windows.__ This design kept hot, dusty street air out while letting light and breezes reach the rooms from the shaded courtyard.",
+              "passage": "Traditional houses in the old quarters of Marrakesh were built around an inner courtyard. __Their thick earthen walls facing the street usually had few or no windows.__ This design kept hot, dusty street air out while letting light and breezes reach the rooms from the shaded courtyard.",
               "prompt": "Which choice best describes the function of the underlined sentence in the text as a whole?",
               "choices": [
                 "It introduces a problem that the houses' builders were unable to solve.",
-                "It compares the houses of Bukhara with those of other cities.",
+                "It compares the houses of Marrakesh with those of other cities.",
                 "It describes a feature of the houses that the final sentence then explains.",
-                "It explains why few houses in Bukhara had courtyards."
+                "It explains why few houses in Marrakesh had courtyards."
               ],
               "answer": "C",
               "explanation": "The underlined sentence describes the windowless street walls, and the last sentence explains why they were built that way (\"This design kept hot, dusty street air out\")."
@@ -582,8 +582,8 @@
               "section": "rw",
               "skill": "Cross-Text Connections",
               "difficulty": "medium",
-              "passage": "**Text 1**\nSome film distributors argue that black-and-white classics seem old-fashioned to modern viewers and that these films should be digitally colorized so that more people will watch them.\n\n**Text 2**\nFilm historian Sherzod Turgunov points out that the makers of black-and-white films planned their lighting, sets, and costumes for a world without color. A costume that looked striking in shades of gray might have been an unappealing color in real life. Adding color afterward, he argues, replaces the look the filmmakers carefully designed with one they never intended.",
-              "prompt": "Based on the texts, how would Turgunov (Text 2) most likely respond to the distributors' proposal in Text 1?",
+              "passage": "**Text 1**\nSome film distributors argue that black-and-white classics seem old-fashioned to modern viewers and that these films should be digitally colorized so that more people will watch them.\n\n**Text 2**\nFilm historian Paul Mercer points out that the makers of black-and-white films planned their lighting, sets, and costumes for a world without color. A costume that looked striking in shades of gray might have been an unappealing color in real life. Adding color afterward, he argues, replaces the look the filmmakers carefully designed with one they never intended.",
+              "prompt": "Based on the texts, how would Mercer (Text 2) most likely respond to the distributors' proposal in Text 1?",
               "choices": [
                 "By agreeing that colorized versions would attract larger audiences to classic films",
                 "By arguing that colorizing the films would alter visual choices that the original filmmakers made deliberately",
@@ -591,7 +591,7 @@
                 "By suggesting that black-and-white films were cheaper to make than color films"
               ],
               "answer": "B",
-              "explanation": "Turgunov says filmmakers designed their films for black and white, so adding color changes what they intended. That is an objection to the distributors' plan."
+              "explanation": "Mercer says filmmakers designed their films for black and white, so adding color changes what they intended. That is an objection to the distributors' plan."
             },
             {
               "id": "t5-rw2e-08",
@@ -614,13 +614,13 @@
               "section": "rw",
               "skill": "Central Ideas and Details",
               "difficulty": "medium",
-              "passage": "The following text is from a short story. Nargiza, a young engineer, is starting her first job at a construction site.\n\nOn her first morning, Nargiza arrived with a new hard hat and a folder of drawings she had checked three times. The foreman glanced at the folder, then handed it back without opening it. \"Drawings are what we hope will happen,\" he said, nodding toward the half-finished walls. \"Spend today watching what actually does.\"",
+              "passage": "The following text is from a short story. Hannah, a young engineer, is starting her first job at a construction site.\n\nOn her first morning, Hannah arrived with a new hard hat and a folder of drawings she had checked three times. The foreman glanced at the folder, then handed it back without opening it. \"Drawings are what we hope will happen,\" he said, nodding toward the half-finished walls. \"Spend today watching what actually does.\"",
               "prompt": "Which choice best states the main idea of the text?",
               "choices": [
-                "A foreman suggests that Nargiza will learn more by watching the work on the site than by studying her plans.",
-                "Nargiza is criticized for the errors in her drawings.",
-                "The foreman refuses to let Nargiza work at the site.",
-                "Nargiza decides that her engineering training was a waste of time."
+                "A foreman suggests that Hannah will learn more by watching the work on the site than by studying her plans.",
+                "Hannah is criticized for the errors in her drawings.",
+                "The foreman refuses to let Hannah work at the site.",
+                "Hannah decides that her engineering training was a waste of time."
               ],
               "answer": "A",
               "explanation": "The foreman contrasts plans (\"what we hope will happen\") with real work (\"what actually does\") and tells her to watch. He never opens the folder, so he points out no errors."
@@ -646,8 +646,8 @@
               "section": "rw",
               "skill": "Command of Evidence: Textual",
               "difficulty": "medium",
-              "passage": "Geologist Aziza Qurbonova claims that a layer of volcanic ash found in the mud at the bottom of several lakes across a region came from a single large eruption rather than from several smaller ones.",
-              "prompt": "Which finding, if true, would most directly support Qurbonova's claim?",
+              "passage": "Geologist Maria Santos claims that a layer of volcanic ash found in the mud at the bottom of several lakes across a region came from a single large eruption rather than from several smaller ones.",
+              "prompt": "Which finding, if true, would most directly support Santos's claim?",
               "choices": [
                 "The ash layer is thicker in some lakes than in others.",
                 "Several volcanoes in the region have erupted within the past 10,000 years.",
@@ -662,7 +662,7 @@
               "section": "rw",
               "skill": "Command of Evidence: Quantitative",
               "difficulty": "easy",
-              "passage": "A historian studying the records of a film studio that operated in Tashkent from 1950 to 1989 found that the studio released the most feature films in the ______",
+              "passage": "A historian studying the records of a film studio that operated in Bologna from 1950 to 1989 found that the studio released the most feature films in the ______",
               "prompt": "Which choice most effectively uses data from the table to complete the statement?",
               "choices": [
                 "1970s, when it released 48 films.",
@@ -751,7 +751,7 @@
               "section": "rw",
               "skill": "Boundaries",
               "difficulty": "easy",
-              "passage": "The architect relied on two local ______ fired brick from nearby kilns and poplar wood from the Zarafshan Valley.",
+              "passage": "The architect relied on two local ______ fired brick from nearby kilns and oak from the Loire Valley.",
               "prompt": "Which choice completes the text so that it conforms to the conventions of Standard English?",
               "choices": [
                 "materials;",
@@ -767,7 +767,7 @@
               "section": "rw",
               "skill": "Boundaries",
               "difficulty": "medium",
-              "passage": "Botir Holmatov's first feature ______ a black-and-white drama set in a mill town, won a prize at a regional film festival in 1968.",
+              "passage": "Victor Lanz's first feature ______ a black-and-white drama set in a mill town, won a prize at a regional film festival in 1968.",
               "prompt": "Which choice completes the text so that it conforms to the conventions of Standard English?",
               "choices": [
                 "film",
@@ -911,16 +911,16 @@
               "section": "rw",
               "skill": "Rhetorical Synthesis",
               "difficulty": "medium",
-              "passage": "While researching a topic, a student has taken the following notes:\n\n• The Kalyan Minaret in Bukhara, Uzbekistan, was completed in 1127.\n• It is built of baked brick arranged in decorative bands.\n• The bell tower of Pisa Cathedral in Italy, known as the Leaning Tower of Pisa, was completed in 1372.\n• It is built mainly of white marble.",
+              "passage": "While researching a topic, a student has taken the following notes:\n\n• The Giralda in Seville, Spain, was completed as a minaret in 1198 and later became the bell tower of Seville Cathedral.\n• It is built mainly of brick arranged in decorative patterns.\n• The bell tower of Pisa Cathedral in Italy, known as the Leaning Tower of Pisa, was completed in 1372.\n• It is built mainly of white marble.",
               "prompt": "The student wants to emphasize the difference in age between the two towers. Which choice most effectively uses relevant information from the notes to accomplish this goal?",
               "choices": [
-                "Completed in 1127, the Kalyan Minaret in Bukhara is more than two centuries older than the Leaning Tower of Pisa, which was completed in 1372.",
-                "The Kalyan Minaret is built of baked brick, while the Leaning Tower of Pisa is built mainly of white marble.",
+                "Completed in 1198, the Giralda in Seville is more than 170 years older than the Leaning Tower of Pisa, which was completed in 1372.",
+                "The Giralda is built mainly of brick, while the Leaning Tower of Pisa is built mainly of white marble.",
                 "The Leaning Tower of Pisa is the bell tower of Pisa Cathedral in Italy.",
-                "The Kalyan Minaret in Bukhara, Uzbekistan, is built of baked brick arranged in decorative bands."
+                "The Giralda in Seville, Spain, is built mainly of brick arranged in decorative patterns."
               ],
               "answer": "A",
-              "explanation": "The goal is a difference in age, which needs both completion dates: 1372 − 1127 = 245 years. The brick-and-marble choice compares materials instead."
+              "explanation": "The goal is a difference in age, which needs both completion dates: 1372 − 1198 = 174 years. The brick-and-marble choice compares materials instead."
             },
             {
               "id": "t5-rw2e-27",
@@ -948,7 +948,7 @@
               "section": "rw",
               "skill": "Words in Context",
               "difficulty": "hard",
-              "passage": "Because the rock layers at the base of the canyon were laid down over millions of years without interruption, geologist Sanjar Aliqulov regards them as an unusually ______ archive: whereas most rock sequences are riddled with gaps where layers eroded away, these layers preserve a nearly complete history of the region's climate.",
+              "passage": "Because the rock layers at the base of the canyon were laid down over millions of years without interruption, geologist Owen Fletcher regards them as an unusually ______ archive: whereas most rock sequences are riddled with gaps where layers eroded away, these layers preserve a nearly complete history of the region's climate.",
               "prompt": "Which choice completes the text with the most logical and precise word or phrase?",
               "choices": [
                 "fragmentary",
@@ -980,7 +980,7 @@
               "section": "rw",
               "skill": "Words in Context",
               "difficulty": "hard",
-              "passage": "In her study of hiring in the textile industry, economist Madina Sultonova finds that employers' stated preference for experienced workers is largely ______: when her team sent employers pairs of otherwise identical applications that differed only in years of experience, the two applications received callbacks at nearly the same rate.",
+              "passage": "In her study of hiring in the textile industry, economist Julia Brandt finds that employers' stated preference for experienced workers is largely ______: when her team sent employers pairs of otherwise identical applications that differed only in years of experience, the two applications received callbacks at nearly the same rate.",
               "prompt": "Which choice completes the text with the most logical and precise word or phrase?",
               "choices": [
                 "nominal",
@@ -1012,16 +1012,16 @@
               "section": "rw",
               "skill": "Text Structure and Purpose",
               "difficulty": "hard",
-              "passage": "Visitors to the apartment blocks built in Tashkent in the 1970s and 1980s often notice the large mosaic panels on their outer walls, which depict cotton harvests, space flights, and scenes from local legends. Architectural historian Bahodir Nurmatov argues that these panels should not be dismissed as decoration added to otherwise ordinary buildings. Because the panels were often planned together with the buildings themselves, he contends, they gave architects one of the few ways to express regional character in structures whose layouts followed standard designs approved in Moscow.",
+              "passage": "Visitors to the apartment blocks built in Tbilisi in the 1970s and 1980s often notice the large mosaic panels on their outer walls, which depict grape harvests, space flights, and scenes from local legends. Architectural historian Daniel Weiss argues that these panels should not be dismissed as decoration added to otherwise ordinary buildings. Because the panels were often planned together with the buildings themselves, he contends, they gave architects one of the few ways to express regional character in structures whose layouts followed standard designs approved in Moscow.",
               "prompt": "Which choice best states the main purpose of the text?",
               "choices": [
-                "To argue that standard building designs prevented architects in Tashkent from expressing any regional character",
-                "To describe the subjects most often shown in the mosaic panels on Tashkent's buildings",
+                "To argue that standard building designs prevented architects in Tbilisi from expressing any regional character",
+                "To describe the subjects most often shown in the mosaic panels on Tbilisi's buildings",
                 "To present a historian's argument that a feature of certain buildings was more significant than it might appear",
-                "To explain why building designs approved in Moscow were poorly suited to Tashkent's climate"
+                "To explain why building designs approved in Moscow were poorly suited to Tbilisi's climate"
               ],
               "answer": "C",
-              "explanation": "The text reports Nurmatov's claim that the panels were more than decoration. The first wrong choice goes too far: in his view, the panels *were* a way to express regional character."
+              "explanation": "The text reports Weiss's claim that the panels were more than decoration. The first wrong choice goes too far: in his view, the panels *were* a way to express regional character."
             },
             {
               "id": "t5-rw2h-06",
@@ -1044,8 +1044,8 @@
               "section": "rw",
               "skill": "Cross-Text Connections",
               "difficulty": "hard",
-              "passage": "**Text 1**\nFor decades, many economists held that raising the minimum wage must reduce employment among low-wage workers. If labor becomes more expensive, the reasoning went, employers will simply hire fewer people.\n\n**Text 2**\nEconomist Akmal Rasulov notes that this reasoning assumes employers cannot set wages below what workers would earn in a competitive market. In towns dominated by a single large employer, he argues, workers have few alternatives, so the employer can hold wages down. In such places, a moderate rise in the minimum wage could draw more people into the workforce without reducing the number of jobs.",
-              "prompt": "Based on the texts, how would Rasulov (Text 2) most likely respond to the reasoning presented in Text 1?",
+              "passage": "**Text 1**\nFor decades, many economists held that raising the minimum wage must reduce employment among low-wage workers. If labor becomes more expensive, the reasoning went, employers will simply hire fewer people.\n\n**Text 2**\nEconomist Michael Foster notes that this reasoning assumes employers cannot set wages below what workers would earn in a competitive market. In towns dominated by a single large employer, he argues, workers have few alternatives, so the employer can hold wages down. In such places, a moderate rise in the minimum wage could draw more people into the workforce without reducing the number of jobs.",
+              "prompt": "Based on the texts, how would Foster (Text 2) most likely respond to the reasoning presented in Text 1?",
               "choices": [
                 "He would agree that higher minimum wages reduce employment but argue that the benefits to workers outweigh this cost.",
                 "He would claim that it applies only to towns dominated by a single large employer.",
@@ -1053,14 +1053,14 @@
                 "He would contend that raising the minimum wage increases employment regardless of local conditions."
               ],
               "answer": "C",
-              "explanation": "Rasulov identifies a hidden assumption in Text 1 and says it fails where one employer dominates. He does not grant that jobs are lost, and his claim is limited to particular towns, not \"regardless of local conditions.\""
+              "explanation": "Foster identifies a hidden assumption in Text 1 and says it fails where one employer dominates. He does not grant that jobs are lost, and his claim is limited to particular towns, not \"regardless of local conditions.\""
             },
             {
               "id": "t5-rw2h-08",
               "section": "rw",
               "skill": "Central Ideas and Details",
               "difficulty": "hard",
-              "passage": "Film restorers working on damaged silent films face a dilemma. Many such films survive only in copies made decades after their release, and these copies often differ from the versions that audiences first saw: scenes were cut by censors, title cards were rewritten for new markets, and colors added by hand-tinting were lost when the films were copied onto black-and-white stock. Restorer Gulbahor Zokirova argues that every restoration is therefore an interpretation, and she insists that restorers document each choice they make so that viewers can see where a restored film departs from the surviving evidence.",
+              "passage": "Film restorers working on damaged silent films face a dilemma. Many such films survive only in copies made decades after their release, and these copies often differ from the versions that audiences first saw: scenes were cut by censors, title cards were rewritten for new markets, and colors added by hand-tinting were lost when the films were copied onto black-and-white stock. Restorer Isabelle Laurent argues that every restoration is therefore an interpretation, and she insists that restorers document each choice they make so that viewers can see where a restored film departs from the surviving evidence.",
               "prompt": "Which choice best states the main idea of the text?",
               "choices": [
                 "Hand-tinted color was the feature of silent films most often lost in later copies.",
@@ -1069,7 +1069,7 @@
                 "Censorship was the main reason that silent films were altered after their release."
               ],
               "answer": "C",
-              "explanation": "The text explains why surviving copies are unreliable and ends with Zokirova's call to document every choice. She wants restorers to be transparent, not to stop restoring, and the text never ranks the causes of change."
+              "explanation": "The text explains why surviving copies are unreliable and ends with Laurent's call to document every choice. She wants restorers to be transparent, not to stop restoring, and the text never ranks the causes of change."
             },
             {
               "id": "t5-rw2h-09",
@@ -1092,8 +1092,8 @@
               "section": "rw",
               "skill": "Command of Evidence: Textual",
               "difficulty": "hard",
-              "passage": "Volcanologist Iroda Shermatova hypothesizes that eruptions of a particular volcano in a region with distinct wet and dry seasons are often triggered when heavy seasonal rains soak deep into the ground, raising the pressure in the rock around the volcano's magma chamber.",
-              "prompt": "Which finding, if true, would most directly support Shermatova's hypothesis?",
+              "passage": "Volcanologist Teresa Alvarez hypothesizes that eruptions of a particular volcano in a region with distinct wet and dry seasons are often triggered when heavy seasonal rains soak deep into the ground, raising the pressure in the rock around the volcano's magma chamber.",
+              "prompt": "Which finding, if true, would most directly support Alvarez's hypothesis?",
               "choices": [
                 "The volcano receives more rainfall each year than any other volcano in the region.",
                 "Over the past century, the volcano's eruptions have begun far more often in the two months after the end of the wet season than at any other time of year.",
@@ -1154,7 +1154,7 @@
               "section": "rw",
               "skill": "Command of Evidence: Quantitative",
               "difficulty": "hard",
-              "passage": "Entomologist Javlon Hamroyev placed food at the ends of trails that had been marked with scent by different numbers of ants from the same colony, then counted how many ants from the colony followed each trail over one hour. He concluded that a trail became more attractive as more ants marked it, but only up to a point: ______",
+              "passage": "Entomologist Robert Nash placed food at the ends of trails that had been marked with scent by different numbers of ants from the same colony, then counted how many ants from the colony followed each trail over one hour. He concluded that a trail became more attractive as more ants marked it, but only up to a point: ______",
               "prompt": "Which choice most effectively uses data from the table to complete the statement?",
               "choices": [
                 "a trail marked by 10 ants drew 41 followers, more than three times as many as the unmarked trail.",
@@ -1275,7 +1275,7 @@
               "section": "rw",
               "skill": "Boundaries",
               "difficulty": "hard",
-              "passage": "The ______ Laylo Nazirova has spent two decades studying how workers who move abroad send money home to their families.",
+              "passage": "The ______ Ana Pereira has spent two decades studying how workers who move abroad send money home to their families.",
               "prompt": "Which choice completes the text so that it conforms to the conventions of Standard English?",
               "choices": [
                 "labor economist,",
@@ -1284,7 +1284,7 @@
                 "labor economist;"
               ],
               "answer": "B",
-              "explanation": "\"Laylo Nazirova\" identifies which labor economist is meant, so it is essential and takes no punctuation. A single comma would wrongly separate the subject from the rest of the sentence."
+              "explanation": "\"Ana Pereira\" identifies which labor economist is meant, so it is essential and takes no punctuation. A single comma would wrongly separate the subject from the rest of the sentence."
             },
             {
               "id": "t5-rw2h-19",
@@ -1323,16 +1323,16 @@
               "section": "rw",
               "skill": "Form, Structure, and Sense",
               "difficulty": "hard",
-              "passage": "Originally built as a resting place for merchants traveling along the Silk Road, ______",
+              "passage": "Originally built as a resting place for pilgrims walking to Santiago de Compostela, ______",
               "prompt": "Which choice completes the text so that it conforms to the conventions of Standard English?",
               "choices": [
-                "a museum of regional crafts now occupies the caravanserai.",
-                "the caravanserai now houses a museum of regional crafts.",
-                "visitors can now tour a museum of regional crafts inside the caravanserai.",
-                "the city has turned the caravanserai into a museum of regional crafts."
+                "a museum of regional crafts now occupies the inn.",
+                "the inn now houses a museum of regional crafts.",
+                "visitors can now tour a museum of regional crafts inside the inn.",
+                "the city has turned the inn into a museum of regional crafts."
               ],
               "answer": "B",
-              "explanation": "The opening phrase describes the building, so \"the caravanserai\" must come right after the comma. In the other choices, the museum, the visitors, or the city would seem to have been built for merchants."
+              "explanation": "The opening phrase describes the building, so \"the inn\" must come right after the comma. In the other choices, the museum, the visitors, or the city would seem to have been built for pilgrims."
             },
             {
               "id": "t5-rw2h-22",
@@ -1355,7 +1355,7 @@
               "section": "rw",
               "skill": "Transitions",
               "difficulty": "hard",
-              "passage": "Director Akbar Hasanov rarely used music in his films, believing that a musical score told audiences how to feel. His final film is no exception: it has no score at all. ______ the film is far from quiet; Hasanov filled its soundtrack with the hum of traffic, distant radios, and the calls of street vendors.",
+              "passage": "Director Federico Russo rarely used music in his films, believing that a musical score told audiences how to feel. His final film is no exception: it has no score at all. ______ the film is far from quiet; Russo filled its soundtrack with the hum of traffic, distant radios, and the calls of street vendors.",
               "prompt": "Which choice completes the text with the most logical transition?",
               "choices": [
                 "Consequently,",
@@ -1387,16 +1387,16 @@
               "section": "rw",
               "skill": "Rhetorical Synthesis",
               "difficulty": "hard",
-              "passage": "While researching a topic, a student has taken the following notes:\n\n• Gur-e-Amir is a mausoleum in Samarkand, Uzbekistan, completed in the early 1400s.\n• It holds the tomb of the conqueror Timur (Amir Temur).\n• The Taj Mahal is a mausoleum in Agra, India, completed in the mid-1600s.\n• It was built by the Mughal emperor Shah Jahan, a descendant of Timur.\n• Historians regard the design of Gur-e-Amir as an important influence on later Mughal tombs, including the Taj Mahal.",
-              "prompt": "The student wants to emphasize the architectural connection between the two buildings for an audience unfamiliar with Gur-e-Amir. Which choice most effectively uses relevant information from the notes to accomplish this goal?",
+              "passage": "While researching a topic, a student has taken the following notes:\n\n• The Pantheon is a temple in Rome, Italy, completed around 125 CE.\n• It was commissioned by the emperor Hadrian.\n• The Rotunda is a building at the University of Virginia in the United States, completed in 1826.\n• It was designed by Thomas Jefferson.\n• Historians regard the Pantheon's design as the main model for the Rotunda, which was built at about half the Pantheon's scale.",
+              "prompt": "The student wants to emphasize the architectural connection between the two buildings for an audience unfamiliar with the Pantheon. Which choice most effectively uses relevant information from the notes to accomplish this goal?",
               "choices": [
-                "The Taj Mahal was built by Shah Jahan, a descendant of Timur, whose tomb lies in Gur-e-Amir.",
-                "Gur-e-Amir and the Taj Mahal are both mausoleums.",
-                "Gur-e-Amir, which holds the tomb of Timur, was completed about two centuries before the Taj Mahal.",
-                "Gur-e-Amir, a mausoleum completed in Samarkand in the early 1400s, is regarded as an important influence on later Mughal tombs, including India's Taj Mahal."
+                "The Pantheon was commissioned by the emperor Hadrian, and the Rotunda was designed by Thomas Jefferson.",
+                "The Pantheon and the Rotunda are both well-known buildings.",
+                "The Pantheon, commissioned by Hadrian, was completed about seventeen centuries before the Rotunda.",
+                "The Pantheon, a temple completed in Rome around 125 CE, served as the main model for the Rotunda at the University of Virginia, which was built at about half the Pantheon's scale."
               ],
               "answer": "D",
-              "explanation": "The goal is an *architectural* link, explained for readers who don't know Gur-e-Amir. Only this choice says what Gur-e-Amir is and that its design influenced the Taj Mahal. The Shah Jahan choice gives a family connection, not an architectural one."
+              "explanation": "The goal is an *architectural* link, explained for readers who don't know the Pantheon. Only this choice says what the Pantheon is and that its design was the model for the Rotunda. The Hadrian-and-Jefferson choice names the people behind each building, not an architectural connection."
             },
             {
               "id": "t5-rw2h-26",
@@ -1419,13 +1419,13 @@
               "section": "rw",
               "skill": "Rhetorical Synthesis",
               "difficulty": "hard",
-              "passage": "While researching a topic, a student has taken the following notes:\n\n• Film scholar Shahnoza Abdurahmonova measured the average shot length, or the time between cuts, in 400 feature films released from 1950 to 2009.\n• In films from the 1950s, the average shot lasted about 11 seconds.\n• In films from the 2000s, the average shot lasted about 4 seconds.\n• Abdurahmonova attributes the change partly to the influence of television commercials and music videos.",
+              "passage": "While researching a topic, a student has taken the following notes:\n\n• Film scholar Karen Holt measured the average shot length, or the time between cuts, in 400 feature films released from 1950 to 2009.\n• In films from the 1950s, the average shot lasted about 11 seconds.\n• In films from the 2000s, the average shot lasted about 4 seconds.\n• Holt attributes the change partly to the influence of television commercials and music videos.",
               "prompt": "The student wants to emphasize the size of the change in shot length and present a possible explanation for it. Which choice most effectively uses relevant information from the notes to accomplish this goal?",
               "choices": [
                 "Average shot length fell from about 11 seconds in films from the 1950s to about 4 seconds in films from the 2000s.",
-                "The average shot in feature films shrank from about 11 seconds in the 1950s to about 4 seconds in the 2000s, a change Abdurahmonova attributes partly to the influence of television commercials and music videos.",
-                "Abdurahmonova attributes changes in average shot length partly to the influence of television commercials and music videos.",
-                "Abdurahmonova measured the average time between cuts in 400 feature films released from 1950 to 2009."
+                "The average shot in feature films shrank from about 11 seconds in the 1950s to about 4 seconds in the 2000s, a change Holt attributes partly to the influence of television commercials and music videos.",
+                "Holt attributes changes in average shot length partly to the influence of television commercials and music videos.",
+                "Holt measured the average time between cuts in 400 feature films released from 1950 to 2009."
               ],
               "answer": "B",
               "explanation": "The goal has two parts: the size of the change and a possible explanation. Only this choice gives both the numbers (11 to 4 seconds) and the suggested cause."
@@ -1475,7 +1475,7 @@
             "section": "math",
             "skill": "Linear functions",
             "difficulty": "easy",
-            "prompt": "The function $C(n) = 15n + 40$ gives the cost, in thousands of so'm, for a print shop in Andijan to make $n$ posters. For what value of $n$ is $C(n) = 250$?",
+            "prompt": "The function $C(n) = 15n + 40$ gives the cost, in dollars, for a print shop in Dublin to make $n$ posters. For what value of $n$ is $C(n) = 250$?",
             "explanation": "Set $15n + 40 = 250$. Then $15n = 210$, so $n = 14$.",
             "answer": [
               "14"
@@ -1628,7 +1628,7 @@
             "section": "math",
             "skill": "Linear functions",
             "difficulty": "medium",
-            "prompt": "A tour company in Samarkand charges a fixed booking fee plus a fixed amount per person. A group of 4 people pays \\$260, and a group of 7 people pays \\$410. What is the booking fee?",
+            "prompt": "A tour company in Rome charges a fixed booking fee plus a fixed amount per person. A group of 4 people pays \\$260, and a group of 7 people pays \\$410. What is the booking fee?",
             "explanation": "The 3 extra people cost $410 - 260 = 150$ dollars, so the charge per person is \\$50. The fee is $260 - 4(50) = 60$ dollars. \\$50 is the per-person charge, not the fee.",
             "choices": [
               "\\$50",
@@ -1774,7 +1774,7 @@
               "section": "math",
               "skill": "Percentages",
               "difficulty": "easy",
-              "prompt": "An orchard near Samarkand has 640 apricot trees, and 35% of them were planted in the last five years. How many of the trees were planted in the last five years?",
+              "prompt": "An orchard near Valencia has 640 orange trees, and 35% of them were planted in the last five years. How many of the trees were planted in the last five years?",
               "explanation": "$0.35 \\times 640 = 224$.",
               "answer": [
                 "224"
@@ -1824,7 +1824,7 @@
               "section": "math",
               "skill": "Area and volume",
               "difficulty": "easy",
-              "prompt": "A triangular flower bed in a schoolyard in Namangan has a base of 7.5 meters and a height of 4 meters. What is the area of the flower bed, in square meters?",
+              "prompt": "A triangular flower bed in a schoolyard in Melbourne has a base of 7.5 meters and a height of 4 meters. What is the area of the flower bed, in square meters?",
               "explanation": "The area of a triangle is $\\dfrac{1}{2} \\times \\text{base} \\times \\text{height} = \\dfrac{1}{2}(7.5)(4) = 15$. Forgetting the $\\dfrac{1}{2}$ gives 30.",
               "choices": [
                 "30",
@@ -1884,7 +1884,7 @@
               "section": "math",
               "skill": "Two-variable data: models and scatterplots",
               "difficulty": "easy",
-              "prompt": "A scatterplot shows the elevation $h$, in kilometers, and the average July temperature $T$, in degrees Celsius, for weather stations in the Chatkal Mountains. The line of best fit for the data is $T = 26 - 6.5h$. What average July temperature, in degrees Celsius, does the line of best fit predict for a station at an elevation of 2 kilometers?",
+              "prompt": "A scatterplot shows the elevation $h$, in kilometers, and the average July temperature $T$, in degrees Celsius, for weather stations in the Rocky Mountains. The line of best fit for the data is $T = 26 - 6.5h$. What average July temperature, in degrees Celsius, does the line of best fit predict for a station at an elevation of 2 kilometers?",
               "explanation": "Substitute $h = 2$: $T = 26 - 6.5(2) = 26 - 13 = 13$.",
               "answer": [
                 "13"
@@ -1936,8 +1936,8 @@
               "section": "math",
               "skill": "Systems of two linear equations in two variables",
               "difficulty": "medium",
-              "prompt": "At a museum in Tashkent, adult tickets cost 40,000 so'm and student tickets cost 25,000 so'm. One morning, the museum sold 40 tickets for a total of 1,315,000 so'm. How many adult tickets did it sell?",
-              "explanation": "Let $a$ be the number of adult tickets, so $40 - a$ were student tickets. $40{,}000a + 25{,}000(40 - a) = 1{,}315{,}000$ gives $15{,}000a = 315{,}000$, so $a = 21$. 19 is the number of student tickets.",
+              "prompt": "At a museum in Vienna, adult tickets cost \\$40 and student tickets cost \\$25. One morning, the museum sold 40 tickets for a total of \\$1,315. How many adult tickets did it sell?",
+              "explanation": "Let $a$ be the number of adult tickets, so $40 - a$ were student tickets. $40a + 25(40 - a) = 1{,}315$ gives $15a = 315$, so $a = 21$. 19 is the number of student tickets.",
               "choices": [
                 "19",
                 "23",
@@ -2067,8 +2067,8 @@
               "section": "math",
               "skill": "Linear equations in one variable",
               "difficulty": "medium",
-              "prompt": "A taxi ride in Tashkent costs a base fare of 6,000 so'm plus 2,500 so'm for each kilometer. If a ride cost 36,000 so'm, how many kilometers long was the ride?",
-              "explanation": "$6{,}000 + 2{,}500k = 36{,}000$ gives $2{,}500k = 30{,}000$, so $k = 12$.",
+              "prompt": "A taxi ride in Singapore costs a base fare of \\$6 plus \\$2.50 for each kilometer. If a ride cost \\$36, how many kilometers long was the ride?",
+              "explanation": "$6 + 2.5k = 36$ gives $2.5k = 30$, so $k = 12$.",
               "answer": [
                 "12"
               ]
@@ -2143,7 +2143,7 @@
               "section": "math",
               "skill": "Systems of two linear equations in two variables",
               "difficulty": "hard",
-              "prompt": "At a bazaar in Bukhara, a vendor sells small rugs for \\$45 each and large rugs for \\$120 each. On Saturday, the vendor sold 24 rugs for a total of \\$1,530. The vendor had paid \\$30 for each small rug and \\$80 for each large rug. What was the vendor's total profit, in dollars, on the rugs sold on Saturday?",
+              "prompt": "At a market in Istanbul, a vendor sells small rugs for \\$45 each and large rugs for \\$120 each. On Saturday, the vendor sold 24 rugs for a total of \\$1,530. The vendor had paid \\$30 for each small rug and \\$80 for each large rug. What was the vendor's total profit, in dollars, on the rugs sold on Saturday?",
               "explanation": "Let $s$ and $\\ell$ be the numbers of small and large rugs: $s + \\ell = 24$ and $45s + 120\\ell = 1{,}530$. Substituting $s = 24 - \\ell$ gives $1{,}080 + 75\\ell = 1{,}530$, so $\\ell = 6$ and $s = 18$. The rugs cost $18(30) + 6(80) = 1{,}020$ dollars, so the profit was $1{,}530 - 1{,}020 = 510$ dollars.",
               "answer": [
                 "510"
@@ -2240,8 +2240,8 @@
               "section": "math",
               "skill": "Probability and conditional probability",
               "difficulty": "hard",
-              "prompt": "A survey asked 250 workers in two cities whether they work remotely or on-site. The results are shown in the table. If one of the workers who work on-site is chosen at random, what is the probability that the worker is from Samarkand?",
-              "explanation": "Only the 180 on-site workers count, and 78 of them are from Samarkand: $\\dfrac{78}{180} = \\dfrac{13}{30}$.",
+              "prompt": "A survey asked 250 workers in two cities whether they work remotely or on-site. The results are shown in the table. If one of the workers who work on-site is chosen at random, what is the probability that the worker is from Vancouver?",
+              "explanation": "Only the 180 on-site workers count, and 78 of them are from Vancouver: $\\dfrac{78}{180} = \\dfrac{13}{30}$.",
               "table": {
                 "head": [
                   "",
@@ -2251,13 +2251,13 @@
                 ],
                 "rows": [
                   [
-                    "Tashkent",
+                    "Toronto",
                     "48",
                     "102",
                     "150"
                   ],
                   [
-                    "Samarkand",
+                    "Vancouver",
                     "22",
                     "78",
                     "100"
@@ -2422,7 +2422,7 @@
               "section": "math",
               "skill": "Ratios, rates, proportional relationships, and units",
               "difficulty": "hard",
-              "prompt": "A cotton farm in the Fergana Valley produces an average of 3.2 metric tons of cotton per hectare. One rectangular field on the farm measures 800 meters by 500 meters. At this rate, how many metric tons of cotton does the field produce? (1 hectare = 10,000 square meters)",
+              "prompt": "A cotton farm in the Nile Delta produces an average of 3.2 metric tons of cotton per hectare. One rectangular field on the farm measures 800 meters by 500 meters. At this rate, how many metric tons of cotton does the field produce? (1 hectare = 10,000 square meters)",
               "explanation": "The field's area is $800 \\times 500 = 400{,}000$ square meters, which is $400{,}000 \\div 10{,}000 = 40$ hectares. Then $40 \\times 3.2 = 128$ metric tons.",
               "answer": [
                 "128"

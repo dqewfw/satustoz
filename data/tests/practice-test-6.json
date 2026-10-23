@@ -34,7 +34,7 @@
             "section": "rw",
             "skill": "Words in Context",
             "difficulty": "medium",
-            "passage": "Author Nilufar Qosimova's picture book *The Lantern Moth* is notably ______ with words: most pages hold a single short sentence, leaving the illustrations to tell much of the story.",
+            "passage": "Author Emily Carter's picture book *The Lantern Moth* is notably ______ with words: most pages hold a single short sentence, leaving the illustrations to tell much of the story.",
             "prompt": "Which choice completes the text with the most logical and precise word or phrase?",
             "choices": [
               "generous",
@@ -50,7 +50,7 @@
             "section": "rw",
             "skill": "Words in Context",
             "difficulty": "medium",
-            "passage": "In much of Uzbekistan, the plov served at a large wedding is rarely cooked by the host family. The task is instead ______ to an oshpaz, a specialist cook whose skill with enormous kazans of rice, carrots, and meat is known throughout the neighborhood.",
+            "passage": "In parts of Valencia, Spain, the paella served at a large wedding is rarely cooked by the host family. The task is instead ______ to a paellero, a specialist cook whose skill with enormous pans of rice, beans, and meat is known throughout the neighborhood.",
             "prompt": "Which choice completes the text with the most logical and precise word or phrase?",
             "choices": [
               "forbidden",
@@ -59,7 +59,7 @@
               "explained"
             ],
             "answer": "C",
-            "explanation": "The family hands an important job to a trusted specialist, so the task is **entrusted** to the oshpaz."
+            "explanation": "The family hands an important job to a trusted specialist, so the task is **entrusted** to the paellero."
           },
           {
             "id": "t6-rw1-04",
@@ -98,12 +98,12 @@
             "section": "rw",
             "skill": "Text Structure and Purpose",
             "difficulty": "medium",
-            "passage": "When author Farrukh Ismoilov submitted the manuscript of *The Boy Who Counted Clouds*, three publishers rejected it, complaining that the story had no villain and almost no plot: a boy spends one summer on a rooftop in Namangan, naming the shapes he sees in the sky. The small press that eventually published the book left its quiet structure unchanged. Teachers soon reported that young readers, with no complicated plot to follow, began inventing cloud stories of their own, and the book has since been reprinted eleven times.",
+            "passage": "When author Samuel Price submitted the manuscript of *The Boy Who Counted Clouds*, three publishers rejected it, complaining that the story had no villain and almost no plot: a boy spends one summer on a rooftop in Naples, naming the shapes he sees in the sky. The small press that eventually published the book left its quiet structure unchanged. Teachers soon reported that young readers, with no complicated plot to follow, began inventing cloud stories of their own, and the book has since been reprinted eleven times.",
             "prompt": "Which choice best states the main purpose of the text?",
             "choices": [
               "To argue that children's books should never include villains",
               "To describe how small presses decide which manuscripts to publish",
-              "To explain why the author chose to set his book in Namangan",
+              "To explain why the author chose to set his book in Naples",
               "To show how a feature of a book that publishers considered a weakness turned out to be part of its appeal"
             ],
             "answer": "D",
@@ -114,12 +114,12 @@
             "section": "rw",
             "skill": "Cross-Text Connections",
             "difficulty": "hard",
-            "passage": "**Text 1**\nA layer of rock debris more than a few centimeters thick shields glacier ice from the sun's heat. For this reason, many glaciologists expect glaciers covered in debris to lose ice much more slowly than clean glaciers in the same climate, and some forecasts of future water supply in Central Asia treat debris-covered glaciers as relatively secure.\n\n**Text 2**\nSatellite measurements analyzed by a team led by geographer Zarina Abdullaeva show that debris-covered glaciers in the Tian Shan have been thinning at about the same rate as nearby clean glaciers. The team traced much of the loss to scattered ice cliffs and meltwater ponds on the debris-covered surfaces. Although these features occupy only a small share of each glacier, they absorb heat and rapidly melt the surrounding ice.",
-            "prompt": "Based on the texts, how would Abdullaeva's team most likely respond to the forecasts described in Text 1?",
+            "passage": "**Text 1**\nA layer of rock debris more than a few centimeters thick shields glacier ice from the sun's heat. For this reason, many glaciologists expect glaciers covered in debris to lose ice much more slowly than clean glaciers in the same climate, and some forecasts of future water supply in South Asia treat debris-covered glaciers as relatively secure.\n\n**Text 2**\nSatellite measurements analyzed by a team led by geographer Laura Bennett show that debris-covered glaciers in the Himalayas have been thinning at about the same rate as nearby clean glaciers. The team traced much of the loss to scattered ice cliffs and meltwater ponds on the debris-covered surfaces. Although these features occupy only a small share of each glacier, they absorb heat and rapidly melt the surrounding ice.",
+            "prompt": "Based on the texts, how would Bennett's team most likely respond to the forecasts described in Text 1?",
             "choices": [
               "By rejecting the idea that a thick layer of debris can insulate the ice beneath it",
               "By suggesting that the forecasts overlook surface features that let heat reach the ice despite the debris, so debris-covered glaciers may be less secure than assumed",
-              "By agreeing that debris-covered glaciers lose ice more slowly than clean glaciers, except in the Tian Shan",
+              "By agreeing that debris-covered glaciers lose ice more slowly than clean glaciers, except in the Himalayas",
               "By arguing that ice cliffs and meltwater ponds form mainly on glaciers that have no debris"
             ],
             "answer": "B",
@@ -130,11 +130,11 @@
             "section": "rw",
             "skill": "Central Ideas and Details",
             "difficulty": "easy",
-            "passage": "Account books from a nineteenth-century dye workshop in Kokand show that the color of a silk robe said a great deal about its price. Red dye came from madder root, which grew nearby, and yellow from local plants such as larkspur. Deep blue, however, required indigo, which arrived by caravan from India, and the workshop charged far more for blue cloth than for red or yellow cloth.",
+            "passage": "Account books from a nineteenth-century dye workshop in Avignon show that the color of a silk scarf said a great deal about its price. Red dye came from madder root, which grew nearby, and yellow from local plants such as weld. Deep blue, however, required indigo, which arrived by ship from India, and the workshop charged far more for blue cloth than for red or yellow cloth.",
             "prompt": "Which choice best states the main idea of the text?",
             "choices": [
-              "Madder root was the most common plant grown near Kokand.",
-              "Silk robes were worn only by the wealthiest residents of Kokand.",
+              "Madder root was the most common plant grown near Avignon.",
+              "Silk scarves were worn only by the wealthiest residents of Avignon.",
               "The workshop's prices for dyed cloth reflected whether a dye could be obtained locally or had to be imported.",
               "Indigo was used mainly to dye cotton rather than silk."
             ],
@@ -146,24 +146,24 @@
             "section": "rw",
             "skill": "Central Ideas and Details",
             "difficulty": "medium",
-            "passage": "The following text is from a short story. Akmal has entered a robot he built in a school competition.\n\nThe robot was supposed to sort colored blocks into bins, but halfway through its first round it began spinning in place, scattering blocks across the floor. Akmal felt his face grow hot as the judges marked their sheets. Then he noticed a cluster of first-graders pressed against the railing, laughing and cheering each time the robot spun. When the round ended, they begged him to make it dance again, and for the first time all morning, Akmal laughed too.",
+            "passage": "The following text is from a short story. Leo has entered a robot he built in a school competition.\n\nThe robot was supposed to sort colored blocks into bins, but halfway through its first round it began spinning in place, scattering blocks across the floor. Leo felt his face grow hot as the judges marked their sheets. Then he noticed a cluster of first-graders pressed against the railing, laughing and cheering each time the robot spun. When the round ended, they begged him to make it dance again, and for the first time all morning, Leo laughed too.",
             "prompt": "Which choice best states the main idea of the text?",
             "choices": [
-              "Although Akmal's robot fails at its task, the young spectators' delight helps him enjoy the moment.",
-              "Akmal realizes that he programmed the robot incorrectly and decides to fix it before the next round.",
+              "Although Leo's robot fails at its task, the young spectators' delight helps him enjoy the moment.",
+              "Leo realizes that he programmed the robot incorrectly and decides to fix it before the next round.",
               "The judges are impressed by the robot's unexpected spinning.",
-              "Akmal is annoyed that the first-graders are laughing at his robot."
+              "Leo is annoyed that the first-graders are laughing at his robot."
             ],
             "answer": "A",
-            "explanation": "Akmal is embarrassed at first, but the children's cheering turns the failure into something he can laugh at."
+            "explanation": "Leo is embarrassed at first, but the children's cheering turns the failure into something he can laugh at."
           },
           {
             "id": "t6-rw1-10",
             "section": "rw",
             "skill": "Command of Evidence: Textual",
             "difficulty": "medium",
-            "passage": "Anthropologist Javlon Ergashev, who studies households in mountain villages of southern Uzbekistan, argues that families there serve guests freshly baked bread mainly as a sign of respect rather than because they simply prefer fresh bread.",
-            "prompt": "Which finding, if true, would most directly support Ergashev's argument?",
+            "passage": "Anthropologist Nikos Pappas, who studies households in mountain villages of northern Greece, argues that families there serve guests freshly baked bread mainly as a sign of respect rather than because they simply prefer fresh bread.",
+            "prompt": "Which finding, if true, would most directly support Pappas's argument?",
             "choices": [
               "Most households in the villages own a clay oven for baking bread.",
               "Bread baked in the villages stays fresh longer than bread bought in city shops.",
@@ -178,7 +178,7 @@
             "section": "rw",
             "skill": "Command of Evidence: Textual",
             "difficulty": "hard",
-            "passage": "\"Loom Song\" is a poem by Ozoda Sharipova. In the poem, the speaker suggests that weaving connects her to the women who worked at the loom before her.",
+            "passage": "\"Loom Song\" is a poem by Rosa Delgado. In the poem, the speaker suggests that weaving connects her to the women who worked at the loom before her.",
             "prompt": "Which quotation from \"Loom Song\" most effectively illustrates this claim?",
             "choices": [
               "\"Each knot I pull, my grandmother pulled first; / her patient hands still move inside my own.\"",
@@ -256,7 +256,7 @@
             "section": "rw",
             "skill": "Inferences",
             "difficulty": "hard",
-            "passage": "At a site in Khorezm that was occupied for many centuries, archaeologists found charred grape seeds in household hearths from every period. Seeds from the oldest layers are short and round, like those of wild grapes, whereas seeds from more recent layers are longer and narrower, a shape typical of cultivated vines. Because pollen records show that wild grapevines grew in the nearby river forests throughout the site's history, the archaeologists concluded that ______",
+            "passage": "At a site in the Rhône Valley that was occupied for many centuries, archaeologists found charred grape seeds in household hearths from every period. Seeds from the oldest layers are short and round, like those of wild grapes, whereas seeds from more recent layers are longer and narrower, a shape typical of cultivated vines. Because pollen records show that wild grapevines grew in the nearby river forests throughout the site's history, the archaeologists concluded that ______",
             "prompt": "Which choice most logically completes the text?",
             "choices": [
               "residents most likely stopped eating grapes during the later periods of occupation.",
@@ -272,7 +272,7 @@
             "section": "rw",
             "skill": "Boundaries",
             "difficulty": "easy",
-            "passage": "Shyrdaks, the felt carpets of Kyrgyzstan, are made entirely by ______ their bold patterns are cut from dyed felt and stitched together piece by piece.",
+            "passage": "Molas, the textile panels of Panama's Guna people, are made entirely by ______ their bold patterns are cut from layers of colored cloth and stitched together piece by piece.",
             "prompt": "Which choice completes the text so that it conforms to the conventions of Standard English?",
             "choices": [
               "hand;",
@@ -320,7 +320,7 @@
             "section": "rw",
             "skill": "Boundaries",
             "difficulty": "medium",
-            "passage": "In Gulnora's kitchen, the dough for hand-pulled lagman noodles needs only three ______ wheat flour, water, and salt. The real skill lies in the stretching, which can take years to master.",
+            "passage": "In Mei's kitchen, the dough for hand-pulled noodles needs only three ______ wheat flour, water, and salt. The real skill lies in the stretching, which can take years to master.",
             "prompt": "Which choice completes the text so that it conforms to the conventions of Standard English?",
             "choices": [
               "ingredients;",
@@ -352,7 +352,7 @@
             "section": "rw",
             "skill": "Form, Structure, and Sense",
             "difficulty": "medium",
-            "passage": "Since its founding in 1998, the small textile museum ______ more than four hundred embroidered panels from families across Karakalpakstan.",
+            "passage": "Since its founding in 1998, the small textile museum ______ more than four hundred embroidered panels from families across Sicily.",
             "prompt": "Which choice completes the text so that it conforms to the conventions of Standard English?",
             "choices": [
               "collects",
@@ -368,7 +368,7 @@
             "section": "rw",
             "skill": "Form, Structure, and Sense",
             "difficulty": "hard",
-            "passage": "The letters exchanged by the silk merchant and his business partner in Kashgar ______ how quickly prices for raw silk rose during the 1870s.",
+            "passage": "The letters exchanged by the silk merchant and his business partner in Lyon ______ how quickly prices for raw silk rose during the 1870s.",
             "prompt": "Which choice completes the text so that it conforms to the conventions of Standard English?",
             "choices": [
               "reveals",
@@ -377,7 +377,7 @@
               "is revealing"
             ],
             "answer": "C",
-            "explanation": "The subject is the plural \"letters,\" so the verb is **reveal**. The singular nouns \"partner\" and \"Kashgar\" sit right before the blank but are not the subject."
+            "explanation": "The subject is the plural \"letters,\" so the verb is **reveal**. The singular nouns \"partner\" and \"Lyon\" sit right before the blank but are not the subject."
           },
           {
             "id": "t6-rw1-22",
@@ -432,29 +432,29 @@
             "section": "rw",
             "skill": "Rhetorical Synthesis",
             "difficulty": "medium",
-            "passage": "While researching a topic, a student has taken the following notes:\n\n• Non is a round flatbread baked throughout Uzbekistan.\n• It is traditionally baked on the inside wall of a tandir, a clay oven.\n• Before baking, bakers press a stamp called a chekich into the center of the dough.\n• The stamp's pattern of holes keeps the center from rising, so it stays thin and crisp while the edges puff up.",
-            "prompt": "The student wants to explain the purpose of the chekich. Which choice most effectively uses relevant information from the notes to accomplish this goal?",
+            "passage": "While researching a topic, a student has taken the following notes:\n\n• Crackers are thin, crisp baked snacks found in many countries.\n• They are typically baked on flat trays in very hot ovens.\n• Before baking, bakers punch rows of small holes, called docking holes, into the dough.\n• The holes let steam escape, so the crackers bake flat and crisp instead of puffing up into bubbles.",
+            "prompt": "The student wants to explain the purpose of docking holes. Which choice most effectively uses relevant information from the notes to accomplish this goal?",
             "choices": [
-              "Non is a round flatbread baked throughout Uzbekistan.",
-              "Non is traditionally baked on the inside wall of a clay oven called a tandir.",
-              "A chekich is a stamp that bakers use on non dough.",
-              "Bakers press a chekich into the center of non dough so that the center stays thin and crisp instead of rising."
+              "Crackers are thin, crisp baked snacks found in many countries.",
+              "Crackers are typically baked on flat trays in very hot ovens.",
+              "Docking holes are small holes that bakers punch into cracker dough.",
+              "Bakers punch docking holes into cracker dough so that steam can escape and the crackers bake flat instead of puffing up."
             ],
             "answer": "D",
-            "explanation": "Only this choice says what the stamp does: it keeps the center from rising. The option that only defines the chekich as a stamp names the tool but not its purpose."
+            "explanation": "Only this choice says what the holes do: they let steam escape so the crackers stay flat. The option that only defines docking holes names them but not their purpose."
           },
           {
             "id": "t6-rw1-26",
             "section": "rw",
             "skill": "Rhetorical Synthesis",
             "difficulty": "hard",
-            "passage": "While researching a topic, a student has taken the following notes:\n\n• *Little Camel's Long Walk* and *The Apricot Thief* are picture books by author Dildora Yo'ldosheva.\n• *Little Camel's Long Walk* was published in 2014.\n• *The Apricot Thief* was published in 2019.\n• *Little Camel's Long Walk* is written in rhyming verse.\n• *The Apricot Thief* is written in prose.\n• Both books are set in villages near Termez.",
+            "passage": "While researching a topic, a student has taken the following notes:\n\n• *Little Goat's Long Walk* and *The Apricot Thief* are picture books by author Hannah Moss.\n• *Little Goat's Long Walk* was published in 2014.\n• *The Apricot Thief* was published in 2019.\n• *Little Goat's Long Walk* is written in rhyming verse.\n• *The Apricot Thief* is written in prose.\n• Both books are set in villages in Cornwall.",
             "prompt": "The student wants to contrast the writing styles of the two books. Which choice most effectively uses relevant information from the notes to accomplish this goal?",
             "choices": [
-              "*Little Camel's Long Walk* was published in 2014, five years before *The Apricot Thief*.",
-              "Both of Yo'ldosheva's picture books, *Little Camel's Long Walk* and *The Apricot Thief*, are set in villages near Termez.",
-              "Although both are picture books by Yo'ldosheva, *Little Camel's Long Walk* is written in rhyming verse, whereas *The Apricot Thief* is written in prose.",
-              "*The Apricot Thief*, a picture book by Yo'ldosheva, is written in prose."
+              "*Little Goat's Long Walk* was published in 2014, five years before *The Apricot Thief*.",
+              "Both of Moss's picture books, *Little Goat's Long Walk* and *The Apricot Thief*, are set in villages in Cornwall.",
+              "Although both are picture books by Moss, *Little Goat's Long Walk* is written in rhyming verse, whereas *The Apricot Thief* is written in prose.",
+              "*The Apricot Thief*, a picture book by Moss, is written in prose."
             ],
             "answer": "C",
             "explanation": "Writing style means verse versus prose, and a contrast needs both books. The publication dates are a difference, but not one of style, and the option about *The Apricot Thief* alone describes only one book."
@@ -598,13 +598,13 @@
               "section": "rw",
               "skill": "Central Ideas and Details",
               "difficulty": "easy",
-              "passage": "In many Central Asian homes, a dastarkhan, a cloth spread on the floor or on a low table, is covered with bread, fruit, nuts, and sweets whenever guests arrive. Hosts set out far more food than visitors could possibly eat, because a full dastarkhan is a way of showing generosity and welcome.",
+              "passage": "In many traditional Turkish homes, a sofra, a cloth spread on the floor or on a low table, is covered with bread, fruit, nuts, and sweets whenever guests arrive. Hosts set out far more food than visitors could possibly eat, because a full sofra is a way of showing generosity and welcome.",
               "prompt": "Which choice best states the main idea of the text?",
               "choices": [
-                "Guests are expected to eat everything placed on the dastarkhan.",
-                "A dastarkhan is always spread on the floor rather than on a table.",
+                "Guests are expected to eat everything placed on the sofra.",
+                "A sofra is always spread on the floor rather than on a table.",
                 "Bread is the most important food served to guests.",
-                "Hosts fill the dastarkhan with plentiful food as a way of showing generosity to guests."
+                "Hosts fill the sofra with plentiful food as a way of showing generosity to guests."
               ],
               "answer": "D",
               "explanation": "The text describes the abundant food and explains that it signals generosity and welcome."
@@ -614,13 +614,13 @@
               "section": "rw",
               "skill": "Central Ideas and Details",
               "difficulty": "medium",
-              "passage": "The following text is from a novel. Madina is visiting her aunt's farm for the first time.\n\nMadina had imagined the farm as a quiet place for reading under fruit trees. Instead, the rooster began shouting before dawn, the goats complained loudly from their pen, and her aunt handed her a bucket before she had finished breakfast. By noon her arms ached, but when her aunt praised the neat rows she had weeded, Madina felt prouder than she had after any test at school.",
+              "passage": "The following text is from a novel. Chloe is visiting her aunt's farm for the first time.\n\nChloe had imagined the farm as a quiet place for reading under fruit trees. Instead, the rooster began shouting before dawn, the goats complained loudly from their pen, and her aunt handed her a bucket before she had finished breakfast. By noon her arms ached, but when her aunt praised the neat rows she had weeded, Chloe felt prouder than she had after any test at school.",
               "prompt": "Which choice best states the main idea of the text?",
               "choices": [
-                "Although the farm is busier and harder than Madina expected, the work gives her a new sense of pride.",
-                "Madina is disappointed that she has no time to read on the farm and wants to go home.",
-                "Madina's aunt is unhappy with how slowly Madina works.",
-                "Madina learns how to care for the goats on her aunt's farm."
+                "Although the farm is busier and harder than Chloe expected, the work gives her a new sense of pride.",
+                "Chloe is disappointed that she has no time to read on the farm and wants to go home.",
+                "Chloe's aunt is unhappy with how slowly Chloe works.",
+                "Chloe learns how to care for the goats on her aunt's farm."
               ],
               "answer": "A",
               "explanation": "The farm is not the quiet place she pictured, but her aunt's praise for her work leaves her feeling proud."
@@ -646,8 +646,8 @@
               "section": "rw",
               "skill": "Command of Evidence: Textual",
               "difficulty": "medium",
-              "passage": "Carpet historian Rustam Ibragimov claims that a large nineteenth-century carpet in a museum's collection was woven by several weavers working side by side rather than by a single weaver.",
-              "prompt": "Which finding, if true, would most directly support Ibragimov's claim?",
+              "passage": "Carpet historian Arthur Bell claims that a large nineteenth-century carpet in a museum's collection was woven by several weavers working side by side rather than by a single weaver.",
+              "prompt": "Which finding, if true, would most directly support Bell's claim?",
               "choices": [
                 "The carpet's wool was dyed with madder and indigo.",
                 "The carpet is one of the largest in the museum's collection.",
@@ -751,7 +751,7 @@
               "section": "rw",
               "skill": "Boundaries",
               "difficulty": "easy",
-              "passage": "Bahor's grandmother keeps her spices in small glass ______ each one is labeled in her neat, slanting handwriting.",
+              "passage": "Mia's grandmother keeps her spices in small glass ______ each one is labeled in her neat, slanting handwriting.",
               "prompt": "Which choice completes the text so that it conforms to the conventions of Standard English?",
               "choices": [
                 "jars,",
@@ -799,7 +799,7 @@
               "section": "rw",
               "skill": "Form, Structure, and Sense",
               "difficulty": "easy",
-              "passage": "The baskets woven by the village's craftspeople ______ sold at the weekly bazaar.",
+              "passage": "The baskets woven by the village's craftspeople ______ sold at the weekly market.",
               "prompt": "Which choice completes the text so that it conforms to the conventions of Standard English?",
               "choices": [
                 "are",
@@ -895,16 +895,16 @@
               "section": "rw",
               "skill": "Rhetorical Synthesis",
               "difficulty": "easy",
-              "passage": "While researching a topic, a student has taken the following notes:\n\n• Kurt is a snack made from dried, salted balls of strained yogurt.\n• It is popular in Uzbekistan, Kazakhstan, and other Central Asian countries.\n• Because it contains very little water, kurt can be stored for months without refrigeration.\n• Herders traditionally carried it on long journeys.",
-              "prompt": "The student wants to explain why kurt was useful on long journeys. Which choice most effectively uses relevant information from the notes to accomplish this goal?",
+              "passage": "While researching a topic, a student has taken the following notes:\n\n• Pemmican is a food made from dried meat pounded into a powder and mixed with fat.\n• It was developed by Indigenous peoples of North America.\n• Because it contains very little water, pemmican can be stored for months without refrigeration.\n• Fur traders traditionally carried it on long journeys.",
+              "prompt": "The student wants to explain why pemmican was useful on long journeys. Which choice most effectively uses relevant information from the notes to accomplish this goal?",
               "choices": [
-                "Kurt is a snack made from dried, salted balls of strained yogurt.",
-                "Kurt is popular in Uzbekistan, Kazakhstan, and other Central Asian countries.",
-                "Because kurt contains very little water and keeps for months without refrigeration, herders could carry it on long journeys.",
-                "Herders traditionally carried kurt with them."
+                "Pemmican is a food made from dried, pounded meat mixed with fat.",
+                "Pemmican was developed by Indigenous peoples of North America.",
+                "Because pemmican contains very little water and keeps for months without refrigeration, fur traders could carry it on long journeys.",
+                "Fur traders traditionally carried pemmican with them."
               ],
               "answer": "C",
-              "explanation": "Only this choice gives the reason: kurt keeps for months without refrigeration."
+              "explanation": "Only this choice gives the reason: pemmican keeps for months without refrigeration."
             },
             {
               "id": "t6-rw2e-26",
@@ -927,13 +927,13 @@
               "section": "rw",
               "skill": "Rhetorical Synthesis",
               "difficulty": "medium",
-              "passage": "While researching a topic, a student has taken the following notes:\n\n• *The Clever Goat of Chimgan* is a children's book by Sherzod Aliyev.\n• It was first published in Uzbek in 2016.\n• It has since been translated into Russian, Kazakh, and English.\n• Aliyev worked as a primary school teacher before becoming a writer.",
+              "passage": "While researching a topic, a student has taken the following notes:\n\n• *The Clever Goat of the Alps* is a children's book by Thomas Keller.\n• It was first published in German in 2016.\n• It has since been translated into French, Italian, and English.\n• Keller worked as a primary school teacher before becoming a writer.",
               "prompt": "The student wants to emphasize how widely the book has been translated. Which choice most effectively uses relevant information from the notes to accomplish this goal?",
               "choices": [
-                "First published in Uzbek, *The Clever Goat of Chimgan* has since been translated into Russian, Kazakh, and English.",
-                "*The Clever Goat of Chimgan* was first published in 2016.",
-                "Sherzod Aliyev worked as a primary school teacher before writing *The Clever Goat of Chimgan*.",
-                "*The Clever Goat of Chimgan* is a children's book by Sherzod Aliyev."
+                "First published in German, *The Clever Goat of the Alps* has since been translated into French, Italian, and English.",
+                "*The Clever Goat of the Alps* was first published in 2016.",
+                "Thomas Keller worked as a primary school teacher before writing *The Clever Goat of the Alps*.",
+                "*The Clever Goat of the Alps* is a children's book by Thomas Keller."
               ],
               "answer": "A",
               "explanation": "Only this choice lists the languages the book has been translated into."
@@ -964,7 +964,7 @@
               "section": "rw",
               "skill": "Words in Context",
               "difficulty": "hard",
-              "passage": "Critics have sometimes dismissed picture books as slight, but illustrator Gavhar Mirzaeva's work resists such ______: her wordless book *Night Ferry* rewards repeated readings, each revealing details in its crowded harbor scenes that earlier viewings missed.",
+              "passage": "Critics have sometimes dismissed picture books as slight, but illustrator Nina Petrakis's work resists such ______: her wordless book *Night Ferry* rewards repeated readings, each revealing details in its crowded harbor scenes that earlier viewings missed.",
               "prompt": "Which choice completes the text with the most logical and precise word or phrase?",
               "choices": [
                 "scrutiny",
@@ -996,7 +996,7 @@
               "section": "rw",
               "skill": "Words in Context",
               "difficulty": "hard",
-              "passage": "The retreat of the Qorasuv Glacier has not been ______: periods of rapid ice loss in the 1990s and 2010s were separated by a decade in which the glacier's front barely moved.",
+              "passage": "The retreat of the Vesla Glacier has not been ______: periods of rapid ice loss in the 1990s and 2010s were separated by a decade in which the glacier's front barely moved.",
               "prompt": "Which choice completes the text with the most logical and precise word or phrase?",
               "choices": [
                 "measurable",
@@ -1012,13 +1012,13 @@
               "section": "rw",
               "skill": "Text Structure and Purpose",
               "difficulty": "hard",
-              "passage": "Histories of textiles often describe how spinning and weaving machines, beginning in the late 1700s, swept away hand production wherever they appeared. __In some Central Asian towns, however, hand-spinning and hand-weaving remained the main ways of making cloth well into the twentieth century, even as factory-made fabric arrived through trade.__ Scholar Timur Sobirov argues that this persistence reflected not a lack of access to machine-made goods but steady local demand for patterns and textures that factories could not easily copy.",
+              "passage": "Histories of textiles often describe how spinning and weaving machines, beginning in the late 1700s, swept away hand production wherever they appeared. __In some West African towns, however, hand-spinning and hand-weaving remained the main ways of making cloth well into the twentieth century, even as factory-made fabric arrived through trade.__ Scholar Kofi Mensah argues that this persistence reflected not a lack of access to machine-made goods but steady local demand for patterns and textures that factories could not easily copy.",
               "prompt": "Which choice best describes the function of the underlined sentence in the text as a whole?",
               "choices": [
                 "It presents a case that complicates a widely held account, setting up the explanation offered in the next sentence.",
                 "It offers further evidence for the account presented in the first sentence.",
-                "It explains why factory-made fabric could not reach Central Asian towns.",
-                "It summarizes the argument that Sobirov makes about local demand."
+                "It explains why factory-made fabric could not reach West African towns.",
+                "It summarizes the argument that Mensah makes about local demand."
               ],
               "answer": "A",
               "explanation": "The underlined sentence is an exception (\"however\") to the account that machines swept away handwork, and the next sentence explains that exception. Factory cloth did arrive, so the option saying it could not reach the towns contradicts the text."
@@ -1044,8 +1044,8 @@
               "section": "rw",
               "skill": "Cross-Text Connections",
               "difficulty": "hard",
-              "passage": "**Text 1**\nMany educators argue that picture books for young children should avoid sad endings. Young children, they reason, may not yet have the emotional tools to cope with loss, and an unresolved sadness can make a story frightening rather than meaningful.\n\n**Text 2**\nChildren's literature scholar Komila Raupova studied how kindergarten classes responded to picture books that end with a loss, such as the death of a pet. When teachers read the books aloud and then invited discussion, children often connected the stories to their own experiences and talked about them calmly. Raupova concludes that what matters is less the ending itself than whether an adult helps children talk about it.",
-              "prompt": "Based on the texts, how would Raupova most likely respond to the educators' view in Text 1?",
+              "passage": "**Text 1**\nMany educators argue that picture books for young children should avoid sad endings. Young children, they reason, may not yet have the emotional tools to cope with loss, and an unresolved sadness can make a story frightening rather than meaningful.\n\n**Text 2**\nChildren's literature scholar Ruth Adler studied how kindergarten classes responded to picture books that end with a loss, such as the death of a pet. When teachers read the books aloud and then invited discussion, children often connected the stories to their own experiences and talked about them calmly. Adler concludes that what matters is less the ending itself than whether an adult helps children talk about it.",
+              "prompt": "Based on the texts, how would Adler most likely respond to the educators' view in Text 1?",
               "choices": [
                 "She would argue that sad endings need not overwhelm young children if an adult helps them discuss the stories.",
                 "She would agree that sad endings should be avoided unless the books are read at home.",
@@ -1053,7 +1053,7 @@
                 "She would claim that young children generally prefer sad endings to happy ones."
               ],
               "answer": "A",
-              "explanation": "Raupova found that children handled sad endings calmly when adults led a discussion, so the ending alone is not the problem. She makes no comparison with adults and says nothing about which endings children prefer."
+              "explanation": "Adler found that children handled sad endings calmly when adults led a discussion, so the ending alone is not the problem. She makes no comparison with adults and says nothing about which endings children prefer."
             },
             {
               "id": "t6-rw2h-08",
@@ -1076,24 +1076,24 @@
               "section": "rw",
               "skill": "Central Ideas and Details",
               "difficulty": "hard",
-              "passage": "The following text is from a novel. Feruz, a retired mapmaker, is looking at a map he drew forty years earlier.\n\nThe map had been his finest work: every irrigation canal, every orchard wall, every footpath between the villages traced in ink so fine it seemed breathed onto the paper. Feruz unfolded it on the kitchen table and found his own street, then the bend in the canal where the old mill had stood. The mill was gone now, the canal paved over, the orchards divided into building lots. Yet the map, he realized, was not wrong. It was simply loyal to a place that no longer existed.",
+              "passage": "The following text is from a novel. Walter, a retired mapmaker, is looking at a map he drew forty years earlier.\n\nThe map had been his finest work: every irrigation canal, every orchard wall, every footpath between the villages traced in ink so fine it seemed breathed onto the paper. Walter unfolded it on the kitchen table and found his own street, then the bend in the canal where the old mill had stood. The mill was gone now, the canal paved over, the orchards divided into building lots. Yet the map, he realized, was not wrong. It was simply loyal to a place that no longer existed.",
               "prompt": "Which choice best states the main idea of the text?",
               "choices": [
-                "Feruz discovers several errors in a map he once considered his finest work.",
-                "Feruz realizes that his old map, though it no longer matches the area, faithfully records a place that has since disappeared.",
-                "Feruz regrets that he never drew a map of the area as it looks today.",
-                "Feruz decides to redraw the map to show the area's new streets and buildings."
+                "Walter discovers several errors in a map he once considered his finest work.",
+                "Walter realizes that his old map, though it no longer matches the area, faithfully records a place that has since disappeared.",
+                "Walter regrets that he never drew a map of the area as it looks today.",
+                "Walter decides to redraw the map to show the area's new streets and buildings."
               ],
               "answer": "B",
-              "explanation": "The landscape has changed, but Feruz concludes the map \"was not wrong\": it is \"loyal\" to the place as it was. The option about errors contradicts that realization."
+              "explanation": "The landscape has changed, but Walter concludes the map \"was not wrong\": it is \"loyal\" to the place as it was. The option about errors contradicts that realization."
             },
             {
               "id": "t6-rw2h-10",
               "section": "rw",
               "skill": "Command of Evidence: Textual",
               "difficulty": "hard",
-              "passage": "Robotics researcher Ilhom Qodirov hypothesizes that pedestrians trust a sidewalk delivery robot more when it signals where it is about to go, for example by projecting arrows onto the pavement, than when it moves without giving such signals.",
-              "prompt": "Which finding, if true, would most directly support Qodirov's hypothesis?",
+              "passage": "Robotics researcher Jonas Berg hypothesizes that pedestrians trust a sidewalk delivery robot more when it signals where it is about to go, for example by projecting arrows onto the pavement, than when it moves without giving such signals.",
+              "prompt": "Which finding, if true, would most directly support Berg's hypothesis?",
               "choices": [
                 "Pedestrians who passed a robot projecting arrows rated it as more trustworthy than did pedestrians who passed an otherwise identical robot that gave no signals.",
                 "Pedestrians rated robots that projected arrows as more trustworthy than human couriers on bicycles.",
@@ -1108,8 +1108,8 @@
               "section": "rw",
               "skill": "Command of Evidence: Quantitative",
               "difficulty": "hard",
-              "passage": "Anthropologist Shahnoza Valieva surveyed households in four villages (identified here by pseudonyms) in 2005 and again in 2025. In every village, a smaller share of households baked their own bread in 2025 than in 2005, but Valieva claims that the decline was steepest in villages located close to a commercial bakery. ______",
-              "prompt": "Which choice most effectively uses data from the table to support Valieva's claim?",
+              "passage": "Anthropologist Marina Costa surveyed households in four villages (identified here by pseudonyms) in 2005 and again in 2025. In every village, a smaller share of households baked their own bread in 2025 than in 2005, but Costa claims that the decline was steepest in villages located close to a commercial bakery. ______",
+              "prompt": "Which choice most effectively uses data from the table to support Costa's claim?",
               "choices": [
                 "In 2005, Meadow had the highest share of households baking their own bread, at 92%.",
                 "In 2025, fewer than 90% of households baked their own bread in each of the four villages.",
@@ -1418,32 +1418,32 @@
               "section": "rw",
               "skill": "Rhetorical Synthesis",
               "difficulty": "hard",
-              "passage": "While researching a topic, a student has taken the following notes:\n\n• Qadam is a two-legged robot built by engineering students at a university in Tashkent.\n• It is 1.2 meters tall.\n• Cameras and pressure sensors in its feet help it keep its balance on uneven ground.\n• The students hope it will one day carry supplies to villages in mountain areas.",
-              "prompt": "The student wants to introduce Qadam to an audience unfamiliar with it, emphasizing the robot's intended purpose. Which choice most effectively uses relevant information from the notes to accomplish this goal?",
+              "passage": "While researching a topic, a student has taken the following notes:\n\n• Strider is a two-legged robot built by engineering students at a university in Nairobi.\n• It is 1.2 meters tall.\n• Cameras and pressure sensors in its feet help it keep its balance on uneven ground.\n• The students hope it will one day carry supplies to villages in mountain areas.",
+              "prompt": "The student wants to introduce Strider to an audience unfamiliar with it, emphasizing the robot's intended purpose. Which choice most effectively uses relevant information from the notes to accomplish this goal?",
               "choices": [
-                "Qadam uses cameras and pressure sensors in its feet to keep its balance on uneven ground.",
+                "Strider uses cameras and pressure sensors in its feet to keep its balance on uneven ground.",
                 "The students hope their robot will one day carry supplies to villages in mountain areas.",
-                "Qadam, a two-legged robot built by engineering students in Tashkent, may one day carry supplies to mountain villages.",
-                "At 1.2 meters tall, Qadam is a two-legged robot built by engineering students in Tashkent."
+                "Strider, a two-legged robot built by engineering students in Nairobi, may one day carry supplies to mountain villages.",
+                "At 1.2 meters tall, Strider is a two-legged robot built by engineering students in Nairobi."
               ],
               "answer": "C",
-              "explanation": "An unfamiliar audience needs to know what Qadam is, and the goal stresses its purpose. Only this choice does both. The option about \"their robot\" gives the purpose but never names or describes the robot."
+              "explanation": "An unfamiliar audience needs to know what Strider is, and the goal stresses its purpose. Only this choice does both. The option about \"their robot\" gives the purpose but never names or describes the robot."
             },
             {
               "id": "t6-rw2h-27",
               "section": "rw",
               "skill": "Rhetorical Synthesis",
               "difficulty": "hard",
-              "passage": "While researching a topic, a student has taken the following notes:\n\n• Researcher Nargiza Tolipova examined 400 picture books published in Uzbekistan between 1990 and 2019.\n• In books from the 1990s, 18% of main characters were animals.\n• In books from the 2010s, 46% of main characters were animals.\n• Tolipova suggests that illustrators increasingly chose animal characters so that children from any background could identify with them.",
-              "prompt": "The student wants to present the main finding of Tolipova's study. Which choice most effectively uses relevant information from the notes to accomplish this goal?",
+              "passage": "While researching a topic, a student has taken the following notes:\n\n• Researcher Emma Novak examined 400 picture books published in Poland between 1990 and 2019.\n• In books from the 1990s, 18% of main characters were animals.\n• In books from the 2010s, 46% of main characters were animals.\n• Novak suggests that illustrators increasingly chose animal characters so that children from any background could identify with them.",
+              "prompt": "The student wants to present the main finding of Novak's study. Which choice most effectively uses relevant information from the notes to accomplish this goal?",
               "choices": [
-                "Tolipova found that animal main characters became far more common in the picture books she studied, rising from 18% of main characters in the 1990s to 46% in the 2010s.",
-                "Tolipova suggests that illustrators chose animal characters so that children from any background could identify with them.",
-                "Tolipova examined 400 picture books published in Uzbekistan between 1990 and 2019.",
+                "Novak found that animal main characters became far more common in the picture books she studied, rising from 18% of main characters in the 1990s to 46% in the 2010s.",
+                "Novak suggests that illustrators chose animal characters so that children from any background could identify with them.",
+                "Novak examined 400 picture books published in Poland between 1990 and 2019.",
                 "In picture books from the 1990s, 18% of main characters were animals."
               ],
               "answer": "A",
-              "explanation": "The finding is the change in animal characters from 18% to 46%. The option about illustrators' choices is Tolipova's explanation of the finding, not the finding itself."
+              "explanation": "The finding is the change in animal characters from 18% to 46%. The option about illustrators' choices is Novak's explanation of the finding, not the finding itself."
             }
           ]
         }
@@ -1542,8 +1542,8 @@
             "section": "math",
             "skill": "Systems of two linear equations in two variables",
             "difficulty": "medium",
-            "prompt": "A bakery sells non for 4,000 so'm each and samsa for 7,000 so'm each. One morning, it sold 150 of these items for a total of 795,000 so'm. How many samsa did the bakery sell that morning?",
-            "explanation": "Let $s$ be the number of samsa, so $150 - s$ non were sold. In thousands of so'm, $4(150 - s) + 7s = 795$, so $600 + 3s = 795$ and $s = 65$. (85 is the number of non.)",
+            "prompt": "A bakery sells bagels for \\$4 each and muffins for \\$7 each. One morning, it sold 150 of these items for a total of \\$795. How many muffins did the bakery sell that morning?",
+            "explanation": "Let $s$ be the number of muffins, so $150 - s$ bagels were sold. Then $4(150 - s) + 7s = 795$, so $600 + 3s = 795$ and $s = 65$. (85 is the number of bagels.)",
             "choices": [
               "85",
               "65",
@@ -1801,13 +1801,13 @@
               "section": "math",
               "skill": "Linear equations in one variable",
               "difficulty": "easy",
-              "prompt": "Aziza bought 4 identical notebooks and one pen. The pen cost 6,000 so'm, and she paid 38,000 so'm in total. What was the price, in so'm, of one notebook?",
-              "explanation": "The notebooks cost $38{,}000 - 6{,}000 = 32{,}000$ so'm in total, so one notebook cost $32{,}000 \\div 4 = 8{,}000$ so'm.",
+              "prompt": "Sofia bought 4 identical notebooks and one pen. The pen cost \\$6, and she paid \\$38 in total. What was the price, in dollars, of one notebook?",
+              "explanation": "The notebooks cost $38 - 6 = 32$ dollars in total, so one notebook cost $32 \\div 4 = 8$ dollars.",
               "choices": [
-                "8,000",
-                "9,500",
-                "11,000",
-                "32,000"
+                "8",
+                "9.50",
+                "11",
+                "32"
               ],
               "answer": "A"
             },
@@ -1954,7 +1954,7 @@
               "section": "math",
               "skill": "Linear inequalities in one or two variables",
               "difficulty": "medium",
-              "prompt": "Dilnoza has \\$60 to spend on art supplies. She has already spent \\$12 on paints, and sketchbooks cost \\$8 each. What is the greatest number of sketchbooks she can buy?",
+              "prompt": "Grace has \\$60 to spend on art supplies. She has already spent \\$12 on paints, and sketchbooks cost \\$8 each. What is the greatest number of sketchbooks she can buy?",
               "explanation": "She needs $12 + 8s \\le 60$, so $8s \\le 48$ and $s \\le 6$.",
               "choices": [
                 "7",
@@ -2025,11 +2025,11 @@
               "section": "math",
               "skill": "Linear functions",
               "difficulty": "medium",
-              "prompt": "The total cost $C$, in thousands of so'm, of renting a rowboat for $h$ hours is given by $C = 30h + 20$. What is the best interpretation of 20 in this context?",
+              "prompt": "The total cost $C$, in dollars, of renting a rowboat for $h$ hours is given by $C = 30h + 20$. What is the best interpretation of 20 in this context?",
               "explanation": "The 20 is added once no matter what $h$ is, so it is a fixed charge. The 30 is the charge per hour.",
               "choices": [
-                "A fixed charge of 20 thousand so'm paid no matter how long the boat is rented",
-                "An additional charge of 20 thousand so'm for each hour of the rental",
+                "A fixed charge of \\$20 paid no matter how long the boat is rented",
+                "An additional charge of \\$20 for each hour of the rental",
                 "A rental that lasts 20 hours",
                 "The total cost of renting the boat for 30 hours"
               ],
@@ -2379,7 +2379,7 @@
               "section": "math",
               "skill": "Linear equations in two variables",
               "difficulty": "hard",
-              "prompt": "A shop sells robot kits for \\$34 each and spare-part packs for \\$6 each. Amina spent exactly \\$250 on robot kits and spare-part packs, buying at least one of each. What is the greatest number of robot kits she could have bought?",
+              "prompt": "A shop sells robot kits for \\$34 each and spare-part packs for \\$6 each. Amelia spent exactly \\$250 on robot kits and spare-part packs, buying at least one of each. What is the greatest number of robot kits she could have bought?",
               "explanation": "She needs $34k + 6p = 250$ with whole numbers $k, p \\ge 1$. 8 kits cost \\$272, too much. With 7 kits, $250 - 238 = 12$ buys exactly 2 packs, so 7 works. (6 kits leaves \\$46, which is not a multiple of 6.)",
               "choices": [
                 "4",

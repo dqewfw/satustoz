@@ -71,9 +71,10 @@
       // before this day (Tashkent time) keep Tests 2 and 3, and the full results
       // of tests they finished before it. Set it to the day you upload this version.
       FREE_CHANGED_AT: '2026-10-19',
-      // Launch offer: true opens all 10 practice tests to everyone (Pro keeps the
-      // skill breakdown, question review, skill sets and drills). Set it to false
-      // to go back to Tests 4 to 10 (and 2 and 3 for new students) being Pro.
+      // Launch offer: true opens Practice Tests 1 to 10 to everyone (Pro keeps the
+      // skill breakdown, question review, skill sets and drills). Tests marked
+      // "proOnly" in data/catalog.json (11 to 15) stay Pro either way. Set it to
+      // false to go back to Tests 4 to 15 (and 2 and 3 for new students) being Pro.
       // While it's true, keep every test file in data/tests/ (don't use
       // TESTS_ENDPOINT): students without Pro load the tests from there.
       TESTS_FREE_FOR_LAUNCH: true
@@ -410,7 +411,7 @@
     // Paid tests come from the payments Worker, which checks the plan first.
     // "legacyFree" tests (Tests 2 and 3) stay in data/tests/ for students from
     // before Free changed, who have no Pro for the Worker to check.
-    const raw = meta.plan && meta.plan !== 'free' && !meta.legacyFree && !CONFIG.PLANS.TESTS_FREE_FOR_LAUNCH && pay.testsEnabled() ? await loadProTest(meta) : await getJSON(meta.file);
+    const raw = meta.plan && meta.plan !== 'free' && !meta.legacyFree && (!CONFIG.PLANS.TESTS_FREE_FOR_LAUNCH || meta.proOnly) && pay.testsEnabled() ? await loadProTest(meta) : await getJSON(meta.file);
     const errors = [];
     const test = {
       id: meta.id,
@@ -1498,8 +1499,9 @@
       return getAttempts().some(a => a.ts && a.ts < cut) || getTestHistory().some(h => h.finishedAt && h.finishedAt < cut);
     },
     // Can this student open this test? meta is its entry in data/catalog.json;
-    // "legacyFree" tests stay open for students from before the change.
-    opens(meta) { return !!meta && (!!CONFIG.PLANS.TESTS_FREE_FOR_LAUNCH || this.allows(meta.plan) || (!!meta.legacyFree && this.legacy())); },
+    // "legacyFree" tests stay open for students from before the change, and
+    // "proOnly" tests stay Pro even during the launch offer.
+    opens(meta) { return !!meta && ((!!CONFIG.PLANS.TESTS_FREE_FOR_LAUNCH && !meta.proOnly) || this.allows(meta.plan) || (!!meta.legacyFree && this.legacy())); },
     // Skill breakdown, question review and skill drills are Pro. A test record
     // finished before the change keeps its full results.
     insights(rec) { return this.allows('pro') || (!!(rec && rec.finishedAt) && rec.finishedAt < freeChangedAt()); },
@@ -1592,7 +1594,7 @@
       free_name: 'Free', pro_name: 'Pro', max_name: 'Max',
       free_for: 'Try the real test format.', pro_for: 'Every test, and where your points go.', max_for: 'Pro, plus the AI tutor and live sessions.',
       free_f: ['Mini diagnostic test', 'Practice Test 1', 'Starter practice sets', 'Your total score'],
-      pro_f: ['All 10 full-length adaptive practice tests', 'Your score broken down by skill', 'Review every question with explanations', 'Drills built from your weakest skills', 'A study plan to your test date'],
+      pro_f: ['All 15 full-length adaptive practice tests', 'Your score broken down by skill', 'Review every question with explanations', 'Drills built from your weakest skills', 'A study plan to your test date'],
       max_f: ['Everything in Pro', 'AI tutor: ask about any question, any time', 'Your study plan re-made every week', 'A monthly live group session with Azizbek'],
       per_month: '/ month', popular: 'Recommended', soon: 'Coming soon',
       cta_free: 'Start free', cta_current: 'Your current plan', cta_included: 'Included in your plan', cta_pro: 'Upgrade to Pro', cta_max: 'Get Max',
@@ -1612,7 +1614,7 @@
       pay_continue: 'Continue', pay_back: 'Back', cancel: 'Cancel', pay_powered: 'Powered by',
       pay_sent: 'Payme sent an SMS code to {phone}.', pay_sent_nophone: 'Payme sent an SMS code to the phone linked to your card.',
       pay_code: 'SMS code', pay_resend: 'Send the code again', pay_resent: 'New code sent', pay_pay: 'Pay {price}',
-      pay_ok_t: 'Pro is on', pay_ok: 'Pro is on until {d}. All 10 practice tests are open.',
+      pay_ok_t: 'Pro is on', pay_ok: 'Pro is on until {d}. All 15 practice tests are open.',
       pay_ok_renew: 'Next month, {price} is charged to card {card} automatically. You can stop it on the Plans page any time.',
       pay_pending: 'Payme is still confirming your payment. Pro switches on within a few minutes; reload the page then.',
       pay_opening: 'Opening Payme…', pay_back_ok: 'Payment received. Pro is on until {d}.',
@@ -1643,7 +1645,7 @@
       mp_unlocked_t: '{plan} is on', mp_unlocked: 'You can use {plan} right now, for 48 hours, while we confirm your payment. Once it’s confirmed (within 2 hours, 9:00 to 23:00 Tashkent time), you get the full period you paid for. Send us the receipt so we can confirm it faster.',
       pending_note: 'Confirming your payment: the full period starts once it’s confirmed.',
       mp_trust: 'Payments go to {name}, the founder of SAT Ustoz. Questions? Message {tg} on Telegram.', mp_instant: 'Your plan switches on as soon as you tap “I’ve paid”.',
-      launch_tests: 'All 10 practice tests (free for our launch)', pro_sets: 'Practice sets for the most-missed skills',
+      launch_tests: 'Practice Tests 1 to 10 (free for our launch)', pro_tests_launch: 'Practice Tests 11 to 15, only in Pro', pro_sets: 'Practice sets for the most-missed skills',
       ai_daily: '3 AI tutor questions a day', ai_max: 'Unlimited AI tutor and new AI practice questions',
       bill_pass: 'Prices in Uzbek so’m. Pay for one month at a time, or for 3 months until your test.',
       pass_line: 'or {price} for 3 months, until your test',
@@ -1665,7 +1667,7 @@
       free_name: 'Bepul', pro_name: 'Pro', max_name: 'Max',
       free_for: 'Haqiqiy test formatini sinab koʻring.', pro_for: 'Barcha testlar va ballaringiz qayerda yoʻqolayotgani.', max_for: 'Pro, AI ustoz va jonli darslar bilan.',
       free_f: ['Mini diagnostika testi', '1-sinov testi', 'Boshlangʻich savollar toʻplamlari', 'Umumiy ballingiz'],
-      pro_f: ['Barcha 10 ta toʻliq adaptiv sinov testi', 'Koʻnikmalar boʻyicha ball tahlili', 'Har bir savolni izohlari bilan koʻrib chiqish', 'Eng zaif koʻnikmalaringiz boʻyicha mashqlar', 'Imtihon sanangizgacha oʻqish rejasi'],
+      pro_f: ['Barcha 15 ta toʻliq adaptiv sinov testi', 'Koʻnikmalar boʻyicha ball tahlili', 'Har bir savolni izohlari bilan koʻrib chiqish', 'Eng zaif koʻnikmalaringiz boʻyicha mashqlar', 'Imtihon sanangizgacha oʻqish rejasi'],
       max_f: ['Pro tarifidagi hamma narsa', 'AI ustoz: istalgan savol boʻyicha istalgan vaqtda soʻrang', 'Oʻqish rejangiz har hafta yangilanadi', 'Azizbek bilan oylik jonli guruh darsi'],
       per_month: '/ oy', popular: 'Tavsiya etiladi', soon: 'Tez kunda',
       cta_free: 'Bepul boshlash', cta_current: 'Joriy tarifingiz', cta_included: 'Tarifingizga kiradi', cta_pro: 'Pro tarifiga oʻtish', cta_max: 'Max olish',
@@ -1685,7 +1687,7 @@
       pay_continue: 'Davom etish', pay_back: 'Orqaga', cancel: 'Bekor qilish', pay_powered: 'Powered by',
       pay_sent: 'Payme {phone} raqamiga SMS kod yubordi.', pay_sent_nophone: 'Payme kartangizga bogʻlangan telefon raqamiga SMS kod yubordi.',
       pay_code: 'SMS kod', pay_resend: 'Kodni qayta yuborish', pay_resent: 'Yangi kod yuborildi', pay_pay: '{price} toʻlash',
-      pay_ok_t: 'Pro yoqildi', pay_ok: 'Pro {d} gacha faol. Barcha 10 ta sinov testi ochiq.',
+      pay_ok_t: 'Pro yoqildi', pay_ok: 'Pro {d} gacha faol. Barcha 15 ta sinov testi ochiq.',
       pay_ok_renew: 'Keyingi oy {card} kartasidan {price} avtomatik yechiladi. Buni «Plans» sahifasida istalgan vaqtda toʻxtatishingiz mumkin.',
       pay_pending: 'Payme toʻlovingizni hali tasdiqlamoqda. Pro bir necha daqiqada yoqiladi, keyin sahifani yangilang.',
       pay_opening: 'Payme ochilmoqda…', pay_back_ok: 'Toʻlov qabul qilindi. Pro {d} gacha faol.',
@@ -1716,7 +1718,7 @@
       mp_unlocked_t: '{plan} yoqildi', mp_unlocked: 'Toʻlovingizni tasdiqlagunimizcha {plan} tarifidan hoziroq, 48 soat davomida foydalanishingiz mumkin. Tasdiqlangach (Toshkent vaqti bilan 9:00–23:00, 2 soat ichida) toʻlagan muddatingiz toʻliq ochiladi. Tezroq tasdiqlashimiz uchun chekni yuboring.',
       pending_note: 'Toʻlovingiz tasdiqlanmoqda: toʻliq muddat tasdiqlangach boshlanadi.',
       mp_trust: 'Toʻlovlar SAT Ustoz asoschisi {name} kartasiga tushadi. Savollar boʻlsa, Telegramda {tg} ga yozing.', mp_instant: '“Toʻladim” tugmasini bosishingiz bilan tarif darhol yoqiladi.',
-      launch_tests: 'Barcha 10 ta sinov testi (ishga tushish munosabati bilan bepul)', pro_sets: 'Eng koʻp xato qilinadigan koʻnikmalar boʻyicha toʻplamlar',
+      launch_tests: '1–10-sinov testlari (ishga tushish munosabati bilan bepul)', pro_tests_launch: '11–15-sinov testlari, faqat Pro tarifida', pro_sets: 'Eng koʻp xato qilinadigan koʻnikmalar boʻyicha toʻplamlar',
       ai_daily: 'Kuniga 3 ta AI ustoz savoli', ai_max: 'Cheksiz AI ustoz va yangi AI mashq savollari',
       bill_pass: 'Narxlar soʻmda. Bir oyga yoki imtihoningizgacha 3 oyga toʻlang.',
       pass_line: 'yoki imtihoningizgacha 3 oyga {price}',
@@ -1738,7 +1740,7 @@
       free_name: 'Бесплатно', pro_name: 'Pro', max_name: 'Max',
       free_for: 'Попробуйте настоящий формат теста.', pro_for: 'Все тесты и то, где вы теряете баллы.', max_for: 'Pro плюс ИИ-репетитор и живые занятия.',
       free_f: ['Мини-диагностика', 'Пробный тест 1', 'Стартовые наборы вопросов', 'Ваш общий балл'],
-      pro_f: ['Все 10 полных адаптивных пробных тестов', 'Разбор балла по навыкам', 'Разбор каждого вопроса с объяснениями', 'Тренировки по вашим самым слабым навыкам', 'План подготовки до даты экзамена'],
+      pro_f: ['Все 15 полных адаптивных пробных тестов', 'Разбор балла по навыкам', 'Разбор каждого вопроса с объяснениями', 'Тренировки по вашим самым слабым навыкам', 'План подготовки до даты экзамена'],
       max_f: ['Всё из тарифа Pro', 'ИИ-репетитор: спрашивайте о любом вопросе в любое время', 'План подготовки, обновляемый каждую неделю', 'Ежемесячное живое групповое занятие с Азизбеком'],
       per_month: '/ месяц', popular: 'Рекомендуем', soon: 'Скоро',
       cta_free: 'Начать бесплатно', cta_current: 'Ваш текущий тариф', cta_included: 'Входит в ваш тариф', cta_pro: 'Перейти на Pro', cta_max: 'Получить Max',
@@ -1758,7 +1760,7 @@
       pay_continue: 'Продолжить', pay_back: 'Назад', cancel: 'Отмена', pay_powered: 'Powered by',
       pay_sent: 'Payme отправил SMS-код на номер {phone}.', pay_sent_nophone: 'Payme отправил SMS-код на телефон, привязанный к карте.',
       pay_code: 'SMS-код', pay_resend: 'Отправить код ещё раз', pay_resent: 'Новый код отправлен', pay_pay: 'Оплатить {price}',
-      pay_ok_t: 'Pro включён', pay_ok: 'Pro активен до {d}. Все 10 пробных тестов открыты.',
+      pay_ok_t: 'Pro включён', pay_ok: 'Pro активен до {d}. Все 15 пробных тестов открыты.',
       pay_ok_renew: 'В следующем месяце {price} спишется с карты {card} автоматически. Отключить можно на странице «Plans» в любой момент.',
       pay_pending: 'Payme ещё подтверждает оплату. Pro включится через несколько минут, затем обновите страницу.',
       pay_opening: 'Открываем Payme…', pay_back_ok: 'Оплата получена. Pro активен до {d}.',
@@ -1789,7 +1791,7 @@
       mp_unlocked_t: '{plan} включён', mp_unlocked: 'Пользуйтесь {plan} прямо сейчас, 48 часов, пока мы подтверждаем оплату. После подтверждения (в течение 2 часов, с 9:00 до 23:00 по Ташкенту) откроется весь оплаченный срок. Отправьте чек, чтобы мы подтвердили быстрее.',
       pending_note: 'Подтверждаем оплату: полный срок начнётся после подтверждения.',
       mp_trust: 'Платежи поступают основателю SAT Ustoz, {name}. Вопросы? Напишите {tg} в Telegram.', mp_instant: 'Тариф включится сразу, как только вы нажмёте «Я оплатил(а)».',
-      launch_tests: 'Все 10 пробных тестов (бесплатно в честь запуска)', pro_sets: 'Наборы по навыкам, где ошибаются чаще всего',
+      launch_tests: 'Пробные тесты 1–10 (бесплатно в честь запуска)', pro_tests_launch: 'Пробные тесты 11–15, только в Pro', pro_sets: 'Наборы по навыкам, где ошибаются чаще всего',
       ai_daily: '3 вопроса ИИ-репетитору в день', ai_max: 'Безлимитный ИИ-репетитор и новые ИИ-вопросы',
       bill_pass: 'Цены в узбекских сумах. Платите за месяц или сразу за 3 месяца до экзамена.',
       pass_line: 'или {price} за 3 месяца, до экзамена',
@@ -1816,11 +1818,11 @@
     return amount + ' ' + (CONFIG.PLANS.CURRENCY[lang] || CONFIG.PLANS.CURRENCY.en);
   }
   // What each plan card lists. During the launch offer every test is free, so
-  // Free lists all 10 and Pro lists its skill sets instead of the tests. With the AI on, Free and Pro
+  // Free lists Tests 1 to 10, and Pro lists Tests 11 to 15 and its skill sets. With the AI on, Free and Pro
   // list their daily tutor questions and Max its unlimited AI.
   function planFeatures(id, T) {
     const f = T(id + '_f').slice();
-    if (CONFIG.PLANS.TESTS_FREE_FOR_LAUNCH) { if (id === 'free') f[1] = T('launch_tests'); if (id === 'pro') f[0] = T('pro_sets'); }
+    if (CONFIG.PLANS.TESTS_FREE_FOR_LAUNCH) { if (id === 'free') f[1] = T('launch_tests'); if (id === 'pro') f.splice(0, 1, T('pro_tests_launch'), T('pro_sets')); }
     if (!ai.enabled()) return f;
     if (id === 'max') f[1] = T('ai_max'); else f.push(T('ai_daily'));
     return f;

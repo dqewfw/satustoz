@@ -18,7 +18,7 @@
             "section": "rw",
             "skill": "Words in Context",
             "difficulty": "easy",
-            "passage": "At a tree nursery in the Chatkal Mountains, foresters plant young walnut trees close together at first so that the seedlings can ______ one another from strong mountain winds. Once the trees are sturdier, the foresters thin them out.",
+            "passage": "At a tree nursery in the Andes, foresters plant young walnut trees close together at first so that the seedlings can ______ one another from strong mountain winds. Once the trees are sturdier, the foresters thin them out.",
             "prompt": "Which choice completes the text with the most logical and precise word or phrase?",
             "choices": [
               "imitate",
@@ -34,7 +34,7 @@
             "section": "rw",
             "skill": "Words in Context",
             "difficulty": "medium",
-            "passage": "The fossil skull was so ______ that paleontologist Davron Ismoilov could study its shape only after scanning hundreds of tiny pieces and fitting them back together on a computer.",
+            "passage": "The fossil skull was so ______ that paleontologist Martin Kessler could study its shape only after scanning hundreds of tiny pieces and fitting them back together on a computer.",
             "prompt": "Which choice completes the text with the most logical and precise word or phrase?",
             "choices": [
               "ancient",
@@ -50,7 +50,7 @@
             "section": "rw",
             "skill": "Words in Context",
             "difficulty": "medium",
-            "passage": "Conservator Aziza Karimova reminds her students that cleaning an old oil painting is ______: once a layer of original paint has been removed, it can never be put back.",
+            "passage": "Conservator Elise Durand reminds her students that cleaning an old oil painting is ______: once a layer of original paint has been removed, it can never be put back.",
             "prompt": "Which choice completes the text with the most logical and precise word or phrase?",
             "choices": [
               "expensive",
@@ -82,23 +82,23 @@
             "section": "rw",
             "skill": "Text Structure and Purpose",
             "difficulty": "medium",
-            "passage": "In the foothills of southern Uzbekistan, some villages still draw water from karez: underground channels that carry groundwater from the base of the hills to fields several kilometers away. Because the water flows beneath the surface, very little of it evaporates in the summer heat. __Building a karez, however, demanded years of labor, as workers dug a line of vertical shafts and then joined them with a gently sloping tunnel.__",
+            "passage": "In the foothills of central Iran, some villages still draw water from qanats: underground channels that carry groundwater from the base of the hills to fields several kilometers away. Because the water flows beneath the surface, very little of it evaporates in the summer heat. __Building a qanat, however, demanded years of labor, as workers dug a line of vertical shafts and then joined them with a gently sloping tunnel.__",
             "prompt": "Which choice best describes the function of the underlined sentence in the text as a whole?",
             "choices": [
-              "It explains why most villages in the region have stopped using karez.",
+              "It explains why most villages in the region have stopped using qanats.",
               "It notes a cost of the system whose advantage is described in the previous sentence.",
-              "It provides evidence that karez lose less water than open canals do.",
-              "It compares karez with irrigation systems used in other regions."
+              "It provides evidence that qanats lose less water than open canals do.",
+              "It compares qanats with irrigation systems used in other regions."
             ],
             "answer": "B",
-            "explanation": "The previous sentence gives a benefit (little evaporation). The underlined sentence, signaled by \"however,\" gives a drawback: building a karez took years of labor."
+            "explanation": "The previous sentence gives a benefit (little evaporation). The underlined sentence, signaled by \"however,\" gives a drawback: building a qanat took years of labor."
           },
           {
             "id": "t10-rw1-06",
             "section": "rw",
             "skill": "Text Structure and Purpose",
             "difficulty": "medium",
-            "passage": "For decades, the tiny fossil teeth found in a single rock layer at a riverbank site in Kyrgyzstan were assigned to one species of early mammal. When paleontologist Kerstin Holm measured more than 2,000 of the teeth, however, she found that they fell into two distinct size groups, each with its own pattern of wear. Holm concluded that two species, one that fed on insects and one that fed on seeds, had lived at the site at the same time.",
+            "passage": "For decades, the tiny fossil teeth found in a single rock layer at a riverbank site in Wyoming were assigned to one species of early mammal. When paleontologist Kerstin Holm measured more than 2,000 of the teeth, however, she found that they fell into two distinct size groups, each with its own pattern of wear. Holm concluded that two species, one that fed on insects and one that fed on seeds, had lived at the site at the same time.",
             "prompt": "Which choice best describes the overall structure of the text?",
             "choices": [
               "It describes a researcher's discovery and then explains why other scientists rejected it.",
@@ -130,29 +130,29 @@
             "section": "rw",
             "skill": "Central Ideas and Details",
             "difficulty": "easy",
-            "passage": "In many Uzbek cities, daily life is shaped by the mahalla, a neighborhood community whose members tend to know one another well. Neighbors in a mahalla often help one another prepare for weddings, repair homes together through a tradition of shared work called hashar, and gather at local teahouses to discuss neighborhood matters. In this way, the mahalla gives city dwellers the kind of close ties often associated with village life.",
+            "passage": "In Siena, Italy, daily life is shaped by the contrada, a neighborhood community whose members tend to know one another well. Neighbors in a contrada often help one another prepare for weddings, work together to get ready for the Palio, the city's twice-yearly horse race, and gather at the contrada's social club to discuss neighborhood matters. In this way, the contrada gives city dwellers the kind of close ties often associated with village life.",
             "prompt": "Which choice best states the main idea of the text?",
             "choices": [
-              "The mahalla gives city residents close community ties through shared activities and mutual help.",
-              "Mahallas are found only in the oldest parts of Uzbek cities.",
-              "Teahouses are the most important buildings in Uzbek neighborhoods.",
-              "Most residents of Uzbek cities would prefer to live in villages."
+              "The contrada gives city residents close community ties through shared activities and mutual help.",
+              "Contrade are found only in the oldest parts of Italian cities.",
+              "Social clubs are the most important buildings in Siena's neighborhoods.",
+              "Most residents of Siena would prefer to live in villages."
             ],
             "answer": "A",
-            "explanation": "The text lists ways neighbors in a mahalla help and meet one another, then concludes that the mahalla gives city dwellers village-like close ties."
+            "explanation": "The text lists ways neighbors in a contrada help and meet one another, then concludes that the contrada gives city dwellers village-like close ties."
           },
           {
             "id": "t10-rw1-09",
             "section": "rw",
             "skill": "Central Ideas and Details",
             "difficulty": "medium",
-            "passage": "The following text is from a short story. Shahlo is restoring a damaged painting in a museum workshop.\n\nFor three weeks Shahlo had worked on a single patch of sky no larger than her palm, lifting away a century of grime with cotton swabs she rolled herself. Visitors who passed the workshop window sometimes stopped, waiting for something to happen, and then wandered on. She did not mind. Each evening, when she switched off her lamp, the blue was a little truer than it had been that morning, and that was enough.",
+            "passage": "The following text is from a short story. Ingrid is restoring a damaged painting in a museum workshop.\n\nFor three weeks Ingrid had worked on a single patch of sky no larger than her palm, lifting away a century of grime with cotton swabs she rolled herself. Visitors who passed the workshop window sometimes stopped, waiting for something to happen, and then wandered on. She did not mind. Each evening, when she switched off her lamp, the blue was a little truer than it had been that morning, and that was enough.",
             "prompt": "Which choice best states the main idea of the text?",
             "choices": [
-              "Shahlo is frustrated that visitors do not appreciate her work.",
-              "Shahlo worries that she will not finish restoring the painting on time.",
-              "Shahlo has decided to stop working on the painting's sky.",
-              "Shahlo is content with her slow, gradual progress, even though others see little happening."
+              "Ingrid is frustrated that visitors do not appreciate her work.",
+              "Ingrid worries that she will not finish restoring the painting on time.",
+              "Ingrid has decided to stop working on the painting's sky.",
+              "Ingrid is content with her slow, gradual progress, even though others see little happening."
             ],
             "answer": "D",
             "explanation": "Visitors see nothing happening, but \"She did not mind\": the small daily improvement in the blue \"was enough\" for her."
@@ -162,11 +162,11 @@
             "section": "rw",
             "skill": "Command of Evidence: Textual",
             "difficulty": "medium",
-            "passage": "Irrigation engineer Ravshan Tursunov hypothesizes that lining the earthen canals of the Zarafshan Valley with concrete would deliver more water to farms, because less water would seep into the ground along the way.",
-            "prompt": "Which finding, if true, would most directly support Tursunov's hypothesis?",
+            "passage": "Irrigation engineer Rafael Ortega hypothesizes that lining the earthen canals of the Ebro Valley with concrete would deliver more water to farms, because less water would seep into the ground along the way.",
+            "prompt": "Which finding, if true, would most directly support Ortega's hypothesis?",
             "choices": [
               "Building a concrete-lined canal takes longer than digging an earthen canal of the same length.",
-              "Farmers near the Zarafshan River grow a wider variety of crops than farmers in other parts of the valley.",
+              "Farmers near the Ebro River grow a wider variety of crops than farmers in other parts of the valley.",
               "The amount of water flowing into the valley's canals is greatest in late spring, when mountain snow melts.",
               "In a trial, a concrete-lined section of canal delivered about 30 percent more of the water entering it to its far end than an unlined section of the same length carrying the same flow."
             ],
@@ -178,8 +178,8 @@
             "section": "rw",
             "skill": "Command of Evidence: Textual",
             "difficulty": "hard",
-            "passage": "Paleontologist Anvar Qosimov argues that a small feathered dinosaur whose fossils he studied was active mainly at night.",
-            "prompt": "Which finding, if true, would most directly support Qosimov's argument?",
+            "passage": "Paleontologist Noah Fischer argues that a small feathered dinosaur whose fossils he studied was active mainly at night.",
+            "prompt": "Which finding, if true, would most directly support Fischer's argument?",
             "choices": [
               "The dinosaur's eye sockets, relative to the size of its skull, were as large as those of modern owls, which hunt in dim light.",
               "The dinosaur's fossils were found in rock that formed in a hot, dry region, a type of environment in which many animals today are active at night.",
@@ -194,7 +194,7 @@
             "section": "rw",
             "skill": "Command of Evidence: Quantitative",
             "difficulty": "medium",
-            "passage": "After a landslide in the foothills of the Tian Shan, a forestry team compared four ways of replanting spruce seedlings. Seedlings grown in containers without mulch had the highest survival rate after one year, but their advantage did not last: after three years, ______",
+            "passage": "After a landslide in the foothills of the Alps, a forestry team compared four ways of replanting spruce seedlings. Seedlings grown in containers without mulch had the highest survival rate after one year, but their advantage did not last: after three years, ______",
             "prompt": "Which choice most effectively uses data from the table to complete the statement?",
             "choices": [
               "seedlings grown in containers without mulch had a survival rate of 91%.",
@@ -256,7 +256,7 @@
             "section": "rw",
             "skill": "Inferences",
             "difficulty": "hard",
-            "passage": "Planners in one Central Asian city expected that adding benches to public plazas would lead visitors to stay longer. A study by sociologist Teodora Lukić found that the average length of visits rose in plazas where the new benches faced busy walkways but stayed about the same in plazas where the benches faced blank walls or empty lawns. Because many people linger in public spaces mainly for the chance to watch other people, the study suggests that ______",
+            "passage": "Planners in one European city expected that adding benches to public plazas would lead visitors to stay longer. A study by sociologist Teodora Lukić found that the average length of visits rose in plazas where the new benches faced busy walkways but stayed about the same in plazas where the benches faced blank walls or empty lawns. Because many people linger in public spaces mainly for the chance to watch other people, the study suggests that ______",
             "prompt": "Which choice most logically completes the text?",
             "choices": [
               "adding benches to a plaza generally has no effect on how long visitors stay.",
@@ -304,7 +304,7 @@
             "section": "rw",
             "skill": "Boundaries",
             "difficulty": "hard",
-            "passage": "The small, beaked dinosaur skeleton that a team of paleontologists dug out of a sandstone cliff in western Uzbekistan in ______ is remarkably complete, with nearly every bone still in place.",
+            "passage": "The small, beaked dinosaur skeleton that a team of paleontologists dug out of a sandstone cliff in the badlands of Alberta in ______ is remarkably complete, with nearly every bone still in place.",
             "prompt": "Which choice completes the text so that it conforms to the conventions of Standard English?",
             "choices": [
               "2019,",
@@ -320,7 +320,7 @@
             "section": "rw",
             "skill": "Boundaries",
             "difficulty": "medium",
-            "passage": "The painting's original ______ which had darkened to a muddy brown over two centuries, was carefully removed by a team of conservators in Bukhara.",
+            "passage": "The painting's original ______ which had darkened to a muddy brown over two centuries, was carefully removed by a team of conservators in Florence.",
             "prompt": "Which choice completes the text so that it conforms to the conventions of Standard English?",
             "choices": [
               "varnish;",
@@ -352,7 +352,7 @@
             "section": "rw",
             "skill": "Form, Structure, and Sense",
             "difficulty": "medium",
-            "passage": "Along the Chirchiq River, the town's three old ______ wooden water wheels, which once turned heavy grinding stones, have all been restored by local carpenters.",
+            "passage": "Along the River Avon, the town's three old ______ wooden water wheels, which once turned heavy grinding stones, have all been restored by local carpenters.",
             "prompt": "Which choice completes the text so that it conforms to the conventions of Standard English?",
             "choices": [
               "mill's",
@@ -368,7 +368,7 @@
             "section": "rw",
             "skill": "Form, Structure, and Sense",
             "difficulty": "hard",
-            "passage": "Paleontologist Kamila Nurmatova, who spent six summers excavating a fossil bed near the Amu Darya and cataloging thousands of bones, ______ that the site's crocodile fossils outnumber its dinosaur fossils by nearly four to one.",
+            "passage": "Paleontologist Julia Baker, who spent six summers excavating a fossil bed near the Red Deer River and cataloging thousands of bones, ______ that the site's crocodile fossils outnumber its dinosaur fossils by nearly four to one.",
             "prompt": "Which choice completes the text so that it conforms to the conventions of Standard English?",
             "choices": [
               "reports",
@@ -377,7 +377,7 @@
               "to report"
             ],
             "answer": "A",
-            "explanation": "The subject \"Kamila Nurmatova\" still needs a main verb after the long \"who...\" clause. Only the finite verb **reports** supplies one; the other choices leave the sentence incomplete."
+            "explanation": "The subject \"Julia Baker\" still needs a main verb after the long \"who...\" clause. Only the finite verb **reports** supplies one; the other choices leave the sentence incomplete."
           },
           {
             "id": "t10-rw1-22",
@@ -432,13 +432,13 @@
             "section": "rw",
             "skill": "Rhetorical Synthesis",
             "difficulty": "medium",
-            "passage": "While researching a topic, a student has taken the following notes:\n\n• Tugai forests are woodlands that grow along rivers in the deserts of Central Asia.\n• They line parts of the Amu Darya and the Syr Darya.\n• Their trees, such as the Euphrates poplar, depend on groundwater kept close to the surface by the nearby river.\n• Tugai forests provide habitat for the Bukhara deer.",
-            "prompt": "The student wants to explain why tugai forests grow along rivers. Which choice most effectively uses relevant information from the notes to accomplish this goal?",
+            "passage": "While researching a topic, a student has taken the following notes:\n\n• River red gum forests are woodlands that grow along rivers in the dry interior of southeastern Australia.\n• They line parts of the Murray and Darling Rivers.\n• Their trees, river red gums, depend on groundwater kept close to the surface by the nearby river.\n• River red gum forests provide nesting sites for the superb parrot.",
+            "prompt": "The student wants to explain why river red gum forests grow along rivers. Which choice most effectively uses relevant information from the notes to accomplish this goal?",
             "choices": [
-              "Tugai forests line parts of the Amu Darya and the Syr Darya.",
-              "Tugai forests, which grow in the deserts of Central Asia, provide habitat for the Bukhara deer.",
-              "The Euphrates poplar is one of the trees found in tugai forests.",
-              "Tugai forests grow along desert rivers because their trees, such as the Euphrates poplar, depend on groundwater that the rivers keep close to the surface."
+              "River red gum forests line parts of the Murray and Darling Rivers.",
+              "River red gum forests, which grow in the dry interior of southeastern Australia, provide nesting sites for the superb parrot.",
+              "The river red gum is the main tree found in these forests.",
+              "River red gum forests grow along inland rivers because their trees depend on groundwater that the rivers keep close to the surface."
             ],
             "answer": "D",
             "explanation": "Only this choice gives a reason the forests grow beside rivers: their trees need the groundwater that the rivers supply."
@@ -448,28 +448,28 @@
             "section": "rw",
             "skill": "Rhetorical Synthesis",
             "difficulty": "hard",
-            "passage": "While researching a topic, a student has taken the following notes:\n\n• Conservators Bahrom Aliev and Selin Kaya each restored a damaged nineteenth-century wall painting.\n• Aliev worked on a painting in a house in Kokand; Kaya worked on one in a mansion in Istanbul.\n• Both conservators first secured the flaking paint with a weak adhesive.\n• Aliev filled the missing areas with fine lines of color that look complete from a distance but can be recognized as new up close.\n• Kaya left the missing areas as plain, neutral-toned plaster.",
+            "passage": "While researching a topic, a student has taken the following notes:\n\n• Conservators Bruno Ferri and Selin Kaya each restored a damaged nineteenth-century wall painting.\n• Ferri worked on a painting in a house in Verona; Kaya worked on one in a mansion in Istanbul.\n• Both conservators first secured the flaking paint with a weak adhesive.\n• Ferri filled the missing areas with fine lines of color that look complete from a distance but can be recognized as new up close.\n• Kaya left the missing areas as plain, neutral-toned plaster.",
             "prompt": "The student wants to emphasize a difference in how the two conservators treated the missing areas of the paintings. Which choice most effectively uses relevant information from the notes to accomplish this goal?",
             "choices": [
-              "Both Aliev and Kaya began by securing the flaking paint with a weak adhesive.",
-              "Whereas Aliev filled the missing areas with fine lines of color that blend in from a distance, Kaya left them as plain, neutral-toned plaster.",
-              "Aliev restored a painting in Kokand, while Kaya restored one in Istanbul.",
-              "Aliev filled the missing areas of the painting in Kokand with fine lines of color that look complete from a distance."
+              "Both Ferri and Kaya began by securing the flaking paint with a weak adhesive.",
+              "Whereas Ferri filled the missing areas with fine lines of color that blend in from a distance, Kaya left them as plain, neutral-toned plaster.",
+              "Ferri restored a painting in Verona, while Kaya restored one in Istanbul.",
+              "Ferri filled the missing areas of the painting in Verona with fine lines of color that look complete from a distance."
             ],
             "answer": "B",
-            "explanation": "The goal is a difference in how the missing areas were treated, so both treatments must be contrasted. The Kokand–Istanbul choice states a difference, but not one about the missing areas."
+            "explanation": "The goal is a difference in how the missing areas were treated, so both treatments must be contrasted. The Verona–Istanbul choice states a difference, but not one about the missing areas."
           },
           {
             "id": "t10-rw1-27",
             "section": "rw",
             "skill": "Rhetorical Synthesis",
             "difficulty": "medium",
-            "passage": "While researching a topic, a student has taken the following notes:\n\n• Paleontologist Odil Rasulov and a team of researchers studied a fossil turtle shell found in central Uzbekistan.\n• The shell is about 90 million years old.\n• It belongs to a group of turtles previously known only from fossils found in North America.\n• The find suggests that this group of turtles once lived across a much wider area than scientists had believed.",
+            "passage": "While researching a topic, a student has taken the following notes:\n\n• Paleontologist Hugo Lemaire and a team of researchers studied a fossil turtle shell found in central Spain.\n• The shell is about 90 million years old.\n• It belongs to a group of turtles previously known only from fossils found in North America.\n• The find suggests that this group of turtles once lived across a much wider area than scientists had believed.",
             "prompt": "The student wants to emphasize what the find suggests about the group of turtles. Which choice most effectively uses relevant information from the notes to accomplish this goal?",
             "choices": [
-              "The 90-million-year-old shell from Uzbekistan suggests that a group of turtles once known only from North American fossils lived across a far wider area than scientists had believed.",
-              "Odil Rasulov and a team of researchers studied a fossil turtle shell found in central Uzbekistan.",
-              "The fossil turtle shell studied by Rasulov's team is about 90 million years old.",
+              "The 90-million-year-old shell from Spain suggests that a group of turtles once known only from North American fossils lived across a far wider area than scientists had believed.",
+              "Hugo Lemaire and a team of researchers studied a fossil turtle shell found in central Spain.",
+              "The fossil turtle shell studied by Lemaire's team is about 90 million years old.",
               "Fossils of this group of turtles have been found in North America."
             ],
             "answer": "A",
@@ -719,7 +719,7 @@
               "section": "rw",
               "skill": "Inferences",
               "difficulty": "medium",
-              "passage": "In a desert region of Central Asia, fossil teeth of an ancient shark are common in rock layers that formed about 50 million years ago, even though the region today lies hundreds of kilometers from any ocean. Because this species of shark could live only in seawater, geologists have used the fossils as evidence that ______",
+              "passage": "In a desert region of Mali, fossil teeth of an ancient shark are common in rock layers that formed about 50 million years ago, even though the region today lies hundreds of kilometers from any ocean. Because this species of shark could live only in seawater, geologists have used the fossils as evidence that ______",
               "prompt": "Which choice most logically completes the text?",
               "choices": [
                 "sharks first appeared on Earth about 50 million years ago.",
@@ -735,7 +735,7 @@
               "section": "rw",
               "skill": "Boundaries",
               "difficulty": "easy",
-              "passage": "The old caravanserai's courtyard was surrounded by ______ storerooms, and a small well.",
+              "passage": "The old inn's courtyard was surrounded by ______ storerooms, and a small well.",
               "prompt": "Which choice completes the text so that it conforms to the conventions of Standard English?",
               "choices": [
                 "stables,",
@@ -767,7 +767,7 @@
               "section": "rw",
               "skill": "Boundaries",
               "difficulty": "medium",
-              "passage": "Juniper trees—some of which live for several ______ grow slowly in the thin, dry soils of Central Asia's mountains.",
+              "passage": "Juniper trees—some of which live for several ______ grow slowly in the thin, dry soils of the American West's mountains.",
               "prompt": "Which choice completes the text so that it conforms to the conventions of Standard English?",
               "choices": [
                 "centuries,",
@@ -895,26 +895,26 @@
               "section": "rw",
               "skill": "Rhetorical Synthesis",
               "difficulty": "easy",
-              "passage": "While researching a topic, a student has taken the following notes:\n\n• Bukhara once had dozens of hauz, stone-lined pools that stored water for drinking and washing.\n• Water reached the pools through canals fed by the Zarafshan River.\n• In the 1920s and 1930s, most of the pools were filled in because their standing water spread disease.\n• Lyab-i Hauz, built in the early 1600s, is one of the few pools that remain.",
-              "prompt": "The student wants to explain why most of Bukhara's pools disappeared. Which choice most effectively uses relevant information from the notes to accomplish this goal?",
+              "passage": "While researching a topic, a student has taken the following notes:\n\n• Amsterdam was once crossed by many more canals than it has today.\n• The canals carried goods and drained water from the city.\n• In the 1800s, a number of the canals were filled in because their stagnant water was blamed for spreading disease.\n• The Herengracht, dug in the early 1600s, is one of the canals that remain.",
+              "prompt": "The student wants to explain why some of Amsterdam's canals disappeared. Which choice most effectively uses relevant information from the notes to accomplish this goal?",
               "choices": [
-                "Bukhara's hauz were stone-lined pools that stored water for drinking and washing.",
-                "Lyab-i Hauz, built in the early 1600s, is one of Bukhara's few remaining pools.",
-                "Water reached Bukhara's pools through canals fed by the Zarafshan River.",
-                "Most of Bukhara's hauz were filled in during the 1920s and 1930s because their standing water spread disease."
+                "Amsterdam's canals carried goods and drained water from the city.",
+                "The Herengracht, dug in the early 1600s, is one of Amsterdam's remaining canals.",
+                "Amsterdam was once crossed by many more canals than it has today.",
+                "In the 1800s, a number of Amsterdam's canals were filled in because their stagnant water was blamed for spreading disease."
               ],
               "answer": "D",
-              "explanation": "Only this choice gives the reason the pools disappeared: they were filled in because they spread disease."
+              "explanation": "Only this choice gives the reason the canals disappeared: they were filled in because they were blamed for spreading disease."
             },
             {
               "id": "t10-rw2e-26",
               "section": "rw",
               "skill": "Rhetorical Synthesis",
               "difficulty": "medium",
-              "passage": "While researching a topic, a student has taken the following notes:\n\n• Sociologist Oybek Hamidov compared two apartment blocks in Tashkent.\n• The courtyard of Block A has benches, shade trees, and a playground.\n• The courtyard of Block B is mostly paved parking.\n• In Block A, 70% of residents said they talk with neighbors at least once a week.\n• In Block B, 25% of residents said the same.",
+              "passage": "While researching a topic, a student has taken the following notes:\n\n• Sociologist Michael Brown compared two apartment blocks in Rotterdam.\n• The courtyard of Block A has benches, shade trees, and a playground.\n• The courtyard of Block B is mostly paved parking.\n• In Block A, 70% of residents said they talk with neighbors at least once a week.\n• In Block B, 25% of residents said the same.",
               "prompt": "The student wants to emphasize the difference in how often residents of the two blocks talk with their neighbors. Which choice most effectively uses relevant information from the notes to accomplish this goal?",
               "choices": [
-                "Oybek Hamidov compared two apartment blocks in Tashkent.",
+                "Michael Brown compared two apartment blocks in Rotterdam.",
                 "While 70% of residents in Block A, with its benches and trees, talk with neighbors weekly, only 25% of residents in Block B, with its paved parking, do.",
                 "The courtyard of Block A has benches, shade trees, and a playground.",
                 "In Block B, whose courtyard is mostly paved parking, 25% of residents talk with neighbors at least once a week."
@@ -948,7 +948,7 @@
               "section": "rw",
               "skill": "Words in Context",
               "difficulty": "hard",
-              "passage": "Although painter Kamola Yusupova's early landscapes were praised for their bold, saturated color, her later work is strikingly ______: she limited herself to a few muted grays and browns, letting subtle shifts in tone carry the feeling of each scene.",
+              "passage": "Although painter Agnes Moller's early landscapes were praised for their bold, saturated color, her later work is strikingly ______: she limited herself to a few muted grays and browns, letting subtle shifts in tone carry the feeling of each scene.",
               "prompt": "Which choice completes the text with the most logical and precise word or phrase?",
               "choices": [
                 "ornate",
@@ -980,7 +980,7 @@
               "section": "rw",
               "skill": "Words in Context",
               "difficulty": "hard",
-              "passage": "Hydrologist Farrukh Ziyodov describes the oasis's canal network as ______: instead of following a single design, it grew over centuries as each generation of farmers dug new branches wherever they were needed.",
+              "passage": "Hydrologist Hassan Idrissi describes the oasis's canal network as ______: instead of following a single design, it grew over centuries as each generation of farmers dug new branches wherever they were needed.",
               "prompt": "Which choice completes the text with the most logical and precise word or phrase?",
               "choices": [
                 "systematic",
@@ -1028,16 +1028,16 @@
               "section": "rw",
               "skill": "Text Structure and Purpose",
               "difficulty": "hard",
-              "passage": "Research on how city neighborhoods change has often focused on newcomers: the arrival of wealthier residents, new businesses, and rising rents. Sociologist Aigerim Bekova argues that this focus overlooks the residents who stay. In her study of a long-established district in Almaty, she found that longtime residents often reshaped the changes around them, for example by persuading new cafés to keep serving traditional dishes or by organizing to keep a local bazaar open.",
+              "passage": "Research on how city neighborhoods change has often focused on newcomers: the arrival of wealthier residents, new businesses, and rising rents. Sociologist Lucia Ramos argues that this focus overlooks the residents who stay. In her study of a long-established district in Mexico City, she found that longtime residents often reshaped the changes around them, for example by persuading new cafés to keep serving traditional dishes or by organizing to keep a local market open.",
               "prompt": "Which choice best states the main purpose of the text?",
               "choices": [
                 "To argue that newcomers usually harm the neighborhoods they move into",
-                "To describe the history of a bazaar in a long-established district in Almaty",
+                "To describe the history of a market in a long-established district in Mexico City",
                 "To present a researcher's argument that a frequently overlooked group plays an active role in a process usually studied from a different angle",
                 "To explain why rents tend to rise when new businesses open in a neighborhood"
               ],
               "answer": "C",
-              "explanation": "The text sets up the usual focus (newcomers), then presents Bekova's view that longtime residents also shape neighborhood change. It never claims that newcomers cause harm."
+              "explanation": "The text sets up the usual focus (newcomers), then presents Ramos's view that longtime residents also shape neighborhood change. It never claims that newcomers cause harm."
             },
             {
               "id": "t10-rw2h-07",
@@ -1076,24 +1076,24 @@
               "section": "rw",
               "skill": "Central Ideas and Details",
               "difficulty": "hard",
-              "passage": "The following text is from a short story. Timur has returned to his family's orchard after several years of working in the city.\n\nHis father walked him down the rows without speaking, stopping now and then to lay a hand on a trunk the way another man might greet a neighbor. On the train, Timur had rehearsed a speech about drip lines and new varieties that could double the harvest. Watching his father's hand move over the rough bark, he found that he could no longer remember how it began.",
+              "passage": "The following text is from a short story. Paolo has returned to his family's orchard after several years of working in the city.\n\nHis father walked him down the rows without speaking, stopping now and then to lay a hand on a trunk the way another man might greet a neighbor. On the train, Paolo had rehearsed a speech about drip lines and new varieties that could double the harvest. Watching his father's hand move over the rough bark, he found that he could no longer remember how it began.",
               "prompt": "Which choice best states the main idea of the text?",
               "choices": [
-                "Timur realizes that the orchard is failing and must be modernized quickly.",
-                "Timur's father is angry that Timur left the orchard to work in the city.",
-                "Timur forgets his speech because he is exhausted from the long train journey.",
-                "Seeing how deeply his father is attached to the trees makes Timur unsure about proposing the changes he had planned."
+                "Paolo realizes that the orchard is failing and must be modernized quickly.",
+                "Paolo's father is angry that Paolo left the orchard to work in the city.",
+                "Paolo forgets his speech because he is exhausted from the long train journey.",
+                "Seeing how deeply his father is attached to the trees makes Paolo unsure about proposing the changes he had planned."
               ],
               "answer": "D",
-              "explanation": "The father greets the trees like neighbors, and watching this, Timur loses hold of his speech about changing the orchard. The text gives no sign of tiredness, so forgetting reflects his doubt, not exhaustion."
+              "explanation": "The father greets the trees like neighbors, and watching this, Paolo loses hold of his speech about changing the orchard. The text gives no sign of tiredness, so forgetting reflects his doubt, not exhaustion."
             },
             {
               "id": "t10-rw2h-10",
               "section": "rw",
               "skill": "Command of Evidence: Textual",
               "difficulty": "hard",
-              "passage": "Historian Gulbahor Ismatova argues that in a medieval Central Asian oasis, control of the headworks, the structure that diverted river water into the main canal, gave the leaders of villages near the river more political power than the leaders of villages farther downstream.",
-              "prompt": "Which finding, if true, would most directly support Ismatova's argument?",
+              "passage": "Historian Clara Weiss argues that in a medieval North African oasis, control of the headworks, the structure that diverted river water into the main canal, gave the leaders of villages near the river more political power than the leaders of villages farther downstream.",
+              "prompt": "Which finding, if true, would most directly support Weiss's argument?",
               "choices": [
                 "Records of disputes show that in dry years, downstream villages repeatedly sent payments to upstream leaders, whose decisions about sharing water were rarely overturned.",
                 "Villages near the river had larger populations than villages farther downstream.",
@@ -1200,7 +1200,7 @@
               "section": "rw",
               "skill": "Inferences",
               "difficulty": "hard",
-              "passage": "Fossil pollen preserved in lake mud records which plants grew nearby. In mud from a mountain lake in southern Kyrgyzstan, birch pollen increases sharply in layers dated to about 9,000 years ago, while pollen from grasses and sagebrush declines. Bits of charcoal, which indicate fires, are rare in those same layers. Because birch trees in the region today grow only where summers are cooler and wetter than on the surrounding grassy steppe, the researchers concluded that ______",
+              "passage": "Fossil pollen preserved in lake mud records which plants grew nearby. In mud from a mountain lake in eastern Turkey, birch pollen increases sharply in layers dated to about 9,000 years ago, while pollen from grasses and sagebrush declines. Bits of charcoal, which indicate fires, are rare in those same layers. Because birch trees in the region today grow only where summers are cooler and wetter than on the surrounding grassy steppe, the researchers concluded that ______",
               "prompt": "Which choice most logically completes the text?",
               "choices": [
                 "frequent fires likely cleared away grasses, allowing birch trees to spread.",
@@ -1232,13 +1232,13 @@
               "section": "rw",
               "skill": "Boundaries",
               "difficulty": "hard",
-              "passage": "The restoration team expected the mural's blue pigment to be lapis lazuli, a costly stone mined in what is now ______ the analysis revealed a far cheaper copper-based blue.",
+              "passage": "The restoration team expected the mural's red pigment to be vermilion, made from cinnabar, a costly mineral mined in what is now ______ the analysis revealed a far cheaper iron-based red.",
               "prompt": "Which choice completes the text so that it conforms to the conventions of Standard English?",
               "choices": [
-                "Afghanistan, instead,",
-                "Afghanistan instead,",
-                "Afghanistan, instead;",
-                "Afghanistan; instead,"
+                "Spain, instead,",
+                "Spain instead,",
+                "Spain, instead;",
+                "Spain; instead,"
               ],
               "answer": "D",
               "explanation": "Two complete sentences are joined here, and \"instead\" belongs to the second one. A semicolon must come before \"instead\" and a comma after it. The comma-only versions create comma splices."
@@ -1264,13 +1264,13 @@
               "section": "rw",
               "skill": "Boundaries",
               "difficulty": "medium",
-              "passage": "The survey team visited three ancient irrigation sites: Paykend, near ______ Ayaz Kala, in Karakalpakstan; and a system of karez near Nurata.",
+              "passage": "The survey team visited three ancient water-supply sites: the Pont du Gard, near ______ the aqueduct of Segovia, in Spain; and a system of qanats near Yazd, in Iran.",
               "prompt": "Which choice completes the text so that it conforms to the conventions of Standard English?",
               "choices": [
-                "Bukhara,",
-                "Bukhara;",
-                "Bukhara:",
-                "Bukhara"
+                "Nîmes,",
+                "Nîmes;",
+                "Nîmes:",
+                "Nîmes"
               ],
               "answer": "B",
               "explanation": "The items in this list already contain commas, so the items are separated with semicolons, as the rest of the list shows."
@@ -1376,7 +1376,7 @@
               "section": "rw",
               "skill": "Transitions",
               "difficulty": "hard",
-              "passage": "Irrigation engineers have traditionally judged a canal by the share of the water entering it that reaches the fields; by that measure, unlined earthen canals, which leak heavily, perform poorly. Hydrologist Sevara Qodirova argues that this measure is misleading. Water that seeps out of a canal is not necessarily lost, she points out; ______ much of it refills the groundwater that farmers farther downstream pump from their wells.",
+              "passage": "Irrigation engineers have traditionally judged a canal by the share of the water entering it that reaches the fields; by that measure, unlined earthen canals, which leak heavily, perform poorly. Hydrologist Anja Vogel argues that this measure is misleading. Water that seeps out of a canal is not necessarily lost, she points out; ______ much of it refills the groundwater that farmers farther downstream pump from their wells.",
               "prompt": "Which choice completes the text with the most logical transition?",
               "choices": [
                 "consequently,",
@@ -1392,11 +1392,11 @@
               "section": "rw",
               "skill": "Rhetorical Synthesis",
               "difficulty": "hard",
-              "passage": "While researching a topic, a student has taken the following notes:\n\n• Sociologists Lina Haddad and Pavel Moroz each studied how families who move from villages settle into a city.\n• Haddad interviewed 60 families who had moved to Tashkent.\n• Moroz interviewed 45 families who had moved to Bishkek.\n• Haddad found that families relied mainly on relatives already living in the city to find housing and work.\n• Moroz found that families relied mainly on people from their home villages, whether or not they were related, to find housing and work.",
+              "passage": "While researching a topic, a student has taken the following notes:\n\n• Sociologists Lina Haddad and Pavel Moroz each studied how families who move from villages settle into a city.\n• Haddad interviewed 60 families who had moved to Cairo.\n• Moroz interviewed 45 families who had moved to Nairobi.\n• Haddad found that families relied mainly on relatives already living in the city to find housing and work.\n• Moroz found that families relied mainly on people from their home villages, whether or not they were related, to find housing and work.",
               "prompt": "The student wants to emphasize a similarity between the two studies' findings. Which choice most effectively uses relevant information from the notes to accomplish this goal?",
               "choices": [
                 "Haddad and Moroz each studied families who had moved from villages to a city.",
-                "Haddad interviewed 60 families in Tashkent, while Moroz interviewed 45 families in Bishkek.",
+                "Haddad interviewed 60 families in Cairo, while Moroz interviewed 45 families in Nairobi.",
                 "Whereas the families in Haddad's study relied on relatives, those in Moroz's study relied on fellow villagers, related or not.",
                 "Both studies found that families relied mainly on connections from home to find housing and work: relatives in Haddad's study and fellow villagers in Moroz's."
               ],
@@ -1408,13 +1408,13 @@
               "section": "rw",
               "skill": "Rhetorical Synthesis",
               "difficulty": "hard",
-              "passage": "While researching a topic, a student has taken the following notes:\n\n• The Salt Road is a large painting by the Uzbek artist Rano Mirzaeva.\n• It was completed in 1987.\n• It shows a camel caravan crossing a dry salt lakebed at dawn.\n• Mirzaeva made its pigments from clays and salts that she collected on that same lakebed.\n• The painting is now in a private collection.",
+              "passage": "While researching a topic, a student has taken the following notes:\n\n• The Salt Road is a large painting by the Bolivian artist Rosa Quispe.\n• It was completed in 1987.\n• It shows a llama caravan crossing a dry salt lakebed at dawn.\n• Quispe made its pigments from clays and salts that she collected on that same lakebed.\n• The painting is now in a private collection.",
               "prompt": "The student wants to emphasize the connection between the painting's subject and its materials. Which choice most effectively uses relevant information from the notes to accomplish this goal?",
               "choices": [
-                "The Salt Road, completed in 1987, shows a camel caravan crossing a dry salt lakebed at dawn.",
-                "Mirzaeva painted The Salt Road, which shows a caravan crossing a dry salt lakebed, with pigments made from clays and salts gathered on that very lakebed.",
-                "Rano Mirzaeva made the pigments for The Salt Road from clays and salts.",
-                "The Salt Road, a large painting by Rano Mirzaeva, is now in a private collection."
+                "The Salt Road, completed in 1987, shows a llama caravan crossing a dry salt lakebed at dawn.",
+                "Quispe painted The Salt Road, which shows a caravan crossing a dry salt lakebed, with pigments made from clays and salts gathered on that very lakebed.",
+                "Rosa Quispe made the pigments for The Salt Road from clays and salts.",
+                "The Salt Road, a large painting by Rosa Quispe, is now in a private collection."
               ],
               "answer": "B",
               "explanation": "Only this choice links what the painting shows (the lakebed) with what it is made of (materials from that lakebed). The others give the subject or the materials, but not the link between them."
@@ -1424,16 +1424,16 @@
               "section": "rw",
               "skill": "Rhetorical Synthesis",
               "difficulty": "hard",
-              "passage": "While researching a topic, a student has taken the following notes:\n\n• Engineer Sherzod Aminov studied 40 karez in a mountainous district of Uzbekistan.\n• Aminov measured the water flow in each karez in 1995 and again in 2020.\n• Over that period, flow fell by an average of 35%.\n• The karez closest to newly drilled deep wells lost the most flow.\n• Aminov concluded that pumping from the deep wells is lowering the groundwater that feeds the karez.",
-              "prompt": "The student wants to present Aminov's conclusion along with the evidence that most directly supports it. Which choice most effectively uses relevant information from the notes to accomplish this goal?",
+              "passage": "While researching a topic, a student has taken the following notes:\n\n• Engineer Daniel Hayes studied 40 qanats in a mountainous district of Iran.\n• Hayes measured the water flow in each qanat in 1995 and again in 2020.\n• Over that period, flow fell by an average of 35%.\n• The qanats closest to newly drilled deep wells lost the most flow.\n• Hayes concluded that pumping from the deep wells is lowering the groundwater that feeds the qanats.",
+              "prompt": "The student wants to present Hayes's conclusion along with the evidence that most directly supports it. Which choice most effectively uses relevant information from the notes to accomplish this goal?",
               "choices": [
-                "Because the karez closest to newly drilled deep wells lost the most flow, Aminov concluded that pumping from those wells is lowering the groundwater that feeds the karez.",
-                "Aminov concluded that pumping from newly drilled deep wells is lowering the groundwater that feeds the karez.",
-                "Between 1995 and 2020, water flow in the 40 karez that Aminov studied fell by an average of 35%.",
-                "Aminov measured the water flow in 40 karez in 1995 and again in 2020."
+                "Because the qanats closest to newly drilled deep wells lost the most flow, Hayes concluded that pumping from those wells is lowering the groundwater that feeds the qanats.",
+                "Hayes concluded that pumping from newly drilled deep wells is lowering the groundwater that feeds the qanats.",
+                "Between 1995 and 2020, water flow in the 40 qanats that Hayes studied fell by an average of 35%.",
+                "Hayes measured the water flow in 40 qanats in 1995 and again in 2020."
               ],
               "answer": "A",
-              "explanation": "The goal needs both the conclusion and its most direct evidence: the karez nearest the wells lost the most water. The second choice gives the conclusion without evidence, and the 35% figure shows a decline but not its link to the wells."
+              "explanation": "The goal needs both the conclusion and its most direct evidence: the qanats nearest the wells lost the most water. The second choice gives the conclusion without evidence, and the 35% figure shows a decline but not its link to the wells."
             }
           ]
         }
@@ -1465,7 +1465,7 @@
             "section": "math",
             "skill": "Ratios, rates, proportional relationships, and units",
             "difficulty": "easy",
-            "prompt": "A tea shop in Samarkand uses 12 grams of tea leaves to make 4 cups of tea. At this rate, how many grams of tea leaves are needed to make 18 cups?",
+            "prompt": "A tea shop in London uses 12 grams of tea leaves to make 4 cups of tea. At this rate, how many grams of tea leaves are needed to make 18 cups?",
             "answer": [
               "54"
             ],
@@ -1845,7 +1845,7 @@
               "section": "math",
               "skill": "Area and volume",
               "difficulty": "easy",
-              "prompt": "The courtyard of an old caravanserai is a rectangle 18 meters long and 11 meters wide. What is the area of the courtyard, in square meters?",
+              "prompt": "The courtyard of an old inn is a rectangle 18 meters long and 11 meters wide. What is the area of the courtyard, in square meters?",
               "choices": [
                 "198",
                 "58",

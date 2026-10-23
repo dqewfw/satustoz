@@ -18,7 +18,7 @@
             "section": "rw",
             "skill": "Words in Context",
             "difficulty": "easy",
-            "passage": "Because the dutar, a long-necked lute played across Central Asia, has only two strings, newcomers often assume that it is ______ to learn. Experienced players know otherwise: mastering the instrument's many plucking and strumming techniques can take years.",
+            "passage": "Because the balalaika, a triangular lute from Russia, has only three strings, newcomers often assume that it is ______ to learn. Experienced players know otherwise: mastering the instrument's many plucking and strumming techniques can take years.",
             "prompt": "Which choice completes the text with the most logical and precise word or phrase?",
             "choices": [
               "costly",
@@ -27,7 +27,7 @@
               "unusual"
             ],
             "answer": "B",
-            "explanation": "\"Experienced players know otherwise\" tells you newcomers are wrong to think that two strings make the dutar **easy** to learn."
+            "explanation": "\"Experienced players know otherwise\" tells you newcomers are wrong to think that three strings make the balalaika **easy** to learn."
           },
           {
             "id": "t8-rw1-02",
@@ -130,29 +130,29 @@
             "section": "rw",
             "skill": "Central Ideas and Details",
             "difficulty": "easy",
-            "passage": "Along the lower Amu Darya River, narrow strips of forest called tugai grow on land that floods each spring. The poplars, willows, and tamarisks of these forests depend on the floods to soak their roots and to carry their seeds to fresh ground. Where dams and canals have stopped the yearly floods, tugai forests have thinned and, in some places, disappeared.",
+            "passage": "Along the Rio Grande in New Mexico, narrow strips of forest called bosque grow on land that floods each spring. The cottonwoods and willows of these forests depend on the floods to soak their roots and to carry their seeds to fresh ground. Where dams and canals have stopped the yearly floods, bosque forests have thinned and, in some places, disappeared.",
             "prompt": "Which choice best states the main idea of the text?",
             "choices": [
-              "Tugai forests contain more tree species than any other forest in Central Asia.",
-              "Dams on the Amu Darya were built mainly to protect tugai forests.",
-              "Poplars grow faster than willows and tamarisks along the Amu Darya.",
-              "Tugai forests along the Amu Darya depend on yearly floods and decline when those floods stop."
+              "Bosque forests contain more tree species than any other forest in North America.",
+              "Dams on the Rio Grande were built mainly to protect bosque forests.",
+              "Cottonwoods grow faster than willows along the Rio Grande.",
+              "Bosque forests along the Rio Grande depend on yearly floods and decline when those floods stop."
             ],
             "answer": "D",
-            "explanation": "The text explains that tugai trees need the spring floods and then shows what happens to the forests when the floods are stopped."
+            "explanation": "The text explains that bosque trees need the spring floods and then shows what happens to the forests when the floods are stopped."
           },
           {
             "id": "t8-rw1-09",
             "section": "rw",
             "skill": "Central Ideas and Details",
             "difficulty": "medium",
-            "passage": "The following text is from a short story. Years after leaving her village, Munisa hears a doira, a frame drum, at a wedding in the city.\n\nMunisa had not thought of her grandmother's drum in years. But as the doira player struck the first sharp beats, she felt her hands lift slightly from her lap, as though they still remembered the rhythms her grandmother had tapped out on winter evenings. Around her, the guests clapped along, unaware that for Munisa the bright hall had briefly become a small kitchen two hundred kilometers away.",
+            "passage": "The following text is from a short story. Years after leaving her village, Maeve hears a bodhrán, a frame drum, at a wedding in the city.\n\nMaeve had not thought of her grandmother's drum in years. But as the bodhrán player struck the first sharp beats, she felt her hands lift slightly from her lap, as though they still remembered the rhythms her grandmother had tapped out on winter evenings. Around her, the guests clapped along, unaware that for Maeve the bright hall had briefly become a small kitchen two hundred kilometers away.",
             "prompt": "Which choice best states the main idea of the text?",
             "choices": [
-              "Munisa regrets that she never learned to play the doira well.",
-              "The sound of the drum brings back vivid memories of Munisa's childhood with her grandmother.",
-              "Munisa feels uncomfortable among the wedding guests in the city.",
-              "Munisa is surprised that the guests know the rhythms her grandmother played."
+              "Maeve regrets that she never learned to play the bodhrán well.",
+              "The sound of the drum brings back vivid memories of Maeve's childhood with her grandmother.",
+              "Maeve feels uncomfortable among the wedding guests in the city.",
+              "Maeve is surprised that the guests know the rhythms her grandmother played."
             ],
             "answer": "B",
             "explanation": "The drumbeats make her hands \"remember\" her grandmother's rhythms and carry her back to the kitchen of her childhood."
@@ -162,8 +162,8 @@
             "section": "rw",
             "skill": "Command of Evidence: Textual",
             "difficulty": "medium",
-            "passage": "Ecologist Zarina Haydarova hypothesizes that the return of beavers to a river valley increased the number of frog species living there, because beaver dams create the still, shallow ponds that many frogs need for breeding.",
-            "prompt": "Which finding, if true, would most directly support Haydarova's hypothesis?",
+            "passage": "Ecologist Karin Holm hypothesizes that the return of beavers to a river valley increased the number of frog species living there, because beaver dams create the still, shallow ponds that many frogs need for breeding.",
+            "prompt": "Which finding, if true, would most directly support Holm's hypothesis?",
             "choices": [
               "Most frog species in the valley were found breeding in ponds behind beaver dams, and stretches of river without dams had far fewer species.",
               "Beavers in the valley were most active between sunset and sunrise.",
@@ -256,7 +256,7 @@
             "section": "rw",
             "skill": "Inferences",
             "difficulty": "hard",
-            "passage": "Ethnomusicologist Sherzod Valiev compared recordings of the same folk song made in twelve villages of the Zarafshan Valley. Villages along the valley's main trade road sang versions that were very similar to one another, while each isolated mountain village sang a noticeably different version. Valiev concludes that ______",
+            "passage": "Ethnomusicologist Rui Almeida compared recordings of the same folk song made in twelve villages of the Douro Valley. Villages along the valley's main trade road sang versions that were very similar to one another, while each isolated mountain village sang a noticeably different version. Almeida concludes that ______",
             "prompt": "Which choice most logically completes the text?",
             "choices": [
               "the song likely began in one of the isolated mountain villages.",
@@ -288,7 +288,7 @@
             "section": "rw",
             "skill": "Boundaries",
             "difficulty": "medium",
-            "passage": "The tamarisk, a shrub that grows along many Central Asian ______ can survive in soil far too salty for most other plants.",
+            "passage": "The tamarisk, a shrub that grows along many desert ______ can survive in soil far too salty for most other plants.",
             "prompt": "Which choice completes the text so that it conforms to the conventions of Standard English?",
             "choices": [
               "rivers",
@@ -297,7 +297,7 @@
               "rivers—"
             ],
             "answer": "C",
-            "explanation": "The phrase \"a shrub that grows along many Central Asian rivers\" opens with a comma, so it must close with a comma before the verb \"can survive.\""
+            "explanation": "The phrase \"a shrub that grows along many desert rivers\" opens with a comma, so it must close with a comma before the verb \"can survive.\""
           },
           {
             "id": "t8-rw1-17",
@@ -336,7 +336,7 @@
             "section": "rw",
             "skill": "Form, Structure, and Sense",
             "difficulty": "easy",
-            "passage": "The spices in a traditional Uzbek plov ______ cumin, which gives the rice dish its warm, earthy aroma.",
+            "passage": "The spices in a traditional Moroccan tagine ______ cumin, which gives the stew its warm, earthy aroma.",
             "prompt": "Which choice completes the text so that it conforms to the conventions of Standard English?",
             "choices": [
               "includes",
@@ -345,7 +345,7 @@
               "has included"
             ],
             "answer": "C",
-            "explanation": "The subject is the plural \"spices,\" not \"plov,\" so the verb is **include**."
+            "explanation": "The subject is the plural \"spices,\" not \"tagine,\" so the verb is **include**."
           },
           {
             "id": "t8-rw1-20",
@@ -448,16 +448,16 @@
             "section": "rw",
             "skill": "Rhetorical Synthesis",
             "difficulty": "hard",
-            "passage": "While researching a topic, a student has taken the following notes:\n\n• The komuz is a long-necked lute from Kyrgyzstan.\n• It has three strings and no frets.\n• The dombra is a long-necked lute from Kazakhstan.\n• It has two strings and a fretted neck.\n• Both instruments are played by plucking and strumming with the fingers rather than with a pick.",
+            "passage": "While researching a topic, a student has taken the following notes:\n\n• The shamisen is a long-necked lute from Japan.\n• It has three strings and no frets.\n• The oud is a short-necked lute from the Middle East.\n• It usually has eleven strings and a rounded, pear-shaped body.\n• Both instruments are played by plucking the strings with a plectrum rather than with the bare fingers.",
             "prompt": "The student wants to emphasize a similarity in how the two instruments are played. Which choice most effectively uses relevant information from the notes to accomplish this goal?",
             "choices": [
-              "The komuz has three strings and no frets, while the dombra has two strings and a fretted neck.",
-              "The komuz and the dombra are both long-necked lutes from Central Asia.",
-              "Both the Kyrgyz komuz and the Kazakh dombra are played by plucking and strumming the strings with the fingers rather than with a pick.",
-              "The dombra, a long-necked lute from Kazakhstan, has two strings."
+              "The shamisen has three strings, while the oud usually has eleven.",
+              "The shamisen and the oud are both lutes.",
+              "Both the Japanese shamisen and the Middle Eastern oud are played by plucking the strings with a plectrum rather than with the bare fingers.",
+              "The oud, a short-necked lute from the Middle East, usually has eleven strings."
             ],
             "answer": "C",
-            "explanation": "The goal is a similarity in how the instruments are played. Both being long-necked lutes is a similarity in their form, not in how they are played."
+            "explanation": "The goal is a similarity in how the instruments are played. Both being lutes is a similarity in their form, not in how they are played."
           },
           {
             "id": "t8-rw1-27",
@@ -550,16 +550,16 @@
               "section": "rw",
               "skill": "Text Structure and Purpose",
               "difficulty": "easy",
-              "passage": "The karnay is a long brass trumpet, often more than two meters in length, that is played in Uzbekistan and Tajikistan at weddings and festivals. Because its deep, powerful sound carries far across open ground, the karnay has traditionally been used to announce celebrations to an entire town.",
+              "passage": "The alphorn is a long wooden horn, often more than three meters in length, that has been played in the Swiss Alps for centuries. Because its deep, powerful sound carries far across mountain valleys, herders traditionally used the alphorn to call their cattle and to send signals to distant villages.",
               "prompt": "Which choice best states the main purpose of the text?",
               "choices": [
-                "To describe an instrument and explain why it is used to announce celebrations",
-                "To compare the karnay with trumpets from other parts of the world",
-                "To argue that the karnay is more difficult to play than other instruments",
-                "To describe the steps involved in making a karnay"
+                "To describe an instrument and explain why it was traditionally used to send signals over long distances",
+                "To compare the alphorn with horns from other parts of the world",
+                "To argue that the alphorn is more difficult to play than other instruments",
+                "To describe the steps involved in making an alphorn"
               ],
               "answer": "A",
-              "explanation": "The text describes the karnay and then explains (\"Because...\") why it is used to announce celebrations."
+              "explanation": "The text describes the alphorn and then explains (\"Because...\") why it was used to send signals over long distances."
             },
             {
               "id": "t8-rw2e-06",
@@ -598,29 +598,29 @@
               "section": "rw",
               "skill": "Central Ideas and Details",
               "difficulty": "easy",
-              "passage": "Paper reached Samarkand by the eighth century, and the city soon became famous for its papermaking. Workers there made paper from linen rags and plant fibers, producing sheets that were smooth and strong. Merchants carried Samarkand paper to cities across the Islamic world, where it gradually replaced more expensive writing materials such as parchment.",
+              "passage": "Papermaking reached Fabriano, Italy, by the thirteenth century, and the town soon became famous for its paper. Workers there made paper from linen rags, producing sheets that were smooth and strong. Merchants carried Fabriano paper to cities across Europe, where it gradually replaced more expensive writing materials such as parchment.",
               "prompt": "Which choice best states the main idea of the text?",
               "choices": [
-                "Paper was invented in Samarkand in the eighth century.",
-                "Samarkand became an important center of papermaking, and its paper spread widely.",
-                "Parchment lasted longer than the paper made in Samarkand.",
-                "Merchants in Samarkand preferred parchment to paper."
+                "Paper was invented in Fabriano in the thirteenth century.",
+                "Fabriano became an important center of papermaking, and its paper spread widely.",
+                "Parchment lasted longer than the paper made in Fabriano.",
+                "Merchants in Fabriano preferred parchment to paper."
               ],
               "answer": "B",
-              "explanation": "The text explains how Samarkand became known for paper and how that paper spread to other cities. Paper \"reached\" the city; it was not invented there."
+              "explanation": "The text explains how Fabriano became known for paper and how that paper spread to other cities. Papermaking \"reached\" the town; it was not invented there."
             },
             {
               "id": "t8-rw2e-09",
               "section": "rw",
               "skill": "Central Ideas and Details",
               "difficulty": "medium",
-              "passage": "The following text is from a short story. Laziz is spending the day helping his aunt in her bookbinding shop.\n\nLaziz had expected the work to be dull. Instead, he found himself watching his aunt's hands: the quick fold of each sheet, the needle pulled through in a single smooth motion, the tap of the bone folder that pressed every crease flat. By evening he had stitched his first small notebook, crooked but whole, and he held it the way he might have held a prize.",
+              "passage": "The following text is from a short story. Felix is spending the day helping his aunt in her bookbinding shop.\n\nFelix had expected the work to be dull. Instead, he found himself watching his aunt's hands: the quick fold of each sheet, the needle pulled through in a single smooth motion, the tap of the bone folder that pressed every crease flat. By evening he had stitched his first small notebook, crooked but whole, and he held it the way he might have held a prize.",
               "prompt": "Which choice best states the main idea of the text?",
               "choices": [
-                "Laziz's aunt is disappointed by the notebook he makes.",
-                "Laziz decides that bookbinding is too difficult for him to learn.",
-                "Laziz finds the bookbinding work more absorbing than he expected and takes pride in what he makes.",
-                "Laziz would rather read books than make them."
+                "Felix's aunt is disappointed by the notebook he makes.",
+                "Felix decides that bookbinding is too difficult for him to learn.",
+                "Felix finds the bookbinding work more absorbing than he expected and takes pride in what he makes.",
+                "Felix would rather read books than make them."
               ],
               "answer": "C",
               "explanation": "He expected dull work but was fascinated, and he holds his notebook \"the way he might have held a prize.\""
@@ -665,13 +665,13 @@
               "passage": "A music school recorded how many of its students were learning each of four traditional instruments. The most popular of the four instruments among the school's students was the ______",
               "prompt": "Which choice most effectively uses data from the table to complete the statement?",
               "choices": [
-                "dutar, which 38 students were learning.",
-                "gijak, which 17 students were learning.",
-                "rubab, which 29 students were learning.",
-                "doira, which 46 students were learning."
+                "harp, which 38 students were learning.",
+                "bagpipes, which 17 students were learning.",
+                "tin whistle, which 29 students were learning.",
+                "fiddle, which 46 students were learning."
               ],
               "answer": "D",
-              "explanation": "The doira has the largest number in the table, 46 students.",
+              "explanation": "The fiddle has the largest number in the table, 46 students.",
               "table": {
                 "title": "Students learning each instrument",
                 "head": [
@@ -680,19 +680,19 @@
                 ],
                 "rows": [
                   [
-                    "Doira",
+                    "Fiddle",
                     "46"
                   ],
                   [
-                    "Dutar",
+                    "Harp",
                     "38"
                   ],
                   [
-                    "Gijak",
+                    "Bagpipes",
                     "17"
                   ],
                   [
-                    "Rubab",
+                    "Tin whistle",
                     "29"
                   ]
                 ]
@@ -735,13 +735,13 @@
               "section": "rw",
               "skill": "Boundaries",
               "difficulty": "easy",
-              "passage": "The Zarafshan River begins in the mountains of ______ it flows west into Uzbekistan, passing near Samarkand and Bukhara.",
+              "passage": "The Danube River begins in the Black Forest of ______ it flows east into Austria, passing through Linz and Vienna.",
               "prompt": "Which choice completes the text so that it conforms to the conventions of Standard English?",
               "choices": [
-                "Tajikistan,",
-                "Tajikistan",
-                "Tajikistan, from there",
-                "Tajikistan;"
+                "Germany,",
+                "Germany",
+                "Germany, from there",
+                "Germany;"
               ],
               "answer": "D",
               "explanation": "Both parts are complete sentences, so they need a semicolon. A comma alone, with or without \"from there,\" creates a comma splice."
@@ -767,7 +767,7 @@
               "section": "rw",
               "skill": "Boundaries",
               "difficulty": "medium",
-              "passage": "The gijak—a bowed string instrument held upright on the player's ______ is often used to play slow, sorrowful melodies.",
+              "passage": "The erhu—a two-stringed bowed instrument held upright on the player's ______ is often used to play slow, sorrowful melodies.",
               "prompt": "Which choice completes the text so that it conforms to the conventions of Standard English?",
               "choices": [
                 "knee,",
@@ -895,13 +895,13 @@
               "section": "rw",
               "skill": "Rhetorical Synthesis",
               "difficulty": "easy",
-              "passage": "While researching a topic, a student has taken the following notes:\n\n• Shashmaqam is a classical music tradition of Central Asia.\n• It is closely associated with the city of Bukhara.\n• Its name means \"six maqams,\" referring to six large groups of musical pieces.\n• It is performed by singers accompanied by instruments such as the tanbur and the doira.",
-              "prompt": "The student wants to explain the meaning of the name Shashmaqam. Which choice most effectively uses relevant information from the notes to accomplish this goal?",
+              "passage": "While researching a topic, a student has taken the following notes:\n\n• Gamelan is a traditional ensemble music of Indonesia.\n• It is closely associated with the islands of Java and Bali.\n• Its name comes from a Javanese word meaning \"to strike\" or \"to hammer,\" referring to the way most of its instruments are played.\n• It is performed mainly on bronze gongs and metallophones, along with drums.",
+              "prompt": "The student wants to explain the meaning of the name gamelan. Which choice most effectively uses relevant information from the notes to accomplish this goal?",
               "choices": [
-                "Shashmaqam is a classical music tradition of Central Asia.",
-                "The name Shashmaqam means \"six maqams,\" referring to the six large groups of pieces that make up the tradition.",
-                "Shashmaqam is performed by singers accompanied by instruments.",
-                "Shashmaqam is closely associated with the city of Bukhara."
+                "Gamelan is a traditional ensemble music of Indonesia.",
+                "The name gamelan comes from a Javanese word meaning \"to strike\" or \"to hammer,\" referring to the way most of its instruments are played.",
+                "Gamelan is performed mainly on bronze gongs and metallophones.",
+                "Gamelan is closely associated with the islands of Java and Bali."
               ],
               "answer": "B",
               "explanation": "Only this choice says what the name means."
@@ -1028,16 +1028,16 @@
               "section": "rw",
               "skill": "Text Structure and Purpose",
               "difficulty": "hard",
-              "passage": "Literary historians have often treated the margins of old books as blank space, worth noting only when a famous reader wrote in them. Historian Dildora Nematova takes a different view. Studying hundreds of schoolbooks printed in Tashkent in the early 1900s, she found that ordinary students had filled the margins with translations, arithmetic, and notes to classmates. Such marks, she argues, reveal how books were actually used, something the printed text alone cannot show.",
+              "passage": "Literary historians have often treated the margins of old books as blank space, worth noting only when a famous reader wrote in them. Historian Margaret Doyle takes a different view. Studying hundreds of schoolbooks printed in Dublin in the early 1900s, she found that ordinary students had filled the margins with translations, arithmetic, and notes to classmates. Such marks, she argues, reveal how books were actually used, something the printed text alone cannot show.",
               "prompt": "Which choice best describes the overall structure of the text?",
               "choices": [
                 "It presents a scholar's finding and then explains why other historians have rejected it.",
                 "It outlines a traditional approach to studying old books and argues that the approach should be applied more widely.",
-                "It describes how students in early twentieth-century Tashkent were taught to write in their schoolbooks.",
+                "It describes how students in early twentieth-century Dublin were taught to write in their schoolbooks.",
                 "It describes a common view, introduces a scholar who departs from it, and explains the evidence and reasoning behind her position."
               ],
               "answer": "D",
-              "explanation": "The text gives the usual view of margins, says Nematova \"takes a different view,\" and then presents her evidence and argument. It does not say other historians rejected her finding."
+              "explanation": "The text gives the usual view of margins, says Doyle \"takes a different view,\" and then presents her evidence and argument. It does not say other historians rejected her finding."
             },
             {
               "id": "t8-rw2h-07",
@@ -1060,7 +1060,7 @@
               "section": "rw",
               "skill": "Central Ideas and Details",
               "difficulty": "hard",
-              "passage": "When people recall an event, they do not simply replay a stored record. Instead, each act of remembering partly rebuilds the memory, and details supplied by later experiences can be woven into it. Psychologist Timur Mahmudov argues that this helps explain a puzzle about eyewitnesses: their accounts often become more detailed and more confident over repeated interviews, even as the event itself recedes further into the past.",
+              "passage": "When people recall an event, they do not simply replay a stored record. Instead, each act of remembering partly rebuilds the memory, and details supplied by later experiences can be woven into it. Psychologist Alex Romero argues that this helps explain a puzzle about eyewitnesses: their accounts often become more detailed and more confident over repeated interviews, even as the event itself recedes further into the past.",
               "prompt": "Which choice best states the main idea of the text?",
               "choices": [
                 "Eyewitnesses become less confident in their memories the more often they are interviewed.",
@@ -1092,10 +1092,10 @@
               "section": "rw",
               "skill": "Command of Evidence: Textual",
               "difficulty": "hard",
-              "passage": "Plant geneticist Gulshan Rahmatova hypothesizes that a variant of a gene found in some populations of wild wheat helps the plants tolerate salty soil.",
-              "prompt": "Which finding, if true, would most directly support Rahmatova's hypothesis?",
+              "passage": "Plant geneticist Nadia Rossi hypothesizes that a variant of a gene found in some populations of wild wheat helps the plants tolerate salty soil.",
+              "prompt": "Which finding, if true, would most directly support Rossi's hypothesis?",
               "choices": [
-                "Populations of wild wheat that carry the variant are found in many regions of Central Asia.",
+                "Populations of wild wheat that carry the variant are found in many regions of the Middle East.",
                 "Plants with the variant produce more seeds than plants without it when both are grown in ordinary soil.",
                 "The variant is more common in wild wheat populations that grow near the sea than in those that grow inland.",
                 "In salty soil, plants with the variant survived and grew at much higher rates than otherwise similar plants without it, but the two groups grew equally well in ordinary soil."
@@ -1201,7 +1201,7 @@
               "section": "rw",
               "skill": "Inferences",
               "difficulty": "hard",
-              "passage": "In one species of ladybird beetle, individuals have either red wings with black spots or black wings with red spots, a difference controlled by a single gene. Biologist Ilhom Sadikov found that black-winged beetles absorb more sunlight and warm up faster, an advantage in cold weather, while red-winged beetles are less likely to overheat. In the mountain valleys he studied, black-winged beetles were most common at high elevations and red-winged beetles at low elevations. If the valleys' climate warms over the coming decades, it is reasonable to predict that ______",
+              "passage": "In one species of ladybird beetle, individuals have either red wings with black spots or black wings with red spots, a difference controlled by a single gene. Biologist Tobias Frank found that black-winged beetles absorb more sunlight and warm up faster, an advantage in cold weather, while red-winged beetles are less likely to overheat. In the mountain valleys he studied, black-winged beetles were most common at high elevations and red-winged beetles at low elevations. If the valleys' climate warms over the coming decades, it is reasonable to predict that ______",
               "prompt": "Which choice most logically completes the text?",
               "choices": [
                 "red-winged beetles will become more common at higher elevations than they are now.",
@@ -1233,7 +1233,7 @@
               "section": "rw",
               "skill": "Boundaries",
               "difficulty": "medium",
-              "passage": "The ensemble's instruments included a dutar, a two-stringed ______ a gijak, a bowed fiddle; and a doira, a frame drum.",
+              "passage": "The ensemble's instruments included a bouzouki, a long-necked ______ a fiddle, a bowed violin; and a bodhrán, a frame drum.",
               "prompt": "Which choice completes the text so that it conforms to the conventions of Standard English?",
               "choices": [
                 "lute,",
@@ -1506,7 +1506,7 @@
             "section": "math",
             "skill": "Percentages",
             "difficulty": "medium",
-            "prompt": "The number of visitors to a museum in Bukhara rose from 3,200 in May to 4,000 in June. By what percent did the number of visitors increase from May to June?",
+            "prompt": "The number of visitors to a museum in Florence rose from 3,200 in May to 4,000 in June. By what percent did the number of visitors increase from May to June?",
             "explanation": "The increase is $800$, and $\\dfrac{800}{3{,}200} = 0.25$, or 25%. Dividing by the June total instead gives the wrong answer of 20%.",
             "choices": [
               "20%",
@@ -1532,13 +1532,13 @@
             "section": "math",
             "skill": "Linear equations in two variables",
             "difficulty": "medium",
-            "prompt": "A bakery sells samsa for 6,000 so'm each and loaves of bread for 4,000 so'm each. One morning, the bakery earned 180,000 so'm from selling $s$ samsa and $n$ loaves of bread. Which equation represents this situation?",
-            "explanation": "Samsa bring in $6{,}000s$ so'm and bread brings in $4{,}000n$ so'm, and together they total 180,000 so'm.",
+            "prompt": "A bakery sells croissants for \\$6 each and loaves of bread for \\$4 each. One morning, the bakery earned \\$180 from selling $s$ croissants and $n$ loaves of bread. Which equation represents this situation?",
+            "explanation": "Croissants bring in $6s$ dollars and bread brings in $4n$ dollars, and together they total 180 dollars.",
             "choices": [
-              "$6{,}000s + 4{,}000n = 180{,}000$",
-              "$4{,}000s + 6{,}000n = 180{,}000$",
-              "$s + n = 180{,}000$",
-              "$10{,}000(s + n) = 180{,}000$"
+              "$6s + 4n = 180$",
+              "$4s + 6n = 180$",
+              "$s + n = 180$",
+              "$10(s + n) = 180$"
             ],
             "answer": "A"
           },
@@ -1773,13 +1773,13 @@
               "section": "math",
               "skill": "Linear functions",
               "difficulty": "easy",
-              "prompt": "A phone plan costs 25,000 so'm per month plus 2,000 so'm for each gigabyte of data used. Which function gives the monthly cost $C$, in so'm, for $g$ gigabytes of data?",
-              "explanation": "The per-gigabyte charge multiplies $g$, and the monthly fee is added once: $C(g) = 2{,}000g + 25{,}000$.",
+              "prompt": "A phone plan costs \\$25 per month plus \\$2 for each gigabyte of data used. Which function gives the monthly cost $C$, in dollars, for $g$ gigabytes of data?",
+              "explanation": "The per-gigabyte charge multiplies $g$, and the monthly fee is added once: $C(g) = 2g + 25$.",
               "choices": [
-                "$C(g) = 2{,}000g + 25{,}000$",
-                "$C(g) = 25{,}000g + 2{,}000$",
-                "$C(g) = 27{,}000g$",
-                "$C(g) = 2{,}000(g + 25{,}000)$"
+                "$C(g) = 2g + 25$",
+                "$C(g) = 25g + 2$",
+                "$C(g) = 27g$",
+                "$C(g) = 2(g + 25)$"
               ],
               "answer": "A"
             },
@@ -2143,7 +2143,7 @@
               "section": "math",
               "skill": "Percentages",
               "difficulty": "hard",
-              "prompt": "A cooperative in Fergana exported 40% more dried apricots in 2022 than in 2021. In 2023, it exported 15% less than in 2022. The cooperative's exports in 2023 were what percent of its exports in 2021?",
+              "prompt": "A cooperative in California exported 40% more almonds in 2022 than in 2021. In 2023, it exported 15% less than in 2022. The cooperative's exports in 2023 were what percent of its exports in 2021?",
               "explanation": "$1.40 \\times 0.85 = 1.19$, so 2023 exports were 119% of 2021 exports. Subtracting the percents ($40 - 15 = 25$) gives the trap answer 125%, but the 15% decrease applies to the larger 2022 amount.",
               "choices": [
                 "115%",
@@ -2235,7 +2235,7 @@
               "section": "math",
               "skill": "Linear inequalities in one or two variables",
               "difficulty": "hard",
-              "prompt": "Akmal has at most \\$30 to spend on notebooks, which cost \\$3 each, and pens, which cost \\$1.50 each. He wants to buy at least 14 items in total. What is the greatest number of notebooks he can buy?",
+              "prompt": "Oscar has at most \\$30 to spend on notebooks, which cost \\$3 each, and pens, which cost \\$1.50 each. He wants to buy at least 14 items in total. What is the greatest number of notebooks he can buy?",
               "explanation": "With $n$ notebooks and $p$ pens, $3n + 1.5p \\le 30$ and $n + p \\ge 14$. Using the fewest pens, $p = 14 - n$, gives $3n + 1.5(14 - n) \\le 30$, so $1.5n \\le 9$ and $n \\le 6$. Six notebooks and 8 pens cost exactly \\$30.",
               "answer": [
                 "6"

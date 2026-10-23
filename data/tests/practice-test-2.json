@@ -18,7 +18,7 @@
             "section": "rw",
             "skill": "Words in Context",
             "difficulty": "easy",
-            "passage": "Astronomer Mohira Normatova's telescope sits on a remote plateau far from any city, because even faint artificial light can ______ the dim galaxies she studies, making them impossible to see clearly.",
+            "passage": "Astronomer Sofia Lindgren's telescope sits on a remote plateau far from any city, because even faint artificial light can ______ the dim galaxies she studies, making them impossible to see clearly.",
             "prompt": "Which choice completes the text with the most logical and precise word or phrase?",
             "choices": [
               "magnify",
@@ -34,7 +34,7 @@
             "section": "rw",
             "skill": "Words in Context",
             "difficulty": "medium",
-            "passage": "Potters in the Uzbek town of Gijduvan have long been known for glazes in warm browns, yellows, and greens. Rather than abandoning these traditional colors as tastes changed, many workshops have ______ them, handing down the old glaze recipes even while experimenting with new patterns.",
+            "passage": "Potters in the Spanish town of Talavera de la Reina have long been known for glazes in deep blues, yellows, and greens. Rather than abandoning these traditional colors as tastes changed, many workshops have ______ them, handing down the old glaze recipes even while experimenting with new patterns.",
             "prompt": "Which choice completes the text with the most logical and precise word or phrase?",
             "choices": [
               "concealed",
@@ -146,13 +146,13 @@
             "section": "rw",
             "skill": "Central Ideas and Details",
             "difficulty": "medium",
-            "passage": "The following text is from a short story. Nilufar is traveling by train to visit her grandmother in the south of Uzbekistan.\n\nNilufar had packed three books for the long ride, certain she would finish at least one. But somewhere after the cotton fields gave way to bare brown hills, she realized she had not turned a single page. Her mother had made this same trip every summer as a girl, and Nilufar kept searching the passing villages for the landmarks from her mother's stories: a blue water tower, a bridge with one broken rail, a hillside of almond trees.",
+            "passage": "The following text is from a short story. Lucía is traveling by train to visit her grandmother in the south of Spain.\n\nLucía had packed three books for the long ride, certain she would finish at least one. But somewhere after the olive groves gave way to bare brown hills, she realized she had not turned a single page. Her mother had made this same trip every summer as a girl, and Lucía kept searching the passing villages for the landmarks from her mother's stories: a blue water tower, a bridge with one broken rail, a hillside of almond trees.",
             "prompt": "Which choice best states the main idea of the text?",
             "choices": [
-              "Nilufar becomes absorbed in the journey as she looks for places her mother once described.",
-              "Nilufar regrets bringing so few books on such a long trip.",
-              "Nilufar is nervous about seeing her grandmother after a long separation.",
-              "Nilufar is disappointed to find that the landmarks from her mother's stories have disappeared."
+              "Lucía becomes absorbed in the journey as she looks for places her mother once described.",
+              "Lucía regrets bringing so few books on such a long trip.",
+              "Lucía is nervous about seeing her grandmother after a long separation.",
+              "Lucía is disappointed to find that the landmarks from her mother's stories have disappeared."
             ],
             "answer": "A",
             "explanation": "She forgets her books because she is busy watching for the landmarks from her mother's stories. The text never says whether she finds them, so the last choice is unsupported."
@@ -178,13 +178,13 @@
             "section": "rw",
             "skill": "Command of Evidence: Textual",
             "difficulty": "hard",
-            "passage": "Historian Bakhtiyor Qosimov argues that a medieval caravanserai excavated in the Zarafshan Valley served mainly local traders moving goods between nearby towns, not long-distance merchants traveling between China and Persia.",
-            "prompt": "Which finding, if true, would most directly support Qosimov's argument?",
+            "passage": "Historian Thomas Weber argues that a medieval inn excavated in the Rhine Valley served mainly local traders moving goods between nearby towns, not long-distance merchants traveling between Italy and Flanders.",
+            "prompt": "Which finding, if true, would most directly support Weber's argument?",
             "choices": [
-              "The caravanserai's surviving toll records list visitors who spoke many different languages.",
-              "Most goods listed in the caravanserai's toll records were bulky, low-value items such as grain and firewood, which merchants rarely carried over long distances.",
-              "The caravanserai stood on a road that appears on several medieval maps of long-distance trade routes.",
-              "The caravanserai's stables were large enough to hold more than one hundred camels."
+              "The inn's surviving toll records list visitors who spoke many different languages.",
+              "Most goods listed in the inn's toll records were bulky, low-value items such as grain and firewood, which merchants rarely carried over long distances.",
+              "The inn stood on a road that appears on several medieval maps of long-distance trade routes.",
+              "The inn's stables were large enough to hold more than one hundred horses."
             ],
             "answer": "B",
             "explanation": "Bulky, cheap goods were rarely hauled far, so traffic in grain and firewood points to short local trips. Visitors speaking many languages or a road on long-distance maps would suggest the opposite."
@@ -272,7 +272,7 @@
             "section": "rw",
             "skill": "Boundaries",
             "difficulty": "easy",
-            "passage": "Uzbek is a Turkic ______ it is closely related to Uyghur and has borrowed many words from Persian, Arabic, and Russian.",
+            "passage": "Portuguese is a Romance ______ it is closely related to Galician and has borrowed many words from Arabic, French, and English.",
             "prompt": "Which choice completes the text so that it conforms to the conventions of Standard English?",
             "choices": [
               "language,",
@@ -320,13 +320,13 @@
             "section": "rw",
             "skill": "Boundaries",
             "difficulty": "hard",
-            "passage": "The astronomer and science writer ______ has published four books on the history of star maps, including one on the instruments used at medieval observatories in Central Asia.",
+            "passage": "The astronomer and science writer ______ has published four books on the history of star maps, including one on the instruments used at medieval observatories in Europe and the Middle East.",
             "prompt": "Which choice completes the text so that it conforms to the conventions of Standard English?",
             "choices": [
-              "Ilhom Rasulov,",
-              "Ilhom Rasulov",
-              "Ilhom Rasulov—",
-              "Ilhom Rasulov;"
+              "Marco Bellini,",
+              "Marco Bellini",
+              "Marco Bellini—",
+              "Marco Bellini;"
             ],
             "answer": "B",
             "explanation": "The name tells us which astronomer and science writer is meant, so it is essential and takes no punctuation. A single comma or dash would wrongly separate the subject from its verb \"has published.\""
@@ -352,7 +352,7 @@
             "section": "rw",
             "skill": "Form, Structure, and Sense",
             "difficulty": "medium",
-            "passage": "The museum's collection of astrolabes, many of ______ were made in Persia and Central Asia, fills three rooms.",
+            "passage": "The museum's collection of astrolabes, many of ______ were made in Persia and North Africa, fills three rooms.",
             "prompt": "Which choice completes the text so that it conforms to the conventions of Standard English?",
             "choices": [
               "them",
@@ -400,7 +400,7 @@
             "section": "rw",
             "skill": "Transitions",
             "difficulty": "medium",
-            "passage": "Knives from the town of Chust in the Fergana Valley are prized for their sharp, durable blades. ______ they are admired for their decorated handles, which make each knife a small work of art.",
+            "passage": "Knives from the village of Laguiole in southern France are prized for their sharp, durable blades. ______ they are admired for their decorated handles, which make each knife a small work of art.",
             "prompt": "Which choice completes the text with the most logical transition?",
             "choices": [
               "Instead,",
@@ -486,7 +486,7 @@
               "section": "rw",
               "skill": "Words in Context",
               "difficulty": "easy",
-              "passage": "The food stalls at the spring festival offered a ______ selection of dishes: plov, samsa, shashlik, and dozens of regional breads.",
+              "passage": "The food stalls at the spring festival offered a ______ selection of dishes: paella, empanadas, grilled sausages, and dozens of regional breads.",
               "prompt": "Which choice completes the text with the most logical and precise word or phrase?",
               "choices": [
                 "limited",
@@ -550,12 +550,12 @@
               "section": "rw",
               "skill": "Text Structure and Purpose",
               "difficulty": "easy",
-              "passage": "Each spring, potters in many Central Asian villages dig fresh clay from riverbanks. Before the clay can be used, it must be soaked in water, strained to remove stones and roots, and then left to dry until it is firm enough to shape.",
+              "passage": "Each spring, potters in many villages in Oaxaca, Mexico, dig fresh clay from riverbanks. Before the clay can be used, it must be soaked in water, strained to remove stones and roots, and then left to dry until it is firm enough to shape.",
               "prompt": "Which choice best states the main purpose of the text?",
               "choices": [
                 "To argue that river clay is better than other kinds of clay",
                 "To describe the steps used to prepare clay for making pottery",
-                "To explain why pottery is popular in Central Asia",
+                "To explain why pottery is popular in Mexico",
                 "To compare spring and autumn pottery traditions"
               ],
               "answer": "B",
@@ -614,16 +614,16 @@
               "section": "rw",
               "skill": "Central Ideas and Details",
               "difficulty": "medium",
-              "passage": "The following text is from a short story. Aziz has just moved from his village to the city to attend university.\n\nThe city never went fully dark. Even at midnight, streetlights hummed outside Aziz's window and cars hissed past on the wet road. At home, he had fallen asleep each night to the sound of the irrigation canal and the occasional bark of a neighbor's dog. Now he lay awake, listening for the canal, though he knew it was four hundred kilometers away.",
+              "passage": "The following text is from a short story. Tomás has just moved from his village to the city to attend university.\n\nThe city never went fully dark. Even at midnight, streetlights hummed outside Tomás's window and cars hissed past on the wet road. At home, he had fallen asleep each night to the sound of the irrigation canal and the occasional bark of a neighbor's dog. Now he lay awake, listening for the canal, though he knew it was four hundred kilometers away.",
               "prompt": "Which choice best states the main idea of the text?",
               "choices": [
-                "Unable to sleep in the noisy city, Aziz misses the familiar sounds of his village.",
-                "Aziz enjoys the excitement of the city more than the calm of his village.",
-                "Aziz worries that he will not do well at university.",
-                "Aziz is kept awake by a neighbor's barking dog."
+                "Unable to sleep in the noisy city, Tomás misses the familiar sounds of his village.",
+                "Tomás enjoys the excitement of the city more than the calm of his village.",
+                "Tomás worries that he will not do well at university.",
+                "Tomás is kept awake by a neighbor's barking dog."
               ],
               "answer": "A",
-              "explanation": "Aziz lies awake listening for the canal from home, which shows he misses his village. The barking dog belongs to his memories of home, not to the city."
+              "explanation": "Tomás lies awake listening for the canal from home, which shows he misses his village. The barking dog belongs to his memories of home, not to the city."
             },
             {
               "id": "t2-rw2e-10",
@@ -751,13 +751,13 @@
               "section": "rw",
               "skill": "Boundaries",
               "difficulty": "easy",
-              "passage": "After sixteen hours on the road from Tashkent to ______ the travelers were relieved to see the city's lights.",
+              "passage": "After sixteen hours on the road from Chicago to ______ the travelers were relieved to see the city's lights.",
               "prompt": "Which choice completes the text so that it conforms to the conventions of Standard English?",
               "choices": [
-                "Nukus;",
-                "Nukus:",
-                "Nukus",
-                "Nukus,"
+                "Denver;",
+                "Denver:",
+                "Denver",
+                "Denver,"
               ],
               "answer": "D",
               "explanation": "A comma separates the introductory \"After...\" phrase from the main clause."
@@ -815,7 +815,7 @@
               "section": "rw",
               "skill": "Form, Structure, and Sense",
               "difficulty": "medium",
-              "passage": "The members of the weaving cooperative sell ______ carpets at a market in Kokand every weekend.",
+              "passage": "The members of the weaving cooperative sell ______ carpets at a market in Marrakesh every weekend.",
               "prompt": "Which choice completes the text so that it conforms to the conventions of Standard English?",
               "choices": [
                 "their",
@@ -895,16 +895,16 @@
               "section": "rw",
               "skill": "Rhetorical Synthesis",
               "difficulty": "easy",
-              "passage": "While researching a topic, a student has taken the following notes:\n\n• The Fergana Valley lies in eastern Uzbekistan and neighboring countries.\n• In ancient times, the valley was famous for its horses.\n• Chinese writers called these animals \"heavenly horses.\"\n• Around 100 BCE, a Chinese army traveled to the valley to obtain some of them.",
-              "prompt": "The student wants to explain what the Fergana Valley was known for in ancient China. Which choice most effectively uses relevant information from the notes to accomplish this goal?",
+              "passage": "While researching a topic, a student has taken the following notes:\n\n• The city of Tyre lies on the coast of present-day Lebanon.\n• In ancient times, the city was famous for a deep purple dye.\n• Roman writers called this color \"Tyrian purple.\"\n• Making even a small amount of the dye required thousands of sea snails.",
+              "prompt": "The student wants to explain what Tyre was known for in ancient Rome. Which choice most effectively uses relevant information from the notes to accomplish this goal?",
               "choices": [
-                "The Fergana Valley lies in eastern Uzbekistan and neighboring countries.",
-                "Around 100 BCE, a Chinese army traveled a long way from home.",
-                "In ancient China, the Fergana Valley was known for its horses, which Chinese writers called \"heavenly horses.\"",
-                "Many valleys in Central Asia are surrounded by mountains."
+                "The city of Tyre lies on the coast of present-day Lebanon.",
+                "Making even a small amount of dye required a great deal of work.",
+                "In ancient Rome, Tyre was known for its deep purple dye, which Roman writers called \"Tyrian purple.\"",
+                "Many cities on the eastern Mediterranean coast were busy ports."
               ],
               "answer": "C",
-              "explanation": "Only this choice says what the valley was famous for in China: its \"heavenly horses.\""
+              "explanation": "Only this choice says what the city was famous for in Rome: its \"Tyrian purple\" dye."
             },
             {
               "id": "t2-rw2e-26",
@@ -980,7 +980,7 @@
               "section": "rw",
               "skill": "Words in Context",
               "difficulty": "hard",
-              "passage": "Economist Farida Alieva's model of consumer choice is notably ______: it accounts for a wide range of puzzling behavior using just two simple assumptions about how people weigh gains and losses.",
+              "passage": "Economist Rachel Kim's model of consumer choice is notably ______: it accounts for a wide range of puzzling behavior using just two simple assumptions about how people weigh gains and losses.",
               "prompt": "Which choice completes the text with the most logical and precise word or phrase?",
               "choices": [
                 "convoluted",
@@ -1076,24 +1076,24 @@
               "section": "rw",
               "skill": "Central Ideas and Details",
               "difficulty": "hard",
-              "passage": "The following text is from a short story. Komil, an aging potter, is watching his granddaughter Gulshan at the wheel.\n\nGulshan's first bowls had been thick and lopsided, and Komil had said nothing, only handed her another lump of clay. Now, a year later, the walls rising between her palms were thin enough to let the lamplight glow through at the rim. He knew he should tell her the bowl was too delicate to survive the kiln. Instead, he watched her hands, steadier than his own had been for a decade, and kept his warning to himself.",
+              "passage": "The following text is from a short story. Matteo, an aging potter, is watching his granddaughter Giulia at the wheel.\n\nGiulia's first bowls had been thick and lopsided, and Matteo had said nothing, only handed her another lump of clay. Now, a year later, the walls rising between her palms were thin enough to let the lamplight glow through at the rim. He knew he should tell her the bowl was too delicate to survive the kiln. Instead, he watched her hands, steadier than his own had been for a decade, and kept his warning to himself.",
               "prompt": "Which choice best states the main idea of the text?",
               "choices": [
-                "Impressed by how much Gulshan's skill has grown, Komil chooses not to point out a problem with her latest bowl.",
-                "Komil worries that Gulshan's bowls are still too thick and uneven to sell.",
-                "Komil decides that Gulshan is not yet ready to fire her own bowls.",
-                "Komil is frustrated that Gulshan ignores the advice he gives her."
+                "Impressed by how much Giulia's skill has grown, Matteo chooses not to point out a problem with her latest bowl.",
+                "Matteo worries that Giulia's bowls are still too thick and uneven to sell.",
+                "Matteo decides that Giulia is not yet ready to fire her own bowls.",
+                "Matteo is frustrated that Giulia ignores the advice he gives her."
               ],
               "answer": "A",
-              "explanation": "Komil notices how thin her bowl is and how steady her hands are, then keeps his warning to himself. Thick, uneven bowls describe her work a year earlier, so the second choice misreads the timeline."
+              "explanation": "Matteo notices how thin her bowl is and how steady her hands are, then keeps his warning to himself. Thick, uneven bowls describe her work a year earlier, so the second choice misreads the timeline."
             },
             {
               "id": "t2-rw2h-10",
               "section": "rw",
               "skill": "Command of Evidence: Textual",
               "difficulty": "hard",
-              "passage": "Planetary scientist Nargiza Hasanova hypothesizes that the dark streaks that appear each summer on certain slopes on Mars are caused by dry flows of dust and sand rather than by flowing water.",
-              "prompt": "Which finding, if true, would most directly support Hasanova's hypothesis?",
+              "passage": "Planetary scientist Anika Sharma hypothesizes that the dark streaks that appear each summer on certain slopes on Mars are caused by dry flows of dust and sand rather than by flowing water.",
+              "prompt": "Which finding, if true, would most directly support Sharma's hypothesis?",
               "choices": [
                 "The streaks grow longer during the warmest part of the Martian year.",
                 "The streaks occur only on slopes steep enough for loose sand to slide, and they stop where the slopes become gentler.",
@@ -1108,8 +1108,8 @@
               "section": "rw",
               "skill": "Command of Evidence: Quantitative",
               "difficulty": "hard",
-              "passage": "Economist Shahlo Ikromova assigned employees at a large company to four groups: some received monthly reminder messages about saving, some were automatically enrolled in a savings plan, some received both, and some received neither. Ikromova claims that the reminders had little effect on their own but substantially increased saving when combined with automatic enrollment.",
-              "prompt": "Which choice most effectively uses data from the table to support Ikromova's claim?",
+              "passage": "Economist Laura Fischer assigned employees at a large company to four groups: some received monthly reminder messages about saving, some were automatically enrolled in a savings plan, some received both, and some received neither. Fischer claims that the reminders had little effect on their own but substantially increased saving when combined with automatic enrollment.",
+              "prompt": "Which choice most effectively uses data from the table to support Fischer's claim?",
               "choices": [
                 "Employees who received both reminders and automatic enrollment saved 5.3% of their salary, the most of any group.",
                 "Automatic enrollment without reminders raised average savings from 2.1% to 4.0% of salary.",
@@ -1200,12 +1200,12 @@
               "section": "rw",
               "skill": "Inferences",
               "difficulty": "hard",
-              "passage": "Archaeologists excavating a site in Central Asia found fragments of porcelain decorated in a style that potters in China began using only in the late thirteenth century. The fragments lay in the same layer of soil as coins minted in the early thirteenth century. Because coins often stayed in circulation for decades after they were minted, the archaeologists concluded that ______",
+              "passage": "Archaeologists excavating a site in East Africa found fragments of porcelain decorated in a style that potters in China began using only in the late thirteenth century. The fragments lay in the same layer of soil as coins minted in the early thirteenth century. Because coins often stayed in circulation for decades after they were minted, the archaeologists concluded that ______",
               "prompt": "Which choice most logically completes the text?",
               "choices": [
-                "the porcelain was likely made in Central Asia rather than in China.",
+                "the porcelain was likely made in East Africa rather than in China.",
                 "the layer was likely deposited no earlier than the late thirteenth century, despite the age of the coins.",
-                "the decorative style likely originated in Central Asia before it was used in China.",
+                "the decorative style likely originated in East Africa before it was used in China.",
                 "the coins were likely minted later than the dates stamped on them suggest."
               ],
               "answer": "B",
@@ -1280,7 +1280,7 @@
               "section": "rw",
               "skill": "Boundaries",
               "difficulty": "hard",
-              "passage": "A fourteenth-century traveler from ______ Ibn Battuta passed through Bukhara and Samarkand on his way to India.",
+              "passage": "A fourteenth-century traveler from ______ Ibn Battuta passed through Cairo and Damascus on his way to Mecca.",
               "prompt": "Which choice completes the text so that it conforms to the conventions of Standard English?",
               "choices": [
                 "Morocco,",
@@ -1328,7 +1328,7 @@
               "section": "rw",
               "skill": "Form, Structure, and Sense",
               "difficulty": "hard",
-              "passage": "The traveler, ______ historians believe crossed the Pamir Mountains at least three times, left no written account of her journeys.",
+              "passage": "The traveler, ______ historians believe crossed the Andes at least three times, left no written account of her journeys.",
               "prompt": "Which choice completes the text so that it conforms to the conventions of Standard English?",
               "choices": [
                 "whom",
@@ -1392,13 +1392,13 @@
               "section": "rw",
               "skill": "Rhetorical Synthesis",
               "difficulty": "hard",
-              "passage": "While researching a topic, a student has taken the following notes:\n\n• Paper was invented in China by around the second century BCE.\n• A widely repeated account holds that papermaking reached Samarkand after Chinese papermakers were captured at the Battle of Talas in 751 CE.\n• Some historians question this account, noting that paper may have reached Central Asia earlier through trade.\n• Samarkand became a major center of paper production.",
-              "prompt": "The student wants to present the traditional account of how papermaking reached Samarkand while acknowledging that it has been questioned. Which choice most effectively uses relevant information from the notes to accomplish this goal?",
+              "passage": "While researching a topic, a student has taken the following notes:\n\n• Isaac Newton was born in Woolsthorpe, England, in 1643.\n• A widely repeated account holds that Newton began thinking about gravity after watching an apple fall in his garden at Woolsthorpe in 1666.\n• Some historians question this account, noting that Newton told the story only late in his life, about sixty years after the event.\n• Newton published his theory of gravity in 1687.",
+              "prompt": "The student wants to present the traditional account of how Newton began thinking about gravity while acknowledging that it has been questioned. Which choice most effectively uses relevant information from the notes to accomplish this goal?",
               "choices": [
-                "Samarkand became a major center of paper production after papermaking reached the city.",
-                "According to a widely repeated account, papermaking reached Samarkand after Chinese papermakers were captured at the Battle of Talas in 751 CE, though some historians argue that paper may have arrived earlier through trade.",
-                "Paper, which was invented in China by around the second century BCE, eventually reached Samarkand.",
-                "Some historians argue that paper may have reached Central Asia earlier through trade."
+                "Newton published his theory of gravity in 1687, about twenty years after he began thinking about it.",
+                "According to a widely repeated account, Newton began thinking about gravity after watching an apple fall in his garden at Woolsthorpe in 1666, though some historians note that he told the story only late in his life.",
+                "Isaac Newton, who was born in Woolsthorpe, England, in 1643, later developed a theory of gravity.",
+                "Some historians note that Newton told the apple story only late in his life."
               ],
               "answer": "B",
               "explanation": "The goal has two parts: the traditional account and the doubt about it. Only this choice includes both; the last choice gives only the doubt."
@@ -1424,13 +1424,13 @@
               "section": "rw",
               "skill": "Rhetorical Synthesis",
               "difficulty": "hard",
-              "passage": "While researching a topic, a student has taken the following notes:\n\n• Economist Javlon Tursunov studied how people respond to small fees.\n• He compared two grocery stores in Tashkent over three months.\n• One store began charging 200 so'm for each plastic bag; the other did not.\n• Bag use fell by 60% at the store with the fee and by 2% at the other store.\n• Tursunov concluded that even very small fees can change shopping habits substantially.",
-              "prompt": "The student wants to present Tursunov's conclusion along with the evidence that supports it. Which choice most effectively uses relevant information from the notes to accomplish this goal?",
+              "passage": "While researching a topic, a student has taken the following notes:\n\n• Economist James Porter studied how people respond to small fees.\n• He compared two grocery stores in Toronto over three months.\n• One store began charging 5 cents for each plastic bag; the other did not.\n• Bag use fell by 60% at the store with the fee and by 2% at the other store.\n• Porter concluded that even very small fees can change shopping habits substantially.",
+              "prompt": "The student wants to present Porter's conclusion along with the evidence that supports it. Which choice most effectively uses relevant information from the notes to accomplish this goal?",
               "choices": [
-                "Tursunov compared two grocery stores in Tashkent, one of which began charging 200 so'm for each plastic bag.",
-                "Over three months, bag use fell by 60% at one Tashkent grocery store and by 2% at another.",
-                "After one Tashkent grocery store began charging 200 so'm per plastic bag, bag use there fell by 60%, compared with 2% at a store without the fee, leading Tursunov to conclude that even very small fees can change shopping habits substantially.",
-                "Tursunov concluded that even very small fees can change shopping habits substantially."
+                "Porter compared two grocery stores in Toronto, one of which began charging 5 cents for each plastic bag.",
+                "Over three months, bag use fell by 60% at one Toronto grocery store and by 2% at another.",
+                "After one Toronto grocery store began charging 5 cents per plastic bag, bag use there fell by 60%, compared with 2% at a store without the fee, leading Porter to conclude that even very small fees can change shopping habits substantially.",
+                "Porter concluded that even very small fees can change shopping habits substantially."
               ],
               "answer": "C",
               "explanation": "Only this choice pairs the conclusion with the finding behind it. The last choice states the conclusion alone, and the first two give method or data without the conclusion."
@@ -1521,7 +1521,7 @@
             "section": "math",
             "skill": "Ratios, rates, proportional relationships, and units",
             "difficulty": "medium",
-            "prompt": "On a map of the Zarafshan Valley, 2 centimeters represent 15 kilometers. Two towns are 9 centimeters apart on the map. What is the actual distance between the towns, in kilometers?",
+            "prompt": "On a map of the Loire Valley, 2 centimeters represent 15 kilometers. Two towns are 9 centimeters apart on the map. What is the actual distance between the towns, in kilometers?",
             "explanation": "Each centimeter represents $15 \\div 2 = 7.5$ kilometers, and $9 \\times 7.5 = 67.5$.",
             "answer": [
               "67.5",
@@ -1533,8 +1533,8 @@
             "section": "math",
             "skill": "Systems of two linear equations in two variables",
             "difficulty": "medium",
-            "prompt": "A museum sells adult tickets for 30,000 so'm each and student tickets for 12,000 so'm each. On one day, it sold 150 tickets for a total of 3,240,000 so'm. How many adult tickets did it sell that day?",
-            "explanation": "With $a$ adult tickets and $150 - a$ student tickets, $30{,}000a + 12{,}000(150 - a) = 3{,}240{,}000$. So $18{,}000a = 1{,}440{,}000$ and $a = 80$. (70 is the number of student tickets.)",
+            "prompt": "A museum sells adult tickets for \\$30 each and student tickets for \\$12 each. On one day, it sold 150 tickets for a total of \\$3,240. How many adult tickets did it sell that day?",
+            "explanation": "With $a$ adult tickets and $150 - a$ student tickets, $30a + 12(150 - a) = 3{,}240$. So $18a = 1{,}440$ and $a = 80$. (70 is the number of student tickets.)",
             "choices": [
               "70",
               "80",
@@ -1957,8 +1957,8 @@
               "section": "math",
               "skill": "Linear inequalities in one or two variables",
               "difficulty": "medium",
-              "prompt": "Aziza is saving to buy a telescope that costs 1,500,000 so'm. She has already saved 420,000 so'm and will save 90,000 so'm each week. What is the least number of weeks she must save so that she has enough money for the telescope?",
-              "explanation": "She needs $1{,}500{,}000 - 420{,}000 = 1{,}080{,}000$ more so'm, and $1{,}080{,}000 \\div 90{,}000 = 12$ weeks. The choice 17 ignores the money she has already saved.",
+              "prompt": "Emma is saving to buy a telescope that costs \\$1,500. She has already saved \\$420 and will save \\$90 each week. What is the least number of weeks she must save so that she has enough money for the telescope?",
+              "explanation": "She needs $1{,}500 - 420 = 1{,}080$ more dollars, and $1{,}080 \\div 90 = 12$ weeks. The choice 17 ignores the money she has already saved.",
               "choices": [
                 "11",
                 "17",
@@ -2071,13 +2071,13 @@
               "section": "math",
               "skill": "Two-variable data: models and scatterplots",
               "difficulty": "medium",
-              "prompt": "A data set gives the age $x$, in years, and the price $y$, in millions of so'm, of 30 used cars of the same model. The line of best fit for the data is $y = 120 - 9x$. Which statement is the best interpretation of 9 in this context?",
-              "explanation": "The coefficient of $x$ is $-9$, so each additional year lowers the predicted price by 9 million so'm. The predicted price at age 0 is 120 million so'm.",
+              "prompt": "A data set gives the age $x$, in years, and the price $y$, in hundreds of dollars, of 30 used cars of the same model. The line of best fit for the data is $y = 120 - 9x$. Which statement is the best interpretation of 9 in this context?",
+              "explanation": "The coefficient of $x$ is $-9$, so each additional year lowers the predicted price by 900 dollars. The predicted price at age 0 is 12,000 dollars.",
               "choices": [
-                "Each additional year of age increases the predicted price by 9 million so'm.",
-                "The predicted price of a new car is 9 million so'm.",
+                "Each additional year of age increases the predicted price by 900 dollars.",
+                "The predicted price of a new car is 900 dollars.",
                 "The cars in the data set are about 9 years old, on average.",
-                "Each additional year of age decreases the predicted price by 9 million so'm."
+                "Each additional year of age decreases the predicted price by 900 dollars."
               ],
               "answer": "D"
             },
@@ -2101,13 +2101,13 @@
               "section": "math",
               "skill": "Nonlinear functions",
               "difficulty": "medium",
-              "prompt": "A laptop was worth 8,000,000 so'm when it was new, and its value decreases by 20% each year. Which function gives the laptop's value $V(t)$, in so'm, $t$ years after it was new?",
+              "prompt": "A laptop was worth \\$800 when it was new, and its value decreases by 20% each year. Which function gives the laptop's value $V(t)$, in dollars, $t$ years after it was new?",
               "explanation": "Losing 20% each year leaves 80% of the value, so the value is multiplied by 0.8 each year.",
               "choices": [
-                "$V(t) = 8{,}000{,}000(0.2)^t$",
-                "$V(t) = 8{,}000{,}000(0.8)^t$",
-                "$V(t) = 8{,}000{,}000 - 0.2t$",
-                "$V(t) = 8{,}000{,}000(1.2)^t$"
+                "$V(t) = 800(0.2)^t$",
+                "$V(t) = 800(0.8)^t$",
+                "$V(t) = 800 - 0.2t$",
+                "$V(t) = 800(1.2)^t$"
               ],
               "answer": "B"
             },
