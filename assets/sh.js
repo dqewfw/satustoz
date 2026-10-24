@@ -77,7 +77,11 @@
       // false to go back to Tests 4 to 15 (and 2 and 3 for new students) being Pro.
       // While it's true, keep every test file in data/tests/ (don't use
       // TESTS_ENDPOINT): students without Pro load the tests from there.
-      TESTS_FREE_FOR_LAUNCH: true
+      TESTS_FREE_FOR_LAUNCH: true,
+      // Tests whose full results (score by module and domain, review of every
+      // question with explanations) everyone sees, without Pro.
+      FREE_RESULTS_TESTS: ['practice-test-1', 'practice-test-2', 'practice-test-3', 'practice-test-4', 'practice-test-5',
+        'practice-test-6', 'practice-test-7', 'practice-test-8', 'practice-test-9', 'practice-test-10']
     },
 
     // Online payment with Payme. Paste your payments Worker URL here
@@ -1503,8 +1507,12 @@
     // "proOnly" tests stay Pro even during the launch offer.
     opens(meta) { return !!meta && ((!!CONFIG.PLANS.TESTS_FREE_FOR_LAUNCH && !meta.proOnly) || this.allows(meta.plan) || (!!meta.legacyFree && this.legacy())); },
     // Skill breakdown, question review and skill drills are Pro. A test record
-    // finished before the change keeps its full results.
-    insights(rec) { return this.allows('pro') || (!!(rec && rec.finishedAt) && rec.finishedAt < freeChangedAt()); },
+    // finished before the change keeps its full results, and so does any test
+    // in FREE_RESULTS_TESTS.
+    insights(rec) {
+      return this.allows('pro') || (!!(rec && rec.finishedAt) && rec.finishedAt < freeChangedAt()) ||
+        (!!rec && (CONFIG.PLANS.FREE_RESULTS_TESTS || []).includes(rec.testId));
+    },
     pitch(opts) { openPitch(opts || {}); },
     label(id) { return planText((id || this.current()) + '_name'); },
     upgrade(id) { openUpgrade(id || 'pro'); },
@@ -1645,7 +1653,8 @@
       mp_unlocked_t: '{plan} is on', mp_unlocked: 'You can use {plan} right now, for 48 hours, while we confirm your payment. Once it’s confirmed (within 2 hours, 9:00 to 23:00 Tashkent time), you get the full period you paid for. Send us the receipt so we can confirm it faster.',
       pending_note: 'Confirming your payment: the full period starts once it’s confirmed.',
       mp_trust: 'Payments go to {name}, the founder of SAT Ustoz. Questions? Message {tg} on Telegram.', mp_instant: 'Your plan switches on as soon as you tap “I’ve paid”.',
-      launch_tests: 'Practice Tests 1 to 10 (free for our launch)', pro_tests_launch: 'Practice Tests 11 to 15, only in Pro', pro_sets: 'Practice sets for the most-missed skills',
+      launch_tests: 'Practice Tests 1 to 10 (free for our launch)', launch_results: 'Full results for Tests 1 to 10: score by skill and every question explained', pro_results: 'Full results for Tests 11 to 15',
+      note_launch: '<b>Free, Pro or Max?</b> Free gives you Tests 1 to 10 with full results: your score by skill and every question explained. Pro adds Tests 11 to 15, skill sets and drills for the skills that cost you points. Max adds the AI tutor and live sessions with Azizbek.', pro_tests_launch: 'Practice Tests 11 to 15, only in Pro', pro_sets: 'Practice sets for the most-missed skills',
       ai_daily: '3 AI tutor questions a day', ai_max: 'Unlimited AI tutor and new AI practice questions',
       bill_pass: 'Prices in Uzbek so’m. Pay for one month at a time, or for 3 months until your test.',
       pass_line: 'or {price} for 3 months, until your test',
@@ -1718,7 +1727,8 @@
       mp_unlocked_t: '{plan} yoqildi', mp_unlocked: 'Toʻlovingizni tasdiqlagunimizcha {plan} tarifidan hoziroq, 48 soat davomida foydalanishingiz mumkin. Tasdiqlangach (Toshkent vaqti bilan 9:00–23:00, 2 soat ichida) toʻlagan muddatingiz toʻliq ochiladi. Tezroq tasdiqlashimiz uchun chekni yuboring.',
       pending_note: 'Toʻlovingiz tasdiqlanmoqda: toʻliq muddat tasdiqlangach boshlanadi.',
       mp_trust: 'Toʻlovlar SAT Ustoz asoschisi {name} kartasiga tushadi. Savollar boʻlsa, Telegramda {tg} ga yozing.', mp_instant: '“Toʻladim” tugmasini bosishingiz bilan tarif darhol yoqiladi.',
-      launch_tests: '1–10-sinov testlari (ishga tushish munosabati bilan bepul)', pro_tests_launch: '11–15-sinov testlari, faqat Pro tarifida', pro_sets: 'Eng koʻp xato qilinadigan koʻnikmalar boʻyicha toʻplamlar',
+      launch_tests: '1–10-sinov testlari (ishga tushish munosabati bilan bepul)', launch_results: '1–10-testlar boʻyicha toʻliq natija: koʻnikmalar boʻyicha ball va har bir savolga izoh', pro_results: '11–15-testlar boʻyicha toʻliq natija',
+      note_launch: '<b>Bepul, Pro yoki Max?</b> Bepul tarifda 1–10-testlar toʻliq natijasi bilan: koʻnikmalar boʻyicha ball va har bir savolga izoh. Pro 11–15-testlarni, koʻnikma toʻplamlari va ball yoʻqotayotgan koʻnikmalaringiz boʻyicha mashqlarni qoʻshadi. Max esa AI ustoz va Azizbek bilan jonli darslarni qoʻshadi.', pro_tests_launch: '11–15-sinov testlari, faqat Pro tarifida', pro_sets: 'Eng koʻp xato qilinadigan koʻnikmalar boʻyicha toʻplamlar',
       ai_daily: 'Kuniga 3 ta AI ustoz savoli', ai_max: 'Cheksiz AI ustoz va yangi AI mashq savollari',
       bill_pass: 'Narxlar soʻmda. Bir oyga yoki imtihoningizgacha 3 oyga toʻlang.',
       pass_line: 'yoki imtihoningizgacha 3 oyga {price}',
@@ -1791,7 +1801,8 @@
       mp_unlocked_t: '{plan} включён', mp_unlocked: 'Пользуйтесь {plan} прямо сейчас, 48 часов, пока мы подтверждаем оплату. После подтверждения (в течение 2 часов, с 9:00 до 23:00 по Ташкенту) откроется весь оплаченный срок. Отправьте чек, чтобы мы подтвердили быстрее.',
       pending_note: 'Подтверждаем оплату: полный срок начнётся после подтверждения.',
       mp_trust: 'Платежи поступают основателю SAT Ustoz, {name}. Вопросы? Напишите {tg} в Telegram.', mp_instant: 'Тариф включится сразу, как только вы нажмёте «Я оплатил(а)».',
-      launch_tests: 'Пробные тесты 1–10 (бесплатно в честь запуска)', pro_tests_launch: 'Пробные тесты 11–15, только в Pro', pro_sets: 'Наборы по навыкам, где ошибаются чаще всего',
+      launch_tests: 'Пробные тесты 1–10 (бесплатно в честь запуска)', launch_results: 'Полные результаты тестов 1–10: балл по навыкам и объяснение каждого вопроса', pro_results: 'Полные результаты тестов 11–15',
+      note_launch: '<b>Бесплатно, Pro или Max?</b> Бесплатно: тесты 1–10 с полными результатами — балл по навыкам и объяснение каждого вопроса. Pro добавляет тесты 11–15, наборы по навыкам и тренировки по навыкам, на которых вы теряете баллы. Max добавит ИИ-репетитора и живые занятия с Азизбеком.', pro_tests_launch: 'Пробные тесты 11–15, только в Pro', pro_sets: 'Наборы по навыкам, где ошибаются чаще всего',
       ai_daily: '3 вопроса ИИ-репетитору в день', ai_max: 'Безлимитный ИИ-репетитор и новые ИИ-вопросы',
       bill_pass: 'Цены в узбекских сумах. Платите за месяц или сразу за 3 месяца до экзамена.',
       pass_line: 'или {price} за 3 месяца, до экзамена',
@@ -1817,12 +1828,12 @@
   function priceText(amount, lang) {
     return amount + ' ' + (CONFIG.PLANS.CURRENCY[lang] || CONFIG.PLANS.CURRENCY.en);
   }
-  // What each plan card lists. During the launch offer every test is free, so
-  // Free lists Tests 1 to 10, and Pro lists Tests 11 to 15 and its skill sets. With the AI on, Free and Pro
+  // What each plan card lists. During the launch offer Tests 1 to 10 are free with
+  // full results, so Free lists them, and Pro lists Tests 11 to 15, their results and its skill sets. With the AI on, Free and Pro
   // list their daily tutor questions and Max its unlimited AI.
   function planFeatures(id, T) {
     const f = T(id + '_f').slice();
-    if (CONFIG.PLANS.TESTS_FREE_FOR_LAUNCH) { if (id === 'free') f[1] = T('launch_tests'); if (id === 'pro') f.splice(0, 1, T('pro_tests_launch'), T('pro_sets')); }
+    if (CONFIG.PLANS.TESTS_FREE_FOR_LAUNCH) { if (id === 'free') f.splice(1, 1, T('launch_tests'), T('launch_results')); if (id === 'pro') f.splice(0, 3, T('pro_tests_launch'), T('pro_results'), T('pro_sets')); }
     if (!ai.enabled()) return f;
     if (id === 'max') f[1] = T('ai_max'); else f.push(T('ai_daily'));
     return f;
@@ -1861,7 +1872,7 @@
       card('free', '', '', '0', false, freeCta) +
       card('pro', ' is-featured', T('popular'), CONFIG.PLANS.PRO_PRICE, true, proCta, passLine) +
       card('max', ' plan-max', '', CONFIG.PLANS.MAX_PRICE, true, maxCta) +
-      '</div><p class="plan-note">' + T('note') + '</p><p class="plan-bill">' + esc(T(passOn ? 'bill_pass' : 'bill')) + '</p>';
+      '</div><p class="plan-note">' + T(CONFIG.PLANS.TESTS_FREE_FOR_LAUNCH ? 'note_launch' : 'note') + '</p><p class="plan-bill">' + esc(T(passOn ? 'bill_pass' : 'bill')) + '</p>';
     $$('[data-upgrade]', host).forEach(b => b.addEventListener('click', () => plan.upgrade(b.dataset.upgrade)));
     $$('[data-waitlist]', host).forEach(b => b.addEventListener('click', openWaitlist));
     $$('[data-manage]', host).forEach(b => b.addEventListener('click', openManage));

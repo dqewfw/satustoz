@@ -50,7 +50,7 @@
         { "@type": "Question", "name": "How accurate is the score estimate?", "acceptedAnswer": { "@type": "Answer", "text": "It is a ballpark. The real SAT scores each question with item response theory. Our estimate uses how many questions you got right and which Module 2 you reached." } },
         { "@type": "Question", "name": "Where is my progress saved?", "acceptedAnswer": { "@type": "Answer", "text": "If you sign in with Google, your progress is saved to your account and follows you to any device. Without an account, it stays in the browser on the device you use." } },
         { "@type": "Question", "name": "Does it work on a phone?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Everything works on phones, though a laptop feels closer to test day for full practice tests." } },
-        { "@type": "Question", "name": "What is free, and what needs Pro?", "acceptedAnswer": { "@type": "Answer", "text": "The mini diagnostic, Practice Test 1, the starter sets and your total score are free. Pro opens all 15 practice tests, your score broken down by skill, a review of every question, drills built from your weakest skills and a study plan to your test date. Max adds the AI tutor, a plan re-made every week and a monthly live group session." } },
+        { "@type": "Question", "name": "What is free, and what needs Pro?", "acceptedAnswer": { "@type": "Answer", "text": "Practice Tests 1 to 10 are free with full results: your score by skill and a review of every question with explanations. So are the mini diagnostic and the starter sets. Pro adds Practice Tests 11 to 15, skill practice sets, drills built from your weakest skills and a study plan to your test date. Max adds the AI tutor, a plan re-made every week and a monthly live group session." } },
         { "@type": "Question", "name": "Can you help me register for the SAT?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Message us on Telegram and we'll walk you through creating your College Board account, picking a test date and center, and paying the registration fee." } },
         { "@type": "Question", "name": "Is this the same as Bluebook?", "acceptedAnswer": { "@type": "Answer", "text": "It follows the same structure and tools, but it is an independent practice site and is not affiliated with the College Board." } }
       ]
@@ -134,11 +134,6 @@
   .fmt th { font-size: .9rem; color: #EDD9A8; }
   .fmt tr:last-child td { border-bottom: 0; font-weight: 700; color: #fff; }
 
-  .team { display: grid; grid-template-columns: minmax(0, 560px); gap: 18px; }
-  .person { display: flex; gap: 16px; align-items: flex-start; }
-  .medal { flex: 0 0 auto; width: 58px; height: 58px; border-radius: 50%; background: var(--brand); color: var(--gold-soft); display: flex; align-items: center; justify-content: center; font-family: var(--display); font-weight: 600; font-size: 1.3rem; border: 2px solid var(--gold); }
-  .person h3 { margin-bottom: 4px; }
-  .person p { margin: 0; color: var(--muted); }
   .cta-card { background: var(--ivory); border-radius: var(--r); padding: 32px; display: flex; gap: 24px; align-items: center; justify-content: space-between; flex-wrap: wrap; }
   .cta-card h2 { font-size: 1.7rem; margin-bottom: .3em; }
   .cta-card p { margin: 0; color: var(--muted); max-width: 36em; }
@@ -363,19 +358,9 @@
       <div class="why-grid">
         <div class="why-item"><h3 data-i18n="w1_t">Fair price, local payment</h3><p data-i18n="w1_d">Big prep platforms charge around $20 a month. Pro here is 79 000 so&rsquo;m a month, and in Uzbekistan you pay from any banking app with Uzcard or Humo, no Visa or Mastercard needed.</p></div>
         <div class="why-item"><h3 data-i18n="w2_t">Help in Uzbek, Russian and English</h3><p data-i18n="w2_d">Stuck on a question or a payment? Message a real person on Telegram. We reply within 2 hours, 9:00 to 23:00 Tashkent time.</p></div>
-        <div class="why-item"><h3 data-i18n="w3_t">Written by a 1530 scorer</h3><p data-i18n="w3_d">Questions and explanations come from an SAT instructor who scored 1530 (790 Math) and knows the mistakes international students make most.</p></div>
         <div class="why-item"><h3 data-i18n="w4_t">Report a mistake, see it fixed</h3><p data-i18n="w4_d">Every question has a &ldquo;Report a mistake&rdquo; button. We fix what&rsquo;s wrong and tell you on your dashboard when it&rsquo;s done.</p></div>
         <div class="why-item"><h3 data-i18n="w5_t">SAT in Uzbek</h3><p data-i18n="w5_d">Lessons, word meanings and the AI tutor work in Uzbek and Russian, so you learn the reasoning in the language you think in, then answer in English like on test day.</p></div>
         <div class="why-item"><h3 data-i18n="w6_t">Original questions only</h3><p data-i18n="w6_d">Every question is written by our team. We never use leaked or &ldquo;recalled&rdquo; exam questions: they break College Board rules and can get a student&rsquo;s scores cancelled.</p></div>
-      </div>
-    </div>
-  </section>
-
-  <section class="block" id="team">
-    <div class="wrap">
-      <div class="sec-head"><h2 data-i18n="team_h2">Built by someone who has taken the test</h2><p class="muted" data-i18n="team_p">We wrote these questions the way we wish someone had written them for us: in the real format, with explanations that tell you why, not only what.</p></div>
-      <div class="team">
-        <div class="card person"><div class="medal" aria-hidden="true">AT</div><div><h3>Azizbek To'rabayev</h3><p data-i18n="az_role">SAT 1530 (740 Reading and Writing, 790 Math). SAT instructor and FLEX &rsquo;26 alumnus.</p></div></div>
       </div>
     </div>
   </section>
@@ -515,7 +500,6 @@ document.addEventListener('DOMContentLoaded', function () {
       q8: "SATga roʻyxatdan oʻtishga yordam bera olasizmi?", a8: "Ha. Telegramda bizga yozing: College Board hisobini ochish, imtihon sanasi va markazini tanlash hamda roʻyxatdan oʻtish toʻlovini qilishda bosqichma-bosqich yordam beramiz.",
       w1_t: "Adolatli narx, qulay toʻlov", w1_d: "Yirik platformalar oyiga taxminan 20 dollar oladi. Bu yerda Pro oyiga 79 000 soʻm, Oʻzbekistonda esa istalgan bank ilovasi orqali Uzcard yoki Humo bilan toʻlaysiz, Visa yoki Mastercard kerak emas.",
       w2_t: "Oʻzbek, rus va ingliz tilida yordam", w2_d: "Savol yoki toʻlovda qiyinchilik bormi? Telegramda haqiqiy insonga yozing. Toshkent vaqti bilan 9:00 dan 23:00 gacha 2 soat ichida javob beramiz.",
-      w3_t: "1530 ball olgan ustoz tomonidan yozilgan", w3_d: "Savollar va izohlar 1530 ball (Math 790) olgan va xalqaro oʻquvchilar eng koʻp qiladigan xatolarni biladigan SAT ustozidan.",
       w4_t: "Xatoni xabar qiling, biz tuzatamiz", w4_d: "Har bir savolda “Xato haqida xabar berish” tugmasi bor. Xatoni tuzatamiz va tuzatilgach sahifangizda xabar beramiz.",
       says_h2: "Oʻquvchilar fikri", says_p: "SAT Ustoz oʻquvchilarining haqiqiy fikrlari, ularning ruxsati bilan.",
       nav_practice: "Mashq", nav_tests: "Sinov testlar", nav_how: "Qanday ishlaydi", nav_pricing: "Tariflar", nav_faq: "Savollar",
@@ -534,9 +518,7 @@ document.addEventListener('DOMContentLoaded', function () {
       t_sec: "Boʻlim", t_mod: "Modullar", t_q: "Savollar", t_time: "Vaqt",
       t_rw_mod: "2 × 32 daq", t_rw_time: "64 daq", t_break: "Tanaffus", t_break_time: "10 daq", t_m_mod: "2 × 35 daq", t_m_time: "70 daq", t_total: "Jami", t_total_time: "2 soat 14 daq",
       how_note: "Bu rasmiy test formati. Mini diagnostikamizda modullar qisqaroq, shuning uchun butun jarayonni bir soatdan kamroq vaqtda sinab koʻrasiz.",
-      d_m1: "1-modul", d_m1s: "Aralash qiyinlik", d_route: "Natijangiz", d_hard: "2-modul: qiyinroq", d_hard_s: "Yuqori ballarga yoʻl ochadi", d_easy: "2-modul: osonroq", d_easy_s: "Ball chegarasi pastroq", team_h2: "Imtihonni oʻzi topshirgan inson tomonidan yaratilgan",
-      team_p: "Bu savollarni oʻzimiz uchun kimdir yozib berishini istagan tarzda yozdik: haqiqiy formatda va nafaqat javobni, balki uning sababini ham tushuntiradigan izohlar bilan.",
-      az_role: "SAT 1530 (Reading and Writing 740, Math 790). SAT oʻqituvchisi, FLEX ’26 bitiruvchisi.",
+      d_m1: "1-modul", d_m1s: "Aralash qiyinlik", d_route: "Natijangiz", d_hard: "2-modul: qiyinroq", d_hard_s: "Yuqori ballarga yoʻl ochadi", d_easy: "2-modul: osonroq", d_easy_s: "Ball chegarasi pastroq",
       cta_h2: "Savollaringiz bormi? Biz bilan bogʻlaning.", cta_p: "Telegram orqali yozing yoki SAT boʻyicha maslahatlar va yangi savollar toʻplamlari uchun kanalimizga qoʻshiling. Toshkent vaqti bilan 9:00 dan 23:00 gacha 2 soat ichida javob beramiz.",
       cta_btn1: "@azizbek7_t ga yozish", cta_btn2: "Kanalga qoʻshilish",
       faq_h2: "Koʻp beriladigan savollar",
@@ -577,7 +559,6 @@ document.addEventListener('DOMContentLoaded', function () {
       q8: "Можете помочь с регистрацией на SAT?", a8: "Да. Напишите нам в Telegram, и мы проведём вас через создание аккаунта College Board, выбор даты и центра сдачи и оплату регистрации.",
       w1_t: "Честная цена, удобная оплата", w1_d: "Крупные платформы берут около 20 долларов в месяц. Здесь Pro стоит 79 000 сум в месяц, а в Узбекистане вы платите из любого банковского приложения картой Uzcard или Humo, без Visa или Mastercard.",
       w2_t: "Помощь на узбекском, русском и английском", w2_d: "Застряли на вопросе или с оплатой? Напишите живому человеку в Telegram. Отвечаем в течение 2 часов, с 9:00 до 23:00 по Ташкенту.",
-      w3_t: "Написано преподавателем с 1530", w3_d: "Вопросы и объяснения — от преподавателя SAT с результатом 1530 (Math 790), который знает, где иностранные ученики ошибаются чаще всего.",
       w4_t: "Сообщите об ошибке, и мы её исправим", w4_d: "У каждого вопроса есть кнопка «Сообщить об ошибке». Мы исправляем ошибку и сообщаем вам в кабинете, когда всё готово.",
       says_h2: "Что говорят ученики", says_p: "Настоящие отзывы учеников SAT Ustoz, опубликованные с их разрешения.",
       nav_practice: "Практика", nav_tests: "Пробные тесты", nav_how: "Как это работает", nav_pricing: "Тарифы", nav_faq: "Вопросы",
@@ -596,9 +577,7 @@ document.addEventListener('DOMContentLoaded', function () {
       t_sec: "Раздел", t_mod: "Модули", t_q: "Вопросы", t_time: "Время",
       t_rw_mod: "2 × 32 мин", t_rw_time: "64 мин", t_break: "Перерыв", t_break_time: "10 мин", t_m_mod: "2 × 35 мин", t_m_time: "70 мин", t_total: "Итого", t_total_time: "2 ч 14 мин",
       how_note: "Это официальный формат теста. В нашей мини-диагностике модули короче, так что весь процесс можно пройти меньше чем за час.",
-      d_m1: "Модуль 1", d_m1s: "Смешанная сложность", d_route: "Ваш результат", d_hard: "Модуль 2: сложнее", d_hard_s: "Открывает высокие баллы", d_easy: "Модуль 2: проще", d_easy_s: "Ниже потолок баллов", team_h2: "Создано тем, кто сам сдавал этот тест",
-      team_p: "Мы написали эти вопросы так, как хотели бы, чтобы их когда-то написали для нас: в настоящем формате и с объяснениями не только что верно, но и почему.",
-      az_role: "SAT 1530 (Reading and Writing 740, Math 790). Преподаватель SAT, выпускник FLEX ’26.",
+      d_m1: "Модуль 1", d_m1s: "Смешанная сложность", d_route: "Ваш результат", d_hard: "Модуль 2: сложнее", d_hard_s: "Открывает высокие баллы", d_easy: "Модуль 2: проще", d_easy_s: "Ниже потолок баллов",
       cta_h2: "Есть вопросы? Напишите нам.", cta_p: "Напишите нам в Telegram или подпишитесь на канал: там советы по SAT и новые наборы вопросов. Отвечаем в течение 2 часов, с 9:00 до 23:00 по Ташкенту.",
       cta_btn1: "Написать @azizbek7_t", cta_btn2: "Подписаться на канал",
       faq_h2: "Частые вопросы",
@@ -630,16 +609,16 @@ document.addEventListener('DOMContentLoaded', function () {
   var launch = !!(window.SH && window.SH.CONFIG.PLANS.TESTS_FREE_FOR_LAUNCH);
   var LAUNCH = {
     en: {
-      pricing_p: "Practice Tests 1 to 10 are free while we launch, no card needed. Pro adds Tests 11 to 15 and shows exactly which skills cost you points, with every question explained.",
-      a7: "While we launch, Practice Tests 1 to 10 are free, along with the mini diagnostic, the starter sets, your total score and 3 AI tutor questions a day. Pro adds Practice Tests 11 to 15, your score broken down by skill, a review of every question with explanations, skill practice sets and drills built from your weakest skills and a study plan to your test date. Max adds an unlimited AI tutor, new AI practice questions, a plan re-made every week and a monthly live group session with Azizbek."
+      pricing_p: "Practice Tests 1 to 10 are free while we launch, no card needed. Each comes with full results: your score by skill and every question explained. Pro adds Tests 11 to 15.",
+      a7: "While we launch, Practice Tests 1 to 10 are free with full results (your score by skill and a review of every question with explanations), along with the mini diagnostic, the starter sets and 3 AI tutor questions a day. Pro adds Practice Tests 11 to 15 with their full results, skill practice sets and drills built from your weakest skills and a study plan to your test date. Max adds an unlimited AI tutor, new AI practice questions, a plan re-made every week and a monthly live group session with Azizbek."
     },
     uz: {
-      pricing_p: "Ishga tushish munosabati bilan 1–10-sinov testlari bepul, karta kerak emas. Pro 11–15-sinov testlarini qoʻshadi va qaysi koʻnikmalarda ball yoʻqotayotganingizni aniq koʻrsatadi va har bir savolni tushuntiradi.",
-      a7: "Ishga tushish davrida 1–10-sinov testlari bepul, shuningdek mini diagnostika, boshlangʻich toʻplamlar, umumiy ballingiz va kuniga 3 ta AI ustoz savoli. Pro 11–15-sinov testlarini, koʻnikmalar boʻyicha ball tahlilini, har bir savolni izohlari bilan koʻrib chiqishni, koʻnikma toʻplamlari va eng zaif koʻnikmalaringiz boʻyicha mashqlarni hamda imtihon sanangizgacha oʻqish rejasini qoʻshadi. Max esa cheksiz AI ustoz, yangi AI mashq savollari, har hafta yangilanadigan reja va Azizbek bilan oylik jonli guruh darsini qoʻshadi."
+      pricing_p: "Ishga tushish munosabati bilan 1–10-sinov testlari bepul, karta kerak emas. Har biri toʻliq natija bilan: koʻnikmalar boʻyicha ball va har bir savolga izoh. Pro 11–15-sinov testlarini qoʻshadi.",
+      a7: "Ishga tushish davrida 1–10-sinov testlari toʻliq natijasi bilan (koʻnikmalar boʻyicha ball tahlili va har bir savolni izohlari bilan koʻrib chiqish) bepul, shuningdek mini diagnostika, boshlangʻich toʻplamlar va kuniga 3 ta AI ustoz savoli. Pro 11–15-sinov testlarini toʻliq natijasi bilan, koʻnikma toʻplamlari va eng zaif koʻnikmalaringiz boʻyicha mashqlarni hamda imtihon sanangizgacha oʻqish rejasini qoʻshadi. Max esa cheksiz AI ustoz, yangi AI mashq savollari, har hafta yangilanadigan reja va Azizbek bilan oylik jonli guruh darsini qoʻshadi."
     },
     ru: {
-      pricing_p: "В честь запуска пробные тесты 1–10 бесплатны, карта не нужна. Pro добавляет тесты 11–15 и точно показывает, на каких навыках вы теряете баллы, и объясняет каждый вопрос.",
-      a7: "Пока идёт запуск, пробные тесты 1–10 бесплатны, как и мини-диагностика, стартовые наборы, общий балл и 3 вопроса ИИ-репетитору в день. Pro добавляет пробные тесты 11–15, разбор балла по навыкам, разбор каждого вопроса с объяснениями, наборы по навыкам тренировки по самым слабым навыкам и план подготовки до даты экзамена. Max добавляет безлимитного ИИ-репетитора, новые ИИ-вопросы, еженедельное обновление плана и ежемесячное живое групповое занятие с Азизбеком."
+      pricing_p: "В честь запуска пробные тесты 1–10 бесплатны, карта не нужна. К каждому — полные результаты: балл по навыкам и объяснение каждого вопроса. Pro добавляет тесты 11–15.",
+      a7: "Пока идёт запуск, пробные тесты 1–10 бесплатны вместе с полными результатами (разбор балла по навыкам и разбор каждого вопроса с объяснениями), как и мини-диагностика, стартовые наборы и 3 вопроса ИИ-репетитору в день. Pro добавляет пробные тесты 11–15 с полными результатами, наборы по навыкам, тренировки по самым слабым навыкам и план подготовки до даты экзамена. Max добавляет безлимитного ИИ-репетитора, новые ИИ-вопросы, еженедельное обновление плана и ежемесячное живое групповое занятие с Азизбеком."
     }
   };
   var AI_LIVE = {
