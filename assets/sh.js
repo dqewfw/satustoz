@@ -1357,7 +1357,8 @@
 
   function safeNext(raw) {
     raw = String(raw || '').replace(/^\/+/, '');
-    return /^[a-z0-9_-]+\.html([?#][^\s<>"']*)?$/i.test(raw) ? raw : 'practice.html';
+    // Never back to the sign-in page itself (that would loop).
+    return /^[a-z0-9_-]+\.html([?#][^\s<>"']*)?$/i.test(raw) && !/^login\.html/i.test(raw) ? raw : 'practice.html';
   }
   function loginUrl(next) {
     const here = next || ((location.pathname.split('/').pop() || 'index.html') + location.search + location.hash);
