@@ -304,6 +304,36 @@ service cloud.firestore {
           && get(note).data.createdAt > request.time - duration.value(10, 'm');
     }
 
+    // Telegram reports (worker/telegram-worker.js, which uses a service account
+    // and skips these rules). "Connect Telegram" writes a one-time token for
+    // the student's own account that lasts 15 minutes; the bot reads it and
+    // saves the chat in telegramLinks. Students can see their own links, turn
+    // reminders on or off, change the reminder time, and disconnect.
+    match /linkTokens/{token} {
+      allow create: if request.auth != null
+                    && token.matches('[A-Za-z0-9]{32}')
+                    && request.resource.data.keys().hasOnly(['uid', 'role', 'lang', 'expiresAt', 'createdAt'])
+                    && request.resource.data.uid == request.auth.uid
+                    && request.resource.data.role in ['student', 'parent']
+                    && request.resource.data.lang in ['en', 'uz', 'ru']
+                    && request.resource.data.expiresAt is timestamp
+                    && request.resource.data.expiresAt <= request.time + duration.value(16, 'm')
+                    && request.resource.data.createdAt == request.time;
+    }
+    match /telegramLinks/{id} {
+      allow read, delete: if request.auth != null && resource.data.uid == request.auth.uid;
+      allow update: if request.auth != null && resource.data.uid == request.auth.uid
+                    && request.resource.data.diff(resource.data).affectedKeys().hasOnly(['remindersOn', 'reminderTime'])
+                    && request.resource.data.remindersOn is bool
+                    && request.resource.data.reminderTime is string
+                    && request.resource.data.reminderTime.matches('([01][0-9]|2[0-3]):[0-5][0-9]');
+    }
+    // stats/questionTimes: median seconds per question, written nightly by the
+    // Telegram Worker. Anyone may read it (it has no student data).
+    match /stats/{id} {
+      allow read: if true;
+    }
+
     match /users/{uid} {
       allow read: if request.auth != null && request.auth.uid == uid;
       allow create: if request.auth != null

@@ -4,7 +4,7 @@ A static site for GitHub Pages. No build step, no server except the optional Clo
 
 ```
 index.html              Landing page (EN / UZ / RU)
-practice.html           Practice hub: dashboard, study plan, score history, mistake notebook (#mistakes), practice sets, drill builder, AI practice, tests
+practice.html           Practice hub: dashboard with the Score Gap Analyzer, study plan, progress graph, Mistake Bank (#mistakes), settings and Telegram (#settings), practice sets, drill builder, AI practice, tests
 test.html               Adaptive practice test in the digital SAT format (test.html?id=<test-id>)
 login.html              Sign in / register with Google, plus a short first-time profile form
 builder.html            Question builder for your team (not linked from the site, hidden from Google)
@@ -29,6 +29,7 @@ data/sets/*.json        Practice sets
 data/tests/*.json       Practice tests 1 to 3 and the mini diagnostic (Pro Tests 4 to 10 belong in a private repository, section 6)
 worker/ai-worker.js     Cloudflare Worker that holds the AI key (not used by the pages directly)
 worker/payments-worker.js  Cloudflare Worker for Payme payments, monthly renewals and the Pro test files
+worker/telegram-worker.js  Cloudflare Worker for the Telegram bot: weekly reports, reminders, parent reports, question times
 firestore.rules         Database security rules to paste into Firebase
 tools/check_test.py     Checks a test file before you upload it (no need to upload this folder)
 robots.txt, sitemap.xml
@@ -659,7 +660,7 @@ new file, **Publish**. Until you do:
 | Where | What |
 |---|---|
 | `vocab.html` | 130 SAT words with Uzbek and Russian meanings, an example sentence and audio (the browser's own voice). Leitner boxes: a known word comes back after 1, 3, 7, 16, 35 and 90 days, a missed one in 10 minutes. A deck of words from Words in Context questions the student got wrong, and their own words. 5, 10 or 20 new words a day. |
-| `practice.html#mistakes` | Mistake notebook. Every wrong answer (sets, drills, lessons, the daily question, AI questions and practice tests) saved by skill. "Retry my mistakes" builds a set of up to 20; two right answers in a row mark one fixed. Practice-test mistakes show for Pro only, because the question review is a Pro feature. |
+| `practice.html#mistakes` | Mistake Bank (section 9). |
 | `score-calculator.html` | Correct answers per module to Module 2 route and estimated score, with the same scoring as the practice tests. Uzbek by default for search ("SAT ballini hisoblash"). |
 | Dashboard | Score history chart (every test total, the goal line and test day), study tools, homework from a class, invite-a-friend link, "share your real SAT score". |
 | `daily.html` | One question a day from the practice sets, the same for everyone on a Tashkent day, with a streak. admin.html → **Copy today's for Telegram** gives you the post for the channel. |
@@ -754,10 +755,159 @@ has `method: apple` too. The diagnostic funnel to watch in PostHog: `test_finish
 
 ### Not built (needs you, or a server)
 
-- A Telegram bot for reminders, results and vocabulary review (needs a bot token and a server or Worker).
+- Vocabulary review on Telegram (the bot in section 9 sends reports and reminders, not word reviews).
 - Weekly "hard question" videos, Reels and TikToks, the monthly live session teaser, school partnerships: content and
   outreach.
 - The 20 extra full tests and about 1,400 extra skill questions.
+
+## 9. Score gap, Mistake Bank and Telegram
+
+Built from "SAT Ustoz: Top 3 Features Spec" (November 2026). The three work as one loop: the Score Gap Analyzer shows
+where a student's points are lost, the Mistake Bank brings those questions back until they stick, and the Telegram
+report shows progress every Sunday and pulls students back to the site.
+
+**Prerequisite, checked:** all 2,327 questions in `data/sets` and `data/tests` have a section, a skill from the official
+list (so a domain) and a difficulty. Keep it that way: the builder's skill dropdown does. An answer to a question with an
+unknown skill is left out of every number (the browser console counts them).
+
+### Do this once
+
+1. **Publish the new `firestore.rules`** (Firebase console -> Firestore Database -> Rules -> paste -> Publish). They add
+   `linkTokens`, `telegramLinks` and `stats`. Until then "Connect Telegram" fails and the site uses the official pace
+   (71 s per Reading and Writing question, 95 s per Math question) instead of real median times.
+2. **Update the AI Worker:** paste the new `worker/ai-worker.js` into your `satustoz-ai` Worker and Deploy. It adds Max's
+   weekly AI study plan (`/plan`) and mistake summary (`/patterns`), each once a week per student (counted in `RATE_LIMIT`).
+3. **Set up the Telegram bot** (below), then fill `TELEGRAM` at the top of `assets/sh.js`.
+4. **Check `SAT_DATES`** at the top of `assets/sh.js` against collegeboard.org. Students pick their test day from it.
+   The 2027 dates there are my best reading of the College Board pattern; confirm them and add new ones each year.
+
+### Score Gap Analyzer (dashboard)
+
+- **Goals.** First visit opens the goal setup once: target (400 to 1600 in tens), optional Reading and Writing and Math
+  targets (with both set, the target is their sum), test date from `SAT_DATES` or "not decided", and "I'm preparing for"
+  (both sections, or one only: then everything is about that section). "Edit goals" and Settings reopen it.
+- **Gap card** at the top: current estimate, target, points to win back, days to the test. The estimate is the average
+  of the last 2 full practice tests; with none, it's worked out from practice and says so.
+- **Where your points are hiding:** one row per content domain, ranked by priority, each with points per test, accuracy
+  over its last 60 answers, an error bar (rushed / stuck / normal misses) and **Fix this**. Tap a domain for its skills.
+  The rows add up exactly to the gap on the card. A domain with fewer than 15 answers isn't ranked ("Need 15 answers in
+  Geometry (you have 6)" with a Practice button); its points show as one "about N more points" line. 15 to 39 answers
+  show a "Low confidence" tag.
+- **How the numbers work** (`gap` in `assets/sh.js`): recent answers count more (last 14 days 1.0, 15 to 45 days 0.6,
+  older 0.3); Mistake Bank reviews are left out. Expected misses per test = domain share × 54 (or 44) × (1 − accuracy),
+  minus the misses the target allows; times the points one question is worth near the student's score. Shares and
+  "effort" values (how slow a domain is to improve) are `DOMAIN_SHARE` and `DOMAIN_EFFORT`; tune effort once you have
+  real improvement data. Raw-to-scaled uses the practice tests' own scoring (`sectionScore` in `test.html`), so the gap
+  agrees with test results. Its routing step makes points per question jump near 60% of Module 1, so it's held to 8–20.
+- **Rushed / stuck:** wrong in under half the question's median time is rushed (slow down), over 1.5 times is stuck
+  (study it). Medians come from all students' correct answers once a question has 30 (the Telegram Worker works them out
+  nightly into `stats/questionTimes`).
+- **Fix this** starts a 15-question drill: due Mistake Bank cards of that skill first, then unseen questions of that skill
+  at the student's level. The Mistake Bank then opens filtered to that skill.
+- **Progress graph:** every full practice test with a dashed target line. Pro toggles Total / R&W / Math, each with its
+  own target. Max adds a trend line and the date it reaches the target (needs 3 tests over at least 10 days in the last
+  60; capped at 6 months), and says honestly when the pace is flat or too slow for the test date.
+- **Plans.** Free: estimate, target, gap and the top row only. The rows under it are placeholders, not the student's data
+  under a blur. Pro: everything. Max: also the projection and a weekly AI study plan.
+- Recomputed on every dashboard visit and after every test, saved as a snapshot in the student's study data
+  (`gap.cur`), plus one per week (`gap.weeks`, kept two years) for the weekly report.
+
+Good to know: the numbers are computed in the student's browser, from their own answers. The spec asked for this on a
+server so Free users can't see the hidden rows; here the hidden rows are never put on the page, but a determined
+student could recompute them from their own answers in the console. That's their own data, so it's low risk.
+
+### Mistake Bank (`practice.html#mistakes`)
+
+- **What goes in:** every wrong answer (sets, drills, tests, lessons, the daily question, AI questions), every right
+  answer marked "I guessed" (a tick box under each practice question; on test results it's a button under each right
+  answer, so test conditions stay real), and on Pro a right but slow answer (over 1.5 × the median) in a separate
+  **Speed** tab. A question already in the bank isn't added twice: its "times wrong" goes up and it goes back to Box 1.
+- **Schedule (Leitner boxes):** Box 1 comes back after 1 day, Box 2 after 3, Box 3 after 7, Box 4 after 21. Right moves it
+  up a box (right in Box 4 = mastered); wrong sends it to Box 1. A review counts as right only if it's also under
+  1.5 × the median time. Meeting the question again in a test or drill counts as a review.
+- **Why did you miss it?** One tap after a wrong answer (and on test results): Didn't know it, Misread, Calculation slip,
+  Torn between two, Ran out of time, Guessed. A rushed answer pre-suggests Misread and a stuck one Didn't know it.
+- **Today's review** (dashboard card and the bank page): at most 20 due cards, lowest box first, then most overdue; the
+  rest roll to tomorrow. Domains are mixed, answer choices are shuffled (not for typed answers, nor for questions whose
+  text or explanation names a choice by letter), and each answer shows the earlier wrong answer, the box it moved to, the
+  student's note and the AI tutor. The end screen shows reviewed, moved up, sent back, mastered today and the next due.
+- **Bank page:** stats (in the bank, mastered this month, review accuracy, most common reason), tabs (To review, Speed,
+  Mastered), filters (section, domain, skill, reason, box, date added) and each card with the question, both answers,
+  explanation, reason, box, times wrong and a "Note to future me".
+- **Plans.** Free: the newest 15 mistakes, reviewed by hand, and "You have 34 more mistakes saved. Unlock them with Pro."
+  Pro: everything above. Max: from Box 3 a "twin" (same skill and difficulty, not seen before) instead of the original
+  when one exists, and a weekly AI summary of the patterns in the last 30 cards. Students in a teacher's class get the
+  Pro bank on any plan. Downgrading keeps everything; only the 15 newest show until they upgrade again.
+- The old notebook carries over: open mistakes become Box 1 cards, fixed ones become mastered.
+- A card whose question was removed from the site is archived quietly the next time it would load; an edited question
+  shows its new version.
+
+### Telegram bot (`worker/telegram-worker.js`)
+
+Every Sunday at 19:00 Tashkent time: a weekly report in the student's language (Uzbek by default, English, Russian):
+questions, practice time, full tests, streak, estimate and change, target and gap, most improved and biggest-gap skill,
+Mistake Bank numbers, one focus for next week, and "Open my dashboard" / "Start review" buttons. A student who did
+nothing that week gets a short comeback message with "Do a 10 minute drill" instead of a report full of zeros.
+
+| Plan | What they get |
+|---|---|
+| Free | Short weekly report (questions, time, estimate) with "See your full breakdown" to the plans page |
+| Pro | Full report, a review reminder at a time they pick (only on days with reviews due), a streak saver at 20:00 for streaks of 3+ days, `/stats` and `/today` |
+| Max | Pro + a parent report (time, tests, estimate, target, streak; never answers, reasons or notes), an optional parent alert after 7 days without practice, and a score trend image (last 8 tests with the target line) |
+
+At most one nudge a day, never between 22:00 and 08:00. After 3 ignored reminders in a row (no click and no practice
+since), reminders drop to every other day and the bot asks "Too many reminders?" (Keep daily / Every other day / Weekly
+report only). Commands: `/start`, `/stats`, `/today`, `/settings` (language, reminders, time), `/stop`.
+
+**Connecting:** Settings -> "Connect Telegram" makes a one-time 32-character token (15 minutes) and opens
+`t.me/<bot>?start=<token>`. The bot saves the chat and replies "Connected. You'll get your first report on Sunday."
+Settings then shows "Connected as @username" with Disconnect, reminder on/off and time. Max students get
+"Invite a parent", a second link to send to a parent; both sides can disconnect any time. If a student blocks the bot,
+Settings shows "Reconnect Telegram".
+
+**Setup (about 20 minutes):**
+
+1. Telegram -> **@BotFather** -> `/newbot`, pick a name and a username (e.g. `SATUstozBot`). Keep the token secret: never
+   put it in the website or GitHub (the old bot's token leaked that way).
+2. Cloudflare -> **Workers & Pages -> KV -> Create namespace** `sh-telegram`.
+3. **Create Worker** `satustoz-tg` -> Edit code -> paste all of `worker/telegram-worker.js` -> Deploy. Then
+   **Settings -> Bindings -> KV namespace**: variable `TG_STATE`, namespace `sh-telegram`.
+4. **Settings -> Variables and Secrets:**
+
+   | Name | Type | Value |
+   |---|---|---|
+   | `TELEGRAM_BOT_TOKEN` | Secret | the token from @BotFather |
+   | `TG_WEBHOOK_SECRET` | Secret | a long random string of letters and digits you make up |
+   | `ADMIN_KEY` | Secret | another random string, for step 6 |
+   | `GOOGLE_SERVICE_ACCOUNT` | Secret | the same JSON as in the payments Worker (section 6, step B) |
+   | `FIREBASE_PROJECT_ID` | Text | e.g. `satustoz` |
+   | `SITE_URL` | Text | `https://satustoz.academy` |
+   | `WORKER_URL` | Text | this Worker's address, e.g. `https://satustoz-tg.<you>.workers.dev` |
+
+5. **Settings -> Triggers -> Cron Triggers:** add `*/15 * * * *` (reminders, parent alerts at 10:00, question times at
+   03:00) and `* 14 * * SUN` (Sunday 19:00–19:59: the weekly reports, `WEEKLY_CHUNK` = 15 per minute by default, so
+   about 900 an hour).
+6. Open `https://satustoz-tg.<you>.workers.dev/setup?key=<ADMIN_KEY>` once. It connects the webhook (with the secret, so
+   nobody can fake messages) and sets the command menu.
+7. In `assets/sh.js`: `TELEGRAM: { BOT: 'SATUstozBot', ENDPOINT: 'https://satustoz-tg.<you>.workers.dev' }`. Upload it.
+8. Test: Settings -> Connect Telegram -> Start. Then send `/stats` and `/settings` to the bot.
+
+Every button link goes through `/go`, which records the click in `tgLog` (Firestore) and opens the site with
+`utm_source=telegram&utm_campaign=weekly` (or `reminder`, `streak`, `comeback`). `tgLog` has one document per message
+sent, with `clickedAt` once it's tapped.
+
+**Cost:** the free Workers plan allows 50 outgoing requests per run, which covers about 15 students per minute on Sunday
+and a handful of reminders each quarter hour. With more than about 50 connected students, switch to Workers Paid
+($5 a month). Telegram itself is free.
+
+### Measuring it (PostHog)
+
+New events: `goal_set`, `gap_fix_tapped` (`domain`, `skill`), `pro_preview_tapped` with `feature: gap` (the blurred
+rows), `review_started`, `review_finished` (`n`, `up`, `back`, `mastered`), `mistake_tagged` (`tag`), `guessed_marked`,
+`ai_plan_made`, `ai_patterns_made`, `telegram_connect_tapped` (`role`), `telegram_disconnected`. Suggested checks 4 weeks
+after launch: share of active users who set a goal (`goal_set`, target 70%), share of dashboard visits with
+`gap_fix_tapped` (30%), Free users who tap the blurred rows and then pay, share of due reviews done each week (50%),
+share of active users who connect Telegram (40%, count `telegramLinks` in Firestore), and clicks per report in `tgLog`.
 
 ## About official College Board questions
 

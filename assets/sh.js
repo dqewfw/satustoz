@@ -119,6 +119,17 @@
     // want a teacher (a free 15-minute call or a trial lesson). Empty URL: the
     // offer opens a Telegram message to CONTACT_TELEGRAM instead.
     LEARNING_CENTER: { NAME: 'Be Student', URL: '' },
+
+    // Weekly Telegram report (README "9. Score gap, Mistake Bank and Telegram").
+    // BOT is your bot's username from @BotFather, without the @. ENDPOINT is
+    // the Telegram Worker URL (worker/telegram-worker.js). Leave BOT empty and
+    // the "Connect Telegram" button stays hidden.
+    TELEGRAM: { BOT: 'Satustozbot', ENDPOINT: 'https://satustoz-tg.azizbeekk7.workers.dev' },
+
+    // Official SAT dates students pick their test day from (goal setup).
+    // Check them against collegeboard.org each year and add the next ones.
+    SAT_DATES: ['2026-11-07', '2026-12-05', '2027-03-13', '2027-05-01', '2027-06-05'],
+
     CATALOG_URL: 'data/catalog.json'
   };
 
@@ -156,9 +167,11 @@
      Storage (never throws; falls back to memory in private mode)
      ------------------------------------------------------------------ */
   const PREFIX = 'sh.v1.';
-  // Study data kept together in users/<uid>/data/study: the mistake notebook,
+  // Study data kept together in users/<uid>/data/study: the Mistake Bank,
   // vocabulary progress, question of the day, saved drills, study plan, classes and lesson checks.
-  const STUDY_KEYS = ['mistakes', 'vocab', 'daily', 'drills', 'studyPlan', 'classes', 'lessons'];
+  // gap: the Score Gap Analyzer's latest snapshot and one per week (the weekly
+  // Telegram report compares them). ai: Max's weekly AI study plan and mistake summary.
+  const STUDY_KEYS = ['mistakes', 'vocab', 'daily', 'drills', 'studyPlan', 'classes', 'lessons', 'gap', 'ai'];
   const SYNCED_KEYS = ['attempts', 'testHistory', 'profile'].concat(STUDY_KEYS);
   const hooks = { change: null };
   function onLocalChange(key) { if (hooks.change) hooks.change(key); }
@@ -470,12 +483,26 @@
      Progress & stats (kept on this device)
      ------------------------------------------------------------------ */
   function getAttempts() { return store.get('attempts', []); }
+  // One row per answer. source is the session type: 'test', 'drill', 'set',
+  // 'review' (Mistake Bank) and others; ch is the chosen answer, g "I guessed",
+  // tid the practice test and mod its module (1 or 2).
   function recordAttempts(list) {
-    const all = getAttempts().concat(list.map(a => ({
-      qid: a.qid, section: a.section, domain: a.domain || domainOf(a.section, a.skill), skill: a.skill || 'Other',
-      difficulty: a.difficulty, correct: !!a.correct, source: a.source || 'practice', ms: a.ms || 0, ts: a.ts || Date.now()
-    })));
+    const all = getAttempts().concat(list.map(a => {
+      const r = {
+        qid: a.qid, section: a.section, domain: a.domain || domainOf(a.section, a.skill), skill: a.skill || 'Other',
+        difficulty: a.difficulty, correct: !!a.correct, source: a.source || 'practice', ms: a.ms || 0, ts: a.ts || Date.now()
+      };
+      if (a.ch != null && a.ch !== '') r.ch = String(a.ch).slice(0, 8);
+      if (a.g) r.g = true;
+      if (a.tid) { r.tid = String(a.tid); r.mod = a.mod || 1; }
+      return r;
+    }));
     store.set('attempts', all.slice(-3000));
+  }
+  // Mark answers already saved as guesses (test results page).
+  function markGuessed(qids, ts) {
+    const want = new Set(qids);
+    store.set('attempts', getAttempts().map(a => want.has(a.qid) && a.ts >= ts ? Object.assign({}, a, { g: true }) : a));
   }
   function skillStats() {
     const map = {};
@@ -493,7 +520,9 @@
     return skillStats().filter(s => s.n >= (minAttempts || 1) && s.acc < 1 && s.skill !== 'Other')
       .sort((a, b) => smooth(a) - smooth(b) || b.n - a.n).slice(0, limit || 3);
   }
-  const PROFILE_DEFAULTS = { name: '', target: 1400, testDate: '', grade: '', region: '', school: '', onboarded: false, updatedAt: 0 };
+  // targetRw / targetMath: optional section targets (0 = split the total).
+  // focus: '' both sections, 'rw' or 'math' for a student who preps one section.
+  const PROFILE_DEFAULTS = { name: '', target: 1400, targetRw: 0, targetMath: 0, focus: '', goalSet: false, testDate: '', grade: '', region: '', school: '', onboarded: false, updatedAt: 0 };
   function getProfile() { return Object.assign({}, PROFILE_DEFAULTS, store.get('profile', {})); }
   function setProfile(p) { store.set('profile', Object.assign(getProfile(), p, { updatedAt: Date.now() })); }
   function getTestHistory() { return store.get('testHistory', []); }
@@ -533,62 +562,416 @@
   const live = map => Object.keys(map || {}).map(k => map[k]).filter(v => v && !v.deleted);
 
   /* ------------------------------------------------------------------
-     Mistake notebook: every wrong answer, by skill. Answering it right
-     twice in a row (FIX_AFTER) marks it fixed. A Words in Context miss also
-     puts the right word into the vocabulary "from your mistakes" deck.
+     Question times and error types. Each question's median time comes from
+     correct answers by all students (stats/questionTimes, written nightly by
+     the Telegram Worker once a question has 30 of them). Until then: the
+     official pace, 71 seconds for Reading and Writing, 95 for Math.
      ------------------------------------------------------------------ */
-  const FIX_AFTER = 2;
-  const MAX_MISTAKES = 600;
-  const mistakes = {
-    map() { return store.get('mistakes', {}) || {}; },
-    all() { return live(this.map()); },
-    open() { return this.all().filter(e => !e.fixed); },
-    // src: { type: 'set' | 'test' | 'ai', id: set or test id, where: a label for the list }
-    record(q, ok, src) { this.recordMany([{ q, ok, src }]); },
-    // One save for many answers (a finished practice test).
-    recordMany(items) {
-      const m = Object.assign({}, this.map());
-      let changed = false;
-      items.forEach(it => { if (this._apply(m, it.q, it.ok, it.src)) changed = true; });
-      if (!changed) return;
+  const PACE = { rw: 71, math: 95 };
+  const DAY = 86400000;
+  const qtimes = {
+    _m: null,
+    map() { if (!this._m) this._m = (store.get('qtimes', null) || {}).m || {}; return this._m; },
+    async load() {
+      const c = store.get('qtimes', null);
+      if (c && Date.now() - c.at < DAY) return;
+      try {
+        await auth.ready();
+        if (!auth.fb) return;
+        const fs = await sync._lib();
+        const s = await fs.getDoc(fs.doc(sync.db, 'stats', 'questionTimes'));
+        store.set('qtimes', { at: Date.now(), m: s.exists() ? s.data().m || {} : {} });
+        this._m = null;
+      } catch (e) { console.warn('[SAT Ustoz] Could not load question times. Are the new firestore.rules published?', e); }
+    },
+    // Seconds.
+    median(qid, section) { const v = Number(this.map()[qid]); return v > 0 ? v : PACE[section] || 80; }
+  };
+  // 'rushed' (wrong, under half the median), 'stuck' (wrong, over 1.5 x), 'normal'
+  // (other misses), 'slow' (right, over 1.5 x) or 'ok'.
+  function errorType(ok, ms, qid, section) {
+    const med = qtimes.median(qid, section) * 1000;
+    if (!ok) return !ms ? 'normal' : ms < .5 * med ? 'rushed' : ms > 1.5 * med ? 'stuck' : 'normal';
+    return ms && ms > 1.5 * med ? 'slow' : 'ok';
+  }
+  // A question whose text names a choice by letter keeps its order on review.
+  const LETTER_REF = /\b[Cc]hoices?\s+\(?[A-E]\)?(?![a-z])|\([A-E]\)|\b[Oo]ptions?\s+[A-E]\b/;
+  function refersToLetter(q) {
+    if (q.refersToChoiceLetter != null) return !!q.refersToChoiceLetter;
+    return LETTER_REF.test([q.prompt, q.passage, q.explanation].concat(q.choices || []).join(' '));
+  }
+  // A copy of q with its choices in a new order (Mistake Bank reviews), so the
+  // student can't remember "it was C". q.order[newIndex] = original index, q.base the original.
+  function shuffledCopy(q) {
+    if (q.type !== 'mc' || refersToLetter(q)) return q;
+    let order = shuffle(q.choices.map((_, i) => i));
+    if (order.every((o, i) => o === i)) order = order.slice(1).concat(order[0]);
+    return Object.assign({}, q, { choices: order.map(i => q.choices[i]), answer: LETTERS[order.indexOf(LETTERS.indexOf(q.answer))], order, base: q });
+  }
+  // A letter picked in a shuffled copy, as the letter of the original order.
+  const origLetter = (q, L) => q.order && LETTERS.indexOf(L) > -1 ? LETTERS[q.order[LETTERS.indexOf(L)]] : L;
+
+  /* ------------------------------------------------------------------
+     Raw to scaled, with the same estimator as the practice tests
+     (sectionScore in test.html) for a full section: 54 Reading and Writing
+     or 44 Math questions, split evenly across the two modules.
+     ------------------------------------------------------------------ */
+  const SECTION_Q = { rw: 54, math: 44 };
+  const scale = {
+    scaled(sec, raw) {
+      const n = SECTION_Q[sec] / 2;
+      raw = Math.max(0, Math.min(2 * n, Math.round(raw)));
+      const c1 = Math.min(n, Math.ceil(raw / 2)), c2 = raw - c1;
+      const w = c1 >= .6 * n ? 1.4 : .75;
+      return Math.max(200, Math.min(800, Math.round((200 + 600 * (c1 + w * c2) / (n + 1.4 * n)) / 10) * 10));
+    },
+    // Fewest correct answers that reach this section score.
+    rawFor(sec, score) { for (let r = 0; r <= SECTION_Q[sec]; r++) if (this.scaled(sec, r) >= score) return r; return SECTION_Q[sec]; },
+    // Points one more right answer is worth near this raw score. The routing
+    // step makes the slope jump around 60% of Module 1, so it is held to 8..20.
+    perQuestion(sec, raw) {
+      const a = Math.max(0, raw - 3), b = Math.min(SECTION_Q[sec], raw + 3);
+      const p = b > a ? (this.scaled(sec, b) - this.scaled(sec, a)) / (b - a) : 10;
+      return Math.max(8, Math.min(20, p || 10));
+    }
+  };
+
+  /* ------------------------------------------------------------------
+     Score Gap Analyzer: which points between the current score and the
+     target are the cheapest to win back. Numbers as in the spec "SAT Ustoz:
+     Top 3 Features": weighted accuracy per domain over its last 60 answers,
+     expected misses per test against the misses the target allows, points
+     per question from the conversion slope, priority by ease and effort.
+     ------------------------------------------------------------------ */
+  // Share of each section's questions (College Board test specs) and how slow
+  // each domain is to improve (tune with real improvement data).
+  const DOMAIN_SHARE = { 'Craft and Structure': .28, 'Information and Ideas': .26, 'Standard English Conventions': .26, 'Expression of Ideas': .20,
+    'Algebra': .35, 'Advanced Math': .35, 'Problem-Solving and Data Analysis': .15, 'Geometry and Trigonometry': .15 };
+  const DOMAIN_EFFORT = { 'Standard English Conventions': 1.0, 'Expression of Ideas': 1.2, 'Algebra': 1.2, 'Problem-Solving and Data Analysis': 1.3,
+    'Geometry and Trigonometry': 1.3, 'Advanced Math': 1.6, 'Information and Ideas': 1.8, 'Craft and Structure': 2.0 };
+  const GAP_WINDOW = 60, RANK_MIN = 15, CONFIDENT = 40;
+  const isReviewSource = s => s === 'review' || s === 'mistakes';
+  const isFullTest = h => h && h.total != null && h.testId !== 'diagnostic-mini';
+  const round10 = v => Math.round(v / 10) * 10;
+  // Whole numbers that add up exactly to total (largest remainder).
+  function splitExact(weights, total) {
+    const sum = weights.reduce((a, b) => a + b, 0);
+    if (!sum || total <= 0) return weights.map(() => 0);
+    const raw = weights.map(w => w / sum * total), out = raw.map(Math.floor);
+    let left = Math.round(total) - out.reduce((a, b) => a + b, 0);
+    raw.map((v, i) => [v - Math.floor(v), i]).sort((a, b) => b[0] - a[0]).forEach(([, i]) => { if (left > 0) { out[i]++; left--; } });
+    return out;
+  }
+  const gap = {
+    // opts.now (for tests of the numbers). Returns a snapshot.
+    compute(opts) {
+      opts = opts || {};
+      const now = opts.now || Date.now();
+      const p = getProfile();
+      const focus = p.focus === 'rw' || p.focus === 'math' ? p.focus : '';
+      const secs = focus ? [focus] : ['rw', 'math'];
+      const weightOf = ts => { const age = (now - ts) / DAY; return age <= 14 ? 1 : age <= 45 ? .6 : .3; };
+      // Untagged answers stay out of every number; they're counted for the content team.
+      let untagged = 0;
+      const byDomain = {};
+      getAttempts().forEach(a => {
+        if (isReviewSource(a.source)) return;
+        const dom = domainOf(a.section, a.skill);
+        if (!dom) { untagged++; return; }
+        (byDomain[a.section + '|' + dom] = byDomain[a.section + '|' + dom] || []).push(a);
+      });
+      if (untagged) console.warn('[SAT Ustoz] ' + untagged + ' answers have no known skill and are left out of the score gap.');
+      const stat = list => {
+        let w = 0, wc = 0;
+        const err = { rushed: 0, stuck: 0, normal: 0, slow: 0 };
+        let misses = 0, easyMiss = 0;
+        list.forEach(a => {
+          const k = weightOf(a.ts); w += k; if (a.correct) wc += k;
+          const t = errorType(a.correct, a.ms, a.qid, a.section);
+          if (!a.correct) { misses++; err[t]++; if (a.difficulty !== 'hard') easyMiss++; } else if (t === 'slow') err.slow++;
+        });
+        return { n: list.length, acc: w ? wc / w : 0, misses, err, e: misses ? easyMiss / misses : 0, r: misses ? err.rushed / misses : 0 };
+      };
+      // Current estimate: the last 2 full practice tests, else domain accuracies.
+      const hist = getTestHistory().filter(isFullTest).sort((a, b) => b.finishedAt - a.finishedAt).slice(0, 2);
+      const domStats = {};
+      secs.forEach(sec => Object.keys(TAXONOMY[sec].domains).forEach(dom => {
+        const list = (byDomain[sec + '|' + dom] || []).sort((a, b) => b.ts - a.ts).slice(0, GAP_WINDOW);
+        domStats[sec + '|' + dom] = Object.assign(stat(list), { list });
+      }));
+      const est = {};
+      let estFrom = null;
+      if (hist.length) {
+        estFrom = 'tests';
+        secs.forEach(sec => { const v = hist.map(h => h.sections && h.sections[sec] && h.sections[sec].score).filter(Boolean); est[sec] = v.length ? round10(v.reduce((a, b) => a + b, 0) / v.length) : null; });
+      }
+      secs.forEach(sec => {
+        if (est[sec]) return;
+        const doms = Object.keys(TAXONOMY[sec].domains), have = doms.filter(d => domStats[sec + '|' + d].n);
+        if (!have.length) { est[sec] = null; return; }
+        const mean = have.reduce((s, d) => s + domStats[sec + '|' + d].acc, 0) / have.length;
+        const raw = doms.reduce((s, d) => s + DOMAIN_SHARE[d] * SECTION_Q[sec] * (domStats[sec + '|' + d].n ? domStats[sec + '|' + d].acc : mean), 0);
+        est[sec] = scale.scaled(sec, raw);
+        if (!estFrom) estFrom = 'practice';
+      });
+      const known = secs.every(s => est[s]);
+      const estimate = known ? secs.reduce((s, x) => s + est[x], 0) : null;
+      // Targets: the section targets if both are set, else the total split like the current scores.
+      const total = Math.max(400, Math.min(1600, round10(+p.target || 1400)));
+      const targets = {};
+      if (p.targetRw && p.targetMath) { targets.rw = +p.targetRw; targets.math = +p.targetMath; }
+      else {
+        const share = est.rw && est.math ? est.rw / (est.rw + est.math) : .5;
+        targets.rw = Math.max(200, Math.min(800, round10(total * share)));
+        targets.math = Math.max(200, Math.min(800, total - targets.rw));
+        targets.rw = Math.max(200, Math.min(800, total - targets.math));
+      }
+      const target = focus ? targets[focus] : total;
+      const gapTotal = known ? Math.max(0, target - estimate) : null;
+      // Per domain and skill.
+      const perQ = {}, rawTarget = {};
+      secs.forEach(sec => { perQ[sec] = scale.perQuestion(sec, scale.rawFor(sec, est[sec] || 500)); rawTarget[sec] = scale.rawFor(sec, targets[sec]); });
+      const pts = (sec, w, acc) => {
+        const miss = w * SECTION_Q[sec] * (1 - acc), allowed = w * (SECTION_Q[sec] - rawTarget[sec]);
+        return { miss, raw: Math.max(0, miss - allowed) * perQ[sec] };
+      };
+      const conf = n => n < RANK_MIN ? 'none' : n < CONFIDENT ? 'low' : 'ok';
+      const domains = [];
+      secs.forEach(sec => Object.keys(TAXONOMY[sec].domains).forEach(dom => {
+        const s = domStats[sec + '|' + dom], w = DOMAIN_SHARE[dom];
+        const g = pts(sec, w, s.acc);
+        const skillNames = TAXONOMY[sec].domains[dom];
+        const skills = skillNames.map(sk => {
+          const ss = stat(s.list.filter(a => a.skill === sk));
+          const sg = pts(sec, w / skillNames.length, ss.acc);
+          return { skill: sk, n: ss.n, acc: ss.acc, err: ss.err, e: ss.e, r: ss.r, conf: conf(ss.n), miss: sg.miss, raw: ss.n ? sg.raw : 0,
+            priority: ss.n ? sg.raw * (1 + ss.e + .5 * ss.r) / DOMAIN_EFFORT[dom] : 0 };
+        }).filter(x => x.n);
+        domains.push({ section: sec, domain: dom, n: s.n, acc: s.acc, err: s.err, e: s.e, r: s.r, conf: conf(s.n), miss: g.miss, raw: s.n ? g.raw : 0,
+          priority: s.n ? g.raw * (1 + s.e + .5 * s.r) / DOMAIN_EFFORT[dom] : 0, skills });
+      }));
+      // Every domain with answers shares the headline gap exactly, so the rows add
+      // up to it. Domains under 15 answers aren't ranked; their points are shown as one line.
+      const ranked = domains.filter(d => d.n > 0);
+      const base = ranked.some(d => d.raw > 0) ? ranked.map(d => d.raw) : ranked.map(d => d.miss);
+      splitExact(base, gapTotal || 0).forEach((v, i) => { ranked[i].gap = v; });
+      domains.forEach(d => {
+        if (d.gap == null) d.gap = 0;
+        const rs = d.skills;
+        const sb = rs.some(s => s.raw > 0) ? rs.map(s => s.raw) : rs.map(s => s.miss);
+        splitExact(sb, d.gap).forEach((v, i) => { rs[i].gap = v; });
+        d.skills.forEach(s => { if (s.gap == null) s.gap = 0; });
+        d.skills.sort((a, b) => (b.conf !== 'none') - (a.conf !== 'none') || b.priority - a.priority || b.gap - a.gap);
+      });
+      domains.sort((a, b) => (b.conf !== 'none') - (a.conf !== 'none') || b.priority - a.priority || b.gap - a.gap);
+      const topD = domains.find(d => d.conf !== 'none' && d.gap > 0) || null;
+      const topS = topD ? (topD.skills.find(s => s.conf !== 'none' && s.gap > 0) || null) : null;
+      const accOf = {};
+      domains.forEach(d => { if (d.n >= 10) accOf[d.section + '|' + d.domain] = [Math.round(d.acc * 100), d.n]; d.skills.forEach(s => { if (s.n >= 10) accOf[d.section + '|' + s.skill] = [Math.round(s.acc * 100), s.n]; }); });
+      domains.forEach(d => { delete d.raw; delete d.miss; d.skills.forEach(s => { delete s.raw; delete s.miss; }); });
+      return {
+        t: now, estimate, est, estFrom, target, targets, focus, gap: gapTotal, testDate: p.testDate || '', domains, untagged,
+        top: topD ? { section: topD.section, domain: topD.domain, gap: topD.gap, skill: topS ? topS.skill : '', skillGap: topS ? topS.gap : 0 } : null, acc: accOf
+      };
+    },
+    // Compute and keep the snapshot (study data 'gap': the latest and one per week).
+    refresh(opts) {
+      const snap = this.compute(opts);
+      const g = store.get('gap', null) || {};
+      const wk = String(weekStart(snap.t));
+      const lite = { t: snap.t, estimate: snap.estimate, target: snap.target, gap: snap.gap, est: snap.est, top: snap.top, acc: snap.acc };
+      const prev = g.cur || {};
+      const same = prev.estimate === snap.estimate && prev.gap === snap.gap && JSON.stringify(prev.top) === JSON.stringify(snap.top) && JSON.stringify(prev.acc) === JSON.stringify(snap.acc);
+      if (!same || !(g.weeks && g.weeks[wk]) || snap.t - (prev.t || 0) > 6 * 3600000) {
+        const weeks = Object.assign({}, g.weeks, { [wk]: lite });
+        Object.keys(weeks).sort().slice(0, -104).forEach(k => { delete weeks[k]; });
+        store.set('gap', { cur: Object.assign({}, lite, { domains: snap.domains.map(d => ({ s: d.section, d: d.domain, g: d.gap, p: Math.round(d.priority * 10) / 10 })) }), weeks });
+      }
+      return snap;
+    },
+    weeks() { return (store.get('gap', null) || {}).weeks || {}; },
+    // Max: a straight trend line through the full test totals of the last 60
+    // days (at least 3 tests over at least 10 days) and the day it reaches the target.
+    projection(snap) {
       const now = Date.now();
-      // Keep the notebook small enough for one Firestore document: fixed ones go first.
+      const pts = getTestHistory().filter(h => isFullTest(h) && h.finishedAt >= now - 60 * DAY).sort((a, b) => a.finishedAt - b.finishedAt);
+      if (pts.length < 3 || pts[pts.length - 1].finishedAt - pts[0].finishedAt < 10 * DAY) return { ok: false, need: Math.max(0, 3 - pts.length) };
+      const xs = pts.map(h => (h.finishedAt - now) / DAY), ys = pts.map(h => h.total);
+      const mx = xs.reduce((a, b) => a + b, 0) / xs.length, my = ys.reduce((a, b) => a + b, 0) / ys.length;
+      const sxx = xs.reduce((s, x) => s + (x - mx) * (x - mx), 0);
+      const slope = sxx ? xs.reduce((s, x, i) => s + (x - mx) * (ys[i] - my), 0) / sxx : 0; // points a day
+      const at = days => Math.max(400, Math.min(1600, my + slope * (days - mx)));
+      const testDay = snap.testDate ? Date.parse(snap.testDate + 'T08:00:00+05:00') : 0;
+      const byTest = testDay > now ? round10(at((testDay - now) / DAY)) : null;
+      const out = { ok: true, slope, from: pts[0].finishedAt, line: [[pts[0].finishedAt, at(xs[0])]], byTest, testDay };
+      if (slope <= .05) { out.flat = true; out.line.push([now + 30 * DAY, at(30)]); return out; }
+      const days = (snap.target - (my - slope * mx)) / slope;
+      const when = now + Math.max(0, days) * DAY;
+      out.line.push([Math.min(when, now + 183 * DAY), at(Math.min(days, 183))]);
+      if (days > 183) out.beyond = true; else out.when = when;
+      out.late = !!(testDay > now && when > testDay);
+      return out;
+    }
+  };
+
+  /* ------------------------------------------------------------------
+     Mistake Bank: every wrong answer, and every right one marked "I
+     guessed", comes back on a schedule (Leitner boxes) until it's right
+     several times in a row. A review counts as right only when it's also
+     under 1.5 x the question's median time. Meeting the question again in a
+     test or drill counts as a review. A Words in Context miss also puts the
+     right word into the vocabulary "from your mistakes" deck.
+     Card: { qid, ref, where, section, skill, difficulty, p (a few words of the
+     question), box 1..4, due, st: 'active' | 'mastered' | 'archived',
+     kind: 'miss' | 'speed', misses (times wrong), ch (their last wrong answer),
+     tag / sug (error tag chosen / suggested from time), note, first (added),
+     lr (last review), rv / rc (reviews / right reviews), mAt (mastered), t }
+     ------------------------------------------------------------------ */
+  const BOX_DAYS = [0, 1, 3, 7, 21];
+  const DAILY_CAP = 20, FREE_BANK = 15;
+  const MAX_MISTAKES = 600;
+  const ERROR_TAGS = [
+    ['unknown', 'Didn’t know it', 'Concept or rule not learned'],
+    ['misread', 'Misread', 'Missed a word like NOT or EXCEPT, or the actual question'],
+    ['calc', 'Calculation slip', 'Right method, wrong arithmetic'],
+    ['torn', 'Torn between two', 'Narrowed it to two and picked the wrong one'],
+    ['time', 'Ran out of time', 'Rushed or guessed because of the clock'],
+    ['guess', 'Guessed', 'No idea at all']
+  ];
+  const tagLabel = id => (ERROR_TAGS.find(t => t[0] === id) || [, ''])[1];
+  // Rushed suggests "Misread", stuck suggests "Didn't know it".
+  const suggestTag = type => type === 'rushed' ? 'misread' : type === 'stuck' ? 'unknown' : '';
+  const endOfToday = () => (dayNum() + 1) * DAY - TZ_MS;
+  // Cards from the old notebook (streak / fixed) become Box 1, or mastered.
+  function asCard(e) {
+    if (!e || e.deleted || e.box) return e;
+    const c = Object.assign({ kind: 'miss', rv: 0, rc: 0 }, e);
+    if (c.fixed) { c.box = 4; c.st = 'mastered'; c.mAt = c.fixedAt || c.t; } else { c.box = 1; c.st = 'active'; c.due = (c.t || Date.now()) + DAY; }
+    return c;
+  }
+  const mistakes = {
+    map() {
+      const m = store.get('mistakes', {}) || {};
+      const out = {};
+      Object.keys(m).forEach(k => { out[k] = asCard(m[k]); });
+      return out;
+    },
+    all() { return live(this.map()).filter(e => e.st !== 'archived'); },
+    open() { return this.all().filter(e => e.st === 'active'); },
+    mastered() { return this.all().filter(e => e.st === 'mastered'); },
+    // 'free': the last 15 mistakes, reviewed by hand. 'pro': unlimited with the
+    // schedule (also students in a teacher's class, so reviews can be homework). 'max': + twins.
+    level() { return plan.allows('max') ? 'max' : plan.allows('pro') || classes.mine().length ? 'pro' : 'free'; },
+    // Cards a Free student sees: the newest 15 that aren't mastered.
+    visible() {
+      const list = this.open().filter(e => e.kind !== 'speed');
+      if (this.level() !== 'free') return list;
+      return list.filter(e => e.ref.type !== 'test' || plan.insights({ testId: e.ref.id })).sort((a, b) => (b.first || b.t) - (a.first || a.t)).slice(0, FREE_BANK);
+    },
+    // Today's review: due cards, lowest box first then most overdue, at most
+    // 20 (the rest roll to tomorrow), with domains mixed rather than grouped.
+    queue(skill) {
+      const end = endOfToday();
+      const due = this.open().filter(e => e.kind !== 'speed' && (e.due || 0) <= end && (!skill || e.skill === skill))
+        .sort((a, b) => a.box - b.box || (a.due || 0) - (b.due || 0)).slice(0, DAILY_CAP);
+      const groups = {};
+      due.forEach(e => { const k = e.section + '|' + domainOf(e.section, e.skill); (groups[k] = groups[k] || []).push(e); });
+      const lists = Object.values(groups).sort((a, b) => b.length - a.length), out = [];
+      while (lists.some(l => l.length)) lists.forEach(l => { if (l.length) out.push(l.shift()); });
+      return out;
+    },
+    dueCount() { return this.open().filter(e => e.kind !== 'speed' && (e.due || 0) <= endOfToday()).length; },
+    // src: { type: 'set' | 'test' | 'ai', id, where }; info: { ms, ch, guessed, review }
+    record(q, ok, src, info) { return this.recordMany([{ q, ok, src, info }]); },
+    recordMany(items) {
+      const m = this.map();
+      const out = [];
+      items.forEach(it => { const r = this._apply(m, it.q, it.ok, it.src, it.info || {}); if (r) out.push(r); });
+      if (!out.length) return out;
+      const now = Date.now();
+      // Keep the bank small enough for one Firestore document: mastered ones go first.
       const ids = Object.keys(m).filter(k => !m[k].deleted);
       if (ids.length > MAX_MISTAKES) {
-        ids.sort((a, b) => (m[b].fixed ? 1 : 0) - (m[a].fixed ? 1 : 0) || m[a].t - m[b].t)
+        ids.sort((a, b) => (m[a].st === 'active' ? 1 : 0) - (m[b].st === 'active' ? 1 : 0) || m[a].t - m[b].t)
           .slice(0, ids.length - MAX_MISTAKES).forEach(k => { m[k] = { deleted: true, t: now }; });
       }
       store.set('mistakes', m);
+      return out;
     },
-    _apply(m, q, ok, src) {
-      if (!q || !q.id || !src) return false;
+    // Returns what happened: { qid, was, box, result: 'added' | 'up' | 'back' | 'mastered' | 'slow' }.
+    _apply(m, q, ok, src, info) {
+      if (!q || !q.id || !src) return null;
       const now = Date.now();
       const had = m[q.id] && !m[q.id].deleted ? Object.assign({}, m[q.id]) : null;
-      if (!ok) {
-        const e = Object.assign(had || { qid: q.id, first: now, misses: 0 }, {
+      const type = errorType(ok, info.ms, q.id, q.section);
+      const reviewing = had && had.st === 'active';
+      const put = (e, box) => { e.box = box; e.due = now + BOX_DAYS[box] * DAY; e.t = now; };
+      const info2 = (e, result, was) => ({ qid: q.id, was, box: e.box, result, type });
+      if (!ok || info.guessed) {
+        const e = Object.assign(had || { qid: q.id, first: now, misses: 0, rv: 0, rc: 0 }, {
           ref: src.type === 'ai' ? { type: 'ai', id: '' } : { type: src.type, id: String(src.id || '') },
-          where: String(src.where || '').slice(0, 80), section: q.section, skill: q.skill || 'Other',
-          difficulty: q.difficulty || 'medium', streak: 0, fixed: false, t: now,
-          // A few words of the question, so the notebook list is readable.
+          where: String(src.where || '').slice(0, 80), section: q.section, skill: q.skill || 'Other', difficulty: q.difficulty || 'medium',
+          kind: 'miss', st: 'active', fixed: false,
+          // A few words of the question, so the bank list is readable.
           p: String(q.passage || q.prompt || '').replace(/_{3,}/g, '…').replace(/\$\$?|\*\*|__|\*/g, '').replace(/\s+/g, ' ').trim().slice(0, 110)
         });
-        e.misses = (e.misses || 0) + 1;
-        delete e.fixedAt;
-        // AI questions exist nowhere else, so the notebook keeps their text.
+        const was = had ? had.box : 0;
+        if (!ok) { e.misses = (e.misses || 0) + 1; if (info.ch != null && info.ch !== '') e.ch = String(info.ch).slice(0, 8); e.sug = suggestTag(type) || e.sug || ''; }
+        else e.sug = 'guess';
+        if (reviewing) { e.rv = (e.rv || 0) + 1; e.lr = now; }
+        delete e.fixedAt; delete e.mAt;
+        put(e, 1);
+        // AI questions exist nowhere else, so the bank keeps their text.
         if (src.type === 'ai') e.q = JSON.parse(JSON.stringify(q));
         m[q.id] = e;
-        vocab.fromMiss(q);
-      } else if (had && !had.fixed) {
-        had.streak = (had.streak || 0) + 1; had.t = now;
-        if (had.streak >= FIX_AFTER) { had.fixed = true; had.fixedAt = now; }
-        m[q.id] = had;
-      } else return false;
-      return true;
+        if (!ok) vocab.fromMiss(q);
+        return info2(e, had ? 'back' : 'added', was);
+      }
+      if (reviewing) {
+        const e = had, was = e.box;
+        e.rv = (e.rv || 0) + 1; e.lr = now;
+        // Right but slow isn't mastery yet: back to Box 1.
+        if (type === 'slow') { put(e, 1); m[q.id] = e; return info2(e, 'slow', was); }
+        e.rc = (e.rc || 0) + 1;
+        if (e.box >= 4) {
+          e.st = 'mastered'; e.mAt = now; e.fixed = true; e.fixedAt = now; e.t = now; delete e.due;
+          m[q.id] = e; return info2(e, 'mastered', was);
+        }
+        put(e, e.box + 1); m[q.id] = e;
+        return info2(e, 'up', was);
+      }
+      // Pro and Max: a slow right answer goes to the Speed tab.
+      if (!had && type === 'slow' && this.level() !== 'free' && src.type !== 'ai') {
+        const e = { qid: q.id, first: now, misses: 0, rv: 0, rc: 0, kind: 'speed', st: 'active', fixed: false,
+          ref: { type: src.type, id: String(src.id || '') }, where: String(src.where || '').slice(0, 80), section: q.section, skill: q.skill || 'Other',
+          difficulty: q.difficulty || 'medium', p: String(q.passage || q.prompt || '').replace(/\$\$?|\*\*|__|\*/g, '').replace(/\s+/g, ' ').trim().slice(0, 110) };
+        put(e, 1); m[q.id] = e;
+        return info2(e, 'added', 0);
+      }
+      return null;
     },
-    remove(qid) { const m = Object.assign({}, this.map()); m[qid] = { deleted: true, t: Date.now() }; store.set('mistakes', m); },
-    // The questions behind notebook entries, loaded from their sets and tests.
+    _edit(qid, fields) {
+      const m = this.map();
+      if (!m[qid] || m[qid].deleted) return;
+      m[qid] = Object.assign({}, m[qid], fields, { t: Date.now() });
+      store.set('mistakes', m);
+    },
+    setTag(qid, tag) { this._edit(qid, { tag: ERROR_TAGS.some(t => t[0] === tag) ? tag : '' }); track('mistake_tagged', { tag }); },
+    setNote(qid, note) { this._edit(qid, { note: String(note || '').slice(0, 400) }); },
+    remove(qid) { const m = this.map(); m[qid] = { deleted: true, t: Date.now() }; store.set('mistakes', m); },
+    stats() {
+      const all = this.all(), month = Date.parse(dayKey().slice(0, 7) + '-01T00:00:00+05:00');
+      const rv = all.reduce((s, e) => s + (e.rv || 0), 0), rc = all.reduce((s, e) => s + (e.rc || 0), 0);
+      const tags = {};
+      all.forEach(e => { const t = e.tag || e.sug; if (t && e.kind !== 'speed') tags[t] = (tags[t] || 0) + 1; });
+      const common = Object.keys(tags).sort((a, b) => tags[b] - tags[a])[0] || '';
+      return { total: all.length, active: all.filter(e => e.st === 'active').length, masteredMonth: all.filter(e => e.st === 'mastered' && (e.mAt || 0) >= month).length,
+        reviewAcc: rv ? rc / rv : null, reviews: rv, commonTag: common };
+    },
+    // The questions behind bank cards, loaded from their sets and tests. A card
+    // whose question was removed from the site is archived silently.
     async questions(entries) {
-      const want = {}, found = {};
+      const want = {}, found = {}, loaded = {};
       entries.forEach(e => { if (e.ref && e.ref.type !== 'ai' && e.ref.id) { const k = e.ref.type + ':' + e.ref.id; (want[k] = want[k] || []).push(e.qid); } });
       await Promise.all(Object.keys(want).map(async k => {
         const [type, id] = [k.slice(0, k.indexOf(':')), k.slice(k.indexOf(':') + 1)];
@@ -598,8 +981,11 @@
             const t = await loadTest(id);
             t.sections.forEach(s => [s.module1, s.module2.easier, s.module2.harder].forEach(m => m.questions.forEach(q => { found[q.id] = Object.assign({ testId: t.id }, q); })));
           }
-        } catch (e) { console.warn('[SAT Ustoz] Could not load ' + k + ' for the mistake notebook:', e); }
+          loaded[k] = true;
+        } catch (e) { console.warn('[SAT Ustoz] Could not load ' + k + ' for the Mistake Bank:', e); }
       }));
+      const gone = entries.filter(e => e.ref && e.ref.type !== 'ai' && loaded[e.ref.type + ':' + e.ref.id] && !found[e.qid]);
+      if (gone.length) gone.forEach(e => this._edit(e.qid, { st: 'archived' }));
       return entries.map(e => e.ref && e.ref.type === 'ai' ? (e.q ? normalizeQuestion(e.q).q : null) : found[e.qid]).filter(Boolean);
     }
   };
@@ -659,8 +1045,8 @@
       const key = dayKey();
       if (d.days && d.days[key]) return;
       store.set('daily', Object.assign({}, d, { days: Object.assign({}, d.days, { [key]: { qid: q.id, r: String(response == null ? '' : response).slice(0, 8), ok: !!ok, t: Date.now() } }) }));
-      recordAttempts([{ qid: q.id, section: q.section, domain: q.domain, skill: q.skill, difficulty: q.difficulty, correct: ok, source: 'daily' }]);
-      mistakes.record(q, ok, { type: 'set', id: q.setId, where: 'Question of the day' });
+      recordAttempts([{ qid: q.id, section: q.section, domain: q.domain, skill: q.skill, difficulty: q.difficulty, correct: ok, source: 'daily', ch: response }]);
+      mistakes.record(q, ok, { type: 'set', id: q.setId, where: 'Question of the day' }, { ch: response });
     },
     streak() {
       const days = this.days();
@@ -717,7 +1103,11 @@
       if (!n.questions.length) throw new Error('The AI returned questions in a format we could not use. Please try again.');
       return n.questions;
     },
-    tutor(payload) { return this.call('/tutor', payload); }
+    tutor(payload) { return this.call('/tutor', payload); },
+    // Max, once a week each: a study plan from the score gap, and a short
+    // summary of the patterns in the last 30 Mistake Bank cards.
+    studyPlan(payload) { return this.call('/plan', payload); },
+    patterns(payload) { return this.call('/patterns', payload); }
   };
 
   /* ------------------------------------------------------------------
@@ -1127,7 +1517,7 @@
       cloudTests.concat(mine ? getTestHistory() : []).forEach(t => { if (t && t.id) byId[t.id] = t; });
       const tests = Object.values(byId).sort((a, b) => b.finishedAt - a.finishedAt).slice(0, 40);
       const local = mine ? getProfile() : Object.assign({}, PROFILE_DEFAULTS);
-      const cloudP = userDoc ? { name: userDoc.name || '', target: userDoc.target || 1400, testDate: userDoc.testDate || '', grade: userDoc.grade || '', region: userDoc.region || '', school: userDoc.school || '', onboarded: !!userDoc.onboarded, updatedAt: userDoc.profileUpdatedAt || 0 } : null;
+      const cloudP = userDoc ? { name: userDoc.name || '', target: userDoc.target || 1400, targetRw: userDoc.targetRw || 0, targetMath: userDoc.targetMath || 0, focus: userDoc.focus || '', goalSet: !!userDoc.goalSet, testDate: userDoc.testDate || '', grade: userDoc.grade || '', region: userDoc.region || '', school: userDoc.school || '', onboarded: !!userDoc.onboarded, updatedAt: userDoc.profileUpdatedAt || 0 } : null;
       let profile = cloudP && cloudP.updatedAt >= (local.updatedAt || 0) ? cloudP : local;
       if (!profile.name && auth.user) profile = Object.assign({}, profile, { name: auth.user.name });
       if (cloudP && cloudP.onboarded) profile.onboarded = true;
@@ -1178,6 +1568,9 @@
       const userData = {
         name: p.name || auth.user.name, email: auth.user.email, photo: auth.user.photo,
         grade: p.grade || '', target: p.target || 1400, testDate: p.testDate || '', onboarded: !!p.onboarded,
+        targetRw: p.targetRw || 0, targetMath: p.targetMath || 0, focus: p.focus || '', goalSet: !!p.goalSet,
+        // The site language, so the Telegram report is in it too.
+        lang: pickLang(),
         region: p.region || '', school: p.school || '',
         profileUpdatedAt: p.updatedAt || 0, stats
       };
@@ -1431,6 +1824,47 @@
   };
 
   // Header account slot: <div data-auth-slot></div>
+  /* ------------------------------------------------------------------
+     Telegram reports (worker/telegram-worker.js). "Connect Telegram" writes
+     a one-time token (linkTokens/<token>, 15 minutes) and opens the bot with
+     it; the bot matches it to the account and saves the chat in
+     telegramLinks/<id>, which the student can read, adjust and delete.
+     ------------------------------------------------------------------ */
+  const TOKEN_CHARS = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+  const telegram = {
+    enabled() { return !!(CONFIG.TELEGRAM && CONFIG.TELEGRAM.BOT) && auth.enabled(); },
+    bot() { return String(CONFIG.TELEGRAM.BOT || '').replace(/^@/, ''); },
+    async links() {
+      if (!auth.user) return [];
+      const fs = await sync._lib();
+      const snap = await fs.getDocs(fs.query(fs.collection(sync.db, 'telegramLinks'), fs.where('uid', '==', auth.user.uid), fs.limit(20)));
+      return snap.docs.map(d => Object.assign({ id: d.id }, d.data(), { linkedAt: fsTime(d.data().linkedAt) }));
+    },
+    // role: 'student' (opens the bot) or 'parent' (Max: returns a link to send to a parent).
+    async connect(role) {
+      const fs = await sync._lib();
+      const bytes = new Uint8Array(32);
+      crypto.getRandomValues(bytes);
+      const token = Array.from(bytes, b => TOKEN_CHARS[b % TOKEN_CHARS.length]).join('');
+      await fs.setDoc(fs.doc(sync.db, 'linkTokens', token), {
+        uid: auth.user.uid, role: role === 'parent' ? 'parent' : 'student', lang: pickLang(),
+        expiresAt: fs.Timestamp.fromMillis(Date.now() + 15 * 60000), createdAt: fs.serverTimestamp()
+      });
+      track('telegram_connect_tapped', { role });
+      return 'https://t.me/' + this.bot() + '?start=' + token;
+    },
+    async disconnect(id) {
+      const fs = await sync._lib();
+      await fs.deleteDoc(fs.doc(sync.db, 'telegramLinks', id));
+      track('telegram_disconnected', {});
+    },
+    // fields: remindersOn (bool), reminderTime ('18:00')
+    async update(id, fields) {
+      const fs = await sync._lib();
+      await fs.updateDoc(fs.doc(sync.db, 'telegramLinks', id), fields);
+    }
+  };
+
   function renderAuthSlots() {
     const slots = $$('[data-auth-slot]');
     if (!slots.length) return;
@@ -2525,11 +2959,13 @@
     renderRich, renderMath, renderTable, renderStimulus, normalizeQuestion, normalizeList,
     isCorrect, sprSanitize, sprPreview, answerLabel, parseNum,
     getJSON, loadCatalog, loadSet, loadAllBank, loadTest,
-    getAttempts, recordAttempts, skillStats, weakSkills, getProfile, setProfile, getTestHistory, addTestHistory,
+    getAttempts, recordAttempts, markGuessed, skillStats, weakSkills, getProfile, setProfile, getTestHistory, addTestHistory,
+    qtimes, errorType, refersToLetter, shuffledCopy, origLetter, scale, gap, isFullTest, DOMAIN_SHARE, SECTION_Q, PACE,
+    ERROR_TAGS, tagLabel, suggestTag, BOX_DAYS, DAILY_CAP, FREE_BANK, telegram,
     ai, toast, modal, openTutor, makePanel, calculator, CALC_ICON, copyText,
     auth, sync, authReady, renderAuthSlots, requireLogin, loginUrl, safeNext, inAppBrowser,
     plan, renderPlans, pay, lockBox, analytics, track,
     pickLang, langNow, i18n, langSwitch, dateText, REGIONS, dayKey, dayNum, weekStart, seededShuffle,
-    mistakes, vocab, daily, notices, referral, realScore, classes, mock, FIX_AFTER
+    mistakes, vocab, daily, notices, referral, realScore, classes, mock
   };
 })();

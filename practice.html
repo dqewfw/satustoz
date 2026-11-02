@@ -126,7 +126,7 @@
     .teaser-demo { padding: 14px; }
     .t-summary { padding: 14px 16px; }
   }
-  /* Study tools, homework, plan, chart, notebook */
+  /* Study tools, homework, plan, chart, Mistake Bank */
   .tools-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; }
   .tool-card { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 2px 12px; align-items: center; text-decoration: none; color: var(--ink); background: var(--paper); border: 1px solid var(--line); border-radius: var(--r-sm); padding: 14px 16px; transition: border-color var(--t-fast); }
   .tool-card:hover { border-color: var(--brand); color: var(--ink); }
@@ -167,6 +167,76 @@
     .task { grid-template-columns: minmax(0, 1fr) 44px auto; gap: 10px; }
     .task .bar { display: none; }
   }
+  /* Score Gap Analyzer */
+  .gap-card .goal-items { gap: 14px 34px; }
+  .gap-card .gap-big b { color: #fff; }
+  .gap-card .gap-est { font-size: .82rem; color: #C7D6C0; display: block; margin-top: 2px; }
+  .gap-row { display: grid; grid-template-columns: minmax(0, 1fr) 76px 130px auto; gap: 8px 16px; align-items: center; padding: 14px 0; border-bottom: 1px solid var(--line); }
+  .gap-row:last-child { border-bottom: 0; }
+  .gap-row .g-name { min-width: 0; }
+  .gap-row .g-name button { background: none; border: 0; padding: 0; font: inherit; font-weight: 700; color: var(--ink); cursor: pointer; text-align: left; }
+  .gap-row .g-name button:hover { color: var(--brand); }
+  .gap-row .g-name button::after { content: ' ▾'; color: var(--muted); font-size: .8em; }
+  .gap-row.open .g-name button::after { content: ' ▴'; }
+  .gap-row .g-pts { text-align: right; line-height: 1.1; }
+  .gap-row .g-pts b { font-family: var(--display); font-size: 1.45rem; color: var(--brand); font-variant-numeric: tabular-nums; display: block; }
+  .gap-row .g-pts span { font-size: .76rem; color: var(--muted); }
+  .gap-row .g-copy { grid-column: 1 / -1; margin: 0; font-size: .93rem; color: var(--ink-2); }
+  .gap-row.is-top { background: var(--brand-tint); margin: 0 -22px; padding-left: 22px; padding-right: 22px; border-radius: var(--r-sm); border-bottom: 0; }
+  .gap-skills { grid-column: 1 / -1; border-left: 3px solid var(--brand-tint-2); padding-left: 14px; margin-top: 4px; }
+  .gap-skills .gap-row { grid-template-columns: minmax(0, 1fr) 64px 130px auto; padding: 10px 0; }
+  .gap-skills .gap-row .g-pts b { font-size: 1.15rem; }
+  .errbar { display: flex; height: 8px; border-radius: 2px; overflow: hidden; background: var(--sunk); }
+  .errbar i { display: block; height: 100%; }
+  .errbar .e-r { background: var(--gold); } .errbar .e-s { background: var(--bad); } .errbar .e-n { background: var(--edge); }
+  .errkey { display: flex; gap: 4px 12px; flex-wrap: wrap; font-size: .76rem; color: var(--muted); margin-top: 4px; }
+  .errkey i { display: inline-block; width: 8px; height: 8px; border-radius: 2px; margin-right: 4px; vertical-align: 0; }
+  .conf-tag { font-size: .72rem; font-weight: 700; color: var(--warn); background: var(--warn-tint); border-radius: 4px; padding: 1px 6px; margin-left: 6px; vertical-align: 1px; }
+  .need-row { display: flex; gap: 12px; align-items: center; justify-content: space-between; flex-wrap: wrap; padding: 10px 0; border-bottom: 1px dashed var(--line); font-size: .93rem; color: var(--ink-2); }
+  .need-row:last-child { border-bottom: 0; }
+  .seg { display: inline-flex; border: 1px solid var(--line-2); border-radius: var(--r-sm); overflow: hidden; }
+  .seg button { background: var(--paper); border: 0; padding: 5px 12px; font: 700 .85rem var(--sans); color: var(--muted); cursor: pointer; }
+  .seg button + button { border-left: 1px solid var(--line); }
+  .seg button[aria-pressed="true"] { background: var(--brand); color: #fff; }
+  .ai-plan { background: var(--ivory); border-radius: var(--r-sm); padding: 14px 16px; margin-top: 12px; }
+  .ai-plan p:last-child { margin-bottom: 0; }
+  @media (max-width: 600px) {
+    .gap-row, .gap-skills .gap-row { grid-template-columns: minmax(0, 1fr) 64px; }
+    .gap-row .errwrap, .gap-row .g-act { grid-column: 1 / -1; }
+    .gap-row.is-top { margin: 0 -18px; padding-left: 18px; padding-right: 18px; }
+  }
+  /* Mistake Bank */
+  .review-card { display: flex; align-items: center; gap: 16px; justify-content: space-between; flex-wrap: wrap; margin: 0 0 18px; border-color: var(--gold); background: var(--gold-soft); }
+  .review-card h3 { margin: 0 0 2px; font-size: 1.15rem; }
+  .review-card p { margin: 0; }
+  .bank-tabs { margin-bottom: 14px; }
+  .filters { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 8px; margin-bottom: 14px; }
+  .filters select { padding: 7px 10px; font-size: .9rem; }
+  .bank-card { border-bottom: 1px solid var(--line); }
+  .bank-card:last-child { border-bottom: 0; }
+  .bank-card > summary { list-style: none; cursor: pointer; display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 4px 14px; align-items: center; padding: 12px 0; }
+  .bank-card > summary::-webkit-details-marker { display: none; }
+  .bank-card > summary:hover .bk-p { color: var(--brand); }
+  .bank-card .bk-meta { font-size: .84rem; color: var(--muted); display: block; }
+  .bank-card .bk-body { padding: 4px 0 16px; }
+  .box-pill { display: inline-flex; gap: 3px; align-items: center; font-size: .8rem; font-weight: 700; color: var(--ink-2); white-space: nowrap; }
+  .box-pill i { width: 9px; height: 9px; border-radius: 2px; border: 1.5px solid var(--ok); }
+  .box-pill i.on { background: var(--ok); }
+  .tag-chips { display: flex; gap: 6px; flex-wrap: wrap; margin-top: 8px; }
+  .tag-chips button { border: 1px solid var(--line-2); background: var(--paper); border-radius: 999px; padding: 4px 11px; font: 600 .85rem var(--sans); color: var(--ink-2); cursor: pointer; }
+  .tag-chips button:hover { border-color: var(--brand); color: var(--brand); }
+  .tag-chips button.sug { border-style: dashed; border-color: var(--brand); }
+  .tag-chips button[aria-pressed="true"] { background: var(--brand); border-color: var(--brand); color: #fff; }
+  .why { margin-top: 12px; padding-top: 12px; border-top: 1px solid rgba(0, 0, 0, .08); }
+  .why b { font-size: .95rem; }
+  .guess-tog { display: inline-flex; align-items: center; gap: 7px; font-size: .9rem; color: var(--ink-2); cursor: pointer; margin-left: auto; }
+  .guess-tog input { width: 17px; height: 17px; accent-color: var(--brand); }
+  .note-in { width: 100%; min-height: 60px; resize: vertical; }
+  .rv-line { font-size: .93rem; margin: 8px 0 0; }
+  .settings-sec { margin-bottom: 18px; }
+  .settings-sec h3 { margin-top: 0; }
+  .tg-row { display: flex; gap: 10px 14px; align-items: center; justify-content: space-between; flex-wrap: wrap; padding: 10px 0; border-bottom: 1px solid var(--line); }
+  .tg-row:last-child { border-bottom: 0; }
   .ai-loading { display: flex; align-items: center; gap: 14px; }
   .spinner { width: 28px; height: 28px; border-radius: 50%; border: 3px solid var(--gold-soft); border-top-color: var(--brand); animation: spin 1s linear infinite; flex: 0 0 auto; }
 
@@ -239,6 +309,7 @@
       <a href="practice.html#sets">Practice sets</a>
       <a href="practice.html#ai" data-ai-only>AI practice</a>
       <a href="practice.html#tests">Practice tests</a>
+      <a href="practice.html#mistakes">Mistake Bank</a>
       <a href="vocab.html">Vocabulary</a>
       <a href="lessons.html">Lessons</a>
       <a href="practice.html#plans">Plans</a>
@@ -254,6 +325,7 @@
       <a href="#sets" data-tab="sets"><span class="t-long">Practice sets</span><span class="t-short">Sets</span></a>
       <a href="#ai" data-tab="ai" data-ai-only><span class="t-long">AI practice</span><span class="t-short">AI</span></a>
       <a href="#tests" data-tab="tests"><span class="t-long">Practice tests</span><span class="t-short">Tests</span></a>
+      <a href="#mistakes" data-tab="mistakes"><span class="t-long">Mistake Bank</span><span class="t-short">Bank</span></a>
       <a href="#plans" data-tab="plans"><span class="t-long">Plans</span><span class="t-short">Plans</span></a>
     </nav>
     <div id="view" aria-live="polite"></div>
@@ -268,7 +340,7 @@
         <span class="brand-name">SAT Ustoz</span>
         <p style="margin-top:10px">Digital SAT practice built by someone who has taken the test, for students in Uzbekistan and beyond.</p>
       </div>
-      <div><h3 class="f-head">Practice</h3><ul><li><a href="practice.html#sets">Practice sets</a></li><li><a href="practice.html#tests">Practice tests</a></li><li><a href="practice.html#mistakes">Mistake notebook</a></li><li><a href="vocab.html">Vocabulary</a></li><li><a href="lessons.html">Lessons</a></li><li><a href="daily.html">Question of the day</a></li><li><a href="mock.html">National mock</a></li><li><a href="score-calculator.html">Score calculator</a></li><li><a href="practice.html#plans">Plans</a></li></ul></div>
+      <div><h3 class="f-head">Practice</h3><ul><li><a href="practice.html#sets">Practice sets</a></li><li><a href="practice.html#tests">Practice tests</a></li><li><a href="practice.html#mistakes">Mistake Bank</a></li><li><a href="practice.html#settings">Settings and Telegram</a></li><li><a href="vocab.html">Vocabulary</a></li><li><a href="lessons.html">Lessons</a></li><li><a href="daily.html">Question of the day</a></li><li><a href="mock.html">National mock</a></li><li><a href="score-calculator.html">Score calculator</a></li><li><a href="practice.html#plans">Plans</a></li></ul></div>
       <div><h3 class="f-head">Contact</h3><ul><li><a data-link="telegram" href="https://t.me/azizbek7_t" target="_blank" rel="noopener">Telegram: @azizbek7_t</a></li><li><a data-link="channel" href="https://t.me/satustoz_off" target="_blank" rel="noopener">Telegram channel</a></li><li><a data-link="instagram" href="https://www.instagram.com/satustoz" target="_blank" rel="noopener">Instagram</a></li><li><a href="#" data-feedback>Send feedback</a></li></ul></div>
     </div>
     <div class="footer-legal">&copy; <span data-year>2026</span> SAT Ustoz. SAT&reg; is a trademark registered by the College Board, which is not affiliated with, and does not endorse, this website. All practice questions on this site are written by SAT Ustoz.</div>
@@ -326,6 +398,8 @@ document.addEventListener('DOMContentLoaded', function () {
     route();
     if (joinCode) setTimeout(() => joinClass(joinCode), 0);
     SH.auth.onChange(() => { if (!session) route(); });
+    // Median times per question, for the rushed / stuck labels (once a day).
+    SH.qtimes.load();
     document.addEventListener('sh:synced', () => { if (!session) route(); });
   }
 
@@ -334,12 +408,19 @@ document.addEventListener('DOMContentLoaded', function () {
     if (tab === 'play') { if (!session) { location.hash = '#home'; return; } return; }
     if (session && !confirmLeave()) return;
     player.hidden = true; hub.hidden = false;
-    const tabs = ['home', 'sets', 'tests', 'plans', 'mistakes'].concat(SH.ai.enabled() ? ['ai'] : []);
+    // #review and #fix are where the Telegram buttons land: today's review, and a drill on the top gap.
+    if (tab === 'review' || tab === 'fix') {
+      try { history.replaceState(null, '', location.pathname + location.search + (tab === 'review' ? '#mistakes' : '#home')); } catch (e) { /* ignore */ }
+      route();
+      if (tab === 'review') startReview(); else { const s = SH.gap.compute(); if (s.top) startFix(s.top.section, s.top.domain, s.top.skill, 10); }
+      return;
+    }
+    const tabs = ['home', 'sets', 'tests', 'plans', 'mistakes', 'settings'].concat(SH.ai.enabled() ? ['ai'] : []);
     const t = tabs.indexOf(tab) > -1 ? tab : 'home';
     $$('.tabs a').forEach(a => a.setAttribute('aria-current', a.dataset.tab === t ? 'page' : 'false'));
     $$('.nav a').forEach(a => a.removeAttribute('aria-current'));
     const navA = $('.nav a[href="practice.html#' + t + '"]'); if (navA) navA.setAttribute('aria-current', 'page');
-    ({ home: renderHome, sets: renderSets, ai: renderAI, tests: renderTests, plans: renderPlansTab, mistakes: renderMistakes })[t]();
+    ({ home: renderHome, sets: renderSets, ai: renderAI, tests: renderTests, plans: renderPlansTab, mistakes: renderMistakes, settings: renderSettings })[t]();
   }
   function confirmLeave() { stopTimer(); session = null; SH.calculator.close(); return true; }
 
@@ -351,12 +432,12 @@ document.addEventListener('DOMContentLoaded', function () {
     const hist = SH.getTestHistory();
     const best = hist.filter(h => h.total != null).reduce((m, h) => Math.max(m, h.total), 0);
     const weak = SH.weakSkills(4);
-    const stats = SH.skillStats();
     const insights = SH.plan.insights();
+    const snap = SH.gap.refresh();
     const signedIn = SH.auth.enabled() && !!SH.auth.user;
     let html = '<div class="hub-head"><div><h1>' + (p.name ? (attempts.length ? 'Welcome back, ' : 'Welcome, ') + esc(p.name.split(/\s+/)[0]) : 'Welcome') + '</h1></div>' +
-      '<div class="hub-acts">' + planChip() + '<button class="btn btn-ghost btn-sm" type="button" id="edit-goals">' + (p.testDate || p.name ? 'Edit goals' : 'Set your goals') + '</button></div></div>';
-    html += goalStrip(p, best);
+      '<div class="hub-acts">' + planChip() + '<button class="btn btn-ghost btn-sm" type="button" id="edit-goals">' + (p.goalSet || p.testDate ? 'Edit goals' : 'Set your goals') + '</button><a class="btn btn-ghost btn-sm" href="#settings">Settings</a></div></div>';
+    html += gapCard(p, snap);
     html += noticesHtml();
     if (SH.auth.enabled() && SH.auth.settled && !SH.auth.user) {
       html += '<div class="notice" style="display:flex;gap:14px;align-items:center;justify-content:space-between;flex-wrap:wrap;margin-bottom:18px"><span><b>Save your progress.</b> Sign in with Google to keep your results on every device' + (SH.ai.enabled() && SH.CONFIG.AI_REQUIRES_LOGIN ? ' and use the AI tutor' : '') + '.</span><a class="btn btn-primary btn-sm" href="' + esc(SH.loginUrl('practice.html#home')) + '">Sign in with Google</a></div>';
@@ -366,6 +447,7 @@ document.addEventListener('DOMContentLoaded', function () {
       html += '<div class="card resume-card"><div><span class="kicker">In progress</span><h3>' + esc(inProgress.title) + '</h3><p class="small muted">Your clock is paused. Pick up exactly where you left off.</p></div>' +
         '<a class="btn btn-primary" href="test.html?id=' + encodeURIComponent(inProgress.id) + '">Resume test</a></div>';
     }
+    html += reviewCardHtml();
     html += '<div class="grid grid-4">' +
       tile(attempts.length, 'questions practiced') +
       tile(attempts.length ? SH.pct(correct, attempts.length) + '%' : '–', 'accuracy') +
@@ -383,33 +465,12 @@ document.addEventListener('DOMContentLoaded', function () {
         '<div class="card card-hover start-card"><span class="kicker">Test-day ready</span><h3>Full practice tests</h3><p class="muted">Fifteen full-length tests, 98 questions in 2 hours 14 minutes, adaptive like the real SAT. ' + (SH.CONFIG.PLANS.TESTS_FREE_FOR_LAUNCH ? 'Tests 1 to 10 are free while we launch.' : 'Practice Test 1 is free.') + '</p><a class="btn btn-ghost" href="#tests">See practice tests</a></div>' +
         '<div class="card card-hover start-card"><span class="kicker">Short on time</span><h3>Try a 10-question set</h3><p class="muted">Instant feedback and an explanation after every question.</p><a class="btn btn-ghost" href="#sets">See practice sets</a></div></div>';
     } else {
-      html += '<h2 class="section-title">Focus on these skills</h2>';
-      if (weak.length && !insights) {
-        html += '<div class="card">' + SH.lockBox(weak.slice(0, 3).map(w => skillRow(w, false)).join(''), 'Your weakest skills', 'Pro shows which skills cost you the most points, with drills for each one.', 'weak_skills') + '</div>';
-      } else if (weak.length) {
-        html += '<div class="card">' + weak.map(w => skillRow(w, true)).join('') + '</div>';
-      } else {
-        html += '<div class="card"><p class="muted" style="margin:0">No weak spots so far: every skill you’ve tried is at 100%. Try a harder set or a practice test.</p></div>';
-      }
+      html += analyzerHtml(snap);
     }
     html += studyPlanHtml(p);
-    html += scoreChartHtml(hist, p);
+    html += scoreChartHtml(hist, p, snap);
     // The Max preview shows the student's own weak skills only to Pro, which already sees them.
     html += tutorTeaser(insights ? weak : []);
-    if (attempts.length) {
-      const doms = {};
-      stats.forEach(s => {
-        const k = s.section + '|' + s.domain;
-        if (!doms[k]) doms[k] = { section: s.section, domain: s.domain || 'Other', n: 0, correct: 0 };
-        doms[k].n += s.n; doms[k].correct += s.correct;
-      });
-      const domList = Object.values(doms).sort((a, b) => a.section.localeCompare(b.section));
-      if (domList.length) {
-        const rows = domList.map(d =>
-          '<div class="skill-row dom"><div>' + secTag(d.section) + ' ' + esc(d.domain) + ' <span class="small muted">(' + d.n + ')</span></div><div class="bar ' + accClass(d.correct / d.n) + '"><i style="width:' + SH.pct(d.correct, d.n) + '%"></i></div><div class="acc">' + SH.pct(d.correct, d.n) + '%</div></div>').join('');
-        html += '<h2 class="section-title">By content domain</h2><div class="card">' + (insights ? rows : SH.lockBox(rows, 'Your score by content domain', 'See how you do in each part of the test, and track it over time.', 'domains')) + '</div>';
-      }
-    }
     if (hist.length) {
       html += '<h2 class="section-title">Recent practice tests</h2>' + histTable(hist.slice(0, 3));
     }
@@ -420,7 +481,11 @@ document.addEventListener('DOMContentLoaded', function () {
     const gp = $('[data-goal-pitch]');
     if (gp) gp.addEventListener('click', () => SH.plan.pitch({ title: gp.dataset.title, text: gp.dataset.text }));
     bindSkillButtons();
+    bindAnalyzer(snap);
+    const sr = $('[data-start-review]'); if (sr) sr.addEventListener('click', startReview);
     bindHomeExtras();
+    // First visit: ask for the goal once, so the gap means something.
+    if (!p.goalSet && !SH.store.get('goalAsked', false)) { SH.store.set('goalAsked', true); setTimeout(editGoals, 300); }
   }
 
   // "Your report on question X was fixed" and other notes from the team (admin.html).
@@ -434,13 +499,13 @@ document.addEventListener('DOMContentLoaded', function () {
 
   function toolsHtml() {
     const st = SH.daily.streak(), doneToday = !!SH.daily.answered();
-    const open = SH.mistakes.open().filter(e => SH.plan.allows('pro') || e.ref.type !== 'test').length;
+    const level = SH.mistakes.level(), dueN = level === 'free' ? SH.mistakes.visible().length : SH.mistakes.queue().length;
     const v = SH.vocab.get();
     const learning = Object.keys(v.cards).filter(k => v.cards[k] && !v.cards[k].deleted).length;
     const card = (href, title, sub, big) => '<a class="tool-card" href="' + href + '"><b>' + title + '</b><span>' + sub + '</span>' + (big != null ? '<em>' + esc(big) + '</em>' : '') + '</a>';
     return '<div class="tools-grid">' +
       card('daily.html', 'Question of the day', doneToday ? 'Done today. Back tomorrow' : st.current ? 'Keep your ' + st.current + '-day streak' : 'One question, two minutes', st.current ? st.current + 'd' : null) +
-      card('#mistakes', 'Mistake notebook', open ? open + ' to fix. Two right in a row fixes one' : 'Nothing to fix right now', open || null) +
+      card('#mistakes', 'Mistake Bank', dueN ? (level === 'free' ? dueN + ' to review by hand' : dueN + ' due today, about ' + Math.max(2, Math.round(dueN * 75 / 60)) + ' minutes') : 'Nothing due right now', dueN || null) +
       card('vocab.html', 'Vocabulary', learning ? learning + ' words in your deck' : 'SAT words in Uzbek and Russian', learning || null) +
       card('lessons.html', '5-minute lessons', 'Short lessons with a 5-question check', null) +
       card('mock.html', 'National mock', 'Same test, same time, all of Uzbekistan', null) +
@@ -475,7 +540,7 @@ document.addEventListener('DOMContentLoaded', function () {
       tasks.push({ label: 'Drill ' + f.skill, done: attempts.filter(a => a.skill === f.skill && a.section === f.section).length, goal: 20,
         btn: inBank ? '<button class="btn btn-ghost btn-sm" type="button" data-drill="' + esc(f.skill) + '" data-sec="' + f.section + '">Drill</button>' : '<a class="btn btn-ghost btn-sm" href="lessons.html">Lessons</a>' });
     });
-    tasks.push({ label: 'Fix 5 mistakes', done: SH.mistakes.all().filter(e => e.fixed && inWeek(e.fixedAt || 0)).length, goal: 5, btn: '<a class="btn btn-ghost btn-sm" href="#mistakes">Retry</a>' });
+    tasks.push({ label: 'Master 5 mistakes', done: SH.mistakes.all().filter(e => e.st === 'mastered' && inWeek(e.mAt || 0)).length, goal: 5, btn: '<a class="btn btn-ghost btn-sm" href="#mistakes">Review</a>' });
     tasks.push({ label: 'Review vocabulary on 4 days', done: Object.keys(SH.vocab.get().days).filter(d => inWeek(Date.parse(d + 'T12:00:00+05:00'))).length, goal: 4, btn: '<a class="btn btn-ghost btn-sm" href="vocab.html">Review</a>' });
     tasks.push({ label: 'Question of the day on 5 days', done: Object.keys(SH.daily.days()).filter(d => inWeek(Date.parse(d + 'T12:00:00+05:00'))).length, goal: 5, btn: '<a class="btn btn-ghost btn-sm" href="daily.html">Today’s</a>' });
     const rows = tasks.map(t => {
@@ -501,38 +566,6 @@ document.addEventListener('DOMContentLoaded', function () {
       SH.store.set('studyPlan', plan);
     }
     return plan;
-  }
-
-  /* ---------- Score history: every test total over time, with the goal and test day ---------- */
-  function scoreChartHtml(hist, p) {
-    const pts = hist.filter(h => h.total != null).slice().sort((a, b) => a.finishedAt - b.finishedAt);
-    if (!pts.length) return '';
-    const goal = +p.target || 0;
-    const testDay = p.testDate ? Date.parse(p.testDate + 'T08:00:00+05:00') : 0;
-    const W = 640, H = 230, L = 44, R = 18, T = 18, B = 30;
-    let x0 = pts[0].finishedAt, x1 = pts[pts.length - 1].finishedAt;
-    if (testDay > x1 && testDay - x0 < 400 * 86400000) x1 = testDay;
-    if (x1 - x0 < 7 * 86400000) { x0 -= 3 * 86400000; x1 += 4 * 86400000; }
-    const vals = pts.map(h => h.total).concat(goal ? [goal] : []);
-    const y0 = Math.max(400, Math.floor((Math.min.apply(null, vals) - 60) / 100) * 100), y1 = Math.min(1600, Math.ceil((Math.max.apply(null, vals) + 60) / 100) * 100);
-    const sx = t => L + (t - x0) / (x1 - x0) * (W - L - R), sy = v => T + (y1 - v) / (y1 - y0) * (H - T - B);
-    const step = y1 - y0 > 600 ? 200 : 100;
-    let g = '';
-    for (let v = y0; v <= y1; v += step) g += '<line x1="' + L + '" x2="' + (W - R) + '" y1="' + sy(v) + '" y2="' + sy(v) + '" stroke="var(--line)" stroke-width="1"/><text class="ax" x="' + (L - 8) + '" y="' + (sy(v) + 4) + '" text-anchor="end">' + v + '</text>';
-    const day = t => new Date(t).toLocaleDateString('en-GB', { day: 'numeric', month: 'short' });
-    g += '<text class="ax" x="' + L + '" y="' + (H - 8) + '">' + day(x0) + '</text>';
-    if (goal >= y0 && goal <= y1) g += '<line x1="' + L + '" x2="' + (W - R) + '" y1="' + sy(goal) + '" y2="' + sy(goal) + '" stroke="var(--gold-text)" stroke-width="1.5" stroke-dasharray="5 4"/><text class="ax" x="' + (L + 6) + '" y="' + (sy(goal) - 6) + '">Goal ' + goal + '</text>';
-    if (testDay && testDay <= x1 && testDay >= x0) g += '<line x1="' + sx(testDay) + '" x2="' + sx(testDay) + '" y1="' + T + '" y2="' + (H - B) + '" stroke="var(--edge)" stroke-width="1.5" stroke-dasharray="3 4"/><text class="ax" x="' + sx(testDay) + '" y="' + (H - 8) + '" text-anchor="end">Test day ' + day(testDay) + '</text>';
-    else g += '<text class="ax" x="' + (W - R) + '" y="' + (H - 8) + '" text-anchor="end">' + day(x1) + '</text>';
-    const line = pts.map((h, i) => (i ? 'L' : 'M') + sx(h.finishedAt).toFixed(1) + ' ' + sy(h.total).toFixed(1)).join(' ');
-    g += '<path d="' + line + '" fill="none" stroke="var(--brand)" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>';
-    g += pts.map((h, i) => '<circle cx="' + sx(h.finishedAt) + '" cy="' + sy(h.total) + '" r="5" fill="var(--brand)" stroke="#fff" stroke-width="2"/>' +
-      '<circle cx="' + sx(h.finishedAt) + '" cy="' + sy(h.total) + '" r="16" fill="transparent" tabindex="0" role="img" data-pt="' + i + '" aria-label="' + esc(h.title + ', ' + SH.fmtDate(h.finishedAt) + ': ' + h.total) + '"/>').join('');
-    const last = pts[pts.length - 1].total, top = Math.max.apply(null, pts.map(h => h.total));
-    const first = pts[0].total;
-    return '<h2 class="section-title">Score history</h2><div class="card chart-card" id="chart" data-pts="' + esc(JSON.stringify(pts.map(h => [h.title, h.finishedAt, h.total, h.sections.rw ? h.sections.rw.score : null, h.sections.math ? h.sections.math.score : null]))) + '">' +
-      '<p class="chart-sum"><span>Latest <b>' + last + '</b></span><span>Best <b>' + top + '</b></span>' + (pts.length > 1 ? '<span>Since your first test <b>' + (last - first >= 0 ? '+' : '') + (last - first) + '</b></span>' : '') + (goal ? '<span>Goal <b>' + goal + '</b></span>' : '') + '</p>' +
-      '<svg viewBox="0 0 ' + W + ' ' + H + '" role="group" aria-label="Your practice test scores over time">' + g + '</svg><div class="chart-tip" hidden></div></div>';
   }
 
   // Invite friends, and the real SAT score once the student has taken it.
@@ -568,19 +601,264 @@ document.addEventListener('DOMContentLoaded', function () {
     if (hw) SH.classes.tasks().then(list => drawHomework(hw, list)).catch(e => { hw.innerHTML = '<p class="muted" style="margin:0">Could not load your homework. ' + esc(e.message || '') + '</p>'; });
   }
 
+  /* ---------- Score Gap Analyzer: where the points between the estimate and the target are hiding ---------- */
+  const pctOf = a => Math.round(a * 100);
+  // Rushed vs stuck vs normal misses: whether to slow down or to study.
+  function errBar(x) {
+    const r = x.err.rushed, st = x.err.stuck, n = x.err.normal, m = r + st + n;
+    if (!m) return '<div class="errbar"></div><div class="errkey">No misses yet</div>';
+    const w = v => (v / m * 100).toFixed(1) + '%';
+    const hint = r / m >= .4 ? 'Slow down and reread' : st / m >= .4 ? 'Study the concept' : 'Review the explanations';
+    return '<div class="errbar" role="img" aria-label="' + r + ' rushed, ' + st + ' stuck, ' + n + ' normal misses"><i class="e-r" style="width:' + w(r) + '"></i><i class="e-s" style="width:' + w(st) + '"></i><i class="e-n" style="width:' + w(n) + '"></i></div>' +
+      '<div class="errkey"><span><i class="e-r" style="background:var(--gold)"></i>' + r + ' rushed</span><span><i style="background:var(--bad)"></i>' + st + ' stuck</span><span><i style="background:var(--edge)"></i>' + n + ' normal</span><span><b>' + hint + '</b></span></div>';
+  }
+  function topCopy(d) {
+    const s = d.skills.find(k => k.conf !== 'none' && k.gap > 0);
+    const x = s || d, g = s ? s.gap : d.gap;
+    let t = (s ? s.skill : d.domain) + ' costs you about ' + g + ' point' + (g === 1 ? '' : 's') + ' per test.';
+    t += x.e >= .5 ? ' Most of these misses are on easy and medium questions.' : ' Most of these misses are on hard questions.';
+    const m = x.err.rushed + x.err.stuck + x.err.normal;
+    if (m && x.err.rushed / m >= .4) t += ' Many are rushed: the knowledge is probably there, so slow down and reread.';
+    else if (m && x.err.stuck / m >= .4) t += ' Many are real knowledge gaps: study the concept first.';
+    return t + ' This is your fastest win.';
+  }
+  const needText = (name, n) => 'Need 15 answers in ' + name + ' (you have ' + n + ')';
+  function gapRowHtml(d, opts) {
+    const key = esc(d.section + '|' + d.domain + '|' + (opts.skill ? d.skill : ''));
+    const name = opts.skill ? esc(d.skill) : secTag(d.section) + ' ' + esc(d.domain);
+    const skills = opts.skills ? d.skills.map(k => k.conf === 'none'
+      ? '<div class="need-row"><span>' + esc(needText(k.skill, k.n)) + (k.gap ? ' · about ' + k.gap + ' points' : '') + '</span><button class="btn btn-ghost btn-sm" type="button" data-fix="' + esc(d.section + '|' + d.domain + '|' + k.skill) + '" data-n="15">Practice</button></div>'
+      : gapRowHtml(Object.assign({}, k, { section: d.section, domain: d.domain }), { skill: true })).join('') : '';
+    return '<div class="gap-row' + (opts.top ? ' is-top' : '') + '">' +
+      '<div class="g-name">' + (opts.skills ? '<button type="button" data-open aria-expanded="false">' + name + '</button>' : '<b>' + name + '</b>') +
+      (d.conf === 'low' ? '<span class="conf-tag" title="15 to 39 answers so far">Low confidence</span>' : '') +
+      '<div class="small muted">' + pctOf(d.acc) + '% correct · last ' + d.n + ' answers</div></div>' +
+      '<div class="g-pts"><b>' + d.gap + '</b><span>points</span></div>' +
+      '<div class="errwrap">' + errBar(d) + '</div>' +
+      '<div class="g-act"><button class="btn ' + (opts.top ? 'btn-primary' : 'btn-ghost') + ' btn-sm" type="button" data-fix="' + key + '">Fix this</button></div>' +
+      (opts.top ? '<p class="g-copy">' + esc(topCopy(d)) + '</p>' : '') +
+      (skills ? '<div class="gap-skills" hidden>' + skills + '</div>' : '') + '</div>';
+  }
+  function analyzerHtml(snap) {
+    const head = '<h2 class="section-title">Where your points are hiding</h2>';
+    const ranked = snap.domains.filter(d => d.conf !== 'none'), need = snap.domains.filter(d => d.conf === 'none');
+    const hiddenPts = need.reduce((n, d) => n + d.gap, 0);
+    const needRows = need.length ? '<div style="margin-top:' + (ranked.length ? '10px' : '0') + '">' +
+      (hiddenPts && ranked.length ? '<p class="small muted" style="margin:0 0 4px">About <b>' + hiddenPts + '</b> more point' + (hiddenPts === 1 ? ' is' : 's are') + ' in the parts below. They get ranked once they have 15 of your answers.</p>' : '') + need.map(d =>
+      '<div class="need-row"><span>' + secTag(d.section) + ' ' + esc(needText(d.domain, d.n)) + '</span><button class="btn btn-ghost btn-sm" type="button" data-fix="' + esc(d.section + '|' + d.domain + '|') + '" data-n="15">Practice</button></div>').join('') + '</div>' : '';
+    if (!ranked.length) return head + '<div class="card"><p class="muted" style="margin-top:0">The fix list ranks each part of the test once it has 15 of your answers. Practice a few sets, or take a full test, and it fills in.</p>' + needRows + '</div>';
+    let body;
+    if (snap.estimate != null && snap.gap === 0) {
+      body = '<p style="margin-top:0"><b>You’re at or above your target of ' + snap.target + '.</b> Nice work. A stretch target of ' + Math.min(snap.focus ? 800 : 1600, snap.target + 50) + ' keeps the fix list useful.</p>' +
+        '<div class="row" style="margin-bottom:6px"><button type="button" class="btn btn-primary btn-sm" data-stretch>Set ' + Math.min(snap.focus ? 800 : 1600, snap.target + 50) + ' as my target</button></div>';
+    } else body = '';
+    const pro = SH.plan.allows('pro');
+    const top = ranked[0];
+    if (pro) {
+      body += ranked.map((d, i) => gapRowHtml(d, { top: i === 0 && d.gap > 0, skills: true })).join('');
+    } else {
+      // Free: the top row only. The rows under it are placeholders, not the student's data.
+      const fake = ['Another part of the test', 'A third part of the test', 'One more part'].slice(0, Math.max(2, Math.min(3, ranked.length - 1)));
+      const ph = fake.map((t, i) => '<div class="gap-row"><div class="g-name"><b>' + t + '</b><div class="small muted">–% correct</div></div><div class="g-pts"><b>' + [24, 15, 8][i] + '</b><span>points</span></div><div class="errwrap"><div class="errbar"><i class="e-r" style="width:40%"></i><i class="e-s" style="width:20%"></i><i class="e-n" style="width:40%"></i></div></div><div class="g-act"><span class="btn btn-ghost btn-sm">Fix this</span></div></div>').join('');
+      body += gapRowHtml(top, { top: top.gap > 0, skills: false }) +
+        SH.lockBox(ph, 'Your full fix list', 'Pro ranks every part of the test by the points you can win back, down to each skill, with your progress graph.', 'gap');
+    }
+    body += needRows;
+    const errNote = '<p class="small muted" style="margin:12px 0 0">Rushed: wrong in under half the usual time. Stuck: wrong after more than 1.5 times the usual time. Points are per test and add up to your gap of ' + (snap.gap || 0) + '.</p>';
+    return head + '<div class="card" id="analyzer">' + body + errNote + aiPlanHtml(snap) + '</div>';
+  }
+  // Max: an AI study plan built from the gaps, once a week.
+  function aiPlanHtml(snap) {
+    if (!SH.ai.enabled()) return '';
+    if (!SH.plan.allows('max')) return '<p class="small muted" style="margin:8px 0 0">Max adds the date you’ll reach your target and an AI study plan built from these gaps. <a href="#plans">See Max</a></p>';
+    const saved = (SH.store.get('ai', null) || {}).plan;
+    const week = SH.weekStart();
+    const fresh = saved && saved.week === week;
+    return '<div class="ai-plan"><div class="row" style="justify-content:space-between"><b>Your AI study plan</b>' +
+      (fresh ? '<span class="small muted">Made ' + SH.fmtDate(saved.t) + ' · next one on Monday</span>' : '<button type="button" class="btn btn-primary btn-sm" data-aiplan>' + (saved ? 'Make this week’s plan' : 'Make my plan') + '</button>') + '</div>' +
+      (saved && saved.text ? '<div class="rich" id="aiplan-text" style="margin-top:8px">' + SH.renderRich(saved.text) + '</div>' : '<p class="small muted" style="margin:6px 0 0" id="aiplan-text">A week-by-week plan to your test date from your gap table, error types and days left. One a week.</p>') + '</div>';
+  }
+  function bindAnalyzer(snap) {
+    $$('#analyzer [data-open]').forEach(b => b.addEventListener('click', () => {
+      const row = b.closest('.gap-row'), box = row.querySelector('.gap-skills');
+      if (!box) return;
+      box.hidden = !box.hidden; row.classList.toggle('open', !box.hidden); b.setAttribute('aria-expanded', String(!box.hidden));
+    }));
+    $$('[data-fix]').forEach(b => b.addEventListener('click', () => {
+      const [sec, dom, skill] = b.dataset.fix.split('|');
+      SH.track('gap_fix_tapped', { domain: dom, skill: skill || '', practice: !!b.dataset.n });
+      startFix(sec, dom, skill, +b.dataset.n || 15);
+    }));
+    const st = $('[data-stretch]');
+    if (st) st.addEventListener('click', () => {
+      const add = Math.min(snap.focus ? 800 : 1600, snap.target + 50);
+      if (snap.focus) SH.setProfile(snap.focus === 'rw' ? { targetRw: add } : { targetMath: add });
+      else SH.setProfile({ target: add, targetRw: 0, targetMath: 0 });
+      SH.toast('New target: ' + add); renderHome();
+    });
+    const ap = $('[data-aiplan]');
+    if (ap) ap.addEventListener('click', async () => {
+      ap.disabled = true; ap.textContent = 'Writing your plan…';
+      const p = SH.getProfile();
+      const days = p.testDate ? Math.ceil((new Date(p.testDate + 'T08:00:00') - new Date()) / 86400000) : null;
+      try {
+        const out = await SH.ai.studyPlan({
+          lang: SH.pickLang(), estimate: snap.estimate, target: snap.target, gap: snap.gap, daysLeft: days != null && days > 0 ? days : null,
+          domains: snap.domains.filter(d => d.conf !== 'none').slice(0, 8).map(d => ({ section: d.section, domain: d.domain, gap: d.gap, acc: pctOf(d.acc), err: d.err,
+            skills: d.skills.filter(k => k.conf !== 'none').slice(0, 4).map(k => ({ skill: k.skill, gap: k.gap, acc: pctOf(k.acc), err: k.err })) }))
+        });
+        const ai = Object.assign({}, SH.store.get('ai', null) || {});
+        ai.plan = { week: SH.weekStart(), text: String(out.plan || '').slice(0, 6000), t: Date.now() };
+        SH.store.set('ai', ai);
+        SH.track('ai_plan_made', {});
+        renderHome();
+      } catch (e) { ap.disabled = false; ap.textContent = 'Try again'; SH.toast(e.message); }
+    });
+  }
+
+  // "Fix this": a 15-question drill. Due Mistake Bank cards in that skill come
+  // first, then fresh questions of that skill at the student's level.
+  async function startFix(section, domain, skill, n) {
+    n = n || 15;
+    const snap = SH.gap.compute();
+    const d = snap.domains.find(x => x.section === section && x.domain === domain);
+    if (!skill && d) { const k = d.skills.find(x => x.conf !== 'none' && x.gap > 0); if (k) skill = k.skill; }
+    const skills = skill ? [skill] : SH.TAXONOMY[section].domains[domain] || [];
+    // The Mistake Bank opens filtered to the same skill.
+    bankView.f = { section, domain, skill: skill || '', tag: '', box: '', added: '' };
+    const st = d && d.skills.find(x => x.skill === skill);
+    const acc = st ? st.acc : d && d.n ? d.acc : .6;
+    const order = acc < .5 ? ['easy', 'medium', 'hard'] : acc < .75 ? ['medium', 'easy', 'hard'] : ['hard', 'medium', 'easy'];
+    let cards = [];
+    if (SH.mistakes.level() !== 'free') cards = SH.mistakes.queue().filter(e => e.section === section && skills.indexOf(e.skill) > -1).slice(0, Math.min(8, n));
+    const fromBank = cards.length ? (await SH.mistakes.questions(cards)).map(q => Object.assign(SH.shuffledCopy(q), { _review: true })) : [];
+    const seen = new Set(SH.getAttempts().map(a => a.qid)), inBank = new Set(SH.mistakes.all().map(e => e.qid));
+    const fresh = SH.shuffle(bank.filter(q => q.section === section && skills.indexOf(q.skill) > -1 && !inBank.has(q.id)))
+      .sort((a, b) => (seen.has(a.id) ? 1 : 0) - (seen.has(b.id) ? 1 : 0) || order.indexOf(a.difficulty) - order.indexOf(b.difficulty))
+      .slice(0, n - fromBank.length);
+    const qs = fromBank.concat(fresh);
+    if (!qs.length) { SH.toast('No questions for ' + (skill || domain) + ' in the bank yet.'); return; }
+    startSession({ title: (skill || domain) + ': fix this', questions: qs, source: 'drill' });
+  }
+
+  /* ---------- Mistake Bank: today's review ---------- */
+  const endOfTomorrow = () => (SH.dayNum() + 2) * 86400000 - 5 * 3600000;
+  function reviewCardHtml() {
+    const level = SH.mistakes.level();
+    if (level === 'free') {
+      const vis = SH.mistakes.visible().length;
+      if (!vis) return '';
+      return '<div class="card review-card"><div><span class="kicker">Mistake Bank</span><h3>' + vis + ' mistake' + (vis === 1 ? '' : 's') + ' to review</h3><p class="small muted">Go through them by hand. Pro brings each one back on a schedule until it sticks.</p></div><a class="btn btn-primary" href="#mistakes">Open the bank</a></div>';
+    }
+    const due = SH.mistakes.queue().length;
+    if (!due) return '';
+    const mins = Math.max(2, Math.round(due * 75 / 60));
+    return '<div class="card review-card"><div><span class="kicker">Mistake Bank</span><h3>Today’s review: ' + due + ' question' + (due === 1 ? '' : 's') + ', about ' + mins + ' minutes</h3><p class="small muted">Questions you missed, back on schedule. Get one right on time 4 reviews in a row and it’s mastered.</p></div><button class="btn btn-primary" type="button" data-start-review>Start</button></div>';
+  }
+  async function startReview() {
+    const level = SH.mistakes.level();
+    const cards = level === 'free' ? SH.mistakes.visible() : SH.mistakes.queue();
+    if (!cards.length) { SH.toast(level === 'free' ? 'Your Mistake Bank is empty.' : 'Nothing due today. Nice work.'); return; }
+    SH.toast('Loading your questions…', 1500);
+    const qs = await SH.mistakes.questions(cards);
+    const byId = {};
+    qs.forEach(q => { byId[q.id] = q; });
+    // Max: from Box 3 on, a twin (same skill and difficulty, not seen before) instead of the original.
+    const seen = new Set(SH.getAttempts().map(a => a.qid)), inBank = new Set(SH.mistakes.all().map(e => e.qid)), used = new Set();
+    const list = cards.filter(c => byId[c.qid]).map(c => {
+      let q = byId[c.qid];
+      if (level === 'max' && c.box >= 3) {
+        const twins = bank.filter(x => x.section === c.section && x.skill === c.skill && x.difficulty === c.difficulty && !seen.has(x.id) && !inBank.has(x.id) && !used.has(x.id));
+        if (twins.length) { const t = twins[Math.floor(Math.random() * twins.length)]; used.add(t.id); q = Object.assign({}, t, { twinOf: c.qid }); }
+      }
+      return SH.shuffledCopy(q);
+    });
+    if (!list.length) { SH.toast('Could not load these questions. Check your connection.'); return; }
+    SH.track('review_started', { n: list.length, level });
+    startSession({ title: level === 'free' ? 'Mistake Bank review' : 'Today’s review', questions: list, source: 'review' });
+  }
+
+  /* ---------- Progress graph: every full practice test, with the target line ---------- */
+  let chart = null;
+  function scoreChartHtml(hist, p, snap) {
+    const pts = hist.filter(SH.isFullTest).slice().sort((a, b) => a.finishedAt - b.finishedAt);
+    if (!pts.length) return '';
+    const pro = SH.plan.allows('pro'), max = SH.plan.allows('max');
+    chart = { pts, mode: 'total', snap, testDay: p.testDate ? Date.parse(p.testDate + 'T08:00:00+05:00') : 0, proj: max && snap.estimate != null && !snap.focus ? SH.gap.projection(snap) : null };
+    const last = pts[pts.length - 1].total, top = Math.max.apply(null, pts.map(h => h.total)), first = pts[0].total;
+    const seg = pro ? '<div class="seg" role="group" aria-label="Score to show">' + [['total', 'Total'], ['rw', 'R&amp;W'], ['math', 'Math']].map(m => '<button type="button" data-mode="' + m[0] + '" aria-pressed="' + (m[0] === 'total') + '">' + m[1] + '</button>').join('') + '</div>' : '';
+    return '<div class="row" style="justify-content:space-between;align-items:flex-end;margin:34px 0 14px"><h2 class="section-title" style="margin:0">Progress</h2>' + seg + '</div>' +
+      '<div class="card chart-card" id="chart"><p class="chart-sum"><span>Latest <b>' + last + '</b></span><span>Best <b>' + top + '</b></span>' + (pts.length > 1 ? '<span>Since your first test <b>' + (last - first >= 0 ? '+' : '') + (last - first) + '</b></span>' : '') + '<span>Target <b>' + snap.target + '</b></span></p>' +
+      '<div id="chart-svg"></div><div class="chart-tip" hidden></div>' + projText() +
+      (pro ? '' : '<p class="small muted" style="margin:10px 0 0">Pro adds your Reading and Writing and Math lines, each with its own target.</p>') + '</div>';
+  }
+  function projText() {
+    const c = chart, pr = c && c.proj;
+    if (!pr) return '';
+    const s = c.snap, fixFirst = s.top ? ' Fixing ' + (s.top.skill || s.top.domain) + ' first is the fastest way to close the gap.' : '';
+    const day = t => new Date(t).toLocaleDateString('en-GB', { day: 'numeric', month: 'long' });
+    let t;
+    if (s.gap === 0) return '';
+    if (!pr.ok) t = 'Take ' + (pr.need || 1) + ' more full test' + (pr.need === 1 ? '' : 's') + ', spread over at least 10 days, to see the date you’ll reach your target.';
+    else if (pr.flat) t = 'Your last tests are flat or falling.' + (pr.byTest ? ' At this pace you’ll be at about ' + pr.byTest + ' by your test date.' : '') + fixFirst;
+    else if (pr.beyond) t = 'At this pace your target is more than 6 months away.' + (pr.byTest ? ' You’d reach about ' + pr.byTest + ' by your test date.' : '') + fixFirst;
+    else if (pr.late) t = 'At this pace you’ll reach about ' + pr.byTest + ' by your test date, and ' + s.target + ' around ' + day(pr.when) + '.' + fixFirst;
+    else t = 'At this pace you’ll reach ' + s.target + ' around <b>' + day(pr.when) + '</b>' + (pr.testDay > Date.now() ? ', before your test on ' + day(pr.testDay) + '.' : '.');
+    return '<p class="small" style="margin:10px 0 0"><span class="tag tag-ai">Max</span> ' + t + '</p>';
+  }
+  function chartSvg() {
+    const c = chart, mode = c.mode;
+    const val = h => mode === 'total' ? h.total : h.sections && h.sections[mode] ? h.sections[mode].score : null;
+    const pts = c.pts.filter(h => val(h) != null);
+    const goal = mode === 'total' ? (c.snap.focus ? 0 : c.snap.target) : c.snap.targets[mode];
+    const lo = mode === 'total' ? 400 : 200, hi = mode === 'total' ? 1600 : 800;
+    const W = 640, H = 230, L = 44, R = 18, T = 18, B = 30;
+    const proj = mode === 'total' && c.proj && c.proj.ok ? c.proj : null;
+    let x0 = pts.length ? pts[0].finishedAt : Date.now(), x1 = pts.length ? pts[pts.length - 1].finishedAt : Date.now();
+    if (proj) x1 = Math.max(x1, proj.line[proj.line.length - 1][0]);
+    if (c.testDay > x1 && c.testDay - x0 < 400 * 86400000) x1 = c.testDay;
+    if (x1 - x0 < 7 * 86400000) { x0 -= 3 * 86400000; x1 += 4 * 86400000; }
+    const vals = pts.map(val).concat(goal ? [goal] : []).concat(proj ? proj.line.map(l => l[1]) : []);
+    if (!vals.length) return '<p class="muted">No section scores yet.</p>';
+    const step0 = mode === 'total' ? 100 : 50;
+    const y0 = Math.max(lo, Math.floor((Math.min.apply(null, vals) - step0 * .6) / step0) * step0), y1 = Math.min(hi, Math.ceil((Math.max.apply(null, vals) + step0 * .6) / step0) * step0);
+    const sx = t => L + (t - x0) / (x1 - x0) * (W - L - R), sy = v => T + (y1 - v) / ((y1 - y0) || 1) * (H - T - B);
+    const step = y1 - y0 > 6 * step0 ? 2 * step0 : step0;
+    let g = '';
+    for (let v = y0; v <= y1; v += step) g += '<line x1="' + L + '" x2="' + (W - R) + '" y1="' + sy(v) + '" y2="' + sy(v) + '" stroke="var(--line)" stroke-width="1"/><text class="ax" x="' + (L - 8) + '" y="' + (sy(v) + 4) + '" text-anchor="end">' + v + '</text>';
+    const day = t => new Date(t).toLocaleDateString('en-GB', { day: 'numeric', month: 'short' });
+    g += '<text class="ax" x="' + L + '" y="' + (H - 8) + '">' + day(x0) + '</text>';
+    if (goal >= y0 && goal <= y1) g += '<line x1="' + L + '" x2="' + (W - R) + '" y1="' + sy(goal) + '" y2="' + sy(goal) + '" stroke="var(--gold-text)" stroke-width="1.5" stroke-dasharray="5 4"/><text class="ax" x="' + (L + 6) + '" y="' + (sy(goal) - 6) + '">Target ' + goal + '</text>';
+    if (c.testDay && c.testDay <= x1 && c.testDay >= x0) g += '<line x1="' + sx(c.testDay) + '" x2="' + sx(c.testDay) + '" y1="' + T + '" y2="' + (H - B) + '" stroke="var(--edge)" stroke-width="1.5" stroke-dasharray="3 4"/><text class="ax" x="' + sx(c.testDay) + '" y="' + (H - 8) + '" text-anchor="end">Test day ' + day(c.testDay) + '</text>';
+    else g += '<text class="ax" x="' + (W - R) + '" y="' + (H - 8) + '" text-anchor="end">' + day(x1) + '</text>';
+    if (proj) g += '<path d="M' + proj.line.map(l => sx(l[0]).toFixed(1) + ' ' + sy(l[1]).toFixed(1)).join(' L') + '" fill="none" stroke="var(--brand-soft)" stroke-width="2" stroke-dasharray="2 5" stroke-linecap="round"/>';
+    g += '<path d="' + pts.map((h, i) => (i ? 'L' : 'M') + sx(h.finishedAt).toFixed(1) + ' ' + sy(val(h)).toFixed(1)).join(' ') + '" fill="none" stroke="var(--brand)" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>';
+    g += pts.map(h => '<circle cx="' + sx(h.finishedAt) + '" cy="' + sy(val(h)) + '" r="5" fill="var(--brand)" stroke="#fff" stroke-width="2"/>' +
+      '<circle cx="' + sx(h.finishedAt) + '" cy="' + sy(val(h)) + '" r="16" fill="transparent" tabindex="0" role="img" data-pt="' + c.pts.indexOf(h) + '" aria-label="' + esc(h.title + ', ' + SH.fmtDate(h.finishedAt) + ': ' + val(h)) + '"/>').join('');
+    return '<svg viewBox="0 0 ' + W + ' ' + H + '" role="group" aria-label="Your practice test scores over time">' + g + '</svg>';
+  }
   function bindChart() {
-    const box = $('#chart'); if (!box) return;
-    const pts = JSON.parse(box.dataset.pts), tip = $('.chart-tip', box), svg = $('svg', box);
+    const box = $('#chart'); if (!box || !chart) return;
+    const tip = $('.chart-tip', box), host = $('#chart-svg', box);
     const show = el => {
-      const h = pts[+el.dataset.pt], r = el.getBoundingClientRect(), b = box.getBoundingClientRect();
-      tip.innerHTML = esc(h[0]) + ' · ' + esc(SH.fmtDate(h[1])) + '<br><b>' + h[2] + '</b>' + (h[3] != null ? ' &nbsp;R&amp;W ' + h[3] : '') + (h[4] != null ? ' · Math ' + h[4] : '');
+      const h = chart.pts[+el.dataset.pt], r = el.getBoundingClientRect(), b = box.getBoundingClientRect();
+      tip.innerHTML = esc(h.title) + ' · ' + esc(SH.fmtDate(h.finishedAt)) + '<br><b>' + h.total + '</b>' + (h.sections.rw ? ' &nbsp;R&amp;W ' + h.sections.rw.score : '') + (h.sections.math ? ' · Math ' + h.sections.math.score : '');
       tip.hidden = false;
       tip.style.left = Math.max(80, Math.min(b.width - 80, r.left + r.width / 2 - b.left)) + 'px';
       tip.style.top = (r.top + r.height / 2 - b.top) + 'px';
     };
-    $$('[data-pt]', svg).forEach(c => { c.addEventListener('mouseenter', () => show(c)); c.addEventListener('focus', () => show(c)); c.addEventListener('click', () => show(c)); });
-    svg.addEventListener('mouseleave', () => { tip.hidden = true; });
-    $$('[data-pt]', svg).forEach(c => c.addEventListener('blur', () => { tip.hidden = true; }));
+    const draw = () => {
+      host.innerHTML = chartSvg();
+      const svg = $('svg', host); if (!svg) return;
+      $$('[data-pt]', svg).forEach(c => { c.addEventListener('mouseenter', () => show(c)); c.addEventListener('focus', () => show(c)); c.addEventListener('click', () => show(c)); c.addEventListener('blur', () => { tip.hidden = true; }); });
+      svg.addEventListener('mouseleave', () => { tip.hidden = true; });
+    };
+    $$('[data-mode]').forEach(b => b.addEventListener('click', () => {
+      chart.mode = b.dataset.mode;
+      $$('[data-mode]').forEach(x => x.setAttribute('aria-pressed', String(x === b)));
+      draw();
+    }));
+    draw();
   }
 
   /* ---------- Classes: join with a code, homework on the dashboard ---------- */
@@ -649,22 +927,29 @@ document.addEventListener('DOMContentLoaded', function () {
       } }]
     });
   }
-  // Countdown to test day and the points still missing to the goal. Free
-  // students also get one line on how Pro (or the pass, close to the test) helps.
-  function goalStrip(p, best) {
-    const goal = +p.target || 0;
+  // Gap card at the top of the dashboard: current estimate, target and the gap,
+  // with the countdown to test day. Free students also get one line on how Pro helps.
+  function gapCard(p, snap) {
     const days = p.testDate ? Math.ceil((new Date(p.testDate + 'T08:00:00') - new Date()) / 86400000) : null;
-    const gap = best && goal ? goal - best : null;
-    const item = (big, label, sub) => '<div class="goal-item"><b>' + big + '</b><span>' + label + '</span>' + (sub ? '<small>' + sub + '</small>' : '') + '</div>';
+    const item = (big, label, sub, cls) => '<div class="goal-item' + (cls ? ' ' + cls : '') + '"><b>' + big + '</b><span>' + label + '</span>' + (sub ? '<small>' + sub + '</small>' : '') + '</div>';
     const setBtn = label => '<button type="button" class="link-btn" data-goals>' + label + '</button>';
-    const fmtDay = d => new Date(p.testDate + 'T08:00:00').toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' });
-    const when = days == null ? item('–', 'days to your SAT', setBtn('Set your test date'))
+    const fmtDay = () => new Date(p.testDate + 'T08:00:00').toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' });
+    const sec = snap.focus ? (snap.focus === 'rw' ? 'Reading and Writing ' : 'Math ') : '';
+    const when = days == null ? item('–', 'days to your SAT', setBtn('Pick your test date'))
       : days < 0 ? item('–', 'Your test date has passed', setBtn('Set your next test date'))
       : days === 0 ? item('Today', 'is your SAT. Good luck!', esc(fmtDay()))
       : item(days, (days === 1 ? 'day' : 'days') + ' to your SAT', esc(fmtDay()) + ' · ' + setBtn('Change'));
-    const what = !best ? item('–', 'points to your goal of ' + goal, '<a href="test.html?id=diagnostic-mini">Take the mini diagnostic</a> to see your gap')
-      : gap > 0 ? item(gap, 'points to your goal of ' + goal, 'Best test estimate: ' + best)
-      : item(best, 'best estimate: your goal of ' + goal + ' is reached', setBtn('Raise your goal'));
+    let items;
+    if (snap.estimate == null) {
+      items = item('–', sec + 'current estimate', '<a href="test.html?id=diagnostic-mini">Take the mini diagnostic</a> or a practice set to see it') +
+        item(snap.target, sec + 'target', setBtn('Change')) + when;
+    } else {
+      const from = snap.estFrom === 'tests' ? 'Average of your last 2 full tests' : 'Estimate from practice. Take a full test for a real number.';
+      items = item(snap.estimate, sec + 'current estimate', '<span class="gap-est">' + esc(from) + '</span>') +
+        item(snap.target, sec + 'target', setBtn('Change')) +
+        (snap.gap > 0 ? item(snap.gap, 'points to win back', '', 'gap-big')
+          : item('✓', 'Target reached', 'Try a stretch target of ' + Math.min(snap.focus ? 800 : 1600, snap.target + 50) + ' · ' + setBtn('Raise it'))) + when;
+    }
     let pitch = '';
     if (!SH.plan.allows('pro')) {
       const P = SH.CONFIG.PLANS;
@@ -672,14 +957,14 @@ document.addEventListener('DOMContentLoaded', function () {
       // Same check as the pass in sh.js: only offered with card transfer.
       const passOn = !SH.pay.enabled() && String((SH.CONFIG.MANUAL_PAY || {}).CARD || '').replace(/\D/g, '').length >= 16 && som(P.PASS_PRICE) > 0 && Number(P.PASS_MONTHS) > 1;
       const soon = passOn && days != null && days > 0 && days <= 100;
-      const gapText = gap > 0 ? 'those ' + gap + ' points' : 'the most points';
+      const gapText = snap.gap > 0 ? 'those ' + snap.gap + ' points' : 'the most points';
       const line = soon
-        ? 'Your SAT is in ' + days + ' day' + (days === 1 ? '' : 's') + '. The ' + P.PASS_MONTHS + '-month pass (' + (P.PASS_PRICE + ' ' + P.CURRENCY.en).replace(/ /g, '\u00a0') + ') gives you Pro until test day: see which skills cost you ' + gapText + ' and review every question.'
-        : 'Pro shows which skills cost you ' + gapText + ', with drills for each one and a review of every test question.';
-      const title = soon ? 'Pro until your test' : gap > 0 ? 'Close the ' + gap + '-point gap' : 'Practice what costs you points';
+        ? 'Your SAT is in ' + days + ' day' + (days === 1 ? '' : 's') + '. The ' + P.PASS_MONTHS + '-month pass (' + (P.PASS_PRICE + ' ' + P.CURRENCY.en).replace(/ /g, ' ') + ') gives you Pro until test day: see where all ' + gapText + ' are hiding, with a fix list and your Mistake Bank on a review schedule.'
+        : 'Pro shows where all ' + gapText + ' are hiding, ranked from the fastest win, and brings your mistakes back until they stick.';
+      const title = soon ? 'Pro until your test' : snap.gap > 0 ? 'Close the ' + snap.gap + '-point gap' : 'Practice what costs you points';
       pitch = '<div class="goal-pitch"><p>' + esc(line) + '</p><button type="button" class="btn btn-primary btn-sm" data-goal-pitch data-title="' + esc(title) + '" data-text="' + esc(line) + '">' + (soon ? 'Get Pro until my test' : 'See what Pro adds') + '</button></div>';
     }
-    return '<section class="goal-strip" aria-label="Your goal"><div class="goal-items">' + when + what + '</div>' + pitch + '</section>';
+    return '<section class="goal-strip gap-card" aria-label="Your score gap"><div class="goal-items">' + items + '</div>' + pitch + '</section>';
   }
   function tile(v, label) { return '<div class="stat"><b>' + esc(v) + '</b><span>' + label + '</span></div>'; }
   function planChip() {
@@ -737,74 +1022,243 @@ document.addEventListener('DOMContentLoaded', function () {
       setTimeout(() => { prefillAI(b.dataset.sec, b.dataset.aiskill); }, 0);
     }));
   }
+  // Goal setup: target total (400 to 1600 in tens), optional section targets,
+  // test date from the official SAT dates (or not decided), and a section focus
+  // for students who prep one section only.
   function editGoals() {
     const p = SH.getProfile();
+    const today = new Date().toISOString().slice(0, 10);
+    const dates = (SH.CONFIG.SAT_DATES || []).filter(d => d >= today);
+    if (p.testDate && dates.indexOf(p.testDate) < 0) dates.unshift(p.testDate);
+    const dayName = d => new Date(d + 'T08:00:00').toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' });
+    const opts = (from, to, step, cur, blank) => (blank ? '<option value="">' + blank + '</option>' : '') + Array.from({ length: (to - from) / step + 1 }, (_, i) => from + i * step).map(v => '<option' + (+cur === v ? ' selected' : '') + '>' + v + '</option>').join('');
     SH.modal({
       title: 'Your goals',
       html: '<div class="field"><label for="g-name">Name</label><input class="input" id="g-name" maxlength="40" value="' + esc(p.name) + '"></div>' +
-        '<div class="row"><div class="grow field"><label for="g-target">Target score</label><input class="input" id="g-target" type="number" min="400" max="1600" step="10" value="' + esc(p.target) + '"></div>' +
-        '<div class="grow field"><label for="g-date">Test date</label><input class="input" id="g-date" type="date" value="' + esc(p.testDate) + '"></div></div>' +
+        '<div class="row"><div class="grow field"><label for="g-target">Target score</label><select class="input" id="g-target">' + opts(400, 1600, 10, p.target || 1400) + '</select></div>' +
+        '<div class="grow field"><label for="g-date">Test date</label><select class="input" id="g-date"><option value="">Not decided</option>' + dates.map(d => '<option value="' + d + '"' + (d === p.testDate ? ' selected' : '') + '>' + esc(dayName(d)) + '</option>').join('') + '</select></div></div>' +
+        '<details' + (p.targetRw || p.targetMath || p.focus ? ' open' : '') + ' style="margin:2px 0 12px"><summary class="small"><b>Section targets and focus (optional)</b></summary>' +
+        '<div class="row" style="margin-top:10px"><div class="grow field"><label for="g-rw">Reading and Writing target</label><select class="input" id="g-rw">' + opts(200, 800, 10, p.targetRw, 'Split my total') + '</select></div>' +
+        '<div class="grow field"><label for="g-math">Math target</label><select class="input" id="g-math">' + opts(200, 800, 10, p.targetMath, 'Split my total') + '</select></div></div>' +
+        '<div class="field"><label for="g-focus">I’m preparing for</label><select class="input" id="g-focus"><option value="">Both sections</option><option value="rw"' + (p.focus === 'rw' ? ' selected' : '') + '>Reading and Writing only</option><option value="math"' + (p.focus === 'math' ? ' selected' : '') + '>Math only</option></select></div>' +
+        '<p class="small muted" style="margin:0">With both section targets set, your target score is their sum.</p></details>' +
         '<div class="row"><div class="grow field"><label for="g-region">Region</label><select class="input" id="g-region"><option value="">Choose…</option>' + SH.REGIONS.map(r => '<option' + (p.region === r ? ' selected' : '') + '>' + esc(r) + '</option>').join('') + '</select></div>' +
         '<div class="grow field"><label for="g-school">School or lyceum (optional)</label><input class="input" id="g-school" maxlength="80" value="' + esc(p.school) + '" placeholder="e.g. Lyceum No. 1, Tashkent"></div></div>' +
         '<p class="small muted">Region and school place you in the national mock rankings. ' + (SH.auth.user ? 'Saved to your account.' : 'Saved on this device. Sign in to keep it on every device.') + '</p>',
       actions: [{ label: 'Cancel', kind: 'ghost' }, {
         label: 'Save', kind: 'primary', onClick: back => {
-          const t = Math.max(400, Math.min(1600, Math.round((+back.querySelector('#g-target').value || 1400) / 10) * 10));
-          SH.setProfile({ name: back.querySelector('#g-name').value.trim(), target: t, testDate: back.querySelector('#g-date').value,
-            region: back.querySelector('#g-region').value, school: back.querySelector('#g-school').value.trim().slice(0, 80) });
-          renderHome();
+          const v = id => back.querySelector(id).value;
+          const rw = +v('#g-rw') || 0, mt = +v('#g-math') || 0;
+          const target = rw && mt ? rw + mt : +v('#g-target') || 1400;
+          SH.setProfile({ name: v('#g-name').trim(), target, targetRw: rw, targetMath: mt, focus: v('#g-focus'), goalSet: true, testDate: v('#g-date'),
+            region: v('#g-region'), school: v('#g-school').trim().slice(0, 80) });
+          SH.track('goal_set', { target, test_date: v('#g-date') ? 'set' : 'not_decided', focus: v('#g-focus') || 'both', section_targets: !!(rw && mt) });
+          if (!session) route();
         }
       }]
     });
   }
 
-  /* ======================= MISTAKE NOTEBOOK ======================= */
-  // Every wrong answer, by skill. Practice test mistakes are part of Pro (they
-  // show the question review that Pro sells); practice sets are open to all.
+  /* ======================= MISTAKE BANK ======================= */
+  // Every wrong answer (and every guess) comes back on a schedule until it
+  // sticks. Free keeps the newest 15 to review by hand.
+  const bankView = { tab: 'active', f: { section: '', domain: '', skill: '', tag: '', box: '', added: '' } };
+  const boxPill = e => '<span class="box-pill" title="Box ' + e.box + ' of 4">' + [1, 2, 3, 4].map(i => '<i class="' + (i <= e.box ? 'on' : '') + '"></i>').join('') + ' Box ' + e.box + '</span>';
+  const dueText = e => {
+    if (e.st === 'mastered') return 'mastered ' + SH.fmtDate(e.mAt);
+    const d = Math.ceil(((e.due || 0) - Date.now()) / 86400000);
+    return d <= 0 ? 'due today' : d === 1 ? 'due tomorrow' : 'due in ' + d + ' days';
+  };
   function renderMistakes() {
-    const pro = SH.plan.allows('pro');
-    const all = SH.mistakes.all();
-    const mine = all.filter(e => pro || e.ref.type !== 'test');
-    const lockedTests = all.filter(e => !pro && e.ref.type === 'test' && !e.fixed).length;
-    const open = mine.filter(e => !e.fixed).sort((a, b) => b.t - a.t), fixed = mine.filter(e => e.fixed).sort((a, b) => (b.fixedAt || 0) - (a.fixedAt || 0));
-    const week = SH.weekStart();
-    let html = '<div class="hub-head"><div><h1>Mistake notebook</h1><p class="hub-sub">Every question you got wrong, sorted by skill. Answer one right ' + SH.FIX_AFTER + ' times in a row and it’s fixed.</p></div>' +
-      (open.length ? '<div class="hub-acts"><button class="btn btn-primary" type="button" data-retry-all>Retry my mistakes (' + Math.min(open.length, 20) + ')</button></div>' : '') + '</div>';
-    html += '<div class="grid grid-3" style="margin-bottom:18px">' + tile(open.length, 'to fix') + tile(fixed.length, 'fixed so far') + tile(fixed.filter(e => (e.fixedAt || 0) >= week).length, 'fixed this week') + '</div>';
-    if (!mine.length && !lockedTests) {
-      html += '<div class="card empty"><h3>Nothing here yet</h3><p class="muted">Questions you get wrong in practice sets, drills, lessons and the question of the day land here, so you can fix them before test day.</p><div class="row" style="justify-content:center"><a class="btn btn-primary" href="#sets">Practice a set</a><a class="btn btn-ghost" href="daily.html">Question of the day</a></div></div>';
-    }
-    if (open.length) {
-      const by = {};
-      open.forEach(e => { const k = e.section + '|' + e.skill; (by[k] = by[k] || { section: e.section, skill: e.skill, list: [] }).list.push(e); });
-      html += '<h2 class="section-title">By skill</h2><div class="card">' + Object.values(by).sort((a, b) => b.list.length - a.list.length).map(g =>
-        '<div class="mk-row"><div>' + secTag(g.section) + ' <b>' + esc(g.skill) + '</b><div class="small muted">' + g.list.length + ' to fix</div></div>' +
-        '<button class="btn btn-ghost btn-sm" type="button" data-retry-skill="' + esc(g.section + '|' + g.skill) + '">Retry these</button></div>').join('') + '</div>';
-      html += '<h2 class="section-title">Most recent</h2><div class="card">' + open.slice(0, 40).map(e =>
-        '<div class="mk-row"><div><span class="small muted">' + esc(e.where || '') + ' · ' + esc(e.skill) + ' · ' + esc(DIFF[e.difficulty] || '') + '</span><br>' + (e.p ? esc(e.p) + (e.p.length >= 110 ? '…' : '') : '<b>' + esc(e.qid) + '</b>') +
-        (e.misses > 1 ? ' <span class="small muted">missed ' + e.misses + ' times</span>' : '') +
-        '<span class="dots" aria-label="' + (e.streak || 0) + ' of ' + SH.FIX_AFTER + ' right in a row">' + Array.from({ length: SH.FIX_AFTER }, (_, i) => '<i class="' + (i < (e.streak || 0) ? 'on' : '') + '"></i>').join('') + '</span></div>' +
-        '<button class="link-btn small" type="button" data-forget="' + esc(e.qid) + '">Remove</button></div>').join('') + '</div>';
-    }
-    if (lockedTests) {
-      html += '<h2 class="section-title">From practice tests</h2><div class="card">' + SH.lockBox('<div style="height:120px"></div>', lockedTests + ' mistake' + (lockedTests === 1 ? '' : 's') + ' from practice tests', 'Pro adds the questions you missed in practice tests to your notebook, with explanations, so you can retry them.', 'mistakes') + '</div>';
-    }
-    if (fixed.length) {
-      html += '<details style="margin-top:26px"><summary><b>Fixed (' + fixed.length + ')</b></summary><div class="card" style="margin-top:10px">' + fixed.slice(0, 40).map(e =>
-        '<div class="mk-row"><div><span class="small muted">' + esc(e.skill) + ' · fixed ' + SH.fmtDate(e.fixedAt) + '</span><br>' + (e.p ? esc(e.p) + (e.p.length >= 110 ? '…' : '') : '<b>' + esc(e.qid) + '</b>') + '</div><span class="status status-done">' + ICON.check + 'Fixed</span></div>').join('') + '</div></details>';
-    }
-    view.innerHTML = html;
-    const retry = async (entries, title) => {
-      const pick = entries.slice().sort((a, b) => a.t - b.t).slice(0, 20);
-      SH.toast('Loading your questions…', 1500);
-      const qs = await SH.mistakes.questions(pick);
-      if (!qs.length) { SH.toast('Could not load these questions. Check your connection.'); return; }
-      SH.track('mistakes_retried', { n: qs.length });
-      startSession({ title, questions: SH.shuffle(qs), source: 'mistakes' });
+    const level = SH.mistakes.level(), pro = level !== 'free';
+    const all = SH.mistakes.all(), st = SH.mistakes.stats();
+    const lists = {
+      active: pro ? all.filter(e => e.st === 'active' && e.kind !== 'speed') : SH.mistakes.visible(),
+      speed: all.filter(e => e.st === 'active' && e.kind === 'speed'),
+      mastered: all.filter(e => e.st === 'mastered')
     };
-    const ra = $('[data-retry-all]'); if (ra) ra.addEventListener('click', () => retry(open, 'Retry my mistakes'));
-    $$('[data-retry-skill]').forEach(b => b.addEventListener('click', () => retry(open.filter(e => e.section + '|' + e.skill === b.dataset.retrySkill), 'Retry: ' + b.dataset.retrySkill.split('|')[1])));
-    $$('[data-forget]').forEach(b => b.addEventListener('click', () => { SH.mistakes.remove(b.dataset.forget); renderMistakes(); }));
+    const hidden = pro ? 0 : all.filter(e => e.st === 'active' && e.kind !== 'speed').length - lists.active.length;
+    if (!pro && bankView.tab === 'speed') bankView.tab = 'active';
+    const due = pro ? SH.mistakes.queue().length : 0;
+    let html = '<div class="hub-head"><div><h1>Mistake Bank</h1><p class="hub-sub">Every question you got wrong or guessed comes back until you get it right, on time, ' + (pro ? '4 reviews in a row: after 1, 3, 7 and 21 days.' : 'several times in a row.') + '</p></div>' +
+      '<div class="hub-acts">' + (pro ? (due ? '<button class="btn btn-primary" type="button" data-start-review>Start today’s review (' + due + ')</button>' : '<span class="chip">Nothing due today</span>')
+        : lists.active.length ? '<button class="btn btn-primary" type="button" data-start-review>Review by hand (' + lists.active.length + ')</button>' : '') + '</div></div>';
+    html += '<div class="grid grid-4" style="margin-bottom:18px">' + tile(pro ? st.total : lists.active.length + lists.mastered.length, 'in your bank') + tile(st.masteredMonth, 'mastered this month') +
+      tile(st.reviewAcc == null ? '–' : Math.round(st.reviewAcc * 100) + '%', 'review accuracy') + tile(st.commonTag ? SH.tagLabel(st.commonTag) : '–', 'most common reason') + '</div>';
+    html += patternsHtml(level, all);
+    if (!all.length) {
+      html += '<div class="card empty"><h3>Nothing here yet</h3><p class="muted">Questions you get wrong in practice sets, drills, tests, lessons and the question of the day land here, so you can fix them before test day.</p><div class="row" style="justify-content:center"><a class="btn btn-primary" href="#sets">Practice a set</a><a class="btn btn-ghost" href="daily.html">Question of the day</a></div></div>';
+      view.innerHTML = html; bindBank(); return;
+    }
+    const tabs = [['active', 'To review', lists.active.length]].concat(pro ? [['speed', 'Speed', lists.speed.length]] : []).concat([['mastered', 'Mastered', lists.mastered.length]]);
+    html += '<div class="seg bank-tabs" role="group" aria-label="Bank view">' + tabs.map(t => '<button type="button" data-btab="' + t[0] + '" aria-pressed="' + (bankView.tab === t[0]) + '">' + t[1] + ' (' + t[2] + ')</button>').join('') + '</div>';
+    if (bankView.tab === 'speed') html += '<p class="small muted" style="margin:-4px 0 12px">Questions you got right but slowly (over 1.5 times the usual time). You know them; these reviews build speed.</p>';
+    let list = lists[bankView.tab].slice();
+    if (pro) {
+      const f = bankView.f;
+      const doms = f.section ? Object.keys(SH.TAXONOMY[f.section].domains) : [];
+      const skills = f.domain ? SH.TAXONOMY[f.section].domains[f.domain] || [] : [];
+      const sel = (k, label, items) => '<select class="input" data-filter="' + k + '" aria-label="' + label + '"><option value="">' + label + ': all</option>' + items.map(i => '<option value="' + esc(i[0]) + '"' + (f[k] === i[0] ? ' selected' : '') + '>' + esc(i[1]) + '</option>').join('') + '</select>';
+      html += '<div class="filters">' + sel('section', 'Section', [['rw', 'Reading and Writing'], ['math', 'Math']]) +
+        (doms.length ? sel('domain', 'Domain', doms.map(d => [d, d])) : '') + (skills.length ? sel('skill', 'Skill', skills.map(d => [d, d])) : f.skill ? sel('skill', 'Skill', [[f.skill, f.skill]]) : '') +
+        sel('tag', 'Reason', SH.ERROR_TAGS.map(t => [t[0], t[1]])) + sel('box', 'Box', [1, 2, 3, 4].map(b => [String(b), 'Box ' + b])) +
+        sel('added', 'Added', [['7', 'Last 7 days'], ['30', 'Last 30 days']]) + '</div>';
+      list = list.filter(e => (!f.section || e.section === f.section) && (!f.domain || SH.domainOf(e.section, e.skill) === f.domain) && (!f.skill || e.skill === f.skill) &&
+        (!f.tag || (e.tag || e.sug) === f.tag) && (!f.box || String(e.box) === f.box) && (!f.added || (e.first || e.t) >= Date.now() - (+f.added) * 86400000));
+    }
+    list.sort(bankView.tab === 'mastered' ? (a, b) => (b.mAt || 0) - (a.mAt || 0) : (a, b) => (b.first || b.t) - (a.first || a.t));
+    html += '<div class="card" style="padding-top:6px;padding-bottom:6px">' + (list.length ? list.slice(0, 80).map(bankCardHtml).join('') : '<p class="muted" style="margin:12px 0">No cards match.</p>') + '</div>';
+    if (list.length > 80) html += '<p class="small muted">Showing the newest 80 of ' + list.length + '. Use the filters to find the rest.</p>';
+    if (hidden > 0) html += '<div class="card" style="margin-top:14px">' + SH.lockBox('<div style="height:110px"></div>', 'You have ' + hidden + ' more mistake' + (hidden === 1 ? '' : 's') + ' saved', 'Unlock them with Pro: an unlimited bank on a review schedule, with reasons, filters and notes.', 'mistakes') + '</div>';
+    view.innerHTML = html;
+    bindBank();
+  }
+  function bankCardHtml(e) {
+    const tag = e.tag || e.sug;
+    return '<details class="bank-card" data-card="' + esc(e.qid) + '"><summary><div><span class="bk-meta">' + secTag(e.section) + ' ' + esc(e.skill) + ' · ' + esc(DIFF[e.difficulty] || '') + ' · ' + esc(e.where || '') + '</span>' +
+      '<span class="bk-p">' + (e.p ? esc(e.p) + (e.p.length >= 110 ? '…' : '') : '<b>' + esc(e.qid) + '</b>') + '</span>' +
+      '<span class="bk-meta">' + (e.misses > 1 ? 'Missed ' + e.misses + ' times · ' : '') + (tag ? SH.tagLabel(tag) + (e.tag ? '' : ' (suggested)') + ' · ' : '') + dueText(e) + '</span></div>' +
+      (e.st === 'mastered' ? '<span class="status status-done">' + ICON.check + 'Mastered</span>' : boxPill(e)) + '</summary><div class="bk-body"><p class="muted small">Loading the question…</p></div></details>';
+  }
+  async function openBankCard(el) {
+    const body = $('.bk-body', el);
+    if (body.dataset.done) return;
+    body.dataset.done = '1';
+    const e = SH.mistakes.map()[el.dataset.card];
+    const q = (await SH.mistakes.questions([e]))[0];
+    const yours = e.ch ? (q && q.type === 'mc' && SH.LETTERS.indexOf(e.ch) > -1 ? e.ch + ': ' + SH.renderRich(q.choices[SH.LETTERS.indexOf(e.ch)] || '', { inline: true }) : esc(e.ch)) : (e.kind === 'speed' ? 'right, but slow' : e.misses ? '—' : 'right, but guessed');
+    body.innerHTML = (q ? '<div class="rich" style="margin-bottom:10px">' + SH.renderStimulus(q) + '</div><div class="rich"><strong>' + SH.renderRich(q.prompt) + '</strong></div>' +
+      (q.type === 'mc' ? '<ol type="A" class="small" style="margin:8px 0">' + q.choices.map(c => '<li>' + SH.renderRich(c, { inline: true }) + '</li>').join('') + '</ol>' : '') +
+      '<p class="small" style="margin:8px 0">Your answer: <b>' + yours + '</b> · Correct answer: <b>' + esc(SH.answerLabel(q)) + '</b></p>' +
+      (q.explanation ? '<div class="expl rich">' + SH.renderRich(q.explanation) + '</div>' : '') : '<p class="muted">This question could not be loaded.</p>') +
+      (e.kind !== 'speed' && e.st === 'active' ? '<div class="why"><b>Why did you miss it?</b>' + tagChips(e) + '</div>' : '') +
+      '<p class="small muted" style="margin:12px 0 4px">' + (e.st === 'mastered' ? 'Mastered ' + SH.fmtDate(e.mAt) : boxPill(e) + ' · ' + dueText(e)) + ' · added ' + SH.fmtDate(e.first || e.t) + (e.rv ? ' · ' + e.rc + ' of ' + e.rv + ' reviews right' : '') + '</p>' +
+      '<label class="small" for="note-' + esc(e.qid) + '"><b>Note to future me</b></label><textarea class="input note-in" id="note-' + esc(e.qid) + '" data-note="' + esc(e.qid) + '" maxlength="400" placeholder="e.g. Semicolon only between two full sentences">' + esc(e.note || '') + '</textarea>' +
+      '<div class="row" style="margin-top:8px">' + (q && SH.ai.enabled() ? '<button class="btn btn-ghost btn-sm" type="button" data-bk-tutor>Ask the AI tutor</button>' : '') + '<button class="link-btn small" type="button" data-forget="' + esc(e.qid) + '" style="margin-left:auto">Remove from bank</button></div>';
+    bindTagChips(body);
+    const n = $('[data-note]', body);
+    n.addEventListener('change', () => { SH.mistakes.setNote(e.qid, n.value); SH.toast('Note saved'); });
+    const t = $('[data-bk-tutor]', body); if (t) t.addEventListener('click', () => SH.openTutor({ question: q, response: e.ch || '', correct: false }));
+    const f = $('[data-forget]', body); f.addEventListener('click', () => { SH.mistakes.remove(e.qid); renderMistakes(); });
+  }
+  // Six reasons, one tap. The suggestion from time data has a dashed outline.
+  function tagChips(e) {
+    return '<div class="tag-chips" data-tags="' + esc(e.qid) + '">' + SH.ERROR_TAGS.map(t => '<button type="button" data-tag="' + t[0] + '" title="' + esc(t[2]) + '" aria-pressed="' + (e.tag === t[0]) + '"' + (!e.tag && e.sug === t[0] ? ' class="sug"' : '') + '>' + esc(t[1]) + '</button>').join('') + '</div>';
+  }
+  function bindTagChips(root) {
+    $$('[data-tags]', root).forEach(box => $$('[data-tag]', box).forEach(b => b.addEventListener('click', () => {
+      const on = b.getAttribute('aria-pressed') !== 'true';
+      SH.mistakes.setTag(box.dataset.tags, on ? b.dataset.tag : '');
+      $$('[data-tag]', box).forEach(x => { x.setAttribute('aria-pressed', String(on && x === b)); x.classList.remove('sug'); });
+    })));
+  }
+  // Max: a weekly AI summary of the patterns in the last 30 cards.
+  function patternsHtml(level, all) {
+    if (!SH.ai.enabled() || all.filter(e => e.kind !== 'speed').length < 5) return '';
+    if (level !== 'max') return '';
+    const saved = (SH.store.get('ai', null) || {}).patterns;
+    const fresh = saved && saved.week === SH.weekStart();
+    return '<div class="card ai-plan" style="margin:0 0 18px"><div class="row" style="justify-content:space-between"><b><span class="tag tag-ai">AI</span> Your mistake patterns</b>' +
+      (fresh ? '<span class="small muted">Updated ' + SH.fmtDate(saved.t) + ' · next one on Monday</span>' : '<button type="button" class="btn btn-primary btn-sm" data-patterns>' + (saved ? 'Update for this week' : 'Find my patterns') + '</button>') + '</div>' +
+      (saved && saved.text ? '<div class="rich" style="margin-top:8px">' + SH.renderRich(saved.text) + '</div>' : '<p class="small muted" style="margin:6px 0 0">The AI tutor reads your last 30 mistakes and tells you what keeps tripping you up. Once a week.</p>') + '</div>';
+  }
+  function bindBank() {
+    const sr = $('[data-start-review]'); if (sr) sr.addEventListener('click', startReview);
+    $$('[data-btab]').forEach(b => b.addEventListener('click', () => { bankView.tab = b.dataset.btab; renderMistakes(); }));
+    $$('[data-filter]').forEach(s => s.addEventListener('change', () => {
+      const k = s.dataset.filter;
+      bankView.f[k] = s.value;
+      if (k === 'section') { bankView.f.domain = ''; bankView.f.skill = ''; }
+      if (k === 'domain') bankView.f.skill = '';
+      renderMistakes();
+    }));
+    $$('[data-card]').forEach(d => d.addEventListener('toggle', () => { if (d.open) openBankCard(d); }));
+    const pb = $('[data-patterns]');
+    if (pb) pb.addEventListener('click', async () => {
+      pb.disabled = true; pb.textContent = 'Reading your mistakes…';
+      const last = SH.mistakes.all().filter(e => e.kind !== 'speed').sort((a, b) => (b.first || b.t) - (a.first || a.t)).slice(0, 30);
+      try {
+        const out = await SH.ai.patterns({ lang: SH.pickLang(), entries: last.map(e => ({ section: e.section, skill: e.skill, difficulty: e.difficulty, tag: SH.tagLabel(e.tag || e.sug), stem: e.p || '', misses: e.misses || 0 })) });
+        const ai = Object.assign({}, SH.store.get('ai', null) || {});
+        ai.patterns = { week: SH.weekStart(), text: String(out.summary || '').slice(0, 3000), t: Date.now() };
+        SH.store.set('ai', ai);
+        SH.track('ai_patterns_made', {});
+        renderMistakes();
+      } catch (e) { pb.disabled = false; pb.textContent = 'Try again'; SH.toast(e.message); }
+    });
+  }
+
+  /* ======================= SETTINGS: goals and Telegram ======================= */
+  function renderSettings() {
+    const p = SH.getProfile();
+    const dayName = d => new Date(d + 'T08:00:00').toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' });
+    let html = '<div class="hub-head"><div><h1>Settings</h1></div></div>' +
+      '<div class="card settings-sec"><h3>Your goals</h3><p class="muted" style="margin-top:0">Target <b>' + esc(p.target) + '</b>' + (p.targetRw && p.targetMath ? ' (R&amp;W ' + p.targetRw + ', Math ' + p.targetMath + ')' : '') +
+      ' · Test date <b>' + (p.testDate ? esc(dayName(p.testDate)) : 'not decided') + '</b>' + (p.focus ? ' · ' + (p.focus === 'rw' ? 'Reading and Writing only' : 'Math only') : '') + '</p>' +
+      '<button type="button" class="btn btn-ghost btn-sm" data-goals>Edit goals</button></div>' +
+      '<div class="card settings-sec" id="tg"><h3>Weekly report on Telegram</h3>';
+    if (!SH.telegram.enabled()) html += '<p class="muted" style="margin:0">Weekly progress reports on Telegram are coming soon.</p></div>';
+    else if (!SH.auth.user) html += '<p class="muted">Sign in to get a progress report on Telegram every Sunday.</p><a class="btn btn-primary btn-sm" href="' + esc(SH.loginUrl('practice.html#settings')) + '">Sign in with Google</a></div>';
+    else html += '<p class="muted" style="margin:0">Loading…</p></div>';
+    view.innerHTML = html;
+    $$('[data-goals]').forEach(b => b.addEventListener('click', editGoals));
+    if (SH.telegram.enabled() && SH.auth.user) SH.telegram.links().then(drawTelegram).catch(e => {
+      $('#tg').innerHTML = '<h3>Weekly report on Telegram</h3><p class="muted" style="margin:0">Could not load your Telegram connection. ' + esc(e.message || '') + '</p>';
+    });
+  }
+  function drawTelegram(links) {
+    const box = $('#tg'); if (!box) return;
+    const lvl = SH.plan.current(), pro = lvl !== 'free', max = lvl === 'max';
+    const me = links.find(l => l.role === 'student'), parents = links.filter(l => l.role === 'parent');
+    const who = l => l.username ? '@' + l.username : l.name || 'your Telegram';
+    let h = '<h3>Weekly report on Telegram</h3>';
+    if (!me) {
+      h += '<p class="muted" style="margin-top:0">Every Sunday at 19:00: questions practiced, your estimated score and gap, your biggest win and what to fix next week.' + (pro ? ' Plus a reminder on days you have reviews due.' : '') + '</p>' +
+        '<button type="button" class="btn btn-primary" data-tg-connect="student">Connect Telegram</button>';
+    } else {
+      h += '<div class="tg-row"><span>' + (me.active === false ? (me.blocked ? '<b>Telegram is disconnected.</b> The bot was blocked, so reports stopped.' : '<b>Messages are off</b> (you sent /stop). Send /start to the bot to turn them back on.') : 'Connected as <b>' + esc(who(me)) + '</b>') + '</span>' +
+        '<span class="row" style="gap:6px">' + (me.active === false && me.blocked ? '<button type="button" class="btn btn-primary btn-sm" data-tg-connect="student">Reconnect Telegram</button>' : '') +
+        '<button type="button" class="btn btn-ghost btn-sm" data-tg-off="' + esc(me.id) + '">Disconnect</button></span></div>';
+      if (pro) {
+        const times = ['07:00', '08:00', '12:00', '15:00', '16:00', '17:00', '18:00', '19:00', '20:00', '21:00'];
+        h += '<div class="tg-row"><label class="guess-tog" style="margin:0"><input type="checkbox" data-tg-rem' + (me.remindersOn !== false ? ' checked' : '') + '> Daily review reminder (only on days with reviews due)</label>' +
+          '<select class="input" data-tg-time aria-label="Reminder time" style="width:auto">' + times.map(t => '<option' + ((me.reminderTime || '18:00') === t ? ' selected' : '') + '>' + t + '</option>').join('') + '</select></div>' +
+          '<p class="small muted" style="margin:8px 0 0">At most one nudge a day, never between 22:00 and 08:00. Change the language and more with /settings in the bot.</p>';
+      } else h += '<p class="small muted" style="margin:10px 0 0">Free gets a short weekly summary. <a href="#plans">Pro</a> adds the full report, a daily review reminder and a streak saver.</p>';
+    }
+    h += '<h3 style="margin-top:22px">Parents</h3>';
+    if (!max) h += '<p class="small muted" style="margin:0"><a href="#plans">Max</a> adds a weekly report for your parents: practice time, tests, estimated score and streak. Never your answers or notes.</p>';
+    else {
+      h += (parents.length ? parents.map(l => '<div class="tg-row"><span>' + esc(who(l)) + (l.active === false ? ' <span class="small muted">(messages off)</span>' : '') + '</span><button type="button" class="btn btn-ghost btn-sm" data-tg-off="' + esc(l.id) + '">Disconnect</button></div>').join('') : '') +
+        '<p class="small muted">Parents see practice time, tests, estimated score and streak, never your answers, reasons or notes.</p><button type="button" class="btn btn-ghost btn-sm" data-tg-connect="parent">Invite a parent</button>';
+    }
+    box.innerHTML = h;
+    $$('[data-tg-connect]', box).forEach(b => b.addEventListener('click', async () => {
+      const role = b.dataset.tgConnect;
+      b.disabled = true;
+      try {
+        const url = await SH.telegram.connect(role);
+        SH.modal({
+          title: role === 'parent' ? 'Invite a parent' : 'Connect Telegram',
+          html: role === 'parent'
+            ? '<p>Send this link to your parent. They open it, tap <b>Start</b>, and get a short report every Sunday. It works once, for 15 minutes.</p><p class="small" style="word-break:break-all"><code>' + esc(url) + '</code></p>'
+            : '<p>Open Telegram and tap <b>Start</b>. The link works for 15 minutes.</p>',
+          actions: role === 'parent'
+            ? [{ label: 'Copy link', kind: 'ghost', onClick: () => { SH.copyText(url, 'Link copied'); return false; } }, { label: 'Share on Telegram', kind: 'primary', onClick: () => { window.open('https://t.me/share/url?url=' + encodeURIComponent(url) + '&text=' + encodeURIComponent('My SAT Ustoz weekly report'), '_blank', 'noopener'); } }]
+            : [{ label: 'Close', kind: 'ghost' }, { label: 'Open Telegram', kind: 'primary', onClick: () => { window.open(url, '_blank', 'noopener'); } }],
+          onClose: () => { setTimeout(() => { if (location.hash === '#settings' && !session) renderSettings(); }, 400); }
+        });
+      } catch (e) { SH.toast('Could not create the link. ' + (e.message || '')); }
+      b.disabled = false;
+    }));
+    $$('[data-tg-off]', box).forEach(b => b.addEventListener('click', () => {
+      b.disabled = true;
+      SH.telegram.disconnect(b.dataset.tgOff).then(() => { SH.toast('Disconnected'); renderSettings(); }).catch(e => { b.disabled = false; SH.toast(e.message); });
+    }));
+    const rem = $('[data-tg-rem]', box), tm = $('[data-tg-time]', box);
+    const save = () => SH.telegram.update(me.id, { remindersOn: rem.checked, reminderTime: tm.value }).then(() => SH.toast('Saved')).catch(e => SH.toast('Could not save. ' + e.message));
+    if (rem) rem.addEventListener('change', save);
+    if (tm) tm.addEventListener('change', save);
   }
 
   /* ======================= PRACTICE SETS ======================= */
@@ -830,7 +1284,7 @@ document.addEventListener('DOMContentLoaded', function () {
   }
   function drillLink(d) { return 'https://satustoz.academy/practice.html?drill=' + encodeDrill(d); }
   function renderSets() {
-    let html = '<div class="hub-head"><div><h1>Practice sets</h1></div><div class="hub-acts"><a class="chip" href="#mistakes">Mistake notebook (' + SH.mistakes.open().filter(e => SH.plan.allows('pro') || e.ref.type !== 'test').length + ')</a><a class="chip" href="lessons.html">Lessons</a></div></div>';
+    let html = '<div class="hub-head"><div><h1>Practice sets</h1></div><div class="hub-acts"><a class="chip" href="#mistakes">Mistake Bank (' + (SH.mistakes.level() === 'free' ? SH.mistakes.visible().length : SH.mistakes.queue().length + ' due') + ')</a><a class="chip" href="lessons.html">Lessons</a></div></div>';
     if (!catalog.sets.length) html += '<div class="card empty"><p class="muted">No practice sets yet.</p></div>';
     else {
       html += '<div class="grid grid-3">' + catalog.sets.map(s => {
@@ -1067,7 +1521,7 @@ document.addEventListener('DOMContentLoaded', function () {
   /* ======================= PLAYER ======================= */
   function startSession(opts) {
     if (!opts.questions || !opts.questions.length) { SH.toast('No questions in this set yet.'); return; }
-    session = { title: opts.title, source: opts.source, setId: opts.setId || '', assign: opts.assign || null, questions: opts.questions, i: 0, responses: {}, checked: {}, struck: {}, elim: false, started: Date.now(), shownAt: Date.now(), time: {},
+    session = { title: opts.title, source: opts.source, setId: opts.setId || '', assign: opts.assign || null, questions: opts.questions, i: 0, responses: {}, checked: {}, struck: {}, guessed: {}, elim: false, started: Date.now(), shownAt: Date.now(), time: {},
       endsAt: opts.limit ? Date.now() + opts.limit * 1000 : 0 };
     hub.hidden = true; player.hidden = false;
     history.pushState(null, '', '#play');
@@ -1086,8 +1540,9 @@ document.addEventListener('DOMContentLoaded', function () {
     if (el) { el.textContent = SH.fmtClock(left); el.classList.toggle('low', left <= 30); }
     if (left <= 0) { stopTimer(); SH.toast('Time is up.'); finishSession(); }
   }
-  // Where a question came from, for the mistake notebook.
+  // Where a question came from, for the Mistake Bank.
   function srcOf(q, s) {
+    if (q.twinOf) { const c = SH.mistakes.map()[q.twinOf]; return c ? { type: c.ref.type, id: c.ref.id, where: c.where } : null; }
     if (q.ai) return { type: 'ai', where: s.title };
     if (q.testId) return { type: 'test', id: q.testId, where: s.title };
     if (q.setId) return { type: 'set', id: q.setId, where: s.title };
@@ -1180,6 +1635,8 @@ document.addEventListener('DOMContentLoaded', function () {
       h += '<button class="btn btn-primary" type="button" id="p-check"' + (has ? '' : ' disabled') + '>Check answer</button>';
       if (SH.ai.enabled() && !SH.ai.needsLogin()) h += '<button class="btn btn-ghost" type="button" id="p-hint">Get a hint</button>';
       h += '<button class="link-btn" type="button" id="p-skip" style="margin-left:auto">' + (last ? 'Skip and finish' : 'Skip') + '</button>';
+      // Guessed right answers go to the Mistake Bank too (not on a review: it's already there).
+      if (!isReview(s, q)) h += '<label class="guess-tog" style="flex-basis:100%;margin-left:0"><input type="checkbox" id="p-guess"' + (s.guessed[q.id] ? ' checked' : '') + '> I guessed</label>';
     } else {
       h += '<button class="btn btn-primary" type="button" id="p-next">' + (last ? 'See results' : 'Next question') + '</button>';
     }
@@ -1187,6 +1644,7 @@ document.addEventListener('DOMContentLoaded', function () {
     host.innerHTML = h;
     const on = (id, fn) => { const el = $(id); if (el) el.addEventListener('click', fn); };
     on('#p-prev-q', () => { s.i--; drawQuestion(); });
+    const gt = $('#p-guess'); if (gt) gt.addEventListener('change', () => { s.guessed[q.id] = gt.checked; });
     on('#p-check', check);
     on('#p-hint', () => SH.openTutor({ question: q, response: s.responses[q.id], revealAnswer: false, firstMessage: 'Give me a hint for this question without telling me the answer.' }));
     on('#p-skip', () => { if (last) finishSession(); else { s.i++; drawQuestion(); } });
@@ -1205,15 +1663,27 @@ document.addEventListener('DOMContentLoaded', function () {
       const b = $('#p-check:not([disabled])'); if (b) { e.preventDefault(); b.click(); }
     }
   });
+  const isReview = (s, q) => s.source === 'review' || !!q._review;
   function check() {
     const s = session, q = s.questions[s.i];
     if (s.checked[q.id]) return;
     const ok = SH.isCorrect(q, s.responses[q.id]);
     const ms = Date.now() - s.shownAt;
-    s.checked[q.id] = { ok, ms };
-    SH.recordAttempts([{ qid: q.id, section: q.section, domain: q.domain, skill: q.skill, difficulty: q.difficulty, correct: ok, ms, source: s.source }]);
+    const review = isReview(s, q), guessed = !review && !!s.guessed[q.id];
+    // Choices may be shuffled on a review: save the letter of the original order.
+    const ch = SH.origLetter(q, s.responses[q.id]);
+    SH.recordAttempts([{ qid: q.id, section: q.section, domain: q.domain, skill: q.skill, difficulty: q.difficulty, correct: ok, ms, source: review ? 'review' : s.source, ch, g: guessed }]);
     const src = srcOf(q, s);
-    if (src) SH.mistakes.record(q, ok, src);
+    let res = null;
+    if (src) {
+      // A twin is answered for its original card.
+      const card = q.twinOf ? SH.mistakes.map()[q.twinOf] : null;
+      const target = card ? { id: card.qid, section: card.section, skill: card.skill, difficulty: card.difficulty, prompt: card.p } : q.base || q;
+      res = SH.mistakes.record(target, ok, src, { ms, ch, guessed, review })[0] || null;
+      if (res) res.card = target.id;
+    }
+    s.checked[q.id] = { ok, ms, res, guessed };
+    if (guessed) SH.track('guessed_marked', { correct: ok });
     drawAnswer(); drawActions(); drawFeedback();
     const fb = $('#p-feedback'); if (fb) fb.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
     const nx = $('#p-next'); if (nx) nx.focus({ preventScroll: true });
@@ -1223,11 +1693,42 @@ document.addEventListener('DOMContentLoaded', function () {
   function drawFeedback() {
     const s = session, q = s.questions[s.i], c = s.checked[q.id];
     $('#p-feedback').innerHTML = '<div class="feedback ' + (c.ok ? 'ok' : 'no') + '" role="status"><h3>' + (c.ok ? 'Correct' : 'Not quite. The answer is ' + esc(SH.answerLabel(q)) + '.') + '</h3>' +
+      bankLine(s, q, c) +
       (q.explanation ? '<div class="expl rich">' + SH.renderRich(q.explanation) + '</div>' : '') +
       (SH.ai.enabled() ? '<div class="row" style="margin-top:12px"><button class="btn btn-ghost btn-sm" type="button" id="p-tutor">' + (c.ok ? 'Ask the AI tutor' : 'Ask the AI tutor why') + '</button></div>' : '') +
       (q.ai ? '<p class="ai-flag">This question was written by AI. If the answer looks wrong, ask the tutor to double-check it.</p>' : '') +
-      reportBtn(q, s.title) + '</div>';
-    const tb = $('#p-tutor'); if (tb) tb.addEventListener('click', () => SH.openTutor({ question: q, response: s.responses[q.id], correct: c.ok }));
+      whyHtml(s, q, c) + reportBtn(q, s.title) + '</div>';
+    bindTagChips($('#p-feedback'));
+    const tb = $('#p-tutor'); if (tb) tb.addEventListener('click', () => SH.openTutor({ question: q.base || q, response: SH.origLetter(q, s.responses[q.id]), correct: c.ok }));
+  }
+  // What the answer did in the Mistake Bank: the box it moved to, the
+  // original wrong answer and the student's note on a review.
+  function bankLine(s, q, c) {
+    const r = c.res;
+    if (!r) return '';
+    const card = SH.mistakes.map()[r.card] || {};
+    const free = SH.mistakes.level() === 'free';
+    const days = n => n === 1 ? 'tomorrow' : 'in ' + n + ' days';
+    let line = '';
+    if (isReview(s, q) || r.was) {
+      const orig = q.base || q, i = SH.LETTERS.indexOf(card.ch || '');
+      if (q.twinOf) line += '<p class="rv-line">A twin of a question you missed: same skill and difficulty, so you show the idea, not the answer.</p>';
+      else if (card.ch && orig.type === 'mc' && i > -1) line += '<p class="rv-line">Last time you answered: <b>' + SH.renderRich(orig.choices[i] || card.ch, { inline: true }) + '</b></p>';
+      const med = SH.qtimes.median(q.id, q.section);
+      const msg = { up: 'Moved up to Box ' + r.box + '. It comes back ' + days(SH.BOX_DAYS[r.box]) + '.', mastered: '<b>Mastered.</b> It leaves your daily review and stays in the Mastered tab.',
+        back: 'Back to Box 1. It comes back tomorrow.', slow: 'Right, but it took ' + SH.fmtClock(c.ms / 1000) + '. A review counts when it’s under ' + SH.fmtClock(med * 1.5) + ', so it goes back to Box 1 and returns tomorrow.' }[r.result];
+      if (msg && !free) line += '<p class="rv-line">' + msg + '</p>';
+      if (card.note) line += '<p class="rv-line"><b>Your note:</b> ' + esc(card.note) + '</p>';
+    } else if (r.result === 'added') {
+      line = '<p class="rv-line">' + (c.guessed && c.ok ? 'Saved to your <a href="#mistakes">Mistake Bank</a>, since you guessed.' : card.kind === 'speed' ? 'Right, but slow: saved to the Speed tab of your <a href="#mistakes">Mistake Bank</a>.' : 'Saved to your <a href="#mistakes">Mistake Bank</a>' + (free ? '.' : '. It comes back tomorrow.')) + '</p>';
+    }
+    return line;
+  }
+  // "Why did you miss it?" right after a wrong answer (one tap, skippable).
+  function whyHtml(s, q, c) {
+    if (c.ok || !c.res || isReview(s, q)) return '';
+    const card = SH.mistakes.map()[c.res.card];
+    return card ? '<div class="why"><b>Why did you miss it?</b> <span class="small muted">One tap, or skip.</span>' + tagChips(card) + '</div>' : '';
   }
   function finishSession() {
     stopTimer();
@@ -1242,14 +1743,23 @@ document.addEventListener('DOMContentLoaded', function () {
       SH.classes.submit(s.assign ? s.assign : { kind: 'set', ref: s.setId }, { title: s.title, correct: right.length, count: s.questions.length })
         .catch(e => console.warn('[SAT Ustoz] Could not send the result to your teacher:', e));
     }
-    const fixedNow = s.source === 'mistakes' ? s.questions.filter(q => { const e = SH.mistakes.map()[q.id]; return e && e.fixed && e.fixedAt >= s.started; }).length : 0;
+    // Review end screen: reviewed, moved up, sent back, mastered today, next due.
+    const res = answered.map(q => s.checked[q.id].res).filter(Boolean);
+    const count = k => res.filter(r => [].concat(k).indexOf(r.result) > -1).length;
+    const reviewing = s.source === 'review';
+    const pro = SH.mistakes.level() !== 'free';
+    const nextDue = SH.mistakes.open().filter(e => e.kind !== 'speed' && (e.due || 0) <= endOfTomorrow()).length;
+    if (reviewing && answered.length) SH.track('review_finished', { n: answered.length, up: count('up'), back: count(['back', 'slow']), mastered: count('mastered') });
+    SH.gap.refresh();
     const bySkill = {};
     answered.forEach(q => { const k = q.skill || 'Other'; bySkill[k] = bySkill[k] || { n: 0, c: 0 }; bySkill[k].n++; if (s.checked[q.id].ok) bySkill[k].c++; });
     player.innerHTML = '<div class="p-top"><h1>' + esc(s.title) + '</h1></div>' +
       '<div class="grid grid-2"><div class="card"><span class="kicker">Session complete</span><div class="summary-score">' + right.length + '/' + answered.length + '</div><p class="muted">' +
       (answered.length ? SH.pct(right.length, answered.length) + '% correct' : 'No questions checked') + ' in ' + SH.fmtClock(secs) + (answered.length < s.questions.length ? ', ' + (s.questions.length - answered.length) + ' skipped' : '') + '</p>' +
-      (s.source === 'mistakes' ? '<p class="small">' + (fixedNow ? '<b>' + fixedNow + ' mistake' + (fixedNow === 1 ? '' : 's') + ' fixed.</b> ' : '') + 'Each one needs ' + SH.FIX_AFTER + ' right answers in a row.</p>' : missed.length ? '<p class="small muted">Your ' + missed.length + ' missed question' + (missed.length === 1 ? ' is' : 's are') + ' in your <a href="#mistakes">mistake notebook</a>.</p>' : '') +
-      '<div class="row">' + (missed.length ? '<button class="btn btn-primary" type="button" id="s-retry">Retry the ' + missed.length + ' I missed</button>' : '') + '<a class="btn btn-ghost" href="#home" id="s-home">Back to dashboard</a></div></div>' +
+      (reviewing ? '<div class="grid grid-2" style="gap:8px;margin:0 0 14px">' + tile(answered.length, 'reviewed') + (pro ? tile(count('up'), 'moved up') + tile(count(['back', 'slow']), 'sent back') : '') + tile(count('mastered'), 'mastered today') + '</div>' +
+          (pro ? '<p class="small muted">' + (nextDue ? nextDue + ' card' + (nextDue === 1 ? ' is' : 's are') + ' due by tomorrow.' : 'Nothing else due by tomorrow.') + '</p>' : '')
+        : missed.length ? '<p class="small muted">Your ' + missed.length + ' missed question' + (missed.length === 1 ? ' is' : 's are') + ' in your <a href="#mistakes">Mistake Bank</a>' + (pro ? ' and come' + (missed.length === 1 ? 's' : '') + ' back tomorrow' : '') + '.</p>' : '') +
+      '<div class="row">' + (missed.length && !reviewing ? '<button class="btn btn-primary" type="button" id="s-retry">Retry the ' + missed.length + ' I missed</button>' : '') + '<a class="btn ' + (reviewing ? 'btn-primary' : 'btn-ghost') + '" href="#' + (reviewing ? 'mistakes' : 'home') + '" id="s-home">' + (reviewing ? 'Back to the Mistake Bank' : 'Back to dashboard') + '</a></div></div>' +
       '<div class="card"><h3>By skill</h3>' + (Object.keys(bySkill).length ? Object.keys(bySkill).map(k => '<div class="skill-row dom" style="grid-template-columns:minmax(0,1fr) 70px 44px"><div>' + esc(k) + '</div><div class="bar ' + accClass(bySkill[k].c / bySkill[k].n) + '"><i style="width:' + SH.pct(bySkill[k].c, bySkill[k].n) + '%"></i></div><div class="acc">' + bySkill[k].c + '/' + bySkill[k].n + '</div></div>').join('') : '<p class="muted">Nothing checked yet.</p>') + '</div></div>' +
       (missed.length ? '<h2 class="section-title">Questions to review</h2>' + missed.map((q, i) =>
         '<div class="miss"><div class="small muted" style="margin-bottom:6px">' + esc(q.skill || '') + ', your answer <b>' + esc(s.responses[q.id] || '—') + '</b>, correct answer <b>' + esc(SH.answerLabel(q)) + '</b></div>' +
@@ -1258,7 +1768,7 @@ document.addEventListener('DOMContentLoaded', function () {
         (SH.ai.enabled() ? '<button class="btn btn-ghost btn-sm" type="button" data-mtutor="' + i + '" style="margin-top:10px">Ask the AI tutor</button>' : '') + reportBtn(q, s.title) + '</div>').join('') : '');
     const retry = $('#s-retry');
     if (retry) retry.addEventListener('click', () => startSession({ title: s.title + ' (retry)', questions: missed, source: s.source }));
-    $$('[data-mtutor]').forEach(b => b.addEventListener('click', () => { const q = missed[+b.dataset.mtutor]; SH.openTutor({ question: q, response: s.responses[q.id], correct: false }); }));
+    $$('[data-mtutor]').forEach(b => b.addEventListener('click', () => { const q = missed[+b.dataset.mtutor]; SH.openTutor({ question: q.base || q, response: SH.origLetter(q, s.responses[q.id]), correct: false }); }));
     $('#s-home').addEventListener('click', () => { session = null; });
     session = null;
     SH.calculator.close();

@@ -14,6 +14,6 @@
   "shortcuts": [
     { "name": "Vocabulary", "short_name": "Words", "url": "/vocab.html", "icons": [{ "src": "/icon-192.png", "sizes": "192x192" }] },
     { "name": "Question of the day", "short_name": "Daily", "url": "/daily.html", "icons": [{ "src": "/icon-192.png", "sizes": "192x192" }] },
-    { "name": "Mistake notebook", "short_name": "Mistakes", "url": "/practice.html#mistakes", "icons": [{ "src": "/icon-192.png", "sizes": "192x192" }] }
+    { "name": "Mistake Bank", "short_name": "Mistakes", "url": "/practice.html#mistakes", "icons": [{ "src": "/icon-192.png", "sizes": "192x192" }] }
   ]
 }

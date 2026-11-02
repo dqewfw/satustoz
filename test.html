@@ -232,6 +232,12 @@
   .qitem .qi-ans { font-size: .86rem; color: var(--muted); text-align: right; white-space: nowrap; }
   .qdetail { border-top: 1px solid var(--line); padding: 16px 18px 18px; animation: sh-fade .2s ease both; }
   .qdetail .choices { margin: 12px 0; }
+  .why { margin-top: 14px; padding-top: 12px; border-top: 1px solid var(--line); }
+  .tag-chips { display: flex; gap: 6px; flex-wrap: wrap; margin-top: 8px; }
+  .tag-chips button { border: 1px solid var(--line-2); background: var(--paper); border-radius: 999px; padding: 4px 11px; font: 600 .85rem var(--sans); color: var(--ink-2); cursor: pointer; }
+  .tag-chips button:hover { border-color: var(--brand); color: var(--brand); }
+  .tag-chips button.sug { border-style: dashed; border-color: var(--brand); }
+  .tag-chips button[aria-pressed="true"] { background: var(--brand); border-color: var(--brand); color: #fff; }
   .qdetail .choice { cursor: default; }
   .qdetail .choice:hover { box-shadow: none; background: var(--paper); border-color: var(--edge); }
   .qdetail .choice.is-correct:hover { background: var(--ok-tint); border-color: var(--ok); box-shadow: 0 0 0 1.5px var(--ok); }
@@ -1131,12 +1137,14 @@ document.addEventListener('DOMContentLoaded', function () {
     rec.total = test.sections.length === 2 ? total : null;
     SH.recordAttempts(taken.map(t => ({
       qid: t.q.id, section: t.q.section, domain: t.q.domain, skill: t.q.skill, difficulty: t.q.difficulty,
-      correct: SH.isCorrect(t.q, responses[t.q.id]), ms: S.time[t.q.id] || 0, source: 'test'
+      correct: SH.isCorrect(t.q, responses[t.q.id]), ms: S.time[t.q.id] || 0, source: 'test', ch: responses[t.q.id], tid: testId, mod: t.mod + 1
     })));
-    // Every wrong or blank answer goes into the mistake notebook (Pro sees test mistakes there).
-    SH.mistakes.recordMany(taken.map(t => ({ q: t.q, ok: SH.isCorrect(t.q, responses[t.q.id]), src: { type: 'test', id: testId, where: test.title } })));
+    // Every wrong or blank answer goes into the Mistake Bank; a right answer to a card in it counts as a review.
+    SH.mistakes.recordMany(taken.map(t => ({ q: t.q, ok: SH.isCorrect(t.q, responses[t.q.id]), src: { type: 'test', id: testId, where: test.title }, info: { ms: S.time[t.q.id] || 0, ch: responses[t.q.id] } })));
     if (S.mock) rec.mock = S.mock.id;
     SH.addTestHistory(rec);
+    // Recompute the score gap now that there's a new full test.
+    SH.gap.refresh();
     SH.track('test_finished', { test_id: testId, test_plan: test.plan, total: rec.total, rw: rec.sections.rw ? rec.sections.rw.score : null, math: rec.sections.math ? rec.sections.math.score : null, minutes: Math.round((rec.finishedAt - rec.startedAt) / 60000) });
     const right = taken.filter(t => SH.isCorrect(t.q, responses[t.q.id])).length;
     SH.classes.submit({ kind: 'test', ref: testId }, { title: test.title, score: rec.total, rw: rec.sections.rw ? rec.sections.rw.score : null, math: rec.sections.math ? rec.sections.math.score : null, correct: right, count: taken.length })
@@ -1322,6 +1330,7 @@ document.addEventListener('DOMContentLoaded', function () {
         b.setAttribute('aria-expanded', 'true');
         const t = taken.find(x => x.q.id === item.dataset.qid);
         item.insertAdjacentHTML('beforeend', detailHtml(t.q, rec.responses[t.q.id]));
+        bindBankBits(item, t.q, rec);
         const tb = item.querySelector('[data-tutor]');
         if (tb) tb.addEventListener('click', () => SH.openTutor({ question: t.q, response: rec.responses[t.q.id], correct: SH.isCorrect(t.q, rec.responses[t.q.id]) }));
       }));
@@ -1418,6 +1427,32 @@ document.addEventListener('DOMContentLoaded', function () {
       (goal >= 400 && goal <= 1600 ? '<div class="scale-goal" style="left:' + pos(goal) + '%" data-label="Goal ' + goal + '"></div>' : '') +
       '</div><div class="scale-labels"><span>400</span><span>1000</span><span>1600</span></div></div>';
   }
+  // Under each reviewed question: "Why did you miss it?" for a wrong answer,
+  // "I guessed" for a right one (no toggle during the test, to keep test conditions).
+  function bankBitsHtml(q, r) {
+    const card = SH.mistakes.map()[q.id];
+    if (!SH.isCorrect(q, r)) {
+      if (!card || card.deleted || card.st !== 'active') return '';
+      return '<div class="why"><b>Why did you miss it?</b> <span class="small muted">One tap, or skip.</span><div class="tag-chips">' + SH.ERROR_TAGS.map(t =>
+        '<button type="button" data-tag="' + t[0] + '" title="' + esc(t[2]) + '" aria-pressed="' + (card.tag === t[0]) + '"' + (!card.tag && card.sug === t[0] ? ' class="sug"' : '') + '>' + esc(t[1]) + '</button>').join('') + '</div></div>';
+    }
+    const guessed = card && !card.deleted && card.st === 'active' && card.sug === 'guess';
+    return '<div class="why"><button type="button" class="btn btn-ghost btn-sm" data-guessed' + (guessed ? ' disabled' : '') + '>' + (guessed ? 'Saved as a guess' : 'I guessed this one') + '</button> <span class="small muted">Guessed right answers go to your Mistake Bank too.</span></div>';
+  }
+  function bindBankBits(item, q, rec) {
+    $$('[data-tag]', item).forEach(b => b.addEventListener('click', () => {
+      const on = b.getAttribute('aria-pressed') !== 'true';
+      SH.mistakes.setTag(q.id, on ? b.dataset.tag : '');
+      $$('[data-tag]', item).forEach(x => { x.setAttribute('aria-pressed', String(on && x === b)); x.classList.remove('sug'); });
+    }));
+    const g = $('[data-guessed]', item);
+    if (g) g.addEventListener('click', () => {
+      SH.mistakes.record(q, true, { type: 'test', id: rec.testId, where: rec.title }, { guessed: true });
+      SH.markGuessed([q.id], rec.startedAt || 0);
+      SH.track('guessed_marked', { correct: true, where: 'results' });
+      g.disabled = true; g.textContent = 'Saved as a guess';
+    });
+  }
   function detailHtml(q, r) {
     let ans = '';
     if (q.type === 'mc') {
@@ -1433,7 +1468,7 @@ document.addEventListener('DOMContentLoaded', function () {
       '<div class="rich"><strong>' + SH.renderRich(q.prompt, { inline: true }) + '</strong></div>' + ans +
       (q.explanation ? '<div class="expl rich"><strong>Explanation.</strong> ' + SH.renderRich(q.explanation) + '</div>' : '') +
       (SH.ai.enabled() ? '<p style="margin:14px 0 0"><button type="button" class="btn btn-ghost btn-sm" data-tutor>Ask the AI tutor about this</button></p>' : '') +
-      '<p class="report-line"><button type="button" class="link-btn" data-report data-qid="' + esc(q.id || '') + '" data-where="' + esc(test.title) + '">Report a mistake</button></p></div>';
+      bankBitsHtml(q, r) + '<p class="report-line"><button type="button" class="link-btn" data-report data-qid="' + esc(q.id || '') + '" data-where="' + esc(test.title) + '">Report a mistake</button></p></div>';
   }
 
   window.addEventListener('beforeunload', () => { if (S) { leaveQuestion(); save(); } });
