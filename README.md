@@ -11,7 +11,7 @@ builder.html            Question builder for your team (not linked from the site
 admin.html              Approve card-transfer payments, reports, invite rewards, mocks, teachers, real scores (for you only, hidden from Google)
 vocab.html              Vocabulary trainer: SAT words with Uzbek and Russian meanings, spaced repetition, works offline
 lessons.html            5-minute skill lessons in EN / UZ / RU, each with a 5-question check
-daily.html              Question of the day with a streak
+daily.html              Question of the day (counts toward the one streak, section 10)
 score-calculator.html   Public SAT score calculator (EN / UZ / RU), aimed at the search "SAT ballini hisoblash"
 mock.html               National mock: countdown, then the leaderboard by region and school
 teacher.html            Classes, homework, results grid and parent reports, for teachers on the center plan
@@ -908,6 +908,67 @@ rows), `review_started`, `review_finished` (`n`, `up`, `back`, `mastered`), `mis
 after launch: share of active users who set a goal (`goal_set`, target 70%), share of dashboard visits with
 `gap_fix_tapped` (30%), Free users who tap the blurred rows and then pay, share of due reviews done each week (50%),
 share of active users who connect Telegram (40%, count `telegramLinks` in Firestore), and clicks per report in `tgLog`.
+
+## 10. Streak and XP
+
+One streak for all study, so students come back every day. All of it is in `xp` in `assets/sh.js`.
+
+**Nothing to set up.** No new database rules (it lives in the study data, `users/<uid>/data/study`, field `xp`).
+Upload `assets/sh.js`, `assets/sh.css`, `practice.html`, `daily.html` and `vocab.html`. Then paste the new
+`worker/telegram-worker.js` into your Telegram Worker and Deploy, so the "your streak ends tonight" reminder uses the same streak.
+
+### What students see
+
+- **A flame in the header** on every student page, with the streak number. It's gold once today's streak is safe and grey
+  until then, and it opens the dashboard. It appears once a student has studied at least once.
+- **A card at the top of the dashboard:** the streak, this week Monday to Sunday (studied, covered by a freeze,
+  missed), today's XP against the daily goal, the level with a bar to the next one, total XP and this week's XP, freezes
+  held, the best streak, and "How it works".
+- **A short message** when the streak grows (bigger ones at 3, 7, 14, 30, 50, 100... days), when the daily goal is
+  reached, and when a new level is reached. In English, Uzbek or Russian, following the page.
+- The question of the day page, the vocabulary page and the dashboard's tool card now show this one streak, not separate ones.
+
+### The rules (`XP` at the top of the section)
+
+| What | XP |
+|---|---|
+| A right answer: easy / medium / hard | 10 / 12 / 15 |
+| A wrong answer (effort counts) | 3 |
+| The same question again on the same day | 1 (stops students farming one set) |
+| A right Mistake Bank review | +5 |
+| The question of the day | +10 |
+| Finishing a full practice test / the mini diagnostic or one section | 100 / 40 |
+| Each vocabulary card reviewed | 2, at most 120 a day |
+
+- **10 XP in a Tashkent day keeps the streak** (`STREAK_MIN`): one right answer, or the question of the day even when
+  it's wrong. That matches the Telegram reminder ("one question keeps it going").
+- **Daily goal:** 20, 50 (default), 100 or 200 XP, picked by the student. It's for them; the streak only needs 10.
+- **Levels:** level *n* starts at 50 × n × (n − 1) XP: level 2 at 100, 5 at 1 000, 10 at 4 500, 20 at 19 000. An active
+  student (about 50 questions a week) reaches level 10 in about two months.
+- **Streak freezes** cover a missed day. Free gets 1 each Monday and holds at most 1; Pro, Max and students in a class get
+  2 each Monday and hold up to 3 (a reason to upgrade). They are used the next time the student opens the site, only if
+  there's one for every missed day (otherwise the streak ends and the freezes are kept). A frozen day keeps the streak but
+  doesn't add to it. If a frozen day later turns out to have study (from another device), the freeze is given back.
+
+### How it's counted
+
+XP is worked out from what the site already saves: answers, finished tests and vocabulary days. So nothing is
+counted twice, every page that saves an answer counts without extra code, and **students keep the study they did before
+this update**: their streak and XP show up already worked out. Past days are also saved in `xp.days`, so XP survives the
+3 000-answer limit. The bot reads `xp.sum` (streak, last active day, freezes held).
+
+To change the numbers, edit `XP` in `assets/sh.js` and the wording in `XP_TEXT` ("How it works" lists them in each language).
+
+### Measuring it (PostHog)
+
+New events: `streak_extended` (`streak`), `daily_goal_reached` (`goal`), `daily_goal_set` (`goal`), `level_up` (`level`),
+`streak_freeze_used` (`days`, `streak`). Worth watching: share of active students who come back the next day, and of
+those with a 7-day streak, how many reach 14.
+
+### Next steps it makes possible
+
+Weekly leagues (groups of about 30 by weekly XP, using `xp.sum.week`) and friend duels. Both need a small server part
+(a Worker that ranks students) and new database rules.
 
 ## About official College Board questions
 

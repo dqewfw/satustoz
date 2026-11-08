@@ -238,7 +238,7 @@ async function loadStudents(env, uids) {
     const [main, att, study] = await Promise.all([
       fsBatchGet(env, part.flatMap(u => ['users/' + u, 'users/' + u + '/data/tests'])),
       fsBatchGet(env, part.map(u => 'users/' + u + '/data/attempts'), ['items']),
-      fsBatchGet(env, part.map(u => 'users/' + u + '/data/study'), ['mistakes', 'gap', 'daily'])
+      fsBatchGet(env, part.map(u => 'users/' + u + '/data/study'), ['mistakes', 'gap', 'daily', 'xp'])
     ]);
     part.forEach(u => {
       out[u] = {
@@ -257,7 +257,21 @@ function activeDays(d) {
   Object.keys((d.study.daily && d.study.daily.days) || {}).forEach(k => days.add(k));
   return days;
 }
+// The site's one streak for all study (SH.xp in sh.js) leaves a summary in study.xp.sum:
+// cur (the streak on its last active day), last (that day), frz (freezes held).
+// Missed days the student still has freezes for keep the streak: the site uses them on the next visit.
+function xpSum(d) { const s = d.study && d.study.xp && d.study.xp.sum; return s && typeof s.cur === 'number' && s.last ? s : null; }
+function studiedToday(d, now) {
+  const s = xpSum(d);
+  if (s) return s.done === dayKey(now);
+  return d.attempts.some(a => dayKey(a.ts) === dayKey(now));
+}
 function streakOf(d, now) {
+  const s = xpSum(d);
+  if (s) {
+    const lastN = Math.round(Date.parse(s.last + 'T00:00:00Z') / DAY), missed = dayNum(now) - 1 - lastN;
+    return missed <= 0 || missed <= (Number(s.frz) || 0) ? s.cur : 0;
+  }
   const days = activeDays(d);
   let n = dayNum(now), cur = 0;
   if (!days.has(dayKey(now))) n -= 1;
@@ -461,7 +475,7 @@ async function quarterHour(env, ts) {
     const d = data[l.uid];
     if (!d || !d.user || planOf(d.user, now) === 'free') continue;
     const lang = pickLang(l.language);
-    const doneToday = d.attempts.some(a => dayKey(a.ts) === today);
+    const doneToday = studiedToday(d, now);
     const reviewedToday = d.attempts.some(a => (a.source === 'review' || a.source === 'mistakes') && dayKey(a.ts) === today);
     const due = dueToday(d, now), streak = streakOf(d, now);
     const logId = newId();

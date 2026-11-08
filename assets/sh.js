@@ -171,7 +171,8 @@
   // vocabulary progress, question of the day, saved drills, study plan, classes and lesson checks.
   // gap: the Score Gap Analyzer's latest snapshot and one per week (the weekly
   // Telegram report compares them). ai: Max's weekly AI study plan and mistake summary.
-  const STUDY_KEYS = ['mistakes', 'vocab', 'daily', 'drills', 'studyPlan', 'classes', 'lessons', 'gap', 'ai'];
+  // xp: the streak, XP, streak freezes and daily goal (xp below).
+  const STUDY_KEYS = ['mistakes', 'vocab', 'daily', 'drills', 'studyPlan', 'classes', 'lessons', 'gap', 'ai', 'xp'];
   const SYNCED_KEYS = ['attempts', 'testHistory', 'profile'].concat(STUDY_KEYS);
   const hooks = { change: null };
   function onLocalChange(key) { if (hooks.change) hooks.change(key); }
@@ -188,6 +189,7 @@
       let ok = true;
       try { localStorage.setItem(PREFIX + key, JSON.stringify(value)); } catch (e) { ok = false; }
       if (SYNCED_KEYS.indexOf(key) > -1) onLocalChange(key);
+      if (key === 'attempts' || key === 'testHistory' || key === 'vocab') xpSoon();
       return ok;
     },
     del(key) {
@@ -1059,6 +1061,340 @@
       return { current: cur, best: Math.max(best, cur), total: sorted.length };
     }
   };
+
+  /* ------------------------------------------------------------------
+     Streak and XP. Every kind of study counts toward one streak: practice
+     sets, drills, Mistake Bank reviews, tests, lessons, AI questions, the
+     question of the day and vocabulary. XP is worked out from what is
+     already saved (answers, finished tests, vocabulary days), so nothing is
+     counted twice and study from before this feature counts from day one.
+     Study data 'xp' keeps:
+       days  each past day's XP, sealed so it survives the 3,000-answer limit
+       frz   days a streak freeze covered ({ on, t })
+       inv   streak freezes held ({ n, wk: the week they were last given, t })
+       goal  the daily goal ({ v, t })
+       sum   a short summary the Telegram bot reads (streak, last active day, ...)
+     ------------------------------------------------------------------ */
+  const XP = {
+    easy: 10, medium: 12, hard: 15,  // a right answer, by difficulty
+    wrong: 3,                        // a wrong answer still counts as effort
+    repeat: 1,                       // the same question again on the same day
+    review: 5,                       // extra for a right Mistake Bank review
+    daily: 10,                       // extra for the question of the day
+    test: 100, short: 40,            // finishing a full test / the mini diagnostic or one section
+    word: 2, wordCap: 120,           // each vocabulary card reviewed, at most 120 XP a day
+    STREAK_MIN: 10,                  // XP that keeps the streak: one right answer, or the daily question
+    GOALS: [20, 50, 100, 200], GOAL: 50
+  };
+  const XP_MILESTONES = [3, 7, 14, 30, 50, 100, 150, 200, 365, 500, 1000];
+  const XP_TEXT = {
+    en: {
+      streak: 'day streak', streak1: 'day streak', best: 'Best: {n} days',
+      st_done: 'Streak safe for today. Come back tomorrow for day {n}.',
+      st_done_goal: 'Streak safe and daily goal reached. See you tomorrow.',
+      st_keep: 'Earn {x} more XP today to keep your {n}-day streak. One right answer is enough.',
+      st_start: 'Answer one question to start a streak.',
+      st_lost: 'Your {b}-day streak ended. Answer one question to start a new one.',
+      today: 'Today', goal_of: '{x} / {g} XP', goal_change: 'Change goal', level: 'Level {n}', total: '{x} XP in total',
+      to_next: '{x} XP to level {n}', week: 'This week: {x} XP', frz: '{n} streak freeze', frzs: '{n} streak freezes', frz0: 'No streak freezes left',
+      how: 'How it works', days: ['M', 'T', 'W', 'T', 'F', 'S', 'S'],
+      d_on: 'studied', d_frz: 'covered by a streak freeze', d_miss: 'missed', d_future: 'still to come',
+      goal_t: 'Your daily goal', goal_p: 'How much do you want to do each day? The streak needs only 10 XP. The goal is for you.',
+      g20: 'Casual', g50: 'Regular', g100: 'Serious', g200: 'Intense', g_hint: 'about {n} questions',
+      cancel: 'Cancel', ok: 'Got it', save: 'Save',
+      how_t: 'Streak and XP',
+      how_p: '<p>Everything you study counts: practice sets, drills, Mistake Bank reviews, tests, lessons, the question of the day and vocabulary.</p>' +
+        '<ul><li><b>10 XP a day keeps your streak.</b> One right answer, or the question of the day, is enough.</li>' +
+        '<li>A right answer: 10 XP (easy), 12 (medium), 15 (hard). A wrong one: 3 XP for the effort. The same question again that day: 1 XP.</li>' +
+        '<li>Fixing a question in the Mistake Bank: 5 XP extra. Question of the day: 10 XP extra.</li>' +
+        '<li>Finishing a full practice test: 100 XP. The mini diagnostic or one section: 40 XP.</li>' +
+        '<li>Each vocabulary card you review: 2 XP (up to 120 a day).</li></ul>' +
+        '<p><b>Streak freezes</b> cover a day you miss, so one busy day doesn’t end your streak. They are used for you the next time you open the site, only if you have one for every day missed. Free: 1 each Monday, hold 1. Pro and Max: 2 each Monday, hold up to 3.</p>',
+      chip: '{n}-day streak. Today {x} of {g} XP',
+      t_start: 'Streak started. Come back tomorrow to make it 2 days.',
+      t_up: '{n}-day streak. Keep it going tomorrow.',
+      t_mile: '{n} days in a row. That’s a real habit.',
+      t_goal: 'Daily goal reached: {g} XP.',
+      t_level: 'Level {n} reached.',
+      t_frz: 'A streak freeze covered {d}. Your {n}-day streak is safe.',
+      t_frz1: 'yesterday', t_frzn: '{n} days',
+      saved: 'Daily goal set to {g} XP.'
+    },
+    uz: {
+      streak: 'kunlik seriya', streak1: 'kunlik seriya', best: 'Eng uzun: {n} kun',
+      st_done: 'Bugungi seriya saqlandi. {n}-kun uchun ertaga qayting.',
+      st_done_goal: 'Seriya saqlandi va kunlik maqsad bajarildi. Ertaga koʻrishguncha.',
+      st_keep: '{n} kunlik seriyani saqlash uchun bugun yana {x} XP toʻplang. Bitta toʻgʻri javob yetarli.',
+      st_start: 'Seriyani boshlash uchun bitta savolga javob bering.',
+      st_lost: '{b} kunlik seriyangiz tugadi. Yangisini boshlash uchun bitta savolga javob bering.',
+      today: 'Bugun', goal_of: '{x} / {g} XP', goal_change: 'Maqsadni oʻzgartirish', level: '{n}-daraja', total: 'Jami {x} XP',
+      to_next: '{n}-darajagacha {x} XP', week: 'Bu hafta: {x} XP', frz: '{n} ta seriya muzlatkichi', frzs: '{n} ta seriya muzlatkichi', frz0: 'Seriya muzlatkichi qolmadi',
+      how: 'Qanday ishlaydi', days: ['Du', 'Se', 'Ch', 'Pa', 'Ju', 'Sh', 'Ya'],
+      d_on: 'mashq qilindi', d_frz: 'muzlatkich bilan saqlandi', d_miss: 'oʻtkazib yuborildi', d_future: 'hali oldinda',
+      goal_t: 'Kunlik maqsadingiz', goal_p: 'Har kuni qancha mashq qilmoqchisiz? Seriya uchun 10 XP kifoya. Maqsad oʻzingiz uchun.',
+      g20: 'Yengil', g50: 'Oddiy', g100: 'Jiddiy', g200: 'Kuchli', g_hint: 'taxminan {n} ta savol',
+      cancel: 'Bekor qilish', ok: 'Tushunarli', save: 'Saqlash',
+      how_t: 'Seriya va XP',
+      how_p: '<p>Hamma mashq hisoblanadi: savollar toʻplamlari, drillar, Xatolar banki, testlar, darslar, kun savoli va lugʻat.</p>' +
+        '<ul><li><b>Kuniga 10 XP seriyani saqlaydi.</b> Bitta toʻgʻri javob yoki kun savoli yetarli.</li>' +
+        '<li>Toʻgʻri javob: 10 XP (oson), 12 (oʻrta), 15 (qiyin). Notoʻgʻri javob: harakat uchun 3 XP. Oʻsha kuni xuddi shu savol yana: 1 XP.</li>' +
+        '<li>Xatolar bankidagi savolni tuzatish: qoʻshimcha 5 XP. Kun savoli: qoʻshimcha 10 XP.</li>' +
+        '<li>Toʻliq testni tugatish: 100 XP. Mini diagnostika yoki bitta boʻlim: 40 XP.</li>' +
+        '<li>Har bir takrorlangan lugʻat kartasi: 2 XP (kuniga 120 gacha).</li></ul>' +
+        '<p><b>Seriya muzlatkichi</b> oʻtkazib yuborilgan kunni yopadi, shuning uchun bitta band kun seriyani uzmaydi. Saytni keyingi ochganingizda, har bir oʻtkazilgan kun uchun muzlatkich boʻlsa, avtomatik ishlatiladi. Bepul: har dushanba 1 ta, koʻpi bilan 1 ta. Pro va Max: har dushanba 2 ta, koʻpi bilan 3 ta.</p>',
+      chip: '{n} kunlik seriya. Bugun {x} / {g} XP',
+      t_start: 'Seriya boshlandi. 2 kun boʻlishi uchun ertaga qayting.',
+      t_up: '{n} kunlik seriya. Ertaga ham davom eting.',
+      t_mile: 'Ketma-ket {n} kun. Bu haqiqiy odat.',
+      t_goal: 'Kunlik maqsad bajarildi: {g} XP.',
+      t_level: '{n}-darajaga chiqdingiz.',
+      t_frz: 'Seriya muzlatkichi {d}ni yopdi. {n} kunlik seriyangiz saqlandi.',
+      t_frz1: 'kechagi kun', t_frzn: '{n} kun',
+      saved: 'Kunlik maqsad: {g} XP.'
+    },
+    ru: {
+      streak: 'дней подряд', streak1: 'день подряд', best: 'Рекорд: {n} дн.',
+      st_done: 'Серия на сегодня сохранена. Возвращайтесь завтра за днём {n}.',
+      st_done_goal: 'Серия сохранена, дневная цель выполнена. До завтра.',
+      st_keep: 'Наберите ещё {x} XP сегодня, чтобы сохранить серию ({n} дн.). Хватит одного верного ответа.',
+      st_start: 'Ответьте на один вопрос, чтобы начать серию.',
+      st_lost: 'Серия ({b} дн.) прервалась. Ответьте на один вопрос, чтобы начать новую.',
+      today: 'Сегодня', goal_of: '{x} / {g} XP', goal_change: 'Изменить цель', level: 'Уровень {n}', total: 'Всего {x} XP',
+      to_next: '{x} XP до уровня {n}', week: 'На этой неделе: {x} XP', frz: '{n} заморозка серии', frzs: 'Заморозок серии: {n}', frz0: 'Заморозок не осталось',
+      how: 'Как это работает', days: ['Пн', 'Вт', 'Ср', 'Чт', 'Пт', 'Сб', 'Вс'],
+      d_on: 'занимались', d_frz: 'сохранён заморозкой', d_miss: 'пропущен', d_future: 'ещё впереди',
+      goal_t: 'Ваша дневная цель', goal_p: 'Сколько вы хотите заниматься каждый день? Для серии хватит 10 XP. Цель — для вас.',
+      g20: 'Легко', g50: 'Обычно', g100: 'Серьёзно', g200: 'Интенсивно', g_hint: 'примерно {n} вопросов',
+      cancel: 'Отмена', ok: 'Понятно', save: 'Сохранить',
+      how_t: 'Серия и XP',
+      how_p: '<p>Считается всё: наборы вопросов, дриллы, Банк ошибок, тесты, уроки, вопрос дня и словарь.</p>' +
+        '<ul><li><b>10 XP в день сохраняют серию.</b> Хватит одного верного ответа или вопроса дня.</li>' +
+        '<li>Верный ответ: 10 XP (лёгкий), 12 (средний), 15 (сложный). Неверный: 3 XP за старание. Тот же вопрос снова в тот же день: 1 XP.</li>' +
+        '<li>Исправленный вопрос из Банка ошибок: ещё 5 XP. Вопрос дня: ещё 10 XP.</li>' +
+        '<li>Полный пробный тест: 100 XP. Мини-диагностика или одна секция: 40 XP.</li>' +
+        '<li>Каждая повторённая карточка словаря: 2 XP (до 120 в день).</li></ul>' +
+        '<p><b>Заморозка серии</b> закрывает пропущенный день, чтобы один занятой день не обрывал серию. Она тратится сама, когда вы снова открываете сайт, если заморозок хватает на все пропущенные дни. Бесплатно: 1 каждый понедельник, максимум 1. Pro и Max: 2 каждый понедельник, максимум 3.</p>',
+      chip: 'Серия {n} дн. Сегодня {x} из {g} XP',
+      t_start: 'Серия началась. Возвращайтесь завтра, чтобы было 2 дня.',
+      t_up: '{n} дней подряд. Продолжайте завтра.',
+      t_mile: '{n} дней подряд. Это уже привычка.',
+      t_goal: 'Дневная цель выполнена: {g} XP.',
+      t_level: 'Новый уровень: {n}.',
+      t_frz: 'Заморозка закрыла {d}. Серия ({n} дн.) сохранена.',
+      t_frz1: 'вчерашний день', t_frzn: '{n} дн.',
+      saved: 'Дневная цель: {g} XP.'
+    }
+  };
+  const FLAME = '<svg class="xp-flame" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M13.2 1.6c.5 3.1-1.2 5-2.9 6.8C8.6 10.2 6.6 12.2 6.6 15.4a5.6 5.6 0 0 0 11.2.2c0-2.7-1.2-4.6-2.6-6.3-.1 1.7-.8 2.9-2 3.4.9-3.6.5-7.6 0-11.1Zm-1.1 13.1c1.3 1.1 2.3 2.4 2.3 3.6a2.4 2.4 0 0 1-4.8 0c0-1.3 1-2.4 2.5-3.6Z" fill-rule="evenodd"/></svg>';
+  const SNOW = '<svg class="xp-snow" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 2v20M4 6.5l16 11M20 6.5l-16 11M9.5 3.5 12 6l2.5-2.5M9.5 20.5 12 18l2.5 2.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+  const xpDayN = k => Math.round(Date.parse(k + 'T00:00:00Z') / DAY);
+  const xpKeyOf = n => dayKey(n * DAY - TZ_MS);
+  const xp = {
+    XP,
+    _last: null, _ticked: null,
+    T(k, vars) { return i18n(XP_TEXT)(k, vars); },
+    get() { const x = store.get('xp', null); return x && typeof x === 'object' ? x : {}; },
+    save(x) { store.set('xp', x); },
+    // XP per Tashkent day from the saved answers, tests and vocabulary.
+    derived() {
+      const out = {}, add = (k, n) => { out[k] = (out[k] || 0) + n; }, seen = {};
+      getAttempts().slice().sort((a, b) => (a.ts || 0) - (b.ts || 0)).forEach(a => {
+        if (!a || !a.ts) return;
+        const k = dayKey(a.ts), s = k + '|' + a.qid;
+        if (seen[s]) { add(k, XP.repeat); return; }
+        seen[s] = 1;
+        let n = a.correct ? (XP[a.difficulty] || XP.medium) : XP.wrong;
+        if (a.correct && (a.source === 'review' || a.source === 'mistakes')) n += XP.review;
+        if (a.source === 'daily') n += XP.daily;
+        add(k, n);
+      });
+      getTestHistory().forEach(h => { if (h && h.finishedAt) add(dayKey(h.finishedAt), isFullTest(h) ? XP.test : XP.short); });
+      const vd = (store.get('vocab', {}) || {}).days || {};
+      Object.keys(vd).forEach(k => { const r = vd[k] && !vd[k].deleted ? Number(vd[k].r) || 0 : 0; if (r) add(k, Math.min(XP.wordCap, r * XP.word)); });
+      return out;
+    },
+    // Sealed days and what the saved data gives, whichever is larger.
+    days() {
+      const sealed = this.get().days || {}, d = this.derived(), out = {};
+      Object.keys(sealed).forEach(k => { const v = sealed[k]; if (v && v.x > 0) out[k] = v.x; });
+      Object.keys(d).forEach(k => { out[k] = Math.max(out[k] || 0, d[k]); });
+      return out;
+    },
+    frozen() { const f = this.get().frz || {}, o = {}; Object.keys(f).forEach(k => { if (f[k] && f[k].on) o[k] = true; }); return o; },
+    goal() { const g = this.get().goal, v = g && Number(g.v); return XP.GOALS.indexOf(v) > -1 ? v : XP.GOAL; },
+    setGoal(v) {
+      v = Number(v); if (XP.GOALS.indexOf(v) < 0) return;
+      const x = this.get(); x.goal = { v, t: Date.now() }; this.save(x);
+      track('daily_goal_set', { goal: v });
+      this.changed(true);
+    },
+    // Pro, Max and students in a class get more freezes.
+    paid() { try { return mistakes.level() !== 'free'; } catch (e) { return false; } },
+    cap() { return this.paid() ? 3 : 1; },
+    grant() { return this.paid() ? 2 : 1; },
+    // Level n starts at 50·n·(n−1) XP: level 2 at 100, 3 at 300, 4 at 600, 5 at 1,000, 10 at 4,500.
+    levelOf(total) {
+      let n = 1; while (50 * (n + 1) * n <= total) n++;
+      const lo = 50 * n * (n - 1), hi = 50 * (n + 1) * n;
+      return { n, lo, hi, into: total - lo, need: hi - lo, left: hi - total };
+    },
+    state(now) {
+      now = now || Date.now();
+      const days = this.days(), frz = this.frozen(), today = dayKey(now), t0 = dayNum(now);
+      const real = k => (days[k] || 0) >= XP.STREAK_MIN, on = k => real(k) || !!frz[k];
+      const todayXp = days[today] || 0, doneToday = real(today);
+      // A frozen day keeps the streak going but doesn't add to it.
+      let n = doneToday ? t0 : t0 - 1, cur = 0, last = '';
+      while (on(xpKeyOf(n))) { if (real(xpKeyOf(n))) { cur++; if (!last) last = xpKeyOf(n); } n--; }
+      if (!last) { for (let i = t0; i > t0 - 400; i--) if (real(xpKeyOf(i))) { last = xpKeyOf(i); break; } }
+      const keys = Object.keys(days).filter(real).concat(Object.keys(frz));
+      const nums = Array.from(new Set(keys.map(xpDayN))).sort((a, b) => a - b);
+      let best = 0, run = 0, prev = null, prevRun = 0;
+      nums.forEach(d => { const r = real(xpKeyOf(d)) ? 1 : 0; run = prev != null && d === prev + 1 ? run + r : r; prev = d; best = Math.max(best, run); });
+      // The streak that ended most recently (for "your 12-day streak ended").
+      if (!cur && nums.length && last && t0 - xpDayN(last) <= 14) { let i = nums.length - 1; prevRun = 0; while (i >= 0 && (i === nums.length - 1 || nums[i] === nums[i + 1] - 1)) { if (real(xpKeyOf(nums[i]))) prevRun++; i--; } }
+      const total = Object.keys(days).reduce((s, k) => s + days[k], 0);
+      const w0 = dayNum(weekStart(now) + 12 * 3600000), week = [];
+      for (let i = 0; i < 7; i++) {
+        const k = xpKeyOf(w0 + i);
+        week.push({ k, x: days[k] || 0, on: real(k), frozen: !!frz[k] && !real(k), future: w0 + i > t0, today: w0 + i === t0 });
+      }
+      const inv = this.get().inv || {};
+      return {
+        cur, best: Math.max(best, cur), ended: prevRun, last, today: todayXp, doneToday, goal: this.goal(), total,
+        level: this.levelOf(total), week, weekXp: week.reduce((s, d) => s + d.x, 0),
+        freezes: Math.max(0, Number(inv.n) || 0), cap: this.cap(), days
+      };
+    },
+    // Once a page has loaded (after the account's data has synced): the weekly
+    // freezes, a refund for a frozen day that turned out to have study, and
+    // freezes for missed days.
+    tick() {
+      if (this._ticked) return this._ticked;
+      this._ticked = (async () => {
+        await authReady(6000);
+        if (auth.user && sync._start) { try { await sync._start; } catch (e) { /* ignore */ } }
+        const now = Date.now(), x = this.get(), wk = weekStart(now), cap = this.cap();
+        const inv = Object.assign({ n: 0, wk: 0 }, x.inv), frz = Object.assign({}, x.frz);
+        let changed = false;
+        if (inv.wk !== wk) { inv.n = Math.min(cap, Math.max(0, Number(inv.n) || 0) + this.grant()); inv.wk = wk; inv.t = now; changed = true; }
+        const days = this.days(), real = k => (days[k] || 0) >= XP.STREAK_MIN;
+        Object.keys(frz).forEach(k => { if (frz[k] && frz[k].on && real(k)) { frz[k] = { on: false, t: now }; inv.n = Math.min(cap, inv.n + 1); inv.t = now; changed = true; } });
+        const t0 = dayNum(now), on = k => real(k) || (frz[k] && frz[k].on);
+        let last = t0 - 1;
+        while (last > t0 - 60 && !on(xpKeyOf(last))) last--;
+        const missed = t0 - 1 - last;
+        let used = 0;
+        if (missed > 0 && last > t0 - 60 && missed <= inv.n) {
+          for (let d = last + 1; d < t0; d++) frz[xpKeyOf(d)] = { on: true, t: now };
+          inv.n -= missed; inv.t = now; used = missed; changed = true;
+        }
+        if (changed) { x.inv = inv; x.frz = frz; this.save(x); }
+        this._last = null;
+        const st = this.changed(true);
+        if (used) {
+          toast(this.T('t_frz', { d: used === 1 ? this.T('t_frz1') : this.T('t_frzn', { n: used }), n: st.cur }), 5000);
+          track('streak_freeze_used', { days: used, streak: st.cur });
+        }
+      })();
+      return this._ticked;
+    },
+    // After any study: seal past days, refresh the summary and the header,
+    // and say so when the streak grows, the daily goal is met or a level is reached.
+    changed(quiet) {
+      const st = this.state(), x = this.get(), today = dayKey(), now = Date.now();
+      let dirty = false;
+      const sealed = Object.assign({}, x.days);
+      Object.keys(st.days).forEach(k => { if (k < today && (!sealed[k] || (sealed[k].x || 0) < st.days[k])) { sealed[k] = { x: st.days[k], t: now }; dirty = true; } });
+      const sum = { cur: st.cur, best: st.best, last: st.last, done: st.doneToday ? today : '', week: st.weekXp, total: st.total, lvl: st.level.n, frz: st.freezes };
+      const old = x.sum || {};
+      if (Object.keys(sum).some(k => old[k] !== sum[k])) { x.sum = Object.assign(sum, { t: now }); dirty = true; }
+      if (dirty && !sync.applying) { x.days = sealed; this.save(x); }
+      const prev = this._last;
+      this._last = { day: today, total: st.total, lvl: st.level.n, done: st.doneToday, goal: st.today >= st.goal };
+      if (!quiet && prev && prev.day === today) {
+        let msg = '';
+        if (!prev.done && st.doneToday) {
+          msg = st.cur <= 1 ? this.T('t_start') : XP_MILESTONES.indexOf(st.cur) > -1 ? this.T('t_mile', { n: st.cur }) : this.T('t_up', { n: st.cur });
+          track('streak_extended', { streak: st.cur });
+        } else if (st.level.n > prev.lvl) {
+          msg = this.T('t_level', { n: st.level.n });
+          track('level_up', { level: st.level.n });
+        } else if (!prev.goal && st.today >= st.goal) {
+          msg = this.T('t_goal', { g: st.goal });
+          track('daily_goal_reached', { goal: st.goal });
+        }
+        if (msg) toast(msg, 3800);
+      }
+      this.paintChip(st, prev && st.total > prev.total);
+      $$('[data-xp-card]').forEach(el => { el.outerHTML = this.cardHtml(st); });
+      return st;
+    },
+    // The streak in the page header, for students who have studied at least once.
+    paintChip(st, bump) {
+      const slot = $('.site-header [data-auth-slot]');
+      if (!slot || /(admin|builder|teacher|login)\.html$/.test(location.pathname)) return;
+      let el = $('.site-header .xp-chip');
+      if (!el && !st.total) return;
+      if (!el) { el = document.createElement('a'); el.className = 'xp-chip'; el.href = 'practice.html#home'; slot.parentNode.insertBefore(el, slot); }
+      el.classList.toggle('is-off', !st.doneToday);
+      el.innerHTML = FLAME + '<b>' + st.cur + '</b>';
+      const label = this.T('chip', { n: st.cur, x: st.today, g: st.goal });
+      el.setAttribute('aria-label', label); el.title = label;
+      if (bump) { el.classList.remove('bump'); void el.offsetWidth; el.classList.add('bump'); }
+    },
+    // The dashboard card: <div data-xp-card></div> or xp.cardHtml().
+    cardHtml(st) {
+      st = st || this.state();
+      const T = (k, v) => this.T(k, v), fmt = n => Number(n).toLocaleString('en-US').replace(/,/g, ' ');
+      const status = st.doneToday ? (st.today >= st.goal ? T('st_done_goal') : T('st_done', { n: st.cur + 1 }))
+        : st.cur ? T('st_keep', { x: XP.STREAK_MIN - st.today, n: st.cur })
+        : st.ended >= 2 ? T('st_lost', { b: st.ended }) : T('st_start');
+      const names = T('days');
+      const week = st.week.map((d, i) => {
+        const cls = d.on ? 'is-on' : d.frozen ? 'is-frz' : d.future || d.today ? 'is-future' : 'is-miss';
+        const what = d.on ? T('d_on') + ', ' + d.x + ' XP' : d.frozen ? T('d_frz') : d.future || d.today ? T('d_future') : T('d_miss');
+        return '<li class="' + cls + (d.today ? ' is-today' : '') + '" title="' + esc(fmtDate(xpDayN(d.k) * DAY + 6 * 3600000) + ': ' + what) + '"><i>' + (d.on ? FLAME : d.frozen ? SNOW : '') + '</i><small>' + esc(names[i]) + '</small><span class="sr-only">' + esc(what) + '</span></li>';
+      }).join('');
+      const gp = Math.min(100, Math.round(st.today / st.goal * 100)), lp = Math.min(100, Math.round(st.level.into / st.level.need * 100));
+      return '<section class="card xp-card" data-xp-card aria-label="' + esc(T('how_t')) + '">' +
+        '<div class="xp-main">' +
+          '<div class="xp-big' + (st.doneToday ? '' : ' is-off') + '">' + FLAME + '<div><b>' + st.cur + '</b><span>' + esc(st.cur === 1 ? T('streak1') : T('streak')) + '</span></div></div>' +
+          '<p class="xp-status">' + esc(status) + '</p>' +
+          '<ol class="xp-week">' + week + '</ol>' +
+          '<p class="small muted xp-meta">' + esc(T('best', { n: st.best })) + ' · ' + (st.freezes ? SNOW + ' ' + esc(T(st.freezes === 1 ? 'frz' : 'frzs', { n: st.freezes })) : esc(T('frz0'))) + ' · <button type="button" class="link-btn" data-xp-how>' + esc(T('how')) + '</button></p>' +
+        '</div>' +
+        '<div class="xp-side">' +
+          '<div class="xp-row"><div class="xp-row-h"><b>' + esc(T('today')) + '</b><span>' + esc(T('goal_of', { x: fmt(st.today), g: st.goal })) + '</span></div>' +
+            '<div class="bar' + (gp >= 100 ? ' is-full' : '') + '" role="progressbar" aria-valuemin="0" aria-valuemax="' + st.goal + '" aria-valuenow="' + Math.min(st.today, st.goal) + '" aria-label="' + esc(T('today')) + '"><i style="width:' + gp + '%"></i></div>' +
+            '<button type="button" class="link-btn small" data-xp-goal>' + esc(T('goal_change')) + '</button></div>' +
+          '<div class="xp-row"><div class="xp-row-h"><b>' + esc(T('level', { n: st.level.n })) + '</b><span>' + esc(T('total', { x: fmt(st.total) })) + '</span></div>' +
+            '<div class="bar bar-gold" role="progressbar" aria-valuemin="0" aria-valuemax="' + st.level.need + '" aria-valuenow="' + st.level.into + '" aria-label="' + esc(T('level', { n: st.level.n })) + '"><i style="width:' + lp + '%"></i></div>' +
+            '<span class="small muted">' + esc(T('to_next', { x: fmt(st.level.left), n: st.level.n + 1 })) + ' · ' + esc(T('week', { x: fmt(st.weekXp) })) + '</span></div>' +
+        '</div></section>';
+    },
+    pickGoal() {
+      const cur = this.goal(), T = (k, v) => this.T(k, v);
+      const html = '<p class="muted">' + esc(T('goal_p')) + '</p><div class="xp-goals" role="radiogroup" aria-label="' + esc(T('goal_t')) + '">' +
+        XP.GOALS.map(g => '<label class="xp-goal-opt"><input type="radio" name="xp-goal" value="' + g + '"' + (g === cur ? ' checked' : '') + '><span><b>' + esc(T('g' + g)) + '</b><small>' + g + ' XP · ' + esc(T('g_hint', { n: Math.max(2, Math.round(g / 11)) })) + '</small></span></label>').join('') + '</div>';
+      modal({
+        title: T('goal_t'), html,
+        actions: [{ label: T('cancel'), kind: 'ghost' }, { label: T('save'), kind: 'primary', onClick: back => {
+          const r = back.querySelector('input[name="xp-goal"]:checked');
+          if (r && Number(r.value) !== cur) { this.setGoal(r.value); toast(T('saved', { g: r.value })); }
+        } }]
+      });
+    },
+    how() { modal({ title: this.T('how_t'), html: '<div class="xp-how">' + this.T('how_p') + '</div>', actions: [{ label: this.T('ok'), kind: 'primary' }] }); }
+  };
+  // Answers, finished tests and vocabulary reviews all go through store.set:
+  // recompute once, after the page has finished saving.
+  let xpQueued = false;
+  function xpSoon() {
+    try { if (xpQueued || sync.applying) return; } catch (e) { return; } // sync isn't set up yet while the page starts
+    xpQueued = true;
+    setTimeout(() => { xpQueued = false; try { xp.changed(); } catch (e) { console.warn('[SAT Ustoz] XP:', e); } }, 0);
+  }
 
   /* ------------------------------------------------------------------
      AI client (talks to your Cloudflare Worker, never to the API directly)
@@ -2923,6 +3259,16 @@
       $$('a', nav).forEach(a => a.addEventListener('click', () => set(false)));
     }
     $$('[data-year]').forEach(el => { el.textContent = new Date().getFullYear(); });
+    // Streak and XP: the header flame, the dashboard card's buttons, freezes once synced.
+    try { xp.changed(true); } catch (e) { console.warn('[SAT Ustoz] XP:', e); }
+    xp.tick();
+    document.addEventListener('sh:synced', () => { xp._last = null; xp.changed(true); });
+    document.addEventListener('click', e => {
+      const g = e.target.closest && e.target.closest('[data-xp-goal], [data-xp-how]');
+      if (!g) return;
+      e.preventDefault();
+      if (g.hasAttribute('data-xp-goal')) xp.pickGoal(); else xp.how();
+    });
     // Locked tests and blurred Pro previews: <button data-pitch="Sheet title">
     document.addEventListener('click', e => {
       const b = e.target.closest && e.target.closest('[data-pitch]');
@@ -2967,6 +3313,6 @@
     auth, sync, authReady, renderAuthSlots, requireLogin, loginUrl, safeNext, inAppBrowser,
     plan, renderPlans, pay, lockBox, analytics, track,
     pickLang, langNow, i18n, langSwitch, dateText, REGIONS, dayKey, dayNum, weekStart, seededShuffle,
-    mistakes, vocab, daily, notices, referral, realScore, classes, mock
+    mistakes, vocab, daily, xp, notices, referral, realScore, classes, mock
   };
 })();

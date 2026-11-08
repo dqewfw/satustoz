@@ -447,6 +447,7 @@ document.addEventListener('DOMContentLoaded', function () {
       html += '<div class="card resume-card"><div><span class="kicker">In progress</span><h3>' + esc(inProgress.title) + '</h3><p class="small muted">Your clock is paused. Pick up exactly where you left off.</p></div>' +
         '<a class="btn btn-primary" href="test.html?id=' + encodeURIComponent(inProgress.id) + '">Resume test</a></div>';
     }
+    html += SH.xp.cardHtml(); // streak, daily goal, level (sh.js)
     html += reviewCardHtml();
     html += '<div class="grid grid-4">' +
       tile(attempts.length, 'questions practiced') +
@@ -498,13 +499,13 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
   function toolsHtml() {
-    const st = SH.daily.streak(), doneToday = !!SH.daily.answered();
+    const st = SH.xp.state(), doneToday = !!SH.daily.answered();
     const level = SH.mistakes.level(), dueN = level === 'free' ? SH.mistakes.visible().length : SH.mistakes.queue().length;
     const v = SH.vocab.get();
     const learning = Object.keys(v.cards).filter(k => v.cards[k] && !v.cards[k].deleted).length;
     const card = (href, title, sub, big) => '<a class="tool-card" href="' + href + '"><b>' + title + '</b><span>' + sub + '</span>' + (big != null ? '<em>' + esc(big) + '</em>' : '') + '</a>';
     return '<div class="tools-grid">' +
-      card('daily.html', 'Question of the day', doneToday ? 'Done today. Back tomorrow' : st.current ? 'Keep your ' + st.current + '-day streak' : 'One question, two minutes', st.current ? st.current + 'd' : null) +
+      card('daily.html', 'Question of the day', doneToday ? 'Done today. Back tomorrow' : st.cur && !st.doneToday ? 'Keeps your ' + st.cur + '-day streak going' : 'One question, two minutes', st.cur ? st.cur + 'd' : null) +
       card('#mistakes', 'Mistake Bank', dueN ? (level === 'free' ? dueN + ' to review by hand' : dueN + ' due today, about ' + Math.max(2, Math.round(dueN * 75 / 60)) + ' minutes') : 'Nothing due right now', dueN || null) +
       card('vocab.html', 'Vocabulary', learning ? learning + ' words in your deck' : 'SAT words in Uzbek and Russian', learning || null) +
       card('lessons.html', '5-minute lessons', 'Short lessons with a 5-question check', null) +

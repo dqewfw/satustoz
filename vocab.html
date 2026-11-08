@@ -184,9 +184,7 @@ document.addEventListener('DOMContentLoaded', function () {
   function counts() {
     const v = SH.vocab.get(), now = Date.now();
     const st = Object.keys(v.cards).map(k => v.cards[k]).filter(c => c && !c.deleted);
-    let streak = 0, d = SH.dayNum();
-    if (!v.days[SH.dayKey()]) d--;
-    while (v.days[SH.dayKey(d * 86400000 - 5 * 3600000)]) { streak++; d--; }
+    const streak = SH.xp.state().cur; // the one streak for all study
     return { learned: st.filter(c => c.b >= LEARNED).length, learning: st.filter(c => c.b < LEARNED).length, due: st.filter(c => c.due <= now + 6 * 3600000).length, streak };
   }
   function drawStats() {

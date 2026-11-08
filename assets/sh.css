@@ -544,3 +544,58 @@ select.input { appearance: none; -webkit-appearance: none; padding-right: 38px; 
 .report-line .link-btn { font-weight: 600; color: var(--muted); }
 .nt-quote { display: flex; gap: 8px; align-items: flex-start; font-size: .92rem; color: var(--ink-2); margin: -4px 0 6px; }
 .nt-quote input { margin-top: 4px; }
+
+/* ---------- Streak and XP (SH.xp in sh.js) ----------
+   The flame is gold once today's 10 XP are in, grey until then. */
+.xp-flame { width: 1em; height: 1em; fill: currentColor; flex: 0 0 auto; }
+.xp-snow { width: 1em; height: 1em; flex: 0 0 auto; vertical-align: -.12em; color: #3C6E8F; }
+.xp-chip { display: inline-flex; align-items: center; gap: 4px; min-height: 36px; padding: 0 10px; border: 1px solid var(--gold); border-radius: var(--r-sm); background: var(--gold-soft); color: var(--gold-text); text-decoration: none; font-family: var(--display); font-weight: 600; font-size: 1rem; font-variant-numeric: tabular-nums; transition: border-color var(--t-fast), background-color var(--t-fast); }
+.xp-chip .xp-flame { width: 18px; height: 18px; color: #C7792B; }
+.xp-chip:hover { color: var(--gold-text); border-color: var(--gold-text); }
+.xp-chip.is-off { border-color: var(--line-2); background: var(--paper); color: var(--muted); }
+.xp-chip.is-off .xp-flame { color: var(--line-2); }
+.xp-chip.bump .xp-flame { animation: sh-tick .4s var(--ease) both; }
+@media (max-width: 560px) { .xp-chip { min-height: 34px; padding: 0 8px; font-size: .95rem; } }
+
+.xp-card { display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr); gap: 20px 32px; align-items: start; margin: 0 0 18px; }
+.xp-big { display: flex; align-items: center; gap: 12px; }
+.xp-big .xp-flame { width: 48px; height: 48px; color: #C7792B; }
+.xp-big.is-off .xp-flame { color: var(--line-2); }
+.xp-big b { display: block; font-family: var(--display); font-weight: 600; font-size: 2.4rem; line-height: 1; color: var(--ink); font-variant-numeric: tabular-nums; letter-spacing: -.02em; }
+.xp-big span { font-size: .92rem; color: var(--muted); font-weight: 600; }
+.xp-status { margin: 10px 0 14px; color: var(--ink-2); }
+.xp-week { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(7, minmax(0, 40px)); gap: 6px; }
+.xp-week li { display: flex; flex-direction: column; align-items: center; gap: 4px; }
+.xp-week i { width: 32px; height: 32px; border-radius: 50%; display: grid; place-items: center; border: 1.5px solid var(--line-2); background: var(--paper); }
+.xp-week i svg { width: 17px; height: 17px; }
+.xp-week small { font-size: .74rem; color: var(--muted); font-weight: 600; }
+.xp-week .is-on i { background: var(--gold-soft); border-color: var(--gold); color: #C7792B; }
+.xp-week .is-frz i { background: #E6EFF5; border-color: #9DBBD0; }
+.xp-week .is-miss i { background: var(--sunk); border-color: var(--sunk); }
+.xp-week .is-future i { border-style: dashed; }
+.xp-week .is-today i { box-shadow: 0 0 0 2px var(--paper), 0 0 0 4px var(--brand); }
+.xp-week .is-today small { color: var(--brand); }
+.xp-meta { margin: 14px 0 0; }
+.xp-meta .link-btn { font-size: inherit; }
+.xp-side { display: grid; gap: 18px; }
+.xp-row { display: grid; gap: 7px; justify-items: start; }
+.xp-row .bar { width: 100%; height: 10px; border-radius: 5px; }
+.xp-row .bar i { border-radius: 5px; transition: width .5s var(--ease); }
+.xp-row .bar.is-full i { background: var(--ok); }
+.xp-row .bar-gold i { background: var(--gold); }
+.xp-row-h { display: flex; justify-content: space-between; gap: 12px; width: 100%; align-items: baseline; }
+.xp-row-h span { color: var(--muted); font-size: .92rem; font-variant-numeric: tabular-nums; }
+.xp-goals { display: grid; gap: 8px; margin-top: 12px; }
+.xp-goal-opt { display: flex; align-items: center; gap: 12px; padding: 12px 14px; border: 1px solid var(--line-2); border-radius: var(--r-sm); cursor: pointer; }
+.xp-goal-opt:has(input:checked) { border-color: var(--brand); background: var(--brand-tint); }
+.xp-goal-opt input { accent-color: var(--brand); width: 18px; height: 18px; margin: 0; }
+.xp-goal-opt span { display: grid; }
+.xp-goal-opt small { color: var(--muted); }
+.xp-how ul { padding-left: 1.2em; margin: .6em 0; }
+.xp-how li { margin: .35em 0; }
+@media (max-width: 720px) {
+  .xp-card { grid-template-columns: 1fr; }
+  .xp-week { grid-template-columns: repeat(7, minmax(0, 1fr)); }
+  .xp-week i { width: 30px; height: 30px; }
+}
+@media (prefers-reduced-motion: reduce) { .xp-chip.bump .xp-flame { animation: none; } .xp-row .bar i { transition: none; } }

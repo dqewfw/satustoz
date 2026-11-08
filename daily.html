@@ -117,8 +117,9 @@ document.addEventListener('DOMContentLoaded', function () {
 
   function draw() {
     $('#dq-h1').textContent = t('h1');
-    const st = SH.daily.streak();
-    $('#streak').innerHTML = '<div class="stat"><b>' + st.current + '</b><span>' + esc(t('cur')) + '</span></div><div class="stat"><b>' + st.best + '</b><span>' + esc(t('best')) + '</span></div>';
+    // One streak for all study (SH.xp): the daily question alone keeps it going.
+    const st = SH.xp.state();
+    $('#streak').innerHTML = '<div class="stat"><b>' + st.cur + '</b><span>' + esc(t('cur')) + '</span></div><div class="stat"><b>' + st.best + '</b><span>' + esc(t('best')) + '</span></div>';
     const lang = SH.langNow();
     $('#dq-sub').textContent = t('sub', { n: SH.daily.number(), d: SH.dateText() });
     drawNext();
@@ -148,10 +149,8 @@ document.addEventListener('DOMContentLoaded', function () {
         if (!pick) return;
         const ok = SH.isCorrect(q, pick);
         SH.daily.answer(q, pick, ok);
-        SH.track('daily_answered', { correct: ok, qid: q.id, streak: SH.daily.streak().current });
-        draw();
-        const st2 = SH.daily.streak().current;
-        if (st2 > 1) SH.toast(t('streak_up', { n: st2 }));
+        SH.track('daily_answered', { correct: ok, qid: q.id, streak: SH.xp.state().cur });
+        draw(); // SH.xp says when the streak grows
       });
     }
   }
