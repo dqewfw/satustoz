@@ -71,17 +71,18 @@
       // before this day (Tashkent time) keep Tests 2 and 3, and the full results
       // of tests they finished before it. Set it to the day you upload this version.
       FREE_CHANGED_AT: '2026-10-19',
-      // Launch offer: true opens Practice Tests 1 to 10 to everyone (Pro keeps the
-      // skill breakdown, question review, skill sets and drills). Tests marked
-      // "proOnly" in data/catalog.json (11 to 16) stay Pro either way. Set it to
-      // false to go back to Tests 4 to 15 (and 2 and 3 for new students) being Pro.
+      // Launch offer: true opens every practice test to everyone, with full
+      // results (Pro keeps skill sets, drills and the study plan). A test marked
+      // "proOnly" in data/catalog.json would stay Pro either way; none is marked
+      // now. Set it to false to go back to Tests 2 to 16 being Pro.
       // While it's true, keep every test file in data/tests/ (don't use
       // TESTS_ENDPOINT): students without Pro load the tests from there.
       TESTS_FREE_FOR_LAUNCH: true,
       // Tests whose full results (score by module and domain, review of every
       // question with explanations) everyone sees, without Pro.
       FREE_RESULTS_TESTS: ['practice-test-1', 'practice-test-2', 'practice-test-3', 'practice-test-4', 'practice-test-5',
-        'practice-test-6', 'practice-test-7', 'practice-test-8', 'practice-test-9', 'practice-test-10']
+        'practice-test-6', 'practice-test-7', 'practice-test-8', 'practice-test-9', 'practice-test-10',
+        'practice-test-11', 'practice-test-12', 'practice-test-13', 'practice-test-14', 'practice-test-15', 'practice-test-16']
     },
 
     // Online payment with Payme. Paste your payments Worker URL here
@@ -2552,7 +2553,7 @@
   const PLAN_TEXT = {
     en: {
       free_name: 'Free', pro_name: 'Pro', max_name: 'Max',
-      free_for: 'Try the real test format.', pro_for: 'Every test, and where your points go.', max_for: 'Pro, plus the AI tutor and live sessions.',
+      free_for: 'Try the real test format.', pro_for: 'Every test, and where your points go.', pro_for_launch: 'Practice built around where your points go.', max_for: 'Pro, plus the AI tutor and live sessions.',
       free_f: ['Mini diagnostic test', 'Practice Test 1', 'Starter practice sets', 'Your total score'],
       pro_f: ['All 16 full-length adaptive practice tests', 'Your score broken down by skill', 'Review every question with explanations', 'Drills built from your weakest skills', 'A study plan to your test date'],
       max_f: ['Everything in Pro', 'AI tutor: ask about any question, any time', 'Your study plan re-made every week', 'A monthly live group session with Azizbek'],
@@ -2605,8 +2606,8 @@
       mp_unlocked_t: '{plan} is on', mp_unlocked: 'You can use {plan} right now, for 48 hours, while we confirm your payment. Once it’s confirmed (within 2 hours, 9:00 to 23:00 Tashkent time), you get the full period you paid for. Send us the receipt so we can confirm it faster.',
       pending_note: 'Confirming your payment: the full period starts once it’s confirmed.',
       mp_trust: 'Payments go to {name}, the founder of SAT Ustoz. Questions? Message {tg} on Telegram.', mp_instant: 'Your plan switches on as soon as you tap “I’ve paid”.',
-      launch_tests: 'Practice Tests 1 to 10 (free for our launch)', launch_results: 'Full results for Tests 1 to 10: score by skill and every question explained', pro_results: 'Full results for Tests 11 to 16',
-      note_launch: '<b>Free, Pro or Max?</b> Free gives you Tests 1 to 10 with full results: your score by skill and every question explained. Pro adds Tests 11 to 16, skill sets and drills for the skills that cost you points. Max adds the AI tutor and live sessions with Azizbek.', pro_tests_launch: 'Practice Tests 11 to 16, only in Pro', pro_sets: 'Practice sets for the most-missed skills',
+      launch_tests: 'All 16 practice tests (free for our launch)', launch_results: 'Full results for every test: score by skill and every question explained', pro_results: 'Full results for Tests 11 to 16',
+      note_launch: '<b>Free, Pro or Max?</b> Free gives you all 16 practice tests with full results: your score by skill and every question explained. Pro adds skill sets, drills for the skills that cost you points and a study plan to your test date. Max adds the AI tutor and live sessions with Azizbek.', pro_tests_launch: 'Practice Tests 11 to 16, only in Pro', pro_sets: 'Practice sets for the most-missed skills',
       ai_daily: '3 AI tutor questions a day', ai_max: 'Unlimited AI tutor and new AI practice questions',
       bill_pass: 'Prices in Uzbek so’m. Pay for one month at a time, or for 3 months until your test.',
       pass_line: 'or {price} for 3 months, until your test',
@@ -2626,7 +2627,7 @@
     },
     uz: {
       free_name: 'Bepul', pro_name: 'Pro', max_name: 'Max',
-      free_for: 'Haqiqiy test formatini sinab koʻring.', pro_for: 'Barcha testlar va ballaringiz qayerda yoʻqolayotgani.', max_for: 'Pro, AI ustoz va jonli darslar bilan.',
+      free_for: 'Haqiqiy test formatini sinab koʻring.', pro_for: 'Barcha testlar va ballaringiz qayerda yoʻqolayotgani.', pro_for_launch: 'Ball yoʻqotayotgan joylaringizga qaratilgan mashqlar.', max_for: 'Pro, AI ustoz va jonli darslar bilan.',
       free_f: ['Mini diagnostika testi', '1-sinov testi', 'Boshlangʻich savollar toʻplamlari', 'Umumiy ballingiz'],
       pro_f: ['Barcha 16 ta toʻliq adaptiv sinov testi', 'Koʻnikmalar boʻyicha ball tahlili', 'Har bir savolni izohlari bilan koʻrib chiqish', 'Eng zaif koʻnikmalaringiz boʻyicha mashqlar', 'Imtihon sanangizgacha oʻqish rejasi'],
       max_f: ['Pro tarifidagi hamma narsa', 'AI ustoz: istalgan savol boʻyicha istalgan vaqtda soʻrang', 'Oʻqish rejangiz har hafta yangilanadi', 'Azizbek bilan oylik jonli guruh darsi'],
@@ -2679,8 +2680,8 @@
       mp_unlocked_t: '{plan} yoqildi', mp_unlocked: 'Toʻlovingizni tasdiqlagunimizcha {plan} tarifidan hoziroq, 48 soat davomida foydalanishingiz mumkin. Tasdiqlangach (Toshkent vaqti bilan 9:00–23:00, 2 soat ichida) toʻlagan muddatingiz toʻliq ochiladi. Tezroq tasdiqlashimiz uchun chekni yuboring.',
       pending_note: 'Toʻlovingiz tasdiqlanmoqda: toʻliq muddat tasdiqlangach boshlanadi.',
       mp_trust: 'Toʻlovlar SAT Ustoz asoschisi {name} kartasiga tushadi. Savollar boʻlsa, Telegramda {tg} ga yozing.', mp_instant: '“Toʻladim” tugmasini bosishingiz bilan tarif darhol yoqiladi.',
-      launch_tests: '1–10-sinov testlari (ishga tushish munosabati bilan bepul)', launch_results: '1–10-testlar boʻyicha toʻliq natija: koʻnikmalar boʻyicha ball va har bir savolga izoh', pro_results: '11–16-testlar boʻyicha toʻliq natija',
-      note_launch: '<b>Bepul, Pro yoki Max?</b> Bepul tarifda 1–10-testlar toʻliq natijasi bilan: koʻnikmalar boʻyicha ball va har bir savolga izoh. Pro 11–16-testlarni, koʻnikma toʻplamlari va ball yoʻqotayotgan koʻnikmalaringiz boʻyicha mashqlarni qoʻshadi. Max esa AI ustoz va Azizbek bilan jonli darslarni qoʻshadi.', pro_tests_launch: '11–16-sinov testlari, faqat Pro tarifida', pro_sets: 'Eng koʻp xato qilinadigan koʻnikmalar boʻyicha toʻplamlar',
+      launch_tests: 'Barcha 16 ta sinov testi (ishga tushish munosabati bilan bepul)', launch_results: 'Har bir test boʻyicha toʻliq natija: koʻnikmalar boʻyicha ball va har bir savolga izoh', pro_results: '11–16-testlar boʻyicha toʻliq natija',
+      note_launch: '<b>Bepul, Pro yoki Max?</b> Bepul tarifda barcha 16 ta sinov testi toʻliq natijasi bilan: koʻnikmalar boʻyicha ball va har bir savolga izoh. Pro koʻnikma toʻplamlari, ball yoʻqotayotgan koʻnikmalaringiz boʻyicha mashqlar va imtihon sanangizgacha oʻqish rejasini qoʻshadi. Max esa AI ustoz va Azizbek bilan jonli darslarni qoʻshadi.', pro_tests_launch: '11–16-sinov testlari, faqat Pro tarifida', pro_sets: 'Eng koʻp xato qilinadigan koʻnikmalar boʻyicha toʻplamlar',
       ai_daily: 'Kuniga 3 ta AI ustoz savoli', ai_max: 'Cheksiz AI ustoz va yangi AI mashq savollari',
       bill_pass: 'Narxlar soʻmda. Bir oyga yoki imtihoningizgacha 3 oyga toʻlang.',
       pass_line: 'yoki imtihoningizgacha 3 oyga {price}',
@@ -2700,7 +2701,7 @@
     },
     ru: {
       free_name: 'Бесплатно', pro_name: 'Pro', max_name: 'Max',
-      free_for: 'Попробуйте настоящий формат теста.', pro_for: 'Все тесты и то, где вы теряете баллы.', max_for: 'Pro плюс ИИ-репетитор и живые занятия.',
+      free_for: 'Попробуйте настоящий формат теста.', pro_for: 'Все тесты и то, где вы теряете баллы.', pro_for_launch: 'Тренировки там, где вы теряете баллы.', max_for: 'Pro плюс ИИ-репетитор и живые занятия.',
       free_f: ['Мини-диагностика', 'Пробный тест 1', 'Стартовые наборы вопросов', 'Ваш общий балл'],
       pro_f: ['Все 16 полных адаптивных пробных тестов', 'Разбор балла по навыкам', 'Разбор каждого вопроса с объяснениями', 'Тренировки по вашим самым слабым навыкам', 'План подготовки до даты экзамена'],
       max_f: ['Всё из тарифа Pro', 'ИИ-репетитор: спрашивайте о любом вопросе в любое время', 'План подготовки, обновляемый каждую неделю', 'Ежемесячное живое групповое занятие с Азизбеком'],
@@ -2753,8 +2754,8 @@
       mp_unlocked_t: '{plan} включён', mp_unlocked: 'Пользуйтесь {plan} прямо сейчас, 48 часов, пока мы подтверждаем оплату. После подтверждения (в течение 2 часов, с 9:00 до 23:00 по Ташкенту) откроется весь оплаченный срок. Отправьте чек, чтобы мы подтвердили быстрее.',
       pending_note: 'Подтверждаем оплату: полный срок начнётся после подтверждения.',
       mp_trust: 'Платежи поступают основателю SAT Ustoz, {name}. Вопросы? Напишите {tg} в Telegram.', mp_instant: 'Тариф включится сразу, как только вы нажмёте «Я оплатил(а)».',
-      launch_tests: 'Пробные тесты 1–10 (бесплатно в честь запуска)', launch_results: 'Полные результаты тестов 1–10: балл по навыкам и объяснение каждого вопроса', pro_results: 'Полные результаты тестов 11–16',
-      note_launch: '<b>Бесплатно, Pro или Max?</b> Бесплатно: тесты 1–10 с полными результатами — балл по навыкам и объяснение каждого вопроса. Pro добавляет тесты 11–16, наборы по навыкам и тренировки по навыкам, на которых вы теряете баллы. Max добавит ИИ-репетитора и живые занятия с Азизбеком.', pro_tests_launch: 'Пробные тесты 11–16, только в Pro', pro_sets: 'Наборы по навыкам, где ошибаются чаще всего',
+      launch_tests: 'Все 16 пробных тестов (бесплатно в честь запуска)', launch_results: 'Полные результаты всех тестов: балл по навыкам и объяснение каждого вопроса', pro_results: 'Полные результаты тестов 11–16',
+      note_launch: '<b>Бесплатно, Pro или Max?</b> Бесплатно: все 16 пробных тестов с полными результатами — балл по навыкам и объяснение каждого вопроса. Pro добавляет наборы по навыкам, тренировки по навыкам, на которых вы теряете баллы, и план подготовки до даты экзамена. Max добавит ИИ-репетитора и живые занятия с Азизбеком.', pro_tests_launch: 'Пробные тесты 11–16, только в Pro', pro_sets: 'Наборы по навыкам, где ошибаются чаще всего',
       ai_daily: '3 вопроса ИИ-репетитору в день', ai_max: 'Безлимитный ИИ-репетитор и новые ИИ-вопросы',
       bill_pass: 'Цены в узбекских сумах. Платите за месяц или сразу за 3 месяца до экзамена.',
       pass_line: 'или {price} за 3 месяца, до экзамена',
@@ -2780,12 +2781,12 @@
   function priceText(amount, lang) {
     return amount + ' ' + (CONFIG.PLANS.CURRENCY[lang] || CONFIG.PLANS.CURRENCY.en);
   }
-  // What each plan card lists. During the launch offer Tests 1 to 10 are free with
-  // full results, so Free lists them, and Pro lists Tests 11 to 16, their results and its skill sets. With the AI on, Free and Pro
+  // What each plan card lists. During the launch offer every test is free with
+  // full results, so Free lists them, and Pro leads with its skill sets. With the AI on, Free and Pro
   // list their daily tutor questions and Max its unlimited AI.
   function planFeatures(id, T) {
     const f = T(id + '_f').slice();
-    if (CONFIG.PLANS.TESTS_FREE_FOR_LAUNCH) { if (id === 'free') f.splice(1, 1, T('launch_tests'), T('launch_results')); if (id === 'pro') f.splice(0, 3, T('pro_tests_launch'), T('pro_results'), T('pro_sets')); }
+    if (CONFIG.PLANS.TESTS_FREE_FOR_LAUNCH) { if (id === 'free') f.splice(1, 1, T('launch_tests'), T('launch_results')); if (id === 'pro') f.splice(0, 3, T('pro_sets')); }
     if (!ai.enabled()) return f;
     if (id === 'max') f[1] = T('ai_max'); else f.push(T('ai_daily'));
     return f;
@@ -2818,7 +2819,7 @@
     const passLine = passOn && cur === 'free' ? '<p class="plan-pass">' + esc(T('pass_line').replace('{price}', priceText(CONFIG.PLANS.PASS_PRICE, lang))) + '</p>' : '';
     const card = (id, cls, flag, amount, monthly, cta, extra) => '<article class="plan' + cls + (cur === id ? ' is-current' : '') + '">' +
       (flag ? '<span class="plan-flag">' + esc(flag) + '</span>' : '') +
-      '<h3>' + esc(T(id + '_name')) + '</h3><p class="plan-for">' + esc(T(id + '_for')) + '</p>' +
+      '<h3>' + esc(T(id + '_name')) + '</h3><p class="plan-for">' + esc(T(id + (id === 'pro' && CONFIG.PLANS.TESTS_FREE_FOR_LAUNCH ? '_for_launch' : '_for'))) + '</p>' +
       price(amount, monthly) + (extra || '') + list(planFeatures(id, T)) + '<div class="plan-cta">' + cta + '</div></article>';
     host.innerHTML = '<div class="plans">' +
       card('free', '', '', '0', false, freeCta) +
