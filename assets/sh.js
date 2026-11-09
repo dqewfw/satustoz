@@ -1310,9 +1310,11 @@
       const old = x.sum || {};
       if (Object.keys(sum).some(k => old[k] !== sum[k])) { x.sum = Object.assign(sum, { t: now }); dirty = true; }
       if (dirty && !sync.applying) { x.days = sealed; this.save(x); }
-      const prev = this._last;
+      let prev = this._last;
+      // A page left open past midnight: the new day starts with nothing done yet.
+      if (prev && prev.day !== today) prev = Object.assign({}, prev, { day: today, done: false, goal: false });
       this._last = { day: today, total: st.total, lvl: st.level.n, done: st.doneToday, goal: st.today >= st.goal };
-      if (!quiet && prev && prev.day === today) {
+      if (!quiet && prev) {
         let msg = '';
         if (!prev.done && st.doneToday) {
           msg = st.cur <= 1 ? this.T('t_start') : XP_MILESTONES.indexOf(st.cur) > -1 ? this.T('t_mile', { n: st.cur }) : this.T('t_up', { n: st.cur });
@@ -1393,8 +1395,187 @@
   function xpSoon() {
     try { if (xpQueued || sync.applying) return; } catch (e) { return; } // sync isn't set up yet while the page starts
     xpQueued = true;
-    setTimeout(() => { xpQueued = false; try { xp.changed(); } catch (e) { console.warn('[SAT Ustoz] XP:', e); } }, 0);
+    setTimeout(() => {
+      xpQueued = false;
+      try { xp.changed(); } catch (e) { console.warn('[SAT Ustoz] XP:', e); }
+      try { mastery.changed(); } catch (e) { console.warn('[SAT Ustoz] Mastery:', e); }
+    }, 0);
   }
+
+  /* ------------------------------------------------------------------
+     Skill mastery: a level for each official SAT skill (TAXONOMY), worked
+     out from the student's own answers (nothing extra is saved). Recent
+     answers decide it, so a level can also go down again.
+       0 Not started  no answers yet
+       1 Started      at least 1 answer
+       2 Familiar     5+ answers, 6 of the last 10 right
+       3 Proficient   10+ answers, 75% of the last 15 right, 3 of them medium or hard
+       4 Mastered     20+ answers, 85% of the last 20 right, 8 of them medium or hard
+     A right answer marked "I guessed" counts as a miss here.
+     ------------------------------------------------------------------ */
+  const MASTERY_RULES = [null, { n: 1 }, { n: 5, last: 10, acc: .6, mh: 0 }, { n: 10, last: 15, acc: .75, mh: 3 }, { n: 20, last: 20, acc: .85, mh: 8 }];
+  const MASTERY_TEXT = {
+    en: {
+      levels: ['Not started', 'Started', 'Familiar', 'Proficient', 'Mastered'],
+      up: '{s}: {l}',
+      h0: 'Answer one question to start', h_n: '{k} more answer{ks} to {l}', h_acc: 'Get {k} of your last {m} right for {l}',
+      h_mh: '{k} more medium or hard right for {l}', h_max: 'Stays while your recent answers stay strong'
+    },
+    uz: {
+      levels: ['Boshlanmagan', 'Boshlangan', 'Tanish', 'Malakali', 'Oʻzlashtirilgan'],
+      up: '{s}: {l}',
+      h0: 'Boshlash uchun bitta savolga javob bering', h_n: '{l} uchun yana {k} ta javob', h_acc: '{l} uchun oxirgi {m} tadan {k} tasini toʻgʻri yeching',
+      h_mh: '{l} uchun yana {k} ta oʻrta yoki qiyin savolni toʻgʻri yeching', h_max: 'Oxirgi javoblaringiz kuchli boʻlsa, daraja saqlanadi'
+    },
+    ru: {
+      levels: ['Не начато', 'Начато', 'Знакомо', 'Уверенно', 'Освоено'],
+      up: '{s}: {l}',
+      h0: 'Ответьте на один вопрос, чтобы начать', h_n: 'Ещё {k} отв. до уровня «{l}»', h_acc: 'Решите верно {k} из последних {m} для уровня «{l}»',
+      h_mh: 'Ещё {k} верных средних или сложных для уровня «{l}»', h_max: 'Уровень держится, пока последние ответы сильные'
+    }
+  };
+  const mastery = {
+    RULES: MASTERY_RULES,
+    _last: null,
+    T(k, vars) { return i18n(MASTERY_TEXT)(k, vars); },
+    levelName(l) { return this.T('levels')[l] || ''; },
+    // One skill from its answers, newest first.
+    rate(list) {
+      const ok = a => a.correct && !a.g, mh = a => a.difficulty === 'medium' || a.difficulty === 'hard';
+      const stats = m => { const r = list.slice(0, m); return { right: r.filter(ok).length, mh: r.filter(a => ok(a) && mh(a)).length }; };
+      const meets = l => {
+        const R = MASTERY_RULES[l];
+        if (list.length < R.n) return false;
+        if (!R.last) return true;
+        const s = stats(R.last);
+        return s.right >= Math.ceil(R.acc * R.last) && s.mh >= R.mh;
+      };
+      let level = 0;
+      while (level < 4 && meets(level + 1)) level++;
+      // What it takes to reach the next level.
+      const T = (k, v) => this.T(k, v);
+      let hint = '';
+      if (level === 4) hint = T('h_max');
+      else if (level === 0) hint = T('h0');
+      else {
+        const R = MASTERY_RULES[level + 1], s = stats(R.last), name = this.levelName(level + 1), need = Math.ceil(R.acc * R.last);
+        if (list.length < R.n) hint = T('h_n', { k: R.n - list.length, ks: R.n - list.length === 1 ? '' : 's', l: name });
+        else if (s.right < need) hint = T('h_acc', { k: need, m: R.last, l: name });
+        else hint = T('h_mh', { k: R.mh - s.mh, l: name });
+      }
+      const recent = list.slice(0, 20);
+      return { level, n: list.length, acc: recent.length ? recent.filter(ok).length / recent.length : 0, hint };
+    },
+    // Every skill (only the student's section when they prepare for one), in the official order.
+    compute() {
+      const by = {};
+      getAttempts().forEach(a => { if (a && a.skill) { const k = a.section + '|' + a.skill; (by[k] = by[k] || []).push(a); } });
+      Object.keys(by).forEach(k => by[k].sort((a, b) => (b.ts || 0) - (a.ts || 0)));
+      const focus = getProfile().focus, skills = [];
+      ['rw', 'math'].forEach(section => {
+        if (focus && focus !== section) return;
+        const doms = TAXONOMY[section].domains;
+        Object.keys(doms).forEach(domain => doms[domain].forEach(skill => {
+          skills.push(Object.assign({ section, domain, skill }, this.rate(by[section + '|' + skill] || [])));
+        }));
+      });
+      const count = [0, 0, 0, 0, 0];
+      skills.forEach(s => count[s.level]++);
+      const pct = skills.length ? Math.round(skills.reduce((t, s) => t + s.level, 0) / (skills.length * 4) * 100) : 0;
+      return { skills, count, pct };
+    },
+    // After an answer: say so when a skill moves up to Familiar or higher.
+    changed() {
+      const m = this.compute(), now = {};
+      m.skills.forEach(s => { now[s.section + '|' + s.skill] = s.level; });
+      const prev = this._last; this._last = now;
+      if (prev) {
+        const ups = m.skills.filter(s => s.level >= 2 && s.level > (prev[s.section + '|' + s.skill] || 0)).sort((a, b) => b.level - a.level);
+        if (ups.length) {
+          const s = ups[0], msg = this.T('up', { s: s.skill, l: this.levelName(s.level) });
+          track('skill_level_up', { skill: s.skill, section: s.section, level: s.level });
+          // Let a streak message finish first.
+          setTimeout(() => toast(msg, 3800), toastEl ? 3000 : 0);
+        }
+      }
+      $$('[data-mastery]').forEach(el => { if (el._redraw) el._redraw(m); });
+      return m;
+    },
+    // A ring of 4 segments, filled up to the level.
+    ring(level, size) {
+      size = size || 36;
+      const r = 14, c = 2 * Math.PI * r, seg = c / 4, gap = 3.2;
+      let h = '<svg class="mr mr-' + level + '" viewBox="0 0 36 36" width="' + size + '" height="' + size + '" aria-hidden="true" focusable="false">';
+      for (let i = 0; i < 4; i++) {
+        h += '<circle cx="18" cy="18" r="' + r + '" class="' + (i < level ? 'on' : 'off') + '" stroke-dasharray="' + (seg - gap).toFixed(2) + ' ' + (c - seg + gap).toFixed(2) + '" stroke-dashoffset="' + (-(i * seg) + c / 4 - gap / 2).toFixed(2) + '"/>';
+      }
+      if (level === 4) h += '<path d="m12.5 18.3 3.6 3.6 7.4-7.6" class="tick"/>';
+      return h + '</svg>';
+    }
+  };
+
+  /* ------------------------------------------------------------------
+     Dark theme. Saved per device (store 'theme': 'light' or 'dark'); light
+     is the default. A page can go dark only if its <head> has the one-line
+     script that sets <html data-themeable> (and data-theme="dark" before
+     the first paint). The header gets a moon / sun button; test.html has
+     "Dark mode" in its More menu and calls SH.theme.toggle().
+     ------------------------------------------------------------------ */
+  const THEME_TEXT = {
+    en: { dark: 'Dark mode', light: 'Light mode' },
+    uz: { dark: 'Tungi rejim', light: 'Kunduzgi rejim' },
+    ru: { dark: 'Тёмная тема', light: 'Светлая тема' }
+  };
+  const MOON = '<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M20 14.6A8.4 8.4 0 0 1 9.4 4a8.4 8.4 0 1 0 10.6 10.6Z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>';
+  const SUN = '<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="4.2" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12 2.5v2.2M12 19.3v2.2M2.5 12h2.2M19.3 12h2.2M5.3 5.3l1.6 1.6M17.1 17.1l1.6 1.6M5.3 18.7l1.6-1.6M17.1 6.9l1.6-1.6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>';
+  const theme = {
+    ok() { return document.documentElement.hasAttribute('data-themeable'); },
+    get() { return store.get('theme', 'light') === 'dark' ? 'dark' : 'light'; },
+    isDark() { return document.documentElement.getAttribute('data-theme') === 'dark'; },
+    set(v) {
+      store.set('theme', v === 'dark' ? 'dark' : 'light');
+      this.apply();
+      track('theme_changed', { theme: this.get() });
+    },
+    toggle() { this.set(this.isDark() ? 'light' : 'dark'); },
+    apply() {
+      if (!this.ok()) return;
+      const dark = this.get() === 'dark', root = document.documentElement;
+      if (dark) root.setAttribute('data-theme', 'dark'); else root.removeAttribute('data-theme');
+      const meta = $('meta[name="theme-color"]');
+      if (meta) meta.setAttribute('content', dark ? '#121714' : '#2D5038');
+      // The logo's dark green lettering would vanish on a dark page.
+      const swap = u => u && u.replace(/(logo-horizontal|mark)(-dark)?\.svg/, (m, n) => n + (dark ? '-dark' : '') + '.svg');
+      $$('.brand img').forEach(i => { const s = swap(i.getAttribute('src')); if (s !== i.getAttribute('src')) i.setAttribute('src', s); });
+      $$('.brand picture source').forEach(s => { const v = swap(s.getAttribute('srcset')); if (v !== s.getAttribute('srcset')) s.setAttribute('srcset', v); });
+      this.paint();
+      document.dispatchEvent(new CustomEvent('sh:theme', { detail: { theme: dark ? 'dark' : 'light' } }));
+    },
+    // The header button, left of the streak flame.
+    paint() {
+      const slot = $('.site-header [data-auth-slot]');
+      if (!slot || !this.ok()) return;
+      let b = $('.site-header .theme-btn');
+      if (!b) {
+        b = document.createElement('button');
+        b.type = 'button'; b.className = 'theme-btn';
+        b.addEventListener('click', () => this.toggle());
+        const chip = $('.site-header .xp-chip');
+        slot.parentNode.insertBefore(b, chip || slot);
+      }
+      const dark = this.isDark(), label = i18n(THEME_TEXT)(dark ? 'light' : 'dark');
+      b.innerHTML = dark ? SUN : MOON;
+      b.setAttribute('aria-label', label); b.title = label;
+      b.setAttribute('aria-pressed', dark ? 'true' : 'false');
+      // The same switch inside the menu, shown when the header is too full for the button.
+      const nav = $('.site-header .nav');
+      if (nav) {
+        let n = $('.nav-theme', nav);
+        if (!n) { n = document.createElement('button'); n.type = 'button'; n.className = 'nav-theme'; n.addEventListener('click', () => this.toggle()); nav.appendChild(n); }
+        n.innerHTML = (dark ? SUN : MOON) + '<span>' + esc(label) + '</span>';
+      }
+    }
+  };
 
   /* ------------------------------------------------------------------
      AI client (talks to your Cloudflare Worker, never to the API directly)
@@ -3259,10 +3440,36 @@
       $$('a', nav).forEach(a => a.addEventListener('click', () => set(false)));
     }
     $$('[data-year]').forEach(el => { el.textContent = new Date().getFullYear(); });
+    try { theme.apply(); } catch (e) { console.warn('[SAT Ustoz] Theme:', e); }
+    // Relabel the switch when the page language changes (EN / UZ / RU buttons).
+    if (window.MutationObserver) new MutationObserver(() => theme.paint()).observe(document.documentElement, { attributes: true, attributeFilter: ['lang'] });
+    // The header: when its items don't fit on one row (the streak flame, the theme
+    // button and the account button all take room), the links go into the menu button.
+    const hdr0 = $('.site-header'), hwrap = hdr0 && $('.wrap', hdr0);
+    if (hwrap && $('.menu-btn', hdr0)) {
+      let fitting = false;
+      const fit = () => {
+        if (fitting) return; fitting = true;
+        setTimeout(() => {
+          hdr0.classList.remove('nav-collapsed', 'hdr-tight');
+          hdr0.classList.add('hdr-measure'); // nothing but the links may shrink while measuring
+          const over = () => hwrap.scrollWidth > hwrap.clientWidth + 1;
+          if (window.innerWidth > 880 && over()) hdr0.classList.add('nav-collapsed');
+          if (over()) hdr0.classList.add('nav-collapsed', 'hdr-tight');
+          hdr0.classList.remove('hdr-measure');
+          fitting = false;
+        }, 0);
+      };
+      fit();
+      window.addEventListener('resize', fit);
+      if (window.MutationObserver) new MutationObserver(fit).observe(hwrap, { childList: true, subtree: true });
+      if (document.fonts && document.fonts.ready) document.fonts.ready.then(fit);
+    }
     // Streak and XP: the header flame, the dashboard card's buttons, freezes once synced.
     try { xp.changed(true); } catch (e) { console.warn('[SAT Ustoz] XP:', e); }
     xp.tick();
-    document.addEventListener('sh:synced', () => { xp._last = null; xp.changed(true); });
+    try { mastery.changed(); } catch (e) { console.warn('[SAT Ustoz] Mastery:', e); } // remembers the levels, so a level-up can be announced
+    document.addEventListener('sh:synced', () => { xp._last = null; xp.changed(true); mastery._last = null; mastery.changed(); });
     document.addEventListener('click', e => {
       const g = e.target.closest && e.target.closest('[data-xp-goal], [data-xp-how]');
       if (!g) return;
@@ -3313,6 +3520,6 @@
     auth, sync, authReady, renderAuthSlots, requireLogin, loginUrl, safeNext, inAppBrowser,
     plan, renderPlans, pay, lockBox, analytics, track,
     pickLang, langNow, i18n, langSwitch, dateText, REGIONS, dayKey, dayNum, weekStart, seededShuffle,
-    mistakes, vocab, daily, xp, notices, referral, realScore, classes, mock
+    mistakes, vocab, daily, xp, mastery, theme, notices, referral, realScore, classes, mock
   };
 })();

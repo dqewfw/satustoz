@@ -16,6 +16,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Jost:wght@500;600&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css">
 <link rel="stylesheet" href="assets/sh.css">
+<script>/* dark theme before the first paint (SH.theme in sh.js) */document.documentElement.setAttribute('data-themeable','');try{if(localStorage.getItem('sh.v1.theme')==='"dark"')document.documentElement.setAttribute('data-theme','dark')}catch(e){}</script>
 <style>
   .hub { padding-top: 26px; padding-bottom: 20px; min-height: 60vh; }
   .tabs { display: flex; gap: 4px; overflow-x: auto; padding: 4px; margin-bottom: 22px; scrollbar-width: none; background: var(--sunk); border-radius: var(--r-sm); }
@@ -28,6 +29,34 @@
   .hub-head { display: flex; justify-content: space-between; gap: 16px; align-items: flex-end; flex-wrap: wrap; margin-bottom: 18px; }
   .hub-head h1 { font-size: clamp(1.9rem, 4.5vw, 2.6rem); margin: 0; }
   .section-title { font-size: 1.35rem; margin: 34px 0 14px; }
+  /* Skill mastery */
+  .m-head { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 10px 22px; align-items: center; }
+  .m-pct b { display: block; font-family: var(--display); font-weight: 600; font-size: 2.2rem; line-height: 1; color: var(--ink); font-variant-numeric: tabular-nums; }
+  .m-pct span { font-size: .9rem; color: var(--muted); font-weight: 600; }
+  .bar-mastery { height: 10px; border-radius: 5px; } .bar-mastery i { background: var(--brand); border-radius: 5px; }
+  .m-legend { grid-column: 1 / -1; display: flex; flex-wrap: wrap; gap: 6px 16px; font-size: .9rem; color: var(--ink-2); }
+  .m-leg { display: inline-flex; align-items: center; gap: 6px; } .m-leg b { font-variant-numeric: tabular-nums; }
+  .m-cols { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 8px 36px; margin-top: 18px; border-top: 1px solid var(--line); padding-top: 4px; }
+  .m-col h3 { font-size: 1.1rem; margin: 14px 0 0; }
+  .m-dom { margin: 14px 0 4px; font-size: .85rem; font-weight: 700; color: var(--muted); }
+  .m-list { list-style: none; margin: 0; padding: 0; }
+  .m-row { display: grid; grid-template-columns: 34px minmax(0, 1fr) auto; gap: 12px; align-items: center; padding: 7px 0; border-bottom: 1px solid var(--line); }
+  .m-row:last-child { border-bottom: 0; }
+  .m-name { display: grid; min-width: 0; }
+  .m-name b { font-size: .98rem; line-height: 1.25; }
+  .m-name span { font-size: .84rem; color: var(--muted); line-height: 1.35; }
+  .m-name em { font-style: normal; font-weight: 700; color: var(--ink-2); }
+  .m-row .btn-sm { white-space: nowrap; }
+  .mr { flex: 0 0 auto; transform: rotate(0deg); }
+  .mr circle { fill: none; stroke-width: 4.5; stroke-linecap: butt; }
+  .mr circle.off { stroke: var(--sunk); }
+  .mr-1 circle.on { stroke: #A9BC9E; }
+  .mr-2 circle.on { stroke: var(--brand-soft); }
+  .mr-3 circle.on { stroke: var(--brand); }
+  .mr-4 circle.on { stroke: var(--gold); }
+  .mr .tick { fill: none; stroke: var(--gold-text); stroke-width: 2.6; stroke-linecap: round; stroke-linejoin: round; }
+  .lv-4 .m-name em { color: var(--gold-text); }
+  @media (max-width: 560px) { .m-cols { grid-template-columns: 1fr; } .m-row { gap: 10px; } }
   .resume-card { display: flex; align-items: center; gap: 16px; justify-content: space-between; flex-wrap: wrap; margin-bottom: 18px; border-color: var(--brand-tint-2); background: var(--brand-tint); }
   .resume-card h3 { margin: 0 0 2px; font-size: 1.15rem; }
   .resume-card p { margin: 0; }
@@ -467,6 +496,7 @@ document.addEventListener('DOMContentLoaded', function () {
         '<div class="card card-hover start-card"><span class="kicker">Short on time</span><h3>Try a 10-question set</h3><p class="muted">Instant feedback and an explanation after every question.</p><a class="btn btn-ghost" href="#sets">See practice sets</a></div></div>';
     } else {
       html += analyzerHtml(snap);
+      html += masteryHtml();
     }
     html += studyPlanHtml(p);
     html += scoreChartHtml(hist, p, snap);
@@ -483,6 +513,7 @@ document.addEventListener('DOMContentLoaded', function () {
     if (gp) gp.addEventListener('click', () => SH.plan.pitch({ title: gp.dataset.title, text: gp.dataset.text }));
     bindSkillButtons();
     bindAnalyzer(snap);
+    bindMastery();
     const sr = $('[data-start-review]'); if (sr) sr.addEventListener('click', startReview);
     bindHomeExtras();
     // First visit: ask for the goal once, so the gap means something.
@@ -668,6 +699,43 @@ document.addEventListener('DOMContentLoaded', function () {
     const errNote = '<p class="small muted" style="margin:12px 0 0">Rushed: wrong in under half the usual time. Stuck: wrong after more than 1.5 times the usual time. Points are per test and add up to your gap of ' + (snap.gap || 0) + '.</p>';
     return head + '<div class="card" id="analyzer">' + body + errNote + aiPlanHtml(snap) + '</div>';
   }
+  /* ---------- Skill mastery (SH.mastery): a ring for each official skill ---------- */
+  function masteryHtml() {
+    const m = SH.mastery.compute(), L = l => SH.mastery.levelName(l);
+    if (!m.skills.length) return '';
+    const inBank = new Set(bank.map(q => q.section + '|' + q.skill));
+    const legend = [4, 3, 2, 1, 0].map(l => '<span class="m-leg">' + SH.mastery.ring(l, 18) + '<b>' + m.count[l] + '</b> ' + esc(L(l)) + '</span>').join('');
+    const cols = ['rw', 'math'].filter(sec => m.skills.some(s => s.section === sec)).map(sec => {
+      let h = '<div class="m-col"><h3>' + esc(SH.TAXONOMY[sec].label) + '</h3>';
+      Object.keys(SH.TAXONOMY[sec].domains).forEach(dom => {
+        h += '<p class="m-dom">' + esc(dom) + '</p><ul class="m-list">';
+        m.skills.filter(s => s.section === sec && s.domain === dom).forEach(s => {
+          const key = sec + '|' + dom + '|' + s.skill, has = inBank.has(sec + '|' + s.skill);
+          h += '<li class="m-row lv-' + s.level + '">' + SH.mastery.ring(s.level, 34) +
+            '<div class="m-name"><b>' + esc(s.skill) + '</b><span><em>' + esc(L(s.level)) + '</em>' + (s.n ? ' · ' + Math.round(s.acc * 100) + '% of your last ' + Math.min(20, s.n) + ' · ' + esc(s.hint) : '') + '</span></div>' +
+            (has ? '<button type="button" class="btn btn-ghost btn-sm" data-m-fix="' + esc(key) + '" aria-label="Practice ' + esc(s.skill) + '">Practice</button>'
+              : '<a class="btn btn-ghost btn-sm" href="#tests" title="This skill is in the full practice tests" aria-label="Practice ' + esc(s.skill) + ' in a practice test">In tests</a>') + '</li>';
+        });
+        h += '</ul>';
+      });
+      return h + '</div>';
+    }).join('');
+    return '<h2 class="section-title">Skill mastery</h2><div class="card m-card" data-mastery>' +
+      '<div class="m-head"><div class="m-pct"><b>' + m.pct + '%</b><span>mastery across ' + m.skills.length + ' skills</span></div>' +
+      '<div class="bar bar-mastery" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="' + m.pct + '" aria-label="Overall mastery"><i style="width:' + m.pct + '%"></i></div>' +
+      '<div class="m-legend">' + legend + '</div></div>' +
+      '<div class="m-cols">' + cols + '</div>' +
+      '<p class="small muted" style="margin:14px 0 0">Levels come from your most recent answers, so practice moves them up and a run of misses can move them down. ' +
+      'Familiar: 6 of your last 10 right. Proficient: 75% of your last 15, with 3 medium or hard. Mastered: 85% of your last 20, with 8 medium or hard.</p></div>';
+  }
+  function bindMastery() {
+    $$('[data-m-fix]').forEach(b => b.addEventListener('click', () => {
+      const [sec, dom, skill] = b.dataset.mFix.split('|');
+      SH.track('mastery_practice_tapped', { skill, section: sec });
+      startFix(sec, dom, skill, 10);
+    }));
+  }
+
   // Max: an AI study plan built from the gaps, once a week.
   function aiPlanHtml(snap) {
     if (!SH.ai.enabled()) return '';

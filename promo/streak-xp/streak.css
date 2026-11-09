@@ -1,0 +1,36 @@
+/* The dashboard streak card, drawn for the post (same look as assets/sh.css .xp-card). */
+.mock { background: #fff; color: var(--ink); border-radius: 22px; box-shadow: 0 30px 60px rgba(0,0,0,.35), 0 0 0 1px rgba(255,255,255,.1); padding: 30px 32px; }
+.fl { fill: #C7792B; }
+.big { display: flex; align-items: center; gap: 14px; }
+.big svg { width: 64px; height: 64px; }
+.big b { display: block; font-family: 'Jost', sans-serif; font-weight: 600; font-size: 64px; line-height: .95; letter-spacing: -1px; }
+.big span { font-size: 22px; color: var(--muted); font-weight: 600; }
+.status { font-size: 21px; color: #3E4A40; margin: 14px 0 18px; }
+.week { display: grid; grid-template-columns: repeat(7, 1fr); gap: 8px; }
+.week div { display: flex; flex-direction: column; align-items: center; gap: 6px; }
+.week i { width: 46px; height: 46px; border-radius: 50%; display: grid; place-items: center; border: 2px solid #C9D3C1; background: #fff; }
+.week i svg { width: 24px; height: 24px; }
+.week small { font-size: 16px; color: var(--muted); font-weight: 700; }
+.week .on i { background: var(--gold-soft); border-color: var(--gold); }
+.week .frz i { background: #E6EFF5; border-color: #9DBBD0; }
+.week .frz i svg { fill: none; stroke: #3C6E8F; stroke-width: 1.9; stroke-linecap: round; stroke-linejoin: round; }
+.week .today i { box-shadow: 0 0 0 3px #fff, 0 0 0 6px var(--brand); }
+.week .future i { border-style: dashed; }
+.rows { display: grid; gap: 18px; margin-top: 24px; padding-top: 22px; border-top: 1px solid var(--line); }
+.row .h { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 9px; }
+.row .h b { font-size: 22px; }
+.row .h span { font-size: 19px; color: var(--muted); }
+.row .track { height: 13px; border-radius: 7px; background: #ECF0E7; overflow: hidden; }
+.row .track i { display: block; height: 100%; border-radius: 7px; background: #276B3C; }
+.row .track.gold i { background: var(--gold); }
+.row small { display: block; font-size: 17px; color: var(--muted); margin-top: 7px; }
+.toast { display: inline-block; background: var(--ink); color: #fff; font-weight: 700; padding: 13px 22px; border-radius: 12px; box-shadow: 0 16px 30px rgba(0,0,0,.35); font-size: 21px; }
+
+/* Feature list */
+.feats { display: grid; gap: 12px; }
+.feat { display: grid; grid-template-columns: 52px 1fr; gap: 16px; align-items: center; background: rgba(255,255,255,.08); border: 1px solid rgba(255,255,255,.14); border-radius: 18px; padding: 14px 20px; }
+.ico { width: 52px; height: 52px; border-radius: 50%; background: var(--gold); display: grid; place-items: center; }
+.ico svg { width: 28px; height: 28px; fill: var(--brand-deep); }
+.ico.stroke svg { fill: none; stroke: var(--brand-deep); stroke-width: 2.2; stroke-linecap: round; stroke-linejoin: round; }
+.feat b { display: block; font-size: 25px; font-weight: 700; line-height: 1.2; }
+.feat em { display: block; font-style: normal; font-size: 21px; color: #D5E1CF; line-height: 1.25; }

@@ -970,6 +970,75 @@ those with a 7-day streak, how many reach 14.
 Weekly leagues (groups of about 30 by weekly XP, using `xp.sum.week`) and friend duels. Both need a small server part
 (a Worker that ranks students) and new database rules.
 
+## 11. Skill mastery
+
+A level for every official SAT skill, shown as a ring on the dashboard ("Skill mastery", under "Where your points are
+hiding"). Students come back to fill the rings. All of it is in `mastery` in `assets/sh.js`; the section is
+`masteryHtml` in `practice.html`.
+
+**Nothing to set up.** Upload `assets/sh.js` and `practice.html`. No new database rules: levels are worked out from the
+answers already saved, so every student sees their levels straight away, from all their past practice.
+
+### The levels
+
+| Level | Needs |
+|---|---|
+| Not started | no answers yet |
+| Started | at least 1 answer |
+| Familiar | 5 or more answers, 6 of the last 10 right |
+| Proficient | 10 or more answers, 75% of the last 15 right, 3 of them medium or hard |
+| Mastered | 20 or more answers, 85% of the last 20 right, 8 of them medium or hard |
+
+- Recent answers decide it, so a level can go down after a run of misses (like Khan Academy). A right answer marked
+  "I guessed" counts as a miss.
+- Each row says what the next level needs ("2 more answers to Proficient", "Get 12 of your last 15 right for Proficient").
+- The top shows overall mastery (the average level as a percent) and how many skills are at each level.
+- A student who prepares for one section sees only that section's skills.
+- When a skill reaches Familiar, Proficient or Mastered, a short message says so (after any streak message), on every page.
+- **Practice** starts the same 10-question drill as "Fix this", for that skill. Skills with no practice-set questions yet
+  say **In tests** and open the tests tab instead. Writing a practice set for those skills turns their button on.
+- To change the rules, edit `MASTERY_RULES` in `assets/sh.js` and the line under the section in `practice.html`.
+
+New PostHog events: `skill_level_up` (`skill`, `section`, `level`) and `mastery_practice_tapped` (`skill`, `section`).
+
+## 12. Score card and dark mode
+
+### Score card ("Share my score" on the test results page)
+
+One tap makes an image for Instagram or Telegram, drawn in the browser (`shareImage` in `test.html`), so nothing
+is uploaded anywhere.
+
+- **Story** (1080×1920) or **Post** (1080×1350, for the feed or a chat), switched at the top of the share window.
+- The score out of 1600, both section scores, the test name and satustoz.academy on the green band.
+- **Progress since the first full test**, for example "1260 → 1400, +140 in 3 weeks", when the score went up.
+  The heading says "My best SAT practice score" when it beats every earlier full test.
+- **The study streak** ("6-day study streak") when it is 2 days or more.
+- **Share** opens the phone's share sheet (Instagram, Telegram); **Save image** downloads the PNG on a computer.
+
+New PostHog events: `score_card_opened` (`progress`), `score_card_shared` (`format`, `progress`) and
+`score_card_saved` (`format`). Worth watching: how many finished tests end in a share.
+
+### Dark mode
+
+A moon button in the header switches the student pages to dark (and a sun switches back). In a practice test it is
+**More → Dark mode**. On a phone, when the header is full, it moves into the menu (☰). The choice is saved on the
+device; light is the default.
+
+- Pages with dark mode: `practice.html`, `test.html`, `daily.html`, `vocab.html`, `lessons.html`, `mock.html`. The
+  landing page, login, admin, builder and teacher pages stay light. To add a page, copy the one-line `<script>` under
+  the `sh.css` link in the `<head>` of `practice.html`: it sets dark before the page paints, so there is no white flash.
+- All the dark colours are under "Dark theme" at the end of `assets/sh.css`. They redefine the same colour names
+  (`--brand`, `--paper`, `--ink` …), so new parts of the site that use those names get dark mode for free; a
+  hard-coded colour such as `#fff` needs its own dark rule there.
+- In dark mode the logo uses `assets/brand/logo-horizontal-dark.svg` and `mark-dark.svg` (light lettering).
+  Upload those two files too.
+- The score card image stays light in both modes.
+- New PostHog event: `theme_changed` (`theme`).
+
+**Header fit (all pages).** When the header items don't fit on one row, the links move into the menu button, and on a
+crowded phone header the logo shows only its leaf mark. This fixes the logo being squeezed on laptops and phones
+once the streak flame was added.
+
 ## About official College Board questions
 
 The site does not include questions from the College Board's SAT Question Bank or Bluebook tests.

@@ -16,6 +16,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Jost:wght@500;600&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css">
 <link rel="stylesheet" href="assets/sh.css">
+<script>/* dark theme before the first paint (SH.theme in sh.js) */document.documentElement.setAttribute('data-themeable','');try{if(localStorage.getItem('sh.v1.theme')==='"dark"')document.documentElement.setAttribute('data-theme','dark')}catch(e){}</script>
 <style>
   html, body { height: 100%; }
   body.tr { background: var(--paper); overflow: hidden; }
@@ -154,6 +155,10 @@
   .structure td:nth-child(n+2), .structure th:nth-child(n+2) { white-space: nowrap; width: 1%; padding-left: 18px; font-variant-numeric: tabular-nums; }
   .structure th { font-size: .9rem; color: var(--gold-text); }
   .structure tr:last-child td { border-bottom: 0; }
+  .share-seg { display: flex; width: max-content; margin: 0 auto 12px; border: 1px solid var(--line-2); border-radius: var(--r-sm); overflow: hidden; }
+  .share-seg button { background: var(--paper); border: 0; padding: 7px 18px; font: 700 .9rem var(--sans); color: var(--muted); cursor: pointer; }
+  .share-seg button + button { border-left: 1px solid var(--line); }
+  .share-seg button[aria-pressed="true"] { background: var(--brand); color: #fff; }
   .intro-list { padding-left: 1.2em; }
   .intro-list li { margin-bottom: .5em; }
   .intro-list li::marker { color: var(--gold); }
@@ -903,6 +908,7 @@ document.addEventListener('DOMContentLoaded', function () {
     m.innerHTML = '<div class="menu-zoom" role="group" aria-label="Text size"><span>Text size</span>' +
       '<button type="button" data-z="-1" aria-label="Smaller text">A−</button><button type="button" data-z="0" aria-label="Default text size">100%</button><button type="button" data-z="1" aria-label="Larger text">A+</button></div>' +
       '<button type="button" data-a="reader">' + (lineReader ? 'Turn off line reader' : 'Line reader') + '</button>' +
+      '<button type="button" data-a="theme">' + (SH.theme.isDark() ? 'Light mode' : 'Dark mode') + '</button>' +
       '<button type="button" data-a="help">Help and shortcuts</button><button type="button" data-a="exit">Save and exit</button>';
     app.appendChild(m);
     const hb = $('.tr-top'); if (hb) m.style.top = Math.round(hb.getBoundingClientRect().bottom + 6) + 'px';
@@ -910,6 +916,7 @@ document.addEventListener('DOMContentLoaded', function () {
     m.querySelector('button').focus({ preventScroll: true });
     $$('[data-z]', m).forEach(b => b.addEventListener('click', () => setZoom(b.dataset.z === '0' ? 0 : zoom + Number(b.dataset.z))));
     m.querySelector('[data-a="reader"]').addEventListener('click', () => { closeMore(); toggleLineReader(); });
+    m.querySelector('[data-a="theme"]').addEventListener('click', () => { closeMore(); SH.theme.toggle(); });
     m.querySelector('[data-a="help"]').addEventListener('click', () => {
       closeMore();
       SH.modal({
@@ -920,7 +927,7 @@ document.addEventListener('DOMContentLoaded', function () {
           '<li><b>Calculator</b> and <b>Reference</b> (Math) open in panels you can drag around.</li>' +
           '<li><b>Question X of Y</b> opens the question list so you can jump anywhere in this module.</li>' +
           '<li><b>Hide</b> hides the timer. It comes back on its own for the last five minutes.</li>' +
-          '<li><b>Text size</b> and <b>Line reader</b> are in the More menu.</li></ul>' +
+          '<li><b>Text size</b>, <b>Line reader</b> and <b>Dark mode</b> are in the More menu.</li></ul>' +
           '<h3 style="font-size:1.05rem;margin-top:14px">Keyboard shortcuts</h3>' +
           '<table class="kbd-table"><tbody>' +
           '<tr><td><kbd>A</kbd>–<kbd>D</kbd></td><td>Choose an answer</td></tr>' +
@@ -1229,13 +1236,37 @@ document.addEventListener('DOMContentLoaded', function () {
         '<button type="button" data-f="' + f[0] + '" aria-pressed="' + (i === 0) + '">' + f[1] + '<span class="cnt">' + filterCount(f[0]) + '</span></button>').join('') + '</div>' +
       '<div id="qlist"></div></section>') + '</main>';
 
-    // Story-sized score card (1080x1920) for Instagram and Telegram stories.
-    // The image is ready before the Share button shows, so the tap that
-    // shares is still the student's own (browsers require that).
-    async function shareImage() {
+    SH.theme.apply(); // the logo with light lettering in dark mode
+
+    // Score card for Instagram and Telegram: a story (1080x1920) or a feed
+    // post (1080x1350). Besides the score it shows how far the student has
+    // come since their first full test and their study streak, which is
+    // what makes people post it. Each image is ready before the Share button
+    // can be tapped, so the tap that shares is still the student's own
+    // (browsers require that).
+    const FLAME_PATH = 'M13.2 1.6c.5 3.1-1.2 5-2.9 6.8C8.6 10.2 6.6 12.2 6.6 15.4a5.6 5.6 0 0 0 11.2.2c0-2.7-1.2-4.6-2.6-6.3-.1 1.7-.8 2.9-2 3.4.9-3.6.5-7.6 0-11.1Zm-1.1 13.1c1.3 1.1 2.3 2.4 2.3 3.6a2.4 2.4 0 0 1-4.8 0c0-1.3 1-2.4 2.5-3.6Z';
+    function shareFacts() {
       const secs = test.sections.map(s => ({ title: s.title, score: (rec.sections[s.id] || sectionScore(s, rec.routes, rec.responses)).score }));
       const score = rec.total != null ? rec.total : secs.reduce((n, s) => n + s.score, 0);
       const outOf = rec.total != null ? 1600 : 800 * secs.length;
+      // Progress since the first full test (only for a full test that went up).
+      let progress = null, best = false;
+      if (rec.total != null && rec.testId !== 'diagnostic-mini') {
+        const before = SH.getTestHistory().filter(h => h && h.total != null && h.testId !== 'diagnostic-mini' && h.finishedAt < rec.finishedAt && h.id !== rec.id)
+          .sort((a, b) => a.finishedAt - b.finishedAt);
+        if (before.length) {
+          const first = before[0], days = Math.max(1, Math.round((rec.finishedAt - first.finishedAt) / 864e5));
+          const span = days < 14 ? days + (days === 1 ? ' day' : ' days') : days < 63 ? Math.round(days / 7) + ' weeks' : Math.round(days / 30.4) + ' months';
+          if (rec.total > first.total) progress = { from: first.total, to: rec.total, gain: rec.total - first.total, span };
+          best = before.every(h => rec.total > h.total);
+        }
+      }
+      let streak = 0;
+      try { streak = SH.xp.state().cur; } catch (e) { /* no streak data */ }
+      return { secs, score, outOf, progress, best, streak: streak >= 2 ? streak : 0 };
+    }
+    async function shareImage(format) {
+      const f = shareFacts(), story = format !== 'post';
       const svg = async (path, h) => {
         const txt = (await (await fetch(path)).text()).replace('<svg ', '<svg height="' + h + '" ');
         const img = new Image();
@@ -1244,69 +1275,123 @@ document.addEventListener('DOMContentLoaded', function () {
         return img;
       };
       const [logo] = await Promise.all([svg('assets/brand/logo-full.svg', 400),
-        document.fonts ? Promise.all(['600 300px Jost', '600 48px "Source Sans 3"', '400 40px "Source Sans 3"'].map(f => document.fonts.load(f))).catch(() => {}) : null]);
-      const W = 1080, H = 1920, c = document.createElement('canvas');
+        document.fonts ? Promise.all(['600 300px Jost', '600 48px "Source Sans 3"', '400 40px "Source Sans 3"'].map(ft => document.fonts.load(ft))).catch(() => {}) : null]);
+      const W = 1080, H = story ? 1920 : 1350, BAND = story ? 1500 : 1110, k = story ? 1 : .7;
+      const c = document.createElement('canvas');
       c.width = W; c.height = H;
       const x = c.getContext('2d');
       const DISPLAY = 'Jost, "Source Sans 3", sans-serif', SANS = '"Source Sans 3", Arial, sans-serif';
       const rrect = (l, t, w, h, r) => { x.beginPath(); x.moveTo(l + r, t); x.arcTo(l + w, t, l + w, t + h, r); x.arcTo(l + w, t + h, l, t + h, r); x.arcTo(l, t + h, l, t, r); x.arcTo(l, t, l + w, t, r); x.closePath(); };
       const fit = (text, font, size, max) => { do { x.font = font.replace('{s}', size); size -= 2; } while (x.measureText(text).width > max && size > 20); };
+      const px = n => Math.round(n * k);
+      // Text drawn in a row, centred as a whole (for "1350 → 1420" and the streak).
+      const row = (parts, y) => {
+        const ws = parts.map(p => { if (p.icon) return p.icon; x.font = p.font; return x.measureText(p.text).width; });
+        const gap = px(14), total = ws.reduce((a, b) => a + b, 0) + gap * (parts.length - 1);
+        let l = (W - total) / 2;
+        x.textAlign = 'left';
+        parts.forEach((p, i) => {
+          if (p.icon) {
+            const s = p.icon / 24; x.save(); x.translate(l, y - p.icon * .82); x.scale(s, s); x.fillStyle = p.color; x.fill(new Path2D(FLAME_PATH), 'evenodd'); x.restore();
+          } else { x.font = p.font; x.fillStyle = p.color; x.fillText(p.text, l, y); }
+          l += ws[i] + gap;
+        });
+        x.textAlign = 'center';
+      };
+
+      // What goes on the card, top to bottom, then centred above the band.
+      const blocks = [];
+      blocks.push({ h: px(story ? 330 : 300), draw: y => { const lh = px(story ? 330 : 300), lw = lh * logo.width / logo.height; x.drawImage(logo, (W - lw) / 2, y, lw, lh); } });
+      blocks.push({ h: px(story ? 70 : 40) });
+      blocks.push({ h: px(60), draw: y => { x.fillStyle = '#5E6A60'; x.font = '600 ' + px(48) + 'px ' + SANS; x.fillText(f.best ? 'My best SAT practice score' : 'My SAT practice score', W / 2, y + px(48)); } });
+      blocks.push({ h: px(270), draw: y => { x.fillStyle = '#2D5038'; fit(String(f.score), '600 {s}px ' + DISPLAY, px(300), W - 160); x.fillText(String(f.score), W / 2, y + px(262)); } });
+      blocks.push({ h: px(56), draw: y => { x.fillStyle = '#5E6A60'; x.font = '400 ' + px(44) + 'px ' + SANS; x.fillText('out of ' + f.outOf, W / 2, y + px(44)); } });
+      if (f.progress) {
+        blocks.push({ h: px(34) });
+        blocks.push({ h: px(96), draw: y => {
+          const p = f.progress, big = '600 ' + px(50) + 'px ' + DISPLAY, small = '600 ' + px(38) + 'px ' + SANS;
+          const parts = [{ text: p.from + ' → ' + p.to, font: big, color: '#1D2A20' }, { text: '+' + p.gain + ' in ' + p.span, font: small, color: '#7D6220' }];
+          x.font = big; let w = x.measureText(parts[0].text).width; x.font = small; w += x.measureText(parts[1].text).width + px(14);
+          const bw = w + px(80), bh = px(96);
+          rrect((W - bw) / 2, y, bw, bh, bh / 2); x.fillStyle = '#F3EAD6'; x.fill(); x.lineWidth = 3; x.strokeStyle = '#C8A86E'; x.stroke();
+          row(parts, y + px(64));
+        } });
+      }
+      blocks.push({ h: px(story ? 56 : 40) });
+      blocks.push({ h: px(170), draw: y => {
+        const boxH = px(170), boxL = 90, boxW = W - 180;
+        rrect(boxL, y, boxW, boxH, px(28)); x.fillStyle = '#FFFFFF'; x.fill(); x.lineWidth = 3; x.strokeStyle = '#DFE5D9'; x.stroke();
+        f.secs.forEach((s, i) => {
+          const cx = boxL + boxW * (i + .5) / f.secs.length;
+          if (i) { x.fillStyle = '#DFE5D9'; x.fillRect(boxL + boxW * i / f.secs.length - 1.5, y + px(30), 3, boxH - px(60)); }
+          x.fillStyle = '#2D5038'; x.font = '600 ' + px(80) + 'px ' + DISPLAY; x.fillText(String(s.score), cx, y + px(95));
+          x.fillStyle = '#5E6A60'; fit(s.title, '600 {s}px ' + SANS, px(34), boxW / f.secs.length - 40); x.fillText(s.title, cx, y + px(140));
+        });
+      } });
+      blocks.push({ h: px(story ? 64 : 44) });
+      blocks.push({ h: px(56), draw: y => { x.fillStyle = '#1D2A20'; fit(rec.title, '600 {s}px ' + SANS, px(46), W - 180); x.fillText(rec.title, W / 2, y + px(46)); } });
+      if (f.streak) {
+        blocks.push({ h: px(22) });
+        blocks.push({ h: px(56), draw: y => row([{ icon: px(46), color: '#C7792B' }, { text: f.streak + '-day study streak', font: '600 ' + px(42) + 'px ' + SANS, color: '#5E6A60' }], y + px(46)) });
+      }
+      const total = blocks.reduce((n, b) => n + b.h, 0);
+
       x.fillStyle = '#F5F7F2'; x.fillRect(0, 0, W, H);
-      const lh = 400, lw = lh * logo.width / logo.height;
-      x.drawImage(logo, (W - lw) / 2, 230, lw, lh);
       x.textAlign = 'center'; x.textBaseline = 'alphabetic';
-      x.fillStyle = '#5E6A60'; x.font = '600 48px ' + SANS;
-      x.fillText('My SAT practice score', W / 2, 760);
-      x.fillStyle = '#2D5038'; fit(String(score), '600 {s}px ' + DISPLAY, 300, W - 160);
-      x.fillText(String(score), W / 2, 1040);
-      x.fillStyle = '#5E6A60'; x.font = '400 44px ' + SANS;
-      x.fillText('out of ' + outOf, W / 2, 1110);
-      // Section scores
-      const boxT = 1170, boxH = 170, boxL = 90, boxW = W - 180;
-      rrect(boxL, boxT, boxW, boxH, 28); x.fillStyle = '#FFFFFF'; x.fill(); x.lineWidth = 3; x.strokeStyle = '#DFE5D9'; x.stroke();
-      secs.forEach((s, i) => {
-        const cx = boxL + boxW * (i + .5) / secs.length;
-        if (i) { x.fillStyle = '#DFE5D9'; x.fillRect(boxL + boxW * i / secs.length - 1.5, boxT + 30, 3, boxH - 60); }
-        x.fillStyle = '#2D5038'; x.font = '600 80px ' + DISPLAY; x.fillText(String(s.score), cx, boxT + 95);
-        x.fillStyle = '#5E6A60'; fit(s.title, '600 {s}px ' + SANS, 34, boxW / secs.length - 40); x.fillText(s.title, cx, boxT + 140);
-      });
-      x.fillStyle = '#1D2A20'; fit(rec.title, '600 {s}px ' + SANS, 46, W - 180);
-      x.fillText(rec.title, W / 2, 1420);
-      // Brand band, kept above the bottom of the story where the reply bar sits
-      x.fillStyle = '#2D5038'; x.fillRect(0, 1500, W, H - 1500);
-      x.strokeStyle = 'rgba(200,168,110,.5)'; x.lineWidth = 4; rrect(W - 190, H - 250, 380, 380, 90); x.stroke();
-      x.strokeStyle = 'rgba(200,168,110,.32)'; rrect(W - 110, H - 160, 240, 240, 58); x.stroke();
-      x.fillStyle = '#D6E2D0'; x.font = '400 44px ' + SANS;
-      x.fillText('Free adaptive SAT practice tests', W / 2, 1610);
-      x.fillStyle = '#C8A86E'; x.font = '600 84px ' + DISPLAY;
-      x.fillText('satustoz.academy', W / 2, 1715);
+      let y = Math.max(40, (BAND - total) / 2);
+      blocks.forEach(b => { if (b.draw) b.draw(y); y += b.h; });
+
+      // Brand band (on a story it sits above the bottom, where the reply bar is)
+      x.fillStyle = '#2D5038'; x.fillRect(0, BAND, W, H - BAND);
+      const q = story ? 1 : .62; // the corner squares, smaller on the shorter post band
+      x.strokeStyle = 'rgba(200,168,110,.5)'; x.lineWidth = 4; rrect(W - 190 * q, H - 250 * q, 380 * q, 380 * q, 90 * q); x.stroke();
+      x.strokeStyle = 'rgba(200,168,110,.32)'; rrect(W - 110 * q, H - 160 * q, 240 * q, 240 * q, 58 * q); x.stroke();
+      x.fillStyle = '#D6E2D0'; x.font = '400 ' + (story ? 44 : 38) + 'px ' + SANS;
+      x.fillText('Free adaptive SAT practice tests', W / 2, BAND + (story ? 110 : 80));
+      x.fillStyle = '#C8A86E'; x.font = '600 ' + (story ? 84 : 70) + 'px ' + DISPLAY;
+      x.fillText('satustoz.academy', W / 2, BAND + (story ? 215 : 172));
       const blob = await new Promise(r => c.toBlob(r, 'image/png'));
-      return { blob, score, url: URL.createObjectURL(blob) };
+      return { blob, score: f.score, progress: f.progress, format: story ? 'story' : 'post', w: W, h: H, url: URL.createObjectURL(blob) };
     }
     async function openShare() {
       const btn = $('#share-score');
       btn.disabled = true;
       let img;
-      try { img = await shareImage(); }
+      try { img = await shareImage('story'); }
       catch (e) { SH.toast('Could not make the image. ' + (e.message || '')); return; }
       finally { btn.disabled = false; }
-      const name = 'sat-ustoz-score-' + img.score + '.png';
-      const file = typeof File === 'function' ? new File([img.blob], name, { type: 'image/png' }) : null;
-      const canShare = !!(file && navigator.canShare && navigator.canShare({ files: [file] }));
-      const save = () => { const a = document.createElement('a'); a.href = img.url; a.download = name; document.body.appendChild(a); a.click(); a.remove(); };
-      const actions = [{ label: 'Close', kind: 'ghost' }, { label: 'Save image', kind: canShare ? 'ghost' : 'primary', onClick: () => { save(); return false; } }];
+      const imgs = { story: img }, urls = [img.url];
+      const fileOf = im => typeof File === 'function' ? new File([im.blob], 'sat-ustoz-score-' + im.score + '-' + im.format + '.png', { type: 'image/png' }) : null;
+      const f0 = fileOf(img);
+      const canShare = !!(f0 && navigator.canShare && navigator.canShare({ files: [f0] }));
+      const save = () => { const a = document.createElement('a'); a.href = img.url; a.download = 'sat-ustoz-score-' + img.score + '-' + img.format + '.png'; document.body.appendChild(a); a.click(); a.remove(); };
+      const text = () => 'My SAT practice score: ' + img.score + (img.progress ? ' (+' + img.progress.gain + ' since my first test)' : '') + '. Practice free at https://satustoz.academy';
+      const actions = [{ label: 'Close', kind: 'ghost' }, { label: 'Save image', kind: canShare ? 'ghost' : 'primary', onClick: () => { save(); SH.track('score_card_saved', { format: img.format }); return false; } }];
       if (canShare) actions.push({ label: 'Share', kind: 'primary', onClick: () => {
-        navigator.share({ files: [file], text: 'My SAT practice score: ' + img.score + '. Practice free at https://satustoz.academy' })
+        SH.track('score_card_shared', { format: img.format, progress: img.progress ? img.progress.gain : 0 });
+        navigator.share({ files: [fileOf(img)], text: text() })
           .catch(e => { if (e && e.name !== 'AbortError') save(); });
         return false;
       } });
-      SH.modal({
+      const m = SH.modal({
         title: 'Share your score',
-        html: '<img class="share-prev" src="' + img.url + '" alt="Your score card: ' + img.score + ', ' + esc(rec.title) + ', satustoz.academy" width="1080" height="1920">' +
-          '<p class="small muted" style="margin:12px 0 0">Post it to your Instagram or Telegram story.' + (SH.inAppBrowser() ? ' If the buttons don’t work here, press and hold the image to save it.' : '') + '</p>',
+        html: '<div class="share-seg seg" role="group" aria-label="Image size"><button type="button" data-fmt="story" aria-pressed="true">Story</button><button type="button" data-fmt="post" aria-pressed="false">Post</button></div>' +
+          '<img class="share-prev" src="' + img.url + '" alt="Your score card: ' + img.score + ', ' + esc(rec.title) + ', satustoz.academy" width="1080" height="1920">' +
+          '<p class="small muted" style="margin:12px 0 0">Story for your Instagram or Telegram story, Post for your feed or a chat.' + (SH.inAppBrowser() ? ' If the buttons don’t work here, press and hold the image to save it.' : '') + '</p>',
         actions,
-        onClose: () => setTimeout(() => URL.revokeObjectURL(img.url), 60000)
+        onClose: () => setTimeout(() => urls.forEach(u => URL.revokeObjectURL(u)), 60000)
       });
+      const prev = m.el.querySelector('.share-prev');
+      m.el.querySelectorAll('[data-fmt]').forEach(b => b.addEventListener('click', async () => {
+        const fmt = b.dataset.fmt;
+        if (fmt === img.format) return;
+        m.el.querySelectorAll('[data-fmt]').forEach(o => o.setAttribute('aria-pressed', String(o === b)));
+        try { if (!imgs[fmt]) { imgs[fmt] = await shareImage(fmt); urls.push(imgs[fmt].url); } }
+        catch (e) { SH.toast('Could not make the image. ' + (e.message || '')); return; }
+        img = imgs[fmt];
+        prev.src = img.url; prev.width = img.w; prev.height = img.h;
+      }));
+      SH.track('score_card_opened', { progress: img.progress ? img.progress.gain : 0 });
     }
 
     $('#share-score').addEventListener('click', openShare);

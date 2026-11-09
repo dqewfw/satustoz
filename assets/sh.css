@@ -599,3 +599,106 @@ select.input { appearance: none; -webkit-appearance: none; padding-right: 38px; 
   .xp-week i { width: 30px; height: 30px; }
 }
 @media (prefers-reduced-motion: reduce) { .xp-chip.bump .xp-flame { animation: none; } .xp-row .bar i { transition: none; } }
+
+/* ---------- Dark theme ----------
+   Students turn it on with the moon button in the header (or "Dark mode" in
+   the test's More menu). sh.js sets <html data-theme="dark">; a one-line
+   script in each page's <head> sets it before the page paints, so there is
+   no white flash. Only pages with that script (data-themeable) can go dark.
+   Greens stay the logo's greens, lifted so they read on a dark page. */
+html[data-theme="dark"] {
+  color-scheme: dark;
+  --brand: #4A8659;         /* buttons with white text (4.3:1) and links on the page (4.2:1) */
+  --brand-deep: #3B6E49;
+  --brand-soft: #5F8F55;
+  --brand-tint: #1E2C22;
+  --brand-tint-2: #2A3F2F;
+  --gold: #C8A86E;
+  --gold-text: #D8BC82;
+  --gold-soft: #3A3122;
+  --gold-on-dark: #D8BC82;
+  --page: #121714;
+  --paper: #171D19;
+  --ivory: #1D241F;
+  --sunk: #252D27;
+  --ink: #E4EAE2;
+  --ink-2: #C3CCC1;
+  --muted: #9AA69A;
+  --line: #2C352E;
+  --line-2: #3B463D;
+  --edge: #7C887C;
+  --focus: #D8B45E;
+  --ok: #3F9A5C;   --ok-tint: #16291C;
+  --bad: #D25A4F;  --bad-tint: #33201D;
+  --warn: #E0B15A; --warn-tint: #2F2812;
+  --mark: #6A5714;
+  --shadow-float: 0 1px 2px rgba(0, 0, 0, .4), 0 12px 32px rgba(0, 0, 0, .55);
+}
+html[data-theme="dark"] body { background: var(--page); color: var(--ink); }
+html[data-theme="dark"] a:not(.btn) { color: #8DC39B; }
+html[data-theme="dark"] a:not(.btn):hover { color: #B4DABD; }
+html[data-theme="dark"] .site-header { background: rgba(18, 23, 20, .92); }
+html[data-theme="dark"] .site-header.is-scrolled, html[data-theme="dark"] .site-header { border-bottom-color: var(--line); }
+html[data-theme="dark"] .nav a { color: var(--ink-2); }
+html[data-theme="dark"] * { scrollbar-color: #3B463D transparent; }
+html[data-theme="dark"] ::-webkit-scrollbar-thumb { background-color: #3B463D; }
+html[data-theme="dark"] .tag, html[data-theme="dark"] .soon-badge { color: var(--gold-text); }
+html[data-theme="dark"] .tag-rw { background: #2E2539; color: #CDB6E6; }
+html[data-theme="dark"] .tag-math { background: #1D2D3A; color: #A9CBE6; }
+html[data-theme="dark"] .notice-warn { border-color: #5A4718; color: #EBD39A; }
+html[data-theme="dark"] .notice-bad, html[data-theme="dark"] .pay-err { border-color: #5E2E29; color: #F0B7B0; }
+html[data-theme="dark"] .notice-ok { border-color: #2A4D34; color: #B6DCC0; }
+html[data-theme="dark"] .feedback.ok, html[data-theme="dark"] .dq-res.ok { border-color: #2A4D34; }
+html[data-theme="dark"] .feedback.no, html[data-theme="dark"] .dq-res.no { border-color: #5E2E29; }
+html[data-theme="dark"] .pro-lock-over { background: rgba(18, 23, 20, .62); }
+html[data-theme="dark"] .input:hover { border-color: #95A295; }
+html[data-theme="dark"] .sh-table th, html[data-theme="dark"] .sh-table td, html[data-theme="dark"] .spr-dirs th, html[data-theme="dark"] .spr-dirs td { border-color: var(--line-2); }
+html[data-theme="dark"] .choice:hover { background: var(--ivory); }
+html[data-theme="dark"] .fpanel, html[data-theme="dark"] .calc-btn, html[data-theme="dark"] .p-qbar .abc-btn { background: var(--paper); }
+html[data-theme="dark"] .why { border-top-color: var(--line); }
+/* Things that were dark on a light page become light on a dark page */
+html[data-theme="dark"] :is(.toast, .fpanel-head, .chart-tip, .qnum, .tr-navbtn, .warn5) { color: #121714; }
+html[data-theme="dark"] :is(.fpanel-head button, .fpanel-head a) { color: #121714; }
+html[data-theme="dark"] :is(.fpanel-head button, .fpanel-head a):hover { background: rgba(0, 0, 0, .1); color: #121714; }
+html[data-theme="dark"] .tr-navbtn:hover { background: #C3CCC1; }
+html[data-theme="dark"] .tr-divider:focus-visible span, html[data-theme="dark"] .tr-divider:hover span { color: #121714; }
+html[data-theme="dark"] .pin path { fill: var(--ink); }
+html[data-theme="dark"] .pin circle { fill: var(--page); }
+html[data-theme="dark"] .res-ic.skip { background: #5E6A60; }
+html[data-theme="dark"] .passage mark.hl:hover { background: #7E6A1C; }
+html[data-theme="dark"] .mr-1 circle.on { stroke: #5F7A58; }
+html[data-theme="dark"] .chart circle[stroke="#fff"], html[data-theme="dark"] svg circle[stroke="#fff"] { stroke: var(--paper); }
+/* Big brand panels stay calm instead of glowing */
+html[data-theme="dark"] :is(.goal-strip, .next) { background: #1F3828; }
+html[data-theme="dark"] .site-footer { background: #15241A; border-top-color: #8C764B; }
+html[data-theme="dark"] .xp-week .is-frz i { background: #1B2A35; border-color: #3E6580; }
+html[data-theme="dark"] .xp-snow { color: #8DB6D3; }
+
+/* The moon / sun button in the header */
+.theme-btn { width: 38px; height: 38px; border-radius: 50%; border: 1px solid var(--line-2); background: transparent; color: var(--ink-2); display: inline-flex; align-items: center; justify-content: center; cursor: pointer; padding: 0; flex: 0 0 auto; transition: background-color var(--t-fast), color var(--t-fast), border-color var(--t-fast); }
+.theme-btn:hover { background: var(--brand-tint); color: var(--brand); border-color: var(--brand); }
+html[data-theme="dark"] .theme-btn:hover { color: #8DC39B; }
+.theme-btn svg { width: 19px; height: 19px; }
+@media (max-width: 400px) { .theme-btn { width: 34px; height: 34px; } }
+.site-header .brand { flex-shrink: 0; } /* the extra header button must not squeeze the logo */
+/* When the header items don't fit on one row (sh.js adds .nav-collapsed), the
+   links move into the menu button, as on phones. */
+.site-header.nav-collapsed .menu-btn { display: inline-flex; }
+.site-header.nav-collapsed .nav { position: absolute; top: 100%; left: 0; right: 0; flex-direction: column; align-items: stretch; gap: 0; background: var(--page); border-bottom: 1px solid var(--line); padding: 4px var(--gutter) 12px; display: none; box-shadow: 0 16px 24px -18px rgba(29,42,32,.35); }
+.site-header.nav-collapsed .nav.open { display: flex; animation: sh-fade .18s ease both; }
+.site-header.nav-collapsed .nav a { padding: 13px 4px; border-bottom: 1px solid var(--line); }
+.site-header.nav-collapsed .nav a:last-child { border-bottom: 0; }
+.site-header.nav-collapsed .nav a::after { display: none; }
+.site-header.nav-collapsed .nav a[aria-current="page"] { box-shadow: inset 3px 0 0 var(--brand); padding-left: 12px; }
+/* Still too full (a phone with the language switch, streak and account
+   buttons): sh.js adds .hdr-tight. The logo shows only its leaf mark and the
+   dark mode switch moves into the menu. */
+.site-header.hdr-measure .wrap > :not(.nav) { flex-shrink: 0 !important; } /* while sh.js measures */
+.nav .nav-theme { display: none; }
+.site-header.hdr-tight .wrap { gap: 8px; }
+.site-header.hdr-tight .brand-logo { width: 40px; object-fit: cover; object-position: left center; }
+.site-header.hdr-tight .lang-switch { flex-shrink: 0; }
+.site-header.hdr-tight .theme-btn { display: none; }
+.site-header.hdr-tight .nav .nav-theme { display: flex; align-items: center; gap: 10px; width: 100%; background: none; border: 0; padding: 13px 4px; font: 600 .96rem var(--sans); color: var(--ink-2); cursor: pointer; text-align: left; }
+.site-header.hdr-tight .nav .nav-theme svg { width: 18px; height: 18px; }
+@media print { html[data-theme="dark"] { color-scheme: light; } }
