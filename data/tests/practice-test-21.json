@@ -1,0 +1,2507 @@
+{
+  "id": "practice-test-21",
+  "title": "Practice Test 21",
+  "description": "A full-length adaptive digital SAT practice test: 98 questions, two modules per section, with an explanation for every question.",
+  "routing": {
+    "threshold": 0.6
+  },
+  "breakMinutes": 10,
+  "sections": [
+    {
+      "id": "rw",
+      "title": "Reading and Writing",
+      "module1": {
+        "minutes": 32,
+        "questions": [
+          {
+            "id": "t21-rw1-01",
+            "section": "rw",
+            "skill": "Command of Evidence: Textual",
+            "difficulty": "medium",
+            "passage": "*Peter Pan* is a 1911 novel by J.M. Barrie. In the fantasy novel, a dog named Nana is a nurse (nanny) for the children in the Darling family—Wendy, John, and Michael. The narrator describes Nana as planning for events like a human would: ______",
+            "prompt": "Which quotation from *Peter Pan* best illustrates the claim?",
+            "choices": [
+              "\"On John's [soccer] days [Nana] never once forgot his sweater, and she usually carried an umbrella in her mouth in case of rain.\"",
+              "\"[Mrs. Darling] was wearing Wendy's bracelet on her arm.\"",
+              "\"Mrs. Darling loved to have everything just so, and Mr. Darling had a passion for being exactly like his neighbours.\"",
+              "\"Of course [Nana's] kennel was in the nursery.\""
+            ],
+            "answer": "A",
+            "explanation": "The claim is that Nana plans ahead the way a human would. A shows exactly that: she never forgets John's sweater and carries an umbrella \"in case of rain.\" The other quotations do not show Nana planning anything."
+          },
+          {
+            "id": "t21-rw1-02",
+            "section": "rw",
+            "skill": "Transitions",
+            "difficulty": "medium",
+            "passage": "For centuries, observers assumed that a honeybee colony was governed by its queen, who seemed to direct the work of the thousands of bees around her. ______ the queen's role is mostly limited to laying eggs; decisions such as when to swarm and where to build a new nest are made collectively by worker bees.",
+            "prompt": "Which choice completes the text with the most logical transition?",
+            "choices": [
+              "For example,",
+              "Similarly,",
+              "In reality,",
+              "As a result,"
+            ],
+            "answer": "C",
+            "explanation": "The first sentence says honeybee colonies were long assumed to be ruled by the queen. The second gives the opposite view: workers, not the queen, make the key decisions. \"In reality\" introduces the truth that corrects the assumption."
+          },
+          {
+            "id": "t21-rw1-03",
+            "section": "rw",
+            "skill": "Form, Structure, and Sense",
+            "difficulty": "medium",
+            "passage": "An emulsifier is a type of compound that serves to stabilize an emulsion—a mixture of two or more liquids that otherwise would not easily blend together, like oil and water. Though modern chemists commonly use emulsifiers like poloxamer 407 in their formulations, emulsifiers that have been employed for millennia, such as beeswax and egg yolk, ______ used to this day by chemists as well.",
+            "prompt": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+            "choices": [
+              "are",
+              "would have been",
+              "were being",
+              "were"
+            ],
+            "answer": "A",
+            "explanation": "The subject \"emulsifiers\" is plural, and \"to this day\" calls for the present tense: *are* used."
+          },
+          {
+            "id": "t21-rw1-04",
+            "section": "rw",
+            "skill": "Words in Context",
+            "difficulty": "hard",
+            "passage": "The swordfish is ectothermic, or cold-blooded, and the southern bluefin tuna is a regional endotherm, meaning that parts of its body are typically warmer than the surrounding water. The basking shark had been classified as a full ectotherm, a position that became ______ when researchers Haley R. Dolton and colleagues showed that the basking shark's body temperature is consistently 1.0 to 1.5°C warmer than the water.",
+            "prompt": "Which choice completes the text with the most logical and precise word or phrase?",
+            "choices": [
+              "inconsolable",
+              "unanticipated",
+              "unequivocal",
+              "untenable"
+            ],
+            "answer": "D",
+            "explanation": "The shark was classified as a full ectotherm, but researchers found its body is consistently warmer than the water. That finding made the old classification impossible to defend: *untenable*."
+          },
+          {
+            "id": "t21-rw1-05",
+            "section": "rw",
+            "skill": "Form, Structure, and Sense",
+            "difficulty": "easy",
+            "passage": "Ferns and conifers ______ during the Triassic period (201 to 252 million years ago). These plants were well suited to the hot, dry climate of Pangaea, the sole landmass on Earth at the time.",
+            "prompt": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+            "choices": [
+              "having thrived",
+              "to thrive",
+              "thriving",
+              "thrived"
+            ],
+            "answer": "D",
+            "explanation": "The subject \"Ferns and conifers\" needs a main verb, and the time is the past. Only *thrived* is a finite verb."
+          },
+          {
+            "id": "t21-rw1-06",
+            "section": "rw",
+            "skill": "Central Ideas and Details",
+            "difficulty": "medium",
+            "passage": "The following text is adapted from María Amparo Ruiz de Burton's 1885 novel *The Squatter and the Don*. Mercedes and Clarence, who develop a romantic relationship in the novel, have been traveling with a group of friends.\n[Mercedes] was still very pale, and her hands yet trembled, when the thundering of the east-bound train was heard in the distance. Two shrieks pierced the air simultaneously, as the two trains passed each other. Her heart gave accelerated throbs when she heard those shrieks, because she knew that one of them came from the train which bore Clarence away, and it seemed to her as if expressive of his pain at being torn from her: Yes, that magician, the locomotive, understood it all, and shrieked to say he did so, because he knew she, too, wished to shriek like that.",
+            "prompt": "Which choice best states the main idea of the text?",
+            "choices": [
+              "Mercedes shares a passion for locomotive travel with Clarence.",
+              "The sounds at the train station irritate Mercedes.",
+              "Clarence boarded his train at the last minute.",
+              "Mercedes feels heartbroken to be separated from Clarence."
+            ],
+            "answer": "D",
+            "explanation": "Mercedes trembles and her heart throbs when she hears the shriek from the train taking Clarence away, which seems to express \"his pain at being torn from her.\" She is heartbroken to be separated from him."
+          },
+          {
+            "id": "t21-rw1-07",
+            "section": "rw",
+            "skill": "Text Structure and Purpose",
+            "difficulty": "medium",
+            "passage": "The following text is from Louise Erdrich's 1986 novel *The Beet Queen*. Celestine takes her infant daughter with her to the butcher shop where she makes sausages.\nSometimes Celestine turned around and met the direct gaze of her daughter, a look so penetrating that Celestine's breath caught. She dropped the spice, the string, the knife she was using, and took the girl up in her arms, ready for her to speak as if a spell had suddenly lifted. When the baby flexed her entire body and struggled to free herself, Celestine put her down. No matter how thorough Celestine's exhaustion, no matter how little sleep she'd had, there was a nerve of excitement running through each hour.",
+            "prompt": "Which choice best states the main purpose of the text?",
+            "choices": [
+              "To imply that Celestine is dissatisfied with her job",
+              "To show that Celestine enjoys imagining her daughter's future life",
+              "To portray Celestine's excitement about her daughter",
+              "To analyze the interactions between Celestine's coworkers and her daughter"
+            ],
+            "answer": "C",
+            "explanation": "Celestine drops everything when her daughter looks at her, and despite exhaustion she feels \"a nerve of excitement running through each hour.\" The text portrays her excitement about her daughter."
+          },
+          {
+            "id": "t21-rw1-08",
+            "section": "rw",
+            "skill": "Cross-Text Connections",
+            "difficulty": "hard",
+            "passage": "**Text 1**\nVernacular art, also known as folk art, refers to works by artists without extensive training who work outside the mainstream art world. In the last few decades, the Minneapolis Institute of Art and similar cultural institutions have worked to bring vernacular art out of obscurity. As a result, Nellie Mae Rowe's drawing *Rocking Chair* can now be experienced by art lovers.\n**Text 2**\nSpecial exhibits and similar efforts by cultural institutions to promote vernacular artists often inadvertently uphold misleading distinctions between these artists and the creators of so-called \"high\" art. Artists regularly gain inspiration from each other: vernacular artists often reveal a familiarity with prevailing trends through their works, and more mainstream artists in turn often credit vernacular works as important influences.",
+            "prompt": "Based on the texts, how would the author of Text 2 most likely respond to the author of Text 1's characterization of vernacular artists?",
+            "choices": [
+              "By questioning the argument made in Text 1 that the general public will readily embrace works by vernacular artists as those works are brought to greater attention",
+              "By suggesting that the author of Text 1 may be overstating the extent to which vernacular artists have been detached from the mainstream art world",
+              "By agreeing with the author of Text 1 that some of the terms used to describe vernacular artists may be misleading",
+              "By challenging the idea advanced in Text 1 that mainstream cultural institutions are suitable venues for adequately honoring vernacular artists"
+            ],
+            "answer": "B",
+            "explanation": "Text 1 describes vernacular artists as working \"outside the mainstream art world.\" Text 2 says vernacular and mainstream artists influence each other, so the author of Text 2 would say Text 1 overstates how detached vernacular artists are."
+          },
+          {
+            "id": "t21-rw1-09",
+            "section": "rw",
+            "skill": "Form, Structure, and Sense",
+            "difficulty": "hard",
+            "passage": "Established in 1934 for the specific purpose of protecting US investors from market manipulation, ______ helped the nation recover from the Great Depression.",
+            "prompt": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+            "choices": [
+              "many ways, just one of which was the Securities and Exchange Commission (SEC), were how the US government",
+              "the US government's many ways, just one of which was the Securities and Exchange Commission (SEC),",
+              "the US government in many ways, just one of which was the Securities and Exchange Commission (SEC),",
+              "the Securities and Exchange Commission (SEC) was just one of many ways the US government"
+            ],
+            "answer": "D",
+            "explanation": "The opening phrase \"Established in 1934 for the specific purpose of protecting US investors\" must describe the subject right after it. Only the SEC was established in 1934, and D gives a complete clause with the verb \"helped.\""
+          },
+          {
+            "id": "t21-rw1-10",
+            "section": "rw",
+            "skill": "Boundaries",
+            "difficulty": "medium",
+            "passage": "As water in oceans, lakes, and rivers is heated by the Sun, it turns into water vapor and rises into the atmosphere, where it cools and forms clouds before falling back to Earth as rain or ______ process is called the water cycle.",
+            "prompt": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+            "choices": [
+              "snow this",
+              "snow? This",
+              "snow, this",
+              "snow. This"
+            ],
+            "answer": "D",
+            "explanation": "\"As water ... forms clouds before falling back to Earth as rain or snow\" is a complete sentence, and \"This process is called the water cycle\" is another. A period separates them."
+          },
+          {
+            "id": "t21-rw1-11",
+            "section": "rw",
+            "skill": "Text Structure and Purpose",
+            "difficulty": "medium",
+            "passage": "__People tend to assume that being happy is the ideal emotional state and should be an ongoing aspiration__; recently, however, research has suggested that it is at times beneficial to embrace negative emotions. To test whether anger can contribute to problem-solving abilities, researcher Heather Lench led an experiment in which participants were randomly assigned to view images designed to create an emotional condition—either neutral or one of anger, amusement, desire, or sadness. When asked to then solve a series of challenging puzzles, the participants in the anger condition had greater success than those in the other conditions.",
+            "prompt": "Which choice best describes the function of the underlined portion in the text as a whole?",
+            "choices": [
+              "It describes a general psychological tendency that the study discussed in the text was designed to explain.",
+              "It suggests a psychological basis for the behaviors of the participants in the experiment reported in the text.",
+              "It explains an assumption underlying the hypothesis investigated in the study discussed in the text.",
+              "It notes a generally accepted belief that is called into question by a finding of the experiment outlined in the text."
+            ],
+            "answer": "D",
+            "explanation": "The underlined part states a common belief (happiness is always the ideal). The experiment found that anger helped people solve puzzles, which challenges that belief."
+          },
+          {
+            "id": "t21-rw1-12",
+            "section": "rw",
+            "skill": "Boundaries",
+            "difficulty": "medium",
+            "passage": "A bias toward studying diversity at a local rather than a continental scale was one of the many shortcomings researcher Sonia Llorente-Culebras and her team ______ analyzing nearly 400 biodiversity studies from around the globe.",
+            "prompt": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+            "choices": [
+              "discovered: while",
+              "discovered, while",
+              "discovered while",
+              "discovered. While"
+            ],
+            "answer": "C",
+            "explanation": "\"While analyzing nearly 400 biodiversity studies\" is an essential phrase telling when the team discovered the shortcomings, so no punctuation is needed before it."
+          },
+          {
+            "id": "t21-rw1-13",
+            "section": "rw",
+            "skill": "Boundaries",
+            "difficulty": "medium",
+            "passage": "With an average summer temperature of 69 degrees Fahrenheit, Odessa is one European ______ many travelers recommend, especially from June to September.",
+            "prompt": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+            "choices": [
+              "city in which,",
+              "city that",
+              "city, which",
+              "city, that"
+            ],
+            "answer": "B",
+            "explanation": "\"That many travelers recommend\" is an essential clause identifying which kind of city Odessa is, so it uses \"that\" with no comma."
+          },
+          {
+            "id": "t21-rw1-14",
+            "section": "rw",
+            "skill": "Command of Evidence: Quantitative",
+            "difficulty": "medium",
+            "passage": "A marine biologist is researching four scleractinian coral species, which are also called stony corals because of the hard skeletons they develop. Consulting the table, she notes that the two species for which the maximum depths are most similar are ______",
+            "table": {
+              "title": "Minimum and Maximum Depths of Stony Coral Species in Caribbean and Indo-Pacific Waters",
+              "head": [
+                "Species",
+                "Minimum depth (meters)",
+                "Maximum depth (meters)"
+              ],
+              "rows": [
+                [
+                  "*Acropora echinata*",
+                  "8",
+                  "25"
+                ],
+                [
+                  "*Danafungia scruposa*",
+                  "1",
+                  "27"
+                ],
+                [
+                  "*Astreopora expansa*",
+                  "5",
+                  "15"
+                ],
+                [
+                  "*Scolymia lacera*",
+                  "10",
+                  "80"
+                ]
+              ]
+            },
+            "prompt": "Which choice most effectively uses data from the table to complete the statement?",
+            "choices": [
+              "*Astreopora expansa* and *Scolymia lacera*.",
+              "*Astreopora expansa* and *Acropora echinata*.",
+              "*Acropora echinata* and *Danafungia scruposa*.",
+              "*Danafungia scruposa* and *Scolymia lacera*."
+            ],
+            "answer": "C",
+            "explanation": "The maximum depths are 25, 27, 15, and 80 meters. The closest pair is 25 m (*Acropora echinata*) and 27 m (*Danafungia scruposa*)."
+          },
+          {
+            "id": "t21-rw1-15",
+            "section": "rw",
+            "skill": "Boundaries",
+            "difficulty": "hard",
+            "passage": "On April 12, 1985, the space shuttle *Discovery* blasted off into space, commencing Mission ______ six days and twenty-three hours, the mission ended when the shuttle landed at Kennedy Space Center in Florida.",
+            "prompt": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+            "choices": [
+              "STS-51-D, it lasted",
+              "STS-51-D, lasting",
+              "STS-51-D lasting",
+              "STS-51-D. Lasting"
+            ],
+            "answer": "D",
+            "explanation": "The first sentence is complete after \"Mission STS-51-D,\" so it ends with a period. \"Lasting six days and twenty-three hours\" then begins the next sentence and describes \"the mission.\" A is a comma splice, and B and C leave \"lasting\" to describe the wrong noun or run the sentences together."
+          },
+          {
+            "id": "t21-rw1-16",
+            "section": "rw",
+            "skill": "Text Structure and Purpose",
+            "difficulty": "medium",
+            "passage": "The following text is from Jerome K. Jerome's 1889 novel *Three Men in a Boat (To Say Nothing of the Dog)*. The narrator and two friends are taking a boat down the River Thames in England.\nIn a boat, I have always noticed that it is the fixed idea of each member of the crew that he is doing everything. Harris's notion was, that it was he alone who had been working, and that both George and I had been imposing upon him. George, on the other hand, ridiculed the idea of Harris's having done anything more than eat and sleep, and had a cast-iron opinion that it was he—George himself—who had done all the labour worth speaking of.",
+            "prompt": "Which choice best describes the main purpose of the text?",
+            "choices": [
+              "To examine how the narrator and his friends each contributed to navigating a challenge",
+              "To present the narrator's generalization along with supporting examples from a specific situation",
+              "To give an overview of a particular situation that the narrator finds startling",
+              "To convey the narrator's confidence that he understands the role expected of him in a group"
+            ],
+            "answer": "B",
+            "explanation": "The narrator first makes a general claim (each crew member thinks he is doing everything) and then supports it with how Harris and George each behave on this trip."
+          },
+          {
+            "id": "t21-rw1-17",
+            "section": "rw",
+            "skill": "Form, Structure, and Sense",
+            "difficulty": "easy",
+            "passage": "The play *The Great Leap*, which tells the story of a basketball player named Manford Lum, was written by Chinese American playwright Lauren Yee. Yee's script was brought to life in 2018, when the play ______ staged at the Atlantic Theater Company in New York City.",
+            "prompt": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+            "choices": [
+              "was",
+              "will be",
+              "is",
+              "is being"
+            ],
+            "answer": "A",
+            "explanation": "The play was staged in 2018, a completed past event, so the verb is the past tense *was*."
+          },
+          {
+            "id": "t21-rw1-18",
+            "section": "rw",
+            "skill": "Transitions",
+            "difficulty": "easy",
+            "passage": "For millennia, acorns were a staple food for the Tongva people, the Indigenous inhabitants of what is now the Los Angeles basin. Raw acorns have an extremely bitter taste, though, due to their high tannin levels. ______ it was necessary to process the acorns—which involved grinding, rinsing, and shaping the nuts into a dough—before eating them.",
+            "prompt": "Which choice completes the text with the most logical transition?",
+            "choices": [
+              "However,",
+              "Afterward,",
+              "Similarly,",
+              "Therefore,"
+            ],
+            "answer": "D",
+            "explanation": "Raw acorns are very bitter, so it was necessary to process them. \"Therefore\" signals this consequence."
+          },
+          {
+            "id": "t21-rw1-19",
+            "section": "rw",
+            "skill": "Transitions",
+            "difficulty": "medium",
+            "passage": "Rocket Geyser, found in Yellowstone National Park, is a cone geyser, a type of geyser that forms a mound of silica around the narrow geyser vent as volcanic rock dissolved in the water is deposited during eruptions. ______ Yellowstone's fountain geysers, such as Jewel Geyser, erupt from larger openings where water collects in a pool.",
+            "prompt": "Which choice completes the text with the most logical transition?",
+            "choices": [
+              "In comparison,",
+              "Thus,",
+              "In turn,",
+              "Regardless,"
+            ],
+            "answer": "A",
+            "explanation": "The text describes cone geysers and then contrasts them with fountain geysers, which erupt from larger openings. \"In comparison\" introduces this contrast."
+          },
+          {
+            "id": "t21-rw1-20",
+            "section": "rw",
+            "skill": "Inferences",
+            "difficulty": "hard",
+            "passage": "The British Bronze Age began when sophisticated techniques for making tools, weapons, and other objects from metal were introduced to the British Isles around 2500 BCE, and it lasted until around 700 BCE. Collections of Bronze Age metal items (called hoards) have been found all over Britain, and while most of the objects found in these hoards are weapons or tools, some are purely decorative. For example, the Tisbury hoard included bronze tools, weapons, and jewelry, and the Urquhart hoard included gold jewelry. As ancient metalsmiths in Britain gained knowledge from working metals like bronze, they were able to apply those skills to work other metals as well, but gold was much rarer than bronze, so it's not surprising that ______",
+            "prompt": "Which choice most logically completes the text?",
+            "choices": [
+              "the Urquhart hoard contained jewelry made of gold.",
+              "some hoards were found as a result of artifacts being dug up by accident.",
+              "some hoards contained no gold, as was the case for the Tisbury hoard.",
+              "bronze was highly valued for its utility in making durable tools and weapons."
+            ],
+            "answer": "C",
+            "explanation": "Because gold was much rarer than bronze, it is not surprising that some hoards had no gold at all, like the Tisbury hoard, which had bronze tools, weapons, and jewelry."
+          },
+          {
+            "id": "t21-rw1-21",
+            "section": "rw",
+            "skill": "Inferences",
+            "difficulty": "hard",
+            "passage": "Louis-Ferdinand Céline's 1932 novel *Journey to the End of the Night* is regularly described as autobiographical. That characterization is apt—there are many parallels between the experiences of the novel's protagonist, Ferdinand Bardamu, and those of Céline—but it should not be taken to mean that every person or event depicted in *Journey to the End of the Night* has a real-life analogue. Much of the novel is pure invention, and readers who neglect this fact and instead focus excessively on correspondences between the novel and Céline's life can thus",
+            "prompt": "Which choice most logically completes the text?",
+            "choices": [
+              "misrepresent *Journey to the End of the Night* as being more widely read than it actually is.",
+              "fail to appreciate how much creativity Céline shows in the book.",
+              "refuse to acknowledge that Céline drew on real-world material when writing *Journey to the End of the Night*.",
+              "overemphasize the extent to which Céline took inspiration from earlier writers."
+            ],
+            "answer": "B",
+            "explanation": "Much of the novel is pure invention. Readers who focus only on links to Céline's life would miss how much he invented, that is, his creativity."
+          },
+          {
+            "id": "t21-rw1-22",
+            "section": "rw",
+            "skill": "Words in Context",
+            "difficulty": "medium",
+            "passage": "The following text is from William Blake's 1794 poem \"Introduction to the Songs of Experience.\" The speaker addresses Earth as if it has been asleep.\n\"O Earth, O Earth, return!\nArise from out the dewy grass;\nNight is worn,\nAnd the morn\nRises from the slumbrous mass.\"",
+            "prompt": "Based on the text, what does the speaker most likely mean by saying that \"night is worn\"?",
+            "choices": [
+              "The night is ending.",
+              "The night is interesting.",
+              "The night seems like an old piece of clothing.",
+              "The night seems like it is happening for the first time."
+            ],
+            "answer": "A",
+            "explanation": "The speaker says night is \"worn\" and \"the morn / Rises,\" so night is worn out: it is ending as morning comes."
+          },
+          {
+            "id": "t21-rw1-23",
+            "section": "rw",
+            "skill": "Inferences",
+            "difficulty": "medium",
+            "passage": "The following text is from an 1894 translation of Alexandre Dumas's 1844 novel *The Count of Monte-Cristo*. Dantès is searching for a treasure and finds a cave whose opening has been deliberately blocked by a large rock. Hercules is a hero of Greek mythology.\nDantès dug away the earth carefully, and detected, or fancied he detected, the ingenious artifice. He attacked this wall, cemented by the hand of time, with his pickaxe. After ten minutes' labor the wall gave way, and a hole large enough to insert the arm was opened. Dantès went and cut the strongest olive-tree he could find, stripped off its branches, inserted it in the hole, and used it as a lever. But the rock was too heavy, and too firmly wedged, to be moved by any one man, were he Hercules himself.",
+            "prompt": "Which statement about Dantès is best supported by the text?",
+            "choices": [
+              "He is determined in his efforts to move the rock away from the opening of the cave.",
+              "He is worried he will lack the courage to enter the cave when the entrance is finally opened.",
+              "He is unsure why the cave's opening was purposely hidden behind a wall and a large rock.",
+              "He is aware that his impatience is causing him to make clumsy errors as he enlarges the hole in the wall."
+            ],
+            "answer": "A",
+            "explanation": "Dantès digs carefully, attacks the wall with a pickaxe, cuts down a tree, and uses it as a lever. These repeated efforts show his determination to move the rock."
+          },
+          {
+            "id": "t21-rw1-24",
+            "section": "rw",
+            "skill": "Rhetorical Synthesis",
+            "difficulty": "easy",
+            "passage": "While researching a topic, a student has taken the following notes:\n• *Microserfs* (1995) is an epistolary novel by Canadian author Douglas Coupland.\n• Epistolary novels are novels written primarily as a series of fictional documents.\n• These documents can be letters, journal entries, newspaper clippings, and more.\n• *Microserfs* consists primarily of journal entries.\n• The journal entries are written by a man employed by a technology company.",
+            "prompt": "The student wants to define the term \"epistolary novel.\" Which choice most effectively uses relevant information from the notes to accomplish this goal?",
+            "choices": [
+              "An epistolary novel is a novel written primarily as a series of fictional documents, such as letters, journal entries, or newspaper clippings.",
+              "Douglas Coupland's novel *Microserfs* was published in 1995 and consists primarily of journal entries written by a man employed by a technology company.",
+              "Consisting primarily of journal entries written by a man employed by a technology company, Douglas Coupland's *Microserfs* is an epistolary novel.",
+              "An epistolary novel is a type of novel that, like *Microserfs*, uses journal entries to tell a story."
+            ],
+            "answer": "A",
+            "explanation": "The goal is to define \"epistolary novel.\" A gives the definition: a novel written mainly as a series of fictional documents such as letters or journal entries."
+          },
+          {
+            "id": "t21-rw1-25",
+            "section": "rw",
+            "skill": "Rhetorical Synthesis",
+            "difficulty": "easy",
+            "passage": "While researching a topic, a student has taken the following notes:\n• The capital of Ethiopia is Addis Ababa.\n• The largest city in Ethiopia by population is Addis Ababa.\n• The capital of Kazakhstan is Nur-Sultan.\n• The largest city in Kazakhstan by population is Almaty.",
+            "prompt": "The student wants to make a generalization about capital cities. Which choice most effectively uses relevant information from the notes to accomplish this goal?",
+            "choices": [
+              "A country's capital city is not always the country's most populous city.",
+              "Nur-Sultan, not Almaty, is the capital of Kazakhstan.",
+              "Almaty and Nur-Sultan are both cities in Kazakhstan.",
+              "The capital of Kazakhstan is Nur-Sultan, while the capital of Ethiopia is Addis Ababa."
+            ],
+            "answer": "A",
+            "explanation": "The goal is a generalization about capital cities. A makes one: a capital is not always the most populous city (true of Kazakhstan). B, C, and D give specific facts only."
+          },
+          {
+            "id": "t21-rw1-26",
+            "section": "rw",
+            "skill": "Rhetorical Synthesis",
+            "difficulty": "easy",
+            "passage": "While researching a topic, a student has taken the following notes:\n• The Chacoan peccary is a mammal species.\n• It was believed to be extinct until a living Chacoan peccary was identified in Argentina in 1974.\n• The jellyfish tree is a tree species.\n• It was believed to be extinct until a living jellyfish tree was identified in the Seychelles in 1978.\n• They are considered Lazarus species.\n• \"Lazarus species\" is a term for living species of organisms that were once believed to be extinct.",
+            "prompt": "The student wants to specify when the Chacoan peccary was identified. Which choice most effectively uses relevant information from the notes to accomplish this goal?",
+            "choices": [
+              "Previously believed to be extinct, a living Chacoan peccary was identified in Argentina.",
+              "Identified in the Seychelles, a living jellyfish tree was found in 1978.",
+              "An example of a Lazarus species was found in 1978.",
+              "A living Chacoan peccary, once believed to be extinct, was identified in 1974."
+            ],
+            "answer": "D",
+            "explanation": "The goal is to say when the Chacoan peccary was identified. Only D gives the year, 1974."
+          },
+          {
+            "id": "t21-rw1-27",
+            "section": "rw",
+            "skill": "Rhetorical Synthesis",
+            "difficulty": "easy",
+            "passage": "While researching a topic, a student has taken the following notes:\n• The A.M. Turing Award is a prestigious award given by the Association for Computing Machinery (ACM).\n• The ACM gives the award for \"major contributions of lasting importance to computing.\"\n• It is named after groundbreaking British mathematician Alan Turing.\n• Niklaus Wirth won the award in 1984.",
+            "prompt": "The student wants to explain whom the award is named for and identify one recipient of it. Which choice most effectively uses relevant information from the notes to accomplish this goal?",
+            "choices": [
+              "The A.M. Turing Award is given for \"major contributions of lasting importance to computing.\"",
+              "In 1984, Niklaus Wirth won the A.M. Turing Award, which is given for \"major contributions of lasting importance to computing.\"",
+              "It was in 1984 that Niklaus Wirth won the A.M. Turing Award.",
+              "The A.M. Turing Award, which is named for British mathematician Alan Turing, was given to Niklaus Wirth in 1984."
+            ],
+            "answer": "D",
+            "explanation": "The goal is to say whom the award is named for and name one winner. D does both: Alan Turing and Niklaus Wirth."
+          }
+        ]
+      },
+      "module2": {
+        "easier": {
+          "minutes": 32,
+          "questions": [
+            {
+              "id": "t21-rw2e-01",
+              "section": "rw",
+              "skill": "Transitions",
+              "difficulty": "medium",
+              "passage": "In ArtMed inSight, a series of art-based medical education classes taught by Anne Willieme, medical students learn to use techniques more often associated with the arts, such as slowing down interpretation and considering multiple perspectives. ______ Willieme's students develop better observational skills, enhancing their ability to understand and diagnose patients effectively.",
+              "prompt": "Which choice completes the text with the most logical transition?",
+              "choices": [
+                "Nevertheless,",
+                "In doing so,",
+                "For example,",
+                "By contrast,"
+              ],
+              "answer": "B",
+              "explanation": "Students learn artistic techniques, and through doing that they develop better observation skills. \"In doing so\" links the activity to its result."
+            },
+            {
+              "id": "t21-rw2e-02",
+              "section": "rw",
+              "skill": "Words in Context",
+              "difficulty": "medium",
+              "passage": "Hawaii has a rich literary history that originated with the traditional stories of the Kanaka Maoli, or the Native Hawaiian people. Anwei Skinsnes Law, Imaikalani Kalahele, and other writers have built on this tradition and brought Hawaiian literature to international prominence, ______ the manifold experiences of the Hawaiian people for readers around the world.",
+              "prompt": "Which choice completes the text with the most logical and precise word or phrase?",
+              "choices": [
+                "excising",
+                "illuminating",
+                "controlling",
+                "presupposing"
+              ],
+              "answer": "B",
+              "explanation": "These writers brought Hawaiian literature to the world, making Hawaiian experiences clear and visible to readers: *illuminating* them."
+            },
+            {
+              "id": "t21-rw2e-03",
+              "section": "rw",
+              "skill": "Central Ideas and Details",
+              "difficulty": "medium",
+              "passage": "Several sociologists have observed that the word \"culture,\" though commonly used in academic literature, is an ultimately hazy concept—for example, Renate Mayntz has noted that \"there is (still) no agreement on the meaning of this core term of sociological analysis.\" Does the idea of culture encompass art, or customs, or both these things and others? For casual usage, such haziness is permissible—we know culture when we see it—but for researchers, a standardization of the term is called for if sociology is to truly progress.",
+              "prompt": "Which choice best states the main idea of the text?",
+              "choices": [
+                "Nonspecialists and specialists have different ideas of what the word \"culture\" means.",
+                "There is no widely agreed-upon definition of the word \"culture,\" though the field of sociology would benefit if there were.",
+                "In her research, Mayntz presented reasons why sociologists disagree on how to analyze \"culture.\"",
+                "Art and customs are key components of what nonspecialists refer to as \"culture.\""
+              ],
+              "answer": "B",
+              "explanation": "Sociologists note there is \"no agreement\" on what culture means, and the author argues researchers need a standard definition \"if sociology is to truly progress.\""
+            },
+            {
+              "id": "t21-rw2e-04",
+              "section": "rw",
+              "skill": "Words in Context",
+              "difficulty": "easy",
+              "passage": "Biologist Kenji Watanabe found that the seeds of a desert plant sprouted after heavy rain, but only when the nighttime temperature stayed below 15°C. The seeds' sprouting was therefore ______ on two conditions: enough water and cool nights.",
+              "prompt": "Which choice completes the text with the most logical and precise word or phrase?",
+              "choices": [
+                "indifferent",
+                "impervious",
+                "prevalent",
+                "contingent"
+              ],
+              "answer": "D",
+              "explanation": "The scientist found the effect *only* when the temperature was low, so it depended on, or was *contingent* on, the temperature."
+            },
+            {
+              "id": "t21-rw2e-05",
+              "section": "rw",
+              "skill": "Words in Context",
+              "difficulty": "easy",
+              "passage": "*The House on Mango Street* is an English-language novella by Sandra Cisneros. It occasionally includes Spanish words and phrases. The English text surrounding these words and phrases ______ their meaning, so readers who aren't familiar with Spanish can easily read the novella. Ana Castillo takes the same approach in her novel *Sapogonia*.",
+              "prompt": "Which choice completes the text with the most logical and precise word or phrase?",
+              "choices": [
+                "loses",
+                "purchases",
+                "suspects",
+                "suggests"
+              ],
+              "answer": "D",
+              "explanation": "The English text around the Spanish words makes their meaning clear, so it *suggests* their meaning to readers."
+            },
+            {
+              "id": "t21-rw2e-06",
+              "section": "rw",
+              "skill": "Central Ideas and Details",
+              "difficulty": "medium",
+              "passage": "The following text is from Ralph Waldo Emerson's 1841 essay \"The Method of Nature.\"\nThe scholars are the priests of that thought which establishes the foundations of the earth. No matter what is their special work or profession, they stand for the spiritual interest of the world, and it is a common calamity if they neglect their post in a country where the material interest is so predominant as it is in America.",
+              "prompt": "Which choice best states the main idea of the text?",
+              "choices": [
+                "In a country whose citizens are largely preoccupied with tangible gains, it is crucial that some people work to foster and preserve ideas.",
+                "Military experience encourages Americans to contemplate aspects of human life that they would not choose to otherwise.",
+                "Many descriptions of the role of scholars in society unfairly diminish their importance.",
+                "It is unfortunate that so many intellectuals are concerned with material things rather than ideas."
+              ],
+              "answer": "A",
+              "explanation": "Emerson says scholars \"stand for the spiritual interest of the world\" and that it is a calamity if they neglect this in a country so focused on \"material interest.\" So in a materialistic country, it is crucial that some people foster ideas."
+            },
+            {
+              "id": "t21-rw2e-07",
+              "section": "rw",
+              "skill": "Command of Evidence: Quantitative",
+              "difficulty": "easy",
+              "passage": "The table shows that in 2016, the percentage of commuters who regularly biked to work in Albuquerque, New Mexico, was ______",
+              "table": {
+                "title": "Percentage of City's Commuters Regularly Biking to Work in 2016",
+                "head": [
+                  "City",
+                  "% of commuters"
+                ],
+                "rows": [
+                  [
+                    "Albuquerque, New Mexico",
+                    "1.6"
+                  ],
+                  [
+                    "Berkeley, California",
+                    "9.0"
+                  ],
+                  [
+                    "Washington, DC",
+                    "4.6"
+                  ],
+                  [
+                    "Phoenix, Arizona",
+                    "0.6"
+                  ]
+                ]
+              },
+              "prompt": "Which choice most effectively uses data from the table to complete the statement?",
+              "choices": [
+                "1.6.",
+                "9.0.",
+                "0.6.",
+                "4.6."
+              ],
+              "answer": "A",
+              "explanation": "The table lists 1.6% for Albuquerque, New Mexico."
+            },
+            {
+              "id": "t21-rw2e-08",
+              "section": "rw",
+              "skill": "Boundaries",
+              "difficulty": "medium",
+              "passage": "Native to the Yangtze River in China, the Chinese river dolphin is one of many species to have recently gone extinct in what some are calling \"the sixth great mass extinction\" in Earth's history. Far from being caused by humans, though, the five prior such events—the Ordovician-Silurian (440 million years ago, or mya), the Devonian (365 mya), the Permian-Triassic (250 mya), the Triassic-Jurassic (201 mya), and the Cretaceous-Tertiary ______ all predate us.",
+              "prompt": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+              "choices": [
+                "(65 mya)—",
+                "(65 mya);",
+                "(65 mya)",
+                "(65 mya),"
+              ],
+              "answer": "A",
+              "explanation": "A dash before \"the five prior such events\" opens a list of the events, so a second dash must close it before the verb \"predate.\""
+            },
+            {
+              "id": "t21-rw2e-09",
+              "section": "rw",
+              "skill": "Form, Structure, and Sense",
+              "difficulty": "medium",
+              "passage": "An imposing spire of igneous rock rising high above the Belle Fourche River in eastern Wyoming, Devils Tower (also known as Bear Lodge) is one of the most prominent examples of columnar jointing, a pattern of fracturing in rocks that ______ in parallel arrays of long polygonal prisms.",
+              "prompt": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+              "choices": [
+                "resulting",
+                "to result",
+                "results",
+                "were resulting"
+              ],
+              "answer": "C",
+              "explanation": "\"That\" refers to \"a pattern of fracturing,\" which is singular, and the description is a general fact, so the verb is the present-tense *results*."
+            },
+            {
+              "id": "t21-rw2e-10",
+              "section": "rw",
+              "skill": "Boundaries",
+              "difficulty": "medium",
+              "passage": "How a folktale begins depends largely on the language in which it ______ folktales told in the Korean language open with a phrase that roughly means \"on an old day, in the old times.\" English-language folktales, on the other hand, often begin with \"once upon a time.\"",
+              "prompt": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+              "choices": [
+                "originates. Many",
+                "originates, many",
+                "originates many",
+                "originates many,"
+              ],
+              "answer": "A",
+              "explanation": "\"How a folktale begins depends largely on the language in which it originates\" is complete, and \"Many folktales ... open with ...\" is another sentence. A period separates them."
+            },
+            {
+              "id": "t21-rw2e-11",
+              "section": "rw",
+              "skill": "Text Structure and Purpose",
+              "difficulty": "easy",
+              "passage": "Insects like ground beetles, crustaceans like calico crabs, and many other animals without spines are known as arthropods. Their nervous systems are made up of a brain and different nerves. Javier Ortega-Hernández, James Weaver, and team studied two fossils of the extinct arthropod *Mollisonia symmetrica* and identified parts of the species' nervous system. The researchers spotted evidence of __nerves extending into the animal's body parts__ and may have also found rare signs of a synganglion, a brain- like mass of nerves in the head.",
+              "prompt": "Which choice best describes the function of the underlined portion in the text as a whole?",
+              "choices": [
+                "It describes a feature that was missing from both fossils.",
+                "It gives the name of an arthropod species.",
+                "It explains how the team discovered the fossils.",
+                "It describes part of the nervous system the team identified."
+              ],
+              "answer": "D",
+              "explanation": "The underlined phrase names what the team found: nerves extending into the body parts, which is part of the nervous system they identified."
+            },
+            {
+              "id": "t21-rw2e-12",
+              "section": "rw",
+              "skill": "Form, Structure, and Sense",
+              "difficulty": "easy",
+              "passage": "During the relatively warm Cretaceous period (66 to 145 million years ago), there ______ forests near the North Pole and South Pole.",
+              "prompt": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+              "choices": [
+                "having been",
+                "were",
+                "to be",
+                "being"
+              ],
+              "answer": "B",
+              "explanation": "The sentence needs a main verb; \"forests\" is plural and the period is in the past, so *were*."
+            },
+            {
+              "id": "t21-rw2e-13",
+              "section": "rw",
+              "skill": "Central Ideas and Details",
+              "difficulty": "easy",
+              "passage": "In 2014 Marta S. Pimentel and colleagues published a study concluding that ocean acidification has a strong effect on the behavior of *Coryphaena hippurus*, a species of fish. However, Pimentel and colleagues' study relied on a mean sample size of only 10 fish. In a 2022 review of various scientists' conclusions about the impacts of ocean acidification on fish behavior, Timothy D. Clark and colleagues caution that relying on such a relatively small sample size can increase the potential for biased analysis. Such analysis, in turn, can contribute to reports of exaggerated effects.",
+              "prompt": "What is the main topic of the scientific research discussed in the text?",
+              "choices": [
+                "Feeding patterns of top marine predators",
+                "Loss of marine diversity due to overfishing",
+                "Changes in technologies used to capture fish",
+                "Effects of ocean acidification on fish behavior"
+              ],
+              "answer": "D",
+              "explanation": "Both studies discussed in the text concern how ocean acidification affects fish behavior."
+            },
+            {
+              "id": "t21-rw2e-14",
+              "section": "rw",
+              "skill": "Command of Evidence: Quantitative",
+              "difficulty": "easy",
+              "passage": "An intern at a publishing house who is preparing a report is asked to determine which of several genres of books published in 2019 had paperbacks with the lowest average price. Consulting the table, she determines that, on average, the least expensive paperbacks in that year belonged to the genre of ______",
+              "table": {
+                "title": "Average Paperback Prices, 2016–19",
+                "head": [
+                  "Genre",
+                  "2016",
+                  "2017",
+                  "2018",
+                  "2019"
+                ],
+                "rows": [
+                  [
+                    "Young adult",
+                    "\\$25.49",
+                    "\\$18.40",
+                    "\\$18.02",
+                    "\\$18.40"
+                  ],
+                  [
+                    "Mathematics",
+                    "\\$97.31",
+                    "\\$78.54",
+                    "\\$106.69",
+                    "\\$76.99"
+                  ],
+                  [
+                    "Comics and graphic novels",
+                    "\\$18.60",
+                    "\\$18.49",
+                    "\\$19.12",
+                    "\\$20.60"
+                  ],
+                  [
+                    "Reference",
+                    "\\$156.03",
+                    "\\$189.53",
+                    "\\$186.25",
+                    "\\$148.88"
+                  ]
+                ]
+              },
+              "prompt": "Which choice most effectively uses data from the table to complete the assertion?",
+              "choices": [
+                "comics and graphic novels.",
+                "young adult.",
+                "mathematics.",
+                "reference."
+              ],
+              "answer": "B",
+              "explanation": "In 2019, young adult paperbacks averaged \\$18.40, the lowest of the four genres (comics were \\$20.60)."
+            },
+            {
+              "id": "t21-rw2e-15",
+              "section": "rw",
+              "skill": "Command of Evidence: Quantitative",
+              "difficulty": "easy",
+              "passage": "Pacific hermit crabs live in shells that they either find empty or take from another hermit crab. Biologists Louise Roberts and Mark Laidre noticed that hermit crabs sometimes vibrate their shells and wondered if they do this to scare away other crabs. The researchers put a shell on a beach and set it up to remain still, gently vibrate, or strongly vibrate when another hermit crab approached it. They recorded how many of those crabs tried to flip the shell over, which is the first step in trying to take a shell from another crab.",
+              "table": {
+                "title": "Hermit Crab Reactions to a Shell on a Beach",
+                "head": [
+                  "Level of shell vibration",
+                  "Percentage of crabs that tried to flip the shell over"
+                ],
+                "rows": [
+                  [
+                    "None",
+                    "70%"
+                  ],
+                  [
+                    "Gentle vibration",
+                    "19%"
+                  ],
+                  [
+                    "Strong vibration",
+                    "0%"
+                  ]
+                ]
+              },
+              "prompt": "According to the table, what percentage of hermit crabs tried to flip the shell over when it was gently vibrating?",
+              "choices": [
+                "35%",
+                "0%",
+                "19%",
+                "70%"
+              ],
+              "answer": "C",
+              "explanation": "The table shows 19% for the gentle vibration."
+            },
+            {
+              "id": "t21-rw2e-16",
+              "section": "rw",
+              "skill": "Form, Structure, and Sense",
+              "difficulty": "easy",
+              "passage": "Scott Parazynski, a former US astronaut, has gone on seven spacewalks. During ______ spacewalks, Parazynski performed important tasks outside the spacecraft, such as installing new equipment.",
+              "prompt": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+              "choices": [
+                "this",
+                "that",
+                "these",
+                "one"
+              ],
+              "answer": "C",
+              "explanation": "The word refers to the \"seven spacewalks,\" which is plural, so *these* spacewalks."
+            },
+            {
+              "id": "t21-rw2e-17",
+              "section": "rw",
+              "skill": "Inferences",
+              "difficulty": "medium",
+              "passage": "There are over 150 species of the cactus genus *Mammillaria* throughout the Americas, but their survival can be threatened by high precipitation and dense vegetation that blocks sunlight. Researchers have located species from the genus in almost every state in Mexico, with several of them, like *M. schumannii*, restricted to only one state. The fact that this genus has not been observed in parts of the Sierra Madre Occidental mountain range has been attributed to a lack of appropriate habitat, but much of the landscape in this area is notoriously inaccessible, which suggests that ______",
+              "prompt": "Which choice most logically completes the text?",
+              "choices": [
+                "the current methods of collecting and tracking *Mammillaria* species throughout Mexico may cause an overestimation of the number of species in this genus.",
+                "*M. schumannii* may have been overlooked in parts of the Sierra Madre Occidental mountain range because of its similarity to another species.",
+                "the dense vegetation and high annual precipitation levels in parts of the Sierra Madre Occidental mountain range impede the ability of *Mammillaria* species to survive.",
+                "the perceived absence of *Mammillaria* in parts of the Sierra Madre Occidental mountain range may be due to insufficient exploration of the region."
+              ],
+              "answer": "D",
+              "explanation": "The absence of *Mammillaria* has been blamed on poor habitat, but the area is \"notoriously inaccessible.\" That suggests the plants may simply not have been found because the region has not been explored well."
+            },
+            {
+              "id": "t21-rw2e-18",
+              "section": "rw",
+              "skill": "Boundaries",
+              "difficulty": "easy",
+              "passage": "Why do children resemble their biological parents in some ways but not in ______ answer requires an understanding of genetics.",
+              "prompt": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+              "choices": [
+                "others, the",
+                "others. The",
+                "others? The",
+                "others the"
+              ],
+              "answer": "C",
+              "explanation": "The first sentence is a question (\"Why do children ... ?\"), so it ends with a question mark, and \"The answer\" starts a new sentence."
+            },
+            {
+              "id": "t21-rw2e-19",
+              "section": "rw",
+              "skill": "Transitions",
+              "difficulty": "medium",
+              "passage": "The World Cup of men's soccer, one of the biggest sporting events on the planet, brought 32 national teams from six continents to the host country, Russia, in 2018. ______ only 16 teams, all from Europe and the Americas, competed in the 1962 World Cup in Chile.",
+              "prompt": "Which choice completes the text with the most logical transition?",
+              "choices": [
+                "As a result,",
+                "For example,",
+                "In other words,",
+                "In comparison,"
+              ],
+              "answer": "D",
+              "explanation": "The text compares the 2018 World Cup (32 teams from six continents) with the 1962 one (16 teams from two regions). \"In comparison\" introduces this contrast."
+            },
+            {
+              "id": "t21-rw2e-20",
+              "section": "rw",
+              "skill": "Transitions",
+              "difficulty": "easy",
+              "passage": "Developed by Les Paul in 1945, multitrack recording allows music producers to record songs by layering separate musical tracks on top of one another. For example, producers can first record the drums. ______ they can record the guitars on top of the drums. Last, they can record the singer's vocals on top of the drum and guitar tracks to complete a rough mix of the song.",
+              "prompt": "Which choice completes the text with the most logical transition?",
+              "choices": [
+                "Next,",
+                "Instead,",
+                "In other words,",
+                "First,"
+              ],
+              "answer": "A",
+              "explanation": "The steps are listed in order: first the drums, then the guitars, last the vocals. \"Next\" marks the second step."
+            },
+            {
+              "id": "t21-rw2e-21",
+              "section": "rw",
+              "skill": "Inferences",
+              "difficulty": "medium",
+              "passage": "Readers sometimes divide the works of twentieth-century English author Evelyn Waugh into two periods: one consisting of his early satirical novels and the other consisting of his later, more serious—even ponderous—books. Critic Seamus Perry, however, challenges that strict division. Perry argues that Waugh's writing didn't change over time as much as some readers have suggested. For instance, Perry contends that some of Waugh's earliest works, notably his biography of artist Dante Gabriel Rossetti, exhibit the earnest romanticism that would characterize Waugh's later fiction.",
+              "prompt": "Based on the text, which statement about Waugh's works would Perry most likely agree with?",
+              "choices": [
+                "Regardless of when they were written, Waugh's works have important similarities that transcend their differences.",
+                "Over time, Waugh's works became less humorous and more focused on weightier topics.",
+                "Waugh's works can appropriately be separated into two periods by their subject matter and tone.",
+                "The earliest of Waugh's works exhibit a satirical tone, even if that tone is more apparent in Waugh's later works."
+              ],
+              "answer": "A",
+              "explanation": "Perry argues Waugh's writing \"didn't change over time as much as some readers have suggested,\" and early works show the same romanticism as later ones. So Waugh's works share important similarities across periods."
+            },
+            {
+              "id": "t21-rw2e-22",
+              "section": "rw",
+              "skill": "Transitions",
+              "difficulty": "medium",
+              "passage": "Nineteenth-century Modernista architects championed nature in their designs. Granted, the wavy stone façade and ornate floral tilework of Casa Batlló, a Modernista private home designed by Antoni Gaudí, couldn't exactly grow in a forest. ______ one sees natural influences in Gaudí's penchant for curves (rather than right angles) and plant- and animal-inspired flourishes.",
+              "prompt": "Which choice completes the text with the most logical transition?",
+              "choices": [
+                "Furthermore,",
+                "Still,",
+                "Similarly,",
+                "In other words,"
+              ],
+              "answer": "B",
+              "explanation": "The text admits that Casa Batlló's stone and tiles could not literally grow in a forest, but still one can see nature's influence. \"Still\" marks this concession."
+            },
+            {
+              "id": "t21-rw2e-23",
+              "section": "rw",
+              "skill": "Command of Evidence: Textual",
+              "difficulty": "medium",
+              "passage": "Throughout history, tall structures such as Ruwanwelisaya in Sri Lanka or the Minarets of Selimiye Mosque in Turkey have posed a challenge to their architects, since these structures are more susceptible to physical forces than smaller structures. For example, the lower floors of a building must be able to support the enormous weight of the upper floors. To test a hypothesis that steel is more suitable than concrete for construction of a tall building's lower floors, researchers created a computer model of two buildings that were identical except that one had concrete lower floors while one had steel lower floors, and simulated the effects of the forces of wind and gravity on those structures over the course of a century.",
+              "prompt": "Which finding, if true, would most directly support the researchers' hypothesis?",
+              "choices": [
+                "At the end of the simulation, the structure with steel lower floors had slightly larger dimensions at its base than it did at the beginning of the simulation.",
+                "During the simulation, the structure with steel lower floors bent in high wind to a greater degree than did the structure with concrete lower floors.",
+                "During the simulation, when sudden forces caused vibrations in the structures, those vibrations took longer to disappear in the structure with steel lower floors than in the structure with concrete lower floors.",
+                "At the end of the simulation, the structure with concrete lower floors was several inches shorter than the structure with steel lower floors."
+              ],
+              "answer": "D",
+              "explanation": "If steel is better for the lower floors, the concrete version should hold up worse under the weight. D says the concrete building ended up several inches shorter, meaning it compressed more. B and C show steel performing worse; A is about the steel building alone."
+            },
+            {
+              "id": "t21-rw2e-24",
+              "section": "rw",
+              "skill": "Inferences",
+              "difficulty": "medium",
+              "passage": "In a study of perceptions of listening ability, participants explained their position on a sociopolitical issue and then received a listener's written summary that expressed agreement or disagreement. Within selected summaries, researchers embedded markers of attentive listening (e.g., references to specific details), hypothesizing that such indications would positively influence perceptions of listening skill even in the context of disagreement. Instead, participants consistently rated listeners who expressed disagreement as less skilled, regardless of the other traits of the listeners' summaries.",
+              "prompt": "What does the text most strongly imply about how participants responded to expressions of disagreement?",
+              "choices": [
+                "Although participants were critical of expressions of disagreement, they gave higher ratings to listeners whose summaries included markers of attentiveness than to listeners whose summaries did not include these markers.",
+                "Although participants maintained their positions regardless of a summary's level of detail, they tended to regard listeners who expressed disagreement as more attentive when these listeners provided more detailed summaries.",
+                "When participants felt personally invested in the topics they discussed, they were less likely to perceive listeners who expressed disagreement as attentive, regardless of evidence to the contrary in these listeners' summaries.",
+                "When participants encountered summaries from listeners who expressed disagreement with their views, participants tended to disregard evidence that the listeners had in fact been attentive."
+              ],
+              "answer": "D",
+              "explanation": "Even when summaries contained clear signs of attentive listening, participants rated disagreeing listeners as less skilled \"regardless of the other traits.\" So they disregarded evidence that those listeners had been attentive. A contradicts this; B and C add claims the text never makes."
+            },
+            {
+              "id": "t21-rw2e-25",
+              "section": "rw",
+              "skill": "Rhetorical Synthesis",
+              "difficulty": "easy",
+              "passage": "While researching a topic, a student has taken the following notes:\n• Receptors in the human tongue can detect sweetness, saltiness, sourness, bitterness, and umami.\n• Umami is a rich, savory flavor.\n• Umami is triggered by the compounds in a variety of foods, including beef and caramelized onions.\n• Participants in a research study tasted samples of winged kelp (a type of brown seaweed) collected from Stykkishólmur, Iceland.\n• On average, they rated its umami intensity as moderate.",
+              "prompt": "The student wants to emphasize the umami intensity of winged kelp. Which choice most effectively uses relevant information from the notes to accomplish this goal?",
+              "choices": [
+                "Participants in a research study found the umami intensity of winged kelp, a brown seaweed, to be moderate.",
+                "Umami is triggered by compounds in winged kelp, beef, and caramelized onions.",
+                "Samples of winged kelp, a brown seaweed, have been collected in Stykkishólmur, Iceland.",
+                "Umami is a rich, savory flavor triggered by compounds in foods such as beef and caramelized onions."
+              ],
+              "answer": "A",
+              "explanation": "The goal is the umami intensity of winged kelp. Only A says it: moderate."
+            },
+            {
+              "id": "t21-rw2e-26",
+              "section": "rw",
+              "skill": "Rhetorical Synthesis",
+              "difficulty": "easy",
+              "passage": "While researching a topic, a student has taken the following notes:\n• The Great Salt Lake is located in Utah.\n• It is one of the saltiest bodies of water in the world.\n• More than 330 species of migratory birds stop at the lake each year.\n• One of these species is the tundra swan.",
+              "prompt": "The student wants to emphasize the number of migratory bird species that stop at the Great Salt Lake. Which choice most effectively uses relevant information from the notes to accomplish this goal?",
+              "choices": [
+                "The Great Salt Lake in Utah is one of the saltiest bodies of water in the world.",
+                "The tundra swan is a type of migratory bird.",
+                "Migratory birds stop at the Great Salt Lake in Utah.",
+                "Each year, more than 330 species of migratory birds stop at the Great Salt Lake in Utah."
+              ],
+              "answer": "D",
+              "explanation": "The goal is the number of bird species. Only D gives it: more than 330."
+            },
+            {
+              "id": "t21-rw2e-27",
+              "section": "rw",
+              "skill": "Rhetorical Synthesis",
+              "difficulty": "easy",
+              "passage": "While researching a topic, a student has taken the following notes:\n• The Colorado River is the eighth longest river in North America.\n• It passes through the country of Mexico.\n• It passes through the country of the United States.\n• It ranks No. 46 among the longest rivers in the world.\n• It is 2,333 kilometers long.",
+              "prompt": "The student wants to specify which countries the Colorado River passes through. Which choice most effectively uses relevant information from the notes to accomplish this goal?",
+              "choices": [
+                "The eighth longest river in North America, the Colorado River passes through both Mexico and the United States.",
+                "The Colorado River is not the longest river in the world.",
+                "Among the longest rivers in the world, the Colorado River ranks No. 46.",
+                "At 2,333 kilometers long, the Colorado River is the eighth longest river in North America."
+              ],
+              "answer": "A",
+              "explanation": "The goal is to name the countries. A says the river passes through Mexico and the United States."
+            }
+          ]
+        },
+        "harder": {
+          "minutes": 32,
+          "questions": [
+            {
+              "id": "t21-rw2h-01",
+              "section": "rw",
+              "skill": "Words in Context",
+              "difficulty": "hard",
+              "passage": "Early critics dismissed Emily Dickinson's poems for their unusual dashes and slant rhymes, but later readers came to see these features not as errors but as ______ choices that give her verse its distinctive tension.",
+              "prompt": "Which choice completes the text with the most logical and precise word or phrase?",
+              "choices": [
+                "accidental",
+                "conventional",
+                "outdated",
+                "deliberate"
+              ],
+              "answer": "D",
+              "explanation": "Later readers saw the features \"not as errors,\" so they were intentional, or *deliberate*. *Accidental* is the opposite; they were also not *conventional*, since critics found them unusual."
+            },
+            {
+              "id": "t21-rw2h-02",
+              "section": "rw",
+              "skill": "Words in Context",
+              "difficulty": "hard",
+              "passage": "Although the economist's model has been praised for its elegance, critics argue that its predictions are ______: because its assumptions can be adjusted to fit almost any outcome, it can never really be shown to be wrong.",
+              "prompt": "Which choice completes the text with the most logical and precise word or phrase?",
+              "choices": [
+                "unfalsifiable",
+                "unprecedented",
+                "unambiguous",
+                "unpopular"
+              ],
+              "answer": "A",
+              "explanation": "The colon explains the word: the model can \"never really be shown to be wrong,\" which is what *unfalsifiable* means."
+            },
+            {
+              "id": "t21-rw2h-03",
+              "section": "rw",
+              "skill": "Words in Context",
+              "difficulty": "hard",
+              "passage": "The archive's catalog was so ______ that historians often spent days searching for documents that were listed under misleading titles or not listed at all.",
+              "prompt": "Which choice completes the text with the most logical and precise word or phrase?",
+              "choices": [
+                "exhaustive",
+                "authoritative",
+                "concise",
+                "haphazard"
+              ],
+              "answer": "D",
+              "explanation": "Misleading titles and missing listings show the catalog was disorganized: *haphazard*. *Exhaustive* and *authoritative* suggest the opposite."
+            },
+            {
+              "id": "t21-rw2h-04",
+              "section": "rw",
+              "skill": "Words in Context",
+              "difficulty": "hard",
+              "passage": "Rather than ______ the conflicting accounts of the battle, the historian presents them side by side, inviting readers to weigh each witness's perspective for themselves.",
+              "prompt": "Which choice completes the text with the most logical and precise word or phrase?",
+              "choices": [
+                "celebrating",
+                "fabricating",
+                "memorizing",
+                "reconciling"
+              ],
+              "answer": "D",
+              "explanation": "The historian leaves the accounts \"side by side\" for readers to judge instead of combining them into one consistent version: *reconciling* them."
+            },
+            {
+              "id": "t21-rw2h-05",
+              "section": "rw",
+              "skill": "Text Structure and Purpose",
+              "difficulty": "hard",
+              "passage": "Many people assume that a bigger brain means a smarter animal. Yet the tiny jumping spider *Portia*, whose brain is smaller than a pinhead, plans detours to reach its prey, sometimes taking routes that lead it out of sight of the prey for long stretches. Some researchers argue that this behavior requires the spider to hold a mental map of its surroundings.",
+              "prompt": "Which choice best describes the function of the second sentence in the overall structure of the text?",
+              "choices": [
+                "It offers an example that challenges the assumption stated in the first sentence.",
+                "It explains why the assumption in the first sentence is widely held.",
+                "It describes a method researchers used to measure animal intelligence.",
+                "It summarizes the conclusion of a study discussed later in the text."
+              ],
+              "answer": "A",
+              "explanation": "The first sentence states the assumption that bigger brains mean more intelligence. The second gives a counterexample: a tiny-brained spider that plans complex routes."
+            },
+            {
+              "id": "t21-rw2h-06",
+              "section": "rw",
+              "skill": "Text Structure and Purpose",
+              "difficulty": "hard",
+              "passage": "The following text is from Jane Austen's 1813 novel *Pride and Prejudice*.\nIt is a truth universally acknowledged, that a single man in possession of a good fortune, must be in want of a wife. However little known the feelings or views of such a man may be on his first entering a neighbourhood, this truth is so well fixed in the minds of the surrounding families, that he is considered the rightful property of some one or other of their daughters.",
+              "prompt": "Which choice best describes the function of the second sentence in the text as a whole?",
+              "choices": [
+                "It shows that the claim in the first sentence reflects the assumptions of local families rather than a universal truth.",
+                "It provides scientific evidence for the claim in the first sentence.",
+                "It describes the personal history of a particular wealthy man.",
+                "It explains why single men prefer to move to new neighborhoods."
+              ],
+              "answer": "A",
+              "explanation": "The second sentence reveals that the \"truth\" is really something \"fixed in the minds of the surrounding families,\" whatever the man himself thinks, which makes the first sentence ironic."
+            },
+            {
+              "id": "t21-rw2h-07",
+              "section": "rw",
+              "skill": "Cross-Text Connections",
+              "difficulty": "hard",
+              "passage": "**Text 1**\nUrban planners have long promoted green roofs (roofs covered with plants) as a way to cool cities. Studies show that a green roof can be many degrees cooler than a dark conventional roof on a summer afternoon, reducing the energy needed to air-condition the building beneath it.\n**Text 2**\nGreen roofs clearly cool individual buildings, but their effect on a whole city's temperature is less certain. Unless they cover a large share of a city's rooftops, green roofs may do little to lower air temperatures at street level, where most people actually feel the heat.",
+              "prompt": "Based on the texts, how would the author of Text 2 most likely respond to the claim in Text 1 that green roofs cool cities?",
+              "choices": [
+                "By rejecting the finding that green roofs are cooler than conventional roofs",
+                "By claiming that green roofs increase energy use in the buildings beneath them",
+                "By arguing that air-conditioning is a more effective way to cool streets than green roofs",
+                "By agreeing that green roofs cool buildings but questioning whether, on their own, they substantially cool a city"
+              ],
+              "answer": "D",
+              "explanation": "Text 2 accepts that green roofs cool \"individual buildings\" but doubts their effect on the city as a whole unless they cover many rooftops."
+            },
+            {
+              "id": "t21-rw2h-08",
+              "section": "rw",
+              "skill": "Central Ideas and Details",
+              "difficulty": "hard",
+              "passage": "For much of the twentieth century, scholars treated the Indus Valley Civilization (c. 2600–1900 BCE) as a mystery because its script has never been deciphered. More recently, archaeologists have shifted their attention from what the inscriptions might say to what the cities' physical remains reveal: standardized brick sizes, carefully planned drainage systems, and uniform weights used across hundreds of kilometers all point to a society with widely shared rules and practices.",
+              "prompt": "Which choice best states the main idea of the text?",
+              "choices": [
+                "Archaeologists have finally deciphered the Indus script by studying its cities.",
+                "Even without reading their script, researchers have learned about the Indus Valley Civilization from its material remains.",
+                "The Indus Valley Civilization was less organized than other ancient societies.",
+                "Drainage systems were the most important invention of the Indus Valley Civilization."
+              ],
+              "answer": "B",
+              "explanation": "The script is still undeciphered, but bricks, drains, and weights reveal a society with shared rules. A contradicts the text; C and D are not supported."
+            },
+            {
+              "id": "t21-rw2h-09",
+              "section": "rw",
+              "skill": "Central Ideas and Details",
+              "difficulty": "hard",
+              "passage": "The following text is from Mary Shelley's 1818 novel *Frankenstein*. Victor Frankenstein describes his feelings after bringing his creation to life.\nI had worked hard for nearly two years, for the sole purpose of infusing life into an inanimate body. For this I had deprived myself of rest and health. I had desired it with an ardour that far exceeded moderation; but now that I had finished, the beauty of the dream vanished, and breathless horror and disgust filled my heart.",
+              "prompt": "Which choice best states the main idea of the text?",
+              "choices": [
+                "Victor regrets that he did not work harder on his project.",
+                "Victor plans to begin a new project to restore his health.",
+                "Victor is proud that he sacrificed his health for science.",
+                "Victor's long-awaited success brings him horror instead of satisfaction."
+              ],
+              "answer": "D",
+              "explanation": "After two years of obsessive work, \"the beauty of the dream vanished\" and \"horror and disgust\" filled him. His success brings horror, not satisfaction."
+            },
+            {
+              "id": "t21-rw2h-10",
+              "section": "rw",
+              "skill": "Command of Evidence: Textual",
+              "difficulty": "hard",
+              "passage": "Researchers studying the songs of humpback whales have found that a new song pattern can appear in one population and then spread from population to population across an ocean within a few years. A student argues that this shows whale song is learned from other whales rather than determined by genetics.",
+              "prompt": "Which finding, if true, would most directly support the student's argument?",
+              "choices": [
+                "Humpback whale songs can be heard over distances of many kilometers underwater.",
+                "Whales in a population adopt a new song within a single season, far too quickly for the change to be passed on through new generations.",
+                "Male humpback whales sing more often during the breeding season than at other times.",
+                "Some humpback whale songs last longer than twenty minutes."
+              ],
+              "answer": "B",
+              "explanation": "Genetic change takes generations. If whales switch to a new song within one season, they must be learning it from others. The other findings say nothing about how songs are acquired."
+            },
+            {
+              "id": "t21-rw2h-11",
+              "section": "rw",
+              "skill": "Command of Evidence: Textual",
+              "difficulty": "hard",
+              "passage": "In a study of 200 public libraries, a researcher found that libraries that extended their evening hours saw an increase in visits from adults who work during the day. The researcher concluded that limited opening hours, rather than a lack of interest, had been keeping many working adults away from libraries.",
+              "prompt": "Which finding, if true, would most strongly support the researcher's conclusion?",
+              "choices": [
+                "Libraries that extended their hours also bought more new books that year.",
+                "Libraries that did not extend their hours saw no change in visits from working adults over the same period.",
+                "Most library visitors in the study were retired adults.",
+                "Libraries that extended their hours had higher electricity costs."
+              ],
+              "answer": "B",
+              "explanation": "If libraries that kept their old hours saw no change, the increase in the other libraries is likely due to the longer hours, not some general rise in interest. A introduces another possible cause; C and D are irrelevant."
+            },
+            {
+              "id": "t21-rw2h-12",
+              "section": "rw",
+              "skill": "Command of Evidence: Quantitative",
+              "difficulty": "hard",
+              "passage": "A student is studying how the speed of sound depends on the material it travels through. Looking at the table, the student claims that sound travels more than four times as fast in water as in air.",
+              "table": {
+                "title": "Approximate Speed of Sound in Different Materials",
+                "head": [
+                  "Material",
+                  "Speed (meters per second)"
+                ],
+                "rows": [
+                  [
+                    "Air (20°C)",
+                    "343"
+                  ],
+                  [
+                    "Water (20°C)",
+                    "1,480"
+                  ],
+                  [
+                    "Glass",
+                    "4,540"
+                  ],
+                  [
+                    "Steel",
+                    "5,960"
+                  ]
+                ]
+              },
+              "prompt": "Which choice most effectively uses data from the table to support the student's claim?",
+              "choices": [
+                "Sound travels at about 343 meters per second in air and about 1,480 meters per second in water.",
+                "Sound travels at about 5,960 meters per second in steel.",
+                "Sound travels faster in glass than in water.",
+                "Sound travels at about 1,480 meters per second in water and about 5,960 meters per second in steel."
+              ],
+              "answer": "A",
+              "explanation": "The claim compares water and air. A gives both speeds: 1,480 is more than four times 343 (4 × 343 = 1,372)."
+            },
+            {
+              "id": "t21-rw2h-13",
+              "section": "rw",
+              "skill": "Command of Evidence: Quantitative",
+              "difficulty": "hard",
+              "passage": "Researchers measured the average number of bird species seen per survey in three types of farmland. A student claims that hedgerows (rows of shrubs and trees) between fields are more strongly associated with bird diversity than the presence of a pond is.",
+              "table": {
+                "title": "Average Bird Species per Survey on Farmland",
+                "head": [
+                  "Farm type",
+                  "Average species"
+                ],
+                "rows": [
+                  [
+                    "Hedgerows and pond",
+                    "24"
+                  ],
+                  [
+                    "Hedgerows, no pond",
+                    "21"
+                  ],
+                  [
+                    "Pond, no hedgerows",
+                    "14"
+                  ],
+                  [
+                    "Neither",
+                    "9"
+                  ]
+                ]
+              },
+              "prompt": "Which choice best describes data from the table that support the student's claim?",
+              "choices": [
+                "Farms with both hedgerows and a pond had the highest number of species.",
+                "Farms with a pond but no hedgerows averaged more species than farms with neither feature.",
+                "Farms with neither hedgerows nor a pond averaged 9 species.",
+                "Farms with hedgerows but no pond averaged 21 species, while farms with a pond but no hedgerows averaged 14."
+              ],
+              "answer": "D",
+              "explanation": "To compare the two features, look at farms with only one of them: hedgerows alone gave 21 species, a pond alone only 14. That supports hedgerows being more strongly associated with diversity."
+            },
+            {
+              "id": "t21-rw2h-14",
+              "section": "rw",
+              "skill": "Inferences",
+              "difficulty": "hard",
+              "passage": "Coral reefs grow when tiny animals called polyps build skeletons from calcium carbonate. As the ocean absorbs more carbon dioxide from the atmosphere, seawater becomes more acidic, which makes calcium carbonate harder for polyps to form. Researchers therefore expect that, as carbon dioxide levels rise, ______",
+              "prompt": "Which choice most logically completes the text?",
+              "choices": [
+                "coral polyps will need less calcium carbonate to survive.",
+                "seawater will absorb less carbon dioxide from the atmosphere.",
+                "the growth of coral reefs will slow.",
+                "coral reefs will spread into deeper and colder waters."
+              ],
+              "answer": "C",
+              "explanation": "More CO₂ makes seawater more acidic, which makes it harder to form calcium carbonate, which reefs need to grow. So reef growth should slow."
+            },
+            {
+              "id": "t21-rw2h-15",
+              "section": "rw",
+              "skill": "Inferences",
+              "difficulty": "hard",
+              "passage": "Historians once assumed that medieval European peasants rarely traveled more than a few kilometers from their villages. However, records of marriages from several English parishes show that a large share of spouses came from villages more than twenty kilometers away. If these records are representative, then ______",
+              "prompt": "Which choice most logically completes the text?",
+              "choices": [
+                "medieval peasants were probably more mobile than historians once assumed.",
+                "most medieval marriages took place in large cities.",
+                "medieval peasants rarely married people they had met before.",
+                "historians have overestimated how far medieval peasants traveled."
+              ],
+              "answer": "A",
+              "explanation": "Many spouses came from distant villages, so people moved around more than the old assumption suggested. D reverses this."
+            },
+            {
+              "id": "t21-rw2h-16",
+              "section": "rw",
+              "skill": "Form, Structure, and Sense",
+              "difficulty": "medium",
+              "passage": "The team of engineers who designed the bridge ______ that it could withstand winds of more than 200 kilometers per hour.",
+              "prompt": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+              "choices": [
+                "claim",
+                "have claimed",
+                "claims",
+                "claiming"
+              ],
+              "answer": "C",
+              "explanation": "The subject is \"The team,\" a singular noun (\"of engineers who designed the bridge\" describes it). So the verb is singular: *claims*."
+            },
+            {
+              "id": "t21-rw2h-17",
+              "section": "rw",
+              "skill": "Form, Structure, and Sense",
+              "difficulty": "hard",
+              "passage": "Neither the original manuscript of the poem nor the two earliest printed copies ______ the stanza that later editors added.",
+              "prompt": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+              "choices": [
+                "to contain",
+                "contains",
+                "containing",
+                "contain"
+              ],
+              "answer": "D",
+              "explanation": "With \"neither ... nor,\" the verb agrees with the nearer subject, \"the two earliest printed copies,\" which is plural: *contain*."
+            },
+            {
+              "id": "t21-rw2h-18",
+              "section": "rw",
+              "skill": "Form, Structure, and Sense",
+              "difficulty": "hard",
+              "passage": "Having studied thousands of fossilized leaves from the Cretaceous period, ______ concluded that flowering plants spread across North America more quickly than had previously been thought.",
+              "prompt": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+              "choices": [
+                "the leaves led a team of paleobotanists, who",
+                "the evidence that a team of paleobotanists",
+                "a team of paleobotanists",
+                "it was a team of paleobotanists who"
+              ],
+              "answer": "C",
+              "explanation": "The opening phrase \"Having studied thousands of fossilized leaves\" must describe the person who studied them, so the subject right after the comma must be the scientists. Only C does this and leaves a complete sentence."
+            },
+            {
+              "id": "t21-rw2h-19",
+              "section": "rw",
+              "skill": "Boundaries",
+              "difficulty": "hard",
+              "passage": "The novelist's most celebrated works—*The Long Shore*, a family saga set in a fishing village; *Ashfall*, a story of survival after a volcanic eruption; and *Tidewater*, her only memoir ______ all draw on her childhood on the coast of Maine.",
+              "prompt": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+              "choices": [
+                "memoir;",
+                "memoir,",
+                "memoir—",
+                "memoir"
+              ],
+              "answer": "C",
+              "explanation": "The list began with a dash after \"works,\" so a second dash must close it before the verb \"draw.\""
+            },
+            {
+              "id": "t21-rw2h-20",
+              "section": "rw",
+              "skill": "Boundaries",
+              "difficulty": "hard",
+              "passage": "The tallest trees on Earth are coast redwoods, some of which exceed 110 meters in height ______ the most massive are giant sequoias, whose trunks can hold more than 1,400 cubic meters of wood.",
+              "prompt": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+              "choices": [
+                "height, however,",
+                "height; however,",
+                "height however",
+                "height, however"
+              ],
+              "answer": "B",
+              "explanation": "These are two complete sentences joined by \"however.\" A semicolon must come before \"however\" and a comma after it. A and D create comma splices."
+            },
+            {
+              "id": "t21-rw2h-21",
+              "section": "rw",
+              "skill": "Boundaries",
+              "difficulty": "medium",
+              "passage": "Built between 1173 and 1372, the bell tower of the cathedral in Pisa, Italy, began to lean during ______ soft ground beneath its foundation could not support its weight evenly.",
+              "prompt": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+              "choices": [
+                "construction: the",
+                "construction, the",
+                "construction the",
+                "construction, and, the"
+              ],
+              "answer": "A",
+              "explanation": "\"The bell tower ... began to lean during construction\" is complete, and the next clause explains why. A colon introduces an explanation. B is a comma splice and C is a run-on."
+            },
+            {
+              "id": "t21-rw2h-22",
+              "section": "rw",
+              "skill": "Transitions",
+              "difficulty": "hard",
+              "passage": "Early telescopes produced blurry images with colored fringes because their lenses bent different colors of light by different amounts. Isaac Newton concluded that the problem could not be fixed with lenses. ______ he designed a telescope that used a curved mirror, which reflects all colors equally, to focus light.",
+              "prompt": "Which choice completes the text with the most logical transition?",
+              "choices": [
+                "Nevertheless,",
+                "Accordingly,",
+                "Similarly,",
+                "For example,"
+              ],
+              "answer": "B",
+              "explanation": "Because Newton believed lenses could not solve the problem, he used a mirror instead. \"Accordingly\" signals an action taken in response to that conclusion."
+            },
+            {
+              "id": "t21-rw2h-23",
+              "section": "rw",
+              "skill": "Transitions",
+              "difficulty": "hard",
+              "passage": "Ancient Rome's concrete has survived for two thousand years, while much modern concrete cracks within decades. Researchers have found that Roman builders mixed in lumps of lime that, when cracks formed and water seeped in, dissolved and recrystallized, sealing the cracks. ______ Roman concrete could, in effect, repair itself.",
+              "prompt": "Which choice completes the text with the most logical transition?",
+              "choices": [
+                "In other words,",
+                "By contrast,",
+                "Even so,",
+                "Meanwhile,"
+              ],
+              "answer": "A",
+              "explanation": "The last sentence restates the process just described (lime sealing cracks) in simpler terms: the concrete repaired itself. \"In other words\" signals a restatement."
+            },
+            {
+              "id": "t21-rw2h-24",
+              "section": "rw",
+              "skill": "Transitions",
+              "difficulty": "hard",
+              "passage": "Some economists predicted that the spread of ATMs in the 1980s would eliminate most jobs for bank tellers. ______ the number of tellers in the United States actually grew in the following decades, as banks used the savings from ATMs to open more branches.",
+              "prompt": "Which choice completes the text with the most logical transition?",
+              "choices": [
+                "Consequently,",
+                "Likewise,",
+                "On the contrary,",
+                "Specifically,"
+              ],
+              "answer": "C",
+              "explanation": "The prediction was that teller jobs would disappear; in fact they grew. \"On the contrary\" introduces a fact that contradicts the prediction."
+            },
+            {
+              "id": "t21-rw2h-25",
+              "section": "rw",
+              "skill": "Rhetorical Synthesis",
+              "difficulty": "medium",
+              "passage": "While researching a topic, a student has taken the following notes:\n• Ada Lovelace (1815–1852) was an English mathematician.\n• She worked with Charles Babbage on his design for the Analytical Engine, a mechanical computer.\n• In 1843 she published notes that included a method for the engine to calculate Bernoulli numbers.\n• This method is often described as the first computer program.",
+              "prompt": "The student wants to explain why Lovelace is important in the history of computing. Which choice most effectively uses relevant information from the notes to accomplish this goal?",
+              "choices": [
+                "Ada Lovelace, an English mathematician, lived from 1815 to 1852.",
+                "Charles Babbage designed a mechanical computer called the Analytical Engine.",
+                "In 1843, Ada Lovelace published a method for Charles Babbage's Analytical Engine to calculate Bernoulli numbers, a method often called the first computer program.",
+                "Ada Lovelace worked with Charles Babbage."
+              ],
+              "answer": "C",
+              "explanation": "C explains her importance: she published what is often called the first computer program. The others give background without explaining her significance."
+            },
+            {
+              "id": "t21-rw2h-26",
+              "section": "rw",
+              "skill": "Rhetorical Synthesis",
+              "difficulty": "hard",
+              "passage": "While researching a topic, a student has taken the following notes:\n• Monarch butterflies in eastern North America migrate up to 4,800 kilometers to central Mexico each fall.\n• No single butterfly completes the full round trip.\n• The return journey north takes three to four generations.\n• The butterflies that fly south in fall live up to eight months; summer generations live only two to six weeks.",
+              "prompt": "The student wants to explain why the monarch migration is unusual. Which choice most effectively uses relevant information from the notes to accomplish this goal?",
+              "choices": [
+                "Monarch butterflies migrate each fall from eastern North America to central Mexico.",
+                "The monarch migration is unusual because no single butterfly makes the whole round trip: the journey back north takes three to four generations.",
+                "Monarch butterflies that fly south in the fall can live up to eight months.",
+                "Monarch butterflies in eastern North America travel up to 4,800 kilometers."
+              ],
+              "answer": "B",
+              "explanation": "B states what makes the migration unusual and explains it: the round trip spans several generations. A and D describe the trip but not what is unusual; C is a supporting detail only."
+            },
+            {
+              "id": "t21-rw2h-27",
+              "section": "rw",
+              "skill": "Rhetorical Synthesis",
+              "difficulty": "hard",
+              "passage": "While researching a topic, a student has taken the following notes:\n• In 1928, Alexander Fleming noticed that mold growing in a dish had killed nearby bacteria.\n• The mold produced a substance he named penicillin.\n• Fleming could not produce penicillin in large amounts.\n• In the early 1940s, Howard Florey and Ernst Chain developed methods to purify and mass-produce it.\n• All three shared the 1945 Nobel Prize in Physiology or Medicine.",
+              "prompt": "The student wants to emphasize that turning penicillin into a usable medicine required the work of more than one scientist. Which choice most effectively uses relevant information from the notes to accomplish this goal?",
+              "choices": [
+                "In 1928, Alexander Fleming discovered penicillin after noticing that mold had killed bacteria in a dish.",
+                "Penicillin was named by Alexander Fleming, who first observed it in 1928.",
+                "Although Fleming discovered penicillin in 1928, it was Florey and Chain who, in the early 1940s, found ways to purify and mass-produce it, and all three shared a Nobel Prize.",
+                "Howard Florey and Ernst Chain won the 1945 Nobel Prize in Physiology or Medicine."
+              ],
+              "answer": "C",
+              "explanation": "C shows the work was shared: Fleming discovered it, Florey and Chain made it producible, and all three were honored. The others mention only one part of the story."
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "math",
+      "title": "Math",
+      "module1": {
+        "minutes": 35,
+        "questions": [
+          {
+            "id": "t21-m1-01",
+            "section": "math",
+            "skill": "Linear inequalities in one or two variables",
+            "difficulty": "medium",
+            "image": "assets/figures/t21-m1-01.svg",
+            "imageAlt": "Figure for this question",
+            "prompt": "Which inequality has the solutions represented by the shaded region in the graph shown?",
+            "choices": [
+              "$y < \\frac{1}{3}x + 12$",
+              "$y < 3x + 12$",
+              "$y > \\frac{1}{3}x + 12$",
+              "$y > 3x + 12$"
+            ],
+            "answer": "B",
+            "explanation": "The dashed line passes through $(-4, 0)$ and $(0, 12)$, so its slope is $\\frac{12}{4} = 3$ and it is $y = 3x + 12$. The shading is below and to the right of the line: $y < 3x + 12$."
+          },
+          {
+            "id": "t21-m1-02",
+            "section": "math",
+            "skill": "Lines, angles, and triangles",
+            "difficulty": "medium",
+            "image": "assets/figures/t21-m1-02.svg",
+            "imageAlt": "Figure for this question",
+            "prompt": "In the figure shown, $d$, $e$, and $f$ are constants and the value of $k$ is $2$. If the measures of angles $D$, $E$, and $F$ are $42^\\circ$, $x^\\circ$, and $(2x + 12)^\\circ$, respectively, what is the measure, in degrees, of angle $S$?",
+            "answer": [
+              "96"
+            ],
+            "explanation": "Each side of triangle $QRS$ is $k$ times the matching side of $DEF$, so the triangles are similar with $D \\leftrightarrow Q$, $E \\leftrightarrow R$, $F \\leftrightarrow S$. In $DEF$: $42 + x + 2x + 12 = 180$, so $x = 42$ and $F = 2(42) + 12 = 96^\\circ$. So angle $S = 96^\\circ$."
+          },
+          {
+            "id": "t21-m1-03",
+            "section": "math",
+            "skill": "Nonlinear equations in one variable and systems of equations in two variables",
+            "difficulty": "hard",
+            "prompt": "$3x^2 - 13x + 19 = 0$\n\nHow many distinct real solutions does the given equation have?",
+            "choices": [
+              "Zero",
+              "Exactly one",
+              "Exactly two",
+              "Infinitely many"
+            ],
+            "answer": "A",
+            "explanation": "The discriminant is $(-13)^2 - 4(3)(19) = 169 - 228 = -59$, which is negative, so there are no real solutions."
+          },
+          {
+            "id": "t21-m1-04",
+            "section": "math",
+            "skill": "Nonlinear equations in one variable and systems of equations in two variables",
+            "difficulty": "hard",
+            "image": "assets/figures/t21-m1-04.svg",
+            "imageAlt": "Figure for this question",
+            "prompt": "The graph of a system of a linear equation and a quadratic equation is shown. What is the solution $(x, y)$ to this system?",
+            "choices": [
+              "$(0, 3)$",
+              "$(0, 5)$",
+              "$(-5, 3)$",
+              "$(5, -3)$"
+            ],
+            "answer": "C",
+            "explanation": "The horizontal line $y = 3$ touches the parabola only at its vertex, $(-5, 3)$."
+          },
+          {
+            "id": "t21-m1-05",
+            "section": "math",
+            "skill": "Linear functions",
+            "difficulty": "medium",
+            "prompt": "The function $h$ is defined by $h(x) = \\frac{x}{6}$. What is the value of $h(x)$ when $x = 48$?",
+            "choices": [
+              "$6$",
+              "$8$",
+              "$42$",
+              "$54$"
+            ],
+            "answer": "B",
+            "explanation": "$h(48) = \\frac{48}{6} = 8$."
+          },
+          {
+            "id": "t21-m1-06",
+            "section": "math",
+            "skill": "Ratios, rates, proportional relationships, and units",
+            "difficulty": "easy",
+            "prompt": "A certain striped marlin can swim at a maximum speed of $22$ meters per second. At this maximum speed, how many meters would this striped marlin swim in $3$ seconds?",
+            "answer": [
+              "66"
+            ],
+            "explanation": "Distance $=$ speed $\\times$ time $= 22 \\times 3 = 66$ meters."
+          },
+          {
+            "id": "t21-m1-07",
+            "section": "math",
+            "skill": "Linear equations in one variable",
+            "difficulty": "medium",
+            "prompt": "$\\frac{13}{x + 1} = \\frac{13}{7}$\n\nWhat value of $x$ makes the given equation true?",
+            "answer": [
+              "6"
+            ],
+            "explanation": "The numerators are equal, so the denominators must be equal: $x + 1 = 7$ and $x = 6$."
+          },
+          {
+            "id": "t21-m1-08",
+            "section": "math",
+            "skill": "Linear inequalities in one or two variables",
+            "difficulty": "easy",
+            "prompt": "A biologist recorded the pinching force of wild coconut crabs. The lowest pinching force recorded was $86.2$ newtons and the highest pinching force recorded was $121.4$ newtons. Which inequality is true for all values of $c$, where $c$ represents any pinching force, in newtons, recorded for these wild coconut crabs?",
+            "choices": [
+              "$c \\le 86.2$",
+              "$c \\ge 121.4$",
+              "$43.1 \\le c \\le 60.7$",
+              "$86.2 \\le c \\le 121.4$"
+            ],
+            "answer": "D",
+            "explanation": "Every recorded force is at least the lowest value and at most the highest: $86.2 \\le c \\le 121.4$."
+          },
+          {
+            "id": "t21-m1-09",
+            "section": "math",
+            "skill": "Lines, angles, and triangles",
+            "difficulty": "easy",
+            "image": "assets/figures/t21-m1-09.svg",
+            "imageAlt": "Figure for this question",
+            "prompt": "In the figure, two lines intersect at a point. If $r = 52$, what is the value of $s$?",
+            "answer": [
+              "52"
+            ],
+            "explanation": "Angles $r^\\circ$ and $s^\\circ$ are opposite each other where the lines cross, so they are vertical angles and are equal: $s = 52$."
+          },
+          {
+            "id": "t21-m1-10",
+            "section": "math",
+            "skill": "Systems of two linear equations in two variables",
+            "difficulty": "easy",
+            "prompt": "Kayra spent \\$49 at a book sale and bought a total of $21$ books. She bought $h$ hardcover books for \\$3 each and $p$ paperback books for \\$2 each. Which system of equations represents this situation?",
+            "choices": [
+              "$h + p = 21$ and $2h + 3p = 49$",
+              "$h + p = 21$ and $3h + 2p = 49$",
+              "$h + p = 49$ and $2h + 3p = 21$",
+              "$h + p = 49$ and $3h + 2p = 21$"
+            ],
+            "answer": "B",
+            "explanation": "The number of books is $h + p = 21$. The cost is $3h + 2p = 49$."
+          },
+          {
+            "id": "t21-m1-11",
+            "section": "math",
+            "skill": "Linear equations in two variables",
+            "difficulty": "medium",
+            "prompt": "The number $b$ is $15$ more than half of the number $a$. Which equation represents the relationship between $a$ and $b$?",
+            "choices": [
+              "$b = 30a$",
+              "$b = 15a + 2$",
+              "$b = \\frac{a}{15} + 2$",
+              "$b = \\frac{a}{2} + 15$"
+            ],
+            "answer": "D",
+            "explanation": "Half of $a$ is $\\frac{a}{2}$, and $15$ more is $\\frac{a}{2} + 15$."
+          },
+          {
+            "id": "t21-m1-12",
+            "section": "math",
+            "skill": "Linear functions",
+            "difficulty": "medium",
+            "prompt": "A manager is responsible for ordering supplies for a coffee shop. The shop's inventory starts with $8{,}900$ disposable cups, and the manager estimates that $120$ of these cups are used each day. Based on this estimate, in how many days will the inventory of disposable cups reach $1{,}700$?",
+            "answer": [
+              "60"
+            ],
+            "explanation": "The shop must use $8{,}900 - 1{,}700 = 7{,}200$ cups, and $7{,}200 \\div 120 = 60$ days."
+          },
+          {
+            "id": "t21-m1-13",
+            "section": "math",
+            "skill": "Linear functions",
+            "difficulty": "medium",
+            "prompt": "A line in the $xy$-plane passes through the points $(9, 1)$, $(0, 8)$, and $(c, 0)$. What is the value of $c$?",
+            "answer": [
+              "72/7",
+              "10.28",
+              "10.29"
+            ],
+            "explanation": "The slope is $\\frac{8 - 1}{0 - 9} = -\\frac{7}{9}$, so the line is $y = -\\frac{7}{9}x + 8$. Setting $y = 0$: $\\frac{7}{9}c = 8$, so $c = \\frac{72}{7}$."
+          },
+          {
+            "id": "t21-m1-14",
+            "section": "math",
+            "skill": "Linear inequalities in one or two variables",
+            "difficulty": "medium",
+            "image": "assets/figures/t21-m1-14.svg",
+            "imageAlt": "Figure for this question",
+            "prompt": "Which shaded region represents the solutions to the inequality $y \\le -\\frac{1}{4}x + 7$?",
+            "choices": [
+              "Graph A",
+              "Graph B",
+              "Graph C",
+              "Graph D"
+            ],
+            "answer": "C",
+            "explanation": "The boundary line has a negative slope ($-\\frac{1}{4}$) and $y$-intercept $7$, so it falls from left to right; that rules out A and B. \"$y \\le$\" means the region below the line is shaded, which is Graph C."
+          },
+          {
+            "id": "t21-m1-15",
+            "section": "math",
+            "skill": "Nonlinear functions",
+            "difficulty": "hard",
+            "prompt": "$q(x) = 28(2^x)$\n\nWhich choice gives three values of $x$ and their corresponding values of $q(x)$ for function $q$?",
+            "choices": [
+              "$q(-1) = 14$, $q(0) = 28$, $q(1) = 56$",
+              "$q(-1) = \\frac{1}{14}$, $q(0) = 28$, $q(1) = 56$",
+              "$q(-1) = \\frac{1}{14}$, $q(0) = 2$, $q(1) = 56$",
+              "$q(-1) = -56$, $q(0) = 0$, $q(1) = 56$"
+            ],
+            "answer": "A",
+            "explanation": "$q(-1) = 28 \\cdot \\frac{1}{2} = 14$, $q(0) = 28 \\cdot 1 = 28$, $q(1) = 28 \\cdot 2 = 56$."
+          },
+          {
+            "id": "t21-m1-16",
+            "section": "math",
+            "skill": "Linear equations in one variable",
+            "difficulty": "medium",
+            "prompt": "If $3(x - 9) - 4 = 8(x - 9) + 4$, what is the value of $x - 9$?",
+            "choices": [
+              "$-\\frac{8}{5}$",
+              "$-\\frac{5}{8}$",
+              "$\\frac{3}{8}$",
+              "$\\frac{8}{11}$"
+            ],
+            "answer": "A",
+            "explanation": "Let $u = x - 9$. Then $3u - 4 = 8u + 4$, so $-5u = 8$ and $u = -\\frac{8}{5}$."
+          },
+          {
+            "id": "t21-m1-17",
+            "section": "math",
+            "skill": "Inference from sample statistics and margin of error",
+            "difficulty": "hard",
+            "prompt": "An inspector checked a sample of $330$ scales selected at random from a population of $8{,}000$ scales to estimate what percentage of the $8{,}000$ scales were inaccurate. From this sample, the inspector estimated that $7\\%$ of the $8{,}000$ scales were inaccurate, with an associated margin of error of $2.8\\%$. Which of the following is the most appropriate conclusion?",
+            "choices": [
+              "It is plausible that between $336$ and $784$ of the scales in the population are inaccurate.",
+              "It is plausible that fewer than $336$ of the scales in the population are inaccurate.",
+              "Exactly $560$ of the scales in the population are inaccurate.",
+              "It is plausible that more than $784$ of the scales in the population are inaccurate."
+            ],
+            "answer": "A",
+            "explanation": "The plausible range is $7\\% \\pm 2.8\\%$, or $4.2\\%$ to $9.8\\%$ of $8{,}000$: from $336$ to $784$ scales."
+          },
+          {
+            "id": "t21-m1-18",
+            "section": "math",
+            "skill": "Linear inequalities in one or two variables",
+            "difficulty": "easy",
+            "prompt": "To earn a bachelor's degree at a certain university, students are required to complete at least $120$ credit hours. If a student has completed $42$ credit hours, what is the minimum number of additional credit hours the student is required to complete to earn a bachelor's degree at this university?",
+            "choices": [
+              "$162$",
+              "$120$",
+              "$78$",
+              "$20$"
+            ],
+            "answer": "C",
+            "explanation": "$120 - 42 = 78$ more credit hours."
+          },
+          {
+            "id": "t21-m1-19",
+            "section": "math",
+            "skill": "Nonlinear equations in one variable and systems of equations in two variables",
+            "difficulty": "hard",
+            "image": "assets/figures/t21-m1-19.svg",
+            "imageAlt": "Figure for this question",
+            "prompt": "The graph of a system of a linear equation and a quadratic equation is shown. What is a solution $(x, y)$ to this system?",
+            "choices": [
+              "$(0, 0)$",
+              "$(0, 7)$",
+              "$(6, 0)$",
+              "$(6, 7)$"
+            ],
+            "answer": "D",
+            "explanation": "A solution is a point where the line and the parabola intersect. They cross at $(6, 7)$."
+          },
+          {
+            "id": "t21-m1-20",
+            "section": "math",
+            "skill": "Ratios, rates, proportional relationships, and units",
+            "difficulty": "easy",
+            "prompt": "During an experiment, a particle's speed was $48$ feet per second. What is this speed in feet per **minute**?",
+            "choices": [
+              "$78$",
+              "$108$",
+              "$1{,}440$",
+              "$2{,}880$"
+            ],
+            "answer": "D",
+            "explanation": "There are $60$ seconds in a minute: $48 \\times 60 = 2{,}880$ feet per minute."
+          },
+          {
+            "id": "t21-m1-21",
+            "section": "math",
+            "skill": "One-variable data: distributions and measures of center and spread",
+            "difficulty": "easy",
+            "table": {
+              "head": [
+                "Program",
+                "Number of students"
+              ],
+              "rows": [
+                [
+                  "Volleyball",
+                  "$30$"
+                ],
+                [
+                  "Hockey",
+                  "$40$"
+                ],
+                [
+                  "Basketball",
+                  "$57$"
+                ],
+                [
+                  "Soccer",
+                  "$43$"
+                ]
+              ]
+            },
+            "prompt": "The table shows the number of students in each of four sports programs at a high school. How many more students are in the hockey program than the volleyball program?",
+            "choices": [
+              "$10$",
+              "$30$",
+              "$40$",
+              "$70$"
+            ],
+            "answer": "A",
+            "explanation": "Hockey has $40$ students and volleyball has $30$, so the difference is $10$."
+          },
+          {
+            "id": "t21-m1-22",
+            "section": "math",
+            "skill": "Equivalent expressions",
+            "difficulty": "hard",
+            "prompt": "$y = 5x^2 - 40x + 35$\n\nThe given equation represents a parabola in the $xy$-plane. Which of the following equations that represent the same parabola displays the $x$-intercepts as constants or coefficients?",
+            "choices": [
+              "$y = 5x^2 - 8x + 35$",
+              "$y = 5x(x - 8) + 35$",
+              "$y = 5(x - 4)^2 - 45$",
+              "$y = 5(x - 1)(x - 7)$"
+            ],
+            "answer": "D",
+            "explanation": "Factor: $5x^2 - 40x + 35 = 5(x^2 - 8x + 7) = 5(x - 1)(x - 7)$. The factored form shows the $x$-intercepts, $1$ and $7$. (A is not equivalent.)"
+          }
+        ]
+      },
+      "module2": {
+        "easier": {
+          "minutes": 35,
+          "questions": [
+            {
+              "id": "t21-m2e-01",
+              "section": "math",
+              "skill": "Probability and conditional probability",
+              "difficulty": "easy",
+              "table": {
+                "head": [
+                  "Type of entree",
+                  "Number of people"
+                ],
+                "rows": [
+                  [
+                    "Beef",
+                    "$20$"
+                  ],
+                  [
+                    "Chicken",
+                    "$19$"
+                  ],
+                  [
+                    "Fish",
+                    "$2$"
+                  ],
+                  [
+                    "Vegetarian",
+                    "$9$"
+                  ],
+                  [
+                    "Total",
+                    "$50$"
+                  ]
+                ]
+              },
+              "prompt": "A total of $50$ people attended a conference and were offered $4$ types of entrees. The table shows the number of people who chose each type of entree.\n\nIf one of these people is selected at random, what is the probability of selecting a person who chose a vegetarian entree?",
+              "choices": [
+                "$\\frac{9}{100}$",
+                "$\\frac{9}{50}$",
+                "$\\frac{1}{4}$",
+                "$\\frac{41}{50}$"
+              ],
+              "answer": "B",
+              "explanation": "$9$ of the $50$ people chose vegetarian, so the probability is $\\frac{9}{50}$."
+            },
+            {
+              "id": "t21-m2e-02",
+              "section": "math",
+              "skill": "Linear equations in one variable",
+              "difficulty": "easy",
+              "prompt": "If $3x = 7$, what is the value of $12x$?",
+              "choices": [
+                "$3$",
+                "$11$",
+                "$25$",
+                "$28$"
+              ],
+              "answer": "D",
+              "explanation": "$12x = 4(3x) = 4(7) = 28$."
+            },
+            {
+              "id": "t21-m2e-03",
+              "section": "math",
+              "skill": "Linear functions",
+              "difficulty": "easy",
+              "prompt": "The function $f$ is defined by the equation $f(x) = 320x$. What is the value of $f(10)$?",
+              "answer": [
+                "3200"
+              ],
+              "explanation": "$f(10) = 320(10) = 3{,}200$."
+            },
+            {
+              "id": "t21-m2e-04",
+              "section": "math",
+              "skill": "Equivalent expressions",
+              "difficulty": "easy",
+              "prompt": "The expression $(4x^6)(3x)$ is equivalent to $bx^7$, where $b$ is a constant. What is the value of $b$?",
+              "answer": [
+                "12"
+              ],
+              "explanation": "Multiply the coefficients and add the exponents: $(4x^6)(3x) = 12x^7$, so $b = 12$."
+            },
+            {
+              "id": "t21-m2e-05",
+              "section": "math",
+              "skill": "Systems of two linear equations in two variables",
+              "difficulty": "easy",
+              "prompt": "$y = 10x + 48$\n\nOne of the two equations in a system of linear equations is given. The system has infinitely many solutions. Which equation could be the second equation in this system?",
+              "choices": [
+                "$y - 10x = -48$",
+                "$y - 10x = 48$",
+                "$y - 12x = 24$",
+                "$y - 12x = 0$"
+              ],
+              "answer": "B",
+              "explanation": "Infinitely many solutions means the same line. $y = 10x + 48$ rearranges to $y - 10x = 48$."
+            },
+            {
+              "id": "t21-m2e-06",
+              "section": "math",
+              "skill": "Right triangles and trigonometry",
+              "difficulty": "easy",
+              "image": "assets/figures/t21-m2-06.svg",
+              "imageAlt": "Figure for this question",
+              "prompt": "In the right triangle shown, what is the value of $\\cos A$?",
+              "choices": [
+                "$\\frac{1}{43}$",
+                "$\\frac{1}{22}$",
+                "$\\frac{22}{43}$",
+                "$\\frac{43}{22}$"
+              ],
+              "answer": "C",
+              "explanation": "Cosine is adjacent over hypotenuse. The side adjacent to $A$ is $AB = 22$ and the hypotenuse is $AC = 43$, so $\\cos A = \\frac{22}{43}$."
+            },
+            {
+              "id": "t21-m2e-07",
+              "section": "math",
+              "skill": "Equivalent expressions",
+              "difficulty": "medium",
+              "prompt": "$R = \\frac{0.43l}{A}$\n\nThe given equation relates the resistance $R$, in ohms, of a wire to its length $l$, in meters, and its cross-sectional area $A$, in square meters. Which equation correctly expresses the length, in meters, of the wire in terms of its resistance, in ohms, and its cross-sectional area, in square meters?",
+              "choices": [
+                "$l = \\frac{R - A}{0.43}$",
+                "$l = \\frac{R + A}{0.43}$",
+                "$l = \\frac{0.43R}{A}$",
+                "$l = \\frac{AR}{0.43}$"
+              ],
+              "answer": "D",
+              "explanation": "Multiply both sides by $A$: $AR = 0.43l$. Divide by $0.43$: $l = \\frac{AR}{0.43}$."
+            },
+            {
+              "id": "t21-m2e-08",
+              "section": "math",
+              "skill": "Percentages",
+              "difficulty": "easy",
+              "prompt": "There are $450$ objects in a box. Of these objects, $8\\%$ are spheres. How many spheres are in the box?",
+              "choices": [
+                "$8$",
+                "$36$",
+                "$180$",
+                "$442$"
+              ],
+              "answer": "B",
+              "explanation": "$0.08 \\times 450 = 36$."
+            },
+            {
+              "id": "t21-m2e-09",
+              "section": "math",
+              "skill": "Area and volume",
+              "difficulty": "easy",
+              "prompt": "A rectangle has a length of $10$ centimeters and a width of $6{,}000$ centimeters. What is the area, in square centimeters, of the rectangle?",
+              "choices": [
+                "$10$",
+                "$6{,}010$",
+                "$60{,}000$",
+                "$66{,}000$"
+              ],
+              "answer": "C",
+              "explanation": "Area $=$ length $\\times$ width $= 10 \\times 6{,}000 = 60{,}000$."
+            },
+            {
+              "id": "t21-m2e-10",
+              "section": "math",
+              "skill": "Area and volume",
+              "difficulty": "medium",
+              "prompt": "A cube has a volume of $216$ cubic inches. What is the surface area, in square inches, of the cube?",
+              "answer": [
+                "216"
+              ],
+              "explanation": "The edge length is $\\sqrt[3]{216} = 6$ inches. A cube has $6$ faces, each $6 \\times 6 = 36$ square inches, so the surface area is $6 \\times 36 = 216$ square inches."
+            },
+            {
+              "id": "t21-m2e-11",
+              "section": "math",
+              "skill": "Linear equations in one variable",
+              "difficulty": "easy",
+              "prompt": "How many solutions does the equation $6x + 4 = 22$ have?",
+              "choices": [
+                "Exactly one",
+                "Exactly two",
+                "Infinitely many",
+                "Zero"
+              ],
+              "answer": "A",
+              "explanation": "$6x = 18$, so $x = 3$: exactly one solution."
+            },
+            {
+              "id": "t21-m2e-12",
+              "section": "math",
+              "skill": "Linear functions",
+              "difficulty": "medium",
+              "prompt": "The function $g$ is defined by $g(x) = 5x + 2$. If $g(t) - 4 = 3t$, what is the value of $t$?",
+              "choices": [
+                "$-3$",
+                "$1$",
+                "$3$",
+                "$7$"
+              ],
+              "answer": "B",
+              "explanation": "$g(t) - 4 = 5t + 2 - 4 = 5t - 2$. Setting $5t - 2 = 3t$ gives $2t = 2$, so $t = 1$."
+            },
+            {
+              "id": "t21-m2e-13",
+              "section": "math",
+              "skill": "Linear equations in two variables",
+              "difficulty": "easy",
+              "prompt": "$7x + 12y = 180$\n\nThe equation gives the possible combinations of the number of mugs, $x$, and the number of plates, $y$, in a collection that is worth a total of \\$180. If there are $8$ plates in the collection, how many mugs are in the collection?",
+              "answer": [
+                "12"
+              ],
+              "explanation": "$7x + 12(8) = 180$, so $7x = 84$ and $x = 12$."
+            },
+            {
+              "id": "t21-m2e-14",
+              "section": "math",
+              "skill": "Two-variable data: models and scatterplots",
+              "difficulty": "medium",
+              "image": "assets/figures/t21-m2-14.svg",
+              "imageAlt": "Figure for this question",
+              "prompt": "The scatterplot shows the relationship between two variables, $x$ and $y$. A line of best fit is also shown.\n\nWhich equation best represents this line of best fit?",
+              "choices": [
+                "$y = 12.4 + 0.7x$",
+                "$y = 12.4 - 0.7x$",
+                "$y = -12.4 + 0.7x$",
+                "$y = -12.4 - 0.7x$"
+              ],
+              "answer": "B",
+              "explanation": "The line crosses the $y$-axis near $12.4$ and slopes downward, so the equation has a positive intercept and a negative slope: $y = 12.4 - 0.7x$."
+            },
+            {
+              "id": "t21-m2e-15",
+              "section": "math",
+              "skill": "Equivalent expressions",
+              "difficulty": "easy",
+              "prompt": "Which expression is equivalent to $4x^3 + 20x^2$?",
+              "choices": [
+                "$x^2(4 + 20x)$",
+                "$4x^2(x + 5)$",
+                "$4x^2(x + 16)$",
+                "$x^3(4 + 20x)$"
+              ],
+              "answer": "B",
+              "explanation": "Factor out $4x^2$: $4x^3 + 20x^2 = 4x^2(x + 5)$. (A would give $4x^2 + 20x^3$.)"
+            },
+            {
+              "id": "t21-m2e-16",
+              "section": "math",
+              "skill": "Lines, angles, and triangles",
+              "difficulty": "easy",
+              "prompt": "In triangle $RST$, the length of $\\overline{RS}$ is $21$, and the length of $\\overline{ST}$ is $9$. Triangle $RST$ is dilated by a scale factor of $\\frac{1}{3}$ to obtain triangle $R'S'T'$. What is the length of $\\overline{S'T'}$?",
+              "choices": [
+                "$3$",
+                "$7$",
+                "$27$",
+                "$63$"
+              ],
+              "answer": "A",
+              "explanation": "Each length is multiplied by $\\frac{1}{3}$: $S'T' = \\frac{1}{3}(9) = 3$. Choice B is the image of $\\overline{RS}$."
+            },
+            {
+              "id": "t21-m2e-17",
+              "section": "math",
+              "skill": "Nonlinear equations in one variable and systems of equations in two variables",
+              "difficulty": "medium",
+              "prompt": "$z = \\sqrt{y + 47x}$\n\nThe given equation relates the distinct positive values $x$, $y$, and $z$. Which equation correctly expresses $x$ in terms of $y$ and $z$?",
+              "choices": [
+                "$x = 47z^2 - y$",
+                "$x = 47z - y^2$",
+                "$x = \\frac{z^2 - y}{47}$",
+                "$x = \\frac{z - y^2}{47}$"
+              ],
+              "answer": "C",
+              "explanation": "Square both sides: $z^2 = y + 47x$. Then $47x = z^2 - y$ and $x = \\frac{z^2 - y}{47}$."
+            },
+            {
+              "id": "t21-m2e-18",
+              "section": "math",
+              "skill": "Linear functions",
+              "difficulty": "easy",
+              "prompt": "A cable company charges new customers a onetime installation fee and a monthly service fee for cable service. The equation $y = 50x + 120$ gives the total amount $y$, in dollars, the cable company charges new customers for $x$ months of cable service. What is the amount, in dollars, of the onetime installation fee the cable company charges new customers?",
+              "choices": [
+                "$170$",
+                "$120$",
+                "$70$",
+                "$0$"
+              ],
+              "answer": "B",
+              "explanation": "The installation fee is charged once, regardless of $x$: it is the constant $120$. The $50$ is the monthly fee."
+            },
+            {
+              "id": "t21-m2e-19",
+              "section": "math",
+              "skill": "Linear inequalities in one or two variables",
+              "difficulty": "medium",
+              "image": "assets/figures/t21-m2-19.svg",
+              "imageAlt": "Figure for this question",
+              "prompt": "Which shaded region represents the solutions to the inequality $4x + 5y < 9$?",
+              "choices": [
+                "Graph A",
+                "Graph B",
+                "Graph C",
+                "Graph D"
+              ],
+              "answer": "C",
+              "explanation": "Solve for $y$: $y < -\\frac{4}{5}x + \\frac{9}{5}$. The line has a negative slope, ruling out A and B, and the region below it is shaded (the origin works: $0 < 9$). That is Graph C. (The PDF key said D, but D shades the region above the line.)"
+            },
+            {
+              "id": "t21-m2e-20",
+              "section": "math",
+              "skill": "Linear functions",
+              "difficulty": "medium",
+              "prompt": "In the $xy$-plane, line $k$ has a slope of $\\frac{6}{13}$, an $x$-intercept of $(-6, 0)$, and a $y$-intercept of $(0, p)$. What is the value of $p$?",
+              "answer": [
+                "36/13",
+                "2.769",
+                "2.770"
+              ],
+              "explanation": "From $(-6, 0)$ to $(0, p)$, $x$ increases by $6$, so $y$ increases by $\\frac{6}{13} \\times 6 = \\frac{36}{13}$. So $p = \\frac{36}{13}$."
+            },
+            {
+              "id": "t21-m2e-21",
+              "section": "math",
+              "skill": "Right triangles and trigonometry",
+              "difficulty": "medium",
+              "prompt": "The measure of angle $S$ is $\\frac{8\\pi}{11}$ radians. The measure of angle $T$ is $2$ times the measure of angle $S$. Which expression represents the measure, in **degrees**, of angle $T$?",
+              "choices": [
+                "$\\frac{8}{11}(90)(2)$",
+                "$\\frac{8}{11}(180)(2)$",
+                "$\\frac{8}{11\\pi}(90)(2)$",
+                "$\\frac{8\\pi}{11}(180)(2)$"
+              ],
+              "answer": "B",
+              "explanation": "$T = 2 \\cdot \\frac{8\\pi}{11}$ radians. Multiply by $\\frac{180}{\\pi}$ to convert: $\\frac{8\\pi}{11} \\cdot \\frac{180}{\\pi} \\cdot 2 = \\frac{8}{11}(180)(2)$."
+            },
+            {
+              "id": "t21-m2e-22",
+              "section": "math",
+              "skill": "Inference from sample statistics and margin of error",
+              "difficulty": "medium",
+              "prompt": "A research manager selected $2$ random samples of ovens of a certain type to estimate the average amount of time this type of oven takes to preheat to $350^\\circ$F. Based on the first sample, the research manager estimated that this type of oven takes an average of $14.2$ minutes to preheat to $350^\\circ$F, with an associated margin of error of $1$ minute. Based on the second sample, the research manager estimated that this type of oven takes an average of $14.4$ minutes to preheat to $350^\\circ$F, with an associated margin of error of $2.2$ minutes. Assuming the margins of error were calculated the same way, which of the following best explains why the first sample obtained a smaller margin of error than the second sample?",
+              "choices": [
+                "The first sample contained fewer ovens than the second sample.",
+                "The first sample contained more ovens than the second sample.",
+                "The first sample took less time on average to preheat to $350^\\circ$F than the second sample.",
+                "The first sample took more time on average to preheat to $350^\\circ$F than the second sample."
+              ],
+              "answer": "B",
+              "explanation": "Larger random samples give smaller margins of error, so the first sample most likely contained more ovens."
+            }
+          ]
+        },
+        "harder": {
+          "minutes": 35,
+          "questions": [
+            {
+              "id": "t21-m2h-01",
+              "section": "math",
+              "skill": "Linear equations in one variable",
+              "difficulty": "medium",
+              "prompt": "$\\frac{3x - 4}{5} = \\frac{x + 8}{3}$\n\nWhat value of $x$ is the solution to the given equation?",
+              "answer": [
+                "13"
+              ],
+              "explanation": "Cross-multiply: $3(3x - 4) = 5(x + 8)$, so $9x - 12 = 5x + 40$, $4x = 52$, and $x = 13$."
+            },
+            {
+              "id": "t21-m2h-02",
+              "section": "math",
+              "skill": "Percentages",
+              "difficulty": "medium",
+              "prompt": "A store raised the price of a lamp by $20\\%$ and later lowered the new price by $20\\%$. The final price was \\$57.60. What was the original price of the lamp, in dollars?",
+              "answer": [
+                "60"
+              ],
+              "explanation": "The final price is $p(1.2)(0.8) = 0.96p$. So $0.96p = 57.60$ and $p = 60$. (The changes do not cancel out.)"
+            },
+            {
+              "id": "t21-m2h-03",
+              "section": "math",
+              "skill": "Systems of two linear equations in two variables",
+              "difficulty": "hard",
+              "prompt": "$3x + ky = 12$\n$6x + 10y = 24$\n\nIn the given system of equations, $k$ is a constant. If the system has infinitely many solutions, what is the value of $k$?",
+              "answer": [
+                "5"
+              ],
+              "explanation": "Infinitely many solutions means the second equation is a multiple of the first. Doubling the first gives $6x + 2ky = 24$, so $2k = 10$ and $k = 5$."
+            },
+            {
+              "id": "t21-m2h-04",
+              "section": "math",
+              "skill": "Nonlinear functions",
+              "difficulty": "hard",
+              "prompt": "$f(x) = 2(x - 3)^2 + 7$\n\nWhat is the minimum value of the given function?",
+              "choices": [
+                "$-3$",
+                "$2$",
+                "$3$",
+                "$7$"
+              ],
+              "answer": "D",
+              "explanation": "In vertex form $a(x - h)^2 + k$ with $a > 0$, the minimum is $k = 7$, reached at $x = 3$. Choice C is where the minimum occurs, not its value."
+            },
+            {
+              "id": "t21-m2h-05",
+              "section": "math",
+              "skill": "Nonlinear equations in one variable and systems of equations in two variables",
+              "difficulty": "hard",
+              "prompt": "$y = x^2 - 6x + 11$\n$y = 2x + c$\n\nIn the given system of equations, $c$ is a constant. For which value of $c$ does the system have exactly one distinct real solution?",
+              "choices": [
+                "$-5$",
+                "$-3$",
+                "$5$",
+                "$11$"
+              ],
+              "answer": "A",
+              "explanation": "Set them equal: $x^2 - 6x + 11 = 2x + c$, so $x^2 - 8x + (11 - c) = 0$. One solution means the discriminant is $0$: $64 - 4(11 - c) = 0$, so $11 - c = 16$ and $c = -5$."
+            },
+            {
+              "id": "t21-m2h-06",
+              "section": "math",
+              "skill": "Equivalent expressions",
+              "difficulty": "hard",
+              "prompt": "Which expression is equivalent to $\\frac{2}{x - 3} - \\frac{1}{x + 3}$?",
+              "choices": [
+                "$\\frac{1}{x^2 - 9}$",
+                "$\\frac{x - 9}{x^2 - 9}$",
+                "$\\frac{x + 9}{x^2 - 9}$",
+                "$\\frac{1}{6}$"
+              ],
+              "answer": "C",
+              "explanation": "Use the common denominator $(x - 3)(x + 3) = x^2 - 9$: $\\frac{2(x + 3) - (x - 3)}{x^2 - 9} = \\frac{2x + 6 - x + 3}{x^2 - 9} = \\frac{x + 9}{x^2 - 9}$."
+            },
+            {
+              "id": "t21-m2h-07",
+              "section": "math",
+              "skill": "Circles",
+              "difficulty": "hard",
+              "prompt": "$x^2 + y^2 - 10x + 4y - 7 = 0$\n\nThe graph of the given equation in the $xy$-plane is a circle. What is the radius of the circle?",
+              "choices": [
+                "$\\sqrt{7}$",
+                "$36$",
+                "$7$",
+                "$6$"
+              ],
+              "answer": "D",
+              "explanation": "Complete the squares: $(x^2 - 10x + 25) + (y^2 + 4y + 4) = 7 + 25 + 4$, so $(x - 5)^2 + (y + 2)^2 = 36$. The radius is $\\sqrt{36} = 6$."
+            },
+            {
+              "id": "t21-m2h-08",
+              "section": "math",
+              "skill": "Right triangles and trigonometry",
+              "difficulty": "hard",
+              "prompt": "In right triangle $ABC$, angle $C$ is a right angle and $\\tan A = \\frac{8}{15}$. What is the value of $\\cos B$?",
+              "choices": [
+                "$\\frac{8}{17}$",
+                "$\\frac{15}{17}$",
+                "$\\frac{8}{15}$",
+                "$\\frac{15}{8}$"
+              ],
+              "answer": "A",
+              "explanation": "Let the side opposite $A$ be $8$ and the side adjacent to $A$ be $15$; the hypotenuse is $\\sqrt{8^2 + 15^2} = 17$. The side adjacent to $B$ is the side opposite $A$, so $\\cos B = \\frac{8}{17}$."
+            },
+            {
+              "id": "t21-m2h-09",
+              "section": "math",
+              "skill": "Nonlinear functions",
+              "difficulty": "hard",
+              "prompt": "A biologist models a population of bacteria with the function $P(t) = 800(2)^{\\frac{t}{6}}$, where $P(t)$ is the number of bacteria $t$ hours after the start of an experiment. Which of the following equivalent functions shows the hourly growth factor as a constant or coefficient?",
+              "choices": [
+                "$P(t) = 800(64)^t$",
+                "$P(t) = 800\\left(2^{\\frac{1}{6}}\\right)^t$",
+                "$P(t) = 800(12)^t$",
+                "$P(t) = 800(2)^{6t}$"
+              ],
+              "answer": "B",
+              "explanation": "$2^{\\frac{t}{6}} = \\left(2^{\\frac{1}{6}}\\right)^t$, so each hour the population is multiplied by $2^{\\frac{1}{6}} \\approx 1.12$. A and D grow far too fast; C is not equivalent."
+            },
+            {
+              "id": "t21-m2h-10",
+              "section": "math",
+              "skill": "Area and volume",
+              "difficulty": "hard",
+              "prompt": "A cylindrical water tank has a radius of $3$ meters and a height of $8$ meters. A second cylindrical tank has twice the radius and half the height of the first tank. What is the ratio of the volume of the second tank to the volume of the first tank?",
+              "choices": [
+                "$1:1$",
+                "$4:1$",
+                "$2:1$",
+                "$1:2$"
+              ],
+              "answer": "C",
+              "explanation": "Volume is $\\pi r^2 h$. Doubling $r$ multiplies the volume by $4$, and halving $h$ divides it by $2$, so the volume is multiplied by $2$: a ratio of $2:1$."
+            },
+            {
+              "id": "t21-m2h-11",
+              "section": "math",
+              "skill": "Lines, angles, and triangles",
+              "difficulty": "hard",
+              "prompt": "In triangle $XYZ$, point $M$ lies on $\\overline{XY}$ and point $N$ lies on $\\overline{XZ}$ such that $\\overline{MN}$ is parallel to $\\overline{YZ}$. If $XM = 6$, $MY = 9$, and $YZ = 20$, what is the length of $\\overline{MN}$?",
+              "answer": [
+                "8"
+              ],
+              "explanation": "Since $\\overline{MN} \\parallel \\overline{YZ}$, triangle $XMN$ is similar to triangle $XYZ$ with ratio $\\frac{XM}{XY} = \\frac{6}{6 + 9} = \\frac{2}{5}$. So $MN = \\frac{2}{5}(20) = 8$."
+            },
+            {
+              "id": "t21-m2h-12",
+              "section": "math",
+              "skill": "One-variable data: distributions and measures of center and spread",
+              "difficulty": "hard",
+              "prompt": "A data set consists of $9$ positive integers with a mean of $14$. When one value is removed, the mean of the remaining $8$ values is $13$. What value was removed?",
+              "choices": [
+                "$13$",
+                "$13.5$",
+                "$22$",
+                "$27$"
+              ],
+              "answer": "C",
+              "explanation": "The original sum is $9 \\times 14 = 126$, and the new sum is $8 \\times 13 = 104$. The removed value is $126 - 104 = 22$."
+            },
+            {
+              "id": "t21-m2h-13",
+              "section": "math",
+              "skill": "Probability and conditional probability",
+              "difficulty": "medium",
+              "prompt": "In a survey of $200$ students, $120$ said they play a sport, $80$ said they play a musical instrument, and $50$ said they do both. If one of the students who play a sport is chosen at random, what is the probability that this student also plays a musical instrument?",
+              "choices": [
+                "$\\frac{1}{4}$",
+                "$\\frac{5}{12}$",
+                "$\\frac{5}{8}$",
+                "$\\frac{2}{5}$"
+              ],
+              "answer": "B",
+              "explanation": "Only the $120$ sport players are considered. Of them, $50$ also play an instrument, so the probability is $\\frac{50}{120} = \\frac{5}{12}$. Choice A uses all $200$ students."
+            },
+            {
+              "id": "t21-m2h-14",
+              "section": "math",
+              "skill": "Evaluating statistical claims: observational studies and experiments",
+              "difficulty": "hard",
+              "prompt": "A researcher randomly selected $500$ adults from a city and randomly assigned half of them to walk $30$ minutes a day for $3$ months while the other half kept their usual routine. The walking group showed a significantly greater decrease in average blood pressure. Which conclusion is best supported?",
+              "choices": [
+                "Walking $30$ minutes a day causes lower blood pressure for all adults in the world.",
+                "For adults in this city, walking $30$ minutes a day is likely to cause a decrease in blood pressure.",
+                "There is no relationship between walking and blood pressure.",
+                "Adults who choose to walk daily have lower blood pressure, but walking does not cause the decrease."
+              ],
+              "answer": "B",
+              "explanation": "Random assignment allows a cause-and-effect conclusion, and random selection from the city allows generalizing to that city's adults, but not to all adults everywhere (A)."
+            },
+            {
+              "id": "t21-m2h-15",
+              "section": "math",
+              "skill": "Nonlinear equations in one variable and systems of equations in two variables",
+              "difficulty": "hard",
+              "prompt": "$x^2 + y^2 = 25$\n$y = x + 1$\n\nIf $(x, y)$ is a solution to the given system of equations and $x > 0$, what is the value of $y$?",
+              "answer": [
+                "4"
+              ],
+              "explanation": "Substitute: $x^2 + (x + 1)^2 = 25$, so $2x^2 + 2x - 24 = 0$ and $x^2 + x - 12 = 0$, which gives $(x + 4)(x - 3) = 0$. With $x > 0$, $x = 3$ and $y = 4$."
+            },
+            {
+              "id": "t21-m2h-16",
+              "section": "math",
+              "skill": "Linear functions",
+              "difficulty": "hard",
+              "prompt": "The function $f$ is linear, $f(2) = 11$, and $f(6) = -1$. What is the value of $f(-3)$?",
+              "answer": [
+                "26"
+              ],
+              "explanation": "The slope is $\\frac{-1 - 11}{6 - 2} = -3$. From $x = 2$ to $x = -3$, $x$ decreases by $5$, so $f$ increases by $15$: $f(-3) = 11 + 15 = 26$."
+            },
+            {
+              "id": "t21-m2h-17",
+              "section": "math",
+              "skill": "Ratios, rates, proportional relationships, and units",
+              "difficulty": "hard",
+              "prompt": "A printer can print $45$ pages per minute. A second printer prints at $\\frac{2}{3}$ the rate of the first. Working together at these rates, how many minutes will the two printers take to print $1{,}200$ pages?",
+              "choices": [
+                "$16$",
+                "$20$",
+                "$24$",
+                "$32$"
+              ],
+              "answer": "A",
+              "explanation": "The second printer prints $\\frac{2}{3}(45) = 30$ pages per minute. Together they print $75$ pages per minute, so $1{,}200 \\div 75 = 16$ minutes."
+            },
+            {
+              "id": "t21-m2h-18",
+              "section": "math",
+              "skill": "Two-variable data: models and scatterplots",
+              "difficulty": "hard",
+              "prompt": "For a data set relating time $t$, in years, to the number of members $m$ of a club, an exponential model is $m = 240(0.85)^t$. Which statement best describes the model?",
+              "choices": [
+                "The number of members decreases by $15\\%$ each year.",
+                "The number of members decreases by $85$ each year.",
+                "The number of members increases by $15\\%$ each year.",
+                "The number of members decreases by $85\\%$ each year."
+              ],
+              "answer": "A",
+              "explanation": "A growth factor of $0.85$ means each year's membership is $85\\%$ of the previous year's: a $15\\%$ decrease per year."
+            },
+            {
+              "id": "t21-m2h-19",
+              "section": "math",
+              "skill": "Nonlinear functions",
+              "difficulty": "hard",
+              "prompt": "The function $g$ is defined by $g(x) = (x - 4)(x + 2)(x - k)$, where $k$ is a constant. In the $xy$-plane, the graph of $y = g(x)$ passes through the point $(1, 36)$. What is the value of $k$?",
+              "choices": [
+                "$-5$",
+                "$-3$",
+                "$3$",
+                "$5$"
+              ],
+              "answer": "D",
+              "explanation": "$g(1) = (1 - 4)(1 + 2)(1 - k) = -9(1 - k)$. Setting this equal to $36$: $1 - k = -4$, so $k = 5$."
+            },
+            {
+              "id": "t21-m2h-20",
+              "section": "math",
+              "skill": "Circles",
+              "difficulty": "hard",
+              "prompt": "A circle has a radius of $12$ centimeters. An arc of the circle has a length of $10\\pi$ centimeters. What is the measure, in degrees, of the central angle that intercepts this arc?",
+              "answer": [
+                "150"
+              ],
+              "explanation": "The full circumference is $24\\pi$. The arc is $\\frac{10\\pi}{24\\pi} = \\frac{5}{12}$ of the circle, so the angle is $\\frac{5}{12} \\times 360 = 150^\\circ$."
+            },
+            {
+              "id": "t21-m2h-21",
+              "section": "math",
+              "skill": "Linear inequalities in one or two variables",
+              "difficulty": "hard",
+              "prompt": "A school club is selling candles for \\$12 each and soap bars for \\$5 each. The club needs to earn at least \\$600, and it has no more than $80$ items to sell. Which point $(c, s)$, where $c$ is the number of candles and $s$ is the number of soap bars sold, satisfies both conditions?",
+              "choices": [
+                "$(30, 40)$",
+                "$(40, 30)$",
+                "$(45, 40)$",
+                "$(20, 60)$"
+              ],
+              "answer": "B",
+              "explanation": "Check $12c + 5s \\ge 600$ and $c + s \\le 80$. $(40, 30)$: $480 + 150 = 630 \\ge 600$ and $70 \\le 80$. $(30, 40)$ earns $560$; $(45, 40)$ is $85$ items; $(20, 60)$ earns $540$."
+            },
+            {
+              "id": "t21-m2h-22",
+              "section": "math",
+              "skill": "Equivalent expressions",
+              "difficulty": "hard",
+              "prompt": "If $x > 0$ and $x^{\\frac{3}{2}} = 27$, what is the value of $x^{-\\frac{1}{2}}$?",
+              "choices": [
+                "$\\frac{1}{9}$",
+                "$9$",
+                "$3$",
+                "$\\frac{1}{3}$"
+              ],
+              "answer": "D",
+              "explanation": "$x^{\\frac{3}{2}} = 27$ gives $x^{\\frac{1}{2}} = 3$ (cube root of $27$), so $x^{-\\frac{1}{2}} = \\frac{1}{3}$."
+            }
+          ]
+        }
+      }
+    }
+  ]
+}
