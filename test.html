@@ -13,12 +13,17 @@
 <link rel="manifest" href="site.webmanifest">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<!-- Firebase sign-in starts downloading now, not after sh.js runs. Keep 13.0.0 the same as FB_VERSION in sh.js. -->
+<link rel="modulepreload" href="https://www.gstatic.com/firebasejs/13.0.0/firebase-app.js" crossorigin>
+<link rel="modulepreload" href="https://www.gstatic.com/firebasejs/13.0.0/firebase-auth.js" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Jost:wght@500;600&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css" media="print" onload="this.media='all'"><!-- math styles: not needed for the first paint -->
 <link rel="stylesheet" href="assets/sh.css">
 <script>/* dark theme before the first paint (SH.theme in sh.js) */document.documentElement.setAttribute('data-themeable','');try{if(localStorage.getItem('sh.v1.theme')==='"dark"')document.documentElement.setAttribute('data-theme','dark')}catch(e){}</script>
 <style>
   html, body { height: 100%; }
+  /* The full-screen runner has no page scrollbar, so no reserved gutter (sh.css reserves one elsewhere). */
+  html:has(body.tr:not(.results)) { scrollbar-gutter: auto; }
   body.tr { background: var(--paper); overflow: hidden; }
   .tr-shell { display: flex; flex-direction: column; height: 100vh; height: 100dvh; }
 

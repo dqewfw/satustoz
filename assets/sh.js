@@ -1930,7 +1930,15 @@
             this.user = u ? { uid: u.uid, name: u.displayName || '', email: u.email || '', photo: u.photoURL || '' } : null;
             if (u) analytics.identify(u.uid);
             const done = u ? sync.start() : Promise.resolve(sync.stop());
-            if (first) { first = false; done.then(resolve, resolve); }
+            if (first) {
+              first = false;
+              // Don't hold the page for the cloud sync (Firestore download + 4 reads +
+              // writes) when this device already has this account's progress: the page
+              // draws now and redraws on 'sh:synced'. A new account or device waits for
+              // the sync, but never more than 3 seconds.
+              if (!u || store.get('owner', null) === u.uid) resolve();
+              else Promise.race([done, new Promise(r => setTimeout(r, 3000))]).then(resolve, resolve);
+            }
             this._emit();
           });
         });
@@ -2388,8 +2396,12 @@
     const slots = $$('[data-auth-slot]');
     if (!slots.length) return;
     slots.forEach(slot => {
-      if (!auth.enabled() || auth.failed || !auth.settled) { slot.innerHTML = ''; return; }
-      const u = auth.user;
+      if (!auth.enabled() || auth.failed) { slot.innerHTML = ''; return; }
+      // Still signing in: hold the button's place so the header doesn't shift when it
+      // arrives. Signed in here last time: an avatar-sized placeholder; else the
+      // Sign in button straight away (swapped if sign-in finds an account after all).
+      if (!auth.settled && store.get('owner', null)) { if (!slot.querySelector('.acct-wait')) slot.innerHTML = '<span class="acct-wait" aria-hidden="true"></span>'; return; }
+      const u = auth.settled ? auth.user : null;
       if (!u) {
         slot.innerHTML = '<a class="btn btn-ghost btn-sm auth-in" href="' + esc(loginUrl()) + '"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="4" fill="none" stroke="currentColor" stroke-width="2"/><path d="M4 21c1.5-4 4.5-6 8-6s6.5 2 8 6" fill="none" stroke="currentColor" stroke-width="2"/></svg><span>' + tr('signIn') + '</span></a>';
         return;
@@ -3426,6 +3438,7 @@
      ------------------------------------------------------------------ */
   function initChrome() {
     if (auth.enabled()) auth.ready();
+    renderAuthSlots(); // the header's account spot, before sign-in finishes (no shift later)
     paymentReturn();
     referral.capture();
     // Offline support (sw.js): vocabulary review keeps working without a connection.
