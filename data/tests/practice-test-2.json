@@ -1,7 +1,7 @@
 {
   "id": "practice-test-2",
   "title": "Practice Test 2",
-  "description": "A full-length adaptive digital SAT practice test written by SAT Ustoz: 98 questions, two modules per section, with an explanation for every question.",
+  "description": "A full-length adaptive digital SAT practice test: 98 questions, two modules per section, with an explanation for every question.",
   "routing": {
     "threshold": 0.6
   },
@@ -14,466 +14,476 @@
         "minutes": 32,
         "questions": [
           {
-            "id": "t2-rw1-01",
+            "id": "t2-rw1x-01",
             "section": "rw",
             "skill": "Words in Context",
-            "difficulty": "easy",
-            "passage": "Astronomer Sofia Lindgren's telescope sits on a remote plateau far from any city, because even faint artificial light can ______ the dim galaxies she studies, making them impossible to see clearly.",
+            "difficulty": "medium",
+            "passage": "Although our knowledge of the Pleistocene epoch and the lives of hominids during this time was once ______, recent analyses of fossils like that of the individual known as Petralona 1, discovered in Greece in 1960, have sharpened our picture of what a day in the life of Petralona 1 may have looked like.",
             "prompt": "Which choice completes the text with the most logical and precise word or phrase?",
             "choices": [
-              "magnify",
-              "obscure",
-              "classify",
-              "illuminate"
+              "unprecedented",
+              "nebulous",
+              "intricate",
+              "concrete"
             ],
             "answer": "B",
-            "explanation": "Light that makes the galaxies impossible to see is hiding them, so it can **obscure** them. *Illuminate* would make them easier to see."
+            "explanation": "\"Once ______\" contrasts with analyses that have \"sharpened our picture,\" so our knowledge was once **nebulous** (vague)."
           },
           {
-            "id": "t2-rw1-02",
+            "id": "t2-rw1x-02",
             "section": "rw",
             "skill": "Words in Context",
             "difficulty": "medium",
-            "passage": "Potters in the Spanish town of Talavera de la Reina have long been known for glazes in deep blues, yellows, and greens. Rather than abandoning these traditional colors as tastes changed, many workshops have ______ them, handing down the old glaze recipes even while experimenting with new patterns.",
+            "passage": "Text corpora such as the American National Corpus are enormous collections of electronically stored texts that can be used for empirical testing of hypotheses regarding how ______ a word is in spoken and written English. For instance, one might have a guess about the incidence of the word \"long,\" but only an analysis of a corpus can prove that \"long\" is the fifth most commonly used adjective.",
             "prompt": "Which choice completes the text with the most logical and precise word or phrase?",
             "choices": [
-              "concealed",
-              "outsourced",
-              "ridiculed",
-              "retained"
+              "credible",
+              "pervasive",
+              "profound",
+              "assertive"
             ],
-            "answer": "D",
-            "explanation": "\"Rather than abandoning\" signals the opposite of giving the colors up, and the recipes are still handed down, so the workshops have **retained** them."
+            "answer": "B",
+            "explanation": "A corpus can show how common a word is: \"long\" is the fifth most used adjective. So the tests measure how **pervasive** (widespread) a word is."
           },
           {
-            "id": "t2-rw1-03",
-            "section": "rw",
-            "skill": "Words in Context",
-            "difficulty": "medium",
-            "passage": "Behavioral economists have found that people tend to ______ things they already own. In many experiments, participants who had just been given a coffee mug asked for about twice as much money to sell it as other participants were willing to pay for an identical mug.",
-            "prompt": "Which choice completes the text with the most logical and precise word or phrase?",
-            "choices": [
-              "overvalue",
-              "neglect",
-              "undervalue",
-              "exchange"
-            ],
-            "answer": "A",
-            "explanation": "Owners demanded far more for the mug than buyers would pay, so owning something leads people to **overvalue** it. *Undervalue* is the opposite."
-          },
-          {
-            "id": "t2-rw1-04",
+            "id": "t2-rw1x-03",
             "section": "rw",
             "skill": "Words in Context",
             "difficulty": "hard",
-            "passage": "Conservators treating a centuries-old wall painting brushed a thin adhesive onto its surface in hopes of ______ the flaking of its pigments, though they acknowledged that sections already lost could not be recovered.",
+            "passage": "Authors like Laura Esquivel contributed to the outpouring of Mexican literature in the years following the Mexican Revolution, which lasted from 1910 to 1920. Works from this period make up an ______ proportion of what is considered the canon of Mexican literature, but nineteenth-century writers like Justo Sierra O'Reilly should be considered just as integral to the Mexican literary canon.",
             "prompt": "Which choice completes the text with the most logical and precise word or phrase?",
             "choices": [
-              "documenting",
-              "accelerating",
-              "arresting",
-              "disguising"
+              "overlooked",
+              "outsized",
+              "unspecified",
+              "erratic"
             ],
-            "answer": "C",
-            "explanation": "Here **arresting** means stopping: the adhesive is meant to halt further flaking, even though lost paint cannot be restored. *Disguising* would only hide the damage, not stop it."
+            "answer": "B",
+            "explanation": "\"But\" 19th-century writers \"should be considered just as integral,\" implying post-Revolution works take up an **outsized** (disproportionately large) share of the canon."
           },
           {
-            "id": "t2-rw1-05",
+            "id": "t2-rw1x-04",
             "section": "rw",
-            "skill": "Text Structure and Purpose",
+            "skill": "Words in Context",
             "difficulty": "medium",
-            "passage": "When a café sells a small coffee for \\$2 and a large one for \\$4, many customers choose the small. If the café adds a medium coffee for \\$3.75, however, sales of the large often rise. __Few customers buy the medium; its real effect is to make the large look like a bargain by comparison.__ Economists call an option that works this way a decoy.",
-            "prompt": "Which choice best describes the function of the underlined sentence in the text as a whole?",
+            "passage": "In the late 1970s, the price of collectible stamps from earlier in the century rose dramatically, which had the counterintuitive effect of ______ demand: buyers who hadn't previously wanted to purchase old stamps suddenly thronged the market, believing prices would continue to rise and the stamps could be resold later at a higher profit.",
+            "prompt": "Which choice completes the text with the most logical and precise word or phrase?",
             "choices": [
-              "It presents evidence that the café's prices are too high for most customers.",
-              "It introduces a pricing strategy that economists generally recommend against.",
-              "It explains why adding the medium coffee changes customers' behavior in the way described in the previous sentence.",
-              "It describes an exception to the pattern described in the first sentence."
+              "exploiting",
+              "precipitating",
+              "monetizing",
+              "stabilizing"
             ],
-            "answer": "C",
-            "explanation": "The underlined sentence explains the rise in large-coffee sales: the medium makes the large seem like a good deal. The last sentence then names this kind of option."
+            "answer": "B",
+            "explanation": "Rising prices drew new buyers into the market, so they **precipitated** (brought on) demand, which is the counterintuitive effect."
           },
           {
-            "id": "t2-rw1-06",
+            "id": "t2-rw1x-05",
             "section": "rw",
             "skill": "Text Structure and Purpose",
-            "difficulty": "medium",
-            "passage": "In the Japanese craft of kintsugi, broken pottery is mended with lacquer mixed with powdered gold, so that each crack becomes a bright seam rather than a hidden flaw. Practitioners often describe the method as a way of honoring an object's history: the breaking and mending of a bowl are treated as part of its story, not as damage to be disguised.",
+            "difficulty": "hard",
+            "passage": "Buenos Aires has high pedestrian traffic, but simply replicating a feature of Buenos Aires associated with walkability—e.g., its high concentration of shaded streets—may be insufficient to induce increased walking in other cities. As urbanist Mariela Alfonzo argues, our understanding of individuals' decision-making about whether to walk is insufficiently robust: some studies emphasize the role of individual physical fitness, others the role of population density, and so on, but walking decisions are made in complex contexts in which multiple conditions and needs inform individuals' choices.",
             "prompt": "Which choice best states the main purpose of the text?",
             "choices": [
-              "To describe a repair technique and the attitude toward damage that it reflects",
-              "To argue that repaired pottery is more valuable than pottery that has never been broken",
-              "To explain how lacquer and powdered gold are produced",
-              "To compare kintsugi with the methods used to repair other household objects"
+              "To present a claim about how individuals' decision-making about walking can be improved",
+              "To explain why it is challenging to compare the amount of pedestrian traffic in different cities",
+              "To describe the effect of a high concentration of shaded streets on any given city's walkability",
+              "To discuss the difficulty of identifying a reliable way to increase walking in any given city"
             ],
-            "answer": "A",
-            "explanation": "The text explains how kintsugi works and then what it shows about breakage: that it is part of an object's history. It never claims repaired pieces are worth more."
+            "answer": "D",
+            "explanation": "Copying one walkable feature may not work because walking decisions depend on many factors, so the text discusses how hard it is to find a reliable way to increase walking."
           },
           {
-            "id": "t2-rw1-07",
+            "id": "t2-rw1x-06",
             "section": "rw",
             "skill": "Cross-Text Connections",
             "difficulty": "hard",
-            "passage": "**Text 1**\nStandard economic models assume that people make choices that serve their own long-term interests. On this view, a company only needs to offer employees a retirement savings plan: those who would benefit from saving will sign up for it.\n\n**Text 2**\nResearchers studied a company that changed how new employees joined its retirement plan. Previously, employees had to fill out a form to enroll; afterward, they were enrolled automatically unless they filled out a form to leave. Although the plan itself did not change, participation among new employees rose from under half to nearly 90 percent.",
-            "prompt": "Based on the texts, how would the researchers in Text 2 most likely respond to the assumption described in Text 1?",
+            "passage": "**Text 1**\nIn separate studies, Stephen Meding and Robert J. Zasoski and Xinhua He and colleagues examined whether plants transfer nutrients to one another using a common mycorrhizal network (CMN)—a lattice of fungal strands in the soil. Meding and Zasoski ruled out pathways other than a CMN by using barriers to keep the plants' root systems separate while allowing mycorrhizal strands through—a crucial step He and colleagues' study did not take.\n**Text 2**\nMeding and Zasoski took the necessary precaution of separating the plants' root systems (thereby excluding root-to-root transmission). However, any barrier used must allow the thread-like hyphae of a CMN to pass through, and this permeability would also allow liquids through. Thus, the researchers' experimental design cannot ensure that any nutrient transfer observed can be attributed to a CMN and not to some other pathway.",
+            "prompt": "Based on the texts, which choice best describes a point on which the author of Text 1 and the author of Text 2 would most likely agree?",
             "choices": [
-              "By agreeing that employees who would benefit from a retirement plan reliably enroll in it on their own",
-              "By claiming that automatic enrollment reduced the value of the company's retirement plan",
-              "By arguing that the employees in their study did not understand how the retirement plan worked",
-              "By suggesting that the way a choice is set up can strongly affect people's decisions, even when the options themselves are unchanged"
+              "Meding and Zasoski's study effectively excluded any explanation for nutrient transfer other than via a CMN.",
+              "Excluding root-to-root transfer of nutrients between plants is sufficient to ensure that any observed nutrient transfer must involve a CMN.",
+              "He and colleagues' study was not designed in a way that would allow it to produce compelling evidence that nutrient transfer occurred via a CMN.",
+              "A barrier that is impervious to both roots and fungal strands is necessary to evaluate nutrient transfer via a CMN."
             ],
-            "answer": "D",
-            "explanation": "Participation nearly doubled although the plan stayed the same, so the setup of the choice, not interest alone, drove decisions. Text 2 says nothing about whether employees understood the plan, so the third choice goes beyond the text."
+            "answer": "C",
+            "explanation": "Text 1 says He and colleagues skipped a crucial step (separating roots). Text 2 says even Meding and Zasoski's barrier wasn't enough. Both would agree He's study can't give compelling evidence for a CMN."
           },
           {
-            "id": "t2-rw1-08",
+            "id": "t2-rw1x-07",
+            "section": "rw",
+            "skill": "Central Ideas and Details",
+            "difficulty": "medium",
+            "passage": "\"Tomato\" is an example of a loanword—that is, a word that originated in one language and was later adopted by another. The word came to English directly from *tomate*, the Spanish word for the widely cultivated plant. Spanish had borrowed it from Nahuatl, an Indigenous language of Central Mexico, in which the word's original form is *tomatl*. \"Maize\" also has an Indigenous origin and entered English through Spanish. But in this case, the original source was Taino, a language of the Caribbean Islands, in which the word for the corn plant is *mahis*.",
+            "prompt": "Which choice best states the main idea of the text?",
+            "choices": [
+              "Many English words with Indigenous origins first passed through Spanish.",
+              "When borrowing from Indigenous languages, Spanish adopted words such as \"*tomatl*\" from Taino.",
+              "When non-Indigenous languages borrowed from Indigenous languages, the words often underwent a significant change in meaning.",
+              "The English words \"tomato\" and \"maize\" are both examples of loanwords from Indigenous languages of the Americas."
+            ],
+            "answer": "D",
+            "explanation": "The text explains that \"tomato\" (from Nahuatl) and \"maize\" (from Taino) are both loanwords from Indigenous languages that reached English through Spanish."
+          },
+          {
+            "id": "t2-rw1x-08",
             "section": "rw",
             "skill": "Central Ideas and Details",
             "difficulty": "easy",
-            "passage": "From Earth, Saturn's rings look like solid bands, but they are made of countless separate pieces of ice and rock, ranging from grains smaller than sand to chunks as large as houses. Each piece follows its own orbit around the planet. Only from a great distance do the pieces blend into what appear to be smooth, continuous rings.",
-            "prompt": "Which choice best states the main idea of the text?",
+            "passage": "The food industry has long used thermal technologies to preserve food in large batches. Recent advancements in radiofrequency heating were made through research in Mexico on the preservation of wheat flour. Radiofrequency heating is generally considered to be an improvement over more conventional thermal preservation methods: whereas conventional methods transfer energy from the surface of a food to its interior, radiofrequency heating uses precisely controlled radio waves to generate heat within the food itself, thus reducing industrial cooking times.",
+            "prompt": "Based on the text, what is one disadvantage of some conventional thermal preservation methods?",
             "choices": [
-              "Saturn's rings formed at the same time as the planet itself.",
-              "Saturn's rings, which look solid from far away, are actually made of many separate pieces that each orbit the planet.",
-              "Saturn's rings contain more rock than ice.",
-              "Saturn's rings can be seen clearly only through very large telescopes."
+              "They require more energy than other methods do.",
+              "Their cooking times are longer than those of other methods.",
+              "They are only effective in heating foods that are lightweight and small in size.",
+              "They are especially vulnerable to technological breakdowns."
             ],
             "answer": "B",
-            "explanation": "The text contrasts how the rings look (solid bands) with what they really are (countless separately orbiting pieces)."
+            "explanation": "Radiofrequency heating generates heat inside the food, \"thus reducing industrial cooking times,\" so conventional methods take longer."
           },
           {
-            "id": "t2-rw1-09",
+            "id": "t2-rw1x-09",
             "section": "rw",
             "skill": "Central Ideas and Details",
             "difficulty": "medium",
-            "passage": "The following text is from a short story. Lucía is traveling by train to visit her grandmother in the south of Spain.\n\nLucía had packed three books for the long ride, certain she would finish at least one. But somewhere after the olive groves gave way to bare brown hills, she realized she had not turned a single page. Her mother had made this same trip every summer as a girl, and Lucía kept searching the passing villages for the landmarks from her mother's stories: a blue water tower, a bridge with one broken rail, a hillside of almond trees.",
-            "prompt": "Which choice best states the main idea of the text?",
+            "passage": "Yingguang Frank Chan and colleagues have explored how convergent evolution—a phenomenon that occurs when the same trait evolves independently in two reproductively separate lineages—can result from a genetic mechanism shared by both lineages. Meanwhile, Patricia J. Wittkopp and colleagues have investigated how convergent evolution occurs through different genetic mechanisms. However, the relative prevalence of convergence through shared and different genetic processes is still poorly understood. This motivated biologists Delbert A. Green II and Cassandra G. Extavour to evaluate both types of convergence in a single study for their 2012 paper.",
+            "prompt": "Which choice best states the main topic of the text?",
             "choices": [
-              "Lucía becomes absorbed in the journey as she looks for places her mother once described.",
-              "Lucía regrets bringing so few books on such a long trip.",
-              "Lucía is nervous about seeing her grandmother after a long separation.",
-              "Lucía is disappointed to find that the landmarks from her mother's stories have disappeared."
-            ],
-            "answer": "A",
-            "explanation": "She forgets her books because she is busy watching for the landmarks from her mother's stories. The text never says whether she finds them, so the last choice is unsupported."
-          },
-          {
-            "id": "t2-rw1-10",
-            "section": "rw",
-            "skill": "Command of Evidence: Textual",
-            "difficulty": "medium",
-            "passage": "In the poem \"Orchard in October,\" the speaker presents autumn not as a season of loss but as one of quiet plenty.",
-            "prompt": "Which quotation from the poem most effectively illustrates the claim?",
-            "choices": [
-              "\"The swallows left the eaves a week ago; / I never saw them go.\"",
-              "\"The wind comes early now and lingers late, / and rattles at the latch.\"",
-              "\"I walk the rows my father planted once / and count the years he's gone.\"",
-              "\"The branches bend beneath their amber load, / and every basket by the gate is full.\""
-            ],
-            "answer": "D",
-            "explanation": "Heavy branches and full baskets show abundance. The other lines describe departure, wind, or grief, which fit loss rather than plenty."
-          },
-          {
-            "id": "t2-rw1-11",
-            "section": "rw",
-            "skill": "Command of Evidence: Textual",
-            "difficulty": "hard",
-            "passage": "Historian Thomas Weber argues that a medieval inn excavated in the Rhine Valley served mainly local traders moving goods between nearby towns, not long-distance merchants traveling between Italy and Flanders.",
-            "prompt": "Which finding, if true, would most directly support Weber's argument?",
-            "choices": [
-              "The inn's surviving toll records list visitors who spoke many different languages.",
-              "Most goods listed in the inn's toll records were bulky, low-value items such as grain and firewood, which merchants rarely carried over long distances.",
-              "The inn stood on a road that appears on several medieval maps of long-distance trade routes.",
-              "The inn's stables were large enough to hold more than one hundred horses."
+              "Whether studies of convergent evolution should focus on lineages that share the same underlying genetic mechanism",
+              "How a particular study of convergent evolution relates to some other studies in the field",
+              "What kinds of traits are most likely to arise convergently in several lineages",
+              "Why convergent evolution is particularly difficult for biologists to study"
             ],
             "answer": "B",
-            "explanation": "Bulky, cheap goods were rarely hauled far, so traffic in grain and firewood points to short local trips. Visitors speaking many languages or a road on long-distance maps would suggest the opposite."
+            "explanation": "The text places Green and Extavour's study in relation to earlier work by Chan's and Wittkopp's teams."
           },
           {
-            "id": "t2-rw1-12",
+            "id": "t2-rw1x-10",
+            "section": "rw",
+            "skill": "Inferences",
+            "difficulty": "hard",
+            "passage": "The following text is from Mick Herron's 2023 novel *The Secret Hours*. The narrator is describing members of a government committee.\n\nFinally, and adding much-needed gravitas, was Sir Winston Day, whose features recently moulded to adorn a bust, or possibly a stamp, and whose forehead was so evidently bulging with grey matter that it would have been impertinent to inquire too closely into the actual achievements his half century of public service had produced. His recently published memoirs possibly cast light on this enigma but given that such details were not provided until after the thirty-page mark, they might as well have remained state secrets.",
+            "prompt": "Based on the text, which choice best describes Sir Winston Day?",
+            "choices": [
+              "He looks like a person worthy of respect, but his memoirs reveal that some of his actions were dishonorable.",
+              "He has maintained a modest profile even though he has served the public capably for many years.",
+              "He has the appearance of a distinguished figure, but it is uncertain whether he has accomplished anything to earn distinction.",
+              "He would be a celebrated public figure if his achievements did not have to be kept secret."
+            ],
+            "answer": "C",
+            "explanation": "Day's forehead bulges with \"grey matter\" and his features are fit for a bust, yet it would be \"impertinent\" to ask what he actually achieved. He looks distinguished, but his accomplishments are doubtful."
+          },
+          {
+            "id": "t2-rw1x-11",
             "section": "rw",
             "skill": "Command of Evidence: Quantitative",
             "difficulty": "medium",
-            "passage": "Members of an astronomy club counted meteors during a meteor shower from two locations: a site inside a city and a dark desert site far from city lights. The club noted that the shower peaked on the same night at both locations: ______",
-            "prompt": "Which choice most effectively uses data from the table to complete the statement?",
-            "choices": [
-              "the desert site recorded 40 meteors per hour on August 11.",
-              "the city site recorded only 6 meteors per hour on August 10.",
-              "both sites recorded their highest counts on August 12, with 22 meteors per hour at the city site and 68 at the desert site.",
-              "the desert site recorded more meteors per hour than the city site on every night."
-            ],
-            "answer": "C",
-            "explanation": "A peak is the highest count. Both sites were highest on August 12 (22 and 68). The last choice is true but says nothing about when the shower peaked.",
+            "passage": "*Drosophila* (fruit flies) have generation times of 10–12 days, so several changes in humidity and other environmental conditions can drive seasonal fluctuations in chromosome rearrangements in species such as *D. persimilis* and *D. subobscura*. Because *Drosophila* body size (for which wing centroid size serves as a proxy measure) correlates with reproductive fitness, Banu Sebnem Onder and Chansu Fidan Aksoy measured the wing sizes of members of a *D. melanogaster* population in Yeşilöz, Turkey, that were collected monthly between May and October over three years. Their research suggests that *Drosophila* collected in relatively warmer months should tend to have greater reproductive fitness, as is illustrated by the finding that ______",
             "table": {
-              "title": "Meteors counted per hour",
+              "title": "Monthly Temperatures and Wing Centroid Sizes of Fruit Fly Specimens",
               "head": [
-                "Night",
-                "City site",
-                "Desert site"
+                "Month",
+                "Average high (°F)",
+                "Average low (°F)",
+                "Average male wing centroid size (mm)",
+                "Average female wing centroid size (mm)"
               ],
               "rows": [
                 [
-                  "August 10",
-                  "6",
-                  "19"
+                  "October",
+                  "67",
+                  "44",
+                  "1.98",
+                  "2.29"
                 ],
                 [
-                  "August 11",
-                  "13",
-                  "40"
+                  "May",
+                  "73",
+                  "50",
+                  "1.98",
+                  "2.27"
                 ],
                 [
-                  "August 12",
-                  "22",
-                  "68"
+                  "July",
+                  "87",
+                  "62",
+                  "2.02",
+                  "2.31"
                 ],
                 [
-                  "August 13",
-                  "9",
-                  "27"
+                  "September",
+                  "80",
+                  "54",
+                  "1.98",
+                  "2.27"
                 ]
               ]
-            }
+            },
+            "prompt": "Which choice most effectively uses data from the table to complete the assertion?",
+            "choices": [
+              "the average male wing centroid size was 1.98 mm in September but was 2.31 mm in July.",
+              "the average female wing centroid size was consistently larger than the male wing centroid size in all four months in the table.",
+              "the average monthly low temperature was higher in September than in May.",
+              "the average female wing centroid size was larger in July than in May."
+            ],
+            "answer": "D",
+            "explanation": "Warmer months should mean larger flies. July (87°F high) had a larger female wing size (2.31 mm) than May (73°F, 2.27 mm)."
           },
           {
-            "id": "t2-rw1-13",
+            "id": "t2-rw1x-12",
+            "section": "rw",
+            "skill": "Command of Evidence: Textual",
+            "difficulty": "hard",
+            "passage": "Some toothpastes contain titanium dioxide nanoparticles (TiO₂-NPs), which can leach into waterways and soils via wastewater. In a 2015 study, Adeline Bourgeault and colleagues found that TiO₂-NPs can accumulate in the bodies of zebra mussels (*Dreissena polymorpha*). While bioaccumulation of manufactured nanoparticles may be inherently worrisome, it has been hypothesized that TiO₂-NP bioaccumulation in invertebrates like *D. polymorpha* could serve a valuable proxy role, obviating the need for manufacturers to conduct costly and intrusive sampling of vertebrate species—such as common carp (*Cyprinus carpio*), commonly used in regulatory compliance testing—for nanoparticle bioaccumulation, as environmental protection laws currently require.",
+            "prompt": "Which finding, if true, would most directly support the hypothesis presented in the text?",
+            "choices": [
+              "In comparable environments, *D. polymorpha* and *C. carpio* display comparable rates of TiO₂-NP uptake.",
+              "Compared with *C. carpio*, *D. polymorpha* can tolerate significantly higher TiO₂-NP concentrations without negative effects.",
+              "It is easier to detect low and harmless concentrations of TiO₂-NPs in *D. polymorpha* than it is to detect high and harmful concentrations of TiO₂-NPs in *C. carpio*.",
+              "TiO₂-NP concentrations in *D. polymorpha* tend to vary more from individual to individual than do TiO₂-NP concentrations in *C. carpio* when the species are exposed to similar levels of TiO₂-NPs."
+            ],
+            "answer": "A",
+            "explanation": "Mussels can stand in for carp only if they absorb TiO₂-NPs at comparable rates in comparable environments."
+          },
+          {
+            "id": "t2-rw1x-13",
             "section": "rw",
             "skill": "Inferences",
-            "difficulty": "medium",
-            "passage": "In a wood-fired kiln, ash from the burning fuel drifts through the chamber and settles on the pots. Where it lands thickly, the ash melts into a glossy natural glaze, while the sides of a pot that face away from the flames may stay almost bare. Because the amount of ash a pot receives depends on where it sits in the kiln, two pots made from the same clay by the same potter ______",
+            "difficulty": "hard",
+            "passage": "Many Indian snack foods, such as bhatoora and paneer pakora, acquire their flavor from being fried in oil; some are also coated in batter beforehand. Chemists Marc A. Meyers and Andrew Grazela studied the mass and heat transfer processes that occur when foods are fried in batters containing hydrocolloids, polymers that become viscous or gel-like in water. During frying, water in the food evaporates, leaving voids that oil (a pure fat) can fill. As the process continues, water from the food's center moves to the crust as long as the crust remains permeable. However, hydrocolloids can create structures in the crust that reduce the transfer of moisture out of the food's core during frying. Therefore, a food fried without a hydrocolloid batter coating will likely ______",
             "prompt": "Which choice most logically completes the text?",
             "choices": [
-              "may come out of the kiln looking very different from each other.",
-              "will develop identical glazes if they are fired at the same time.",
-              "must be fired in separate kilns to receive any ash.",
-              "will receive less ash than pots fired in other kinds of kilns."
+              "have a more viscous crust when frying is completed than it would have if it were fried with a coating of hydrocolloid batter.",
+              "have a higher fat content than it would have if it were fried with a coating of hydrocolloid batter.",
+              "need to be cooked more quickly at a higher temperature than it would need to be cooked if it were fried with a coating of hydrocolloid batter.",
+              "need to be cooked in different oil than it would need to be cooked in if it were fried with a coating of hydrocolloid batter"
             ],
-            "answer": "A",
-            "explanation": "The ash a pot receives depends on its position, so identical pots placed in different spots can end up with very different surfaces."
+            "answer": "B",
+            "explanation": "Without hydrocolloids, more water leaves the core, leaving more voids for oil to fill, so the food ends up with more fat."
           },
           {
-            "id": "t2-rw1-14",
+            "id": "t2-rw1x-14",
             "section": "rw",
             "skill": "Inferences",
             "difficulty": "hard",
-            "passage": "Astronomers can estimate the age of a star cluster by examining which of its stars have begun to swell into red giants. All the stars in a cluster form at about the same time, but more massive stars use up their fuel faster and become red giants sooner than less massive ones do. If the red giants in one cluster are noticeably less massive than the red giants in a second cluster, astronomers can conclude that ______",
+            "passage": "Zooarchaeologist Ophélie Lebrasseur and her team examined a fox skeleton discovered in 1991 at an archaeological site alongside artifacts of human habitation (like spear points) in central Argentina. Lebrasseur et al. determined that the fox was *Dusicyon avus*, an extinct species resembling a jackal, and radiocarbon dating placed the fox at the same time as human inhabitants. (Indeed, the inhabitants may have deliberately buried the fox.) In addition, while wild foxes have a diet entirely made of meat, isotopic signatures of the skeleton's teeth indicated that the fox's diet, like that of the humans, was partly composed of plant material. Lebrasseur et al. therefore concluded that ______",
             "prompt": "Which choice most logically completes the text?",
             "choices": [
-              "the first cluster likely formed more recently than the second cluster.",
-              "the stars in the first cluster likely formed at many different times.",
-              "the second cluster likely contains fewer stars than the first cluster.",
-              "the first cluster is likely older than the second cluster."
+              "the humans who were alive at the same time as the fox most likely ate more meat than the fox did.",
+              "the fox had a diet more similar to that of jackals than to that of wild foxes.",
+              "the humans whose spear points were found at the site hunted using the spears.",
+              "the fox may have been a companion animal of the humans who inhabited that site."
             ],
             "answer": "D",
-            "explanation": "Less massive stars take longer to become red giants, so if even low-mass stars in the first cluster have reached that stage, more time has passed there. The first choice reverses this reasoning."
+            "explanation": "The fox lived with the humans, may have been buried by them, and ate plants like them, unlike wild foxes, so it may have been a companion animal."
           },
           {
-            "id": "t2-rw1-15",
+            "id": "t2-rw1x-15",
             "section": "rw",
-            "skill": "Boundaries",
-            "difficulty": "easy",
-            "passage": "Portuguese is a Romance ______ it is closely related to Galician and has borrowed many words from Arabic, French, and English.",
-            "prompt": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+            "skill": "Inferences",
+            "difficulty": "hard",
+            "passage": "Prolonged exposure to anthropogenic noise (sounds from human sources like traffic or mining) can affect animals, as Graeme Shannon and colleagues found in a 2014 study of black-tailed prairie dogs. Researchers conducted a meta-analysis of studies of how such noise affects animals and found that, for every study, relevant traits or behaviors of the animals were observably different between the exposed group and the otherwise similar but unexposed group. Although, on average, studies of mammals showed larger differences than studies of fish did, for every class of animals examined, there were individual studies showing differences well above the average for mammals. Therefore, the results of the meta-analysis suggest that ______",
+            "prompt": "Which choice most logically completes the text?",
             "choices": [
-              "language,",
-              "language;",
-              "language",
-              "language, which"
-            ],
-            "answer": "B",
-            "explanation": "Both parts are complete sentences, so a semicolon is needed. A comma alone creates a comma splice, and no punctuation creates a run-on."
-          },
-          {
-            "id": "t2-rw1-16",
-            "section": "rw",
-            "skill": "Boundaries",
-            "difficulty": "medium",
-            "passage": "Because the clay from this riverbank is unusually rich in ______ pots made from it turn a deep red when they are fired.",
-            "prompt": "Which choice completes the text so that it conforms to the conventions of Standard English?",
-            "choices": [
-              "iron;",
-              "iron:",
-              "iron,",
-              "iron"
-            ],
-            "answer": "C",
-            "explanation": "A comma separates the introductory \"Because...\" clause from the main clause. Without it, \"iron pots\" misreads as one phrase."
-          },
-          {
-            "id": "t2-rw1-17",
-            "section": "rw",
-            "skill": "Boundaries",
-            "difficulty": "medium",
-            "passage": "Behavioral economists have identified a common error in how people judge ______ a tendency to overestimate the likelihood of events that are easy to recall, such as plane crashes that receive heavy news coverage.",
-            "prompt": "Which choice completes the text so that it conforms to the conventions of Standard English?",
-            "choices": [
-              "risk:",
-              "risk;",
-              "risk",
-              "risk, it is"
+              "some studies of fish found larger effects of exposure to anthropogenic noise than some studies of mammals did.",
+              "the differences that studies attribute to exposure to anthropogenic noise are likely to be more pronounced for fish than they are for mammals.",
+              "the difference found in the study conducted by Graeme Shannon and colleagues was likely larger than the average difference for studies of black-tailed prairie dogs included in the meta-analysis.",
+              "the studies in the meta-analysis that examined mammals were more likely than those that examined fish to specify whether the observed effects were detrimental."
             ],
             "answer": "A",
-            "explanation": "A colon introduces the phrase that explains what the error is. A semicolon would need a complete sentence after it, and \"risk, it is\" creates a comma splice."
+            "explanation": "For every class, including fish, some studies showed differences well above the mammal average, so some fish studies found larger effects than some mammal studies."
           },
           {
-            "id": "t2-rw1-18",
+            "id": "t2-rw1x-16",
             "section": "rw",
             "skill": "Boundaries",
-            "difficulty": "hard",
-            "passage": "The astronomer and science writer ______ has published four books on the history of star maps, including one on the instruments used at medieval observatories in Europe and the Middle East.",
-            "prompt": "Which choice completes the text so that it conforms to the conventions of Standard English?",
-            "choices": [
-              "Marco Bellini,",
-              "Marco Bellini",
-              "Marco Bellini—",
-              "Marco Bellini;"
-            ],
-            "answer": "B",
-            "explanation": "The name tells us which astronomer and science writer is meant, so it is essential and takes no punctuation. A single comma or dash would wrongly separate the subject from its verb \"has published.\""
-          },
-          {
-            "id": "t2-rw1-19",
-            "section": "rw",
-            "skill": "Form, Structure, and Sense",
-            "difficulty": "easy",
-            "passage": "The bowls in the potter's newest collection ______ decorated with patterns based on pomegranate blossoms.",
-            "prompt": "Which choice completes the text so that it conforms to the conventions of Standard English?",
-            "choices": [
-              "is",
-              "was",
-              "has been",
-              "are"
-            ],
-            "answer": "D",
-            "explanation": "The subject is the plural \"bowls,\" not \"collection,\" so the verb is **are**."
-          },
-          {
-            "id": "t2-rw1-20",
-            "section": "rw",
-            "skill": "Form, Structure, and Sense",
             "difficulty": "medium",
-            "passage": "The museum's collection of astrolabes, many of ______ were made in Persia and North Africa, fills three rooms.",
+            "passage": "Today, the Michelin Guide is widely known as the arbiter of fine dining, but when it was created in 1900, it was little more than a marketing gimmick: brothers Andre and Edouard Michelin sought to increase profits for their tire company by encouraging their customers to drive across France, visiting the guide's recommended hotels and restaurants along the way. Nevertheless, the guide soon grew in scope and ______ its modest French entries were replaced with some of the most esteemed restaurants from around the world, including Hijikata in Nagoya and ABaC in Barcelona.",
             "prompt": "Which choice completes the text so that it conforms to the conventions of Standard English?",
             "choices": [
-              "them",
-              "whom",
-              "which",
-              "these"
+              "influence and",
+              "influence.",
+              "influence, and",
+              "influence"
             ],
             "answer": "C",
-            "explanation": "**Which** begins a clause describing the astrolabes. *Them* and *these* create a comma splice, and *whom* refers only to people."
+            "explanation": "Two independent clauses (\"the guide soon grew ...\" and \"its modest French entries were replaced ...\") are joined with a comma plus \"and.\""
           },
           {
-            "id": "t2-rw1-21",
+            "id": "t2-rw1x-17",
             "section": "rw",
-            "skill": "Form, Structure, and Sense",
-            "difficulty": "hard",
-            "passage": "The six ______ shared kiln, built at the edge of the village in 1962, is still fired every Friday.",
+            "skill": "Boundaries",
+            "difficulty": "medium",
+            "passage": "Each year, the Nobel Prize in Literature is given to an author who has, in the words of its founder Alfred Nobel, \"produced the most outstanding work in an idealistic ______ in 1947, for instance, judges recognized André Paul Guillaume Gide \"for his comprehensive and artistically significant writings, in which human problems and conditions have been presented with a fearless love of truth and keen psychological insight.\"",
             "prompt": "Which choice completes the text so that it conforms to the conventions of Standard English?",
             "choices": [
-              "potter's",
-              "potters'",
-              "potters",
-              "potters's"
+              "direction,\"",
+              "direction\" and",
+              "direction\";",
+              "direction\""
             ],
-            "answer": "B",
-            "explanation": "The kiln belongs to six potters, a plural noun ending in s, so the plural possessive **potters'** is needed. *Potter's* refers to only one potter, and *potters* shows no possession."
+            "answer": "C",
+            "explanation": "The quotation ends a complete clause and a new independent clause follows (\"in 1947 ... judges recognized\"), so a semicolon goes after the closing quotation mark."
           },
           {
-            "id": "t2-rw1-22",
+            "id": "t2-rw1x-18",
             "section": "rw",
-            "skill": "Transitions",
-            "difficulty": "easy",
-            "passage": "Light from the Sun takes about eight minutes to reach Earth. ______ astronomers observing the Sun see it as it was about eight minutes earlier, not as it is at that moment.",
-            "prompt": "Which choice completes the text with the most logical transition?",
+            "skill": "Boundaries",
+            "difficulty": "medium",
+            "passage": "After finding information about Benjamin Sterling Turner, who represented Alabama in the United States House of Representatives, the student discovered biographical sketches of two other Black Americans who served in ______ Robert Brown Elliott of South Carolina and Ronald V. Dellums of California.",
+            "prompt": "Which choice completes the text so that it conforms to the conventions of Standard English?",
             "choices": [
-              "Thus,",
-              "However,",
-              "Similarly,",
-              "For instance,"
+              "Congress",
+              "Congress.",
+              "Congress;",
+              "Congress:"
+            ],
+            "answer": "D",
+            "explanation": "A colon introduces the two Black Americans who served in Congress."
+          },
+          {
+            "id": "t2-rw1x-19",
+            "section": "rw",
+            "skill": "Boundaries",
+            "difficulty": "medium",
+            "passage": "Joy Williams's essay on \"cenote,\" a term referring to a deep sinkhole containing a pool of water, is just one of many essays included in *Home Ground: A Guide to the American* ______ by Barry Lopez and Debra Gwartney; the book celebrates the rich language used to describe the landscape of North America.",
+            "prompt": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+            "choices": [
+              "Landscape, edited",
+              "Landscape edited",
+              "Landscape. Edited",
+              "Landscape and edited"
             ],
             "answer": "A",
-            "explanation": "Seeing the Sun as it was in the past is a consequence of the light's travel time, so **Thus** fits."
+            "explanation": "The book title ends at \"Landscape,\" and \"edited by ...\" is a nonessential modifier set off by a comma."
           },
           {
-            "id": "t2-rw1-23",
+            "id": "t2-rw1x-20",
+            "section": "rw",
+            "skill": "Form, Structure, and Sense",
+            "difficulty": "medium",
+            "passage": "Most US states and territories have had at least one woman serve as governor. In Nebraska, for example, Governor Kay A. Orr took office on January 9, 1987. In fact, the number of states and territories that have had only male governors ______ almost every year.",
+            "prompt": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+            "choices": [
+              "shrinks",
+              "shrink",
+              "are shrinking",
+              "have been shrinking"
+            ],
+            "answer": "A",
+            "explanation": "The subject is \"the number\" (singular), and \"almost every year\" describes a regular present action, so \"shrinks.\""
+          },
+          {
+            "id": "t2-rw1x-21",
             "section": "rw",
             "skill": "Transitions",
             "difficulty": "medium",
-            "passage": "Knives from the village of Laguiole in southern France are prized for their sharp, durable blades. ______ they are admired for their decorated handles, which make each knife a small work of art.",
+            "passage": "In Argentina, the Chamber of Deputies is elected via a proportional representation (PR) system. In PR elections, votes are cast (not for specific candidates, as they are in single-member plurality systems, but for political parties) and then tabulated; ______ each qualifying party is awarded a number of seats proportional to the number of votes it received.",
             "prompt": "Which choice completes the text with the most logical transition?",
             "choices": [
-              "Instead,",
-              "As a result,",
-              "Nevertheless,",
-              "In addition,"
+              "second of all,",
+              "in fact,",
+              "by contrast,",
+              "accordingly,"
             ],
             "answer": "D",
-            "explanation": "The handles are a second reason the knives are valued, so **In addition** fits."
+            "explanation": "Seats are awarded in proportion to the votes counted, so the result follows from the tally: \"accordingly.\""
           },
           {
-            "id": "t2-rw1-24",
+            "id": "t2-rw1x-22",
             "section": "rw",
             "skill": "Transitions",
-            "difficulty": "hard",
-            "passage": "Asked to choose between receiving \\$100 today and \\$110 in one week, most participants in a common type of experiment take the \\$100. Asked to choose between \\$100 in 52 weeks and \\$110 in 53 weeks, however, most choose to wait for the larger amount. ______ the same one-week delay seems far more costly to people when it begins immediately than when it begins in the distant future.",
+            "difficulty": "medium",
+            "passage": "Before the first railroads were built in Australia, engineers warned against using multiple track widths across the continent. ______ regional officials couldn't agree on a single-width system. Thus, railways in Queensland, like the Durundur Railway, were made using narrow tracks, while those in Victoria were built with broad tracks.",
             "prompt": "Which choice completes the text with the most logical transition?",
             "choices": [
-              "For example,",
-              "Even so,",
+              "For this reason,",
               "In other words,",
-              "Previously,"
+              "Similarly,",
+              "Nevertheless,"
             ],
-            "answer": "C",
-            "explanation": "The last sentence restates what the two results show together, so **In other words** fits. *Even so* wrongly signals that the last sentence contrasts with the results."
+            "answer": "D",
+            "explanation": "Engineers warned against multiple widths, but officials still couldn't agree: \"Nevertheless.\""
           },
           {
-            "id": "t2-rw1-25",
+            "id": "t2-rw1x-23",
             "section": "rw",
-            "skill": "Rhetorical Synthesis",
+            "skill": "Transitions",
             "difficulty": "medium",
-            "passage": "While researching a topic, a student has taken the following notes:\n\n• The Andromeda Galaxy is the nearest large galaxy to our own Milky Way.\n• It is about 2.5 million light-years from Earth.\n• It contains roughly one trillion stars.\n• On clear, dark nights, it can be seen without a telescope.",
-            "prompt": "The student wants to emphasize how far away the Andromeda Galaxy is while noting that it can still be seen without a telescope. Which choice most effectively uses relevant information from the notes to accomplish this goal?",
+            "passage": "Joseph Goodrich was an outspoken abolitionist whose Wisconsin home was a stop on the Underground Railroad (the network of people and places that some enslaved people used to escape to freedom). ______ supporters of the railroad were secretive about their antislavery views. By and large, they were vocal abolitionists like Goodrich.",
+            "prompt": "Which choice completes the text with the most logical transition?",
             "choices": [
-              "The Andromeda Galaxy, which contains roughly one trillion stars, is the nearest large galaxy to the Milky Way.",
-              "Although the Andromeda Galaxy is about 2.5 million light-years from Earth, it can be seen without a telescope on clear, dark nights.",
-              "On clear, dark nights, many objects in the sky can be seen without a telescope.",
-              "The Andromeda Galaxy contains roughly one trillion stars."
-            ],
-            "answer": "B",
-            "explanation": "Only this choice gives both the galaxy's great distance and the fact that it is visible without a telescope."
-          },
-          {
-            "id": "t2-rw1-26",
-            "section": "rw",
-            "skill": "Rhetorical Synthesis",
-            "difficulty": "hard",
-            "passage": "While researching a topic, a student has taken the following notes:\n\n• Comets are icy bodies that release gas and dust as they approach the Sun.\n• Halley's Comet returns to the inner solar system about every 76 years.\n• Comet Hale-Bopp, widely seen in 1997, takes more than 2,000 years to complete one orbit.\n• Both comets were visible without a telescope during their most recent passes near the Sun.",
-            "prompt": "The student wants to emphasize that the time comets take to orbit the Sun can vary greatly. Which choice most effectively uses relevant information from the notes to accomplish this goal?",
-            "choices": [
-              "Comets' orbital periods vary greatly: Halley's Comet returns about every 76 years, while Hale-Bopp takes more than 2,000 years to complete one orbit.",
-              "Both Halley's Comet and Hale-Bopp were visible without a telescope during their most recent passes near the Sun.",
-              "Halley's Comet, which returns about every 76 years, is an icy body that releases gas and dust as it approaches the Sun.",
-              "Hale-Bopp, which was widely seen in 1997, takes more than 2,000 years to complete one orbit."
+              "Occasionally,",
+              "For example,",
+              "Accordingly,",
+              "However,"
             ],
             "answer": "A",
-            "explanation": "Showing variation requires comparing two periods, 76 years and more than 2,000 years. The third and fourth choices each give only one comet's period, and the second stresses a similarity."
+            "explanation": "Only some supporters were secretive; \"by and large\" they were vocal. \"Occasionally\" marks the exception."
           },
           {
-            "id": "t2-rw1-27",
+            "id": "t2-rw1x-24",
+            "section": "rw",
+            "skill": "Transitions",
+            "difficulty": "medium",
+            "passage": "The work of contemporary Asian American poet John Yau often incorporates references to other poems and works of visual art. Typically, these allusive gestures are subtle, recognized by only the most attentive of Yau's readers. In his 2013 poem \"Further Adventures in Monochrome,\" ______ Yau explicitly identifies a particular artwork—Yves Klein's 1960 painting *Silence is Golden*—as the poem's inspiration.",
+            "prompt": "Which choice completes the text with the most logical transition?",
+            "choices": [
+              "however,",
+              "for example,",
+              "similarly,",
+              "in other words,"
+            ],
+            "answer": "A",
+            "explanation": "Yau's allusions are usually subtle, but in this poem he names the artwork outright, which is a contrast, so \"however.\" (The choices in Said's copy were garbled, so we restored them.)"
+          },
+          {
+            "id": "t2-rw1x-25",
+            "section": "rw",
+            "skill": "Rhetorical Synthesis",
+            "difficulty": "easy",
+            "passage": "While researching a topic, a student has taken the following notes: Chromosomes are cellular structures that contain genes. Genes carry critical instructions for determining an organism's physical traits. Members of the same species typically have the same number of chromosomes. The American paddlefish (*Polyodon spathula*) and the crucian carp (*Carassius carassius*) are species of fish. The American paddlefish has 120 chromosomes. The crucian carp has one hundred chromosomes.",
+            "prompt": "The student wants to specify how many chromosomes the American paddlefish has. Which choice most effectively uses relevant information from the notes to accomplish this goal?",
+            "choices": [
+              "The American paddlefish's chromosomes contain genes, which are critical to determining an organism's physical traits.",
+              "The American paddlefish (*Polyodon spathula*) and the crucian carp (*Carassius carassius*) both have chromosomes, but the American paddlefish has more than the crucian carp does.",
+              "The American paddlefish (*Polyodon spathula*) has 120 chromosomes.",
+              "The crucian carp, a species of fish, has one hundred structures called chromosomes."
+            ],
+            "answer": "C",
+            "explanation": "C states the number: 120 chromosomes."
+          },
+          {
+            "id": "t2-rw1x-26",
             "section": "rw",
             "skill": "Rhetorical Synthesis",
             "difficulty": "medium",
-            "passage": "While researching a topic, a student has taken the following notes:\n\n• Blue-and-white porcelain was first made in large quantities in Jingdezhen, China, in the fourteenth century.\n• Its blue designs were painted with cobalt pigment.\n• Much of this cobalt was imported from Persia.\n• Finished pieces were exported to Southeast Asia, the Middle East, and East Africa.",
-            "prompt": "The student wants to emphasize that making blue-and-white porcelain depended on long-distance trade. Which choice most effectively uses relevant information from the notes to accomplish this goal?",
+            "passage": "While researching a topic, a student has taken the following notes: Louis Ballard was a classical composer and citizen of the Quapaw Tribe. His compositions synthesize Western classical music with elements of various Native musical traditions. Ballard's classical piece *Katcina Dances* features traditional Hopi songs. Ballard's classical piece *Fantasy Aborigine No. 3* incorporates a Tewa seashell rattle, a traditional Native instrument.",
+            "prompt": "The student wants to emphasize a difference between the two compositions. Which choice most effectively uses relevant information from the notes to accomplish this goal?",
             "choices": [
-              "Blue-and-white porcelain was first made in large quantities in Jingdezhen, China, in the fourteenth century.",
-              "Blue-and-white porcelain from Jingdezhen was decorated with designs painted in blue.",
-              "Potters in Jingdezhen depended on long-distance trade to make blue-and-white porcelain, since much of the cobalt for its blue designs was imported from Persia.",
-              "Finished blue-and-white porcelain was exported to Southeast Asia, the Middle East, and East Africa."
+              "*Katcina Dances* and *Fantasy Aborigine No. 3* are two compositions written by Louis Ballard, a classical music composer.",
+              "In his two compositions *Katcina Dances* and *Fantasy Aborigine No. 3*, Ballard blends elements of various Native musical traditions, such as Indigenous songs or instruments, with Western classical music.",
+              "Ballard has different approaches to blending Western classical music with elements of various Native musical traditions, such as using Indigenous songs and instruments in his compositions.",
+              "While both compositions integrate various Native musical traditions, *Katcina Dances* does so by featuring traditional Hopi songs and *Fantasy Aborigine No. 3* does so by incorporating a Tewa seashell rattle."
             ],
-            "answer": "C",
-            "explanation": "The goal is how trade made production possible. Only the imported cobalt shows that; the last choice is about where finished pieces were sold, not how they were made."
+            "answer": "D",
+            "explanation": "D names the difference: Hopi songs in one piece, a Tewa seashell rattle in the other."
+          },
+          {
+            "id": "t2-rw1x-27",
+            "section": "rw",
+            "skill": "Rhetorical Synthesis",
+            "difficulty": "medium",
+            "passage": "While researching a topic, a student has taken the following notes: The Clovis First hypothesis proposes that ancient humans known as Clovis were the first to populate North America. The Clovis arrived around 13,000 years ago. Stone tools found at the Saltville site in Virginia date to approximately 16,000 years ago. These items support the idea that humans were present in North America before the Clovis population arrived. More than a dozen North American sites containing pre-Clovis items have been identified.",
+            "prompt": "The student wants to explain the implications of the discovery at the Saltville site. Which choice most effectively uses relevant information from the notes to accomplish this goal?",
+            "choices": [
+              "It is the contention of the Clovis First hypothesis that the Clovis, an ancient human population, were the first to inhabit North America, arriving around 13,000 years ago.",
+              "Located in Virginia, Saltville is one of more than a dozen North American sites where pre-Clovis items have been discovered.",
+              "The approximately 16,000-year-old stone tools found at Saltville, a site in Virginia, should not be overlooked; they have important implications for the Clovis First hypothesis.",
+              "Contrary to the Clovis First hypothesis, the approximately 16,000-year-old stone tools found at Saltville suggest that humans were in North America before the Clovis arrived."
+            ],
+            "answer": "D",
+            "explanation": "D explains the implication: the 16,000-year-old tools show humans were here before the Clovis, contrary to the hypothesis."
           }
         ]
       },
@@ -482,461 +492,541 @@
           "minutes": 32,
           "questions": [
             {
-              "id": "t2-rw2e-01",
+              "id": "t2-rw2ex-01",
               "section": "rw",
               "skill": "Words in Context",
               "difficulty": "easy",
-              "passage": "The food stalls at the spring festival offered a ______ selection of dishes: paella, empanadas, grilled sausages, and dozens of regional breads.",
+              "passage": "The National Heritage Fellowship was created to honor exceptional folk and traditional artists in the United States. One artist who received the fellowship is taiko drummer Seiichi Tanaka. Tanaka was chosen for his lifetime ______ the art.",
               "prompt": "Which choice completes the text with the most logical and precise word or phrase?",
               "choices": [
-                "limited",
-                "silent",
-                "varied",
-                "costly"
-              ],
-              "answer": "C",
-              "explanation": "The list after the colon shows many different dishes, so the selection was **varied**. *Limited* is the opposite."
-            },
-            {
-              "id": "t2-rw2e-02",
-              "section": "rw",
-              "skill": "Words in Context",
-              "difficulty": "easy",
-              "passage": "The old map was so ______ that the merchants who relied on it often got lost: many roads were missing, and several towns were drawn in the wrong places.",
-              "prompt": "Which choice completes the text with the most logical and precise word or phrase?",
-              "choices": [
-                "detailed",
-                "inaccurate",
-                "colorful",
-                "valuable"
-              ],
-              "answer": "B",
-              "explanation": "Missing roads and misplaced towns make a map **inaccurate**, which explains why the merchants got lost."
-            },
-            {
-              "id": "t2-rw2e-03",
-              "section": "rw",
-              "skill": "Words in Context",
-              "difficulty": "medium",
-              "passage": "Unlike her earlier poems, which describe long journeys in winding sentences, the poet's newest collection is strikingly ______: most of its poems are only four or five short lines.",
-              "prompt": "Which choice completes the text with the most logical and precise word or phrase?",
-              "choices": [
-                "concise",
-                "lengthy",
-                "humorous",
-                "mysterious"
+                "contributions to",
+                "imitations of",
+                "doubts about",
+                "misunderstandings of"
               ],
               "answer": "A",
-              "explanation": "Poems of four or five short lines are brief, or **concise**, in contrast to the winding earlier work. *Lengthy* describes the earlier poems."
+              "explanation": "A fellowship honoring exceptional artists rewards **contributions to** the art."
             },
             {
-              "id": "t2-rw2e-04",
+              "id": "t2-rw2ex-02",
+              "section": "rw",
+              "skill": "Words in Context",
+              "difficulty": "easy",
+              "passage": "The following text is adapted from Mary Seacole's 1857 autobiography *Wonderful Adventures of Mrs. Seacole in Many Lands*.\n\nThat journey across the Isthmus [of Panama], insignificant in distance as it was, was by no means an easy one. It seemed as if nature had determined to throw every conceivable obstacle in the way of those who should seek to join the two great oceans of the world.",
+              "prompt": "As used in the text, what does the word \"conceivable\" most nearly mean?",
+              "choices": [
+                "Imaginable",
+                "Obvious",
+                "Dependable",
+                "Straightforward"
+              ],
+              "answer": "A",
+              "explanation": "Nature seemed to throw \"every conceivable obstacle,\" every obstacle one could imagine, in the way: **imaginable**."
+            },
+            {
+              "id": "t2-rw2ex-03",
+              "section": "rw",
+              "skill": "Words in Context",
+              "difficulty": "easy",
+              "passage": "One way to ______ the importance of a scholar's research is to track how often other scholars refer to that research. For example, Yale University economist Xiaohong Chen, who studies statistical methods in economics, is among the world's most frequently cited researchers in her field, indicating that her work has been highly influential among researchers in the field.",
+              "prompt": "Which choice completes the text with the most logical and precise word or phrase?",
+              "choices": [
+                "increase",
+                "measure",
+                "diminish",
+                "vary"
+              ],
+              "answer": "B",
+              "explanation": "Counting citations is a way to **measure** a scholar's importance."
+            },
+            {
+              "id": "t2-rw2ex-04",
               "section": "rw",
               "skill": "Words in Context",
               "difficulty": "medium",
-              "passage": "Researchers had expected the new savings program to have only a modest effect, so they were surprised by its ______ success: within a year, the number of participants had tripled.",
+              "passage": "The discoverers of the minor planet 1227 Geranium named it after the plant genus that includes cranesbills. Most of the recently discovered minor planets, however, are given only an identification number, largely due to there being over 500,000 such bodies known at present, which makes the already challenging task of finding a unique name for each nearly ______.",
               "prompt": "Which choice completes the text with the most logical and precise word or phrase?",
               "choices": [
-                "gradual",
-                "doubtful",
-                "temporary",
-                "dramatic"
+                "feasible",
+                "unnecessary",
+                "substantial",
+                "insurmountable"
               ],
               "answer": "D",
-              "explanation": "Tripling in a year is far more than \"modest,\" so the success was **dramatic**."
+              "explanation": "With over 500,000 bodies, finding a unique name for each is nearly **insurmountable** (impossible to overcome)."
             },
             {
-              "id": "t2-rw2e-05",
-              "section": "rw",
-              "skill": "Text Structure and Purpose",
-              "difficulty": "easy",
-              "passage": "Each spring, potters in many villages in Oaxaca, Mexico, dig fresh clay from riverbanks. Before the clay can be used, it must be soaked in water, strained to remove stones and roots, and then left to dry until it is firm enough to shape.",
-              "prompt": "Which choice best states the main purpose of the text?",
-              "choices": [
-                "To argue that river clay is better than other kinds of clay",
-                "To describe the steps used to prepare clay for making pottery",
-                "To explain why pottery is popular in Mexico",
-                "To compare spring and autumn pottery traditions"
-              ],
-              "answer": "B",
-              "explanation": "The text lists what happens to the clay, in order, before it can be shaped."
-            },
-            {
-              "id": "t2-rw2e-06",
+              "id": "t2-rw2ex-05",
               "section": "rw",
               "skill": "Text Structure and Purpose",
               "difficulty": "medium",
-              "passage": "Venus is often called Earth's twin because the two planets are nearly the same size. __In most other respects, however, the planets could hardly be more different.__ Venus's thick atmosphere traps so much heat that its surface is hot enough to melt lead, and the air pressure there is about ninety times that on Earth.",
+              "passage": "*The Last Report on the Miracles at Little No Horse* is a 2001 novel by Louise Erdrich. It explores how historical events affect families on a reservation in rural North Dakota. *The Last Report on the Miracles at Little No Horse* is typical of Erdrich's work. Her writing usually focuses on portrayals of everyday life in Ojibwe communities. Yet some of her novels have fantastical plots and take place outside Native communities. __For example, her 1991 novel *The Crown of Columbus* is essentially adventure fiction, and the thrilling events in its plot are set largely on a Caribbean island.__",
               "prompt": "Which choice best describes the function of the underlined sentence in the text as a whole?",
               "choices": [
-                "It introduces a contrast that the rest of the text goes on to illustrate.",
-                "It explains why Venus is called Earth's twin.",
-                "It provides evidence that Venus and Earth formed at the same time.",
-                "It questions whether Venus and Earth are really the same size."
-              ],
-              "answer": "A",
-              "explanation": "After the similarity in size, the underlined sentence says the planets are otherwise very different, and the last sentence gives examples (heat and pressure)."
-            },
-            {
-              "id": "t2-rw2e-07",
-              "section": "rw",
-              "skill": "Cross-Text Connections",
-              "difficulty": "medium",
-              "passage": "**Text 1**\nSome economists argue that people treat a tax refund just like the rest of their income, spending and saving it in the same proportions as their regular pay.\n\n**Text 2**\nIn a survey of households, researchers found that people were much more likely to spend a refund on special purchases, such as trips or new furniture, than to spend their regular paychecks that way. Many described the refund as \"extra money,\" separate from their usual budget.",
-              "prompt": "Based on the texts, how would the researchers in Text 2 most likely respond to the economists in Text 1?",
-              "choices": [
-                "By agreeing that people spend refunds and paychecks in the same way",
-                "By arguing that tax refunds should be eliminated",
-                "By pointing out that people often treat a refund differently from their regular income",
-                "By claiming that most households save their entire refund"
-              ],
-              "answer": "C",
-              "explanation": "The survey shows people spend refunds on special purchases and see them as \"extra money,\" which contradicts the idea that refunds are treated like regular pay."
-            },
-            {
-              "id": "t2-rw2e-08",
-              "section": "rw",
-              "skill": "Central Ideas and Details",
-              "difficulty": "easy",
-              "passage": "Few caravans on the Silk Road traveled its full length. Instead, goods usually passed from one group of merchants to another, moving a few hundred kilometers at a time. A bolt of silk might change hands a dozen times between China and the Mediterranean, growing more expensive at each stop.",
-              "prompt": "Which choice best states the main idea of the text?",
-              "choices": [
-                "Silk was the only good traded along the Silk Road.",
-                "Most caravans traveled the full distance between China and the Mediterranean.",
-                "Silk was cheaper in the Mediterranean than in China.",
-                "Goods on the Silk Road were usually carried in stages by many different merchants rather than by a single caravan."
+                "It recommends that readers avoid a particular novel by Erdrich.",
+                "It highlights the contrasts between two novels by Erdrich.",
+                "It discusses what inspired Erdrich to write one of her novels.",
+                "It offers an example of a novel that differs from most of Erdrich's work."
               ],
               "answer": "D",
-              "explanation": "The text explains that goods moved a few hundred kilometers at a time, changing hands many times."
+              "explanation": "After saying some novels are fantastical and set outside Native communities, the underlined sentence gives *The Crown of Columbus* as an example of a novel unlike most of her work."
             },
             {
-              "id": "t2-rw2e-09",
+              "id": "t2-rw2ex-06",
               "section": "rw",
-              "skill": "Central Ideas and Details",
+              "skill": "Text Structure and Purpose",
               "difficulty": "medium",
-              "passage": "The following text is from a short story. Tomás has just moved from his village to the city to attend university.\n\nThe city never went fully dark. Even at midnight, streetlights hummed outside Tomás's window and cars hissed past on the wet road. At home, he had fallen asleep each night to the sound of the irrigation canal and the occasional bark of a neighbor's dog. Now he lay awake, listening for the canal, though he knew it was four hundred kilometers away.",
-              "prompt": "Which choice best states the main idea of the text?",
+              "passage": "The Museum of Modern Art (MOMA) in New York City has an exhibition of video games that includes *Snake* from 1997, which museum visitors can play on site, and *SimCity 2000* from 1994, which visitors can see only in a video presentation. MOMA claims the video game presentations are only for games that would be impractical to display in playable form, but __video games are an inherently interactive medium__, a feature that is grossly absent in a video-only presentation.",
+              "prompt": "Which choice best describes the function of the underlined portion in the text as a whole?",
               "choices": [
-                "Unable to sleep in the noisy city, Tomás misses the familiar sounds of his village.",
-                "Tomás enjoys the excitement of the city more than the calm of his village.",
-                "Tomás worries that he will not do well at university.",
-                "Tomás is kept awake by a neighbor's barking dog."
+                "It identifies a feature of video games that is central to the author's criticism of MOMA's decision to use video-only presentations for some games.",
+                "It provides a claim about video games as art that both MOMA and the author accept as true.",
+                "It describes a characteristic shared by many video games but not by some of the games in MOMA's exhibition.",
+                "It presents a view about treating video games as art that the author criticizes in the remainder of the sentence."
               ],
               "answer": "A",
-              "explanation": "Tomás lies awake listening for the canal from home, which shows he misses his village. The barking dog belongs to his memories of home, not to the city."
+              "explanation": "The author criticizes video-only presentations because games are interactive; the underlined portion names that feature."
             },
             {
-              "id": "t2-rw2e-10",
+              "id": "t2-rw2ex-07",
               "section": "rw",
-              "skill": "Command of Evidence: Textual",
-              "difficulty": "easy",
-              "passage": "A researcher hypothesizes that shoppers spend more money when a store plays slow music than when it plays fast music.",
-              "prompt": "Which finding, if true, would most directly support the researcher's hypothesis?",
-              "choices": [
-                "Most shoppers said that they preferred fast music.",
-                "The store sold more items on weekends than on weekdays.",
-                "Shoppers spent more money, on average, on days when the store played slow music than on days when it played fast music.",
-                "Shoppers who came with friends stayed in the store longer than shoppers who came alone."
-              ],
-              "answer": "C",
-              "explanation": "Only this choice connects the speed of the music to how much shoppers spent."
-            },
-            {
-              "id": "t2-rw2e-11",
-              "section": "rw",
-              "skill": "Command of Evidence: Textual",
+              "skill": "Text Structure and Purpose",
               "difficulty": "medium",
-              "passage": "In the poem \"Night Train East,\" the speaker expresses excitement about the journey ahead rather than sadness about leaving home.",
-              "prompt": "Which quotation from the poem most effectively illustrates the claim?",
+              "passage": "*The Far Side of the World*, first published in 1984, is a novel in Patrick O'Brian's Aubrey–Maturin series, which includes twenty books plus an unfinished fragment of a twenty-first. __Like the rest of the books in the series, *The Far Side of the World* has a rather abrupt ending but the following book, *The Reverse of the Medal*, picks up neatly where *The Far Side of the World* leaves off.__ Thus, the sudden ending is only an issue if one considers the books as independent texts—the Aubrey–Maturin series is best thought of as a single incredibly long work, similar to other multivolume stories, such as John Galsworthy's *The Forsyte Saga*.",
+              "prompt": "Which choice best describes the function of the underlined portion in the text as a whole?",
               "choices": [
-                "\"I left my coat upon the kitchen chair, / and half my heart beside it.\"",
-                "\"Each mile of dark rail hums a song / of cities I have yet to see.\"",
-                "\"My mother's lamp grows smaller in the glass / until I cannot find it.\"",
-                "\"The carriage smells of dust and old tobacco, / and no one speaks.\""
+                "It offers a detail that helps explain why it is not necessarily the case that a certain characteristic of *The Far Side of the World* should be considered a flaw.",
+                "It presents a reason *The Far Side of the World* and *The Reverse of the Medal* are considered to be two of O'Brian's most engaging novels.",
+                "It argues that the Aubrey–Maturin series deserves the critical renown of works like *The Forsyte Saga*.",
+                "It demonstrates that those readers who most enjoy reading *The Reverse of the Medal* will be those who have just finished reading *The Far Side of the World*."
+              ],
+              "answer": "A",
+              "explanation": "The underlined portion says the next book picks up where this one leaves off, which explains why the abrupt ending isn't necessarily a flaw."
+            },
+            {
+              "id": "t2-rw2ex-08",
+              "section": "rw",
+              "skill": "Central Ideas and Details",
+              "difficulty": "easy",
+              "passage": "Can field mustard plants grow on Mars? Can pea plants? You might think the answer to these questions is obviously no, but researchers in the Netherlands recently showed that seeds of many common plant species can germinate in soil designed to simulate Martian conditions, as long as water is supplied. In fact, some seeds actually did better in Martian soil than in Earth soil. For example, 30 percent of field mustard seeds sprouted when planted in simulated Martian soil, compared with 5 percent of those planted in soil from their home planet.",
+              "prompt": "According to the text, what percent of field mustard seeds planted in Martian soil sprouted?",
+              "choices": [
+                "18 percent",
+                "30 percent",
+                "100 percent",
+                "5 percent"
               ],
               "answer": "B",
-              "explanation": "Rails that hum \"a song\" of unseen cities express eagerness for what lies ahead. The first and third choices express sadness about leaving."
+              "explanation": "The text says 30 percent of field mustard seeds sprouted in simulated Martian soil."
             },
             {
-              "id": "t2-rw2e-12",
+              "id": "t2-rw2ex-09",
+              "section": "rw",
+              "skill": "Command of Evidence: Textual",
+              "difficulty": "easy",
+              "passage": "*Poems* is an 1895 collection of poetry by Frances E. W. Harper. In one of Harper's poems, the speaker declares her intention to create art that has a universal appeal across generations.",
+              "prompt": "Which quotation from *Poems* most effectively illustrates the claim?",
+              "choices": [
+                "\"Our world, so worn and weary, / Needs music, pure and strong, / To hush the jangle and discords / Of sorrow, pain, and wrong\" (from \"Songs for the People\")",
+                "\"Let me make the songs for the people, / Songs for the old and young; / Songs to stir like a battle cry / Wherever they are sung\" (from \"Songs for the People\")",
+                "\"God bless our native land, / Land of the newly free, / Oh may she ever stand / For truth and liberty\" (from \"God Bless Our Native Land\")",
+                "\"My mother's kiss, my mother's kiss, / I feel its impress now; / As in the bright and happy days / She pressed it on my brow\" (from \"My Mother's Kiss\")"
+              ],
+              "answer": "B",
+              "explanation": "The claim is about art with universal appeal across generations: \"Songs for the old and young ... Wherever they are sung.\""
+            },
+            {
+              "id": "t2-rw2ex-10",
               "section": "rw",
               "skill": "Command of Evidence: Quantitative",
-              "difficulty": "easy",
-              "passage": "A pottery workshop recorded how many pieces of each type it sold at a weekend market. The workshop's owner noted that bowls were the best-selling type of piece: ______",
-              "prompt": "Which choice most effectively uses data from the table to complete the statement?",
-              "choices": [
-                "the workshop sold 12 teapots, fewer than any other type.",
-                "the workshop sold 31 plates.",
-                "the workshop sold 38 cups, more than it sold plates.",
-                "the workshop sold 46 bowls, compared with 38 cups, 31 plates, and 12 teapots."
-              ],
-              "answer": "D",
-              "explanation": "Bowls have the largest number in the table, 46, and only this choice compares them with every other type.",
+              "difficulty": "medium",
+              "passage": "A Pew Research Center survey conducted in January 2024 found that three out of ten U.S. adults make at least one New Year's resolution for the year ahead, while half of those who make a resolution make more than one. The survey asked participants what kinds of resolutions they made and separated them into several categories. The table presents percentages of people who make particular kinds of New Year's resolutions among those who choose to make them, indicated by age bracket.",
               "table": {
-                "title": "Pieces sold at a weekend market",
+                "title": "Percentages of New Year's Resolution Makers Who Make Certain Kinds of Resolutions",
                 "head": [
-                  "Type of piece",
-                  "Number sold"
+                  "Type of resolution",
+                  "Age 18–29",
+                  "Age 30–49",
+                  "Age 50–64",
+                  "Age 65+"
                 ],
                 "rows": [
                   [
-                    "Bowls",
-                    "46"
+                    "Health and exercise",
+                    "79",
+                    "80",
+                    "79",
+                    "76"
                   ],
                   [
-                    "Plates",
-                    "31"
+                    "Finances",
+                    "68",
+                    "63",
+                    "56",
+                    "47"
                   ],
                   [
-                    "Teapots",
-                    "12"
+                    "Personal relationships",
+                    "63",
+                    "53",
+                    "58",
+                    "52"
                   ],
                   [
-                    "Cups",
-                    "38"
+                    "Hobbies",
+                    "65",
+                    "53",
+                    "51",
+                    "45"
                   ]
                 ]
-              }
+              },
+              "prompt": "Which choice best presents a conclusion about the habits of New Year's resolution makers that is supported by information in the text and the table?",
+              "choices": [
+                "The majority of U.S. adults who make resolutions related to health and exercise also make resolutions in multiple additional categories.",
+                "Among all U.S. adults, people become less likely to make New Year's resolutions as they age, regardless of the type of resolution.",
+                "Resolution makers between the ages of 50 and 64 are more likely to make resolutions related to personal relationships and less likely to make resolutions related to finances than resolution makers between the ages of 30 and 49 are.",
+                "Resolution makers between the ages of 18 and 29 are more likely to make resolutions about health and exercise than resolution makers between the ages of 30 and 44 are."
+              ],
+              "answer": "C",
+              "explanation": "Ages 50–64 vs. 30–49: personal relationships 58% vs. 53% (more likely) and finances 56% vs. 63% (less likely)."
             },
             {
-              "id": "t2-rw2e-13",
+              "id": "t2-rw2ex-11",
+              "section": "rw",
+              "skill": "Command of Evidence: Textual",
+              "difficulty": "medium",
+              "passage": "*The Underdogs* is a 1915 novel by Mariano Azuela, originally written in Spanish. In the novel, Azuela depicts a traveling group of soldiers as having a renewed sense of agency and authority as they set off on a new stage of their journey: ______",
+              "prompt": "Which quotation from a translation of *The Underdogs* most effectively illustrates the claim?",
+              "choices": [
+                "\"The sonorous, joyful bells rang again. From within the church, the honeyed voices of a female chorus rose melancholy and grave.\"",
+                "\"All day long [the soldiers] rode through the canyon, up and down the steep, round hills dirty and bald as a man's head, hill after hill in endless succession. At last, in the afternoon, they descried several stone church towers in the heart of a bluish ridge, beyond, the white road with its curling spirals of dust, and its gray telegraph poles.\"",
+                "\"The men threw out their chests as if to breathe the widening horizon, the immensity of the sky, the blue from the mountains and the fresh air, redolent with the various odors of the sierra. They spurred their horses to a gallop as if in that mad race they laid claims of possession to the earth.\"",
+                "\"Before Juchipila was lost from sight, Valderrama got off his horse, bent down, kneeled, and gravely kissed the ground.\""
+              ],
+              "answer": "C",
+              "explanation": "\"Threw out their chests\" and racing as if laying \"claims of possession to the earth\" show a renewed sense of agency and authority."
+            },
+            {
+              "id": "t2-rw2ex-12",
+              "section": "rw",
+              "skill": "Command of Evidence: Quantitative",
+              "difficulty": "medium",
+              "passage": "Immature male orangutans typically disperse from the territory in which they were born when they reach maturity, whereas females typically do not. Biologist Elizabeth Hermann and her colleagues showed that this difference in life trajectory is reflected in the diets of immature orangutans, with females' diets overlapping more with their mothers' diets than males' diets do. For example, on average, individual 9's mother shared approximately ______",
+              "table": {
+                "title": "Average Overlap between Immature Orangutans' Diets (ID) and Their Mothers' Diets (MD), % of diet (approximate)",
+                "head": [
+                  "Individual",
+                  "MD shared with ID",
+                  "ID not shared with MD"
+                ],
+                "rows": [
+                  [
+                    "Individual 12 (male)",
+                    "72%",
+                    "20%"
+                  ],
+                  [
+                    "Individual 9 (female)",
+                    "81%",
+                    "16%"
+                  ]
+                ]
+              },
+              "prompt": "Which choice most effectively uses data from the graph to complete the example?",
+              "choices": [
+                "16% of its diet with individual 9's diet, whereas individual 12's mother shared approximately 72% of its diet with individual 12's diet.",
+                "81% of its diet with individual 9's diet, whereas individual 12's mother shared approximately 72% of its diet with individual 12's diet.",
+                "81% of its diet with individual 9's diet, whereas individual 12's mother shared approximately 20% of its diet with individual 12's diet.",
+                "16% of its diet with individual 9's diet, whereas individual 12's mother shared approximately 20% of its diet with individual 12's diet."
+              ],
+              "answer": "B",
+              "explanation": "In the graph, female individual 9's mother shared about 81% of her diet, and male individual 12's mother about 72%, so the female's overlap was greater."
+            },
+            {
+              "id": "t2-rw2ex-13",
+              "section": "rw",
+              "skill": "Command of Evidence: Quantitative",
+              "difficulty": "medium",
+              "passage": "Many films in a language other than English grow to be financially successful over the course of their time in movie theaters in the United States, but some become blockbusters right away with high earnings in their opening weekends. A journalist claims that a film's reception can greatly influence its long term success. Indications that the film is of high quality, such as an Oscar nomination, can dramatically boost public interest in the film and thus its overall earnings, even with a relatively modest opening weekend performance. For example, ______",
+              "table": {
+                "title": "Highest-Grossing Films in a Language Other than English at US Box Office",
+                "head": [
+                  "Title",
+                  "Lifetime gross earnings",
+                  "Opening weekend box office gross earnings",
+                  "US release date",
+                  "Director",
+                  "Oscar nominated?"
+                ],
+                "rows": [
+                  [
+                    "*Instructions Not Included*",
+                    "\\$44,467,206",
+                    "\\$7,846,426",
+                    "August 30, 2013",
+                    "Eugenio Derbez",
+                    "No"
+                  ],
+                  [
+                    "*The Girl Who Played with Fire*",
+                    "\\$7,638,241",
+                    "\\$904,998",
+                    "July 9, 2010",
+                    "Daniel Alfredson",
+                    "No"
+                  ],
+                  [
+                    "*Amélie*",
+                    "\\$33,225,499",
+                    "\\$136,470",
+                    "November 2, 2001",
+                    "Jean-Pierre Jeunet",
+                    "Yes"
+                  ],
+                  [
+                    "*All About My Mother*",
+                    "\\$8,272,296",
+                    "\\$50,362",
+                    "November 5, 1999",
+                    "Pedro Almodóvar",
+                    "Yes"
+                  ]
+                ]
+              },
+              "prompt": "Which choice most effectively uses data from the table to complete the example?",
+              "choices": [
+                "the opening weekend earnings for *Instructions Not Included* were \\$7,846,426 and \\$904,998 for *The Girl Who Played with Fire*.",
+                "*The Girl Who Played with Fire* earned more money in its opening weekend than *Amélie* earned, but *Amélie* had higher lifetime earnings.",
+                "both *Amélie* and *All About My Mother* were recognized by the Oscars, but *Amélie* had higher lifetime earnings.",
+                "*All About My Mother* was recognized by the Oscars, but *Instructions Not Included*, which was not recognized, had higher lifetime earnings."
+              ],
+              "answer": "B",
+              "explanation": "The example needs an Oscar-nominated film with a modest opening but strong lifetime earnings. *Amélie* opened with \\$136,470, less than *The Girl Who Played with Fire* (\\$904,998), yet earned far more over its lifetime."
+            },
+            {
+              "id": "t2-rw2ex-14",
               "section": "rw",
               "skill": "Inferences",
-              "difficulty": "easy",
-              "passage": "The International Space Station circles Earth about once every ninety minutes, so astronauts on board see roughly sixteen sunrises and sixteen sunsets each day. Because of this, astronauts cannot rely on the Sun to tell them when to sleep and ______",
+              "difficulty": "medium",
+              "passage": "Liverpool Football Club won more than half its home matches between 1947 and 2001, helping to distinguish the team as a top British professional soccer club. Additionally, Liverpool, whose home uniform color is mainly red, was more successful in home matches than Watford Football Club, whose home uniform color is not red. Research has shown that many people associate the color red with power and dominance. Past experiences with red objects such as stop signs can even cause people to respond to the color red with caution and hesitation. These findings, if applicable in the context of athletic competitions, could suggest that in matches played at Liverpool's home stadium, opponents may have ______",
               "prompt": "Which choice most logically completes the text?",
               "choices": [
-                "instead follow a daily schedule based on a clock.",
-                "sleep only when the station is in sunlight.",
-                "see only one sunrise each day.",
-                "rarely need to sleep while they are in space."
+                "played more aggressively than they would have if their own uniforms were red.",
+                "been influenced by the color of Liverpool's uniforms.",
+                "been aware that Liverpool's uniform color affected their own performance.",
+                "been unaffected by the redness worn by fans in the stadium."
               ],
-              "answer": "A",
-              "explanation": "Sixteen sunrises a day make sunlight useless for timing sleep, so astronauts must use a clock instead."
+              "answer": "B",
+              "explanation": "If red makes people respond with caution and hesitation, opponents at Liverpool's home stadium may have been influenced by Liverpool's red uniforms."
             },
             {
-              "id": "t2-rw2e-14",
+              "id": "t2-rw2ex-15",
               "section": "rw",
               "skill": "Inferences",
               "difficulty": "medium",
-              "passage": "A bakery owner noticed that customers often hesitated for a long time when the menu listed twenty kinds of bread but chose quickly when it listed only five. After the owner shortened the menu, total bread sales rose. These observations suggest that ______",
+              "passage": "India has classified the spiraling whitefly as an invasive species that could harm some of the country's native foliage, but researchers Alejandro Camacho and Jason McLachlan have pointed out that \"invasive\" and \"native\" are labels that describe temporary circumstances. Changes in Earth's climate may force animals from their current ranges. Climate changes may also create good habitats in areas where a species couldn't live previously. In the case of India, these observations suggest that ______",
               "prompt": "Which choice most logically completes the text?",
               "choices": [
-                "customers prefer bread to other baked goods.",
-                "the five breads on the new menu were cheaper than the others.",
-                "offering fewer choices may have made it easier for customers to decide to buy.",
-                "customers stopped visiting the bakery after the menu changed."
-              ],
-              "answer": "C",
-              "explanation": "Customers decided faster with fewer options, and sales rose, so a shorter menu likely made buying easier. Nothing in the text mentions prices."
-            },
-            {
-              "id": "t2-rw2e-15",
-              "section": "rw",
-              "skill": "Boundaries",
-              "difficulty": "easy",
-              "passage": "The Kepler space telescope searched for planets orbiting other ______ it identified thousands of possible planets before running out of fuel in 2018.",
-              "prompt": "Which choice completes the text so that it conforms to the conventions of Standard English?",
-              "choices": [
-                "stars,",
-                "stars;",
-                "stars",
-                "stars, which"
-              ],
-              "answer": "B",
-              "explanation": "Both parts are complete sentences, so a semicolon is needed. A comma alone creates a comma splice."
-            },
-            {
-              "id": "t2-rw2e-16",
-              "section": "rw",
-              "skill": "Boundaries",
-              "difficulty": "easy",
-              "passage": "After sixteen hours on the road from Chicago to ______ the travelers were relieved to see the city's lights.",
-              "prompt": "Which choice completes the text so that it conforms to the conventions of Standard English?",
-              "choices": [
-                "Denver;",
-                "Denver:",
-                "Denver",
-                "Denver,"
-              ],
-              "answer": "D",
-              "explanation": "A comma separates the introductory \"After...\" phrase from the main clause."
-            },
-            {
-              "id": "t2-rw2e-17",
-              "section": "rw",
-              "skill": "Boundaries",
-              "difficulty": "medium",
-              "passage": "The potter's workshop is crowded with tools: wooden paddles for shaping ______ thin wire for cutting clay, and soft brushes for applying glaze.",
-              "prompt": "Which choice completes the text so that it conforms to the conventions of Standard English?",
-              "choices": [
-                "pots;",
-                "pots:",
-                "pots,",
-                "pots"
-              ],
-              "answer": "C",
-              "explanation": "Items in a simple list are separated by commas. Semicolons are used only when the items already contain commas."
-            },
-            {
-              "id": "t2-rw2e-18",
-              "section": "rw",
-              "skill": "Boundaries",
-              "difficulty": "medium",
-              "passage": "Jupiter's largest moon, ______ is bigger than the planet Mercury.",
-              "prompt": "Which choice completes the text so that it conforms to the conventions of Standard English?",
-              "choices": [
-                "Ganymede,",
-                "Ganymede",
-                "Ganymede;",
-                "Ganymede:"
+                "the country's designation of the spiraling whitefly as invasive may be appropriate now but not in the future.",
+                "it's useful at present for the country to distinguish between invasive and native species in some instances but not in the case of the spiraling whitefly.",
+                "even if Earth's climate doesn't change in the way scientists predict, the spiraling whitefly will likely establish itself in the country.",
+                "the country was previously home to some spiraling whiteflies but they were outcompeted by invading species."
               ],
               "answer": "A",
-              "explanation": "\"Ganymede\" is extra information set off by a comma before it, so it needs a comma after it too."
+              "explanation": "Labels like \"invasive\" describe temporary circumstances, and climate change can shift habitats, so the label may be right now but not later."
             },
             {
-              "id": "t2-rw2e-19",
+              "id": "t2-rw2ex-16",
               "section": "rw",
               "skill": "Form, Structure, and Sense",
               "difficulty": "easy",
-              "passage": "Every evening, the retired astronomer ______ the sky above her village for new comets.",
+              "passage": "Trade with other societies was vital to the Byzantine Empire, which reigned in the Mediterranean from around 330 CE to 1453 CE. Its people profited by selling salt, textiles, and iron, items that ______ greatly in demand.",
               "prompt": "Which choice completes the text so that it conforms to the conventions of Standard English?",
               "choices": [
-                "scan",
-                "scanning",
-                "scans",
-                "have scanned"
+                "has been",
+                "were",
+                "was",
+                "is"
               ],
-              "answer": "C",
-              "explanation": "The subject is the singular \"astronomer,\" and the sentence describes a habit, so the verb is **scans**."
+              "answer": "B",
+              "explanation": "The verb refers to the plural \"items\" and to the past (the empire's era): \"were.\""
             },
             {
-              "id": "t2-rw2e-20",
+              "id": "t2-rw2ex-17",
               "section": "rw",
               "skill": "Form, Structure, and Sense",
-              "difficulty": "medium",
-              "passage": "The members of the weaving cooperative sell ______ carpets at a market in Marrakesh every weekend.",
-              "prompt": "Which choice completes the text so that it conforms to the conventions of Standard English?",
-              "choices": [
-                "their",
-                "its",
-                "her",
-                "there"
-              ],
-              "answer": "A",
-              "explanation": "The pronoun refers to the plural \"members,\" so it must be **their**. *There* refers to a place."
-            },
-            {
-              "id": "t2-rw2e-21",
-              "section": "rw",
-              "skill": "Form, Structure, and Sense",
-              "difficulty": "medium",
-              "passage": "In 1957, the Soviet Union launched Sputnik 1, which ______ the first artificial satellite to orbit Earth.",
-              "prompt": "Which choice completes the text so that it conforms to the conventions of Standard English?",
-              "choices": [
-                "becomes",
-                "became",
-                "will become",
-                "has become"
-              ],
-              "answer": "B",
-              "explanation": "The event happened in 1957, so the past tense **became** is needed."
-            },
-            {
-              "id": "t2-rw2e-22",
-              "section": "rw",
-              "skill": "Transitions",
               "difficulty": "easy",
-              "passage": "Fired clay bricks known as firebricks can withstand extremely high temperatures without cracking. ______ they are used to line the insides of kilns and furnaces.",
-              "prompt": "Which choice completes the text with the most logical transition?",
+              "passage": "In her work as a sociocultural anthropologist, Lívia Barbosa studies food and sociability in contemporary Brazil—namely, how common Brazilian foods like *taceo* (a disk-shaped biscuit) and *coxinha* (a stuffed fried dough) ______ as central mechanisms in building social relationships, values, and identities.",
+              "prompt": "Which choice completes the text so that it conforms to the conventions of Standard English?",
               "choices": [
-                "However,",
-                "In contrast,",
-                "Meanwhile,",
-                "For this reason,"
+                "is functioning",
+                "functions",
+                "has functioned",
+                "function"
               ],
               "answer": "D",
-              "explanation": "Lining kilns is a result of the bricks' heat resistance, so **For this reason** fits."
+              "explanation": "The subject is the plural \"foods,\" so \"function.\""
             },
             {
-              "id": "t2-rw2e-23",
+              "id": "t2-rw2ex-18",
               "section": "rw",
-              "skill": "Transitions",
-              "difficulty": "easy",
-              "passage": "Many travelers on the Silk Road rode horses. ______ merchants crossing the driest deserts usually relied on camels, which can go for days without water.",
-              "prompt": "Which choice completes the text with the most logical transition?",
-              "choices": [
-                "However,",
-                "Therefore,",
-                "For example,",
-                "Similarly,"
-              ],
-              "answer": "A",
-              "explanation": "Camels are contrasted with the horses most travelers rode, so **However** fits."
-            },
-            {
-              "id": "t2-rw2e-24",
-              "section": "rw",
-              "skill": "Transitions",
+              "skill": "Boundaries",
               "difficulty": "medium",
-              "passage": "Studies show that people who make a specific plan for a task, deciding exactly when and where they will do it, are more likely to follow through than people who simply intend to act. ______ students who wrote down exactly when and where they would study for an exam reported studying more hours than students who did not.",
-              "prompt": "Which choice completes the text with the most logical transition?",
+              "passage": "As a behavioral economist, Hisano of Kyoto University studies why people sometimes make irrational economic decisions. Hisano's research can thus address anomalies that neoclassical economic ______ assume that people are consistently rational decision makers—cannot explain.",
+              "prompt": "Which choice completes the text so that it conforms to the conventions of Standard English?",
               "choices": [
-                "In contrast,",
-                "For example,",
-                "Nevertheless,",
-                "Instead,"
-              ],
-              "answer": "B",
-              "explanation": "The students who wrote down a study plan are an example of the general pattern, so **For example** fits."
-            },
-            {
-              "id": "t2-rw2e-25",
-              "section": "rw",
-              "skill": "Rhetorical Synthesis",
-              "difficulty": "easy",
-              "passage": "While researching a topic, a student has taken the following notes:\n\n• The city of Tyre lies on the coast of present-day Lebanon.\n• In ancient times, the city was famous for a deep purple dye.\n• Roman writers called this color \"Tyrian purple.\"\n• Making even a small amount of the dye required thousands of sea snails.",
-              "prompt": "The student wants to explain what Tyre was known for in ancient Rome. Which choice most effectively uses relevant information from the notes to accomplish this goal?",
-              "choices": [
-                "The city of Tyre lies on the coast of present-day Lebanon.",
-                "Making even a small amount of dye required a great deal of work.",
-                "In ancient Rome, Tyre was known for its deep purple dye, which Roman writers called \"Tyrian purple.\"",
-                "Many cities on the eastern Mediterranean coast were busy ports."
+                "models which—",
+                "models which",
+                "models—which",
+                "models, which"
               ],
               "answer": "C",
-              "explanation": "Only this choice says what the city was famous for in Rome: its \"Tyrian purple\" dye."
+              "explanation": "The clause \"which assume ... decision makers\" is set off by a pair of dashes; the closing dash is already there, so the opening one is needed."
             },
             {
-              "id": "t2-rw2e-26",
+              "id": "t2-rw2ex-19",
               "section": "rw",
-              "skill": "Rhetorical Synthesis",
+              "skill": "Boundaries",
               "difficulty": "medium",
-              "passage": "While researching a topic, a student has taken the following notes:\n\n• The Hubble Space Telescope was launched in 1990.\n• The James Webb Space Telescope was launched in 2021.\n• Hubble observes mainly visible and ultraviolet light.\n• Webb observes mainly infrared light.\n• Both telescopes operate in space, above the blurring effects of Earth's atmosphere.",
-              "prompt": "The student wants to emphasize a difference in the kinds of light the two telescopes observe. Which choice most effectively uses relevant information from the notes to accomplish this goal?",
+              "passage": "During the decades-long movement to codify the rights of Latinos in the US, certain events were pivotal: the founding of the labor group El Teatro Campesino in ______ *Serna v. Portales Schools* court decision in 1974, which affirmed the rights of Latino students, is another such event.",
+              "prompt": "Which choice completes the text so that it conforms to the conventions of Standard English?",
               "choices": [
-                "Both telescopes operate in space, above the blurring effects of Earth's atmosphere.",
-                "Hubble was launched in 1990, and Webb was launched in 2021.",
-                "The James Webb Space Telescope observes mainly infrared light.",
-                "While Hubble observes mainly visible and ultraviolet light, Webb observes mainly infrared light."
-              ],
-              "answer": "D",
-              "explanation": "Only this choice compares the kinds of light both telescopes observe. The launch-date choice compares the wrong thing."
-            },
-            {
-              "id": "t2-rw2e-27",
-              "section": "rw",
-              "skill": "Rhetorical Synthesis",
-              "difficulty": "medium",
-              "passage": "While researching a topic, a student has taken the following notes:\n\n• The ruba'i is a four-line poem common in Persian literature.\n• In a ruba'i, the first, second, and fourth lines usually rhyme.\n• Omar Khayyam, an eleventh-century astronomer and mathematician, is famous for poems in this form.\n• Many of these poems reflect on the passing of time.",
-              "prompt": "The student wants to describe the structure of a ruba'i. Which choice most effectively uses relevant information from the notes to accomplish this goal?",
-              "choices": [
-                "Omar Khayyam was an eleventh-century astronomer and mathematician.",
-                "A ruba'i is a four-line poem whose first, second, and fourth lines usually rhyme.",
-                "Many poems of this kind reflect on the passing of time.",
-                "The ruba'i is common in Persian literature, and Omar Khayyam is famous for poems in this form."
+                "1965, for one, the",
+                "1965, for one. The",
+                "1965 for one, the",
+                "1965. For one, the"
               ],
               "answer": "B",
-              "explanation": "Structure means how the poem is built: its number of lines and rhyme pattern. Only this choice gives both."
+              "explanation": "\"The founding ... in 1965, for one\" ends the first sentence; \"The Serna v. Portales ...\" starts a new one."
+            },
+            {
+              "id": "t2-rw2ex-20",
+              "section": "rw",
+              "skill": "Boundaries",
+              "difficulty": "medium",
+              "passage": "A lady in waiting's account of Japanese courtly life in the tenth century, Sei Shonagon's *Pillow Book* is filled with daily observations and musings. Some of these appear as ______ \"Splendid Things,\" Shonagon catalogs her appreciation for a snow-covered garden, Chinese brocade fabric, and grape-colored fabric.",
+              "prompt": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+              "choices": [
+                "lists in",
+                "lists, in",
+                "lists in:",
+                "lists: In"
+              ],
+              "answer": "D",
+              "explanation": "\"Some of these appear as lists\" is complete; the colon introduces an example, which can start with a capital because it is a full sentence."
+            },
+            {
+              "id": "t2-rw2ex-21",
+              "section": "rw",
+              "skill": "Boundaries",
+              "difficulty": "medium",
+              "passage": "The Austronesian language family comprises some 1,200 languages, including Minangkabau and Ilokano, which are spoken primarily in Indonesia and the Philippines, ______ for one fifth of the world's languages, the Austronesian family is of keen interest to linguists like Sandra Chung.",
+              "prompt": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+              "choices": [
+                "respectively. Accounting",
+                "respectively, accounting",
+                "respectively; accounting",
+                "respectively accounting"
+              ],
+              "answer": "A",
+              "explanation": "\"Respectively\" ends the first sentence. \"Accounting for one fifth ...\" opens a new sentence and modifies \"the Austronesian family.\" A comma or no punctuation would create a run-on, and a semicolon can't come before a phrase that isn't an independent clause."
+            },
+            {
+              "id": "t2-rw2ex-22",
+              "section": "rw",
+              "skill": "Transitions",
+              "difficulty": "medium",
+              "passage": "With some elements, like selenium, scientists were able to isolate a relatively pure sample of the substance shortly after discovering its existence—but this wasn't the case with all elements. ______ the isolation process took a few years. The element molybdenum, for instance, was discovered in 1778 but not isolated until 1781.",
+              "prompt": "Which choice completes the text with the most logical transition?",
+              "choices": [
+                "Often,",
+                "Even so,",
+                "Similarly,",
+                "Furthermore,"
+              ],
+              "answer": "A",
+              "explanation": "Not every element was isolated right away; \"often\" the process took years, and molybdenum is an example."
+            },
+            {
+              "id": "t2-rw2ex-23",
+              "section": "rw",
+              "skill": "Transitions",
+              "difficulty": "medium",
+              "passage": "Firefly luciferase (Fluc) is a distinctly evolved enzyme that can oxidize a substrate called D-luciferin to induce bioluminescence and can act as a fatty acyl-CoA synthetase (ACS) enzyme, a class of enzyme present in all insects. ______ Fluc is a bifunctional enzyme whose presence indicates an insect is capable of emitting light. In contrast, the presence of ACS alone would be insufficient for determining bioluminescence.",
+              "prompt": "Which choice completes the text with the most logical transition?",
+              "choices": [
+                "In fact,",
+                "Moreover,",
+                "That is,",
+                "Nevertheless,"
+              ],
+              "answer": "C",
+              "explanation": "The sentence restates the previous one more plainly (Fluc does two jobs, so it signals light-emitting ability): \"That is.\""
+            },
+            {
+              "id": "t2-rw2ex-24",
+              "section": "rw",
+              "skill": "Rhetorical Synthesis",
+              "difficulty": "easy",
+              "passage": "While researching a topic, a student has taken the following notes:\n• Sandvikens Gymnasieskola is in Sandviken, Sweden.\n• It is home to a Foucault pendulum.\n• The University of Oradea is in Oradea, Romania.\n• It is home to a Foucault pendulum.\n• A Foucault pendulum dangles from a fixed point that ensures the swing path of the pendulum doesn't change.\n• To an observer, the swing path of a Foucault pendulum appears to change over time because Earth rotates beneath it.",
+              "prompt": "The student wants to emphasize a similarity between the two locations. Which choice most effectively uses relevant information from the notes to accomplish this goal?",
+              "choices": [
+                "Sandvikens Gymnasieskola in Sandviken, Sweden, and the University of Oradea in Oradea, Romania, both house Foucault pendulums.",
+                "Sandvikens Gymnasiesskola, which is home to a Foucault pendulum, is in Sweden, not Romania.",
+                "One Foucault pendulum is in Sweden, and the other is in Romania.",
+                "Because Earth rotates beneath it, the swing path of the Foucault pendulum at Sandvikens Gymnasieskola appears to change over time."
+              ],
+              "answer": "A",
+              "explanation": "A states the similarity: both places house Foucault pendulums."
+            },
+            {
+              "id": "t2-rw2ex-25",
+              "section": "rw",
+              "skill": "Rhetorical Synthesis",
+              "difficulty": "easy",
+              "passage": "• The Paralympic Games are a series of international sporting events involving athletes with an impairment.\n• Swimming has been an event at the Paralympics since 1960.\n• Mike Kenny competed as a Paralympic swimmer from 1976 to 1988.\n• He won eighteen medals.\n• Of these, sixteen were gold medals, which indicate a first-place finish.",
+              "prompt": "Which choice most effectively uses information from the given sentences to emphasize the number of medals won by Mike Kenny?",
+              "choices": [
+                "An accomplished Paralympian with multiple gold medal wins, Mike Kenny competed as a swimmer from 1976 to 1988.",
+                "During his career as a Paralympic swimmer, Mike Kenny earned a total of eighteen medals, sixteen of which were gold.",
+                "Swimming, a sport in which Mike Kenny took home sixteen gold medals, has been an event at the Paralympic Games since 1960.",
+                "Mike Kenny competed at the Paralympic Games, a series of international sporting events."
+              ],
+              "answer": "B",
+              "explanation": "B gives the number: eighteen medals, sixteen of them gold."
+            },
+            {
+              "id": "t2-rw2ex-26",
+              "section": "rw",
+              "skill": "Rhetorical Synthesis",
+              "difficulty": "medium",
+              "passage": "• Jean-Michel Basquiat was an American artist who produced more than two thousand drawings and paintings.\n• His work *Mater* was completed in 1982 and sold at auction in 2017.\n• *Mater* is composed of acrylic and oil stick on canvas and measures 6,048 square inches in area.\n• His work *Flash in Naples* was completed in 1983 and sold at auction in 2009.\n• *Flash in Naples* is composed of acrylic, oil stick, and oil on canvas and measures 3,992 square inches in area.",
+              "prompt": "Which choice most effectively uses information from the given sentences to emphasize how the two works are similar?",
+              "choices": [
+                "Between artist Jean-Michel Basquiat's works *Mater* and *Flash in Naples*, the former is the larger of the two.",
+                "Composed by artist Jean-Michel Basquiat in 1982 and 1983, respectively, both *Mater* and *Flash in Naples* use acrylic paint as a medium.",
+                "Artist Jean-Michel Basquiat completed *Mater* in 1982, and *Flash in Naples* followed in 1983.",
+                "Artist Jean-Michel Basquiat's work *Mater* is composed of acrylic and oil stick, while *Flash in Naples* is composed of acrylic, oil stick, and oil."
+              ],
+              "answer": "B",
+              "explanation": "B points out what the works share: both use acrylic paint."
+            },
+            {
+              "id": "t2-rw2ex-27",
+              "section": "rw",
+              "skill": "Rhetorical Synthesis",
+              "difficulty": "medium",
+              "passage": "• The Music by Black Composers (MBC) project aims to inspire aspiring music students by archiving and sharing information about the music of Black classical composers.\n• Maurice Arnold is a Black classical music composer included in MBC's Historic Composers Directory.\n• He was born in 1865 and died in 1937.",
+              "prompt": "Which choice most effectively uses information from the given sentences to set up a discussion of Arnold's career for an audience already familiar with the MBC project?",
+              "choices": [
+                "While Maurice Arnold is considered a great composer, there are many more such composers included in the MBC Historic Composers Directory.",
+                "Among the many talented figures included in the MBC project is classical music composer Maurice Arnold.",
+                "Born in 1865, Maurice Arnold passed away in 1937, according to the MBC project.",
+                "The MBC project's Historic Composers Directory highlights Black classical composers of the past, such as Maurice Arnold (1865–1937), in order to inspire music students to become the classical composers of the future."
+              ],
+              "answer": "B",
+              "explanation": "For readers who already know the MBC project, B introduces Arnold without re-explaining the project."
             }
           ]
         },

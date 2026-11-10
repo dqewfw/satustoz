@@ -1,7 +1,7 @@
 {
   "id": "practice-test-6",
   "title": "Practice Test 6",
-  "description": "A full-length adaptive digital SAT practice test written by SAT Ustoz: 98 questions, two modules per section, with an explanation for every question.",
+  "description": "A full-length adaptive digital SAT practice test: 98 questions, two modules per section, with an explanation for every question.",
   "routing": {
     "threshold": 0.6
   },
@@ -14,466 +14,501 @@
         "minutes": 32,
         "questions": [
           {
-            "id": "t6-rw1-01",
+            "id": "t6-rw1x-01",
             "section": "rw",
             "skill": "Words in Context",
             "difficulty": "easy",
-            "passage": "The warehouse robot's gripper is remarkably ______: in a single shift, it can lift a heavy crate, pick up a grape without bruising it, and fold a cotton shirt.",
+            "passage": "*Dragon against Tiger* is an important work of *Nihonga*, or classical Japanese painting. Unlike Saeki Yūzō, who adopted traditional European methods such as painting with oil on canvas, Hashimoto Gahō ______ traditional Japanese approaches. For instance, Hashimoto produced *Dragon against Tiger* by applying color pigments to a silk surface.",
             "prompt": "Which choice completes the text with the most logical and precise word or phrase?",
             "choices": [
-              "fragile",
-              "versatile",
-              "unreliable",
-              "decorative"
-            ],
-            "answer": "B",
-            "explanation": "The gripper handles very different jobs, from heavy crates to delicate grapes, so it is **versatile**."
-          },
-          {
-            "id": "t6-rw1-02",
-            "section": "rw",
-            "skill": "Words in Context",
-            "difficulty": "medium",
-            "passage": "Author Emily Carter's picture book *The Lantern Moth* is notably ______ with words: most pages hold a single short sentence, leaving the illustrations to tell much of the story.",
-            "prompt": "Which choice completes the text with the most logical and precise word or phrase?",
-            "choices": [
-              "generous",
-              "careless",
-              "inconsistent",
-              "sparing"
-            ],
-            "answer": "D",
-            "explanation": "One short sentence per page means using few words, so she is **sparing** with them. *Generous* is the opposite."
-          },
-          {
-            "id": "t6-rw1-03",
-            "section": "rw",
-            "skill": "Words in Context",
-            "difficulty": "medium",
-            "passage": "In parts of Valencia, Spain, the paella served at a large wedding is rarely cooked by the host family. The task is instead ______ to a paellero, a specialist cook whose skill with enormous pans of rice, beans, and meat is known throughout the neighborhood.",
-            "prompt": "Which choice completes the text with the most logical and precise word or phrase?",
-            "choices": [
-              "forbidden",
-              "compared",
-              "entrusted",
-              "explained"
-            ],
-            "answer": "C",
-            "explanation": "The family hands an important job to a trusted specialist, so the task is **entrusted** to the paellero."
-          },
-          {
-            "id": "t6-rw1-04",
-            "section": "rw",
-            "skill": "Words in Context",
-            "difficulty": "hard",
-            "passage": "Glaciologist Arvid Halvorsen cautions that a single cool summer, which may briefly slow a glacier's retreat, should not be treated as ______ evidence that the glacier is recovering: decades of measurements show the ice thinning steadily despite occasional pauses of this kind.",
-            "prompt": "Which choice completes the text with the most logical and precise word or phrase?",
-            "choices": [
-              "spurious",
-              "conclusive",
-              "exhaustive",
-              "ambivalent"
-            ],
-            "answer": "B",
-            "explanation": "Halvorsen warns that one cool summer does not settle the question, since long-term data show continued thinning. Evidence that settles a question is **conclusive**. Warning against treating it as *spurious* (false) evidence would mean it is genuine evidence of recovery, the opposite of his point."
-          },
-          {
-            "id": "t6-rw1-05",
-            "section": "rw",
-            "skill": "Text Structure and Purpose",
-            "difficulty": "medium",
-            "passage": "For decades, engineers who wanted robots to grasp unfamiliar objects tried to copy the human hand, building fingers with dozens of joints, motors, and sensors. Such hands were expensive and often failed when an object had an unusual shape. __One simpler design does away with fingers entirely: a rubber balloon filled with coffee grounds is pressed against an object, molds around it, and then stiffens when air is pumped out, locking the object in place.__",
-            "prompt": "Which choice best describes the function of the underlined sentence in the text as a whole?",
-            "choices": [
-              "It describes an alternative design that avoids the problems mentioned in the previous sentence.",
-              "It gives an example of a robotic hand that closely imitates the human hand.",
-              "It explains why engineers stopped trying to build robots that grasp objects.",
-              "It identifies a weakness shared by all robotic grippers."
+              "embraced",
+              "overlooked",
+              "released",
+              "distrusted"
             ],
             "answer": "A",
-            "explanation": "The previous sentence names the problems with copying the hand; the underlined sentence offers a finger-free design that gets around them."
+            "explanation": "Unlike Saeki, who adopted European methods, Hashimoto **embraced** Japanese ones; he painted on silk with color pigments."
           },
           {
-            "id": "t6-rw1-06",
+            "id": "t6-rw1x-02",
+            "section": "rw",
+            "skill": "Words in Context",
+            "difficulty": "easy",
+            "passage": "Domesticated thousands of years ago in South America, cacao, the plant from which chocolate is made, deviates structurally from the wild plant it is descended from. Summer squash, another domesticated crop from the Americas, doesn't closely resemble any wild plant, and genetic research only recently ______ its ancestor to be a wild gourd.",
+            "prompt": "Which choice completes the text with the most logical and precise word or phrase?",
+            "choices": [
+              "expanded",
+              "petitioned",
+              "encouraged",
+              "revealed"
+            ],
+            "answer": "D",
+            "explanation": "Genetic research recently **revealed** (made known) the squash's wild ancestor."
+          },
+          {
+            "id": "t6-rw1x-03",
+            "section": "rw",
+            "skill": "Words in Context",
+            "difficulty": "easy",
+            "passage": "The following text is adapted from Anton Chekhov's 1904 play *The Cherry Orchard* (translated by Julius West in 1916).\n\nTROFIMOV: Believe me, Anya, believe me! I'm not thirty yet, I'm young, I'm still a student, but I have undergone a great deal! I'm as hungry as the winter, I'm ill, I'm shaken... and where haven't I been—fate has tossed me everywhere!",
+            "prompt": "As used in the text, what does the word \"undergone\" most nearly mean?",
+            "choices": [
+              "Uncovered",
+              "Experienced",
+              "Disregarded",
+              "Expressed"
+            ],
+            "answer": "B",
+            "explanation": "Trofimov is young but has gone through hunger, illness, and wandering, so *undergone* means **experienced**."
+          },
+          {
+            "id": "t6-rw1x-04",
+            "section": "rw",
+            "skill": "Words in Context",
+            "difficulty": "medium",
+            "passage": "Text corpora such as the American National Corpus are enormous collections of electronically stored texts that can be used for empirical testing of hypotheses regarding the frequency of typical word usage. If one has a ______ that the word \"get\" has a high incidence in English, for example, an analysis of a corpus can support that hypothesis by showing that \"get\" is the fifth most commonly used verb.",
+            "prompt": "Which choice completes the text with the most logical and precise word or phrase?",
+            "choices": [
+              "recognition",
+              "scheme",
+              "synopsis",
+              "supposition"
+            ],
+            "answer": "D",
+            "explanation": "A corpus can \"support that hypothesis,\" so what one has is a **supposition** (an assumption to be tested)."
+          },
+          {
+            "id": "t6-rw1x-05",
             "section": "rw",
             "skill": "Text Structure and Purpose",
             "difficulty": "medium",
-            "passage": "When author Samuel Price submitted the manuscript of *The Boy Who Counted Clouds*, three publishers rejected it, complaining that the story had no villain and almost no plot: a boy spends one summer on a rooftop in Naples, naming the shapes he sees in the sky. The small press that eventually published the book left its quiet structure unchanged. Teachers soon reported that young readers, with no complicated plot to follow, began inventing cloud stories of their own, and the book has since been reprinted eleven times.",
+            "passage": "Researchers have long hypothesized that woolly mammoths were hunted to extinction in North America by humans using spears with grooved tips known as Clovis points. One anthropologist set out to test this hypothesis. Using a mechanical spear-thrower, he launched spears with Clovis points into mounds of clay—substitutes for the animals' large bodies. The projectiles generally penetrated only a few inches into the clay, an amount insufficient to have harmed most woolly mammoths. This led the anthropologist to conclude that hunters using spears with Clovis points likely weren't the principal drivers of the extinction.",
             "prompt": "Which choice best states the main purpose of the text?",
             "choices": [
-              "To argue that children's books should never include villains",
-              "To describe how small presses decide which manuscripts to publish",
-              "To explain why the author chose to set his book in Naples",
-              "To show how a feature of a book that publishers considered a weakness turned out to be part of its appeal"
+              "To argue for the significance of new findings amid an ongoing debate among researchers",
+              "To discuss the advantages and disadvantages of the method used in an experiment",
+              "To summarize two competing hypotheses and a major finding associated with each one",
+              "To describe an experiment whose results cast doubt on an established hypothesis"
             ],
             "answer": "D",
-            "explanation": "Publishers saw the missing plot as a flaw, yet that same quiet structure let readers invent their own stories, and the book succeeded."
+            "explanation": "The text describes an experiment whose shallow spear penetration casts doubt on the long-held hunting hypothesis."
           },
           {
-            "id": "t6-rw1-07",
+            "id": "t6-rw1x-06",
+            "section": "rw",
+            "skill": "Text Structure and Purpose",
+            "difficulty": "medium",
+            "passage": "In what is now New Mexico, the Pueblo of Pojoaque operates the Poeh Cultural Center. Relying on traditional knowledge to guide the design of exhibits, this institution presents Pojoaque history and culture to the tribe's citizens. The Turtle Mountain Band of Chippewa, a tribe in North Dakota, employs a similar strategy in its own cultural center. Both centers contrast with museums that aren't Indigenous-led; when displaying Indigenous artifacts, such museums tend to anticipate mainly non-Indigenous audiences and rely on Euro-centric strategies for designing exhibits.",
+            "prompt": "Which choice best describes the overall structure of the text?",
+            "choices": [
+              "It examines how tribal citizens respond to exhibits at tribal cultural centers, then speculates how non-Indigenous audiences would respond to the same exhibits.",
+              "It outlines an early strategy for exhibit design used by one tribal cultural center, then explains a newer strategy used by a different tribal cultural center.",
+              "It describes how tribal cultural centers designed exhibits of a particular set of artifacts, then analyzes how non-Indigenous institutions designed exhibits of the same artifacts.",
+              "It discusses two cultural centers operated by tribes, then compares them with non-Indigenous institutions that present Indigenous exhibits."
+            ],
+            "answer": "D",
+            "explanation": "The text presents two tribal cultural centers, then contrasts them with museums that aren't Indigenous-led."
+          },
+          {
+            "id": "t6-rw1x-07",
             "section": "rw",
             "skill": "Cross-Text Connections",
             "difficulty": "hard",
-            "passage": "**Text 1**\nA layer of rock debris more than a few centimeters thick shields glacier ice from the sun's heat. For this reason, many glaciologists expect glaciers covered in debris to lose ice much more slowly than clean glaciers in the same climate, and some forecasts of future water supply in South Asia treat debris-covered glaciers as relatively secure.\n\n**Text 2**\nSatellite measurements analyzed by a team led by geographer Laura Bennett show that debris-covered glaciers in the Himalayas have been thinning at about the same rate as nearby clean glaciers. The team traced much of the loss to scattered ice cliffs and meltwater ponds on the debris-covered surfaces. Although these features occupy only a small share of each glacier, they absorb heat and rapidly melt the surrounding ice.",
-            "prompt": "Based on the texts, how would Bennett's team most likely respond to the forecasts described in Text 1?",
+            "passage": "**Text 1**\nMany historians have described the spread of the printing press in fifteenth-century Europe as a sudden revolution. Within a few decades, they argue, printed books replaced handwritten manuscripts and transformed how knowledge circulated.\n**Text 2**\nRecords from monasteries and universities complicate this picture. Scribes continued to copy manuscripts well into the sixteenth century, and many readers preferred handwritten books for prayer and study. Printing certainly grew quickly, but for generations it coexisted with manuscript production rather than replacing it.",
+            "prompt": "Based on the texts, how would the author of Text 2 most likely respond to the historians discussed in Text 1?",
             "choices": [
-              "By rejecting the idea that a thick layer of debris can insulate the ice beneath it",
-              "By suggesting that the forecasts overlook surface features that let heat reach the ice despite the debris, so debris-covered glaciers may be less secure than assumed",
-              "By agreeing that debris-covered glaciers lose ice more slowly than clean glaciers, except in the Himalayas",
-              "By arguing that ice cliffs and meltwater ponds form mainly on glaciers that have no debris"
+              "By agreeing that printing spread quickly but arguing that the historians overstate how fast it displaced manuscripts",
+              "By claiming that very few printed books were produced in the fifteenth century",
+              "By suggesting that scribes opposed printing because it threatened their livelihoods",
+              "By arguing that handwritten manuscripts were more accurate than printed books"
+            ],
+            "answer": "A",
+            "explanation": "Text 2 grants that \"printing certainly grew quickly\" but shows manuscripts kept being made and used for generations, so it would say Text 1's historians overstate how fast printing replaced manuscripts. (This replaces a question that already appears in Practice Test 1.)"
+          },
+          {
+            "id": "t6-rw1x-08",
+            "section": "rw",
+            "skill": "Cross-Text Connections",
+            "difficulty": "hard",
+            "passage": "**Text 1**\nWesleyan University and the investment bank BNP Paribas are two of the many institutions offering training programs in entrepreneurship. But what results do such programs produce? In a study of high school and business school students in the United States, researcher Fiona Wilson and colleagues addressed this question and reported that participants who received entrepreneurial training showed positive attitudes toward entrepreneurship.\n**Text 2**\nWhile studies of entrepreneurial training typically report positive results, a close look reveals widespread methodological shortcomings that could skew the findings. These studies are plagued by insufficient sample sizes, a lack of control groups, and failures to establish pretraining baselines for the measured attributes of participants.",
+            "prompt": "Based on the texts, the author of Text 2 would most likely want to know if Wilson and colleagues took steps to preclude which potential objection to the finding described in Text 1?",
+            "choices": [
+              "The participants would have shown positive attitudes toward entrepreneurship regardless of whether they received the training.",
+              "The participants would have been less likely to show positive attitudes toward entrepreneurship if the study sample size had been smaller.",
+              "The participants would have responded to the training differently if they had not known that they were participating in a study.",
+              "The participants would have shown greater responsiveness to the training if the training sessions had lasted longer."
+            ],
+            "answer": "A",
+            "explanation": "Text 2 criticizes training studies for lacking control groups and pretraining baselines. Without those, participants might have had positive attitudes anyway, so that is the objection Text 2's author would ask about."
+          },
+          {
+            "id": "t6-rw1x-09",
+            "section": "rw",
+            "skill": "Central Ideas and Details",
+            "difficulty": "medium",
+            "passage": "\"Coyote\" is an example of a loanword—that is, a word that originated in one language and was later adopted by another. The word came to English indirectly from *coyote*, the Spanish word for the wild canine species. Spanish had borrowed it from Nahuatl, an Indigenous language of Central Mexico, in which the word's original form is *coyotl*. \"Maize\" is also Indigenous in origin and entered English through Spanish. But in this case, the original source was Taino, a language of the Caribbean islands, in which the word for the corn plant is *mahis*.",
+            "prompt": "The author makes which point about the Spanish language?",
+            "choices": [
+              "It adopted Nahuatl and Taino words in approximately equal numbers.",
+              "It has served as a medium through which Indigenous languages have influenced English.",
+              "Its contribution to English vocabulary roughly equals the collective contribution by Indigenous languages.",
+              "It has borrowed words from Indigenous languages and contributed words to them."
             ],
             "answer": "B",
-            "explanation": "Text 2 finds similar thinning and explains it with ice cliffs and ponds, which the forecasts ignore. The team never denies that debris insulates the ice it covers; it points to the small areas where heat gets through, so rejecting insulation outright goes too far."
+            "explanation": "Both \"coyote\" and \"maize\" came from Indigenous languages into English through Spanish, so Spanish served as a medium for that influence."
           },
           {
-            "id": "t6-rw1-08",
+            "id": "t6-rw1x-10",
             "section": "rw",
-            "skill": "Central Ideas and Details",
-            "difficulty": "easy",
-            "passage": "Account books from a nineteenth-century dye workshop in Avignon show that the color of a silk scarf said a great deal about its price. Red dye came from madder root, which grew nearby, and yellow from local plants such as weld. Deep blue, however, required indigo, which arrived by ship from India, and the workshop charged far more for blue cloth than for red or yellow cloth.",
-            "prompt": "Which choice best states the main idea of the text?",
-            "choices": [
-              "Madder root was the most common plant grown near Avignon.",
-              "Silk scarves were worn only by the wealthiest residents of Avignon.",
-              "The workshop's prices for dyed cloth reflected whether a dye could be obtained locally or had to be imported.",
-              "Indigo was used mainly to dye cotton rather than silk."
-            ],
-            "answer": "C",
-            "explanation": "The text contrasts cheap local dyes (red and yellow) with costly imported indigo, which explains the difference in price."
-          },
-          {
-            "id": "t6-rw1-09",
-            "section": "rw",
-            "skill": "Central Ideas and Details",
-            "difficulty": "medium",
-            "passage": "The following text is from a short story. Leo has entered a robot he built in a school competition.\n\nThe robot was supposed to sort colored blocks into bins, but halfway through its first round it began spinning in place, scattering blocks across the floor. Leo felt his face grow hot as the judges marked their sheets. Then he noticed a cluster of first-graders pressed against the railing, laughing and cheering each time the robot spun. When the round ended, they begged him to make it dance again, and for the first time all morning, Leo laughed too.",
-            "prompt": "Which choice best states the main idea of the text?",
-            "choices": [
-              "Although Leo's robot fails at its task, the young spectators' delight helps him enjoy the moment.",
-              "Leo realizes that he programmed the robot incorrectly and decides to fix it before the next round.",
-              "The judges are impressed by the robot's unexpected spinning.",
-              "Leo is annoyed that the first-graders are laughing at his robot."
-            ],
-            "answer": "A",
-            "explanation": "Leo is embarrassed at first, but the children's cheering turns the failure into something he can laugh at."
-          },
-          {
-            "id": "t6-rw1-10",
-            "section": "rw",
-            "skill": "Command of Evidence: Textual",
-            "difficulty": "medium",
-            "passage": "Anthropologist Nikos Pappas, who studies households in mountain villages of northern Greece, argues that families there serve guests freshly baked bread mainly as a sign of respect rather than because they simply prefer fresh bread.",
-            "prompt": "Which finding, if true, would most directly support Pappas's argument?",
-            "choices": [
-              "Most households in the villages own a clay oven for baking bread.",
-              "Bread baked in the villages stays fresh longer than bread bought in city shops.",
-              "Families that ate bread several days old at their own meals still baked fresh bread whenever a guest was expected.",
-              "Guests in the villages usually arrive in the late afternoon."
-            ],
-            "answer": "C",
-            "explanation": "If families happily eat old bread themselves but still bake fresh bread for guests, the fresh bread is about honoring the guest, not about taste."
-          },
-          {
-            "id": "t6-rw1-11",
-            "section": "rw",
-            "skill": "Command of Evidence: Textual",
+            "skill": "Inferences",
             "difficulty": "hard",
-            "passage": "\"Loom Song\" is a poem by Rosa Delgado. In the poem, the speaker suggests that weaving connects her to the women who worked at the loom before her.",
-            "prompt": "Which quotation from \"Loom Song\" most effectively illustrates this claim?",
+            "passage": "In Armenia, use of solid fuel (e.g., coal, wood) as a share of total household fuel use fell by approximately 90 percent between 2000 and 2018; such shifts are typically explained by appeal to the energy ladder, a model holding that fuel choice is mediated mainly by household income (specifically, high-technology fuels displace solid fuels as incomes rise). Boukary Ouedraogo's study of fuel use in Burkina Faso shows how reductive this model is, however: although income of course constrains fuel choice, several factors, including the frequency with which certain dishes are cooked, influence decisions.",
+            "prompt": "Based on the text, the author would most likely agree with which statement about household income?",
             "choices": [
-              "\"Each knot I pull, my grandmother pulled first; / her patient hands still move inside my own.\"",
-              "\"The loom is older than the house it stands in, / its frame gone dark with a century of smoke.\"",
-              "\"I choose the red for warmth, the blue for distance, / and let the colors argue on the frame.\"",
-              "\"By evening, the shuttle's rhythm slows, / and the courtyard fills with the sound of rain.\""
+              "It constrains the amount of fuel households use but not the type of fuel they use.",
+              "It affects household fuel choice but not for the reasons assumed by the energy ladder model.",
+              "It can explain some but not all of the differences in fuel choice across households.",
+              "It is often said to influence household fuel choice but actually does not."
             ],
-            "answer": "A",
-            "explanation": "Only this quotation ties the speaker's weaving to an earlier weaver, her grandmother, whose hands she feels in her own. The line about the old loom mentions the past but says nothing about the women who used it."
+            "answer": "C",
+            "explanation": "The author grants that \"income of course constrains fuel choice\" but says several other factors matter too, so income explains some but not all of the differences."
           },
           {
-            "id": "t6-rw1-12",
+            "id": "t6-rw1x-11",
+            "section": "rw",
+            "skill": "Command of Evidence: Textual",
+            "difficulty": "medium",
+            "passage": "Ecologist Dana Whitcombe and her team used motion-activated cameras to compare when raccoons are active in city parks and in rural woodlands. They found that city raccoons tend to begin foraging later at night than rural raccoons do. A student hypothesizes that city raccoons forage later because they avoid the early-evening hours when people are most active outdoors.",
+            "prompt": "Which finding, if true, would most directly support the student's hypothesis?",
+            "choices": [
+              "City raccoons and rural raccoons spent about the same total number of hours foraging each night.",
+              "In city parks with little early-evening foot traffic, raccoons began foraging earlier than they did in busy city parks.",
+              "Rural raccoons ate a wider variety of foods than city raccoons did.",
+              "City raccoons were, on average, heavier than rural raccoons."
+            ],
+            "answer": "B",
+            "explanation": "If raccoons start foraging earlier where evenings are quiet, then human activity (not the city itself) is what pushes them later. That directly supports the hypothesis. (Said's file had no question 11, so we wrote this one.)"
+          },
+          {
+            "id": "t6-rw1x-12",
             "section": "rw",
             "skill": "Command of Evidence: Quantitative",
             "difficulty": "medium",
-            "passage": "A geographer studying four glaciers in the same valley suggests that glaciers whose lower ends lie at lower elevations, where the air is warmer, have retreated farther in recent decades. For example, ______",
-            "prompt": "Which choice most effectively uses data from the table to complete the example?",
-            "choices": [
-              "East Glacier retreated 390 meters between 2000 and 2020.",
-              "the lower end of North Glacier sits at 3,950 meters, higher than the lower end of East Glacier.",
-              "West Glacier, which ends at the highest elevation, retreated farther than North Glacier did.",
-              "the lower end of South Glacier sits at 3,210 meters, and that glacier retreated 655 meters, while West Glacier, which ends at 4,120 meters, retreated only 85 meters."
-            ],
-            "answer": "D",
-            "explanation": "The example must pair elevation with retreat. South Glacier ends lowest and retreated most; West Glacier ends highest and retreated least. The claim that West retreated farther than North is false: West retreated 85 meters and North 140.",
+            "passage": "In 2022, the city of Riverton extended weekday evening hours at four of its public libraries. A city council member claims that the change increased the average number of daily visitors at every library that adopted it.",
             "table": {
-              "title": "Four glaciers in one valley",
+              "title": "Average Daily Visitors to Four Riverton Public Libraries",
               "head": [
-                "Glacier",
-                "Elevation of lower end (m)",
-                "Retreat, 2000–2020 (m)"
+                "Library",
+                "Before extended hours",
+                "After extended hours"
               ],
               "rows": [
                 [
-                  "North",
-                  "3,950",
-                  "140"
+                  "Eastside",
+                  "410",
+                  "465"
                 ],
                 [
-                  "East",
-                  "3,480",
-                  "390"
+                  "Hillcrest",
+                  "290",
+                  "330"
                 ],
                 [
-                  "South",
-                  "3,210",
-                  "655"
+                  "Northgate",
+                  "515",
+                  "540"
                 ],
                 [
-                  "West",
-                  "4,120",
-                  "85"
+                  "Old Town",
+                  "360",
+                  "402"
                 ]
               ]
-            }
-          },
-          {
-            "id": "t6-rw1-13",
-            "section": "rw",
-            "skill": "Inferences",
-            "difficulty": "medium",
-            "passage": "Many robot vacuum cleaners avoid falling down stairs by shining infrared light at the floor and measuring how much of it is reflected back: when little light returns, the robot assumes it has reached a drop-off and backs away. Owners have reported that these robots often refuse to cross very dark rugs, which absorb most of the light that strikes them. This behavior suggests that the robots ______",
-            "prompt": "Which choice most logically completes the text?",
+            },
+            "prompt": "Which choice most effectively uses data from the table to support the council member's claim?",
             "choices": [
-              "are unable to detect real staircases.",
-              "mistake the dark rugs for drop-offs such as the edge of a staircase.",
-              "clean dark rugs more thoroughly than light-colored floors.",
-              "rely on cameras rather than infrared light to detect obstacles."
+              "Northgate had the most average daily visitors both before and after the hours were extended.",
+              "Each of the four libraries had more average daily visitors after the hours were extended than before.",
+              "Average daily visitors at Eastside rose from 410 to 465 after the hours were extended.",
+              "Hillcrest had fewer average daily visitors than Old Town both before and after the hours were extended."
             ],
             "answer": "B",
-            "explanation": "Dark rugs reflect little light, which is exactly the signal the robot reads as a drop-off, so it backs away from them."
+            "explanation": "The claim is that visits rose at every library. Only B covers all four libraries; C mentions just one, and A and D compare libraries instead of before and after. (Said's file had no question 12, so we wrote this one.)"
           },
           {
-            "id": "t6-rw1-14",
+            "id": "t6-rw1x-13",
             "section": "rw",
-            "skill": "Inferences",
+            "skill": "Command of Evidence: Quantitative",
             "difficulty": "hard",
-            "passage": "At a site in the Rhône Valley that was occupied for many centuries, archaeologists found charred grape seeds in household hearths from every period. Seeds from the oldest layers are short and round, like those of wild grapes, whereas seeds from more recent layers are longer and narrower, a shape typical of cultivated vines. Because pollen records show that wild grapevines grew in the nearby river forests throughout the site's history, the archaeologists concluded that ______",
-            "prompt": "Which choice most logically completes the text?",
+            "passage": "To understand the extent of deforestation in the Chorotega region of Costa Rica, Juan Pablo Arroyo-Mora and colleagues used historical aerial photography and remote sensing data to track changes in the annual mean size of forest patches across different land use capability classes (categories that indicate possible uses of forest land). Due to the Chorotega region's climate, various types of forested areas were converted to cattle pasture as rising international meat prices drove a cattle ranching boom in the 1960s and 1970s. By the mid-1980s, however, increased public awareness and environmental reforms, along with a decline in meat prices, triggered a natural regrowth process, as evidenced by the ______",
+            "table": {
+              "title": "Mean Forest Patch Size in the Chorotega Region by Land Use Capability Class (hectares)",
+              "head": [
+                "Year",
+                "Class I–IV",
+                "Class VI",
+                "Class VII"
+              ],
+              "rows": [
+                [
+                  "1960",
+                  "60",
+                  "85",
+                  "110"
+                ],
+                [
+                  "1979",
+                  "25",
+                  "40",
+                  "55"
+                ],
+                [
+                  "1986",
+                  "12",
+                  "22",
+                  "23"
+                ],
+                [
+                  "2000",
+                  "30",
+                  "48",
+                  "70"
+                ]
+              ]
+            },
+            "prompt": "Which choice most effectively uses data from the table to complete the assertion?",
             "choices": [
-              "residents most likely stopped eating grapes during the later periods of occupation.",
-              "wild grapevines most likely disappeared from the river forests before the site's later periods.",
-              "the site's earliest residents most likely grew more cultivated vines than its later residents did.",
-              "the change in seed shape most likely reflects residents' growing reliance on cultivated vines rather than the loss of wild grapes from the area."
+              "steady increase in mean forest patch size from 1960 to 1979, followed by a more sudden increase in 1986 for all classes.",
+              "difference between the mean forest patch size in Class VII and in Class I–IV in 2000.",
+              "similarity in mean forest patch size in Class VII and Class VI in 1986.",
+              "increase in mean forest patch size after 1986 in all classes."
             ],
             "answer": "D",
-            "explanation": "Wild grapes stayed available, so their disappearance can't explain the change; residents must have shifted toward cultivated grapes. The option about wild vines disappearing is ruled out by the pollen records."
+            "explanation": "Regrowth after the mid-1980s means forest patches got bigger after 1986, and the table shows that in every class. A is false (patches shrank from 1960 to 1979), and B and C compare classes instead of showing change over time. (Said's file was missing the graph, so we rebuilt the data as a table.)"
           },
           {
-            "id": "t6-rw1-15",
+            "id": "t6-rw1x-14",
             "section": "rw",
-            "skill": "Boundaries",
-            "difficulty": "easy",
-            "passage": "Molas, the textile panels of Panama's Guna people, are made entirely by ______ their bold patterns are cut from layers of colored cloth and stitched together piece by piece.",
-            "prompt": "Which choice completes the text so that it conforms to the conventions of Standard English?",
-            "choices": [
-              "hand;",
-              "hand,",
-              "hand",
-              "hand, and,"
-            ],
-            "answer": "A",
-            "explanation": "Both parts are complete sentences, so they need a semicolon. A comma alone creates a comma splice."
-          },
-          {
-            "id": "t6-rw1-16",
-            "section": "rw",
-            "skill": "Boundaries",
-            "difficulty": "medium",
-            "passage": "The team's ______ a four-legged machine assembled from recycled bicycle parts, climbed a full flight of stairs during the regional competition.",
-            "prompt": "Which choice completes the text so that it conforms to the conventions of Standard English?",
-            "choices": [
-              "robot,",
-              "robot",
-              "robot;",
-              "robot:"
-            ],
-            "answer": "A",
-            "explanation": "The phrase \"a four-legged machine...parts\" renames the robot and closes with a comma, so it must open with a comma too."
-          },
-          {
-            "id": "t6-rw1-17",
-            "section": "rw",
-            "skill": "Boundaries",
+            "skill": "Command of Evidence: Textual",
             "difficulty": "hard",
-            "passage": "The children's ______ *The Salt Road Fox* tells the story of a young fox who follows a camel caravan across the desert in search of her lost brother.",
-            "prompt": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+            "passage": "Veronica L. Bura, Akito Y. Kawahara, and Jayne E. Yack investigated the evolution and function of sound production in silk moth and hawk moth caterpillars. They found that during harmless simulated attacks on isolated caterpillars, 33% of the tested species produced sounds, which ranged from chirps in *Citheronia lobesis* to whistles in *Phyllosphingia dissimilis*. Although some insects use sound to communicate with members of the same species, the researchers claim that the caterpillar sounds recorded in their study are directed primarily at predators.",
+            "prompt": "Which finding, if true, would most directly support Bura and colleagues' claim?",
             "choices": [
-              "novel,",
-              "novel:",
-              "novel",
-              "novel—"
-            ],
-            "answer": "C",
-            "explanation": "The title identifies which novel is meant, so it is essential and takes no punctuation. A comma would also need a closing comma after the title, and there is none."
-          },
-          {
-            "id": "t6-rw1-18",
-            "section": "rw",
-            "skill": "Boundaries",
-            "difficulty": "medium",
-            "passage": "In Mei's kitchen, the dough for hand-pulled noodles needs only three ______ wheat flour, water, and salt. The real skill lies in the stretching, which can take years to master.",
-            "prompt": "Which choice completes the text so that it conforms to the conventions of Standard English?",
-            "choices": [
-              "ingredients;",
-              "ingredients:",
-              "ingredients",
-              "ingredients, they are"
+              "Each caterpillar species tended to produce one sound during simulated attacks, although individuals occasionally made a variety of other sounds during simulated attacks as well.",
+              "Chickens and yellow warblers, two predators of caterpillars, have been observed to stop their attacks in response to caterpillar sounds.",
+              "In most cases, the sound that a caterpillar species produced during simulated attacks was not produced by other caterpillar species during simulated attacks.",
+              "Caterpillar chirps were emitted in a frequency detectable by birds that prey on caterpillars, but caterpillar whistles were not."
             ],
             "answer": "B",
-            "explanation": "A colon introduces the list that names the three ingredients. A semicolon would need a complete sentence after it."
+            "explanation": "If predators stop attacking when caterpillars make sounds, the sounds are aimed at predators."
           },
           {
-            "id": "t6-rw1-19",
+            "id": "t6-rw1x-15",
+            "section": "rw",
+            "skill": "Inferences",
+            "difficulty": "hard",
+            "passage": "In dialects of English spoken in Scotland, the \"r\" sound is strongly emphasized when it appears at the end of syllables (as in \"car\") or before other consonant sounds (as in \"bird\"). English dialects of the Upland South, a region stretching from Oklahoma to western Virginia, place similar emphasis on \"r\" at the ends of syllables and before other consonant sounds. Historical records show that the Upland South was colonized largely by people whose ancestors came from Scotland. Thus, linguists have concluded that ______",
+            "prompt": "Which choice most logically completes the text?",
+            "choices": [
+              "the English dialects spoken in the Upland South acquired their emphasis on the \"r\" sound from dialects spoken in Scotland.",
+              "emphasis on the \"r\" sound will eventually spread from English dialects spoken in the Upland South to dialects spoken elsewhere.",
+              "the English dialects spoken in Scotland were influenced by dialects spoken in the Upland South.",
+              "people from Scotland abandoned their emphasis on the \"r\" sound after relocating to the Upland South."
+            ],
+            "answer": "A",
+            "explanation": "Both dialects stress \"r\" the same way, and the Upland South was settled mostly by people of Scottish ancestry, so the feature likely came from Scotland."
+          },
+          {
+            "id": "t6-rw1x-16",
             "section": "rw",
             "skill": "Form, Structure, and Sense",
             "difficulty": "easy",
-            "passage": "The tiny moons orbiting the distant planet ______ too dim to be seen without a powerful telescope.",
+            "passage": "What makes the theremin a unique musical instrument? You play it without touching it. When you place your ______ the pitch will shift as your hands move through the air.",
             "prompt": "Which choice completes the text so that it conforms to the conventions of Standard English?",
             "choices": [
-              "is",
-              "was",
-              "are",
-              "has been"
+              "hand's between the two antenna's,",
+              "hands between the two antennas,",
+              "hands' between the two antennas' ,",
+              "hands' between the two antennas,"
             ],
-            "answer": "C",
-            "explanation": "The subject is the plural \"moons,\" so the verb is **are**."
+            "answer": "B",
+            "explanation": "\"Hands\" and \"antennas\" are plain plurals; neither possesses anything, so no apostrophes."
           },
           {
-            "id": "t6-rw1-20",
+            "id": "t6-rw1x-17",
             "section": "rw",
             "skill": "Form, Structure, and Sense",
             "difficulty": "medium",
-            "passage": "Since its founding in 1998, the small textile museum ______ more than four hundred embroidered panels from families across Sicily.",
+            "passage": "Upper Fruitland Chapter is one of the 110 chapters of the Navajo Nation (Naabeehó Bináhásdzo). The chapter, known as Doo Alkʼaii in the Navajo language (Diné bizaad), was the subject of a profile ______ in the *Navajo Times* on September 18, 2014.",
             "prompt": "Which choice completes the text so that it conforms to the conventions of Standard English?",
             "choices": [
-              "collects",
-              "will collect",
-              "had collected",
-              "has collected"
+              "has appeared",
+              "appears",
+              "appeared",
+              "appearing"
             ],
             "answer": "D",
-            "explanation": "\"Since its founding\" describes an action that began in the past and continues now, so the present perfect **has collected** is needed."
+            "explanation": "\"A profile appearing in the Navajo Times\" uses a participle to modify \"profile\"; the sentence already has its main verb \"was.\""
           },
           {
-            "id": "t6-rw1-21",
+            "id": "t6-rw1x-18",
             "section": "rw",
-            "skill": "Form, Structure, and Sense",
-            "difficulty": "hard",
-            "passage": "The letters exchanged by the silk merchant and his business partner in Lyon ______ how quickly prices for raw silk rose during the 1870s.",
+            "skill": "Boundaries",
+            "difficulty": "medium",
+            "passage": "Cyprus High School and San Juan High School are two of several Utah ______ enormous geoglyph of the letter C overlooks Cyprus High, while a geoglyph of the letters SJ overlooks San Juan High.",
             "prompt": "Which choice completes the text so that it conforms to the conventions of Standard English?",
             "choices": [
-              "reveals",
-              "has revealed",
-              "reveal",
-              "is revealing"
+              "schools, that have their own hillside geoglyphs, and an",
+              "schools that have their own hillside geoglyphs, an",
+              "schools, that have their own hillside geoglyphs and an",
+              "schools that have their own hillside geoglyphs. An"
             ],
-            "answer": "C",
-            "explanation": "The subject is the plural \"letters,\" so the verb is **reveal**. The singular nouns \"partner\" and \"Lyon\" sit right before the blank but are not the subject."
+            "answer": "D",
+            "explanation": "The first sentence is complete after \"geoglyphs\"; \"An enormous geoglyph ...\" starts a new one. \"That have ...\" is essential, so no comma before \"that.\""
           },
           {
-            "id": "t6-rw1-22",
+            "id": "t6-rw1x-19",
+            "section": "rw",
+            "skill": "Boundaries",
+            "difficulty": "medium",
+            "passage": "Deposits of iron oxide and other organic matter lend the sand at Rabida Island Beach in Ecuador an unusual red tint that dazzles ______ they take a bit of sand home, though, it disturbs the beach's ecosystem by contributing to erosion.",
+            "prompt": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+            "choices": [
+              "visitors and when",
+              "visitors, when",
+              "visitors. When",
+              "visitors when"
+            ],
+            "answer": "C",
+            "explanation": "\"An unusual red tint that dazzles visitors\" ends a complete sentence; \"When they take ...\" begins the next."
+          },
+          {
+            "id": "t6-rw1x-20",
+            "section": "rw",
+            "skill": "Boundaries",
+            "difficulty": "medium",
+            "passage": "Consider the mechanics of the pinhole camera: light passes through a small hole, resulting in a focused projected image. A ray diagram reveals how this ______ the hole's small size restricts light to a single ray, all light passing through the hole can only arrive at a single destination, eliminating diffraction and ensuring a clear image.",
+            "prompt": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+            "choices": [
+              "works because",
+              "works. Because",
+              "works, it's because",
+              "works: it's because"
+            ],
+            "answer": "B",
+            "explanation": "\"A ray diagram reveals how this works\" is a complete sentence; the next begins with the clause \"Because the hole's small size ...\""
+          },
+          {
+            "id": "t6-rw1x-21",
             "section": "rw",
             "skill": "Transitions",
             "difficulty": "easy",
-            "passage": "Sea ice reflects most of the sunlight that strikes it, while dark ocean water absorbs most of it. ______ as Arctic sea ice melts and exposes more open water, the region absorbs more heat, which in turn melts more ice.",
+            "passage": "In 1949, Frank Zamboni developed an ice rink resurfacing machine. As Zamboni's machine moved along the rink's surface, it first scraped off the top layer of ice. ______ it sprayed water into the deep grooves left behind by customers' skates. Lastly, it smoothed over the newly formed ice.",
             "prompt": "Which choice completes the text with the most logical transition?",
             "choices": [
-              "Consequently,",
-              "However,",
               "For example,",
-              "Similarly,"
-            ],
-            "answer": "A",
-            "explanation": "The extra heat absorption is a result of the difference described in the first sentence."
-          },
-          {
-            "id": "t6-rw1-23",
-            "section": "rw",
-            "skill": "Transitions",
-            "difficulty": "medium",
-            "passage": "Before the 1800s, weaving a complex pattern on a loom required a helper, often called a draw boy, who raised particular threads by hand for each row. The Jacquard loom, introduced in France in the early 1800s, ______ used chains of punched cards to select the threads automatically, so a single weaver could produce intricate designs.",
-            "prompt": "Which choice completes the text with the most logical transition?",
-            "choices": [
-              "for instance,",
-              "by contrast,",
-              "similarly,",
-              "in other words,"
+              "Next,",
+              "Similarly,",
+              "In contrast,"
             ],
             "answer": "B",
-            "explanation": "The Jacquard loom did automatically what earlier looms needed a helper to do, so the sentence contrasts the two."
+            "explanation": "The steps go in order: first scraped, \"Next\" sprayed, \"Lastly\" smoothed."
           },
           {
-            "id": "t6-rw1-24",
-            "section": "rw",
-            "skill": "Transitions",
-            "difficulty": "hard",
-            "passage": "Engineers acknowledge that humanoid robots, which walk on two legs, are far less efficient than wheeled robots on flat floors. ______ they argue that a robot with legs and arms can work in spaces built for people, climbing stairs and opening doors that would stop a wheeled machine.",
-            "prompt": "Which choice completes the text with the most logical transition?",
-            "choices": [
-              "Still,",
-              "Indeed,",
-              "Thus,",
-              "Likewise,"
-            ],
-            "answer": "A",
-            "explanation": "The first sentence concedes a weakness; the second gives an advantage anyway, so the concession word **Still** fits. *Indeed* would wrongly signal that the second sentence reinforces the first."
-          },
-          {
-            "id": "t6-rw1-25",
+            "id": "t6-rw1x-22",
             "section": "rw",
             "skill": "Rhetorical Synthesis",
             "difficulty": "medium",
-            "passage": "While researching a topic, a student has taken the following notes:\n\n• Crackers are thin, crisp baked snacks found in many countries.\n• They are typically baked on flat trays in very hot ovens.\n• Before baking, bakers punch rows of small holes, called docking holes, into the dough.\n• The holes let steam escape, so the crackers bake flat and crisp instead of puffing up into bubbles.",
-            "prompt": "The student wants to explain the purpose of docking holes. Which choice most effectively uses relevant information from the notes to accomplish this goal?",
+            "passage": "While researching a topic, a student has taken the following notes:\n• A lever is a simple machine consisting of a rigid beam and a fulcrum.\n• The fulcrum is the point about which the beam pivots.\n• The input force (effort) is the force applied to the lever.\n• The output force (load) is the force that the lever exerts on another object.\n• In first-class levers, the fulcrum is located between the effort and the load.\n• In second-class levers, the load is located between the effort and the fulcrum.\n•",
+            "prompt": "The student wants to contrast first-class levers and second-class levers. Which choice most effectively uses relevant information from the notes to accomplish this goal?",
             "choices": [
-              "Crackers are thin, crisp baked snacks found in many countries.",
-              "Crackers are typically baked on flat trays in very hot ovens.",
-              "Docking holes are small holes that bakers punch into cracker dough.",
-              "Bakers punch docking holes into cracker dough so that steam can escape and the crackers bake flat instead of puffing up."
+              "In levers, the effort is the force applied to the lever; the load, in contrast, is the force that the lever exerts on another object.",
+              "In first-class and second-class levers, the fulcrum and the load are in different locations.",
+              "First-class levers are simple machines consisting of a rigid beam and a fulcrum, but then again, the same is true of second-class levers.",
+              "In first-class levers, the fulcrum is located between the effort and the load; in second-class levers, the load is located between the effort and the fulcrum."
             ],
             "answer": "D",
-            "explanation": "Only this choice says what the holes do: they let steam escape so the crackers stay flat. The option that only defines docking holes names them but not their purpose."
+            "explanation": "D contrasts the two types by where the fulcrum and load sit."
           },
           {
-            "id": "t6-rw1-26",
+            "id": "t6-rw1x-23",
             "section": "rw",
             "skill": "Rhetorical Synthesis",
-            "difficulty": "hard",
-            "passage": "While researching a topic, a student has taken the following notes:\n\n• *Little Goat's Long Walk* and *The Apricot Thief* are picture books by author Hannah Moss.\n• *Little Goat's Long Walk* was published in 2014.\n• *The Apricot Thief* was published in 2019.\n• *Little Goat's Long Walk* is written in rhyming verse.\n• *The Apricot Thief* is written in prose.\n• Both books are set in villages in Cornwall.",
-            "prompt": "The student wants to contrast the writing styles of the two books. Which choice most effectively uses relevant information from the notes to accomplish this goal?",
+            "difficulty": "easy",
+            "passage": "• Richard Serra is an American artist.\n• He is known for his large metal sculptures.\n• His large sculpture *Through* is made of forged steel.\n• His large sculpture *TTI London* is made of weathering steel.",
+            "prompt": "Which choice most effectively uses information from the given sentences to emphasize a difference between the two sculptures?",
             "choices": [
-              "*Little Goat's Long Walk* was published in 2014, five years before *The Apricot Thief*.",
-              "Both of Moss's picture books, *Little Goat's Long Walk* and *The Apricot Thief*, are set in villages in Cornwall.",
-              "Although both are picture books by Moss, *Little Goat's Long Walk* is written in rhyming verse, whereas *The Apricot Thief* is written in prose.",
-              "*The Apricot Thief*, a picture book by Moss, is written in prose."
+              "Artist Richard Serra is the creator of the forged steel sculpture *Through*.",
+              "*TTI London* is one of artist Richard Serra's large metal sculptures.",
+              "*Through* is made from a different kind of steel than *TTI London*.",
+              "*Through* and *TTI London* are both large metal sculptures by artist Richard Serra."
             ],
             "answer": "C",
-            "explanation": "Writing style means verse versus prose, and a contrast needs both books. The publication dates are a difference, but not one of style, and the option about *The Apricot Thief* alone describes only one book."
+            "explanation": "C states the difference: different kinds of steel."
           },
           {
-            "id": "t6-rw1-27",
+            "id": "t6-rw1x-24",
             "section": "rw",
             "skill": "Rhetorical Synthesis",
             "difficulty": "medium",
-            "passage": "While researching a topic, a student has taken the following notes:\n\n• Fog nets are large mesh panels set up on hillsides in some dry coastal regions.\n• As fog drifts through the mesh, tiny water droplets collect on the fibers.\n• The droplets merge, run down the mesh, and drip into gutters below.\n• The nets need no electricity.",
-            "prompt": "The student wants to explain how fog nets collect water. Which choice most effectively uses relevant information from the notes to accomplish this goal?",
+            "passage": "• Maya Lin is an American artist known for her memorials and large-scale installation artworks.\n• She became famous in 1982 when she completed the Vietnam Veterans Memorial, which consists of two 246-foot granite walls.\n• She completed *Water Line* in 2006.\n• It is an installation composed of aluminum tubing that fills an entire gallery room.\n• She completed *Seven Earth Mountain* in 2015.\n• It is an installation composed of soil that fills an entire gallery room.",
+            "prompt": "Which choice most effectively uses information from the given sentences to emphasize a difference between *Water Line* and *Seven Earth Mountain*?",
             "choices": [
-              "Fog nets are large mesh panels set up on hillsides in some dry coastal regions.",
-              "As fog drifts through a fog net's mesh, tiny droplets collect on the fibers, merge, and drip into gutters below.",
-              "Fog nets need no electricity.",
-              "In some dry coastal regions, fog nets are set up on hillsides."
+              "After completing the Vietnam Veterans Memorial, Maya Lin completed *Water Line*, another large-scale work.",
+              "The sprawling size of Maya Lin's Vietnam Veterans Memorial is echoed in *Water Line*, a work made of aluminum tubing that fills an entire gallery room.",
+              "Maya Lin's *Water Line* is composed of aluminum tubing; *Seven Earth Mountain*, by contrast, is composed of soil.",
+              "Maya Lin is known for her memorials and installation art, such as *Water Line* and *Seven Earth Mountain*."
             ],
-            "answer": "B",
-            "explanation": "Only this choice describes the process by which the nets gather water."
+            "answer": "C",
+            "explanation": "C contrasts the materials: aluminum tubing versus soil."
+          },
+          {
+            "id": "t6-rw1x-25",
+            "section": "rw",
+            "skill": "Rhetorical Synthesis",
+            "difficulty": "medium",
+            "passage": "• Impact craters occur when a large object collides with Earth at high speeds.\n• Examples of such objects include comets and meteorites.\n• Manson is an impact crater in the United States.\n• Researchers have determined that it was formed around 74 million years ago.\n• The crater has a diameter of approximately 35 km.",
+            "prompt": "Which choice most effectively uses information from the given sentences to emphasize the size of the crater?",
+            "choices": [
+              "When a large object struck what is now the United States around 74 million years ago, it created Manson, a massive crater measuring 35 km in diameter.",
+              "Impact craters, like Manson in the United States, are formed when a massive object collides with the Earth, creating depressions in the land.",
+              "Researchers have investigated the formation of Manson, an ancient impact crater measuring 35 km in diameter, located in the United States.",
+              "Long ago, a crater now known as Manson was created when a large object collided with Earth."
+            ],
+            "answer": "A",
+            "explanation": "A stresses size: \"a massive crater measuring 35 km in diameter.\""
+          },
+          {
+            "id": "t6-rw1x-26",
+            "section": "rw",
+            "skill": "Rhetorical Synthesis",
+            "difficulty": "easy",
+            "passage": "While researching a topic, a student has taken the following notes:\n• A supercontinent is a single landmass made up of most or all of Earth's continents.\n• Over time, continents merge together to form supercontinents, which then break apart.\n• This process is believed to take hundreds of millions of years and is known as the supercontinent cycle.\n• Pannotia and Kenorland were supercontinents.\n• Pannotia formed about 600 million years ago.\n• Kenorland formed about 2.6 billion years ago.\n•",
+            "prompt": "The student wants to specify when Pannotia formed. Which choice most effectively uses relevant information from the notes to accomplish this goal?",
+            "choices": [
+              "The supercontinent Pannotia formed about 600 million years ago.",
+              "Over hundreds of millions of years, the supercontinent cycle results in supercontinents forming and breaking apart.",
+              "Long ago, the Earth was home to supercontinents like Pannotia and Kenorland.",
+              "Pannotia was a supercontinent, a single landmass made up of most or all of Earth's continents."
+            ],
+            "answer": "A",
+            "explanation": "A gives when Pannotia formed: about 600 million years ago."
+          },
+          {
+            "id": "t6-rw1x-27",
+            "section": "rw",
+            "skill": "Rhetorical Synthesis",
+            "difficulty": "medium",
+            "passage": "• The Van Wassenhove House (1974) is a residential home designed by Flemish architect Juliaan Lampens.\n• It is located in Sint-Martens-Latem, Belgium.\n• It features a circular skylight that fills the interior with diffuse light.\n• It is considered an impressive example of modern architecture.",
+            "prompt": "Which choice most effectively uses information from the given sentences to emphasize the location of the Van Wassenhove House?",
+            "choices": [
+              "Those wishing to see the Van Wassenhove House in person will have to travel to Sint-Martens-Latem, Belgium.",
+              "A stunning example of modern architecture, Juliaan Lampens's Van Wassenhove House features a circular skylight that fills the interior with diffuse light.",
+              "The architect responsible for designing the Van Wassenhove House in Sint-Martens-Latem, Belgium, was Juliaan Lampens.",
+              "Juliaan Lampens is known for designing a residential home that features a circular skylight that fills the interior with diffuse light."
+            ],
+            "answer": "A",
+            "explanation": "A focuses on where the house is: Sint-Martens-Latem, Belgium."
           }
         ]
       },
@@ -944,506 +979,502 @@
           "minutes": 32,
           "questions": [
             {
-              "id": "t6-rw2h-01",
+              "id": "t6-rw2hx-01",
               "section": "rw",
               "skill": "Words in Context",
               "difficulty": "hard",
-              "passage": "Though the explorer's journals are full of vivid detail, historians regard them as ______ guides to the route he actually traveled: several mountain passes he describes crossing lie more than a hundred kilometers from any path he could have taken.",
+              "passage": "*A Burial at Ornans*, painted in the realist style by Gustave Courbet, depicts an ordinary provincial funeral in stark detail and emphasizes accuracy in its portrayal of the experiences of ordinary working people. This style largely ______ the conventions of the romantic style evident in many paintings by Ary Scheffer, which instead accentuated their subjects' positive traits by, for example, placing them in staged settings with expensive looking decorations and presenting them with smooth, unblemished skin.",
               "prompt": "Which choice completes the text with the most logical and precise word or phrase?",
               "choices": [
-                "indispensable",
-                "dubious",
-                "meticulous",
-                "laconic"
-              ],
-              "answer": "B",
-              "explanation": "Passes that lie far from any possible route make the journals untrustworthy as guides, so they are **dubious**. *Meticulous* would mean careful and accurate, the opposite of what the evidence shows."
-            },
-            {
-              "id": "t6-rw2h-02",
-              "section": "rw",
-              "skill": "Words in Context",
-              "difficulty": "hard",
-              "passage": "Critics have sometimes dismissed picture books as slight, but illustrator Nina Petrakis's work resists such ______: her wordless book *Night Ferry* rewards repeated readings, each revealing details in its crowded harbor scenes that earlier viewings missed.",
-              "prompt": "Which choice completes the text with the most logical and precise word or phrase?",
-              "choices": [
-                "scrutiny",
-                "acclaim",
-                "imitation",
-                "condescension"
+                "extended",
+                "imitated",
+                "epitomized",
+                "rejected"
               ],
               "answer": "D",
-              "explanation": "Dismissing picture books as slight is a form of **condescension**, and the colon shows her work proving that attitude wrong. *Scrutiny* doesn't fit: her book actually rewards close looking rather than resisting it."
+              "explanation": "Realism showed ordinary life accurately, while Scheffer's romantic style flattered its subjects \"instead,\" so realism **rejected** those conventions."
             },
             {
-              "id": "t6-rw2h-03",
+              "id": "t6-rw2hx-02",
               "section": "rw",
               "skill": "Words in Context",
               "difficulty": "hard",
-              "passage": "In her memoir, the weaver describes her apprenticeship with ______ candor: she admits that for her first two years she ruined more cloth than she finished and twice came close to quitting.",
+              "passage": "New and interesting research conducted by Suleiman A. Al-Sweedan and Moath Alhaj is inspired by their observation that though studies of the effect of high altitude on blood chemistry are ______, the effect of living in locations below sea level, such as the California towns of Westmorland and Heber, has received comparatively little notice.",
               "prompt": "Which choice completes the text with the most logical and precise word or phrase?",
               "choices": [
-                "guarded",
-                "selective",
-                "unflinching",
-                "belated"
+                "sporadic",
+                "preliminary",
+                "copious",
+                "equivocal"
               ],
               "answer": "C",
-              "explanation": "She openly admits unflattering failures, so her candor is **unflinching**. *Selective* would mean she left the embarrassing parts out, which she does not."
+              "explanation": "Studies of high altitude are **copious** (plentiful), in contrast to the \"comparatively little notice\" given to below-sea-level locations."
             },
             {
-              "id": "t6-rw2h-04",
+              "id": "t6-rw2hx-03",
               "section": "rw",
               "skill": "Words in Context",
               "difficulty": "hard",
-              "passage": "The retreat of the Vesla Glacier has not been ______: periods of rapid ice loss in the 1990s and 2010s were separated by a decade in which the glacier's front barely moved.",
+              "passage": "Authors like Laura Esquivel contributed to the outpouring of Mexican literature in the years following the Mexican Revolution, which lasted from 1910 to 1920. Works from this period make up an ______ proportion of what is considered the canon of Mexican literature, but nineteenth-century writers like Angel del Campo should be considered just as integral to the Mexican literary canon.",
               "prompt": "Which choice completes the text with the most logical and precise word or phrase?",
               "choices": [
-                "measurable",
-                "uniform",
-                "unprecedented",
-                "inevitable"
+                "erratic",
+                "unspecified",
+                "outsized",
+                "overlooked"
               ],
-              "answer": "B",
-              "explanation": "Fast periods separated by a near pause mean the retreat did not proceed at the same rate throughout, so it has not been **uniform**. *Measurable* is wrong because the text describes measured changes."
+              "answer": "C",
+              "explanation": "\"But\" 19th-century writers \"should be considered just as integral,\" implying post-Revolution works take up an **outsized** share of the canon."
             },
             {
-              "id": "t6-rw2h-05",
+              "id": "t6-rw2hx-04",
               "section": "rw",
-              "skill": "Text Structure and Purpose",
+              "skill": "Words in Context",
               "difficulty": "hard",
-              "passage": "Histories of textiles often describe how spinning and weaving machines, beginning in the late 1700s, swept away hand production wherever they appeared. __In some West African towns, however, hand-spinning and hand-weaving remained the main ways of making cloth well into the twentieth century, even as factory-made fabric arrived through trade.__ Scholar Kofi Mensah argues that this persistence reflected not a lack of access to machine-made goods but steady local demand for patterns and textures that factories could not easily copy.",
-              "prompt": "Which choice best describes the function of the underlined sentence in the text as a whole?",
+              "passage": "The following text is adapted from James Baldwin's 1956 novel *Giovanni's Room*. The narrator is riding in a taxi down a street lined with food vendors and shoppers in Paris, France.\n\nThe multitude of Paris seems to be dressed in blue every day but Sunday, when, for the most part, they put on an unbelievably festive black. Here they were now, in blue, disputing, every inch, our passage, their bursting baskets carried at a steeply self-confident angle on their backs.",
+              "prompt": "As used in the text, what does the word \"disputing\" most nearly mean?",
               "choices": [
-                "It presents a case that complicates a widely held account, setting up the explanation offered in the next sentence.",
-                "It offers further evidence for the account presented in the first sentence.",
-                "It explains why factory-made fabric could not reach West African towns.",
-                "It summarizes the argument that Mensah makes about local demand."
-              ],
-              "answer": "A",
-              "explanation": "The underlined sentence is an exception (\"however\") to the account that machines swept away handwork, and the next sentence explains that exception. Factory cloth did arrive, so the option saying it could not reach the towns contradicts the text."
-            },
-            {
-              "id": "t6-rw2h-06",
-              "section": "rw",
-              "skill": "Text Structure and Purpose",
-              "difficulty": "hard",
-              "passage": "Researchers who interviewed owners of robot vacuum cleaners expected to hear the machines described as ordinary appliances, like dishwashers. Instead, many owners reported having named their robots, and some admitted to tidying up before a cleaning run so the robot would not \"struggle.\" The researchers propose that a machine that moves around a home on its own invites people to treat it as something like a companion, even when they know it has no feelings.",
-              "prompt": "Which choice best describes the overall structure of the text?",
-              "choices": [
-                "It presents a hypothesis, describes evidence that confirms it, and raises a question that remains unanswered.",
-                "It identifies a flaw in robot vacuum cleaners and proposes a way to fix it.",
-                "It compares robot vacuum cleaners with dishwashers and argues that one is more useful.",
-                "It describes an expectation, reports findings that differ from it, and offers an interpretation of those findings."
+                "Arguing about",
+                "Disapproving of",
+                "Asserting possession of",
+                "Providing resistance to"
               ],
               "answer": "D",
-              "explanation": "The researchers expected owners to treat the robots as appliances, found the opposite (\"Instead\"), and then explained why. The evidence contradicted the expectation, so the option about confirming a hypothesis is wrong."
+              "explanation": "The crowd fills the street so that the taxi must fight for \"every inch\" of its way: the shoppers are **providing resistance to** its passage."
             },
             {
-              "id": "t6-rw2h-07",
+              "id": "t6-rw2hx-05",
               "section": "rw",
-              "skill": "Cross-Text Connections",
+              "skill": "Text Structure and Purpose",
               "difficulty": "hard",
-              "passage": "**Text 1**\nMany educators argue that picture books for young children should avoid sad endings. Young children, they reason, may not yet have the emotional tools to cope with loss, and an unresolved sadness can make a story frightening rather than meaningful.\n\n**Text 2**\nChildren's literature scholar Ruth Adler studied how kindergarten classes responded to picture books that end with a loss, such as the death of a pet. When teachers read the books aloud and then invited discussion, children often connected the stories to their own experiences and talked about them calmly. Adler concludes that what matters is less the ending itself than whether an adult helps children talk about it.",
-              "prompt": "Based on the texts, how would Adler most likely respond to the educators' view in Text 1?",
+              "passage": "Kirsten Bos and other researchers studying the history of organisms have long utilized ancient DNA—DNA recovered from ancient organic material that has been preserved under natural conditions. However, Maria C. Avila-Arcos and colleagues' 2013 study of the evolutionary trajectory of the koala retrovirus instead relied on historical DNA—genomic data incrementally preserved in specimens that are housed in natural history collections—thus capitalizing on the research potential offered by a vast but hitherto relatively underutilized source of insight into the biological past.",
+              "prompt": "Which choice best describes the overall structure of the text?",
               "choices": [
-                "She would argue that sad endings need not overwhelm young children if an adult helps them discuss the stories.",
-                "She would agree that sad endings should be avoided unless the books are read at home.",
-                "She would argue that young children cope with loss better than adults do.",
-                "She would claim that young children generally prefer sad endings to happy ones."
+                "It compares two distinct methods of analyzing genomic data, then explains why the second method is relatively underused.",
+                "It provides an overview of a technique traditionally used by scientists, then asserts that an alternative technique is superior to it.",
+                "It describes two different approaches used by researchers, then emphasizes how promising one of those approaches is.",
+                "It summarizes previous research on a topic, then illustrates how a group of scientists used a new method to challenge findings produced by that research."
+              ],
+              "answer": "C",
+              "explanation": "The text contrasts ancient DNA with historical DNA and ends by stressing the \"research potential\" of the vast, underused historical source. Said's key had A, but the text never explains why historical DNA is underused."
+            },
+            {
+              "id": "t6-rw2hx-06",
+              "section": "rw",
+              "skill": "Text Structure and Purpose",
+              "difficulty": "hard",
+              "passage": "Phillip Hayes Dean's award-winning play *The Sty of the Blind Pig* was produced in 1971 by the groundbreaking Negro Ensemble Company (NEC), cofounded by Robert Hooks, an actor, producer, and activist, who had met actor and playwright Douglas Turner Ward while they were performing in a 1960 touring production of Lorraine Hansberry's play *A Raisin in the Sun*. Together, they envisioned a theater company that would nurture and showcase the work of Black theater professionals. Since NEC's founding in 1967, its workshops and performances have given Black playwrights, including Dean, a forum for their compelling stories.",
+              "prompt": "Which choice best describes the overall structure of the text?",
+              "choices": [
+                "It refers to the production of a play and then examines the theater company responsible for that production.",
+                "It outlines the similarities between two plays and then considers how those plays were important to the founding of a theater company.",
+                "It summarizes the impact of two plays by Black playwrights and then details the history of the theater company that produced them.",
+                "It depicts the meeting of a group of Black theater professionals and then acknowledges the obstacles they faced in their attempts to establish a theater company."
               ],
               "answer": "A",
-              "explanation": "Adler found that children handled sad endings calmly when adults led a discussion, so the ending alone is not the problem. She makes no comparison with adults and says nothing about which endings children prefer."
+              "explanation": "The text starts with the 1971 production of Dean's play and then explains the history and purpose of the NEC, the company that produced it."
             },
             {
-              "id": "t6-rw2h-08",
+              "id": "t6-rw2hx-07",
               "section": "rw",
               "skill": "Central Ideas and Details",
               "difficulty": "hard",
-              "passage": "Scientists can reconstruct past climates from glacier ice because tiny bubbles in the ice trap samples of the atmosphere from the time the snow fell. In many mountain glaciers, however, summer meltwater seeps down through the snow and refreezes, mixing material from different years and blurring the record. For this reason, researchers seeking long, detailed climate records from mountain ranges often look for glaciers at very high elevations, where temperatures rarely rise above freezing even in summer.",
-              "prompt": "Which choice best states the main idea of the text?",
+              "passage": "Since its completion in 2014, Bosco Verticale (Vertical Forest)—a pair of residential towers in Milan, Italy, covered by vegetation—has become a striking symbol of environmental sustainability in architecture. Stefano Boeri intended his design, which features balconies that are home to hundreds of trees, to serve as a model for promoting urban biodiversity. However, the concept has faced skepticism: critics note that although the trees used in Bosco Verticale were specifically cultivated for the project, it's too early to tell if they can thrive in this unusual setting.",
+              "prompt": "According to the text, why are some critics skeptical of the concept behind Bosco Verticale?",
               "choices": [
-                "Because melting can blur the climate records stored in glacier ice, researchers seeking detailed records from mountains favor very high, cold glaciers.",
-                "Ice from mountain glaciers provides more detailed climate records than ice from any other source.",
-                "Bubbles in glacier ice preserve samples of the atmosphere from the time the ice melted.",
-                "Summer meltwater has destroyed the climate records in nearly all mountain glaciers."
+                "Some essential aspects of Bosco Verticale's design are difficult to adapt to locations other than Milan.",
+                "The plant life on Bosco Verticale ended up being less varied than Boeri had envisioned it would be.",
+                "The construction of Bosco Verticale was no less environmentally damaging than the construction of more conventional buildings.",
+                "It is unclear whether Bosco Verticale can support the plant life included in its design."
               ],
-              "answer": "A",
-              "explanation": "The text explains a problem (meltwater blurs the record) and the researchers' response (seeking high, cold glaciers). The option about meltwater destroying nearly all records overstates the text, which says only that it blurs records in many glaciers."
+              "answer": "D",
+              "explanation": "Critics say \"it's too early to tell\" whether the trees can thrive there."
             },
             {
-              "id": "t6-rw2h-09",
+              "id": "t6-rw2hx-08",
               "section": "rw",
               "skill": "Central Ideas and Details",
               "difficulty": "hard",
-              "passage": "The following text is from a novel. Walter, a retired mapmaker, is looking at a map he drew forty years earlier.\n\nThe map had been his finest work: every irrigation canal, every orchard wall, every footpath between the villages traced in ink so fine it seemed breathed onto the paper. Walter unfolded it on the kitchen table and found his own street, then the bend in the canal where the old mill had stood. The mill was gone now, the canal paved over, the orchards divided into building lots. Yet the map, he realized, was not wrong. It was simply loyal to a place that no longer existed.",
+              "passage": "To understand how Paleolithic artists navigated dark caves, archaeologist Mᵃ Angeles Medina-Alcaide and her team tested different lighting methods in a cave in Spain using replicas of artifacts found in European caves with art. They used three different Paleolithic light sources—torches, animal-fat lamps, and fireplaces—determining that each likely had a specific purpose. For instance, the team learned that the animal-fat lamps were less useful than torches while walking because the lamps didn't illuminate the cave floor.",
               "prompt": "Which choice best states the main idea of the text?",
               "choices": [
-                "Walter discovers several errors in a map he once considered his finest work.",
-                "Walter realizes that his old map, though it no longer matches the area, faithfully records a place that has since disappeared.",
-                "Walter regrets that he never drew a map of the area as it looks today.",
-                "Walter decides to redraw the map to show the area's new streets and buildings."
+                "Medina-Alcaide and her team's study demonstrated that fireplaces were essential to the creators of Paleolithic cave art.",
+                "Medina-Alcaide and her team discovered that Paleolithic cave artists in Spain used animal-fat lamps more often than they used torches.",
+                "Medina-Alcaide and her team were reluctant to draw many conclusions from their study because of the difficulty they had replicating light sources based on known artifacts.",
+                "Medina-Alcaide and her team tested Paleolithic light sources and learned some details about how Paleolithic artists traveled within dark caves."
               ],
-              "answer": "B",
-              "explanation": "The landscape has changed, but Walter concludes the map \"was not wrong\": it is \"loyal\" to the place as it was. The option about errors contradicts that realization."
+              "answer": "D",
+              "explanation": "The team tested Paleolithic light sources and learned how each was likely used, such as torches being better for walking."
             },
             {
-              "id": "t6-rw2h-10",
+              "id": "t6-rw2hx-09",
+              "section": "rw",
+              "skill": "Command of Evidence: Quantitative",
+              "difficulty": "hard",
+              "passage": "To test whether a medication is effective, scientists compare outcomes for patients taking it and patients taking a placebo (a medically inactive substance). Patients normally aren't told they're receiving a placebo, but a research team conducted a study to see if there might be a medical benefit to telling them. The team used various measures to evaluate participants, with higher ratings indicating greater well-being in each measure. Compared to the mean ratings after 21 days for participants in the control group, the mean ratings for participants who were aware of taking a placebo ______",
+              "table": {
+                "title": "Mean Ratings after 21 Days",
+                "head": [
+                  "Measure",
+                  "Mean rating for participants aware of taking a placebo",
+                  "Mean rating for participants in the control group"
+                ],
+                "rows": [
+                  [
+                    "Global improvement",
+                    "5.0",
+                    "3.9"
+                  ],
+                  [
+                    "Symptom severity reduction",
+                    "92.00",
+                    "46.00"
+                  ],
+                  [
+                    "Quality of life improvement",
+                    "11.4",
+                    "5.4"
+                  ]
+                ]
+              },
+              "prompt": "Which choice most effectively uses data from the table to complete the statement?",
+              "choices": [
+                "ranged from 5.0 to 92.00, indicating that well-being varied widely from participant to participant.",
+                "were lower for two measures, with the rating for only one measure indicating greater well-being for these participants.",
+                "ranged from 1.9 to 46.00, with no rating indicating greater well-being in any measure for these participants.",
+                "were higher for all three measures, indicating greater overall well-being for these participants."
+              ],
+              "answer": "D",
+              "explanation": "The aware-of-placebo group had higher ratings on all three measures: 5.0 vs. 3.9, 92.00 vs. 46.00, and 11.4 vs. 5.4."
+            },
+            {
+              "id": "t6-rw2hx-10",
               "section": "rw",
               "skill": "Command of Evidence: Textual",
               "difficulty": "hard",
-              "passage": "Robotics researcher Jonas Berg hypothesizes that pedestrians trust a sidewalk delivery robot more when it signals where it is about to go, for example by projecting arrows onto the pavement, than when it moves without giving such signals.",
-              "prompt": "Which finding, if true, would most directly support Berg's hypothesis?",
+              "passage": "Tortilla chips and salsa are complementary products, meaning that they serve different purposes but are typically used together, whereas ultra-pasteurized milk and raw milk are substitutable products, meaning that one product can be used for the same purpose as the other. Alicia Grasby et al. investigated whether complementarity and substitutability influence consumers' purchasing of extended brands—products of different types sold under the same brand name—by comparing purchases of extended-brand products that are complementary with those that are substitutable. They concluded that although complementarity appears to benefit extended brands more than substitutability does on average, this may be due to an outlier in the complementary product data.",
+              "prompt": "Which finding, if true, would most directly support the conclusion put forward by Grasby et al.?",
               "choices": [
-                "Pedestrians who passed a robot projecting arrows rated it as more trustworthy than did pedestrians who passed an otherwise identical robot that gave no signals.",
-                "Pedestrians rated robots that projected arrows as more trustworthy than human couriers on bicycles.",
-                "Robots that projected arrows used slightly more battery power than robots that did not.",
-                "Most pedestrians in the trials said they had never encountered a delivery robot before."
+                "Although consumers were more likely to purchase complementary extended brands than substitutable extended brands, the difference in purchasing probability reduced to zero when tortilla chips and salsa were removed from consideration.",
+                "Although consumers were about equally likely to purchase complementary extended brands and substitutable extended brands, removing tortilla chips and salsa from the data increased the likelihood that consumers would purchase complementary extended brands.",
+                "Although consumers purchased complementary extended brands more frequently than substitutable extended brands, removing ultra-pasteurized milk and raw milk from the data led to an equal purchasing frequency of complementary and substitutable products.",
+                "Consumers purchased complementary extended brands more frequently than substitutable extended brands, and this difference grew larger when tortilla chips and salsa were removed from the data."
               ],
               "answer": "A",
-              "explanation": "The hypothesis compares signaling robots with robots that don't signal, and this finding makes exactly that comparison while keeping everything else the same. Comparing robots with human couriers tests a different question."
+              "explanation": "If the complementary advantage disappears when one pair (chips and salsa) is removed, that pair is an outlier driving the result, which is just what Grasby et al. concluded."
             },
             {
-              "id": "t6-rw2h-11",
+              "id": "t6-rw2hx-11",
               "section": "rw",
               "skill": "Command of Evidence: Quantitative",
               "difficulty": "hard",
-              "passage": "Anthropologist Marina Costa surveyed households in four villages (identified here by pseudonyms) in 2005 and again in 2025. In every village, a smaller share of households baked their own bread in 2025 than in 2005, but Costa claims that the decline was steepest in villages located close to a commercial bakery. ______",
-              "prompt": "Which choice most effectively uses data from the table to support Costa's claim?",
-              "choices": [
-                "In 2005, Meadow had the highest share of households baking their own bread, at 92%.",
-                "In 2025, fewer than 90% of households baked their own bread in each of the four villages.",
-                "In Orchard, 2 kilometers from a commercial bakery, the share of households baking their own bread fell from 88% to 41%, while in Meadow, 28 kilometers away, it fell only from 92% to 89%.",
-                "In Spring, 6 kilometers from a commercial bakery, the share fell from 90% to 63%, a steeper drop than in Orchard."
-              ],
-              "answer": "C",
-              "explanation": "The claim links distance to the size of the decline, so the support must compare a near village with a far one. Orchard (2 km) dropped 47 points and Meadow (28 km) only 3. The Spring option is false: its 27-point drop is smaller than Orchard's.",
+              "passage": "In a study of urban agriculture in Bologna, Italy, Esther Sanyé-Mengual, Kathrin Specht, and their team surveyed three groups of people—leaders of urban agriculture projects, stakeholders in urban agriculture (e.g., food researchers and urban farming associations), and the general public—to compare their views about the extent to which urban agriculture contributes to 25 social or ecological services that the team identified. The researchers used these ratings to rank the services for each group, with a ranking of 1 indicating that a group perceives that urban agriculture benefits that service the most. Using only the rankings shown in the table, a city planner in Bologna who is promoting a new urban agriculture project concludes that advertisements aimed at the general public should emphasize the project's benefit to the provision of medicinal plants.",
               "table": {
-                "title": "Households that bake their own bread",
+                "title": "Ranking of Environmental and Sociocultural Benefits of Urban Agriculture (scale of 1 to 25; 1 = highest)",
                 "head": [
-                  "Village",
-                  "Distance to nearest commercial bakery (km)",
-                  "2005 (%)",
-                  "2025 (%)"
+                  "Social or ecological service",
+                  "Project leaders",
+                  "Stakeholders",
+                  "General public"
                 ],
                 "rows": [
                   [
-                    "Orchard",
-                    "2",
-                    "88",
-                    "41"
+                    "improvement of physical health",
+                    "5",
+                    "4",
+                    "7"
                   ],
                   [
-                    "Spring",
-                    "6",
-                    "90",
-                    "63"
+                    "provision of medicinal plants",
+                    "22",
+                    "21",
+                    "5"
                   ],
                   [
-                    "Ridge",
-                    "15",
-                    "85",
-                    "77"
+                    "enhancement of pollination",
+                    "1",
+                    "7",
+                    "12"
                   ],
                   [
-                    "Meadow",
-                    "28",
-                    "92",
-                    "89"
+                    "improvement of social cohesion",
+                    "17",
+                    "10",
+                    "9"
+                  ],
+                  [
+                    "improvement of local microclimate",
+                    "13",
+                    "14",
+                    "20"
                   ]
                 ]
-              }
-            },
-            {
-              "id": "t6-rw2h-12",
-              "section": "rw",
-              "skill": "Command of Evidence: Quantitative",
-              "difficulty": "hard",
-              "passage": "Engineers tested a new robotic gripper on four objects, attempting to grasp each one 200 times. They conclude that the gripper had the most difficulty with soft objects, which it grasped both less reliably and more slowly than it grasped rigid objects. ______",
-              "prompt": "Which choice most effectively uses data from the table to support the engineers' conclusion?",
+              },
+              "prompt": "Which choice best describes data in the table that support the city planner's conclusion?",
               "choices": [
-                "The gripper succeeded on 188 attempts with the glass jar but on only 151 attempts with the bag of rice.",
-                "The gripper needed more time, on average, to grasp the glass jar than to grasp the wooden block.",
-                "The gripper grasped the bag of rice more reliably than the plush toy and needed less time to do so.",
-                "The gripper succeeded on 142 attempts with the plush toy and 151 with the bag of rice, compared with at least 188 for the rigid objects, and it needed 2.8 seconds or more per grasp for the soft objects but no more than 1.9 seconds for the rigid ones."
+                "The provision of medicinal plants was ranked higher for stakeholders than it was for the general public.",
+                "The improvement of physical health was ranked lower for the general public than it was for project leaders.",
+                "The improvement of local microclimate was ranked higher for the general public than was the provision of medicinal plants.",
+                "The provision of medicinal plants was ranked higher for the general public than were the other four services."
               ],
               "answer": "D",
-              "explanation": "The conclusion has two parts, reliability and speed, for soft versus rigid objects, and only this choice covers both. The jar-and-rice option shows only reliability, and only for one pair of objects.",
-              "table": {
-                "title": "Gripper performance (200 attempts per object)",
-                "head": [
-                  "Object",
-                  "Type",
-                  "Successful grasps",
-                  "Average time per grasp (seconds)"
-                ],
-                "rows": [
-                  [
-                    "Wooden block",
-                    "Rigid",
-                    "196",
-                    "1.2"
-                  ],
-                  [
-                    "Glass jar",
-                    "Rigid",
-                    "188",
-                    "1.9"
-                  ],
-                  [
-                    "Plush toy",
-                    "Soft",
-                    "142",
-                    "3.4"
-                  ],
-                  [
-                    "Bag of rice",
-                    "Soft",
-                    "151",
-                    "2.8"
-                  ]
-                ]
-              }
+              "explanation": "For the general public, medicinal plants ranked 5th, higher than physical health (7), pollination (12), social cohesion (9), and microclimate (20)."
             },
             {
-              "id": "t6-rw2h-13",
+              "id": "t6-rw2hx-12",
               "section": "rw",
               "skill": "Inferences",
               "difficulty": "hard",
-              "passage": "Spindle whorls, the small weights used in hand-spinning, vary in mass depending on the thread being made: light whorls suit fine threads spun from fibers such as cotton, whereas heavier whorls suit thicker threads such as those spun from wool. At one ancient settlement, archaeologists found only heavy whorls in the oldest layers but a mix of heavy and very light whorls in later layers. Since no plant fibers or cotton seeds have survived at the site, the archaeologists suggest that ______",
+              "passage": "Mongolia, which, according to international indices, has relatively strong democratic institutions and low intranational income inequality, experienced an inflation rate of 7.35% in 2021, whereas Morocco, which shows the opposite pattern on such indices, had an inflation rate of only 1.40% that year. Such comparisons have engendered speculation that by diluting control over the economy, democratic institutions inhibit states' ability to counteract inflationary pressures. To test this possibility systematically, Raj Desai et al. examined democratic strength, intranational inequality, and inflation in more than 100 countries, finding that democratic strength, if associated with low inequality, restrains inflationary pressures, suggesting that ______",
               "prompt": "Which choice most logically completes the text?",
               "choices": [
-                "residents stopped spinning wool in the later period.",
-                "residents may have begun spinning a fine fiber in the later period, even though no direct evidence of that fiber has been preserved.",
-                "cotton was the main fiber spun at the site in every period.",
-                "the light whorls were most likely used for some purpose other than spinning."
+                "the factors that contributed to Mongolia's elevated inflation rate relative to Morocco's have less to do with the countries' political institutions than with the countries' levels of income inequality.",
+                "the difference between Mongolia and Morocco with regard to democratic institution strength may have been greater in 2021 than was represented by international indices.",
+                "speculations about the relative inability of democratic institutions to counteract inflation are based on measures that tend to exaggerate the levels of inflation in strongly democratic countries such as Mongolia.",
+                "it would be a mistake to treat the relative inflation rates of Mongolia and Morocco as indicative of an inherent shortcoming in democratic institutions with regard to control over inflation."
               ],
-              "answer": "B",
-              "explanation": "New light whorls point to fine thread, even without surviving fibers. Heavy whorls remain in the later layers, so wool spinning did not stop."
+              "answer": "D",
+              "explanation": "Desai et al. found that strong democracy with low inequality restrains inflation, so Mongolia's higher rate shouldn't be read as proof that democracy weakens control over inflation."
             },
             {
-              "id": "t6-rw2h-14",
+              "id": "t6-rw2hx-13",
               "section": "rw",
               "skill": "Inferences",
               "difficulty": "hard",
-              "passage": "In early summer, meltwater that drains to the base of a glacier can act as a lubricant, causing the ice above it to slide faster. Researchers monitoring the edge of the Greenland ice sheet found, however, that summers with especially heavy melting were often followed by unusually slow ice flow the next winter. The researchers proposed that heavy melting carves wide, efficient channels along the base of the ice, which ______",
+              "passage": "Prolonged exposure to anthropogenic noise (sounds from human sources like traffic or mining) can affect animals, as Jessie Patrice Bunkley and Jesse Rex Barber found in a 2015 study of pallid bats. Researchers conducted a meta-analysis of studies of how such noise affects animals and found that, for every study, relevant traits or behaviors of the animals were observably different between the exposed group and the otherwise similar but unexposed group. Although, on average, studies of mammals showed larger differences than studies of birds did, for every class of animals examined, there were individual studies showing differences well above the average for mammals. Therefore, the results of the meta-analysis suggest that ______",
               "prompt": "Which choice most logically completes the text?",
               "choices": [
-                "trap large amounts of meltwater beneath the ice until the following summer.",
-                "drain water away so quickly that less water remains at the base to lubricate the ice in the months that follow.",
-                "cause the ice to melt faster in winter than in summer.",
-                "make the surface of the ice warmer during the following winter."
+                "the difference found in the study conducted by Jessie Patrice Bunkley and Jesse Rex Barber was likely larger than the average difference for studies of pallid bats included in the meta-analysis.",
+                "the studies in the meta-analysis that examined mammals were more likely than those that examined birds to specify whether the observed effects were detrimental.",
+                "the differences that studies attribute to exposure to anthropogenic noise are likely to be more pronounced for birds than they are for mammals.",
+                "some studies of birds found larger effects of exposure to anthropogenic noise than some studies of mammals did."
               ],
-              "answer": "B",
-              "explanation": "Water at the base speeds the ice up, so slower flow means less water there. Efficient channels that drain water away explain this. Trapped water would speed the ice up instead."
+              "answer": "D",
+              "explanation": "For every class, including birds, some studies found differences well above the mammal average, so some bird studies found larger effects than some mammal studies."
             },
             {
-              "id": "t6-rw2h-15",
+              "id": "t6-rw2hx-14",
               "section": "rw",
               "skill": "Boundaries",
               "difficulty": "hard",
-              "passage": "Most of the rover's instruments worked flawlessly during the desert trial. Its ______ failed repeatedly in the glare of the midday sun.",
+              "passage": "Included in *We Wanted a Revolution!*, a 2018 group exhibition at the Albright-Knox Art Gallery in Buffalo, New York, was the work of artist Lorna Simpson, who is best known for her multimedia artworks that juxtapose images of African American women with text fragments. Her work challenges conventional notions of race, gender, history, and ______ she is credited with expanding the horizons of conceptual photographic art.",
               "prompt": "Which choice completes the text so that it conforms to the conventions of Standard English?",
               "choices": [
-                "camera, however,",
-                "camera; however,",
-                "camera however",
-                "camera, however"
+                "memory, and",
+                "memory,",
+                "memory and",
+                "memory"
               ],
               "answer": "A",
-              "explanation": "\"However\" interrupts the sentence \"Its camera failed...,\" so it is set off with a comma on each side. A semicolon would split the subject from its verb."
+              "explanation": "Two independent clauses are joined by a comma plus \"and.\""
             },
             {
-              "id": "t6-rw2h-16",
+              "id": "t6-rw2hx-15",
               "section": "rw",
               "skill": "Boundaries",
               "difficulty": "hard",
-              "passage": "In her review, the critic described the picture book's final illustration ______ \"a night sky so crowded with lanterns that the darkness has nowhere left to go.\"",
+              "passage": "Each year, the Nobel Prize in Literature is given to an author who has, in the words of its founder Alfred Nobel, \"produced the most outstanding work in an idealistic ______ in 2004, for instance, judges recognized Elfriede Jelinek \"for her musical flow of voices and counter-voices in novels and plays that with extraordinary linguistic zeal reveal the absurdity of society's clichés and their subjugating power.\"",
               "prompt": "Which choice completes the text so that it conforms to the conventions of Standard English?",
               "choices": [
-                "as,",
-                "as:",
-                "as—",
-                "as"
-              ],
-              "answer": "D",
-              "explanation": "The quotation completes the phrase \"described...as,\" so no punctuation belongs between \"as\" and the quotation. A colon must follow a complete sentence."
-            },
-            {
-              "id": "t6-rw2h-17",
-              "section": "rw",
-              "skill": "Boundaries",
-              "difficulty": "hard",
-              "passage": "The decision by the cooperative's founders to pay weavers by the hour rather than by the ______ helped the business keep its most skilled workers.",
-              "prompt": "Which choice completes the text so that it conforms to the conventions of Standard English?",
-              "choices": [
-                "piece,",
-                "piece;",
-                "piece",
-                "piece—"
-              ],
-              "answer": "C",
-              "explanation": "Everything before the blank is the subject, and \"helped\" is its verb. No punctuation should separate a subject from its verb."
-            },
-            {
-              "id": "t6-rw2h-18",
-              "section": "rw",
-              "skill": "Boundaries",
-              "difficulty": "hard",
-              "passage": "Glacial flour, the fine rock powder that glaciers grind from the bedrock beneath ______ gives many mountain lakes their milky turquoise color.",
-              "prompt": "Which choice completes the text so that it conforms to the conventions of Standard English?",
-              "choices": [
-                "them",
-                "them,",
-                "them;",
-                "them—"
+                "direction\"",
+                "direction\";",
+                "direction\" and,",
+                "direction.\""
               ],
               "answer": "B",
-              "explanation": "The phrase \"the fine rock powder...beneath them\" opens with a comma after \"Glacial flour,\" so it must close with a comma before the verb \"gives.\""
+              "explanation": "The quotation ends a complete clause and a new independent clause follows, so a semicolon goes after the closing quotation mark."
             },
             {
-              "id": "t6-rw2h-19",
+              "id": "t6-rw2hx-16",
               "section": "rw",
               "skill": "Form, Structure, and Sense",
               "difficulty": "hard",
-              "passage": "Neither the robot's two arms nor its camera ______ damaged when the machine tipped over during testing.",
+              "passage": "In 1987, chemist Ahmed Zewail devised a novel technique in optical spectroscopy that allowed him to study ultrafast chemical reactions occurring within molecules. Years later, he ______ for this groundbreaking research with the Wolf Prize in Chemistry and the Golden Plate Award of the American Academy of Achievement and hence would become known as the father of femtochemistry.",
               "prompt": "Which choice completes the text so that it conforms to the conventions of Standard English?",
               "choices": [
-                "were",
-                "have been",
-                "are",
-                "was"
+                "is honored",
+                "had been honored",
+                "will be honored",
+                "would be honored"
               ],
               "answer": "D",
-              "explanation": "With \"neither...nor,\" the verb agrees with the nearer subject, the singular \"camera,\" so the verb is **was**. *Were* would agree with \"arms,\" the farther subject."
+              "explanation": "The text looks back from 1987 to later events (\"Years later ... would become known\"), so \"would be honored\" matches."
             },
             {
-              "id": "t6-rw2h-20",
+              "id": "t6-rw2hx-17",
               "section": "rw",
-              "skill": "Form, Structure, and Sense",
+              "skill": "Boundaries",
               "difficulty": "hard",
-              "passage": "After comparing the two ______ accounts of the 1903 expedition, the historian concluded that both men had exaggerated the size of the glacier they crossed.",
+              "passage": "Sweden's 1974 constitution contains one of the six constitutional features that enhance judicial independence, as identified by legal scholars James Melton and Tom Ginsburg. Since 1985, such de jure judicial independence has become more prevalent among ______ Haiti's constitution contains four such features.",
               "prompt": "Which choice completes the text so that it conforms to the conventions of Standard English?",
               "choices": [
-                "explorer's",
-                "explorers'",
-                "explorers",
-                "explorers's"
+                "constitutions enacted in 1987;",
+                "constitutions; enacted in 1987,",
+                "constitutions, enacted in 1987;",
+                "constitutions, enacted in 1987,"
               ],
               "answer": "B",
-              "explanation": "The accounts belong to two explorers, so the plural possessive **explorers'** is needed. *Explorer's* refers to only one explorer."
+              "explanation": "A semicolon ends the first independent clause; \"Enacted in 1987, Haiti's constitution ...\" is the next clause with its opening modifier set off by a comma."
             },
             {
-              "id": "t6-rw2h-21",
+              "id": "t6-rw2hx-18",
+              "section": "rw",
+              "skill": "Boundaries",
+              "difficulty": "hard",
+              "passage": "Minerals can be classified by how much light passes through them. For example, all (or almost all) light passes through topaz, which is classified as ______ only some light passes through, mixite is instead classified as translucent.",
+              "prompt": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+              "choices": [
+                "transparent. Allowing",
+                "transparent allowing",
+                "transparent, allowing",
+                "transparent and allowing"
+              ],
+              "answer": "A",
+              "explanation": "The first sentence ends at \"transparent.\" The next opens with \"Allowing only some light through,\" which modifies \"mixite.\""
+            },
+            {
+              "id": "t6-rw2hx-19",
+              "section": "rw",
+              "skill": "Boundaries",
+              "difficulty": "hard",
+              "passage": "According to a 2017 analysis by economist Jacob Lundberg, Ireland's top tax rate of 64% was lower than the country's Laffer curve peak (72%). To some economists, whether a tax cut will ultimately increase Ireland's tax revenue is dependent on the country's position on the Laffer curve. A theoretical relationship between tax rates and revenues, the curve is named for the US ______ Arthur Laffer.",
+              "prompt": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+              "choices": [
+                "economist:",
+                "economist,",
+                "economist—",
+                "economist"
+              ],
+              "answer": "D",
+              "explanation": "\"US economist Arthur Laffer\": a title before a name takes no punctuation."
+            },
+            {
+              "id": "t6-rw2hx-20",
+              "section": "rw",
+              "skill": "Boundaries",
+              "difficulty": "hard",
+              "passage": "With one in Australia and another in Antarctica, the observatory sites that form the Super Dual Auroral Radar ______ or SuperDARN, as space physicists like Tadahiko Ogawa call it—number nearly five dozen. Located across the globe, the radars track ionospheric irregularities and other geospace phenomena.",
+              "prompt": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+              "choices": [
+                "Network—",
+                "Network",
+                "Network:",
+                "Network."
+              ],
+              "answer": "A",
+              "explanation": "\"Or SuperDARN, as ... call it\" is set off by a pair of dashes; the closing dash is already there."
+            },
+            {
+              "id": "t6-rw2hx-21",
               "section": "rw",
               "skill": "Form, Structure, and Sense",
               "difficulty": "hard",
-              "passage": "The cloth fragments, ______ in a sealed clay jar for nearly two thousand years, still show traces of the red dye used to color them.",
+              "passage": "American abstract artist Richard ______ his installations to make passersby keenly aware of how one's movements are affected by the physical features of one's environment, assembles large-scale steel plates into sculptures that dominate the outdoor spaces they occupy.",
               "prompt": "Which choice completes the text so that it conforms to the conventions of Standard English?",
               "choices": [
-                "were preserved",
-                "are preserved",
-                "preserved",
-                "they were preserved"
+                "Serra is intending",
+                "Serra, intends",
+                "Serra, intending",
+                "Serra intends"
               ],
               "answer": "C",
-              "explanation": "The phrase between the commas describes the fragments, and the sentence's main verb is \"show.\" A participle, **preserved**, is needed; a second main verb would make the sentence ungrammatical."
+              "explanation": "\"Intending his installations to ...\" is a participial phrase between commas; the main verb is \"assembles.\""
             },
             {
-              "id": "t6-rw2h-22",
+              "id": "t6-rw2hx-22",
+              "section": "rw",
+              "skill": "Form, Structure, and Sense",
+              "difficulty": "hard",
+              "passage": "The Museum of Modern Art's vast collection of oil paintings, which includes Le Corbusier's *Still Life* and Raoul Dufy's *The 14th of July in Le Havre*, ______ among its most captivating offerings.",
+              "prompt": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+              "choices": [
+                "remains",
+                "have been remaining",
+                "remain",
+                "have remained"
+              ],
+              "answer": "A",
+              "explanation": "The subject is \"collection\" (singular), so \"remains.\""
+            },
+            {
+              "id": "t6-rw2hx-23",
               "section": "rw",
               "skill": "Transitions",
               "difficulty": "hard",
-              "passage": "The first sewing machines sold for home use were noisy, broke down often, and cost more than many families could easily afford. ______ demand for them grew quickly, since a machine could sew a shirt in a fraction of the time needed by hand.",
+              "passage": "According to Duverger's law, countries with single-ballot majoritarian elections for single-member districts tend to polarize into two-party systems, wherein dueling political parties consistently dominate the political system. ______ countries with proportional-representation electoral systems tend to support multi-partyism, under which power gets distributed among many political parties.",
               "prompt": "Which choice completes the text with the most logical transition?",
               "choices": [
-                "Even so,",
-                "Indeed,",
-                "As a result,",
+                "Subsequently,",
+                "Conversely,",
+                "For instance,",
                 "In other words,"
               ],
-              "answer": "A",
-              "explanation": "Demand grew despite the drawbacks just listed, so a concession word fits. *As a result* would wrongly suggest the drawbacks caused the demand."
+              "answer": "B",
+              "explanation": "Majoritarian systems lead to two parties; proportional systems do the opposite: \"Conversely.\""
             },
             {
-              "id": "t6-rw2h-23",
+              "id": "t6-rw2hx-24",
               "section": "rw",
               "skill": "Transitions",
               "difficulty": "hard",
-              "passage": "Robots that learn by trial and error can master tasks that are hard to program step by step, such as folding laundry. ______ this kind of learning is slow: a robot may need thousands of failed attempts before it folds a single shirt neatly.",
+              "passage": "The Tommy Atkins mango is the most widely grown mango variety in Brazil, one of the world's leading mango producers. ______ in 2018, 1.4 million metric tons of mangoes were produced.",
               "prompt": "Which choice completes the text with the most logical transition?",
               "choices": [
-                "Specifically,",
                 "Hence,",
-                "That said,",
-                "Similarly,"
-              ],
-              "answer": "C",
-              "explanation": "The first sentence gives a strength and the second a drawback, so a transition that introduces a qualification, **That said**, fits."
-            },
-            {
-              "id": "t6-rw2h-24",
-              "section": "rw",
-              "skill": "Transitions",
-              "difficulty": "hard",
-              "passage": "Conservators examining a nineteenth-century silk robe found that it had been altered several times during its long life. ______ its sleeves had been shortened, its lining had been replaced at least twice, and a collar had been added in a fabric made decades after the robe itself.",
-              "prompt": "Which choice completes the text with the most logical transition?",
-              "choices": [
-                "Nevertheless,",
-                "In contrast,",
-                "Previously,",
-                "Specifically,"
+                "In fact,",
+                "Specifically,",
+                "There,"
               ],
               "answer": "D",
-              "explanation": "The second sentence lists the particular alterations that the first sentence mentions in general, so **Specifically** fits."
+              "explanation": "\"There\" refers back to Brazil, where the mangoes were produced."
             },
             {
-              "id": "t6-rw2h-25",
+              "id": "t6-rw2hx-25",
               "section": "rw",
-              "skill": "Rhetorical Synthesis",
+              "skill": "Transitions",
               "difficulty": "hard",
-              "passage": "While researching a topic, a student has taken the following notes:\n\n• Alizarin is the compound that gives madder root its red dye.\n• For centuries, dyers obtained alizarin by drying, grinding, and soaking madder roots.\n• In 1868, chemists in Germany produced alizarin synthetically from a substance found in coal tar.\n• Within a few decades, synthetic alizarin had largely replaced madder grown on farms.",
-              "prompt": "The student wants to explain the effect of synthetic alizarin on madder farming. Which choice most effectively uses relevant information from the notes to accomplish this goal?",
+              "passage": "In retrospect, one of the lessons of the 2003 Human Genome Project is that a gene is affected by many factors, not the least of which is its interactions with the protein products of other genes. ______ rather than just focusing on the human genome, efforts to better understand gene mutations related to disease have begun to consider the human proteome, the complete set of proteins expressed by human genes.",
+              "prompt": "Which choice completes the text with the most logical transition?",
               "choices": [
-                "Alizarin, the compound that gives madder root its red dye, was first produced synthetically in 1868.",
-                "For centuries, dyers obtained alizarin by drying, grinding, and soaking madder roots.",
-                "After chemists produced alizarin from a coal-tar substance in 1868, the synthetic dye largely replaced farm-grown madder within a few decades.",
-                "Synthetic alizarin is made from a coal-tar substance, while natural alizarin comes from madder roots."
+                "In other words,",
+                "That said,",
+                "For example,",
+                "Accordingly,"
+              ],
+              "answer": "D",
+              "explanation": "Because genes are shaped by interactions with proteins, researchers have begun studying the proteome: \"Accordingly.\""
+            },
+            {
+              "id": "t6-rw2hx-26",
+              "section": "rw",
+              "skill": "Transitions",
+              "difficulty": "medium",
+              "passage": "In a 1984 study by Warren et al., the researchers determined the ratio of three different plant subtypes within the diet of sheep: graminoids, forbs, and browse. ______ the researchers determined the relative quantities of the plants the animal consumed.",
+              "prompt": "Which choice completes the text with the most logical transition?",
+              "choices": [
+                "By contrast,",
+                "In addition,",
+                "That is,",
+                "Next,"
               ],
               "answer": "C",
-              "explanation": "The goal is an effect on farming, and only this choice says that synthetic alizarin replaced farm-grown madder. The option that gives only the 1868 date leaves out the effect."
+              "explanation": "The second sentence restates the first in plainer terms: \"That is.\""
             },
             {
-              "id": "t6-rw2h-26",
+              "id": "t6-rw2hx-27",
               "section": "rw",
               "skill": "Rhetorical Synthesis",
-              "difficulty": "hard",
-              "passage": "While researching a topic, a student has taken the following notes:\n\n• Strider is a two-legged robot built by engineering students at a university in Nairobi.\n• It is 1.2 meters tall.\n• Cameras and pressure sensors in its feet help it keep its balance on uneven ground.\n• The students hope it will one day carry supplies to villages in mountain areas.",
-              "prompt": "The student wants to introduce Strider to an audience unfamiliar with it, emphasizing the robot's intended purpose. Which choice most effectively uses relevant information from the notes to accomplish this goal?",
+              "difficulty": "medium",
+              "passage": "• Grimanesa Amoros is a Peruvian American artist.\n• She is well known for her large-scale LED light sculptures.\n• *The Mirror Connection* debuted in 2013 at the CFA Art Museum in Beijing, China.\n• It is made of entangled blue and white LED tubes.\n• It occupies 252,000 cubic feet of space.",
+              "prompt": "Which choice most effectively uses information from the given sentences to emphasize when and where *The Mirror Connection* debuted?",
               "choices": [
-                "Strider uses cameras and pressure sensors in its feet to keep its balance on uneven ground.",
-                "The students hope their robot will one day carry supplies to villages in mountain areas.",
-                "Strider, a two-legged robot built by engineering students in Nairobi, may one day carry supplies to mountain villages.",
-                "At 1.2 meters tall, Strider is a two-legged robot built by engineering students in Nairobi."
+                "Artist Grimanesa Amoros often works with light in her sculptures, which tend to be large in scale.",
+                "In 2013, Grimanesa Amoros debuted *The Mirror Connection* in Beijing, China.",
+                "As is common of Grimanesa Amoros's sculptures, the entangled blue and white LED tubes of *The Mirror Connection* cut an imposing 252,000-cubic-foot figure when the piece debuted.",
+                "Grimanesa Amoros is a Peruvian American artist who often works with LED light in her large-scale sculptures, such as *The Mirror Connection* (2013)."
               ],
-              "answer": "C",
-              "explanation": "An unfamiliar audience needs to know what Strider is, and the goal stresses its purpose. Only this choice does both. The option about \"their robot\" gives the purpose but never names or describes the robot."
-            },
-            {
-              "id": "t6-rw2h-27",
-              "section": "rw",
-              "skill": "Rhetorical Synthesis",
-              "difficulty": "hard",
-              "passage": "While researching a topic, a student has taken the following notes:\n\n• Researcher Emma Novak examined 400 picture books published in Poland between 1990 and 2019.\n• In books from the 1990s, 18% of main characters were animals.\n• In books from the 2010s, 46% of main characters were animals.\n• Novak suggests that illustrators increasingly chose animal characters so that children from any background could identify with them.",
-              "prompt": "The student wants to present the main finding of Novak's study. Which choice most effectively uses relevant information from the notes to accomplish this goal?",
-              "choices": [
-                "Novak found that animal main characters became far more common in the picture books she studied, rising from 18% of main characters in the 1990s to 46% in the 2010s.",
-                "Novak suggests that illustrators chose animal characters so that children from any background could identify with them.",
-                "Novak examined 400 picture books published in Poland between 1990 and 2019.",
-                "In picture books from the 1990s, 18% of main characters were animals."
-              ],
-              "answer": "A",
-              "explanation": "The finding is the change in animal characters from 18% to 46%. The option about illustrators' choices is Novak's explanation of the finding, not the finding itself."
+              "answer": "B",
+              "explanation": "B states both when (2013) and where (Beijing, China) it debuted. Said's key had D, but D gives only the year."
             }
           ]
         }
