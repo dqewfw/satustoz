@@ -200,6 +200,20 @@
       "file": "data/tests/practice-test-21.json"
     },
     {
+      "id": "practice-test-22",
+      "title": "Practice Test 22",
+      "description": "Full-length and adaptive, like test day: 98 questions in 2 hours 14 minutes, plus a 10-minute break.",
+      "plan": "pro",
+      "file": "data/tests/practice-test-22.json"
+    },
+    {
+      "id": "practice-test-23",
+      "title": "Practice Test 23",
+      "description": "Full-length and adaptive, like test day: 98 questions in 2 hours 14 minutes, plus a 10-minute break.",
+      "plan": "pro",
+      "file": "data/tests/practice-test-23.json"
+    },
+    {
       "id": "diagnostic-mini",
       "title": "Mini diagnostic test",
       "description": "A shortened adaptive test (8 Reading and Writing and 6 Math questions per module) to try the full test-day flow in about 50 minutes.",

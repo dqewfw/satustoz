@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 312" width="400" height="312"><rect width="400" height="312" fill="#fff"/><line x1="40" y1="90" x2="350" y2="90" stroke="#000" stroke-width="2"/>
+<line x1="40" y1="200" x2="350" y2="200" stroke="#000" stroke-width="2"/>
+<line x1="70" y1="270" x2="300" y2="30" stroke="#000" stroke-width="2"/>
+<line x1="110" y1="30" x2="330" y2="270" stroke="#000" stroke-width="2"/>
+<g font-size="17" font-style="italic" font-family="Georgia, serif">
+<text x="356" y="95">m</text><text x="356" y="205">n</text>
+<text x="118" y="222">A</text><text x="248" y="222">C</text>
+<text x="150" y="82">D</text><text x="222" y="82">E</text>
+<text x="196" y="136">B</text></g>
+<text x="200" y="300" font-size="14" text-anchor="middle" font-family="Georgia, serif">Note: Figure not drawn to scale.</text></svg>
