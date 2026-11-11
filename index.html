@@ -257,10 +257,11 @@
         <h1 data-i18n="hero_h1">Practice for the SAT the way you&rsquo;ll take it.</h1>
         <p class="lede" data-i18n="hero_sub">Timed adaptive tests in the real two-module format, question sets from our own lessons, and an explanation for every question. AI tutor coming with Max.</p>
         <div class="hero-ctas">
-          <a class="btn btn-primary btn-lg" href="practice.html" data-i18n="cta_start">Start practicing</a>
-          <a class="btn btn-ghost btn-lg" href="practice.html#tests" data-i18n="hero_cta2">Take a practice test</a>
+          <a class="btn btn-primary btn-lg" id="hero-cta" href="test.html?id=diagnostic-mini" data-i18n="try_cta">Take the free diagnostic</a>
+          <a class="btn btn-ghost btn-lg" id="hero-cta2" href="practice.html" data-i18n="cta_start">Start practicing</a>
         </div>
         <ul class="facts">
+          <li id="hero-cal" hidden></li>
           <li data-i18n="fact1">Module 2 adapts to how you did on Module 1</li>
           <li data-i18n="fact2">Calculator, reference sheet and annotation built in</li>
           <li data-i18n="fact3">An explanation for every question</li>
@@ -380,7 +381,7 @@
     <div class="wrap">
       <div class="sec-head"><h2 data-i18n="cal_h2">How close are our scores to the real SAT?</h2><p class="muted" data-i18n="cal_p">Students who took the real SAT told us their score. Here is how it compares with their last practice tests on SAT Ustoz.</p></div>
       <div class="calib" id="calib"></div>
-      <span hidden data-i18n="cal_n">students compared</span><span hidden data-i18n="cal_abs">points apart on average</span><span hidden data-i18n="cal_50">within 50 points of their real score</span>
+      <span hidden data-i18n="cal_n">students compared</span><span hidden data-i18n="cal_abs">points apart on average</span><span hidden data-i18n="cal_50">within 50 points of their real score</span><span hidden data-i18n="hero_cal">Scores land within {d} points of the real SAT on average ({n} students compared)</span>
     </div>
   </section>
 
@@ -485,6 +486,7 @@ document.addEventListener('DOMContentLoaded', function () {
       say_score: "SAT bali", say_up: "+{n} ball", say_photo: "Natija varaqasi",
       cal_h2: "Ballarimiz haqiqiy SATga qanchalik yaqin?", cal_p: "Haqiqiy SAT topshirgan oʻquvchilar bizga ballarini aytishdi. Mana ular SAT Ustozdagi oxirgi sinov testlari bilan qanday solishtiriladi.",
       cal_n: "oʻquvchi solishtirildi", cal_abs: "ball oʻrtacha farq", cal_50: "haqiqiy balidan 50 ball ichida",
+      hero_cal: "Ballar haqiqiy SATdan oʻrtacha {d} ball ichida ({n} oʻquvchi solishtirildi)",
       tools_h2: "Bepul vositalar, hisob kerak emas",
       tool1_k: "Ball kalkulyatori", tool1_t: "Nechta toʻgʻri javob qancha ball?", tool1_p: "Har bir moduldagi toʻgʻri javoblaringizni kiriting va qaysi 2-modulga tushishingiz hamda taxminiy ballingizni koʻring.", tool1_b: "Kalkulyatorni ochish",
       tool2_k: "Har kuni", tool2_t: "Kun savoli", tool2_p: "Har kuni bitta yangi SAT savoli va uning izohi. Ketma-ketlikni uzmang.", tool2_b: "Bugungi savolga javob berish",
@@ -544,6 +546,7 @@ document.addEventListener('DOMContentLoaded', function () {
       say_score: "Балл SAT", say_up: "+{n} баллов", say_photo: "Отчёт о баллах",
       cal_h2: "Насколько наши баллы близки к настоящему SAT?", cal_p: "Ученики, сдавшие настоящий SAT, сообщили нам свой балл. Вот как он соотносится с их последними пробными тестами на SAT Ustoz.",
       cal_n: "учеников в сравнении", cal_abs: "баллов разница в среднем", cal_50: "в пределах 50 баллов от настоящего результата",
+      hero_cal: "Баллы в среднем в пределах {d} баллов от настоящего SAT (сравнили {n} учеников)",
       tools_h2: "Бесплатные инструменты без аккаунта",
       tool1_k: "Калькулятор баллов", tool1_t: "Сколько баллов дают ваши верные ответы?", tool1_p: "Введите число верных ответов в каждом модуле и узнайте, какой модуль 2 вам достанется и какой примерный балл.", tool1_b: "Открыть калькулятор",
       tool2_k: "Каждый день", tool2_t: "Вопрос дня", tool2_p: "Каждый день новый вопрос SAT с объяснением. Не прерывайте серию.", tool2_b: "Ответить на вопрос дня",
@@ -730,6 +733,12 @@ document.addEventListener('DOMContentLoaded', function () {
     var tile = function (v, k) { return '<div class="stat"><b>' + esc(v) + '</b><span>' + esc(word(k)) + '</span></div>'; };
     document.getElementById('calib').innerHTML = tile(calib.n, 'cal_n') + tile(Math.round(calib.meanAbsDiff), 'cal_abs') + tile(Math.round(calib.within50) + '%', 'cal_50');
     document.getElementById('calibration').hidden = false;
+    // The same number, one line, at the top of the hero (hidden until 5 students).
+    var heroCal = document.getElementById('hero-cal');
+    if (heroCal) {
+      heroCal.textContent = word('hero_cal').replace('{d}', Math.round(calib.meanAbsDiff)).replace('{n}', calib.n);
+      heroCal.hidden = false;
+    }
   }
   fetch('data/calibration.json', { cache: 'no-cache' }).then(function (r) { return r.ok ? r.json() : null; }).then(function (c) { calib = c; drawCalib(); }).catch(function () { /* none yet */ });
   var plansMount = document.getElementById('plans-mount');
@@ -737,6 +746,15 @@ document.addEventListener('DOMContentLoaded', function () {
   Array.prototype.forEach.call(document.querySelectorAll('[data-lang]'), function (b) {
     b.addEventListener('click', function () { apply(b.dataset.lang); });
   });
+  // Students who already finished a test on this device get the dashboard first;
+  // new visitors get the free diagnostic as the main button.
+  try {
+    var heroMain = document.getElementById('hero-cta'), heroAlt = document.getElementById('hero-cta2');
+    if (heroMain && heroAlt && window.SH && window.SH.getTestHistory().length) {
+      heroMain.href = 'practice.html'; heroMain.dataset.i18n = 'cta_start';
+      heroAlt.href = 'test.html?id=diagnostic-mini'; heroAlt.dataset.i18n = 'try_cta';
+    }
+  } catch (e) { /* keep the default buttons */ }
   // Uzbek first for visitors in Uzbekistan (SH.pickLang); English elsewhere.
   var saved = window.SH ? window.SH.pickLang() : 'en';
   apply(saved);
