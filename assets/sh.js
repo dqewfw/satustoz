@@ -834,6 +834,8 @@
   const BOX_DAYS = [0, 1, 3, 7, 21];
   const DAILY_CAP = 20, FREE_BANK = 15;
   const MAX_MISTAKES = 600;
+  // Fix check: right and on time this many times, on different days, before a card counts as fixed.
+  const FIX_PASSES = 2, FIX_MAX = 10;
   const ERROR_TAGS = [
     ['unknown', 'Didn’t know it', 'Concept or rule not learned'],
     ['misread', 'Misread', 'Missed a word like NOT or EXCEPT, or the actual question'],
@@ -876,7 +878,7 @@
     // 20 (the rest roll to tomorrow), with domains mixed rather than grouped.
     queue(skill) {
       const end = endOfToday();
-      const due = this.open().filter(e => e.kind !== 'speed' && (e.due || 0) <= end && (!skill || e.skill === skill))
+      const due = this.open().filter(e => e.kind !== 'speed' && !e.ready && (e.due || 0) <= end && (!skill || e.skill === skill))
         .sort((a, b) => a.box - b.box || (a.due || 0) - (b.due || 0)).slice(0, DAILY_CAP);
       const groups = {};
       due.forEach(e => { const k = e.section + '|' + domainOf(e.section, e.skill); (groups[k] = groups[k] || []).push(e); });
@@ -884,7 +886,26 @@
       while (lists.some(l => l.length)) lists.forEach(l => { if (l.length) out.push(l.shift()); });
       return out;
     },
-    dueCount() { return this.open().filter(e => e.kind !== 'speed' && (e.due || 0) <= endOfToday()).length; },
+    dueCount() { return this.open().filter(e => e.kind !== 'speed' && !e.ready && (e.due || 0) <= endOfToday()).length; },
+    // Cards waiting for a Fix check today (passed Box 4), oldest first, at most FIX_MAX.
+    fixQueue() {
+      const end = endOfToday();
+      return this.open().filter(e => e.ready && e.kind !== 'speed' && (e.due || 0) <= end).sort((a, b) => (a.due || 0) - (b.due || 0)).slice(0, FIX_MAX);
+    },
+    fixWaiting() { return this.open().filter(e => e.ready && e.kind !== 'speed').length; },
+    // Open mistakes grouped by why they were missed (the student's tag, else
+    // the one suggested from time), biggest group first. 'unsorted' = no reason yet.
+    groups() {
+      const g = {};
+      this.open().filter(e => e.kind !== 'speed').forEach(e => {
+        const k = e.tag || e.sug || 'unsorted';
+        const x = g[k] = g[k] || { tag: k, n: 0, tagged: 0, skills: {}, ready: 0 };
+        x.n++; if (e.tag) x.tagged++; if (e.ready) x.ready++;
+        x.skills[e.skill] = (x.skills[e.skill] || 0) + 1;
+      });
+      return Object.values(g).map(x => Object.assign(x, { top: Object.keys(x.skills).sort((a, b) => x.skills[b] - x.skills[a]).slice(0, 2) }))
+        .sort((a, b) => (a.tag === 'unsorted') - (b.tag === 'unsorted') || b.n - a.n);
+    },
     // src: { type: 'set' | 'test' | 'ai', id, where }; info: { ms, ch, guessed, review }
     record(q, ok, src, info) { return this.recordMany([{ q, ok, src, info }]); },
     recordMany(items) {
@@ -923,7 +944,7 @@
         if (!ok) { e.misses = (e.misses || 0) + 1; if (info.ch != null && info.ch !== '') e.ch = String(info.ch).slice(0, 8); e.sug = suggestTag(type) || e.sug || ''; }
         else e.sug = 'guess';
         if (reviewing) { e.rv = (e.rv || 0) + 1; e.lr = now; }
-        delete e.fixedAt; delete e.mAt;
+        delete e.fixedAt; delete e.mAt; delete e.fx; delete e.ready;
         put(e, 1);
         // AI questions exist nowhere else, so the bank keeps their text.
         if (src.type === 'ai') e.q = JSON.parse(JSON.stringify(q));
@@ -934,10 +955,22 @@
       if (reviewing) {
         const e = had, was = e.box;
         e.rv = (e.rv || 0) + 1; e.lr = now;
+        // Fix check (a timed session at test pace): over the time is not a
+        // pass, but the student knows it, so the card stays at Box 4 and the
+        // check starts again tomorrow.
+        if (info.fix && e.box >= 4 && type === 'slow') {
+          e.fx = 0; e.ready = true; e.due = now + DAY; e.t = now; m[q.id] = e; return info2(e, 'checkslow', was);
+        }
         // Right but slow isn't mastery yet: back to Box 1.
-        if (type === 'slow') { put(e, 1); m[q.id] = e; return info2(e, 'slow', was); }
+        if (type === 'slow') { put(e, 1); delete e.fx; delete e.ready; m[q.id] = e; return info2(e, 'slow', was); }
         e.rc = (e.rc || 0) + 1;
         if (e.box >= 4) {
+          // A plain review at Box 4 no longer masters the card: it goes to the
+          // Fix check. Fixed = right and on time in 2 Fix checks on different days.
+          if (!info.fix) { e.ready = true; e.fx = e.fx || 0; e.due = now; e.t = now; m[q.id] = e; return info2(e, 'ready', was); }
+          e.fx = (e.fx || 0) + 1;
+          if (e.fx < FIX_PASSES) { e.ready = true; e.due = now + DAY; e.t = now; m[q.id] = e; return info2(e, 'check1', was); }
+          delete e.ready;
           e.st = 'mastered'; e.mAt = now; e.fixed = true; e.fixedAt = now; e.t = now; delete e.due;
           m[q.id] = e; return info2(e, 'mastered', was);
         }
@@ -3582,7 +3615,7 @@
     getJSON, loadCatalog, loadSet, loadAllBank, loadTest,
     getAttempts, recordAttempts, markGuessed, skillStats, weakSkills, getProfile, setProfile, getTestHistory, addTestHistory,
     qtimes, errorType, refersToLetter, shuffledCopy, origLetter, scale, gap, isFullTest, DOMAIN_SHARE, SECTION_Q, PACE,
-    ERROR_TAGS, tagLabel, suggestTag, BOX_DAYS, DAILY_CAP, FREE_BANK, telegram,
+    ERROR_TAGS, tagLabel, suggestTag, BOX_DAYS, FIX_PASSES, DAILY_CAP, FREE_BANK, telegram,
     ai, toast, modal, openTutor, makePanel, calculator, CALC_ICON, copyText,
     auth, sync, authReady, renderAuthSlots, requireLogin, loginUrl, safeNext, inAppBrowser,
     plan, renderPlans, pay, lockBox, analytics, track,

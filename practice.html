@@ -523,6 +523,7 @@ document.addEventListener('DOMContentLoaded', function () {
     }
     html += SH.xp.cardHtml(); // streak, daily goal, level (sh.js)
     html += reviewCardHtml();
+    html += fixCardHtml();
     html += '<div class="grid grid-4">' +
       tile(attempts.length, 'questions practiced') +
       tile(attempts.length ? SH.pct(correct, attempts.length) + '%' : '–', 'accuracy') +
@@ -560,6 +561,7 @@ document.addEventListener('DOMContentLoaded', function () {
     bindAnalyzer(snap);
     bindMastery();
     const sr = $('[data-start-review]'); if (sr) sr.addEventListener('click', startReview);
+    $$('[data-start-fix]').forEach(b => b.addEventListener('click', startFixCheck));
     bindHomeExtras();
     // First visit: ask for the goal once, so the gap means something.
     if (!p.goalSet && !SH.store.get('goalAsked', false)) { SH.store.set('goalAsked', true); setTimeout(editGoals, 300); }
@@ -994,11 +996,110 @@ document.addEventListener('DOMContentLoaded', function () {
     const due = SH.mistakes.queue().length;
     if (!due) return '';
     const mins = Math.max(2, Math.round(due * 75 / 60));
-    return '<div class="card review-card"><div><span class="kicker">Mistake Bank</span><h3>Today’s review: ' + due + ' question' + (due === 1 ? '' : 's') + ', about ' + mins + ' minutes</h3><p class="small muted">Questions you missed, back on schedule. Get one right on time 4 reviews in a row and it’s mastered.</p></div><button class="btn btn-primary" type="button" data-start-review>Start</button></div>';
+    return '<div class="card review-card"><div><span class="kicker">Mistake Bank</span><h3>Today’s review: ' + due + ' question' + (due === 1 ? '' : 's') + ', about ' + mins + ' minutes</h3><p class="small muted">Questions you missed, back on schedule. Get one right on time 4 reviews in a row, then pass a timed Fix check, and it’s fixed.</p></div><button class="btn btn-primary" type="button" data-start-review>Start</button></div>';
   }
+  /* ---------- Fix check and mistake types (EN/UZ/RU) ---------- */
+  const FX_T = SH.i18n({
+    en: {
+      kicker: 'Fix check', h: '{n} mistake{s} ready for a Fix check',
+      p: 'You got these right 4 reviews in a row. Now prove it on the clock, at real test pace: right and on time in 2 Fix checks on different days, and the mistake is fixed.',
+      loading: 'Loading your questions…', btn: 'Start the Fix check', btn_n: 'Fix check ({n})', title: 'Fix check', none: 'No Fix check due today.',
+      twin_note: 'A new question in the same skill, so you show the idea, not the remembered answer.',
+      ready: 'Right again. It now waits for a <b>Fix check</b>: the same idea on the clock, at test pace.',
+      check1: '<b>Fix check {k} of {n} passed</b>, on time. One more on another day and it’s fixed.',
+      fixed: '<b>Fixed.</b> Right on the clock {n} times on different days. It leaves your review for good.',
+      slow: 'Right, but it took {t}. A Fix check needs test pace (under {lim}). It stays ready and comes back tomorrow.',
+      types_h: 'Your mistake types', types_p: 'Open mistakes grouped by why you missed them. Fix the habit at the top first: it costs you the most questions.',
+      n_q: '{n} question{s}', share: '{p}% of your open mistakes', in: 'Mostly in: {k}', show: 'Show these', fixn: '{n} ready for a Fix check',
+      untagged: 'Suggested from your time. Tap a reason on a card to confirm it.',
+      t_unknown: 'Didn’t know it', t_misread: 'Misread', t_calc: 'Calculation slip', t_torn: 'Torn between two', t_time: 'Ran out of time', t_guess: 'Guessed', t_unsorted: 'No reason yet',
+      f_unknown: 'Learn the rule before you drill: open the lesson for the skill or ask the AI tutor, then review.',
+      f_misread: 'Before you look at the choices, underline what the question really asks: NOT, EXCEPT, the blank, the unit.',
+      f_calc: 'Write every step, and check your answer by putting it back into the question or with Desmos.',
+      f_torn: 'When two choices are left, say out loud why each one is wrong. The right one has no reason.',
+      f_time: 'If a question passes the usual time, mark it, guess and move on. Come back at the end.',
+      f_guess: 'These are skills you haven’t learned yet. Start with a short lesson, then a drill.',
+      f_unsorted: 'Open a card and tap why you missed it. Once they have reasons, the pattern shows here.'
+    },
+    uz: {
+      kicker: 'Tuzatish sinovi', h: '{n} ta xato tuzatish sinoviga tayyor',
+      p: 'Bularni 4 ta takrorlashda ketma-ket toʻgʻri yechdingiz. Endi buni vaqt bilan, haqiqiy imtihon tezligida isbotlang: turli kunlarda 2 ta sinovda vaqtida toʻgʻri javob bersangiz, xato tuzatilgan hisoblanadi.',
+      loading: 'Savollar yuklanmoqda…', btn: 'Tuzatish sinovini boshlash', btn_n: 'Tuzatish sinovi ({n})', title: 'Tuzatish sinovi', none: 'Bugun tuzatish sinovi yoʻq.',
+      twin_note: 'Xuddi shu koʻnikma boʻyicha yangi savol: javobni eslab qolganingizni emas, gʻoyani tushunganingizni koʻrsatasiz.',
+      ready: 'Yana toʻgʻri. Endi u <b>tuzatish sinovini</b> kutadi: xuddi shu gʻoya, vaqt bilan, imtihon tezligida.',
+      check1: '<b>Tuzatish sinovi: {n} tadan {k} tasi oʻtildi</b>, vaqtida. Boshqa kuni yana bittasi va xato tuzatiladi.',
+      fixed: '<b>Tuzatildi.</b> Turli kunlarda {n} marta vaqtida toʻgʻri. U takrorlashdan butunlay chiqadi.',
+      slow: 'Toʻgʻri, lekin {t} ketdi. Tuzatish sinovi imtihon tezligini talab qiladi ({lim} dan kam). Ertaga yana qaytadi.',
+      types_h: 'Xatolaringiz turlari', types_p: 'Ochiq xatolar nima sababdan qilinganiga qarab guruhlangan. Eng yuqoridagi odatdan boshlang: u sizga eng koʻp savol yoʻqotadi.',
+      n_q: '{n} ta savol', share: 'ochiq xatolarning {p}%', in: 'Asosan: {k}', show: 'Koʻrsatish', fixn: '{n} tasi tuzatish sinoviga tayyor',
+      untagged: 'Vaqtingizga qarab taklif qilingan. Tasdiqlash uchun kartadagi sababni bosing.',
+      t_unknown: 'Bilmasdim', t_misread: 'Notoʻgʻri oʻqidim', t_calc: 'Hisobda xato', t_torn: 'Ikkitadan birini tanlolmadim', t_time: 'Vaqt yetmadi', t_guess: 'Taxmin qildim', t_unsorted: 'Sabab koʻrsatilmagan',
+      f_unknown: 'Mashqdan oldin qoidani oʻrganing: shu koʻnikma darsini oching yoki AI ustozdan soʻrang, keyin takrorlang.',
+      f_misread: 'Javoblarga qarashdan oldin savol aslida nimani soʻrayotganini belgilang: NOT, EXCEPT, boʻsh joy, oʻlchov birligi.',
+      f_calc: 'Har bir qadamni yozing va javobni savolga qoʻyib yoki Desmos bilan tekshiring.',
+      f_torn: 'Ikki javob qolganda, har biri nega notoʻgʻri ekanini ovoz chiqarib ayting. Toʻgʻrisida bunday sabab boʻlmaydi.',
+      f_time: 'Savol odatdagi vaqtdan oshsa, belgilang, taxmin qiling va davom eting. Oxirida qaytib keling.',
+      f_guess: 'Bular hali oʻrganilmagan koʻnikmalar. Qisqa darsdan boshlang, keyin mashq qiling.',
+      f_unsorted: 'Kartani oching va nima sababdan xato qilganingizni bosing. Sabablar boʻlsa, qonuniyat shu yerda koʻrinadi.'
+    },
+    ru: {
+      kicker: 'Проверка на время', h: 'Готовы к проверке на время: {n}',
+      p: 'Вы ответили на них верно 4 повторения подряд. Теперь докажите это на время, в темпе настоящего экзамена: верно и вовремя в 2 проверках в разные дни — и ошибка исправлена.',
+      loading: 'Загружаем вопросы…', btn: 'Начать проверку', btn_n: 'Проверка на время ({n})', title: 'Проверка на время', none: 'Сегодня проверок нет.',
+      twin_note: 'Новый вопрос на тот же навык: вы показываете понимание, а не запомненный ответ.',
+      ready: 'Снова верно. Теперь вопрос ждёт <b>проверки на время</b>: та же идея, в темпе экзамена.',
+      check1: '<b>Проверка {k} из {n} пройдена</b>, вовремя. Ещё одна в другой день — и ошибка исправлена.',
+      fixed: '<b>Исправлено.</b> Верно и вовремя {n} раза в разные дни. Вопрос навсегда уходит из повторений.',
+      slow: 'Верно, но ушло {t}. Проверке нужен темп экзамена (меньше {lim}). Вопрос вернётся завтра.',
+      types_h: 'Типы ваших ошибок', types_p: 'Открытые ошибки, сгруппированные по причине. Начните с привычки наверху: она стоит вам больше всего вопросов.',
+      n_q: 'вопросов: {n}', share: '{p}% открытых ошибок', in: 'В основном: {k}', show: 'Показать', fixn: 'готовы к проверке: {n}',
+      untagged: 'Предложено по вашему времени. Нажмите причину на карточке, чтобы подтвердить.',
+      t_unknown: 'Не знал', t_misread: 'Невнимательно прочитал', t_calc: 'Ошибка в расчёте', t_torn: 'Выбирал из двух', t_time: 'Не хватило времени', t_guess: 'Угадывал', t_unsorted: 'Причина не указана',
+      f_unknown: 'Сначала выучите правило: откройте урок по навыку или спросите AI-репетитора, потом повторяйте.',
+      f_misread: 'Прежде чем смотреть варианты, подчеркните, что именно спрашивают: NOT, EXCEPT, пропуск, единицы.',
+      f_calc: 'Записывайте каждый шаг и проверяйте ответ подстановкой в условие или в Desmos.',
+      f_torn: 'Когда осталось два варианта, скажите вслух, почему каждый неверен. У правильного такой причины нет.',
+      f_time: 'Если вопрос занял больше обычного, отметьте его, выберите ответ и идите дальше. Вернитесь в конце.',
+      f_guess: 'Это навыки, которые вы ещё не изучили. Начните с короткого урока, потом тренировка.',
+      f_unsorted: 'Откройте карточку и отметьте, почему ошиблись. Когда причины есть, здесь появится закономерность.'
+    }
+  }, SH.pickLang);
+  const fxPlural = n => { const l = SH.pickLang(); return l === 'en' ? (n === 1 ? '' : 's') : l === 'ru' ? (n % 10 === 1 && n % 100 !== 11 ? 'ка' : n % 10 >= 2 && n % 10 <= 4 && (n % 100 < 10 || n % 100 >= 20) ? 'ки' : 'ок') : ''; };
+  // Due Fix checks, for the dashboard and the bank page.
+  function fixCardHtml() {
+    const n = SH.mistakes.fixQueue().length;
+    if (!n) return '';
+    return '<div class="card review-card"><div><span class="kicker">' + FX_T('kicker') + '</span><h3>' + FX_T('h', { n, s: fxPlural(n) }) + '</h3><p class="small muted">' + FX_T('p') + '</p></div><button class="btn btn-primary" type="button" data-start-fix>' + FX_T('btn') + '</button></div>';
+  }
+  // Fix check: due cards as twins (Pro and Max; a new question in the same
+  // skill and difficulty) or the original with shuffled choices, on one clock
+  // set to the questions' usual time.
+  async function startFixCheck() {
+    const cards = SH.mistakes.fixQueue();
+    if (!cards.length) { SH.toast(FX_T('none')); return; }
+    SH.toast(FX_T('loading'), 1500);
+    const level = SH.mistakes.level();
+    const qs = await SH.mistakes.questions(cards);
+    const byId = {}; qs.forEach(q => { byId[q.id] = q; });
+    const seen = new Set(SH.getAttempts().map(a => a.qid)), inBank = new Set(SH.mistakes.all().map(e => e.qid)), used = new Set();
+    const list = cards.filter(c => byId[c.qid]).map(c => {
+      let q = byId[c.qid];
+      if (level !== 'free') {
+        const twins = bank.filter(x => x.section === c.section && x.skill === c.skill && x.difficulty === c.difficulty && !seen.has(x.id) && !inBank.has(x.id) && !used.has(x.id));
+        if (twins.length) { const t = twins[Math.floor(Math.random() * twins.length)]; used.add(t.id); q = Object.assign({}, t, { twinOf: c.qid }); }
+      }
+      return SH.shuffledCopy(q);
+    });
+    if (!list.length) { SH.toast('Could not load these questions. Check your connection.'); return; }
+    const limit = Math.round(list.reduce((n, q) => n + SH.qtimes.median((q.base || q).id, q.section), 0));
+    SH.track('fix_check_started', { n: list.length, level });
+    startSession({ title: FX_T('title'), questions: list, source: 'fixcheck', limit });
+  }
+
   async function startReview() {
     const level = SH.mistakes.level();
-    const cards = level === 'free' ? SH.mistakes.visible() : SH.mistakes.queue();
+    // Cards past Box 4 wait for the Fix check instead.
+    const cards = (level === 'free' ? SH.mistakes.visible() : SH.mistakes.queue()).filter(c => !c.ready);
     if (!cards.length) { SH.toast(level === 'free' ? 'Your Mistake Bank is empty.' : 'Nothing due today. Nice work.'); return; }
     SH.toast('Loading your questions…', 1500);
     const qs = await SH.mistakes.questions(cards);
@@ -1329,11 +1430,13 @@ document.addEventListener('DOMContentLoaded', function () {
     const hidden = pro ? 0 : all.filter(e => e.st === 'active' && e.kind !== 'speed').length - lists.active.length;
     if (!pro && bankView.tab === 'speed') bankView.tab = 'active';
     const due = pro ? SH.mistakes.queue().length : 0;
-    let html = '<div class="hub-head"><div><h1>Mistake Bank</h1><p class="hub-sub">Every question you got wrong or guessed comes back until you get it right, on time, ' + (pro ? '4 reviews in a row: after 1, 3, 7 and 21 days.' : 'several times in a row.') + '</p></div>' +
+    let html = '<div class="hub-head"><div><h1>Mistake Bank</h1><p class="hub-sub">Every question you got wrong or guessed comes back until you get it right, on time, ' + (pro ? '4 reviews in a row: after 1, 3, 7 and 21 days.' : 'several times in a row.') + ' Then a timed Fix check at test pace, twice on different days, marks it fixed.' + '</p></div>' +
       '<div class="hub-acts">' + (pro ? (due ? '<button class="btn btn-primary" type="button" data-start-review>Start today’s review (' + due + ')</button>' : '<span class="chip">Nothing due today</span>')
-        : lists.active.length ? '<button class="btn btn-primary" type="button" data-start-review>Review by hand (' + lists.active.length + ')</button>' : '') + '</div></div>';
+        : lists.active.filter(e => !e.ready).length ? '<button class="btn btn-primary" type="button" data-start-review>Review by hand (' + lists.active.filter(e => !e.ready).length + ')</button>' : '') + '</div></div>';
     html += '<div class="grid grid-4" style="margin-bottom:18px">' + tile(pro ? st.total : lists.active.length + lists.mastered.length, 'in your bank') + tile(st.masteredMonth, 'mastered this month') +
       tile(st.reviewAcc == null ? '–' : Math.round(st.reviewAcc * 100) + '%', 'review accuracy') + tile(st.commonTag ? SH.tagLabel(st.commonTag) : '–', 'most common reason') + '</div>';
+    html += fixCardHtml();
+    html += typesHtml(pro);
     html += patternsHtml(level, all);
     if (!all.length) {
       html += '<div class="card empty"><h3>Nothing here yet</h3><p class="muted">Questions you get wrong in practice sets, drills, tests, lessons and the question of the day land here, so you can fix them before test day.</p><div class="row" style="justify-content:center"><a class="btn btn-primary" href="#sets">Practice a set</a><a class="btn btn-ghost" href="daily.html">Question of the day</a></div></div>';
@@ -1361,6 +1464,23 @@ document.addEventListener('DOMContentLoaded', function () {
     if (hidden > 0) html += '<div class="card" style="margin-top:14px">' + SH.lockBox('<div style="height:110px"></div>', 'You have ' + hidden + ' more mistake' + (hidden === 1 ? '' : 's') + ' saved', 'Unlock them with Pro: an unlimited bank on a review schedule, with reasons, filters and notes.', 'mistakes') + '</div>';
     view.innerHTML = html;
     bindBank();
+  }
+  // Mistake types: open mistakes grouped by reason, biggest first, with how to fix each habit.
+  function typesHtml(pro) {
+    const groups = SH.mistakes.groups();
+    const total = groups.reduce((n, g) => n + g.n, 0);
+    if (total < 3) return '';
+    const rows = groups.slice(0, 4).map((g, i) => {
+      const pct = Math.round(g.n / total * 100);
+      return '<div class="mt-row' + (i === 0 && g.tag !== 'unsorted' ? ' mt-top' : '') + '"><div class="mt-head"><b>' + esc(FX_T('t_' + g.tag)) + '</b>' +
+        '<span class="small muted">' + esc(FX_T('n_q', { n: g.n, s: g.n === 1 ? '' : 's' })) + ' · ' + esc(FX_T('share', { p: pct })) + '</span></div>' +
+        '<div class="bar" aria-hidden="true"><i style="width:' + pct + '%"></i></div>' +
+        '<p class="small" style="margin:6px 0 0">' + esc(FX_T('f_' + g.tag)) + '</p>' +
+        '<p class="small muted" style="margin:4px 0 0">' + (g.top.length ? esc(FX_T('in', { k: g.top.join(', ') })) : '') +
+        (g.tag !== 'unsorted' && g.tagged < g.n ? ' · ' + esc(FX_T('untagged')) : '') + (g.ready ? ' · ' + esc(FX_T('fixn', { n: g.ready })) : '') + '</p>' +
+        (pro && g.tag !== 'unsorted' ? '<button type="button" class="link-btn small" data-mt-show="' + esc(g.tag) + '">' + esc(FX_T('show')) + '</button>' : '') + '</div>';
+    }).join('');
+    return '<div class="card mt-card" style="margin:0 0 18px"><h3 style="margin:0">' + esc(FX_T('types_h')) + '</h3><p class="small muted" style="margin:4px 0 10px">' + esc(FX_T('types_p')) + '</p>' + rows + '</div>';
   }
   function bankCardHtml(e) {
     const tag = e.tag || e.sug;
@@ -1413,7 +1533,9 @@ document.addEventListener('DOMContentLoaded', function () {
   }
   function bindBank() {
     const sr = $('[data-start-review]'); if (sr) sr.addEventListener('click', startReview);
+    $$('[data-start-fix]').forEach(b => b.addEventListener('click', startFixCheck));
     $$('[data-btab]').forEach(b => b.addEventListener('click', () => { bankView.tab = b.dataset.btab; renderMistakes(); }));
+    $$('[data-mt-show]').forEach(b => b.addEventListener('click', () => { bankView.tab = 'active'; bankView.f.tag = b.dataset.mtShow; renderMistakes(); const f = $('.filters'); if (f) f.scrollIntoView({ behavior: 'smooth', block: 'start' }); }));
     $$('[data-filter]').forEach(s => s.addEventListener('change', () => {
       const k = s.dataset.filter;
       bankView.f[k] = s.value;
@@ -2045,7 +2167,7 @@ document.addEventListener('DOMContentLoaded', function () {
       const b = $('#p-check:not([disabled])'); if (b) { e.preventDefault(); b.click(); }
     }
   });
-  const isReview = (s, q) => s.source === 'review' || !!q._review;
+  const isReview = (s, q) => s.source === 'review' || s.source === 'fixcheck' || !!q._review;
   function check() {
     const s = session, q = s.questions[s.i];
     if (s.checked[q.id]) return;
@@ -2061,7 +2183,7 @@ document.addEventListener('DOMContentLoaded', function () {
       // A twin is answered for its original card.
       const card = q.twinOf ? SH.mistakes.map()[q.twinOf] : null;
       const target = card ? { id: card.qid, section: card.section, skill: card.skill, difficulty: card.difficulty, prompt: card.p } : q.base || q;
-      res = SH.mistakes.record(target, ok, src, { ms, ch, guessed, review })[0] || null;
+      res = SH.mistakes.record(target, ok, src, { ms, ch, guessed, review, fix: s.source === 'fixcheck' })[0] || null;
       if (res) res.card = target.id;
     }
     s.checked[q.id] = { ok, ms, res, guessed };
@@ -2094,12 +2216,15 @@ document.addEventListener('DOMContentLoaded', function () {
     let line = '';
     if (isReview(s, q) || r.was) {
       const orig = q.base || q, i = SH.LETTERS.indexOf(card.ch || '');
-      if (q.twinOf) line += '<p class="rv-line">A twin of a question you missed: same skill and difficulty, so you show the idea, not the answer.</p>';
+      if (q.twinOf) line += '<p class="rv-line">' + (s.source === 'fixcheck' ? FX_T('twin_note') : 'A twin of a question you missed: same skill and difficulty, so you show the idea, not the answer.') + '</p>';
       else if (card.ch && orig.type === 'mc' && i > -1) line += '<p class="rv-line">Last time you answered: <b>' + SH.renderRich(orig.choices[i] || card.ch, { inline: true }) + '</b></p>';
       const med = SH.qtimes.median(q.id, q.section);
       const msg = { up: 'Moved up to Box ' + r.box + '. It comes back ' + days(SH.BOX_DAYS[r.box]) + '.', mastered: '<b>Mastered.</b> It leaves your daily review and stays in the Mastered tab.',
         back: 'Back to Box 1. It comes back tomorrow.', slow: 'Right, but it took ' + SH.fmtClock(c.ms / 1000) + '. A review counts when it’s under ' + SH.fmtClock(med * 1.5) + ', so it goes back to Box 1 and returns tomorrow.' }[r.result];
-      if (msg && !free) line += '<p class="rv-line">' + msg + '</p>';
+      const fxMsg = { ready: FX_T('ready'), check1: FX_T('check1', { k: card.fx || 1, n: SH.FIX_PASSES }), checkslow: FX_T('slow', { t: SH.fmtClock(c.ms / 1000), lim: SH.fmtClock(med * 1.5) }),
+        mastered: s.source === 'fixcheck' ? FX_T('fixed', { n: SH.FIX_PASSES }) : null }[r.result];
+      if (fxMsg) line += '<p class="rv-line">' + fxMsg + '</p>';
+      else if (msg && !free) line += '<p class="rv-line">' + msg + '</p>';
       if (card.note) line += '<p class="rv-line"><b>Your note:</b> ' + esc(card.note) + '</p>';
     } else if (r.result === 'added') {
       line = '<p class="rv-line">' + (c.guessed && c.ok ? 'Saved to your <a href="#mistakes">Mistake Bank</a>, since you guessed.' : card.kind === 'speed' ? 'Right, but slow: saved to the Speed tab of your <a href="#mistakes">Mistake Bank</a>.' : 'Saved to your <a href="#mistakes">Mistake Bank</a>' + (free ? '.' : '. It comes back tomorrow.')) + '</p>';

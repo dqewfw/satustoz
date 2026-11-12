@@ -242,6 +242,12 @@ kbd {
 .notice-warn { background: var(--warn-tint); border-color: #EBD08C; color: #4e3600; }
 .notice-bad { background: var(--bad-tint); border-color: #E8B8B3; color: #6b1d17; }
 .notice-ok { background: var(--ok-tint); border-color: #B9D8C1; color: #1d4a29; }
+/* Mistake types on the Mistake Bank page (practice.html) */
+.mt-row { padding: 10px 0; border-top: 1px solid var(--line); }
+.mt-row:first-of-type { border-top: 0; }
+.mt-head { display: flex; justify-content: space-between; gap: 10px; flex-wrap: wrap; align-items: baseline; margin-bottom: 6px; }
+.mt-top .mt-head b { color: var(--brand-deep); }
+.mt-row .bar { height: 6px; }
 /* True Score line under the section scores on test results (test.html) */
 .true-score { margin-top: 12px; padding: 10px 12px; border-radius: var(--r-sm); background: var(--brand-tint); border: 1px solid var(--line); }
 .chips { display: flex; flex-wrap: wrap; gap: 8px; }
