@@ -60,6 +60,22 @@
   .mr .tick { fill: none; stroke: var(--gold-text); stroke-width: 2.6; stroke-linecap: round; stroke-linejoin: round; }
   .lv-4 .m-name em { color: var(--gold-text); }
   @media (max-width: 560px) { .m-cols { grid-template-columns: 1fr; } .m-row { gap: 10px; } }
+  /* "Your path" onboarding checklist */
+  .path-card { border-color: var(--brand-tint-2); margin-bottom: 18px; }
+  .path-step { display: grid; grid-template-columns: 40px minmax(0, 1fr) auto; gap: 2px 14px; align-items: center; padding: 12px 0; border-bottom: 1px solid var(--line); }
+  .path-step:last-child { border-bottom: 0; padding-bottom: 4px; }
+  .path-step:first-child { padding-top: 4px; }
+  .path-num { width: 32px; height: 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; background: var(--sunk); color: var(--muted); }
+  .path-num svg { width: 16px; height: 16px; }
+  .path-step.is-done .path-num { background: var(--ok-tint); color: var(--ok); }
+  .path-step.is-now .path-num { background: var(--brand); color: #fff; }
+  .path-step.is-later { opacity: .65; }
+  .path-step .path-sub { grid-column: 2 / -1; }
+  @media (max-width: 560px) {
+    .path-step { grid-template-columns: 32px minmax(0, 1fr); }
+    .path-step .btn { grid-column: 2; justify-self: start; margin-top: 4px; }
+    .path-step .path-sub { grid-column: 2; }
+  }
   .resume-card { display: flex; align-items: center; gap: 16px; justify-content: space-between; flex-wrap: wrap; margin-bottom: 18px; border-color: var(--brand-tint-2); background: var(--brand-tint); }
   .resume-card h3 { margin: 0 0 2px; font-size: 1.15rem; }
   .resume-card p { margin: 0; }
@@ -491,6 +507,8 @@ document.addEventListener('DOMContentLoaded', function () {
     let html = '<div class="hub-head"><div><h1>' + (p.name ? (attempts.length ? 'Welcome back, ' : 'Welcome, ') + esc(p.name.split(/\s+/)[0]) : 'Welcome') + '</h1></div>' +
       '<div class="hub-acts">' + planChip() + '<button class="btn btn-ghost btn-sm" type="button" id="edit-goals">' + (p.goalSet || p.testDate ? 'Edit goals' : 'Set your goals') + '</button><a class="btn btn-ghost btn-sm" href="#settings">Settings</a></div></div>';
     html += gapCard(p, snap);
+    const pathHtml = pathCardHtml(p, hist);
+    html += pathHtml;
     html += noticesHtml();
     if (SH.auth.enabled() && SH.auth.settled && !SH.auth.user) {
       html += '<div class="notice" style="display:flex;gap:14px;align-items:center;justify-content:space-between;flex-wrap:wrap;margin-bottom:18px"><span><b>Save your progress.</b> Sign in with Google to keep your results on every device' + (SH.ai.enabled() && SH.CONFIG.AI_REQUIRES_LOGIN ? ' and use the AI tutor' : '') + '.</span><a class="btn btn-primary btn-sm" href="' + esc(SH.loginUrl('practice.html#home')) + '">Sign in with Google</a></div>';
@@ -514,7 +532,7 @@ document.addEventListener('DOMContentLoaded', function () {
     html += '<h2 class="section-title">Study tools</h2>' + toolsHtml();
 
     if (!attempts.length) {
-      html += '<h2 class="section-title">Start here</h2><div class="grid grid-3">' +
+      if (!pathHtml) html += '<h2 class="section-title">Start here</h2><div class="grid grid-3">' +
         '<div class="card card-hover start-card"><span class="kicker">Recommended first</span><h3>Take the mini diagnostic</h3><p class="muted">About 50 minutes, adaptive like the real test. You get an estimated score, free.</p><a class="btn btn-primary" href="test.html?id=diagnostic-mini">Start the diagnostic</a></div>' +
         '<div class="card card-hover start-card"><span class="kicker">Test-day ready</span><h3>Full practice tests</h3><p class="muted">Twenty-one full-length tests, 98 questions in 2 hours 14 minutes, adaptive like the real SAT. ' + (SH.CONFIG.PLANS.TESTS_FREE_FOR_LAUNCH ? 'All 21 are free while we launch.' : 'Practice Test 1 is free.') + '</p><a class="btn btn-ghost" href="#tests">See practice tests</a></div>' +
         '<div class="card card-hover start-card"><span class="kicker">Short on time</span><h3>Try a 10-question set</h3><p class="muted">Instant feedback and an explanation after every question.</p><a class="btn btn-ghost" href="#sets">See practice sets</a></div></div>';
@@ -542,6 +560,31 @@ document.addEventListener('DOMContentLoaded', function () {
     bindHomeExtras();
     // First visit: ask for the goal once, so the gap means something.
     if (!p.goalSet && !SH.store.get('goalAsked', false)) { SH.store.set('goalAsked', true); setTimeout(editGoals, 300); }
+  }
+
+  // "Your path" onboarding: pinned under the gap card until the student has
+  // both a goal and a first score, then the gap card and fix list take over.
+  function pathCardHtml(p, hist) {
+    const hasScore = hist.some(h => h.total != null);
+    if (p.goalSet && hasScore) return '';
+    const steps = [
+      { done: !!p.goalSet, t: 'Set your target and test date', s: 'Two taps. Everything on this page is measured against it.',
+        btn: '<button class="btn btn-primary btn-sm" type="button" data-goals>Set your goals</button>' },
+      { done: hasScore, t: 'Take the free mini diagnostic', s: 'About 50 minutes, adaptive like the real test. You get an estimated score and your weakest skills. Short on time? <a href="#sets">Try a 10-question set</a> first.',
+        btn: '<a class="btn btn-primary btn-sm" href="test.html?id=diagnostic-mini">Start the diagnostic</a>' },
+      { done: false, t: 'Follow your path to ' + (p.goalSet ? esc(p.target) : 'your target'),
+        s: 'This page then shows your score gap, the exact skills costing you points, and a week-by-week plan to test day.', btn: '' }
+    ];
+    let picked = false;
+    const rows = steps.map((st, i) => {
+      const now = !st.done && !picked && i < 2; if (now) picked = true;
+      return '<div class="path-step' + (st.done ? ' is-done' : now ? ' is-now' : ' is-later') + '">' +
+        '<span class="path-num" aria-hidden="true">' + (st.done ? ICON.check : i + 1) + '</span><div><b>' + st.t + '</b></div>' +
+        (now && st.btn ? st.btn : st.done ? '<span class="status status-done">' + ICON.check + 'Done</span>' : '<span></span>') +
+        '<div class="small muted path-sub">' + st.s + '</div></div>';
+    }).join('');
+    return '<div class="card path-card"><div class="row" style="justify-content:space-between;align-items:baseline;margin-bottom:4px"><h2 style="margin:0;font-size:1.3rem">Your path to ' + (p.goalSet ? esc(p.target) : 'your SAT score') + '</h2>' +
+      '<span class="small muted">' + steps.filter(s => s.done).length + ' of 2 done</span></div>' + rows + '</div>';
   }
 
   // "Your report on question X was fixed" and other notes from the team (admin.html).

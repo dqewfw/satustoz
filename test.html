@@ -303,6 +303,14 @@
   }
   .diag-row { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 6px 16px; align-items: center; padding: 10px 0; border-bottom: 1px solid var(--line); }
   .diag-pts { white-space: nowrap; color: var(--bad); }
+  .diag-path { background: var(--brand-tint); border: 1px solid var(--brand-tint-2); border-radius: var(--r-sm); padding: 16px 18px; margin: 4px 0 16px; }
+  .diag-path .dp-nums { display: flex; align-items: center; gap: 10px 14px; flex-wrap: wrap; }
+  .diag-path .dp-nums b { font-family: var(--display); font-weight: 600; font-size: 1.9rem; line-height: 1; color: var(--brand); font-variant-numeric: tabular-nums; }
+  .diag-path .dp-nums .dp-arrow { color: var(--muted); font-size: 1.2rem; }
+  .diag-path .dp-nums small { display: block; font-size: .78rem; color: var(--muted); font-weight: 600; }
+  .diag-path .dp-gap b { color: var(--gold-text); }
+  .diag-path .row { margin-top: 12px; }
+  .diag-path .field { margin: 0; }
 </style>
 </head>
 <body class="tr">
@@ -1454,17 +1462,23 @@ document.addEventListener('DOMContentLoaded', function () {
       pro_h: 'Practice exactly these skills', pro_p: 'Pro gives you drills for these skills, an explanation for every question you missed and a study plan to your test date.', pro_btn: 'See what Pro adds', drill_btn: 'Drill these skills',
       t_h: 'Want a teacher to go through it with you?', t_p: 'Book a free 15-minute call with Azizbek, or a free trial lesson at {c}.', t_btn: 'Book a free call',
       t_msg: 'Hi! I took the SAT Ustoz mini diagnostic and got {s}. My weakest skills: {k}. I would like a free 15-minute call or a trial lesson.',
-      none: 'You missed almost nothing. Take a full practice test to find what to work on next.', est: 'Points are estimated with the same scoring that gives your score above.' },
+      none: 'You missed almost nothing. Take a full practice test to find what to work on next.', est: 'Points are estimated with the same scoring that gives your score above.',
+      p_now: 'You now', p_target: 'Your target', p_gap: 'points to win', p_btn: 'See my path to {t}', p_done: 'You are already at your target. Raise it and keep going.',
+      g_h: 'Where do you want to be?', g_p: 'Pick a target score and your test date, and your dashboard turns this result into a week-by-week path.', g_target: 'Target score', g_date: 'Test date', g_none: 'Not decided', g_btn: 'Show my path' },
     uz: { h: 'Diagnostika hisobotingiz', lead: 'Taxminiy ball: {s}. Eng koʻp ball yoʻqotgan uchta koʻnikmangiz:', pts: 'taxminan {n} ball', missed: '{n} tadan {m} tasi xato',
       pro_h: 'Aynan shu koʻnikmalarni mashq qiling', pro_p: 'Pro sizga shu koʻnikmalar boʻyicha mashqlar, xato qilgan har bir savolingizga izoh va imtihon sanangizgacha oʻqish rejasini beradi.', pro_btn: 'Pro nimalar berishini koʻrish', drill_btn: 'Shu koʻnikmalarni mashq qilish',
       t_h: 'Natijani oʻqituvchi bilan koʻrib chiqmoqchimisiz?', t_p: 'Azizbek bilan bepul 15 daqiqalik suhbatga yoki {c} markazida bepul sinov darsiga yoziling.', t_btn: 'Bepul suhbatga yozilish',
       t_msg: 'Salom! SAT Ustoz mini diagnostikasini topshirdim, natijam {s}. Eng zaif koʻnikmalarim: {k}. Bepul 15 daqiqalik suhbat yoki sinov darsiga yozilmoqchiman.',
-      none: 'Deyarli xato qilmadingiz. Nimani mashq qilish kerakligini bilish uchun toʻliq sinov testini topshiring.', est: 'Ballar yuqoridagi natijangizni hisoblagan usul bilan taxminiy hisoblangan.' },
+      none: 'Deyarli xato qilmadingiz. Nimani mashq qilish kerakligini bilish uchun toʻliq sinov testini topshiring.', est: 'Ballar yuqoridagi natijangizni hisoblagan usul bilan taxminiy hisoblangan.',
+      p_now: 'Hozir sizda', p_target: 'Maqsadingiz', p_gap: 'ball yutish kerak', p_btn: '{t} ballgacha yoʻlimni koʻrish', p_done: 'Siz allaqachon maqsadingizdasiz. Uni koʻtaring va davom eting.',
+      g_h: 'Qayerga yetmoqchisiz?', g_p: 'Maqsad ballni va imtihon sanangizni tanlang — bosh sahifa bu natijani haftama-hafta yoʻlga aylantiradi.', g_target: 'Maqsad ball', g_date: 'Imtihon sanasi', g_none: 'Hal qilinmagan', g_btn: 'Yoʻlimni koʻrsatish' },
     ru: { h: 'Ваш отчёт по диагностике', lead: 'Примерный балл: {s}. Больше всего баллов вы потеряли на этих трёх навыках:', pts: 'около {n} баллов', missed: 'ошибок: {m} из {n}',
       pro_h: 'Тренируйте именно эти навыки', pro_p: 'Pro даёт тренировки по этим навыкам, объяснение к каждому вопросу с ошибкой и план подготовки до даты экзамена.', pro_btn: 'Что даёт Pro', drill_btn: 'Тренировать эти навыки',
       t_h: 'Хотите разобрать результат с преподавателем?', t_p: 'Запишитесь на бесплатный 15-минутный разговор с Азизбеком или на бесплатный пробный урок в {c}.', t_btn: 'Записаться бесплатно',
       t_msg: 'Здравствуйте! Я прошёл(ла) мини-диагностику SAT Ustoz, результат {s}. Самые слабые навыки: {k}. Хочу записаться на бесплатный 15-минутный разговор или пробный урок.',
-      none: 'Вы почти не ошиблись. Пройдите полный пробный тест, чтобы понять, над чем работать.', est: 'Баллы оценены тем же способом, что и ваш результат выше.' }
+      none: 'Вы почти не ошиблись. Пройдите полный пробный тест, чтобы понять, над чем работать.', est: 'Баллы оценены тем же способом, что и ваш результат выше.',
+      p_now: 'Сейчас у вас', p_target: 'Ваша цель', p_gap: 'баллов отыграть', p_btn: 'Мой путь к {t}', p_done: 'Вы уже достигли цели. Поднимите её и продолжайте.',
+      g_h: 'Куда вы хотите прийти?', g_p: 'Выберите целевой балл и дату экзамена — главная страница превратит этот результат в план по неделям.', g_target: 'Целевой балл', g_date: 'Дата экзамена', g_none: 'Не решено', g_btn: 'Показать мой путь' }
   });
   // Points each skill cost, by the estimator in sectionScore(): a Module 1 miss
   // costs 600 / (n1 + hardWeight × n2), a Module 2 miss that times its route's weight.
@@ -1494,8 +1508,29 @@ document.addEventListener('DOMContentLoaded', function () {
     const callUrl = center.URL || (SH.CONFIG.CONTACT_TELEGRAM + '?text=' + encodeURIComponent(msg));
     const focus = top.length ? top.filter(o => o.sec === top[0].sec) : [];
     const drillUrl = focus.length ? 'practice.html?drill=' + btoa(unescape(encodeURIComponent(JSON.stringify({ s: focus[0].sec, d: '', n: 10, k: focus.map(o => o.skill), t: '', m: 'Diagnostic focus' })))).replace(/=+$/, '') : 'practice.html#sets';
+    // "Your path": current estimate -> target -> gap. Without a goal, a two-field
+    // goal picker right here, at the moment the student most wants a plan.
+    const prof = SH.getProfile();
+    let path;
+    if (rec.total == null) path = '';
+    else if (prof.goalSet) {
+      const gap = Math.max(0, prof.target - rec.total);
+      path = '<div class="diag-path"><div class="dp-nums"><span><b>' + rec.total + '</b><small>' + esc(DIAG_T('p_now')) + '</small></span><span class="dp-arrow" aria-hidden="true">→</span>' +
+        '<span><b>' + esc(prof.target) + '</b><small>' + esc(DIAG_T('p_target')) + '</small></span><span class="dp-arrow" aria-hidden="true">=</span>' +
+        (gap ? '<span class="dp-gap"><b>' + gap + '</b><small>' + esc(DIAG_T('p_gap')) + '</small></span>' : '<span class="small" style="align-self:center">' + esc(DIAG_T('p_done')) + '</span>') + '</div>' +
+        '<div class="row"><a class="btn btn-primary btn-sm" href="practice.html#home" data-diag="path">' + esc(DIAG_T('p_btn', { t: prof.target })) + '</a></div></div>';
+    } else {
+      const today = new Date().toISOString().slice(0, 10);
+      const dates = (SH.CONFIG.SAT_DATES || []).filter(d => d >= today);
+      const dayName = d => new Date(d + 'T08:00:00').toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' });
+      const opts = Array.from({ length: 121 }, (_, i) => 400 + i * 10).map(v => '<option' + (v === 1400 ? ' selected' : '') + '>' + v + '</option>').join('');
+      path = '<div class="diag-path"><b>' + esc(DIAG_T('g_h')) + '</b><p class="small" style="margin:4px 0 0">' + esc(DIAG_T('g_p')) + '</p>' +
+        '<div class="row" style="align-items:flex-end"><div class="field"><label class="small" for="dp-target">' + esc(DIAG_T('g_target')) + '</label><select class="input" id="dp-target">' + opts + '</select></div>' +
+        '<div class="field"><label class="small" for="dp-date">' + esc(DIAG_T('g_date')) + '</label><select class="input" id="dp-date"><option value="">' + esc(DIAG_T('g_none')) + '</option>' + dates.map(d => '<option value="' + d + '">' + esc(dayName(d)) + '</option>').join('') + '</select></div>' +
+        '<button type="button" class="btn btn-primary btn-sm" data-diag="goal">' + esc(DIAG_T('g_btn')) + '</button></div></div>';
+    }
     box.innerHTML = '<div class="row" style="justify-content:space-between;margin-bottom:6px"><h2 style="font-size:1.5rem;margin:0">' + esc(DIAG_T('h')) + '</h2>' +
-      '<div class="lang-switch" role="group" aria-label="Language">' + ['en', 'uz', 'ru'].map(l => '<button type="button" data-dl="' + l + '" aria-pressed="' + (SH.langNow() === l) + '">' + l.toUpperCase() + '</button>').join('') + '</div></div>' +
+      '<div class="lang-switch" role="group" aria-label="Language">' + ['en', 'uz', 'ru'].map(l => '<button type="button" data-dl="' + l + '" aria-pressed="' + (SH.langNow() === l) + '">' + l.toUpperCase() + '</button>').join('') + '</div></div>' + path +
       (top.length ? '<p>' + esc(DIAG_T('lead', { s: score })) + '</p>' + top.map(o => '<div class="diag-row"><div><span class="tag tag-' + o.sec + '">' + (o.sec === 'rw' ? 'R&amp;W' : 'Math') + '</span> <b>' + esc(o.skill) + '</b><div class="small muted">' + esc(DIAG_T('missed', { m: o.miss, n: o.n })) + '</div></div><b class="diag-pts">' + esc(DIAG_T('pts', { n: Math.max(10, Math.round(o.pts / 10) * 10) })) + '</b></div>').join('') +
         '<p class="small muted" style="margin:8px 0 0">' + esc(DIAG_T('est')) + '</p>' : '<p>' + esc(DIAG_T('none')) + '</p>') +
       '<div class="grid grid-2" style="margin-top:18px"><div class="card" style="background:var(--brand-tint);border-color:var(--brand-tint-2)"><h3>' + esc(DIAG_T('pro_h')) + '</h3><p class="small">' + esc(DIAG_T('pro_p')) + '</p>' +
@@ -1504,7 +1539,14 @@ document.addEventListener('DOMContentLoaded', function () {
     $$('[data-dl]', box).forEach(b => b.addEventListener('click', () => { SH.store.set('lang', b.dataset.dl); document.documentElement.lang = b.dataset.dl; drawDiagReport(rec, taken); }));
     $$('[data-diag]', box).forEach(b => b.addEventListener('click', () => {
       const k = b.dataset.diag;
-      SH.track(k === 'call' ? 'consult_tapped' : 'diag_pro_tapped', { total: rec.total, action: k });
+      if (k === 'goal') {
+        const target = +$('#dp-target', box).value || 1400, testDate = $('#dp-date', box).value;
+        SH.setProfile({ target, testDate, goalSet: true });
+        SH.track('goal_set', { target, test_date: testDate ? 'set' : 'not_decided', focus: 'both', section_targets: false, where: 'diagnostic' });
+        drawDiagReport(rec, taken);
+        return;
+      }
+      SH.track(k === 'call' ? 'consult_tapped' : k === 'path' ? 'diag_path_tapped' : 'diag_pro_tapped', { total: rec.total, action: k });
       if (k === 'pro') SH.plan.pitch({ title: DIAG_T('pro_h'), text: top.map(o => o.skill).join(', ') });
     }));
     if (!box.dataset.seen) { box.dataset.seen = '1'; SH.track('diag_report_viewed', { total: rec.total, skills: top.map(o => o.skill).join(', ') }); }
