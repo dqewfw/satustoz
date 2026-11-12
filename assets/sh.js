@@ -173,7 +173,7 @@
   // gap: the Score Gap Analyzer's latest snapshot and one per week (the weekly
   // Telegram report compares them). ai: Max's weekly AI study plan and mistake summary.
   // xp: the streak, XP, streak freezes and daily goal (xp below).
-  const STUDY_KEYS = ['mistakes', 'vocab', 'daily', 'drills', 'studyPlan', 'classes', 'lessons', 'gap', 'ai', 'xp'];
+  const STUDY_KEYS = ['mistakes', 'vocab', 'daily', 'drills', 'studyPlan', 'classes', 'lessons', 'gap', 'ai', 'xp', 'qbank'];
   const SYNCED_KEYS = ['attempts', 'testHistory', 'profile'].concat(STUDY_KEYS);
   const hooks = { change: null };
   function onLocalChange(key) { if (hooks.change) hooks.change(key); }

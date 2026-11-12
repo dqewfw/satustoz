@@ -272,6 +272,25 @@
   .ai-loading { display: flex; align-items: center; gap: 14px; }
   .spinner { width: 28px; height: 28px; border-radius: 50%; border: 3px solid var(--gold-soft); border-top-color: var(--brand); animation: spin 1s linear infinite; flex: 0 0 auto; }
 
+  /* Question Bank */
+  .qb-top { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 4px 16px; align-items: center; }
+  .qb-top .kicker { grid-column: 1 / -1; }
+  .qb-top b { font-family: var(--display); font-weight: 600; font-size: 2rem; line-height: 1; color: var(--brand); font-variant-numeric: tabular-nums; white-space: nowrap; }
+  .qb-top .qb-of { color: var(--muted); font-size: .92rem; }
+  .qb-top .bar { grid-column: 1 / -1; }
+  .qb-top .qb-acc { grid-column: 1 / -1; font-size: .9rem; color: var(--ink-2); margin: 0; }
+  .qb-row { display: grid; grid-template-columns: minmax(0, 1fr) auto 120px 48px auto; gap: 14px; align-items: center; padding: 10px 0; border-bottom: 1px solid var(--line); }
+  .qb-row:last-child { border-bottom: 0; }
+  .qb-row .cnt { font-size: .88rem; color: var(--muted); font-variant-numeric: tabular-nums; white-space: nowrap; text-align: right; }
+  .qb-row .acc { font-weight: 700; font-size: .92rem; text-align: right; font-variant-numeric: tabular-nums; }
+  .qb-row .acc.ok { color: var(--ok); } .qb-row .acc.mid { color: var(--gold-text); } .qb-row .acc.low { color: var(--bad); }
+  .qb-dom { margin: 18px 0 4px; font-size: .9rem; font-weight: 700; color: var(--muted); }
+  .qb-dom:first-of-type { margin-top: 0; }
+  @media (max-width: 640px) {
+    .qb-row { grid-template-columns: minmax(0, 1fr) auto auto; gap: 10px; }
+    .qb-row .bar, .qb-row .acc { display: none; }
+  }
+
   /* Player */
   .player { padding-top: 18px; padding-bottom: 40px; }
   .p-top { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; margin-bottom: 10px; }
@@ -339,6 +358,7 @@
     <nav class="nav" id="nav" aria-label="Main">
       <a href="practice.html#home">Dashboard</a>
       <a href="practice.html#sets">Practice sets</a>
+      <a href="practice.html#bank">Question Bank</a>
       <a href="practice.html#ai" data-ai-only>AI practice</a>
       <a href="practice.html#tests">Practice tests</a>
       <a href="practice.html#mistakes">Mistake Bank</a>
@@ -355,9 +375,10 @@
     <nav class="tabs" aria-label="Practice sections">
       <a href="#home" data-tab="home"><span class="t-long">Dashboard</span><span class="t-short">Home</span></a>
       <a href="#sets" data-tab="sets"><span class="t-long">Practice sets</span><span class="t-short">Sets</span></a>
+      <a href="#bank" data-tab="bank"><span class="t-long">Question Bank</span><span class="t-short">Bank</span></a>
       <a href="#ai" data-tab="ai" data-ai-only><span class="t-long">AI practice</span><span class="t-short">AI</span></a>
       <a href="#tests" data-tab="tests"><span class="t-long">Practice tests</span><span class="t-short">Tests</span></a>
-      <a href="#mistakes" data-tab="mistakes"><span class="t-long">Mistake Bank</span><span class="t-short">Bank</span></a>
+      <a href="#mistakes" data-tab="mistakes"><span class="t-long">Mistake Bank</span><span class="t-short">Fix</span></a>
       <a href="#plans" data-tab="plans"><span class="t-long">Plans</span><span class="t-short">Plans</span></a>
     </nav>
     <div id="view" aria-live="polite"><div class="view-loading" role="status"><span class="spinner" aria-label="Loading"></span></div></div>
@@ -372,7 +393,7 @@
         <span class="brand-name">SAT Ustoz</span>
         <p style="margin-top:10px">Digital SAT practice built by someone who has taken the test, for students in Uzbekistan and beyond.</p>
       </div>
-      <div><h3 class="f-head">Practice</h3><ul><li><a href="practice.html#sets">Practice sets</a></li><li><a href="practice.html#tests">Practice tests</a></li><li><a href="practice.html#mistakes">Mistake Bank</a></li><li><a href="practice.html#settings">Settings and Telegram</a></li><li><a href="vocab.html">Vocabulary</a></li><li><a href="lessons.html">Lessons</a></li><li><a href="daily.html">Question of the day</a></li><li><a href="mock.html">National mock</a></li><li><a href="score-calculator.html">Score calculator</a></li><li><a href="practice.html#plans">Plans</a></li></ul></div>
+      <div><h3 class="f-head">Practice</h3><ul><li><a href="practice.html#sets">Practice sets</a></li><li><a href="practice.html#bank">Question Bank</a></li><li><a href="practice.html#tests">Practice tests</a></li><li><a href="practice.html#mistakes">Mistake Bank</a></li><li><a href="practice.html#settings">Settings and Telegram</a></li><li><a href="vocab.html">Vocabulary</a></li><li><a href="lessons.html">Lessons</a></li><li><a href="daily.html">Question of the day</a></li><li><a href="mock.html">National mock</a></li><li><a href="score-calculator.html">Score calculator</a></li><li><a href="practice.html#plans">Plans</a></li></ul></div>
       <div><h3 class="f-head">Contact</h3><ul><li><a data-link="telegram" href="https://t.me/azizbek7_t" target="_blank" rel="noopener">Telegram: @azizbek7_t</a></li><li><a data-link="channel" href="https://t.me/satustoz_off" target="_blank" rel="noopener">Telegram channel</a></li><li><a data-link="instagram" href="https://www.instagram.com/satustoz" target="_blank" rel="noopener">Instagram</a></li><li><a href="#" data-feedback>Send feedback</a></li></ul></div>
     </div>
     <div class="footer-legal">&copy; <span data-year>2026</span> SAT Ustoz. SAT&reg; is a trademark registered by the College Board, which is not affiliated with, and does not endorse, this website. All practice questions on this site are written by SAT Ustoz.</div>
@@ -447,12 +468,12 @@ document.addEventListener('DOMContentLoaded', function () {
       if (tab === 'review') startReview(); else { const s = SH.gap.compute(); if (s.top) startFix(s.top.section, s.top.domain, s.top.skill, 10); }
       return;
     }
-    const tabs = ['home', 'sets', 'tests', 'plans', 'mistakes', 'settings'].concat(SH.ai.enabled() ? ['ai'] : []);
+    const tabs = ['home', 'sets', 'bank', 'tests', 'plans', 'mistakes', 'settings'].concat(SH.ai.enabled() ? ['ai'] : []);
     const t = tabs.indexOf(tab) > -1 ? tab : 'home';
     $$('.tabs a').forEach(a => a.setAttribute('aria-current', a.dataset.tab === t ? 'page' : 'false'));
     $$('.nav a').forEach(a => a.removeAttribute('aria-current'));
     const navA = $('.nav a[href="practice.html#' + t + '"]'); if (navA) navA.setAttribute('aria-current', 'page');
-    ({ home: renderHome, sets: renderSets, ai: renderAI, tests: renderTests, plans: renderPlansTab, mistakes: renderMistakes, settings: renderSettings })[t]();
+    ({ home: renderHome, sets: renderSets, bank: renderBank, ai: renderAI, tests: renderTests, plans: renderPlansTab, mistakes: renderMistakes, settings: renderSettings })[t]();
   }
   function confirmLeave() { stopTimer(); session = null; SH.calculator.close(); return true; }
 
@@ -1443,6 +1464,133 @@ document.addEventListener('DOMContentLoaded', function () {
     }));
   }
 
+  /* ======================= QUESTION BANK ======================= */
+  // Every question from the full practice tests, organized by the official
+  // skills, with per-skill progress. Data comes from data/bank/ (built by
+  // tools/build_qbank.py): a small index with ids, and one file per skill
+  // loaded only when the student practices that skill. Progress lives in the
+  // synced 'qbank' map: qid -> { c: times right, w: times wrong, t: last answer }.
+  let qbIndex = null;
+  const qbCache = {};
+  const qbTid = id => { const m = /^t(\d+)-/.exec(id || ''); return m ? 'practice-test-' + m[1] : ''; };
+  // Fold new attempts (from tests, sets, drills, reviews and the bank itself)
+  // into the qbank map. Only attempts newer than a question's last folded
+  // answer count, so running this twice never double-counts.
+  function qbFold() {
+    const map = Object.assign({}, SH.store.get('qbank', {}) || {});
+    let changed = false;
+    SH.getAttempts().slice().sort((a, b) => a.ts - b.ts).forEach(a => {
+      if (!/^t\d+-/.test(a.qid || '')) return;
+      const e = map[a.qid];
+      if (e && a.ts <= (e.t || 0)) return;
+      map[a.qid] = { c: ((e && e.c) || 0) + (a.correct ? 1 : 0), w: ((e && e.w) || 0) + (a.correct ? 0 : 1), t: a.ts };
+      changed = true;
+    });
+    if (changed) SH.store.set('qbank', map);
+    return map;
+  }
+  const qbFinished = () => new Set(SH.getTestHistory().map(h => h.testId).filter(Boolean));
+  const fmtN = n => Number(n || 0).toLocaleString('en-US');
+  async function renderBank() {
+    if (!qbIndex) {
+      view.innerHTML = '<div class="view-loading" role="status"><span class="spinner" aria-label="Loading"></span></div>';
+      try { qbIndex = await SH.getJSON('data/bank/index.json'); }
+      catch (e) { view.innerHTML = '<div class="notice notice-bad">Could not load the Question Bank. ' + esc(e.message) + '</div>'; return; }
+      if ((location.hash || '#home').slice(1) !== 'bank' || session) return; // the student moved on while it loaded
+    }
+    const map = qbFold();
+    const takenOnly = !!SH.store.get('bankTakenOnly', false);
+    const fin = qbFinished();
+    const inScope = id => !takenOnly || fin.has(qbTid(id));
+    const rows = qbIndex.skills.map(s => {
+      let nIn = 0, solved = 0, c = 0, w = 0;
+      s.ids.forEach(id => {
+        if (!inScope(id)) return;
+        nIn++;
+        const e = map[id];
+        if (e && (e.c || e.w)) { solved++; c += e.c || 0; w += e.w || 0; }
+      });
+      return Object.assign({}, s, { nIn, solved, c, w });
+    });
+    const secStat = sec => rows.filter(r => r.section === sec).reduce((o, r) => ({ n: o.n + r.nIn, solved: o.solved + r.solved, c: o.c + r.c, w: o.w + r.w }), { n: 0, solved: 0, c: 0, w: 0 });
+    const accTxt = (c, w) => c + w ? SH.pct(c, c + w) + '% correct so far' : 'No answers yet';
+    const sumCard = sec => {
+      const st = secStat(sec);
+      return '<div class="card qb-top"><span class="kicker">' + secName(sec) + '</span>' +
+        '<b>' + fmtN(st.solved) + '</b><span class="qb-of">of ' + fmtN(st.n) + ' questions solved</span>' +
+        '<div class="bar" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="' + SH.pct(st.solved, st.n) + '" aria-label="' + secName(sec) + ' progress"><i style="width:' + SH.pct(st.solved, st.n) + '%"></i></div>' +
+        '<p class="qb-acc">' + accTxt(st.c, st.w) + '</p></div>';
+    };
+    const skillRowHtml = r => {
+      const acc = r.c + r.w ? r.c / (r.c + r.w) : null;
+      return '<div class="qb-row"><div><b>' + esc(r.skill) + '</b></div>' +
+        '<span class="cnt">' + fmtN(r.solved) + '/' + fmtN(r.nIn) + '</span>' +
+        '<div class="bar" aria-hidden="true"><i style="width:' + SH.pct(r.solved, r.nIn) + '%"></i></div>' +
+        '<span class="acc ' + (acc == null ? '' : accClass(acc)) + '">' + (acc == null ? '–' : Math.round(acc * 100) + '%') + '</span>' +
+        '<button class="btn btn-ghost btn-sm" type="button" data-qb="' + esc(r.slug) + '"' + (r.nIn ? '' : ' disabled') + ' aria-label="Practice ' + esc(r.skill) + '">Practice</button></div>';
+    };
+    const secBlock = sec => {
+      let h = '<h2 class="section-title">' + esc(SH.TAXONOMY[sec].label) + '</h2><div class="card">';
+      Object.keys(SH.TAXONOMY[sec].domains).forEach(dom => {
+        const list = rows.filter(r => r.section === sec && r.domain === dom);
+        if (!list.length) return;
+        h += '<p class="qb-dom">' + esc(dom) + '</p>' + list.map(skillRowHtml).join('');
+      });
+      return h + '</div>';
+    };
+    view.innerHTML = '<div class="hub-head"><div><h1>Question Bank</h1><p class="hub-sub">' + fmtN(qbIndex.total) + ' questions from our ' + qbIndex.tests + ' full practice tests, organized by the official SAT skills. Questions you answer anywhere on the site count here too.</p></div>' +
+      '<div class="hub-acts"><a class="chip" href="#mistakes">Mistake Bank</a></div></div>' +
+      '<div class="grid grid-2" style="margin-bottom:14px">' + sumCard('rw') + sumCard('math') + '</div>' +
+      '<div class="card note-row" style="margin-bottom:18px"><label class="guess-tog" style="margin:0"><input type="checkbox" data-qb-taken' + (takenOnly ? ' checked' : '') + '> Only questions from practice tests I’ve finished</label>' +
+      '<span class="small muted">Keeps questions from tests you haven’t taken yet fresh for test day.</span></div>' +
+      (takenOnly && !fin.size ? '<div class="notice" style="margin-bottom:18px">You haven’t finished a practice test yet, so this filter hides everything. <a href="#tests">Take a test</a>, or untick it to practice the whole bank.</div>' : '') +
+      secBlock('rw') + secBlock('math') +
+      '<p class="small muted" style="margin:14px 0 0">Solved means answered at least once, here or in a practice test, set or review. Wrong answers land in your <a href="#mistakes">Mistake Bank</a> as usual.</p>';
+    const tk = $('[data-qb-taken]');
+    if (tk) tk.addEventListener('change', () => { SH.store.set('bankTakenOnly', tk.checked); SH.track('qbank_taken_only', { on: tk.checked }); renderBank(); });
+    $$('[data-qb]').forEach(b => b.addEventListener('click', () => {
+      const r = rows.find(x => x.slug === b.dataset.qb);
+      if (r) qbOptions(r, map);
+    }));
+  }
+  // How many questions, which difficulty, and what to practice first.
+  function qbOptions(r, map) {
+    const fresh = r.nIn - r.solved, wrong = (() => { let n = 0; r.ids.forEach(id => { const e = map[id]; if (e && e.w) n++; }); return n; })();
+    const md = SH.modal({
+      title: r.skill,
+      html: '<p class="muted small" style="margin-top:0">' + fmtN(r.nIn) + ' questions · ' + fmtN(fresh) + ' unsolved' + (r.c + r.w ? ' · ' + SH.pct(r.c, r.c + r.w) + '% correct so far' : '') + '</p>' +
+        '<div class="row"><div class="grow field"><label for="qb-n">Questions</label><select class="input" id="qb-n"><option>5</option><option selected>10</option><option>20</option></select></div>' +
+        '<div class="grow field"><label for="qb-diff">Difficulty</label><select class="input" id="qb-diff"><option value="">Any</option><option value="easy">Easy</option><option value="medium">Medium</option><option value="hard">Hard</option></select></div></div>' +
+        '<div class="field"><label for="qb-mode">Practice</label><select class="input" id="qb-mode"><option value="new">Unsolved questions first</option>' + (wrong ? '<option value="wrong">Ones I got wrong (' + wrong + ')</option>' : '') + '<option value="all">Random mix</option></select></div>',
+      actions: [{ label: 'Cancel', kind: 'ghost' }, { label: 'Start', kind: 'primary', onClick: back => {
+        qbStart(r, { n: +back.querySelector('#qb-n').value || 10, diff: back.querySelector('#qb-diff').value, mode: back.querySelector('#qb-mode').value })
+          .catch(e => SH.toast('Could not load these questions. ' + (e.message || '')));
+      } }]
+    });
+  }
+  async function qbStart(r, opt) {
+    if (!qbCache[r.slug]) {
+      SH.toast('Loading questions…', 1500);
+      const raw = await SH.getJSON('data/bank/' + r.slug + '.json');
+      const n = SH.normalizeList(raw.questions, r.slug);
+      if (n.errors.length) console.warn('[SAT Ustoz] Skipped questions in data/bank/' + r.slug + '.json:\n' + n.errors.join('\n'));
+      qbCache[r.slug] = n.questions;
+    }
+    const map = qbFold();
+    const takenOnly = !!SH.store.get('bankTakenOnly', false), fin = qbFinished();
+    let pool = qbCache[r.slug].filter(q => (!takenOnly || fin.has(qbTid(q.id))) && (!opt.diff || q.difficulty === opt.diff));
+    if (opt.mode === 'wrong') pool = pool.filter(q => map[q.id] && map[q.id].w);
+    pool = SH.shuffle(pool);
+    // Unsolved first, then the ones answered longest ago (stable sort keeps the shuffle inside each group).
+    if (opt.mode !== 'all') pool.sort((a, b) => {
+      const ea = map[a.id], eb = map[b.id];
+      return ((ea && (ea.c || ea.w)) ? 1 : 0) - ((eb && (eb.c || eb.w)) ? 1 : 0) || ((ea && ea.t) || 0) - ((eb && eb.t) || 0);
+    });
+    if (!pool.length) { SH.toast('No questions match. Try another difficulty, or untick the finished-tests filter.'); return; }
+    SH.track('qbank_started', { skill: r.skill, section: r.section, n: Math.min(opt.n, pool.length), mode: opt.mode, diff: opt.diff || 'any' });
+    startSession({ title: r.skill, questions: pool.slice(0, opt.n).map(q => Object.assign({ testId: qbTid(q.id) }, q)), source: 'bank' });
+  }
+
   /* ======================= AI PRACTICE ======================= */
   function renderAI() {
     const weak = SH.weakSkills(3);
@@ -1831,7 +1979,7 @@ document.addEventListener('DOMContentLoaded', function () {
       (reviewing ? '<div class="grid grid-2" style="gap:8px;margin:0 0 14px">' + tile(answered.length, 'reviewed') + (pro ? tile(count('up'), 'moved up') + tile(count(['back', 'slow']), 'sent back') : '') + tile(count('mastered'), 'mastered today') + '</div>' +
           (pro ? '<p class="small muted">' + (nextDue ? nextDue + ' card' + (nextDue === 1 ? ' is' : 's are') + ' due by tomorrow.' : 'Nothing else due by tomorrow.') + '</p>' : '')
         : missed.length ? '<p class="small muted">Your ' + missed.length + ' missed question' + (missed.length === 1 ? ' is' : 's are') + ' in your <a href="#mistakes">Mistake Bank</a>' + (pro ? ' and come' + (missed.length === 1 ? 's' : '') + ' back tomorrow' : '') + '.</p>' : '') +
-      '<div class="row">' + (missed.length && !reviewing ? '<button class="btn btn-primary" type="button" id="s-retry">Retry the ' + missed.length + ' I missed</button>' : '') + '<a class="btn ' + (reviewing ? 'btn-primary' : 'btn-ghost') + '" href="#' + (reviewing ? 'mistakes' : 'home') + '" id="s-home">' + (reviewing ? 'Back to the Mistake Bank' : 'Back to dashboard') + '</a></div></div>' +
+      '<div class="row">' + (missed.length && !reviewing ? '<button class="btn btn-primary" type="button" id="s-retry">Retry the ' + missed.length + ' I missed</button>' : '') + '<a class="btn ' + (reviewing ? 'btn-primary' : 'btn-ghost') + '" href="#' + (reviewing ? 'mistakes' : s.source === 'bank' ? 'bank' : 'home') + '" id="s-home">' + (reviewing ? 'Back to the Mistake Bank' : s.source === 'bank' ? 'Back to the Question Bank' : 'Back to dashboard') + '</a></div></div>' +
       '<div class="card"><h3>By skill</h3>' + (Object.keys(bySkill).length ? Object.keys(bySkill).map(k => '<div class="skill-row dom" style="grid-template-columns:minmax(0,1fr) 70px 44px"><div>' + esc(k) + '</div><div class="bar ' + accClass(bySkill[k].c / bySkill[k].n) + '"><i style="width:' + SH.pct(bySkill[k].c, bySkill[k].n) + '%"></i></div><div class="acc">' + bySkill[k].c + '/' + bySkill[k].n + '</div></div>').join('') : '<p class="muted">Nothing checked yet.</p>') + '</div></div>' +
       (missed.length ? '<h2 class="section-title">Questions to review</h2>' + missed.map((q, i) =>
         '<div class="miss"><div class="small muted" style="margin-bottom:6px">' + esc(q.skill || '') + ', your answer <b>' + esc(s.responses[q.id] || '—') + '</b>, correct answer <b>' + esc(SH.answerLabel(q)) + '</b></div>' +
