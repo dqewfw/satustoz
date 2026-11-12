@@ -1,0 +1,218 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Feedback | SAT Ustoz</title>
+<meta name="description" content="Tell SAT Ustoz what to build next. We read every message, build the best ideas, and announce them — often the same week.">
+<link rel="canonical" href="https://satustoz.academy/feedback.html">
+<meta name="theme-color" content="#2D5038">
+<link rel="icon" href="favicon.ico" sizes="32x32">
+<link rel="icon" href="icon-192.png" type="image/png" sizes="192x192">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="manifest" href="site.webmanifest">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="modulepreload" href="https://www.gstatic.com/firebasejs/13.0.0/firebase-app.js" crossorigin>
+<link rel="modulepreload" href="https://www.gstatic.com/firebasejs/13.0.0/firebase-auth.js" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Jost:wght@500;600&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/sh.css">
+<script>/* dark theme before the first paint (SH.theme in sh.js) */document.documentElement.setAttribute('data-themeable','');try{if(localStorage.getItem('sh.v1.theme')==='"dark"')document.documentElement.setAttribute('data-theme','dark')}catch(e){}</script>
+<style>
+  .fb-main { max-width: 720px; padding-top: 30px; padding-bottom: 50px; }
+  .fb-head { display: flex; justify-content: space-between; gap: 14px; align-items: flex-start; flex-wrap: wrap; }
+  .fb-main h1 { font-size: clamp(2rem, 5vw, 2.7rem); margin: 0 0 8px; }
+  .fb-lede { color: var(--muted); margin: 0 0 22px; max-width: 36em; }
+  .ship { border-color: var(--brand-tint-2); background: var(--brand-tint); margin-bottom: 18px; }
+  .ship h2 { font-size: 1.05rem; margin: 0 0 10px; }
+  .ship-row { display: grid; grid-template-columns: 26px minmax(0, 1fr) auto; gap: 4px 10px; align-items: baseline; padding: 7px 0; border-bottom: 1px solid var(--brand-tint-2); }
+  .ship-row:last-child { border-bottom: 0; }
+  .ship-row .tick { color: var(--ok); font-weight: 700; }
+  .ship-row b { font-size: .98rem; }
+  .ship-row .when { font-size: .78rem; font-weight: 700; color: var(--gold-text); white-space: nowrap; }
+  .ship-row .small { grid-column: 2 / -1; }
+  .fb-form .field { margin-bottom: 14px; }
+  .fb-form textarea { min-height: 120px; resize: vertical; }
+  .fb-consent { display: flex; gap: 10px; align-items: flex-start; font-size: .95rem; color: var(--ink-2); cursor: pointer; margin: 2px 0 16px; }
+  .fb-consent input { width: 18px; height: 18px; accent-color: var(--brand); flex: 0 0 auto; margin-top: 2px; }
+  .fb-ok { text-align: center; padding: 28px 10px; }
+  .fb-ok .big { font-size: 2.2rem; }
+  .lang-row { display: inline-flex; border: 1px solid var(--line-2); border-radius: var(--r-sm); overflow: hidden; }
+  .lang-row button { background: var(--paper); border: 0; padding: 6px 12px; font: 700 .85rem var(--sans); color: var(--muted); cursor: pointer; }
+  .lang-row button + button { border-left: 1px solid var(--line); }
+  .lang-row button[aria-pressed="true"] { background: var(--brand); color: #fff; }
+</style>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="index.html"><picture><source media="(max-width: 359px)" srcset="assets/brand/mark.svg"><img class="brand-logo" src="assets/brand/logo-horizontal.svg" alt="SAT Ustoz" width="171" height="40"></picture></a>
+    <button class="menu-btn" type="button" aria-label="Menu" aria-expanded="false" aria-controls="nav"><span></span></button>
+    <nav class="nav" id="nav" aria-label="Main">
+      <a href="practice.html#home">Dashboard</a>
+      <a href="practice.html#sets">Practice sets</a>
+      <a href="practice.html#bank">Question Bank</a>
+      <a href="practice.html#tests">Practice tests</a>
+      <a href="vocab.html">Vocabulary</a>
+      <a href="lessons.html">Lessons</a>
+      <a href="practice.html#plans">Plans</a>
+    </nav>
+    <div data-auth-slot></div>
+  </div>
+</header>
+
+<main id="main" tabindex="-1">
+  <div class="wrap fb-main" id="fb"></div>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-legal">&copy; <span data-year>2026</span> SAT Ustoz. SAT&reg; is a trademark registered by the College Board, which is not affiliated with, and does not endorse, this website. · <a href="oferta.html">Ommaviy oferta</a></div>
+  </div>
+</footer>
+
+<script src="assets/sh.js" data-analytics defer></script>
+<script>
+document.addEventListener('DOMContentLoaded', async function () {
+  'use strict';
+  const SH = window.SH;
+  const { esc, $, $$ } = SH;
+  const box = $('#fb');
+
+  const T = SH.i18n({
+    en: {
+      h: 'You ask. We build.', lede: 'Azizbek reads every message. The best ideas get built and announced on our Telegram and Instagram — sometimes the same day. Below is proof.',
+      ship_h: 'Built from your feedback', when_same: 'same day', when_new: 'new',
+      s1: 'Question Bank', s1d: '3,085 questions from 21 tests, organized by all 30 official skills, with per-skill progress. A student asked for it on 12 November; it was live that evening.',
+      s2: 'Your path', s2d: 'Your score → your target → the exact points to win back, right on the diagnostic report, with a week-by-week plan. Asked for and shipped on 12 November.',
+      s3: '21 full practice tests', s3d: 'Adaptive, in the real digital SAT format, free while we launch.',
+      f_h: 'What should we build next?', f_type: 'What is it about?',
+      t_feature: 'A new feature idea', t_improve: 'Improve something that exists', t_bug: 'A bug or problem', t_content: 'A mistake in a question', t_other: 'Something else',
+      f_msg: 'Your message', f_msg_ph: 'The more specific, the faster we can build it. What were you trying to do? What was missing?',
+      f_contact: 'Instagram or Telegram username (optional)', f_contact_ph: '@username — if you want a reply there',
+      f_consent: 'You may post my feedback publicly on the site and social pages (first name only, never changed)',
+      f_send: 'Send feedback', f_short: 'Tell us a little more (at least 10 characters).',
+      f_login: 'Sign in with Google so your feedback is saved with your account — or send it straight to our Telegram.',
+      f_login_btn: 'Sign in with Google', f_tg_btn: 'Send on Telegram',
+      ok_h: 'Got it. Thank you!', ok_p: 'We read every message. Follow {tg} — when your idea ships, that is where we announce it.',
+      ok_more: 'Send another', failed: 'Could not save. Check your connection and try again, or send it on Telegram.',
+      tg_msg: 'Feedback for SAT Ustoz ({t}): {m}'
+    },
+    uz: {
+      h: 'Siz aytasiz. Biz qilamiz.', lede: 'Har bir xabarni Azizbek oʻqiydi. Eng yaxshi gʻoyalar quriladi va Telegram hamda Instagramda eʼlon qilinadi — baʼzan oʻsha kuniyoq. Quyida isboti.',
+      ship_h: 'Sizning fikrlaringizdan qurilgan', when_same: 'oʻsha kuni', when_new: 'yangi',
+      s1: 'Savollar banki (Question Bank)', s1d: '21 ta testdan 3 085 savol, SATning rasmiy 30 ta koʻnikmasi boʻyicha, har biri uchun progress bilan. Bir oʻquvchi 12-noyabrda soʻradi; oʻsha kuni kechqurun saytda edi.',
+      s2: 'Sizning yoʻlingiz', s2d: 'Balingiz → maqsadingiz → yutish kerak boʻlgan ballar, diagnostika hisobotining oʻzida, haftama-hafta reja bilan. 12-noyabrda soʻraldi va qilindi.',
+      s3: '21 ta toʻliq sinov testi', s3d: 'Adaptiv, haqiqiy raqamli SAT formatida, launch davrida bepul.',
+      f_h: 'Keyingisini nima quraylik?', f_type: 'Bu nima haqida?',
+      t_feature: 'Yangi funksiya gʻoyasi', t_improve: 'Mavjud narsani yaxshilash', t_bug: 'Xatolik yoki muammo', t_content: 'Savoldagi xato', t_other: 'Boshqa narsa',
+      f_msg: 'Xabaringiz', f_msg_ph: 'Qanchalik aniq boʻlsa, shunchalik tez quramiz. Nima qilmoqchi edingiz? Nima yetishmadi?',
+      f_contact: 'Instagram yoki Telegram username (ixtiyoriy)', f_contact_ph: '@username — javobni oʻsha yerda olmoqchi boʻlsangiz',
+      f_consent: 'Fikrimni saytda va ijtimoiy tarmoqlarda eʼlon qilishingiz mumkin (faqat ismim bilan, oʻzgartirmasdan)',
+      f_send: 'Fikrni yuborish', f_short: 'Birozroq batafsil yozing (kamida 10 ta belgi).',
+      f_login: 'Google bilan kiring — fikringiz hisobingiz bilan saqlanadi. Yoki toʻgʻridan-toʻgʻri Telegramga yuboring.',
+      f_login_btn: 'Google bilan kirish', f_tg_btn: 'Telegramda yuborish',
+      ok_h: 'Qabul qilindi. Rahmat!', ok_p: 'Har bir xabarni oʻqiymiz. {tg} kanalini kuzating — gʻoyangiz qurilganda, oʻsha yerda eʼlon qilamiz.',
+      ok_more: 'Yana yuborish', failed: 'Saqlanmadi. Internetni tekshirib qayta urinib koʻring yoki Telegramda yuboring.',
+      tg_msg: 'SAT Ustoz uchun fikr ({t}): {m}'
+    },
+    ru: {
+      h: 'Вы говорите. Мы делаем.', lede: 'Каждое сообщение читает Азизбек. Лучшие идеи воплощаются и анонсируются в Telegram и Instagram — иногда в тот же день. Ниже доказательства.',
+      ship_h: 'Сделано по вашим отзывам', when_same: 'в тот же день', when_new: 'новое',
+      s1: 'Банк вопросов (Question Bank)', s1d: '3 085 вопросов из 21 теста, по всем 30 официальным навыкам SAT, с прогрессом по каждому. Ученица попросила 12 ноября — вечером того же дня он был на сайте.',
+      s2: 'Ваш путь', s2d: 'Ваш балл → цель → сколько баллов отыграть, прямо в отчёте диагностики, с планом по неделям. Попросили и сделали 12 ноября.',
+      s3: '21 полный пробный тест', s3d: 'Адаптивные, в формате настоящего цифрового SAT, бесплатно на время запуска.',
+      f_h: 'Что построить следующим?', f_type: 'О чём это?',
+      t_feature: 'Идея новой функции', t_improve: 'Улучшить существующее', t_bug: 'Ошибка или проблема', t_content: 'Ошибка в вопросе', t_other: 'Другое',
+      f_msg: 'Ваше сообщение', f_msg_ph: 'Чем конкретнее, тем быстрее построим. Что вы хотели сделать? Чего не хватило?',
+      f_contact: 'Instagram или Telegram username (необязательно)', f_contact_ph: '@username — если хотите ответ там',
+      f_consent: 'Можно публиковать мой отзыв на сайте и в соцсетях (только имя, без изменений)',
+      f_send: 'Отправить', f_short: 'Расскажите чуть подробнее (не меньше 10 символов).',
+      f_login: 'Войдите через Google, чтобы отзыв сохранился с вашим аккаунтом, — или отправьте его сразу в наш Telegram.',
+      f_login_btn: 'Войти через Google', f_tg_btn: 'Отправить в Telegram',
+      ok_h: 'Принято. Спасибо!', ok_p: 'Мы читаем каждое сообщение. Подпишитесь на {tg} — когда ваша идея будет готова, мы объявим об этом там.',
+      ok_more: 'Отправить ещё', failed: 'Не сохранилось. Проверьте связь и попробуйте ещё раз, или отправьте в Telegram.',
+      tg_msg: 'Отзыв для SAT Ustoz ({t}): {m}'
+    }
+  });
+
+  const TYPES = ['feature', 'improve', 'bug', 'content', 'other'];
+  let sent = false;
+
+  function shipRow(t, d, when) {
+    return '<div class="ship-row"><span class="tick" aria-hidden="true">✓</span><b>' + esc(t) + '</b><span class="when">' + esc(when) + '</span><span class="small muted">' + esc(d) + '</span></div>';
+  }
+  function draw(keep) {
+    const lang = SH.langNow();
+    const canSave = SH.auth.enabled() && !!SH.auth.user && !!SH.auth.fb;
+    const old = keep ? { type: $('#fb-type') && $('#fb-type').value, msg: $('#fb-msg') && $('#fb-msg').value, c: $('#fb-contact') && $('#fb-contact').value, q: $('#fb-quote') && $('#fb-quote').checked } : {};
+    box.innerHTML =
+      '<div class="fb-head"><div><h1>' + esc(T('h')) + '</h1></div>' +
+      '<div class="lang-row" role="group" aria-label="Language">' + ['en', 'uz', 'ru'].map(l => '<button type="button" data-fl="' + l + '" aria-pressed="' + (lang === l) + '">' + l.toUpperCase() + '</button>').join('') + '</div></div>' +
+      '<p class="fb-lede">' + esc(T('lede')) + '</p>' +
+      '<div class="card ship"><h2>' + esc(T('ship_h')) + '</h2>' +
+      shipRow(T('s1'), T('s1d'), T('when_same')) + shipRow(T('s2'), T('s2d'), T('when_same')) + shipRow(T('s3'), T('s3d'), T('when_new')) + '</div>' +
+      (sent
+        ? '<div class="card fb-ok"><div class="big" aria-hidden="true">🎉</div><h2>' + esc(T('ok_h')) + '</h2><p class="muted">' + T('ok_p', { tg: '<a href="' + esc(SH.CONFIG.CHANNEL_TELEGRAM) + '" target="_blank" rel="noopener">@satustoz_off</a>' }) + '</p>' +
+          '<div class="row" style="justify-content:center"><button type="button" class="btn btn-ghost btn-sm" id="fb-again">' + esc(T('ok_more')) + '</button></div></div>'
+        : '<div class="card"><h2 style="margin-top:0;font-size:1.25rem">' + esc(T('f_h')) + '</h2><form class="fb-form" novalidate>' +
+          '<div class="field"><label for="fb-type">' + esc(T('f_type')) + '</label><select class="input" id="fb-type">' + TYPES.map(t => '<option value="' + t + '"' + (old.type === t ? ' selected' : '') + '>' + esc(T('t_' + t)) + '</option>').join('') + '</select></div>' +
+          '<div class="field"><label for="fb-msg">' + esc(T('f_msg')) + '</label><textarea class="input" id="fb-msg" maxlength="900" placeholder="' + esc(T('f_msg_ph')) + '">' + esc(old.msg || '') + '</textarea></div>' +
+          '<div class="field"><label for="fb-contact">' + esc(T('f_contact')) + '</label><input class="input" id="fb-contact" maxlength="40" placeholder="' + esc(T('f_contact_ph')) + '" value="' + esc(old.c || '') + '"></div>' +
+          '<label class="fb-consent"><input type="checkbox" id="fb-quote"' + (old.q ? ' checked' : '') + '> <span>' + esc(T('f_consent')) + '</span></label>' +
+          '<p class="pay-err" role="alert" hidden></p>' +
+          (canSave
+            ? '<button type="submit" class="btn btn-primary">' + esc(T('f_send')) + '</button>'
+            : '<p class="small muted">' + esc(T('f_login')) + '</p><div class="row"><a class="btn btn-primary" href="' + esc(SH.loginUrl('feedback.html')) + '">' + esc(T('f_login_btn')) + '</a><button type="button" class="btn btn-ghost" id="fb-tg">' + esc(T('f_tg_btn')) + '</button></div>') +
+          '</form></div>');
+    $$('[data-fl]', box).forEach(b => b.addEventListener('click', () => { SH.store.set('lang', b.dataset.fl); document.documentElement.lang = b.dataset.fl; draw(true); }));
+    const again = $('#fb-again'); if (again) again.addEventListener('click', () => { sent = false; draw(); });
+    const form = $('form', box);
+    if (!form) return;
+    const err = $('.pay-err', form);
+    const values = () => ({
+      type: $('#fb-type').value, msg: $('#fb-msg').value.trim().slice(0, 900),
+      contact: $('#fb-contact').value.trim().slice(0, 40), quoteOk: $('#fb-quote').checked
+    });
+    const tgBtn = $('#fb-tg', form);
+    if (tgBtn) tgBtn.addEventListener('click', () => {
+      const v = values();
+      if (v.msg.length < 10) { err.textContent = T('f_short'); err.hidden = false; return; }
+      SH.track('feedback_form_sent', { via: 'telegram', type: v.type });
+      window.open(SH.CONFIG.CONTACT_TELEGRAM + '?text=' + encodeURIComponent(T('tg_msg', { t: T('t_' + v.type), m: v.msg + (v.contact ? ' (' + v.contact + ')' : '') })), '_blank', 'noopener');
+      sent = true; draw();
+    });
+    form.addEventListener('submit', async e => {
+      e.preventDefault();
+      const v = values();
+      if (v.msg.length < 10) { err.textContent = T('f_short'); err.hidden = false; $('#fb-msg').focus(); return; }
+      $$('button, textarea, input, select', form).forEach(el => { el.disabled = true; });
+      try {
+        const fs = await SH.sync._lib();
+        await fs.addDoc(fs.collection(SH.sync.db, 'reports'), {
+          uid: SH.auth.user.uid, email: SH.auth.user.email || '', name: (SH.auth.user.name || '').slice(0, 100),
+          kind: 'feedback', text: v.msg,
+          where: ('Feedback form · ' + v.type + (v.contact ? ' · ' + v.contact : '')).slice(0, 120),
+          quoteOk: v.quoteOk, lang: SH.langNow(), page: 'feedback.html', createdAt: fs.serverTimestamp()
+        });
+        SH.track('feedback_form_sent', { via: 'site', type: v.type, quote_ok: v.quoteOk });
+        sent = true; draw();
+        window.scrollTo({ top: 0 });
+      } catch (ex) {
+        console.warn('[SAT Ustoz] Could not save the feedback:', ex);
+        $$('button, textarea, input, select', form).forEach(el => { el.disabled = false; });
+        err.textContent = T('failed'); err.hidden = false;
+      }
+    });
+  }
+
+  if (!SH.store.get('lang', null)) document.documentElement.lang = SH.pickLang();
+  draw();
+  await SH.authReady(4000);
+  if (!sent) draw(true);
+  SH.auth.onChange(() => { if (!sent) draw(true); });
+});
+</script>
+</body>
+</html>
