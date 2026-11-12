@@ -176,6 +176,7 @@
       "title": "Practice Test 16",
       "description": "Full-length and adaptive, like test day: 98 questions in 2 hours 14 minutes, plus a 10-minute break.",
       "plan": "pro",
+      "proOnly": true,
       "file": "data/tests/practice-test-16.json"
     },
     {
@@ -183,6 +184,7 @@
       "title": "Practice Test 17",
       "description": "Full-length and adaptive, like test day: 98 questions in 2 hours 14 minutes, plus a 10-minute break.",
       "plan": "pro",
+      "proOnly": true,
       "file": "data/tests/practice-test-17.json"
     },
     {
@@ -190,6 +192,7 @@
       "title": "Practice Test 20",
       "description": "Full-length and adaptive, like test day: 98 questions in 2 hours 14 minutes, plus a 10-minute break.",
       "plan": "pro",
+      "proOnly": true,
       "file": "data/tests/practice-test-20.json"
     },
     {
@@ -197,6 +200,7 @@
       "title": "Practice Test 21",
       "description": "Full-length and adaptive, like test day: 98 questions in 2 hours 14 minutes, plus a 10-minute break.",
       "plan": "pro",
+      "proOnly": true,
       "file": "data/tests/practice-test-21.json"
     },
     {
@@ -204,6 +208,7 @@
       "title": "Practice Test 22",
       "description": "Full-length and adaptive, like test day: 98 questions in 2 hours 14 minutes, plus a 10-minute break.",
       "plan": "pro",
+      "proOnly": true,
       "file": "data/tests/practice-test-22.json"
     },
     {
@@ -211,6 +216,7 @@
       "title": "Practice Test 23",
       "description": "Full-length and adaptive, like test day: 98 questions in 2 hours 14 minutes, plus a 10-minute break.",
       "plan": "pro",
+      "proOnly": true,
       "file": "data/tests/practice-test-23.json"
     },
     {

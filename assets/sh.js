@@ -71,10 +71,11 @@
       // before this day (Tashkent time) keep Tests 2 and 3, and the full results
       // of tests they finished before it. Set it to the day you upload this version.
       FREE_CHANGED_AT: '2026-10-19',
-      // Launch offer: true opens every practice test to everyone, with full
+      // Launch offer: true opens every practice test not marked "proOnly" to everyone, with full
       // results (Pro keeps skill sets, drills and the study plan). A test marked
-      // "proOnly" in data/catalog.json would stay Pro either way; none is marked
-      // now. Set it to false to go back to Tests 2 to 23 being Pro.
+      // "proOnly" in data/catalog.json stays Pro/Max either way: Tests 16, 17
+      // and 20 to 23 are, so 15 tests are free. Set it to false to go back to
+      // Tests 2 to 23 being Pro.
       // While it's true, keep every test file in data/tests/ (don't use
       // TESTS_ENDPOINT): students without Pro load the tests from there.
       TESTS_FREE_FOR_LAUNCH: true,
@@ -82,7 +83,7 @@
       // question with explanations) everyone sees, without Pro.
       FREE_RESULTS_TESTS: ['practice-test-1', 'practice-test-2', 'practice-test-3', 'practice-test-4', 'practice-test-5',
         'practice-test-6', 'practice-test-7', 'practice-test-8', 'practice-test-9', 'practice-test-10',
-        'practice-test-11', 'practice-test-12', 'practice-test-13', 'practice-test-14', 'practice-test-15', 'practice-test-16', 'practice-test-17', 'practice-test-20', 'practice-test-21', 'practice-test-22', 'practice-test-23']
+        'practice-test-11', 'practice-test-12', 'practice-test-13', 'practice-test-14', 'practice-test-15']
     },
 
     // Online payment with Payme. Paste your payments Worker URL here
@@ -2618,8 +2619,8 @@
       mp_unlocked_t: '{plan} is on', mp_unlocked: 'You can use {plan} right now, for 48 hours, while we confirm your payment. Once it’s confirmed (within 2 hours, 9:00 to 23:00 Tashkent time), you get the full period you paid for. Send us the receipt so we can confirm it faster.',
       pending_note: 'Confirming your payment: the full period starts once it’s confirmed.',
       mp_trust: 'Payments go to {name}, the founder of SAT Ustoz. Questions? Message {tg} on Telegram.', mp_instant: 'Your plan switches on as soon as you tap “I’ve paid”.',
-      launch_tests: 'All 21 practice tests (free for our launch)', launch_results: 'Full results for every test: score by skill and every question explained', pro_results: 'Full results for Tests 11 to 23',
-      note_launch: '<b>Free, Pro or Max?</b> Free gives you all 21 practice tests with full results: your score by skill and every question explained. Pro adds skill sets, drills for the skills that cost you points and a study plan to your test date. Max adds the AI tutor and live sessions with Azizbek.', pro_tests_launch: 'Practice Tests 11 to 23, only in Pro', pro_sets: 'Practice sets for the most-missed skills',
+      launch_tests: '15 practice tests (free for our launch)', launch_results: 'Full results for each of them: score by skill and every question explained', pro_results: 'Full results for Tests 11 to 23',
+      note_launch: '<b>Free, Pro or Max?</b> Free gives you 15 practice tests with full results: your score by skill and every question explained. Pro adds 6 more practice tests, skill sets, drills for the skills that cost you points and a study plan to your test date. Max adds the AI tutor and live sessions with Azizbek.', pro_tests_launch: '6 more practice tests: 16, 17 and 20 to 23', pro_sets: 'Practice sets for the most-missed skills',
       ai_daily: '3 AI tutor questions a day', ai_max: 'Unlimited AI tutor and new AI practice questions',
       bill_pass: 'Prices in Uzbek so’m. Pay for one month at a time, or for 3 months until your test.',
       pass_line: 'or {price} for 3 months, until your test',
@@ -2692,8 +2693,8 @@
       mp_unlocked_t: '{plan} yoqildi', mp_unlocked: 'Toʻlovingizni tasdiqlagunimizcha {plan} tarifidan hoziroq, 48 soat davomida foydalanishingiz mumkin. Tasdiqlangach (Toshkent vaqti bilan 9:00–23:00, 2 soat ichida) toʻlagan muddatingiz toʻliq ochiladi. Tezroq tasdiqlashimiz uchun chekni yuboring.',
       pending_note: 'Toʻlovingiz tasdiqlanmoqda: toʻliq muddat tasdiqlangach boshlanadi.',
       mp_trust: 'Toʻlovlar SAT Ustoz asoschisi {name} kartasiga tushadi. Savollar boʻlsa, Telegramda {tg} ga yozing.', mp_instant: '“Toʻladim” tugmasini bosishingiz bilan tarif darhol yoqiladi.',
-      launch_tests: 'Barcha 21 ta sinov testi (ishga tushish munosabati bilan bepul)', launch_results: 'Har bir test boʻyicha toʻliq natija: koʻnikmalar boʻyicha ball va har bir savolga izoh', pro_results: '11–23-testlar boʻyicha toʻliq natija',
-      note_launch: '<b>Bepul, Pro yoki Max?</b> Bepul tarifda barcha 21 ta sinov testi toʻliq natijasi bilan: koʻnikmalar boʻyicha ball va har bir savolga izoh. Pro koʻnikma toʻplamlari, ball yoʻqotayotgan koʻnikmalaringiz boʻyicha mashqlar va imtihon sanangizgacha oʻqish rejasini qoʻshadi. Max esa AI ustoz va Azizbek bilan jonli darslarni qoʻshadi.', pro_tests_launch: '11–23-sinov testlari, faqat Pro tarifida', pro_sets: 'Eng koʻp xato qilinadigan koʻnikmalar boʻyicha toʻplamlar',
+      launch_tests: '15 ta sinov testi (ishga tushish munosabati bilan bepul)', launch_results: 'Ularning har biri boʻyicha toʻliq natija: koʻnikmalar boʻyicha ball va har bir savolga izoh', pro_results: '11–23-testlar boʻyicha toʻliq natija',
+      note_launch: '<b>Bepul, Pro yoki Max?</b> Bepul tarifda 15 ta sinov testi toʻliq natijasi bilan: koʻnikmalar boʻyicha ball va har bir savolga izoh. Pro yana 6 ta sinov testi, koʻnikma toʻplamlari, ball yoʻqotayotgan koʻnikmalaringiz boʻyicha mashqlar va imtihon sanangizgacha oʻqish rejasini qoʻshadi. Max esa AI ustoz va Azizbek bilan jonli darslarni qoʻshadi.', pro_tests_launch: 'Yana 6 ta sinov testi: 16, 17 va 20–23', pro_sets: 'Eng koʻp xato qilinadigan koʻnikmalar boʻyicha toʻplamlar',
       ai_daily: 'Kuniga 3 ta AI ustoz savoli', ai_max: 'Cheksiz AI ustoz va yangi AI mashq savollari',
       bill_pass: 'Narxlar soʻmda. Bir oyga yoki imtihoningizgacha 3 oyga toʻlang.',
       pass_line: 'yoki imtihoningizgacha 3 oyga {price}',
@@ -2766,8 +2767,8 @@
       mp_unlocked_t: '{plan} включён', mp_unlocked: 'Пользуйтесь {plan} прямо сейчас, 48 часов, пока мы подтверждаем оплату. После подтверждения (в течение 2 часов, с 9:00 до 23:00 по Ташкенту) откроется весь оплаченный срок. Отправьте чек, чтобы мы подтвердили быстрее.',
       pending_note: 'Подтверждаем оплату: полный срок начнётся после подтверждения.',
       mp_trust: 'Платежи поступают основателю SAT Ustoz, {name}. Вопросы? Напишите {tg} в Telegram.', mp_instant: 'Тариф включится сразу, как только вы нажмёте «Я оплатил(а)».',
-      launch_tests: 'Все 21 пробный тест (бесплатно в честь запуска)', launch_results: 'Полные результаты всех тестов: балл по навыкам и объяснение каждого вопроса', pro_results: 'Полные результаты тестов 11–23',
-      note_launch: '<b>Бесплатно, Pro или Max?</b> Бесплатно: все 21 пробный тест с полными результатами — балл по навыкам и объяснение каждого вопроса. Pro добавляет наборы по навыкам, тренировки по навыкам, на которых вы теряете баллы, и план подготовки до даты экзамена. Max добавит ИИ-репетитора и живые занятия с Азизбеком.', pro_tests_launch: 'Пробные тесты 11–23, только в Pro', pro_sets: 'Наборы по навыкам, где ошибаются чаще всего',
+      launch_tests: '15 пробных тестов (бесплатно в честь запуска)', launch_results: 'Полные результаты по каждому из них: балл по навыкам и объяснение каждого вопроса', pro_results: 'Полные результаты тестов 11–23',
+      note_launch: '<b>Бесплатно, Pro или Max?</b> Бесплатно: 15 пробных тестов с полными результатами — балл по навыкам и объяснение каждого вопроса. Pro добавляет ещё 6 пробных тестов, наборы по навыкам, тренировки по навыкам, на которых вы теряете баллы, и план подготовки до даты экзамена. Max добавит ИИ-репетитора и живые занятия с Азизбеком.', pro_tests_launch: 'Ещё 6 пробных тестов: 16, 17 и 20–23', pro_sets: 'Наборы по навыкам, где ошибаются чаще всего',
       ai_daily: '3 вопроса ИИ-репетитору в день', ai_max: 'Безлимитный ИИ-репетитор и новые ИИ-вопросы',
       bill_pass: 'Цены в узбекских сумах. Платите за месяц или сразу за 3 месяца до экзамена.',
       pass_line: 'или {price} за 3 месяца, до экзамена',
@@ -2798,7 +2799,7 @@
   // list their daily tutor questions and Max its unlimited AI.
   function planFeatures(id, T) {
     const f = T(id + '_f').slice();
-    if (CONFIG.PLANS.TESTS_FREE_FOR_LAUNCH) { if (id === 'free') f.splice(1, 1, T('launch_tests'), T('launch_results')); if (id === 'pro') f.splice(0, 3, T('pro_sets')); }
+    if (CONFIG.PLANS.TESTS_FREE_FOR_LAUNCH) { if (id === 'free') f.splice(1, 1, T('launch_tests'), T('launch_results')); if (id === 'pro') f.splice(0, 3, T('pro_tests_launch'), T('pro_sets')); }
     if (!ai.enabled()) return f;
     if (id === 'max') f[1] = T('ai_max'); else f.push(T('ai_daily'));
     return f;

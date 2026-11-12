@@ -534,7 +534,7 @@ document.addEventListener('DOMContentLoaded', function () {
     if (!attempts.length) {
       if (!pathHtml) html += '<h2 class="section-title">Start here</h2><div class="grid grid-3">' +
         '<div class="card card-hover start-card"><span class="kicker">Recommended first</span><h3>Take the mini diagnostic</h3><p class="muted">About 50 minutes, adaptive like the real test. You get an estimated score, free.</p><a class="btn btn-primary" href="test.html?id=diagnostic-mini">Start the diagnostic</a></div>' +
-        '<div class="card card-hover start-card"><span class="kicker">Test-day ready</span><h3>Full practice tests</h3><p class="muted">Twenty-one full-length tests, 98 questions in 2 hours 14 minutes, adaptive like the real SAT. ' + (SH.CONFIG.PLANS.TESTS_FREE_FOR_LAUNCH ? 'All 21 are free while we launch.' : 'Practice Test 1 is free.') + '</p><a class="btn btn-ghost" href="#tests">See practice tests</a></div>' +
+        '<div class="card card-hover start-card"><span class="kicker">Test-day ready</span><h3>Full practice tests</h3><p class="muted">Twenty-one full-length tests, 98 questions in 2 hours 14 minutes, adaptive like the real SAT. ' + (SH.CONFIG.PLANS.TESTS_FREE_FOR_LAUNCH ? '15 are free while we launch; the other 6 come with Pro.' : 'Practice Test 1 is free.') + '</p><a class="btn btn-ghost" href="#tests">See practice tests</a></div>' +
         '<div class="card card-hover start-card"><span class="kicker">Short on time</span><h3>Try a 10-question set</h3><p class="muted">Instant feedback and an explanation after every question.</p><a class="btn btn-ghost" href="#sets">See practice sets</a></div></div>';
     } else {
       html += analyzerHtml(snap);
@@ -1516,6 +1516,9 @@ document.addEventListener('DOMContentLoaded', function () {
   let qbIndex = null;
   const qbCache = {};
   const qbTid = id => { const m = /^t(\d+)-/.exec(id || ''); return m ? 'practice-test-' + m[1] : ''; };
+  // Questions from tests this student's plan doesn't open (the "proOnly" ones
+  // for Free) stay out of the bank, so it doesn't give Pro tests away.
+  const qbOpen = id => { const meta = catalog.tests.find(t => t.id === qbTid(id)); return !meta || SH.plan.opens(meta); };
   // Fold new attempts (from tests, sets, drills, reviews and the bank itself)
   // into the qbank map. Only attempts newer than a question's last folded
   // answer count, so running this twice never double-counts.
@@ -1544,7 +1547,10 @@ document.addEventListener('DOMContentLoaded', function () {
     const map = qbFold();
     const takenOnly = !!SH.store.get('bankTakenOnly', false);
     const fin = qbFinished();
-    const inScope = id => !takenOnly || fin.has(qbTid(id));
+    const inScope = id => qbOpen(id) && (!takenOnly || fin.has(qbTid(id)));
+    let qbShut = 0;
+    qbIndex.skills.forEach(s => s.ids.forEach(id => { if (!qbOpen(id)) qbShut++; }));
+    const qbOpenTests = catalog.tests.filter(t => t.kind !== 'mini' && SH.plan.opens(t)).length;
     const rows = qbIndex.skills.map(s => {
       let nIn = 0, solved = 0, c = 0, w = 0;
       s.ids.forEach(id => {
@@ -1581,7 +1587,7 @@ document.addEventListener('DOMContentLoaded', function () {
       });
       return h + '</div>';
     };
-    view.innerHTML = '<div class="hub-head"><div><h1>Question Bank</h1><p class="hub-sub">' + fmtN(qbIndex.total) + ' questions from our ' + qbIndex.tests + ' full practice tests, organized by the official SAT skills. Questions you answer anywhere on the site count here too.</p></div>' +
+    view.innerHTML = '<div class="hub-head"><div><h1>Question Bank</h1><p class="hub-sub">' + (qbShut ? fmtN(qbIndex.total - qbShut) + ' questions from the ' + qbOpenTests + ' practice tests your plan opens' : fmtN(qbIndex.total) + ' questions from our ' + qbIndex.tests + ' full practice tests') + ', organized by the official SAT skills. Questions you answer anywhere on the site count here too.' + (qbShut ? ' Pro adds ' + fmtN(qbShut) + ' more from the other ' + (qbIndex.tests - qbOpenTests) + ' tests.' : '') + '</p></div>' +
       '<div class="hub-acts"><a class="chip" href="#mistakes">Mistake Bank</a></div></div>' +
       '<div class="grid grid-2" style="margin-bottom:14px">' + sumCard('rw') + sumCard('math') + '</div>' +
       '<div class="card note-row" style="margin-bottom:18px"><label class="guess-tog" style="margin:0"><input type="checkbox" data-qb-taken' + (takenOnly ? ' checked' : '') + '> Only questions from practice tests I’ve finished</label>' +
@@ -1621,7 +1627,7 @@ document.addEventListener('DOMContentLoaded', function () {
     }
     const map = qbFold();
     const takenOnly = !!SH.store.get('bankTakenOnly', false), fin = qbFinished();
-    let pool = qbCache[r.slug].filter(q => (!takenOnly || fin.has(qbTid(q.id))) && (!opt.diff || q.difficulty === opt.diff));
+    let pool = qbCache[r.slug].filter(q => qbOpen(q.id) && (!takenOnly || fin.has(qbTid(q.id))) && (!opt.diff || q.difficulty === opt.diff));
     if (opt.mode === 'wrong') pool = pool.filter(q => map[q.id] && map[q.id].w);
     pool = SH.shuffle(pool);
     // Unsolved first, then the ones answered longest ago (stable sort keeps the shuffle inside each group).
