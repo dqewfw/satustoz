@@ -19,7 +19,7 @@
   body { min-height: 100vh; display: flex; flex-direction: column; }
   main { flex: 1; display: flex; align-items: center; padding: 48px 0; }
   .nf { max-width: 560px; }
-  .nf .code { font-family: var(--display); font-size: clamp(4.5rem, 18vw, 8rem); line-height: 1; letter-spacing: -.04em; color: var(--brand); }
+  .nf .code { font-family: var(--display); font-size: clamp(4.5rem, 18vw, 8rem); line-height: 1; letter-spacing: -.04em; color: var(--brand-text); }
 </style>
 </head>
 <body>
@@ -31,10 +31,28 @@
 <main id="main">
   <div class="wrap nf">
     <div class="code">404</div>
-    <h1 style="font-size:clamp(1.7rem,5vw,2.3rem)">This page doesn&rsquo;t exist</h1>
-    <p class="muted">The link may be old. Scholar&rsquo;s Hub is now SAT Ustoz, and the old course pages have been retired.</p>
-    <div class="row"><a class="btn btn-primary" href="/practice.html">Start practicing</a><a class="btn btn-ghost" href="/">Home</a></div>
+    <h1 style="font-size:clamp(1.7rem,5vw,2.3rem)" data-t="h">This page doesn&rsquo;t exist</h1>
+    <p class="muted" data-t="p">The link may be old. Scholar&rsquo;s Hub is now SAT Ustoz, and the old course pages have been retired.</p>
+    <div class="row"><a class="btn btn-primary" href="/practice.html" data-t="go">Start practicing</a><a class="btn btn-ghost" href="/" data-t="home">Home</a></div>
   </div>
 </main>
+<script>
+/* Same language choice as SH.pickLang in sh.js (this page loads no sh.js). */
+(function () {
+  var T = {
+    uz: { h: 'Bunday sahifa yoʻq', p: 'Havola eskirgan boʻlishi mumkin. Scholar’s Hub endi SAT Ustoz, eski kurs sahifalari esa olib tashlangan.', go: 'Mashqni boshlash', home: 'Bosh sahifa' },
+    ru: { h: 'Такой страницы нет', p: 'Возможно, ссылка устарела. Scholar’s Hub теперь называется SAT Ustoz, а старые страницы курсов удалены.', go: 'Начать практику', home: 'Главная' }
+  };
+  var l = '';
+  try { l = JSON.parse(localStorage.getItem('sh.v1.lang') || 'null') || ''; } catch (e) { /* ignore */ }
+  if (!/^(en|uz|ru)$/.test(l)) {
+    l = (navigator.language || '').slice(0, 2).toLowerCase();
+    if (l !== 'uz' && l !== 'ru') { var tz = ''; try { tz = Intl.DateTimeFormat().resolvedOptions().timeZone || ''; } catch (e) { /* ignore */ } l = /^Asia\/(Tashkent|Samarkand)$/.test(tz) ? 'uz' : 'en'; }
+  }
+  if (!T[l]) return;
+  document.documentElement.lang = l;
+  [].forEach.call(document.querySelectorAll('[data-t]'), function (el) { el.textContent = T[l][el.getAttribute('data-t')]; });
+})();
+</script>
 </body>
 </html>

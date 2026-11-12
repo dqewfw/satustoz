@@ -32,7 +32,7 @@
   .tr-left { min-width: 0; }
   .tr-title { font-weight: 700; font-size: 1.02rem; line-height: 1.25; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; letter-spacing: .005em; }
   .tr-dir { background: none; border: 0; padding: 2px 0; font-weight: 600; font-size: .92rem; cursor: pointer; display: inline-flex; align-items: center; gap: 5px; color: var(--ink-2); border-radius: 6px; }
-  .tr-dir:hover { color: var(--brand); }
+  .tr-dir:hover { color: var(--brand-text); }
   .tr-dir svg { transition: transform var(--t-fast); }
   .tr-dir:hover svg { transform: translateY(1px); }
   .tr-center { display: flex; flex-direction: column; align-items: center; gap: 3px; }
@@ -44,12 +44,12 @@
   @keyframes tr-pulse { 50% { transform: scale(1.06); } }
   .tr-timer.hidden-t { visibility: hidden; }
   .tr-hide { border: 1px solid var(--line-2); background: var(--paper); border-radius: 6px; padding: 1px 12px; font-size: .76rem; font-weight: 700; cursor: pointer; color: var(--ink-2); transition: border-color var(--t-fast), color var(--t-fast); }
-  .tr-hide:hover { border-color: var(--brand); color: var(--brand); }
+  .tr-hide:hover { border-color: var(--brand); color: var(--brand-text); }
   .tr-right { display: flex; justify-content: flex-end; gap: 2px; }
   .tool { background: none; border: 0; cursor: pointer; display: inline-flex; flex-direction: column; align-items: center; gap: 3px; padding: 6px 10px; border-radius: 10px; font-size: .75rem; font-weight: 600; color: var(--ink-2); min-width: 60px; transition: background-color var(--t-fast), color var(--t-fast); }
   .tool svg { width: 22px; height: 22px; }
   .tool:hover { background: var(--sunk); color: var(--ink); }
-  .tool[aria-pressed="true"], .tool[aria-expanded="true"] { background: var(--brand-tint); color: var(--brand); }
+  .tool[aria-pressed="true"], .tool[aria-expanded="true"] { background: var(--brand-tint); color: var(--brand-text); }
   /* Progress line: how much of this module is answered */
   .tr-dash { flex: 0 0 auto; height: 3px; background: var(--sunk); position: relative; overflow: hidden; }
   .tr-dash i { position: absolute; left: 0; top: 0; bottom: 0; width: 0; background: var(--brand); transition: width .45s var(--ease); }
@@ -80,7 +80,7 @@
   .mark-btn { background: none; border: 0; display: inline-flex; align-items: center; gap: 7px; font-weight: 600; font-size: .92rem; cursor: pointer; padding: 6px 10px; border-radius: 6px; color: var(--ink-2); transition: background-color var(--t-fast), color var(--t-fast); }
   .mark-btn:hover { background: var(--paper); color: var(--ink); }
   .mark-btn svg { width: 15px; height: 18px; transition: transform var(--t) var(--ease-spring); }
-  .mark-btn[aria-pressed="true"] { color: var(--brand); background: var(--paper); box-shadow: inset 0 0 0 1px var(--brand-tint-2); }
+  .mark-btn[aria-pressed="true"] { color: var(--brand-text); background: var(--paper); box-shadow: inset 0 0 0 1px var(--brand-tint-2); }
   .mark-btn[aria-pressed="true"] svg { transform: scale(1.1); }
   .mark-btn[aria-pressed="true"] svg path { fill: var(--brand); stroke: var(--brand); }
   .abc-btn { margin-left: auto; background: var(--paper); border: 1.5px solid var(--edge); border-radius: 8px; font-weight: 700; font-size: .78rem; padding: 4px 9px; cursor: pointer; text-decoration: line-through; letter-spacing: .04em; transition: background-color var(--t-fast), border-color var(--t-fast), color var(--t-fast); }
@@ -119,7 +119,7 @@
   .lg-box { width: 16px; height: 16px; border: 1.5px dashed var(--edge); border-radius: 4px; display: inline-block; }
   .lg-done { width: 16px; height: 16px; border-radius: 4px; background: var(--brand); display: inline-block; }
   .qgrid { display: grid; grid-template-columns: repeat(auto-fill, minmax(44px, 1fr)); gap: 12px 10px; }
-  .qcell { position: relative; height: 44px; border: 1.5px dashed var(--edge); background: var(--paper); color: var(--brand); font-weight: 700; cursor: pointer; border-radius: 9px; font-variant-numeric: tabular-nums; transition: transform var(--t-fast) var(--ease), box-shadow var(--t-fast), background-color var(--t-fast); }
+  .qcell { position: relative; height: 44px; border: 1.5px dashed var(--edge); background: var(--paper); color: var(--brand-text); font-weight: 700; cursor: pointer; border-radius: 9px; font-variant-numeric: tabular-nums; transition: transform var(--t-fast) var(--ease), box-shadow var(--t-fast), background-color var(--t-fast); }
   .qcell.answered { background: var(--brand); border: 1.5px solid var(--brand); color: #fff; }
   .qcell.current { box-shadow: 0 0 0 2px var(--paper), 0 0 0 4px var(--ink); }
   .qcell:hover { transform: translateY(-2px); box-shadow: 0 6px 12px -6px rgba(29,42,32,.45); }
@@ -146,7 +146,7 @@
   .intro-card { background: var(--paper); border: 1px solid var(--line); border-radius: var(--r); padding: 30px 32px; margin-top: 22px; }
   .intro-meta { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; margin: 22px 0 6px; }
   .intro-meta div { background: var(--ivory); border-radius: var(--r-sm); padding: 12px 14px; }
-  .intro-meta b { display: block; font-family: var(--display); font-size: 1.6rem; line-height: 1.1; color: var(--brand); font-variant-numeric: tabular-nums; }
+  .intro-meta b { display: block; font-family: var(--display); font-size: 1.6rem; line-height: 1.1; color: var(--brand-text); font-variant-numeric: tabular-nums; }
   .intro-meta span { font-size: .86rem; color: var(--muted); }
   .spinner { width: 46px; height: 46px; border-radius: 50%; border: 4px solid var(--gold-soft); border-top-color: var(--brand); animation: spin 1s linear infinite; margin: 0 auto 18px; }
   .center-screen { height: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 24px; background: var(--page); animation: sh-fade .25s ease both; }
@@ -154,7 +154,7 @@
   .break-ring svg { width: 100%; height: 100%; transform: rotate(-90deg); }
   .break-ring .trk { fill: none; stroke: var(--sunk); stroke-width: 6; }
   .break-ring .arc { fill: none; stroke: var(--brand); stroke-width: 6; stroke-linecap: round; transition: stroke-dashoffset 1s linear; }
-  .break-clock { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; font-family: var(--display); font-size: clamp(2.6rem, 9vw, 3.6rem); color: var(--brand); font-variant-numeric: tabular-nums; line-height: 1; }
+  .break-clock { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; font-family: var(--display); font-size: clamp(2.6rem, 9vw, 3.6rem); color: var(--brand-text); font-variant-numeric: tabular-nums; line-height: 1; }
   .structure { width: 100%; border-collapse: collapse; margin: 14px 0 20px; font-size: .98rem; }
   .structure th, .structure td { border-bottom: 1px solid var(--line); padding: 11px 8px; text-align: left; vertical-align: top; }
   .structure td:nth-child(n+2), .structure th:nth-child(n+2) { white-space: nowrap; width: 1%; padding-left: 18px; font-variant-numeric: tabular-nums; }
@@ -184,11 +184,11 @@
   .hl-pop .btn { min-height: 34px; padding: .3em .85em; font-size: .86rem; }
   .more-menu { position: fixed; right: 12px; top: 64px; z-index: 65; background: var(--paper); border: 1px solid var(--line-2); border-radius: 14px; box-shadow: var(--shadow-lg); min-width: 230px; padding: 6px; animation: sh-pop .16s var(--ease) both; transform-origin: top right; }
   .more-menu > button { display: block; width: 100%; text-align: left; background: none; border: 0; padding: 10px 12px; border-radius: 9px; cursor: pointer; font-weight: 600; }
-  .more-menu > button:hover { background: var(--brand-tint); color: var(--brand); }
+  .more-menu > button:hover { background: var(--brand-tint); color: var(--brand-text); }
   .menu-zoom { display: flex; align-items: center; gap: 4px; padding: 6px 6px 8px 12px; border-bottom: 1px solid var(--line); margin-bottom: 4px; }
   .menu-zoom span { flex: 1; font-weight: 600; font-size: .92rem; }
   .menu-zoom button { min-width: 38px; height: 34px; border: 1px solid var(--line-2); background: var(--paper); border-radius: 8px; font-weight: 700; font-size: .85rem; cursor: pointer; font-variant-numeric: tabular-nums; }
-  .menu-zoom button:hover { border-color: var(--brand); color: var(--brand); }
+  .menu-zoom button:hover { border-color: var(--brand); color: var(--brand-text); }
   .menu-zoom [data-z="0"] { min-width: 54px; }
 
   /* Line reader: dims everything in the question area except one band */
@@ -204,7 +204,7 @@
   .res-top .wrap { display: flex; align-items: center; gap: 12px; min-height: 66px; }
   .res { padding-top: 30px; padding-bottom: 44px; }
   .score-hero { display: grid; grid-template-columns: 1.1fr 1fr; gap: 28px; align-items: center; padding: 28px; }
-  .score-big { font-family: var(--display); font-size: clamp(3.6rem, 10vw, 5.4rem); color: var(--brand); line-height: 1; letter-spacing: -.03em; font-variant-numeric: tabular-nums; }
+  .score-big { font-family: var(--display); font-size: clamp(3.6rem, 10vw, 5.4rem); color: var(--brand-text); line-height: 1; letter-spacing: -.03em; font-variant-numeric: tabular-nums; }
   .score-big small { display: block; font-family: var(--sans); font-size: .9rem; color: var(--muted); margin-top: 8px; letter-spacing: .01em; }
   .scale { margin-top: 20px; max-width: 420px; }
   .scale-track { position: relative; height: 10px; border-radius: 2px; background: var(--sunk); }
@@ -227,7 +227,7 @@
   .mod-table tr:last-child td { border-bottom: 0; }
   .filters { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 14px; }
   .filters button { border: 1px solid var(--line-2); background: var(--paper); border-radius: var(--r-sm); padding: 7px 14px; font-weight: 600; font-size: .88rem; cursor: pointer; transition: background-color var(--t-fast), border-color var(--t-fast), color var(--t-fast); }
-  .filters button:hover { border-color: var(--brand); color: var(--brand); }
+  .filters button:hover { border-color: var(--brand); color: var(--brand-text); }
   .filters button[aria-pressed="true"] { background: var(--brand); color: #fff; border-color: var(--brand); }
   .filters .cnt { opacity: .75; font-weight: 700; margin-left: 4px; font-variant-numeric: tabular-nums; }
   .qitem { border: 1px solid var(--line); border-radius: var(--r-sm); background: var(--paper); margin-bottom: 10px; overflow: hidden; transition: box-shadow var(--t), border-color var(--t); }
@@ -245,7 +245,7 @@
   .why { margin-top: 14px; padding-top: 12px; border-top: 1px solid var(--line); }
   .tag-chips { display: flex; gap: 6px; flex-wrap: wrap; margin-top: 8px; }
   .tag-chips button { border: 1px solid var(--line-2); background: var(--paper); border-radius: 999px; padding: 4px 11px; font: 600 .85rem var(--sans); color: var(--ink-2); cursor: pointer; }
-  .tag-chips button:hover { border-color: var(--brand); color: var(--brand); }
+  .tag-chips button:hover { border-color: var(--brand); color: var(--brand-text); }
   .tag-chips button.sug { border-style: dashed; border-color: var(--brand); }
   .tag-chips button[aria-pressed="true"] { background: var(--brand); border-color: var(--brand); color: #fff; }
   .qdetail .choice { cursor: default; }
@@ -284,7 +284,7 @@
     .qitem > button { grid-template-columns: 34px minmax(0, 1fr) 18px; }
     .spr-split .tr-rpane { order: -1; }
     .spr-split .tr-lpane { border-bottom: 0; border-top: 1px solid var(--line); }
-    .spr-more summary { cursor: pointer; font-weight: 700; color: var(--brand); padding: 4px 0; }
+    .spr-more summary { cursor: pointer; font-weight: 700; color: var(--brand-text); padding: 4px 0; }
     .spr-more[open] summary { margin-bottom: 10px; }
     .spr-dirs table { font-size: .86rem; }
     .score-hero { padding: 22px 18px; }
@@ -305,7 +305,7 @@
   .diag-pts { white-space: nowrap; color: var(--bad); }
   .diag-path { background: var(--brand-tint); border: 1px solid var(--brand-tint-2); border-radius: var(--r-sm); padding: 16px 18px; margin: 4px 0 16px; }
   .diag-path .dp-nums { display: flex; align-items: center; gap: 10px 14px; flex-wrap: wrap; }
-  .diag-path .dp-nums b { font-family: var(--display); font-weight: 600; font-size: 1.9rem; line-height: 1; color: var(--brand); font-variant-numeric: tabular-nums; }
+  .diag-path .dp-nums b { font-family: var(--display); font-weight: 600; font-size: 1.9rem; line-height: 1; color: var(--brand-text); font-variant-numeric: tabular-nums; }
   .diag-path .dp-nums .dp-arrow { color: var(--muted); font-size: 1.2rem; }
   .diag-path .dp-nums small { display: block; font-size: .78rem; color: var(--muted); font-weight: 600; }
   .diag-path .dp-gap b { color: var(--gold-text); }
@@ -398,7 +398,15 @@ document.addEventListener('DOMContentLoaded', function () {
     catch (e) {
       // The payments Worker knows the plan better than this device (Pro ended, or was refunded).
       if (e.code === 'plan' && meta) { try { await SH.plan.refresh(); } catch (x) { /* ignore */ } return renderLocked(meta); }
-      return fatal('We could not load this practice test.', e.message);
+      console.warn('[SAT Ustoz] Could not load test ' + testId + ':', e);
+      // Students see a plain message in their language; the technical detail stays in the console.
+      const LT = SH.i18n({
+        en: { h: 'We could not load this practice test.', gone: 'This test link is old or mistyped. Pick a test from the list.', net: 'Check your internet connection, then reload the page.', back: 'Back to practice' },
+        uz: { h: 'Bu sinov testini yuklab boʻlmadi.', gone: 'Bu test havolasi eskirgan yoki notoʻgʻri. Roʻyxatdan testni tanlang.', net: 'Internet aloqangizni tekshiring va sahifani qayta yuklang.', back: 'Mashqqa qaytish' },
+        ru: { h: 'Не удалось загрузить этот пробный тест.', gone: 'Ссылка на тест устарела или набрана с ошибкой. Выберите тест из списка.', net: 'Проверьте подключение к интернету и обновите страницу.', back: 'Вернуться к практике' }
+      }, SH.pickLang);
+      // Messages from the tests Worker (sign-in, plan) are already written for students.
+      return fatal(LT('h'), !meta ? LT('gone') : e instanceof TypeError || /^Could not load /.test(e.message) ? LT('net') : e.message, LT('back'));
     }
     const broken = test.sections.length === 0 || test.sections.some(s => !s.module1.questions.length || !s.module2.easier.questions.length || !s.module2.harder.questions.length);
     if (broken) return fatal('This practice test is incomplete.', 'Every section needs questions in Module 1 and in both versions of Module 2 (easier and harder).' + (test.errors.length ? ' Problems found: ' + test.errors.slice(0, 5).join('; ') : ''));
@@ -437,9 +445,9 @@ document.addEventListener('DOMContentLoaded', function () {
     SH.auth.onChange(retry);
   }
 
-  function fatal(title, detail) {
+  function fatal(title, detail, back) {
     document.body.classList.add('results');
-    app.innerHTML = '<div class="center-screen"><h1 style="font-size:1.8rem">' + esc(title) + '</h1><p class="muted" style="max-width:560px">' + esc(detail || '') + '</p><p><a class="btn btn-primary" href="practice.html#tests">Back to practice</a></p></div>';
+    app.innerHTML = '<div class="center-screen"><h1 style="font-size:1.8rem">' + esc(title) + '</h1><p class="muted" style="max-width:560px">' + esc(detail || '') + '</p><p><a class="btn btn-primary" href="practice.html#tests">' + esc(back || 'Back to practice') + '</a></p></div>';
   }
 
   /* ---------------- Helpers on test structure ---------------- */
@@ -544,6 +552,7 @@ document.addEventListener('DOMContentLoaded', function () {
   }
   function moduleCorrect(list) { return list.reduce((n, q) => n + (SH.isCorrect(q, S.responses[q.id]) ? 1 : 0), 0); }
   function endModule() {
+    if (endAsk) endAsk.close();
     leaveQuestion();
     stopTick();
     closePanels();
@@ -700,17 +709,24 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
   // Ask before leaving a module, since students can't come back to it.
+  // The open "Continue to the next part?" dialog, so the module timer can close it:
+  // otherwise a tap on it after time ran out would end the next module too.
+  let endAsk = null;
   function askEndModule() {
     const blank = qs().filter(q => S.responses[q.id] == null || S.responses[q.id] === '').length;
     const isLast = S.sec === test.sections.length - 1 && S.mod === 1;
-    SH.modal({
+    const at = S.sec + ':' + S.mod;
+    const stillHere = () => S && (S.phase === 'module' || S.phase === 'review') && S.sec + ':' + S.mod === at;
+    if (endAsk) endAsk.close();
+    endAsk = SH.modal({
       title: isLast ? 'Finish the test?' : 'Continue to the next part?',
       html: '<p>After you continue, you can’t go back to the questions in this module.</p>' +
         (blank ? '<p><b>' + blank + ' question' + (blank > 1 ? 's are' : ' is') + ' still unanswered.</b> Blank answers count as wrong.</p>' : ''),
       actions: [
         { label: 'Stay here', kind: 'ghost' },
-        { label: isLast ? 'Finish test' : 'Continue', kind: 'primary', onClick: () => { setTimeout(endModule, 0); } }
-      ]
+        { label: isLast ? 'Finish test' : 'Continue', kind: 'primary', onClick: () => { setTimeout(() => { if (stillHere()) endModule(); }, 0); } }
+      ],
+      onClose: () => { endAsk = null; }
     });
   }
 

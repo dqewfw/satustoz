@@ -46,7 +46,7 @@
   .mods { display: grid; grid-template-columns: 1fr 1fr; gap: 12px 16px; margin-top: 12px; }
   .mod label { display: block; font-weight: 600; font-size: .92rem; color: var(--ink-2); margin-bottom: 6px; }
   .stepper { display: grid; grid-template-columns: 44px minmax(0, 1fr) 44px; border: 1.5px solid var(--line-2); border-radius: var(--r-sm); overflow: hidden; background: var(--paper); }
-  .stepper button { border: 0; background: var(--sunk); font: inherit; font-size: 1.3rem; font-weight: 700; color: var(--brand); cursor: pointer; }
+  .stepper button { border: 0; background: var(--sunk); font: inherit; font-size: 1.3rem; font-weight: 700; color: var(--brand-text); cursor: pointer; }
   .stepper button:hover { background: var(--brand-tint); }
   .stepper input { border: 0; text-align: center; font-size: 1.25rem; font-weight: 700; min-height: 46px; width: 100%; font-variant-numeric: tabular-nums; -moz-appearance: textfield; }
   .stepper input::-webkit-outer-spin-button, .stepper input::-webkit-inner-spin-button { -webkit-appearance: none; margin: 0; }
@@ -58,7 +58,7 @@
   .route-pill.easy { background: var(--sunk); color: var(--ink-2); }
   .route select { width: auto; min-height: 36px; padding: 4px 34px 4px 10px; display: inline-block; margin-left: 6px; }
   .res { position: sticky; top: 90px; }
-  .res-total { font-family: var(--display); font-weight: 600; font-size: clamp(3.4rem, 9vw, 4.6rem); color: var(--brand); line-height: 1; letter-spacing: -.03em; font-variant-numeric: tabular-nums; margin: 4px 0 6px; }
+  .res-total { font-family: var(--display); font-weight: 600; font-size: clamp(3.4rem, 9vw, 4.6rem); color: var(--brand-text); line-height: 1; letter-spacing: -.03em; font-variant-numeric: tabular-nums; margin: 4px 0 6px; }
   .res-row { display: flex; justify-content: space-between; align-items: baseline; padding: 10px 0; border-bottom: 1px solid var(--line); }
   .res-row b { font-family: var(--display); font-size: 1.6rem; font-weight: 600; font-variant-numeric: tabular-nums; }
   .res .note { font-size: .88rem; color: var(--muted); margin: 12px 0 16px; }
@@ -66,7 +66,7 @@
   .faq-sc details:first-of-type { border-top: 1px solid var(--line); }
   .faq-sc summary { cursor: pointer; padding: 16px 0; font-weight: 700; }
   .faq-sc details p { margin: 0 0 16px; color: var(--ink-2); max-width: 44em; }
-  @media (max-width: 860px) { .sc-grid { grid-template-columns: 1fr; } .res { position: static; } }
+  @media (max-width: 860px) { .sc-grid { grid-template-columns: minmax(0, 1fr); } .res { position: static; } }
   @media (max-width: 420px) { .mods { grid-template-columns: 1fr; } }
 </style>
 </head>

@@ -25,10 +25,10 @@
   .tc-head p { margin: 0; color: var(--muted); }
   .cls { display: flex; flex-direction: column; gap: 6px; text-decoration: none; color: var(--ink); }
   .cls:hover { border-color: var(--brand); color: var(--ink); }
-  .code { font-family: var(--display); font-weight: 600; font-size: 1.6rem; letter-spacing: .12em; color: var(--brand); }
+  .code { font-family: var(--display); font-weight: 600; font-size: 1.6rem; letter-spacing: .12em; color: var(--brand-text); }
   .tabs2 { display: flex; gap: 4px; padding: 4px; background: var(--sunk); border-radius: var(--r-sm); margin: 18px 0; width: fit-content; max-width: 100%; overflow-x: auto; }
   .tabs2 button { border: 0; background: none; font: inherit; font-weight: 700; color: var(--ink-2); padding: 8px 16px; border-radius: 6px; cursor: pointer; white-space: nowrap; }
-  .tabs2 button[aria-pressed="true"] { background: var(--paper); color: var(--brand); box-shadow: 0 0 0 1px var(--line-2); }
+  .tabs2 button[aria-pressed="true"] { background: var(--paper); color: var(--brand-text); box-shadow: 0 0 0 1px var(--line-2); }
   .tbl-wrap { overflow-x: auto; }
   .tbl { width: 100%; border-collapse: collapse; font-size: .95rem; font-variant-numeric: tabular-nums; }
   .tbl th, .tbl td { text-align: left; padding: 9px 10px; border-bottom: 1px solid var(--line); vertical-align: top; }
@@ -201,7 +201,7 @@ document.addEventListener('DOMContentLoaded', async function () {
         f.getDocs(f.query(f.collection(sync.db, 'classes', cur.id, 'assignments'), f.orderBy('createdAt', 'desc'), f.limit(60))),
         f.getDocs(f.collection(sync.db, 'classes', cur.id, 'results'))
       ]);
-      members = m.docs.map(d => Object.assign({ uid: d.id }, d.data())).sort((x, y) => String(x.name).localeCompare(String(y.name)));
+      members = m.docs.map(d => cleanMember(Object.assign({ uid: d.id }, d.data()))).sort((x, y) => String(x.name).localeCompare(String(y.name)));
       tasks = a.docs.map(d => Object.assign({ id: d.id }, d.data()));
       results = r.docs.map(d => d.data());
     } catch (e) { box.innerHTML = '<div class="notice notice-bad">' + esc(friendly(e)) + '</div>'; return; }
@@ -219,6 +219,21 @@ document.addEventListener('DOMContentLoaded', async function () {
     $('[data-archive]').addEventListener('click', archive);
     ({ students: drawStudents, homework: drawHomework, results: drawGrid })[tab]();
   }
+  // Students write their own member stats (sh.js memberStats), so treat them as
+  // untrusted: numbers stay numbers and text stays text before anything is drawn.
+  const int = (v, lo, hi) => { const n = Math.round(Number(v)); return isFinite(n) && n >= lo && n <= hi ? n : 0; };
+  const str = (v, n) => typeof v === 'string' ? v.slice(0, n) : '';
+  function cleanMember(m) {
+    const s = m.stats && typeof m.stats === 'object' ? m.stats : {}, lt = s.lastTest && typeof s.lastTest === 'object' ? s.lastTest : null;
+    m.name = str(m.name, 100); m.email = str(m.email, 200);
+    m.stats = {
+      questions: int(s.questions, 0, 1e6), accuracy: int(s.accuracy, 0, 100), bestScore: int(s.bestScore, 0, 1600), tests: int(s.tests, 0, 1e4),
+      lastTest: lt ? { title: str(lt.title, 80), total: int(lt.total, 0, 1600), at: Number(lt.at) || 0 } : null,
+      weak: Array.isArray(s.weak) ? s.weak.filter(w => typeof w === 'string').slice(0, 5).map(w => w.slice(0, 120)) : [],
+      open: int(s.open, 0, 1e5), target: int(s.target, 0, 1600), testDate: /^\d{4}-\d{2}-\d{2}$/.test(s.testDate) ? s.testDate : ''
+    };
+    return m;
+  }
   const doneBy = uid => results.filter(r => r.uid === uid && tasks.some(t => t.id === r.aid));
   function drawStudents() {
     const pane = $('#pane');
@@ -226,7 +241,7 @@ document.addEventListener('DOMContentLoaded', async function () {
     pane.innerHTML = '<div class="card tbl-wrap" style="padding:6px 14px"><table class="tbl"><thead><tr><th>Student</th><th class="c">Homework</th><th class="c">Best test</th><th class="c">Questions</th><th class="c">Accuracy</th><th>Weakest skills</th><th></th></tr></thead><tbody>' +
       members.map(m => {
         const s = m.stats || {}, d = doneBy(m.uid).length;
-        return '<tr><td><b>' + esc(m.name || '') + '</b><div class="small muted">' + esc(m.email || '') + '</div></td><td class="c">' + d + '/' + tasks.length + '</td><td class="c">' + (s.bestScore || '–') + '</td><td class="c">' + (s.questions || 0) + '</td><td class="c">' + (s.questions ? s.accuracy + '%' : '–') + '</td>' +
+        return '<tr><td><b>' + esc(m.name || '') + '</b><div class="small muted">' + esc(m.email || '') + '</div></td><td class="c">' + d + '/' + tasks.length + '</td><td class="c">' + esc(s.bestScore || '–') + '</td><td class="c">' + esc(s.questions || 0) + '</td><td class="c">' + esc(s.questions ? s.accuracy + '%' : '–') + '</td>' +
           '<td class="small">' + esc((s.weak || []).join(', ') || '–') + '</td><td style="white-space:nowrap"><button type="button" class="btn btn-ghost btn-sm" data-report-for="' + esc(m.uid) + '">Parent report</button> <button type="button" class="link-btn small" data-remove="' + esc(m.uid) + '">Remove</button></td></tr>';
       }).join('') + '</tbody></table></div>';
     $$('[data-report-for]').forEach(b => b.addEventListener('click', () => parentReport(members.find(m => m.uid === b.dataset.reportFor))));
@@ -347,7 +362,7 @@ document.addEventListener('DOMContentLoaded', async function () {
         '<button type="button" class="btn btn-primary btn-sm" data-print>Print or save as PDF</button><button type="button" class="btn btn-ghost btn-sm" data-close>Close</button></div>' +
         '<article class="report-page" lang="' + lang + '"><div class="rp-top"><div><span class="kicker">' + esc(T.for) + '</span><h2>' + esc(T.title) + ': ' + esc(m.name || '') + '</h2><p class="muted" style="margin:0">' + esc((me.center ? me.center + ' · ' : '') + cur.name) + ' · ' + esc(T.date) + ': ' + esc(fmt(Date.now())) + '</p></div><img src="assets/brand/logo-horizontal.svg" alt="SAT Ustoz"></div>' +
         '<div class="rp-stats">' + stat(s.bestScore || '–', 'best') + stat(s.target || '–', 'target') + stat(s.questions || 0, 'q') + stat(s.questions ? s.accuracy + '%' : '–', 'acc') + '</div>' +
-        (s.lastTest ? '<p style="margin:12px 0 0">' + esc(T.last) + ': <b>' + esc(s.lastTest.title) + ', ' + s.lastTest.total + '</b> (' + esc(fmt(s.lastTest.at)) + ')' + (s.testDate ? ' · ' + esc(T.test) + ': ' + esc(fmt(s.testDate + 'T12:00:00')) : '') + '</p>' : '') +
+        (s.lastTest ? '<p style="margin:12px 0 0">' + esc(T.last) + ': <b>' + esc(s.lastTest.title) + ', ' + esc(s.lastTest.total) + '</b> (' + esc(fmt(s.lastTest.at)) + ')' + (s.testDate ? ' · ' + esc(T.test) + ': ' + esc(fmt(s.testDate + 'T12:00:00')) : '') + '</p>' : '') +
         '<h3>' + esc(T.hw) + ' <span class="muted" style="font-weight:400">(' + esc(T.hw_done.replace('{d}', done.length).replace('{n}', tasks.length)) + ')</span></h3>' +
         (tasks.length ? '<table class="tbl"><thead><tr><th>' + esc(T.task) + '</th><th>' + esc(T.due) + '</th><th class="c">' + esc(T.res) + '</th></tr></thead><tbody>' + tasks.slice(0, 12).map(x => { const r = results.find(y => y.aid === x.id && y.uid === m.uid); return '<tr><td>' + esc(x.title) + '</td><td>' + esc(x.due || '–') + '</td><td class="c">' + (r ? esc(cellOf(r)) : '<span class="muted">' + esc(T.notdone) + '</span>') + '</td></tr>'; }).join('') + '</tbody></table>' : '<p class="muted">–</p>') +
         '<h3>' + esc(T.weak) + '</h3><p>' + esc((s.weak || []).join(', ') || T.none) + '</p>' +

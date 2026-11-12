@@ -28,7 +28,7 @@
   .b-list h3 { font-size: 1rem; margin: 10px 0 6px; font-family: var(--sans); font-weight: 700; color: var(--gold-text); text-transform: uppercase; letter-spacing: .08em; font-size: .76rem; }
   .b-item { display: flex; gap: 8px; align-items: center; width: 100%; text-align: left; background: var(--paper); border: 1px solid var(--line); border-radius: 8px; padding: 8px 10px; margin-bottom: 6px; cursor: pointer; font-size: .9rem; }
   .b-item[aria-current="true"] { border-color: var(--brand); box-shadow: 0 0 0 2px var(--brand); }
-  .b-item .n { font-weight: 700; color: var(--brand); min-width: 22px; }
+  .b-item .n { font-weight: 700; color: var(--brand-text); min-width: 22px; }
   .b-item .t { flex: 1; min-width: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; color: var(--ink-2); }
   .b-item .bad { color: var(--bad); font-weight: 700; }
   .b-ed .card + .card { margin-top: 14px; }
@@ -51,6 +51,7 @@
   pre.snippet { background: #241a17; color: #F4E6CF; padding: 12px; border-radius: 8px; overflow-x: auto; font-size: .82rem; white-space: pre-wrap; }
   @media (max-width: 1180px) { .b-grid { grid-template-columns: 220px minmax(0, 1fr); } .b-prev { grid-column: 1 / -1; position: static; max-height: none; } }
   @media (max-width: 760px) { .b-grid { grid-template-columns: 1fr; } .b-list { position: static; max-height: 260px; } .two, .three { grid-template-columns: 1fr; } }
+  @media (max-width: 480px) { .site-header .brand-tag { display: none; } }
 </style>
 </head>
 <body>

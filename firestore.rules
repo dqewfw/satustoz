@@ -133,6 +133,9 @@ service cloud.firestore {
       return d.keys().hasOnly(['uid', 'name', 'email', 'total', 'rw', 'math', 'month', 'practiceBest', 'practiceLast', 'practiceAvg3', 'practiceRw', 'practiceMath', 'practiceUsed', 'practiceInWindow', 'cutoff', 'practiceTests', 'createdAt'])
           && d.uid == uid
           && (!('practiceAvg3' in d) || (d.practiceAvg3 is int && d.practiceAvg3 >= 0 && d.practiceAvg3 <= 1600))
+          && (!('practiceBest' in d) || (d.practiceBest is int && d.practiceBest >= 0 && d.practiceBest <= 1600))
+          && (!('practiceLast' in d) || (d.practiceLast is int && d.practiceLast >= 0 && d.practiceLast <= 1600))
+          && (!('practiceTests' in d) || (d.practiceTests is int && d.practiceTests >= 0 && d.practiceTests <= 1000))
           && (!('practiceRw' in d) || (d.practiceRw is int && d.practiceRw >= 0 && d.practiceRw <= 800))
           && (!('practiceMath' in d) || (d.practiceMath is int && d.practiceMath >= 0 && d.practiceMath <= 800))
           && (!('practiceUsed' in d) || (d.practiceUsed is int && d.practiceUsed >= 0 && d.practiceUsed <= 3))
@@ -244,7 +247,9 @@ service cloud.firestore {
           && rid == d.mockId + '_' + request.auth.uid
           && request.time >= m.startsAt && request.time <= m.endsAt + duration.value(4, 'h')
           && d.total is int && d.total >= 400 && d.total <= 1600
-          && d.rw is int && d.math is int && d.total == d.rw + d.math
+          && d.rw is int && d.rw >= 200 && d.rw <= 800
+          && d.math is int && d.math >= 200 && d.math <= 800
+          && d.total == d.rw + d.math
           && d.name is string && d.name.size() <= 40
           && d.region is string && d.region.size() <= 40
           && d.school is string && d.school.size() <= 80

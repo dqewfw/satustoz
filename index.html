@@ -116,7 +116,7 @@
   .feat-list > div { padding: 22px 0; border-top: 1px solid var(--line); }
   .feat-list > div:last-child { border-bottom: 1px solid var(--line); }
   .feat-list dt { display: flex; align-items: center; gap: 14px; font-family: var(--display); font-size: 1.3rem; font-weight: 600; line-height: 1.25; letter-spacing: -.01em; }
-  .feat-list dt svg { flex: 0 0 auto; width: 26px; height: 26px; color: var(--brand); }
+  .feat-list dt svg { flex: 0 0 auto; width: 26px; height: 26px; color: var(--brand-text); }
   .feat-list dd { margin: 6px 0 0 40px; color: var(--muted); max-width: 34em; }
 
   .band { background: var(--brand); color: #D6E2D0; padding: 72px 0; margin: 48px 0; }
@@ -129,6 +129,7 @@
   .node b { display: block; color: #fff; font-size: 1.02rem; }
   .node span { font-size: .86rem; color: #D6E2D0; }
   .node.hard { border-color: var(--gold); background: var(--brand-deep); }
+  html[data-theme="dark"] .node.hard { background: #1F3828; }
   .flow-mid { color: #EDD9A8; font-weight: 700; font-size: .9rem; text-align: center; }
   .flow-mid svg { display: block; margin: 0 auto 4px; }
   .branches { display: grid; gap: 12px; }
@@ -146,7 +147,7 @@
   .faq details { border-bottom: 1px solid var(--line); }
   .faq details:first-of-type { border-top: 1px solid var(--line); }
   .faq summary { cursor: pointer; padding: 18px 44px 18px 0; font-weight: 700; position: relative; list-style: none; }
-  .faq summary:hover { color: var(--brand); }
+  .faq summary:hover { color: var(--brand-text); }
   .faq summary::-webkit-details-marker { display: none; }
   .faq summary::after { content: ''; position: absolute; right: 8px; top: 50%; width: 10px; height: 10px; margin-top: -7px; border-right: 2px solid var(--brand); border-bottom: 2px solid var(--brand); transform: rotate(45deg); transition: transform var(--t) var(--ease), margin var(--t); }
   .faq details[open] summary::after { transform: rotate(-135deg); margin-top: -2px; }
@@ -185,7 +186,7 @@
   .says cite { font-style: normal; font-size: .92rem; color: var(--muted); }
   .says cite b { display: block; color: var(--ink); font-size: 1rem; }
   .say-score { display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap; padding-bottom: 12px; border-bottom: 1px solid var(--line); }
-  .say-score b { font-family: var(--display); font-weight: 600; font-size: 2.3rem; line-height: 1; color: var(--brand); letter-spacing: -.02em; font-variant-numeric: tabular-nums; }
+  .say-score b { font-family: var(--display); font-weight: 600; font-size: 2.3rem; line-height: 1; color: var(--brand-text); letter-spacing: -.02em; font-variant-numeric: tabular-nums; }
   .say-score s { font-family: var(--display); font-size: 1.3rem; color: var(--muted); text-decoration-thickness: 1.5px; font-variant-numeric: tabular-nums; }
   .say-score span { font-size: .88rem; font-weight: 700; color: var(--gold-text); }
   .say-photo img { border-radius: var(--r-sm); border: 1px solid var(--line); max-height: 220px; width: auto; }

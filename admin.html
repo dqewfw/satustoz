@@ -375,7 +375,8 @@ document.addEventListener('DOMContentLoaded', async function () {
 
   // How close the practice scores are to the real SAT, for data/calibration.json.
   function calibStats() {
-    const rows = (realScores || []).map(r => ({ r, p: r.practiceAvg3 || r.practiceLast || 0 })).filter(x => x.p > 0);
+    const num = v => typeof v === 'number' && isFinite(v) ? v : 0;
+    const rows = (realScores || []).map(r => ({ r, p: num(r.practiceAvg3) || num(r.practiceLast) })).filter(x => x.p > 0 && num(x.r.total) > 0);
     const n = rows.length;
     if (!n) return { n: 0, meanDiff: 0, meanAbsDiff: 0, within50: 0 };
     const diffs = rows.map(x => x.p - x.r.total);
@@ -402,7 +403,7 @@ document.addEventListener('DOMContentLoaded', async function () {
       (list.length ? '<p class="muted">' + c.n + ' with practice scores to compare. Average gap ' + c.meanAbsDiff + ' points; ' + c.within50 + '% within 50 points; our estimates run ' + (c.meanDiff >= 0 ? c.meanDiff + ' points high' : -c.meanDiff + ' points low') + ' on average' + (c.rwAbsDiff || c.mathAbsDiff ? ' (by section: R&amp;W ' + c.rwAbsDiff + ', Math ' + c.mathAbsDiff + ' points apart)' : '') + '. ' +
         'Bands with 5+ students appear on test results as the True Score line. Paste the copied text into <code>data/calibration.json</code> and upload it: the landing page shows it from 5 students up.</p>' +
         '<div class="card"><table class="wait-table"><thead><tr><th>Student</th><th>Real</th><th>Practice (last 3)</th><th>Taken</th></tr></thead><tbody>' + list.map(r =>
-          '<tr><td>' + esc(r.name || r.email || '') + '</td><td><b>' + esc(r.total) + '</b> <span class="muted">(' + esc(r.rw) + ' + ' + esc(r.math) + ')</span></td><td>' + (r.practiceAvg3 || r.practiceLast || '–') + ' <span class="muted">(' + (r.practiceTests || 0) + ' tests)</span></td><td>' + esc(r.month || '') + '</td></tr>').join('') + '</tbody></table></div>'
+          '<tr><td>' + esc(r.name || r.email || '') + '</td><td><b>' + esc(r.total) + '</b> <span class="muted">(' + esc(r.rw) + ' + ' + esc(r.math) + ')</span></td><td>' + esc(r.practiceAvg3 || r.practiceLast || '–') + ' <span class="muted">(' + esc(r.practiceTests || 0) + ' tests)</span></td><td>' + esc(r.month || '') + '</td></tr>').join('') + '</tbody></table></div>'
         : '<p class="muted">None yet. Students share their real score from the dashboard after their test date.</p>') + '</section>';
   }
 

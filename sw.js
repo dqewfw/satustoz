@@ -99,8 +99,13 @@ self.addEventListener('fetch', e => {
 });
 
 function offlinePage() {
+  // No page script runs here, so the note is in all three site languages.
+  const line = (lang, h, p, retry, vocab) => '<section lang="' + lang + '"><h1>' + h + '</h1><p>' + p + ' <a href="">' + retry + '</a>. ' + vocab + '</p></section>';
   return new Response('<!doctype html><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Offline | SAT Ustoz</title>' +
-    '<body style="font-family:system-ui,sans-serif;max-width:32em;margin:15vh auto;padding:0 20px;color:#1D2A20"><h1>No connection</h1>' +
-    '<p>This page could not load. Check your internet, then <a href="" style="color:#2D5038">try again</a>. The <a href="vocab.html" style="color:#2D5038">vocabulary trainer</a> works offline.</p></body>',
-    { status: 503, headers: { 'content-type': 'text/html; charset=utf-8' } });
+    '<style>body{font-family:system-ui,sans-serif;max-width:32em;margin:12vh auto;padding:0 20px;color:#1D2A20;background:#fff}a{color:#2D5038}h1{font-size:1.4rem;margin:0 0 .3em}section+section{margin-top:1.6em;padding-top:1.2em;border-top:1px solid #ddd}' +
+    '@media (prefers-color-scheme:dark){body{background:#121714;color:#E4EAE2}a{color:#8DC39B}section+section{border-color:#2C352E}}</style><body>' +
+    line('en', 'No connection', 'This page could not load. Check your internet, then', 'try again', 'The <a href="vocab.html">vocabulary trainer</a> works offline.') +
+    line('uz', 'Internet yoʻq', 'Sahifa yuklanmadi. Internetni tekshiring va', 'qayta urinib koʻring', '<a href="vocab.html">Lugʻat mashqi</a> internetsiz ham ishlaydi.') +
+    line('ru', 'Нет подключения', 'Страница не загрузилась. Проверьте интернет и', 'попробуйте снова', '<a href="vocab.html">Тренажёр слов</a> работает без интернета.') +
+    '</body>', { status: 503, headers: { 'content-type': 'text/html; charset=utf-8' } });
 }
