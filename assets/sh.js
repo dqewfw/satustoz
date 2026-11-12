@@ -1837,9 +1837,11 @@
     try { return new Date(+ts || Date.now()).toLocaleDateString(lang === 'ru' ? 'ru-RU' : 'en-GB', o); } catch (e) { return fmtDate(ts); }
   }
   // t = SH.i18n({ en: {...}, uz: {...}, ru: {...} }); t('key', { n: 3 }) fills {n}.
-  function i18n(T) {
+  // Optional pick() chooses the language instead of the page's (SH.pickLang on
+  // English-only pages, so a block still follows the student's own language).
+  function i18n(T, pick) {
     return (k, vars) => {
-      const l = langNow();
+      const l = pick ? pick() : langNow();
       let s = T[l] && T[l][k] != null ? T[l][k] : T.en[k] != null ? T.en[k] : k;
       if (vars) Object.keys(vars).forEach(v => { s = String(s).split('{' + v + '}').join(vars[v]); });
       return s;
@@ -2199,24 +2201,70 @@
      are (admin.html, data/calibration.json).
      ------------------------------------------------------------------ */
   const realScore = {
+    // The last copy saved on this device, so the dashboard can show it at once.
+    cached() { return store.get('realScore', null); },
     async get() {
       if (!auth.user) return null;
       const fs = await sync._lib();
       const s = await fs.getDoc(fs.doc(sync.db, 'realScores', auth.user.uid));
-      return s.exists() ? s.data() : null;
+      const d = s.exists() ? s.data() : null;
+      if (d) store.set('realScore', realScore._plain(d));
+      return d;
+    },
+    _plain(d) {
+      const keys = ['total', 'rw', 'math', 'month', 'practiceAvg3', 'practiceRw', 'practiceMath', 'practiceUsed', 'practiceInWindow', 'cutoff'];
+      const o = {}; keys.forEach(k => { if (d[k] != null) o[k] = d[k]; }); return o;
+    },
+    // The practice tests to compare with: full tests finished before the real
+    // SAT (the profile's test date when it falls in that month, else the end of
+    // the month) and in the 90 days before it. Tests taken after the real SAT
+    // would make the comparison look better or worse than it is.
+    practiceFor(month) {
+      const p = getProfile();
+      const end = Date.parse(month + '-01T00:00:00+05:00');
+      const monthEnd = new Date(end); monthEnd.setMonth(monthEnd.getMonth() + 1);
+      const cutoff = p.testDate && p.testDate.slice(0, 7) === month ? Date.parse(p.testDate + 'T23:59:00+05:00') : +monthEnd;
+      const full = getTestHistory().filter(isFullTest).sort((a, b) => b.finishedAt - a.finishedAt);
+      let use = full.filter(h => h.finishedAt <= cutoff && h.finishedAt >= cutoff - 90 * DAY).slice(0, 3);
+      const inWindow = use.length > 0;
+      if (!inWindow) use = full.filter(h => h.finishedAt <= cutoff).slice(0, 3);
+      const avg = f => { const v = use.map(f).filter(x => x != null); return v.length ? Math.round(v.reduce((n, x) => n + x, 0) / v.length / 10) * 10 : 0; };
+      return {
+        full, cutoff, inWindow, used: use.length,
+        total: avg(h => h.total),
+        rw: avg(h => h.sections && h.sections.rw ? h.sections.rw.score : null),
+        math: avg(h => h.sections && h.sections.math ? h.sections.math.score : null)
+      };
+    },
+    // How far our practice estimate was from the real score. null when there
+    // was no practice test to compare with.
+    compare(d) {
+      if (!d || !d.practiceAvg3) return null;
+      return { real: d.total, practice: d.practiceAvg3, diff: d.practiceAvg3 - d.total, rwDiff: d.practiceRw ? d.practiceRw - d.rw : null, mathDiff: d.practiceMath ? d.practiceMath - d.math : null };
+    },
+    // A retake: the latest full test after the real SAT, moved by how far off
+    // our estimate was for this student (their own calibration).
+    adjusted(d) {
+      const c = realScore.compare(d);
+      if (!c || !d.cutoff) return null;
+      const after = getTestHistory().filter(h => isFullTest(h) && h.finishedAt > d.cutoff).sort((a, b) => b.finishedAt - a.finishedAt)[0];
+      if (!after) return null;
+      return { practice: after.total, adjusted: Math.max(400, Math.min(1600, Math.round((after.total - c.diff) / 10) * 10)) };
     },
     async save(r) {
       const fs = await sync._lib();
-      const full = getTestHistory().filter(h => h.total != null && h.testId !== 'diagnostic-mini').sort((a, b) => b.finishedAt - a.finishedAt);
-      const last3 = full.slice(0, 3);
-      await fs.setDoc(fs.doc(sync.db, 'realScores', auth.user.uid), {
+      const pr = realScore.practiceFor(r.month);
+      const doc = {
         uid: auth.user.uid, name: (getProfile().name || auth.user.name || '').slice(0, 100), email: auth.user.email || '',
         total: r.total, rw: r.rw, math: r.math, month: r.month,
-        practiceBest: full.reduce((m, h) => Math.max(m, h.total), 0), practiceLast: full.length ? full[0].total : 0,
-        practiceAvg3: last3.length ? Math.round(last3.reduce((n, h) => n + h.total, 0) / last3.length / 10) * 10 : 0,
-        practiceTests: full.length, createdAt: fs.serverTimestamp()
-      });
-      analytics.track('real_score_shared', {});
+        practiceBest: pr.full.reduce((m, h) => Math.max(m, h.total), 0), practiceLast: pr.full.length ? pr.full[0].total : 0,
+        practiceAvg3: pr.total, practiceRw: pr.rw, practiceMath: pr.math, practiceUsed: pr.used, practiceInWindow: pr.inWindow,
+        cutoff: pr.cutoff, practiceTests: pr.full.length, createdAt: fs.serverTimestamp()
+      };
+      await fs.setDoc(fs.doc(sync.db, 'realScores', auth.user.uid), doc);
+      store.set('realScore', realScore._plain(doc));
+      analytics.track('real_score_shared', { compared: pr.used > 0 });
+      return doc;
     }
   };
 

@@ -1234,7 +1234,7 @@ document.addEventListener('DOMContentLoaded', function () {
       '<section class="card score-hero"><div><span class="kicker">Your results</span><h1 style="font-size:clamp(1.6rem,4vw,2.2rem)">' + esc(rec.title) + '</h1>' +
       '<p class="muted small">' + (rec.name ? esc(rec.name) + ', ' : '') + SH.fmtDate(rec.finishedAt) + '</p>' +
       (rec.total != null ? '<div class="score-big">' + rec.total + '<small>Estimated total score (400–1600)</small></div>' + scaleHtml(rec.total) : '') +
-      '</div><div class="sec-scores">' + secRows + '<p class="small muted" style="margin:0">This is an estimate. The real SAT scores each question with item response theory, so treat it as a ballpark, not a prediction.</p></div></section>' +
+      '</div><div class="sec-scores">' + secRows + '<p class="small muted" style="margin:0">This is an estimate. The real SAT scores each question with item response theory, so treat it as a ballpark, not a prediction.</p><div class="true-score" id="true-score" hidden></div></div></section>' +
       '<div class="row" style="margin:16px 0 26px"><a class="btn btn-primary" href="test.html?id=' + encodeURIComponent(rec.testId) + '">Retake this test</a><a class="btn btn-ghost" href="practice.html#home">Practice my weak skills</a><button type="button" class="btn btn-ghost" id="share-score">Share my score</button></div>' +
       (rec.mock ? '<section class="card notice-ok" id="mock-res" style="margin-bottom:26px">' + mockResHtml(rec, rec.mockSaved ? true : null) + '</section>' : '') +
       (isDiag ? '<section class="card diag" id="diag" style="margin-bottom:26px"></section>' : '') +
@@ -1408,6 +1408,7 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     $('#share-score').addEventListener('click', openShare);
+    if (rec.total != null) drawTrueScore(rec);
     if (isDiag) drawDiagReport(rec, taken);
     const list = $('#qlist') || $('#qprev');
     function draw(filter) {
@@ -1552,6 +1553,39 @@ document.addEventListener('DOMContentLoaded', function () {
     if (!box.dataset.seen) { box.dataset.seen = '1'; SH.track('diag_report_viewed', { total: rec.total, skills: top.map(o => o.skill).join(', ') }); }
   }
 
+  // True Score: what this estimate has meant on the real SAT. Two sources:
+  // the student's own real score (their estimate moved by how far off we were
+  // for them), and data/calibration.json (what students in this score band got,
+  // shown from 5 students up). Full tests only; hidden when there is neither.
+  const TS_T = SH.i18n({
+    en: { k: 'True Score', mine: 'Adjusted by your real SAT ({r}), this is about <b>{a}</b>.',
+      band: 'Students who scored {lo}–{hi} on our tests got <b>{real}</b> on the real SAT on average (the middle half got {l}–{h}; {n} students).' },
+    uz: { k: 'True Score', mine: 'Haqiqiy SAT natijangizga ({r}) moslab tuzatilsa, bu taxminan <b>{a}</b>.',
+      band: 'Testlarimizda {lo}–{hi} ball olgan oʻquvchilar haqiqiy SATda oʻrtacha <b>{real}</b> olgan (oʻrtadagi yarmi {l}–{h} oraligʻida; {n} oʻquvchi).' },
+    ru: { k: 'True Score', mine: 'С поправкой на ваш настоящий SAT ({r}) это примерно <b>{a}</b>.',
+      band: 'Ученики, набравшие {lo}–{hi} на наших тестах, получили на настоящем SAT в среднем <b>{real}</b> (у средней половины от {l} до {h}; {n} учеников).' }
+  }, SH.pickLang);
+  function drawTrueScore(rec) {
+    const box = $('#true-score');
+    if (!box || rec.testId === 'diagnostic-mini') return;
+    const lines = [];
+    const mine = SH.realScore.cached(), c = SH.realScore.compare(mine);
+    if (c && mine.cutoff && rec.finishedAt > mine.cutoff) {
+      lines.push(TS_T('mine', { r: mine.total, a: Math.max(400, Math.min(1600, Math.round((rec.total - c.diff) / 10) * 10)) }));
+    }
+    const paint = () => {
+      if (!lines.length) return;
+      box.innerHTML = '<span class="kicker">' + TS_T('k') + '</span>' + lines.map(l => '<p class="small" style="margin:4px 0 0">' + l + '</p>').join('');
+      box.hidden = false;
+    };
+    paint();
+    fetch('data/calibration.json', { cache: 'no-cache' }).then(r => r.ok ? r.json() : null).then(cal => {
+      const b = cal && Array.isArray(cal.bands) ? cal.bands.find(x => rec.total >= x.lo && rec.total <= x.hi + 9) : null;
+      if (!b || !(b.n >= 5)) return;
+      lines.push(TS_T('band', { lo: b.lo, hi: b.hi, real: b.real, l: b.realLow, h: b.realHigh, n: b.n }));
+      paint();
+    }).catch(() => { /* no calibration yet */ });
+  }
   function scaleHtml(total) {
     const pos = v => Math.max(0, Math.min(100, (v - 400) / 12));
     const goal = +SH.getProfile().target || 0;

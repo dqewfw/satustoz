@@ -242,6 +242,8 @@ kbd {
 .notice-warn { background: var(--warn-tint); border-color: #EBD08C; color: #4e3600; }
 .notice-bad { background: var(--bad-tint); border-color: #E8B8B3; color: #6b1d17; }
 .notice-ok { background: var(--ok-tint); border-color: #B9D8C1; color: #1d4a29; }
+/* True Score line under the section scores on test results (test.html) */
+.true-score { margin-top: 12px; padding: 10px 12px; border-radius: var(--r-sm); background: var(--brand-tint); border: 1px solid var(--line); }
 .chips { display: flex; flex-wrap: wrap; gap: 8px; }
 .chip { display: inline-flex; align-items: center; gap: 6px; padding: 5px 11px; border-radius: var(--r-sm); background: var(--paper); border: 1px solid var(--line); font-size: .9rem; font-weight: 600; color: var(--ink-2); }
 .chip b { font-variant-numeric: tabular-nums; color: var(--ink); }

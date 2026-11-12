@@ -674,8 +674,100 @@ document.addEventListener('DOMContentLoaded', function () {
     return '<div class="grid grid-2" style="margin-top:34px">' +
       '<div class="card"><h3>Invite a friend, get a free Pro week</h3><p class="muted small">When a friend signs up with your link and finishes the free mini diagnostic, you get 7 days of Pro. <span id="ref-count"></span></p>' +
       '<div class="row"><button type="button" class="btn btn-primary btn-sm" data-ref-copy>Copy my link</button><a class="btn btn-ghost btn-sm" target="_blank" rel="noopener" href="https://t.me/share/url?url=' + encodeURIComponent(SH.referral.link()) + '&text=' + encodeURIComponent('Free SAT practice tests with explanations. Try the mini diagnostic:') + '">Share on Telegram</a></div></div>' +
-      '<div class="card"><h3>' + (passed ? 'How did your SAT go?' : 'Took the real SAT?') + '</h3><p class="muted small">Tell us your real score. We compare it with your practice scores so every student knows how close our estimates are.</p>' +
-      '<div class="row"><button type="button" class="btn ' + (passed ? 'btn-primary' : 'btn-ghost') + ' btn-sm" data-real>Share my real score</button></div></div></div>';
+      '<div class="card" id="rs-card">' + realCardInner(passed) + '</div></div>';
+  }
+
+  /* ---------- Real SAT score: the student's official result next to our estimate ---------- */
+  const RS_T = SH.i18n({
+    en: {
+      h_new: 'Took the real SAT?', h_passed: 'How did your SAT go?', h_saved: 'Your real SAT',
+      p_new: 'Enter your official score. We show you how close our estimate was, and from then on your practice scores are adjusted to you.',
+      btn: 'Enter my real score', btn_edit: 'Change', parts: '{rw} R&W + {m} Math',
+      vs: 'Our estimate from your last {k} practice tests before it: <b>{p}</b>.',
+      vs1: 'Our estimate from your last practice test before it: <b>{p}</b>.',
+      spot: 'Spot on: within 10 points.', high: 'We were {d} points high.', low: 'We were {d} points low.',
+      old: 'Those tests were more than 90 days before your SAT, so the gap may be bigger than usual.',
+      none: 'You had no full practice test before it, so there is nothing to compare. Take one before your next SAT.',
+      adj: 'Your latest practice test: {p}. Adjusted by your real SAT, that is about <b>{a}</b>.',
+      adj_hint: 'Planning a retake? Each new practice test is adjusted by your real score.',
+      m_title: 'Your official SAT score',
+      m_lead: 'Copy the section scores from your College Board score report. Only you and the SAT Ustoz team see this.',
+      rw: 'Reading and Writing', math: 'Math', when: 'When did you take it?',
+      err: 'Enter each section score, 200 to 800 in steps of 10.', cancel: 'Cancel', send: 'Save my score',
+      fail: 'Could not save. ', saved: 'Saved: {t}. Thank you!',
+      r_title: 'Your real score: {t}', r_close: 'Done', r_why: 'Every score students share makes our estimates more accurate for everyone.'
+    },
+    uz: {
+      h_new: 'Haqiqiy SAT topshirdingizmi?', h_passed: 'SAT qanday oʻtdi?', h_saved: 'Haqiqiy SAT natijangiz',
+      p_new: 'Rasmiy ballingizni kiriting. Bizning taxminimiz qanchalik yaqin boʻlganini koʻrsatamiz va bundan keyin mashq ballaringiz sizga moslab tuzatiladi.',
+      btn: 'Haqiqiy ballimni kiritish', btn_edit: 'Oʻzgartirish', parts: 'R&W {rw} + Matematika {m}',
+      vs: 'Undan oldingi oxirgi {k} ta mashq testingiz boʻyicha taxminimiz: <b>{p}</b>.',
+      vs1: 'Undan oldingi oxirgi mashq testingiz boʻyicha taxminimiz: <b>{p}</b>.',
+      spot: 'Aniq topdik: farq 10 balldan kam.', high: 'Taxminimiz {d} ball yuqori boʻlgan.', low: 'Taxminimiz {d} ball past boʻlgan.',
+      old: 'Bu testlar SATdan 90 kundan ham oldin topshirilgan, shuning uchun farq odatdagidan kattaroq boʻlishi mumkin.',
+      none: 'Undan oldin toʻliq mashq testi topshirmagansiz, solishtirishga hech narsa yoʻq. Keyingi SATdan oldin bittasini topshiring.',
+      adj: 'Oxirgi mashq testingiz: {p}. Haqiqiy SAT natijangizga moslab tuzatilsa, taxminan <b>{a}</b>.',
+      adj_hint: 'Qayta topshirmoqchimisiz? Har bir yangi mashq testi haqiqiy ballingizga moslab tuzatiladi.',
+      m_title: 'Rasmiy SAT ballingiz',
+      m_lead: 'Boʻlim ballarini College Board natijalar hisobotidan koʻchiring. Buni faqat siz va SAT Ustoz jamoasi koʻradi.',
+      rw: 'Reading and Writing', math: 'Matematika', when: 'Qachon topshirgansiz?',
+      err: 'Har bir boʻlim balini kiriting: 200 dan 800 gacha, 10 ball qadam bilan.', cancel: 'Bekor qilish', send: 'Ballni saqlash',
+      fail: 'Saqlab boʻlmadi. ', saved: 'Saqlandi: {t}. Rahmat!',
+      r_title: 'Haqiqiy ballingiz: {t}', r_close: 'Tayyor', r_why: 'Oʻquvchilar yuborgan har bir ball taxminlarimizni hamma uchun aniqroq qiladi.'
+    },
+    ru: {
+      h_new: 'Уже сдали настоящий SAT?', h_passed: 'Как прошёл SAT?', h_saved: 'Ваш настоящий SAT',
+      p_new: 'Введите официальный балл. Мы покажем, насколько точной была наша оценка, и дальше будем корректировать ваши пробные баллы под вас.',
+      btn: 'Ввести настоящий балл', btn_edit: 'Изменить', parts: 'R&W {rw} + Math {m}',
+      vs: 'Наша оценка по последним {k} пробным тестам перед ним: <b>{p}</b>.',
+      vs1: 'Наша оценка по последнему пробному тесту перед ним: <b>{p}</b>.',
+      spot: 'Точно: разница меньше 10 баллов.', high: 'Мы завысили на {d} баллов.', low: 'Мы занизили на {d} баллов.',
+      old: 'Эти тесты были больше чем за 90 дней до SAT, поэтому разница может быть больше обычной.',
+      none: 'Перед ним у вас не было полного пробного теста, сравнивать не с чем. Пройдите хотя бы один перед следующим SAT.',
+      adj: 'Ваш последний пробный тест: {p}. С поправкой на настоящий SAT это примерно <b>{a}</b>.',
+      adj_hint: 'Планируете пересдачу? Каждый новый пробный тест будет скорректирован по вашему настоящему баллу.',
+      m_title: 'Ваш официальный балл SAT',
+      m_lead: 'Перепишите баллы по разделам из отчёта College Board. Их видите только вы и команда SAT Ustoz.',
+      rw: 'Reading and Writing', math: 'Math', when: 'Когда вы сдавали?',
+      err: 'Введите балл каждого раздела: от 200 до 800 с шагом 10.', cancel: 'Отмена', send: 'Сохранить балл',
+      fail: 'Не удалось сохранить. ', saved: 'Сохранено: {t}. Спасибо!',
+      r_title: 'Ваш настоящий балл: {t}', r_close: 'Готово', r_why: 'Каждый присланный балл делает наши оценки точнее для всех.'
+    }
+  }, SH.pickLang);
+  const RS_UZ_MONTHS = ['yanvar', 'fevral', 'mart', 'aprel', 'may', 'iyun', 'iyul', 'avgust', 'sentabr', 'oktabr', 'noyabr', 'dekabr'];
+  function monthLabel(m) {
+    const l = SH.pickLang(), d = new Date(m + '-15');
+    if (l === 'uz') return d.getFullYear() + '-yil ' + RS_UZ_MONTHS[d.getMonth()];
+    return d.toLocaleDateString(l === 'ru' ? 'ru-RU' : 'en-GB', { month: 'long', year: 'numeric' });
+  }
+  // How our estimate compared, as two or three short lines (card and the "saved" sheet).
+  function realCompareHtml(d) {
+    const c = SH.realScore.compare(d);
+    if (!c) return '<p class="muted small">' + RS_T('none') + '</p>';
+    const ad = Math.abs(c.diff);
+    let h = '<p class="small" style="margin:6px 0">' + RS_T(d.practiceUsed > 1 ? 'vs' : 'vs1', { k: d.practiceUsed, p: c.practice }) + ' ' +
+      '<b>' + (ad < 10 ? RS_T('spot') : RS_T(c.diff > 0 ? 'high' : 'low', { d: ad })) + '</b></p>';
+    if (d.practiceInWindow === false) h += '<p class="muted small" style="margin:6px 0">' + RS_T('old') + '</p>';
+    const a = SH.realScore.adjusted(d);
+    h += '<p class="muted small" style="margin:6px 0">' + (a ? RS_T('adj', { p: a.practice, a: a.adjusted }) : RS_T('adj_hint')) + '</p>';
+    return h;
+  }
+  function realCardInner(passed) {
+    const d = SH.realScore.cached();
+    if (d && d.total) {
+      return '<h3>' + RS_T('h_saved') + ': ' + esc(d.total) + '</h3>' +
+        '<p class="muted small" style="margin:0">' + esc(RS_T('parts', { rw: d.rw, m: d.math })) + ' · ' + esc(monthLabel(d.month)) + '</p>' +
+        realCompareHtml(d) +
+        '<div class="row"><button type="button" class="btn btn-ghost btn-sm" data-real>' + RS_T('btn_edit') + '</button></div>';
+    }
+    return '<h3>' + RS_T(passed ? 'h_passed' : 'h_new') + '</h3><p class="muted small">' + RS_T('p_new') + '</p>' +
+      '<div class="row"><button type="button" class="btn ' + (passed ? 'btn-primary' : 'btn-ghost') + ' btn-sm" data-real>' + RS_T('btn') + '</button></div>';
+  }
+  function redrawRealCard() {
+    const el = $('#rs-card'); if (!el) return;
+    const p = SH.getProfile();
+    el.innerHTML = realCardInner(p.testDate && new Date(p.testDate + 'T23:59:00') < new Date());
+    const b = $('[data-real]', el); if (b) b.addEventListener('click', openRealScore);
   }
 
   function bindHomeExtras() {
@@ -695,6 +787,8 @@ document.addEventListener('DOMContentLoaded', function () {
       }).catch(() => { /* rules not published yet */ });
     }
     const rs = $('[data-real]'); if (rs) rs.addEventListener('click', openRealScore);
+    // A score saved on another device: fetch it once and redraw the card.
+    if ($('#rs-card')) SH.realScore.get().then(d => { if (d) redrawRealCard(); }).catch(() => { /* rules not published yet */ });
     bindChart();
     const hw = $('#hw');
     if (hw) SH.classes.tasks().then(list => drawHomework(hw, list)).catch(e => { hw.innerHTML = '<p class="muted" style="margin:0">Could not load your homework. ' + esc(e.message || '') + '</p>'; });
@@ -1044,21 +1138,29 @@ document.addEventListener('DOMContentLoaded', function () {
   function openRealScore() {
     const months = [];
     for (let i = 0; i < 12; i++) { const d = new Date(); d.setDate(1); d.setMonth(d.getMonth() - i); months.push(d.toISOString().slice(0, 7)); }
+    const prev = SH.realScore.cached() || {};
+    // Default month: the profile's test date when it has passed, else the last saved one.
+    const p = SH.getProfile();
+    const pick = prev.month || (p.testDate && p.testDate.slice(0, 7) <= months[0] ? p.testDate.slice(0, 7) : months[0]);
     const md = SH.modal({
-      title: 'Your real SAT score',
-      html: '<p class="muted">Only you and the SAT Ustoz team see this. We use it to check how close our practice scores are.</p>' +
-        '<div class="row"><div class="grow field"><label for="rs-rw">Reading and Writing</label><input class="input" id="rs-rw" type="number" min="200" max="800" step="10" inputmode="numeric"></div>' +
-        '<div class="grow field"><label for="rs-m">Math</label><input class="input" id="rs-m" type="number" min="200" max="800" step="10" inputmode="numeric"></div></div>' +
-        '<div class="field"><label for="rs-mo">When did you take it?</label><select class="input" id="rs-mo">' + months.map(m => '<option value="' + m + '">' + new Date(m + '-15').toLocaleDateString('en-GB', { month: 'long', year: 'numeric' }) + '</option>').join('') + '</select></div>' +
+      title: RS_T('m_title'),
+      html: '<p class="muted">' + RS_T('m_lead') + '</p>' +
+        '<div class="row"><div class="grow field"><label for="rs-rw">' + RS_T('rw') + '</label><input class="input" id="rs-rw" type="number" min="200" max="800" step="10" inputmode="numeric" value="' + (prev.rw || '') + '"></div>' +
+        '<div class="grow field"><label for="rs-m">' + RS_T('math') + '</label><input class="input" id="rs-m" type="number" min="200" max="800" step="10" inputmode="numeric" value="' + (prev.math || '') + '"></div></div>' +
+        '<div class="field"><label for="rs-mo">' + RS_T('when') + '</label><select class="input" id="rs-mo">' + months.map(m => '<option value="' + m + '"' + (m === pick ? ' selected' : '') + '>' + esc(monthLabel(m)) + '</option>').join('') + '</select></div>' +
         '<p class="pay-err" role="alert" hidden></p>',
-      actions: [{ label: 'Cancel', kind: 'ghost' }, { label: 'Send', kind: 'primary', onClick: back => {
+      actions: [{ label: RS_T('cancel'), kind: 'ghost' }, { label: RS_T('send'), kind: 'primary', onClick: back => {
         const rw = +back.querySelector('#rs-rw').value, mt = +back.querySelector('#rs-m').value, err = back.querySelector('.pay-err');
         const ok = v => v >= 200 && v <= 800 && v % 10 === 0;
-        if (!ok(rw) || !ok(mt)) { err.textContent = 'Enter each section score, 200 to 800 in steps of 10.'; err.hidden = false; return false; }
+        if (!ok(rw) || !ok(mt)) { err.textContent = RS_T('err'); err.hidden = false; return false; }
         back.querySelectorAll('button').forEach(b => { b.disabled = true; });
         SH.realScore.save({ total: rw + mt, rw, math: mt, month: back.querySelector('#rs-mo').value })
-          .then(() => { md.close(); SH.toast('Thank you! Score saved: ' + (rw + mt) + '.'); })
-          .catch(e => { err.textContent = 'Could not save. ' + (e.message || ''); err.hidden = false; back.querySelectorAll('button').forEach(b => { b.disabled = false; }); });
+          .then(doc => {
+            md.close(); redrawRealCard();
+            // Show the comparison straight away: the point of entering the score.
+            SH.modal({ title: RS_T('r_title', { t: doc.total }), html: realCompareHtml(doc) + '<p class="muted small">' + RS_T('r_why') + '</p>', actions: [{ label: RS_T('r_close'), kind: 'primary' }] });
+          })
+          .catch(e => { err.textContent = RS_T('fail') + (e.message || ''); err.hidden = false; back.querySelectorAll('button').forEach(b => { b.disabled = false; }); });
         return false;
       } }]
     });
