@@ -18,6 +18,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Jost:wght@500;600&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css" media="print" onload="this.media='all'"><!-- math styles: not needed for the first paint -->
 <link rel="stylesheet" href="assets/sh.css">
+<script>/* dark theme before the first paint (SH.theme in sh.js) */document.documentElement.setAttribute('data-themeable','');try{if(localStorage.getItem('sh.v1.theme')==='"dark"')document.documentElement.setAttribute('data-theme','dark')}catch(e){}</script>
 <style>
   .b-wrap { max-width: 1320px; margin: 0 auto; padding: 22px var(--gutter) 60px; }
   .b-head { display: flex; gap: 14px; align-items: flex-end; justify-content: space-between; flex-wrap: wrap; margin-bottom: 16px; }
@@ -41,9 +42,9 @@
   .choice-ed label { display: flex; align-items: center; justify-content: center; gap: 2px; font-weight: 700; cursor: pointer; }
   .choice-ed input[type=radio] { accent-color: var(--ok); width: 16px; height: 16px; }
   .hint { font-size: .84rem; color: var(--muted); }
-  .hint code { background: #F3EEE6; padding: 1px 4px; border-radius: 3px; }
+  .hint code { background: var(--sunk); color: var(--ink-2); padding: 1px 4px; border-radius: 3px; }
   .b-prev { position: sticky; top: 84px; max-height: calc(100vh - 100px); overflow-y: auto; }
-  .b-prev .pv-stim { background: #FCFAF6; border: 1px solid var(--line); border-radius: 10px; padding: 14px 16px; margin-bottom: 14px; }
+  .b-prev .pv-stim { background: var(--ivory); border: 1px solid var(--line); border-radius: 10px; padding: 14px 16px; margin-bottom: 14px; }
   .issues { margin: 0; padding-left: 1.1em; font-size: .9rem; color: var(--bad); }
   .issues.ok { color: var(--ok); list-style: none; padding: 0; }
   .toolbar { display: flex; gap: 8px; flex-wrap: wrap; }

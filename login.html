@@ -18,6 +18,7 @@
 <link rel="modulepreload" href="https://www.gstatic.com/firebasejs/13.0.0/firebase-auth.js" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Jost:wght@500;600&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/sh.css">
+<script>/* dark theme before the first paint (SH.theme in sh.js) */document.documentElement.setAttribute('data-themeable','');try{if(localStorage.getItem('sh.v1.theme')==='"dark"')document.documentElement.setAttribute('data-theme','dark')}catch(e){}</script>
 <style>
   body { min-height: 100vh; display: flex; flex-direction: column; }
   .login-main { flex: 1; display: flex; align-items: center; padding: 36px 0 48px; }
@@ -67,6 +68,11 @@
     .login-side h1 { font-size: 1.6rem; }
     .perks li:nth-child(n+3) { display: none; }
   }
+  /* Dark theme (sh.css): Google's own dark sign-in button */
+  html[data-theme="dark"] .gbtn { background: #131314; color: #E3E3E3; border-color: #8E918F; }
+  html[data-theme="dark"] .gbtn:hover { background: #1F2020; box-shadow: none; }
+  html[data-theme="dark"] .login-side { background: #1F3828; }
+  html[data-theme="dark"] .spin { border-color: var(--line-2); border-top-color: var(--brand); }
 </style>
 </head>
 <body>

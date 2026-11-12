@@ -644,8 +644,8 @@ html[data-theme="dark"] {
   --shadow-float: 0 1px 2px rgba(0, 0, 0, .4), 0 12px 32px rgba(0, 0, 0, .55);
 }
 html[data-theme="dark"] body { background: var(--page); color: var(--ink); }
-html[data-theme="dark"] a:not(.btn) { color: #8DC39B; }
-html[data-theme="dark"] a:not(.btn):hover { color: #B4DABD; }
+html[data-theme="dark"] a:not(.btn, .skip-link) { color: #8DC39B; }
+html[data-theme="dark"] a:not(.btn, .skip-link):hover { color: #B4DABD; }
 html[data-theme="dark"] .site-header { background: rgba(18, 23, 20, .92); }
 html[data-theme="dark"] .site-header.is-scrolled, html[data-theme="dark"] .site-header { border-bottom-color: var(--line); }
 html[data-theme="dark"] .nav a { color: var(--ink-2); }
@@ -674,6 +674,10 @@ html[data-theme="dark"] .tr-divider:focus-visible span, html[data-theme="dark"] 
 html[data-theme="dark"] .pin path { fill: var(--ink); }
 html[data-theme="dark"] .pin circle { fill: var(--page); }
 html[data-theme="dark"] .res-ic.skip { background: #5E6A60; }
+/* Hide the light logo until sh.js swaps in the dark one, so it never flashes */
+html[data-theme="dark"] .brand img:not([src*="-dark"]) { visibility: hidden; }
+html[data-theme="dark"] mark { color: inherit; }
+html[data-theme="dark"] :is(.btn-gold, .goal-pitch .btn), html[data-theme="dark"] :is(.btn-gold, .goal-pitch .btn):hover { color: #121714; }
 html[data-theme="dark"] .passage mark.hl:hover { background: #7E6A1C; }
 html[data-theme="dark"] .mr-1 circle.on { stroke: #5F7A58; }
 html[data-theme="dark"] .chart circle[stroke="#fff"], html[data-theme="dark"] svg circle[stroke="#fff"] { stroke: var(--paper); }

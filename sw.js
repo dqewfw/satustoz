@@ -11,13 +11,14 @@
    - The vocabulary trainer is saved ahead of time, so word review works offline.
    Change VERSION when you change the PRECACHE list. Change the version numbers in
    CDN_IMMUTABLE when you upgrade Firebase or KaTeX (sh.js FB_VERSION). */
-const VERSION = 'sh-offline-v3';
+const VERSION = 'sh-offline-v4';
 const CDN_CACHE = 'sh-cdn-v1'; // kept across VERSION changes: its files never change
 const NET_WAIT = 3500;
 const PRECACHE = [
   'practice.html', 'test.html', 'vocab.html', 'data/vocab.json', 'data/catalog.json',
   'assets/sh.css', 'assets/sh.js',
-  'assets/brand/logo-horizontal.svg', 'assets/brand/mark.svg', 'favicon.ico', 'icon-192.png'
+  'assets/brand/logo-horizontal.svg', 'assets/brand/mark.svg',
+  'assets/brand/logo-horizontal-dark.svg', 'assets/brand/mark-dark.svg', 'favicon.ico', 'icon-192.png'
 ];
 const CDN_IMMUTABLE = [
   /^https:\/\/www\.gstatic\.com\/firebasejs\/\d+\.\d+\.\d+\//,

@@ -3455,6 +3455,10 @@
     }
     $$('[data-year]').forEach(el => { el.textContent = new Date().getFullYear(); });
     try { theme.apply(); } catch (e) { console.warn('[SAT Ustoz] Theme:', e); }
+    // Keep every page on the same theme: a switch in another tab, or a page
+    // brought back by the Back button (bfcache) after the theme changed elsewhere.
+    window.addEventListener('storage', e => { if (e.key === PREFIX + 'theme' || e.key === null) { try { theme.apply(); } catch (err) { /* ignore */ } } });
+    window.addEventListener('pageshow', e => { if (e.persisted) { try { theme.apply(); } catch (err) { /* ignore */ } } });
     // Relabel the switch when the page language changes (EN / UZ / RU buttons).
     if (window.MutationObserver) new MutationObserver(() => theme.paint()).observe(document.documentElement, { attributes: true, attributeFilter: ['lang'] });
     // The header: when its items don't fit on one row (the streak flame, the theme
