@@ -2113,7 +2113,7 @@ document.addEventListener('DOMContentLoaded', function () {
         }));
       }
     } else {
-      host.innerHTML = '<div class="spr"><label class="label" for="p-spr">Your answer</label><input id="p-spr" inputmode="decimal" autocomplete="off" value="' + esc(resp || '') + '"' + (checked ? ' disabled' : '') + '><div class="spr-preview" id="p-prev">' + (resp ? 'Answer preview: <b>' + SH.sprPreview(resp) + '</b>' : '') + '</div>' +
+      host.innerHTML = '<div class="spr"><label class="label" for="p-spr">Your answer</label><input id="p-spr" inputmode="text" autocapitalize="off" autocorrect="off" autocomplete="off" value="' + esc(resp || '') + '"' + (checked ? ' disabled' : '') + '><div class="spr-preview" id="p-prev">' + (resp ? 'Answer preview: <b>' + SH.sprPreview(resp) + '</b>' : '') + '</div>' +
         '<div class="small muted">Up to 5 characters (6 with a minus sign). Fractions like 7/2 and decimals like 3.5 both work.</div></div>';
       const inp = $('#p-spr');
       if (!checked) {

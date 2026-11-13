@@ -376,7 +376,9 @@
     return false;
   }
   function sprSanitize(value) {
-    let v = String(value || '').replace(/[^0-9./-]/g, '');
+    // Phones on uz/ru locales type a comma for the decimal point, and some
+    // keyboards insert a Unicode minus or dash; normalise before stripping.
+    let v = String(value || '').replace(/,/g, '.').replace(/[\u2212\u2012-\u2015\uFE63\uFF0D]/g, '-').replace(/[\u2044\u2215\uFF0F\u00F7]/g, '/').replace(/[^0-9./-]/g, '');
     v = v.replace(/(?!^)-/g, '');
     const max = v[0] === '-' ? 6 : 5;
     return v.slice(0, max);

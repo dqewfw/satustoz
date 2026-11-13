@@ -170,7 +170,7 @@ document.addEventListener('DOMContentLoaded', function () {
         const cls = z.checked ? (Lt === q.answer ? ' is-correct' : Lt === z.pick ? ' is-wrong' : '') : '';
         return '<div class="choice-row"><button type="button" role="radio" class="choice' + cls + '" aria-checked="' + (z.pick === Lt) + '" data-c="' + Lt + '"' + (z.checked ? ' aria-disabled="true"' : '') + '><span class="letter">' + Lt + '</span><span class="choice-text rich">' + SH.renderRich(c, { inline: true }) + '</span></button></div>';
       }).join('') + '</div>'
-        : '<div class="spr"><input id="ck-spr" inputmode="decimal" autocomplete="off" aria-label="Your answer" value="' + esc(z.pick || '') + '"' + (z.checked ? ' disabled' : '') + '></div>') +
+        : '<div class="spr"><input id="ck-spr" inputmode="text" autocapitalize="off" autocorrect="off" autocomplete="off" aria-label="Your answer" value="' + esc(z.pick || '') + '"' + (z.checked ? ' disabled' : '') + '></div>') +
       (z.checked ? '<div class="check-fb ' + (ok ? 'ok' : 'no') + '" role="status"><b lang="' + SH.langNow() + '">' + esc(ok ? t('ok') : t('no', { a: SH.answerLabel(q) })) + '</b>' + (q.explanation ? '<div class="expl rich">' + SH.renderRich(q.explanation) + '</div>' : '') +
         '<p class="report-line"><button type="button" class="link-btn" data-report data-qid="' + esc(q.id) + '" data-where="' + esc('Lesson: ' + quiz.l.skill) + '">' + esc(t('report')) + '</button></p></div>' : '') +
       '<div class="row" style="margin-top:16px" lang="' + SH.langNow() + '">' + (z.checked ? '<button type="button" class="btn btn-primary" data-next>' + esc(z.i === z.qs.length - 1 ? t('finish') : t('next')) + '</button>'

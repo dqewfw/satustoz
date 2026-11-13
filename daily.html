@@ -139,7 +139,7 @@ document.addEventListener('DOMContentLoaded', function () {
         return '<div class="choice-row"><button type="button" role="radio" class="choice' + cls + '" aria-checked="' + (resp === L) + '" data-c="' + L + '"' + (done ? ' aria-disabled="true"' : '') + '><span class="letter">' + L + '</span><span class="choice-text rich" lang="en">' + SH.renderRich(c, { inline: true }) + '</span></button></div>';
       }).join('') + '</div>';
     } else {
-      ans = '<div class="spr"><label class="label" for="dq-spr">' + esc(t('spr')) + '</label><input id="dq-spr" inputmode="decimal" autocomplete="off" value="' + esc(resp || '') + '"' + (done ? ' disabled' : '') + '><div class="small muted">' + esc(t('spr_hint')) + '</div></div>';
+      ans = '<div class="spr"><label class="label" for="dq-spr">' + esc(t('spr')) + '</label><input id="dq-spr" inputmode="text" autocapitalize="off" autocorrect="off" autocomplete="off" value="' + esc(resp || '') + '"' + (done ? ' disabled' : '') + '><div class="small muted">' + esc(t('spr_hint')) + '</div></div>';
     }
     $('#dq').innerHTML = '<article class="dq-card" lang="en"><div class="dq-bar"><span class="tag tag-' + q.section + '">' + sec + '</span><span class="tag tag-' + q.difficulty + '">' + esc(q.difficulty) + '</span><span class="small muted">' + esc(q.skill || '') + '</span></div>' +
       ((q.passage || q.table || q.image) ? '<div class="dq-stim rich">' + SH.renderStimulus(q) + '</div>' : '') +

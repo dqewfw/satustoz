@@ -799,7 +799,7 @@ document.addEventListener('DOMContentLoaded', function () {
   }
   function sprHtml(q) {
     const v = S.responses[q.id] || '';
-    return '<div class="spr"><label class="label" for="spr-in">Your answer</label><input id="spr-in" inputmode="decimal" autocomplete="off" spellcheck="false" value="' + esc(v) + '" aria-describedby="spr-prev"><div class="spr-preview" id="spr-prev">' + (v ? 'Answer preview: <b>' + SH.sprPreview(v) + '</b>' : '') + '</div></div>';
+    return '<div class="spr"><label class="label" for="spr-in">Your answer</label><input id="spr-in" inputmode="text" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" value="' + esc(v) + '" aria-describedby="spr-prev"><div class="spr-preview" id="spr-prev">' + (v ? 'Answer preview: <b>' + SH.sprPreview(v) + '</b>' : '') + '</div></div>';
   }
 
   function renderQuestion() {
