@@ -117,6 +117,7 @@
     CHANNEL_TELEGRAM: 'https://t.me/satustoz_off',
     INSTAGRAM: 'https://www.instagram.com/satustoz',
     PHONE: '+998 97 055 00 33',
+    EMAIL: 'satustozacademy@gmail.com',
     // Your learning center, offered after the free diagnostic to students who
     // want a teacher (a free 15-minute call or a trial lesson). Empty URL: the
     // offer opens a Telegram message to CONTACT_TELEGRAM instead.
@@ -1885,13 +1886,13 @@
   // Header and footer words on the trilingual pages (vocab, lessons, daily,
   // mock, score calculator): <a data-nav="vocab">Vocabulary</a>.
   const NAV_TEXT = {
-    en: { dash: 'Dashboard', sets: 'Sets', tests: 'Tests', vocab: 'Vocabulary', lessons: 'Lessons', plans: 'Plans', daily: 'Question of the day', calc: 'Score calculator', mock: 'National mock', teach: 'For teachers', practice: 'Practice', contact: 'Contact', channel: 'Telegram channel', feedback: 'Send feedback', skip: 'Skip to content',
+    en: { dash: 'Dashboard', sets: 'Sets', tests: 'Tests', vocab: 'Vocabulary', lessons: 'Lessons', plans: 'Plans', daily: 'Question of the day', calc: 'Score calculator', mock: 'National mock', teach: 'For teachers', practice: 'Practice', contact: 'Contact', channel: 'Telegram channel', feedback: 'Send feedback', skip: 'Skip to content', address: 'Alisher Navoiy MFY, Pop district, Namangan region, Uzbekistan',
       tag: 'Digital SAT practice built by someone who has taken the test, for students in Uzbekistan and beyond.',
       legal: 'SAT® is a trademark registered by the College Board, which is not affiliated with, and does not endorse, this website. All practice questions on this site are written by SAT Ustoz.' },
-    uz: { dash: 'Sahifam', sets: 'Toʻplamlar', tests: 'Testlar', vocab: 'Lugʻat', lessons: 'Darslar', plans: 'Tariflar', daily: 'Kun savoli', calc: 'Ball kalkulyatori', mock: 'Milliy sinov imtihoni', teach: 'Oʻqituvchilar uchun', practice: 'Mashq', contact: 'Aloqa', channel: 'Telegram kanal', feedback: 'Fikr bildirish', skip: 'Asosiy qismga oʻtish',
+    uz: { dash: 'Sahifam', sets: 'Toʻplamlar', tests: 'Testlar', vocab: 'Lugʻat', lessons: 'Darslar', plans: 'Tariflar', daily: 'Kun savoli', calc: 'Ball kalkulyatori', mock: 'Milliy sinov imtihoni', teach: 'Oʻqituvchilar uchun', practice: 'Mashq', contact: 'Aloqa', channel: 'Telegram kanal', feedback: 'Fikr bildirish', skip: 'Asosiy qismga oʻtish', address: 'Namangan viloyati, Pop tumani, Alisher Navoiy MFY',
       tag: 'Imtihonni oʻzi topshirgan inson tomonidan Oʻzbekiston va boshqa mamlakatlardagi oʻquvchilar uchun yaratilgan Digital SAT mashqlari.',
       legal: 'SAT® College Board tomonidan roʻyxatdan oʻtkazilgan savdo belgisidir. College Board ushbu sayt bilan bogʻliq emas va uni qoʻllab-quvvatlamaydi. Saytdagi barcha mashq savollari SAT Ustoz tomonidan yozilgan.' },
-    ru: { dash: 'Кабинет', sets: 'Наборы', tests: 'Тесты', vocab: 'Словарь', lessons: 'Уроки', plans: 'Тарифы', daily: 'Вопрос дня', calc: 'Калькулятор баллов', mock: 'Национальный пробный экзамен', teach: 'Для преподавателей', practice: 'Практика', contact: 'Контакты', channel: 'Telegram-канал', feedback: 'Оставить отзыв', skip: 'Перейти к содержанию',
+    ru: { dash: 'Кабинет', sets: 'Наборы', tests: 'Тесты', vocab: 'Словарь', lessons: 'Уроки', plans: 'Тарифы', daily: 'Вопрос дня', calc: 'Калькулятор баллов', mock: 'Национальный пробный экзамен', teach: 'Для преподавателей', practice: 'Практика', contact: 'Контакты', channel: 'Telegram-канал', feedback: 'Оставить отзыв', skip: 'Перейти к содержанию', address: 'Наманганская обл., Попский р-н, МСГ Алишер Навои',
       tag: 'Практика Digital SAT от того, кто сам сдавал тест, для учеников в Узбекистане и не только.',
       legal: 'SAT® является зарегистрированным товарным знаком College Board, которая не связана с этим сайтом и не одобряет его. Все тренировочные вопросы на сайте написаны SAT Ustoz.' }
   };
@@ -2641,8 +2642,9 @@
     return until;
   };
   const somNumber = v => Number(String(v || '').replace(/\D/g, '')) || 0;
-  // The "until your test" pass is offered only with card transfer, which you check by hand.
-  const passEnabled = () => manual.enabled() && somNumber(CONFIG.PLANS.PASS_PRICE) > 0 && Number(CONFIG.PLANS.PASS_MONTHS) > 1;
+  // The "until your test" pass: by card transfer, or paid once on Payme's page
+  // (the payments Worker needs the same PASS_PRICE and PASS_MONTHS).
+  const passEnabled = () => (manual.enabled() || pay.enabled()) && somNumber(CONFIG.PLANS.PASS_PRICE) > 0 && Number(CONFIG.PLANS.PASS_MONTHS) > 1;
   const PAYME_LOGO = 'https://cdn.payme.uz/logo/payme_color.svg';
   const PAYME_TERMS = 'https://cdn.payme.uz/terms/main.html';
   const fmtSom = n => String(Math.round(Number(n) || 0)).replace(/\B(?=(\d{3})+(?!\d))/g, ' ');
@@ -2662,25 +2664,25 @@
       up_intro: 'Online card payment is on its way. Until then, we switch Pro on by hand within 2 hours, 9:00 to 23:00 Tashkent time:',
       up_steps: ['Message us on Telegram and say you want Pro.', 'We send you how to pay {price} for the month.', 'We switch Pro on for your account:'],
       up_tg: 'Message us on Telegram', up_copy: 'Copy', copied: 'Email copied', close: 'Close',
-      pay_preparing: 'Getting your payment ready…', pay_choose: 'Pro costs {price} a month. Choose how to pay:',
+      pay_preparing: 'Getting your payment ready…', pay_choose: '{plan} costs {price} a month. Choose how to pay:',
       pay_card_t: 'Pay by card, renews monthly', pay_card_d: 'Uzcard or Humo. We charge {price} each month until you stop it.',
-      pay_page_t: 'Pay once on Payme', pay_page_d: 'Payme app, QR code or any card. One month, no automatic renewal.',
+      pay_page_t: 'Pay once on Payme', pay_page_d: 'Payme app, QR code or any card. One month, no automatic renewal.', pay_pass_t: '{n} months of Pro on Payme', pay_pass_d: '{price} once, until your test. No automatic renewal.',
       pay_num: 'Card number', pay_exp: 'Expiry (MM/YY)',
       pay_safe: 'Payme saves your card, not SAT Ustoz. We never store your card number.',
-      pay_terms: 'Pro renews every month for {price} until you stop it on the Plans page. By continuing you accept {terms}.', pay_terms_link: 'Payme’s terms',
+      pay_terms: '{plan} renews every month for {price} until you stop it on the Plans page. By continuing you accept {offer} and {terms}.', pay_terms_link: 'Payme’s terms', pay_offer_link: 'our public offer', pay_offer: 'By paying you accept {offer}, including the refund policy.',
       pay_continue: 'Continue', pay_back: 'Back', cancel: 'Cancel', pay_powered: 'Powered by',
       pay_sent: 'Payme sent an SMS code to {phone}.', pay_sent_nophone: 'Payme sent an SMS code to the phone linked to your card.',
       pay_code: 'SMS code', pay_resend: 'Send the code again', pay_resent: 'New code sent', pay_pay: 'Pay {price}',
-      pay_ok_t: 'Pro is on', pay_ok: 'Pro is on until {d}. All 21 practice tests are open.',
+      pay_ok_t: '{plan} is on', pay_ok: '{plan} is on until {d}. All 21 practice tests are open.',
       pay_ok_renew: 'Next month, {price} is charged to card {card} automatically. You can stop it on the Plans page any time.',
       pay_pending: 'Payme is still confirming your payment. Pro switches on within a few minutes; reload the page then.',
-      pay_opening: 'Opening Payme…', pay_back_ok: 'Payment received. Pro is on until {d}.',
+      pay_opening: 'Opening Payme…', pay_back_ok: 'Payment received. {plan} is on until {d}.',
       pay_back_wait: 'We have not received the payment yet. If you paid, Pro switches on within a few minutes.',
       pay_failed: 'The payment did not go through. Please try again.',
       pay_offline: 'Could not reach the payment service. Check your connection and try again.',
-      pay_bad_num: 'Enter the 16-digit card number.', pay_bad_exp: 'Enter the expiry date like 03/29.', pay_bad_code: 'Enter the code from the SMS.',
+      pay_bad_num: 'Enter the 16-digit card number.', pay_bad_exp: 'Enter the expiry date like 03/29.', pay_bad_code: 'Enter the code from the SMS.', pay_no_recurrent: 'This card cannot be charged monthly. Try another card, or pay once on Payme’s page.',
       open_tests: 'Open practice tests', tg_help: 'Problem paying? Message us on Telegram.',
-      manage: 'Manage payment', manage_t: 'Your Pro plan', m_loading: 'Loading…', m_until: 'Pro is on until {d}.',
+      manage: 'Manage payment', manage_t: 'Your {plan} plan', m_loading: 'Loading…', m_until: '{plan} is on until {d}.',
       m_renew: 'Renews automatically: {price} from card {card}, one day before it ends.',
       m_renew_pending: 'Your last payment is still being confirmed by Payme.',
       m_off: 'Automatic renewal is off. Pro ends on that day unless you pay for another month.',
@@ -2736,25 +2738,25 @@
       up_intro: 'Karta orqali onlayn toʻlov tez orada ishga tushadi. Shu paytgacha Pro tarifini qoʻlda yoqamiz: Toshkent vaqti bilan 9:00 dan 23:00 gacha 2 soat ichida:',
       up_steps: ['Telegramda bizga yozing va Pro kerakligini ayting.', 'Bir oylik {price} toʻlovni qanday amalga oshirishni yuboramiz.', 'Hisobingiz uchun Pro tarifini yoqamiz:'],
       up_tg: 'Telegramda yozish', up_copy: 'Nusxalash', copied: 'Email nusxalandi', close: 'Yopish',
-      pay_preparing: 'Toʻlov tayyorlanmoqda…', pay_choose: 'Pro oyiga {price}. Toʻlov usulini tanlang:',
+      pay_preparing: 'Toʻlov tayyorlanmoqda…', pay_choose: '{plan} oyiga {price}. Toʻlov usulini tanlang:',
       pay_card_t: 'Karta orqali, har oy avtomatik', pay_card_d: 'Uzcard yoki Humo. Siz toʻxtatmaguningizcha har oy {price} yechiladi.',
-      pay_page_t: 'Payme orqali bir martalik', pay_page_d: 'Payme ilovasi, QR kod yoki istalgan karta. Bir oy, avtomatik uzaytirishsiz.',
+      pay_page_t: 'Payme orqali bir martalik', pay_page_d: 'Payme ilovasi, QR kod yoki istalgan karta. Bir oy, avtomatik uzaytirishsiz.', pay_pass_t: 'Payme orqali {n} oylik Pro', pay_pass_d: 'Imtihoningizgacha, bir martalik {price}. Avtomatik uzaytirishsiz.',
       pay_num: 'Karta raqami', pay_exp: 'Amal qilish muddati (OO/YY)',
       pay_safe: 'Kartangizni SAT Ustoz emas, Payme saqlaydi. Biz karta raqamingizni saqlamaymiz.',
-      pay_terms: 'Pro har oy {price} evaziga uzaytiriladi, buni «Plans» sahifasida istalgan vaqtda toʻxtatishingiz mumkin. Davom etib, siz {terms}ni qabul qilasiz.', pay_terms_link: 'Payme ofertasi',
+      pay_terms: '{plan} har oy {price} evaziga uzaytiriladi, buni «Plans» sahifasida istalgan vaqtda toʻxtatishingiz mumkin. Davom etib, siz {offer} va {terms}ni qabul qilasiz.', pay_terms_link: 'Payme ofertasi', pay_offer_link: 'SAT Ustoz ofertasi', pay_offer: 'Toʻlov qilib, siz {offer}ni, jumladan toʻlovni qaytarish shartlarini qabul qilasiz.',
       pay_continue: 'Davom etish', pay_back: 'Orqaga', cancel: 'Bekor qilish', pay_powered: 'Powered by',
       pay_sent: 'Payme {phone} raqamiga SMS kod yubordi.', pay_sent_nophone: 'Payme kartangizga bogʻlangan telefon raqamiga SMS kod yubordi.',
       pay_code: 'SMS kod', pay_resend: 'Kodni qayta yuborish', pay_resent: 'Yangi kod yuborildi', pay_pay: '{price} toʻlash',
-      pay_ok_t: 'Pro yoqildi', pay_ok: 'Pro {d} gacha faol. Barcha 21 ta sinov testi ochiq.',
+      pay_ok_t: '{plan} yoqildi', pay_ok: '{plan} {d} gacha faol. Barcha 21 ta sinov testi ochiq.',
       pay_ok_renew: 'Keyingi oy {card} kartasidan {price} avtomatik yechiladi. Buni «Plans» sahifasida istalgan vaqtda toʻxtatishingiz mumkin.',
       pay_pending: 'Payme toʻlovingizni hali tasdiqlamoqda. Pro bir necha daqiqada yoqiladi, keyin sahifani yangilang.',
-      pay_opening: 'Payme ochilmoqda…', pay_back_ok: 'Toʻlov qabul qilindi. Pro {d} gacha faol.',
+      pay_opening: 'Payme ochilmoqda…', pay_back_ok: 'Toʻlov qabul qilindi. {plan} {d} gacha faol.',
       pay_back_wait: 'Toʻlov hali bizga kelmadi. Agar toʻlagan boʻlsangiz, Pro bir necha daqiqada yoqiladi.',
       pay_failed: 'Toʻlov amalga oshmadi. Qaytadan urinib koʻring.',
       pay_offline: 'Toʻlov xizmatiga ulanib boʻlmadi. Internetni tekshirib, qayta urinib koʻring.',
-      pay_bad_num: '16 xonali karta raqamini kiriting.', pay_bad_exp: 'Amal qilish muddatini 03/29 kabi kiriting.', pay_bad_code: 'SMSdagi kodni kiriting.',
+      pay_bad_num: '16 xonali karta raqamini kiriting.', pay_bad_exp: 'Amal qilish muddatini 03/29 kabi kiriting.', pay_bad_code: 'SMSdagi kodni kiriting.', pay_no_recurrent: 'Bu kartadan har oy toʻlov olib boʻlmaydi. Boshqa kartani sinang yoki Payme sahifasida bir martalik toʻlang.',
       open_tests: 'Sinov testlarini ochish', tg_help: 'Toʻlovda muammo boʻldimi? Telegramda bizga yozing.',
-      manage: 'Toʻlovni boshqarish', manage_t: 'Pro tarifingiz', m_loading: 'Yuklanmoqda…', m_until: 'Pro {d} gacha faol.',
+      manage: 'Toʻlovni boshqarish', manage_t: '{plan} tarifingiz', m_loading: 'Yuklanmoqda…', m_until: '{plan} {d} gacha faol.',
       m_renew: 'Avtomatik uzaytiriladi: tugashidan bir kun oldin {card} kartasidan {price} yechiladi.',
       m_renew_pending: 'Oxirgi toʻlovingiz hali Payme tomonidan tasdiqlanmoqda.',
       m_off: 'Avtomatik uzaytirish oʻchirilgan. Yana bir oy uchun toʻlamasangiz, Pro shu kuni tugaydi.',
@@ -2810,25 +2812,25 @@
       up_intro: 'Онлайн-оплата картой скоро заработает. А пока мы включаем Pro вручную, в течение 2 часов, с 9:00 до 23:00 по Ташкенту:',
       up_steps: ['Напишите нам в Telegram, что хотите Pro.', 'Мы пришлём, как оплатить {price} за месяц.', 'Мы включим Pro для вашего аккаунта:'],
       up_tg: 'Написать в Telegram', up_copy: 'Скопировать', copied: 'Email скопирован', close: 'Закрыть',
-      pay_preparing: 'Готовим оплату…', pay_choose: 'Pro стоит {price} в месяц. Выберите способ оплаты:',
+      pay_preparing: 'Готовим оплату…', pay_choose: '{plan} стоит {price} в месяц. Выберите способ оплаты:',
       pay_card_t: 'Картой, с продлением каждый месяц', pay_card_d: 'Uzcard или Humo. Каждый месяц списываем {price}, пока вы не отключите.',
-      pay_page_t: 'Один раз через Payme', pay_page_d: 'Приложение Payme, QR-код или любая карта. Один месяц, без автопродления.',
+      pay_page_t: 'Один раз через Payme', pay_page_d: 'Приложение Payme, QR-код или любая карта. Один месяц, без автопродления.', pay_pass_t: 'Pro на {n} месяца через Payme', pay_pass_d: '{price} один раз, до экзамена. Без автопродления.',
       pay_num: 'Номер карты', pay_exp: 'Срок действия (ММ/ГГ)',
       pay_safe: 'Вашу карту сохраняет Payme, а не SAT Ustoz. Мы не храним номер вашей карты.',
-      pay_terms: 'Pro продлевается каждый месяц за {price}, пока вы не отключите продление на странице «Plans». Продолжая, вы принимаете {terms}.', pay_terms_link: 'оферту Payme',
+      pay_terms: '{plan} продлевается каждый месяц за {price}, пока вы не отключите продление на странице «Plans». Продолжая, вы принимаете {offer} и {terms}.', pay_terms_link: 'оферту Payme', pay_offer_link: 'оферту SAT Ustoz', pay_offer: 'Оплачивая, вы принимаете {offer}, включая условия возврата.',
       pay_continue: 'Продолжить', pay_back: 'Назад', cancel: 'Отмена', pay_powered: 'Powered by',
       pay_sent: 'Payme отправил SMS-код на номер {phone}.', pay_sent_nophone: 'Payme отправил SMS-код на телефон, привязанный к карте.',
       pay_code: 'SMS-код', pay_resend: 'Отправить код ещё раз', pay_resent: 'Новый код отправлен', pay_pay: 'Оплатить {price}',
-      pay_ok_t: 'Pro включён', pay_ok: 'Pro активен до {d}. Все 21 пробный тест открыты.',
+      pay_ok_t: '{plan} включён', pay_ok: '{plan} активен до {d}. Все 21 пробный тест открыты.',
       pay_ok_renew: 'В следующем месяце {price} спишется с карты {card} автоматически. Отключить можно на странице «Plans» в любой момент.',
       pay_pending: 'Payme ещё подтверждает оплату. Pro включится через несколько минут, затем обновите страницу.',
-      pay_opening: 'Открываем Payme…', pay_back_ok: 'Оплата получена. Pro активен до {d}.',
+      pay_opening: 'Открываем Payme…', pay_back_ok: 'Оплата получена. {plan} активен до {d}.',
       pay_back_wait: 'Мы ещё не получили оплату. Если вы оплатили, Pro включится через несколько минут.',
       pay_failed: 'Оплата не прошла. Попробуйте ещё раз.',
       pay_offline: 'Не удалось связаться с платёжным сервисом. Проверьте интернет и попробуйте ещё раз.',
-      pay_bad_num: 'Введите 16-значный номер карты.', pay_bad_exp: 'Введите срок действия, например 03/29.', pay_bad_code: 'Введите код из SMS.',
+      pay_bad_num: 'Введите 16-значный номер карты.', pay_bad_exp: 'Введите срок действия, например 03/29.', pay_bad_code: 'Введите код из SMS.', pay_no_recurrent: 'С этой карты нельзя списывать оплату ежемесячно. Попробуйте другую карту или оплатите один раз на странице Payme.',
       open_tests: 'Открыть пробные тесты', tg_help: 'Проблема с оплатой? Напишите нам в Telegram.',
-      manage: 'Управление оплатой', manage_t: 'Ваш тариф Pro', m_loading: 'Загрузка…', m_until: 'Pro активен до {d}.',
+      manage: 'Управление оплатой', manage_t: 'Ваш тариф {plan}', m_loading: 'Загрузка…', m_until: '{plan} активен до {d}.',
       m_renew: 'Продлевается автоматически: за день до окончания с карты {card} спишется {price}.',
       m_renew_pending: 'Ваш последний платёж ещё подтверждается Payme.',
       m_off: 'Автопродление отключено. Pro закончится в этот день, если вы не оплатите ещё месяц.',
@@ -2908,7 +2910,7 @@
       : '<button class="btn btn-primary" type="button" data-upgrade="pro">' + esc(T('cta_pro')) + '</button>';
     // Until Max launches, its card collects a waitlist (Telegram usernames).
     const maxCta = cur === 'max' ? current()
-      : ai.enabled() && (manual.enabled() || !auth.enabled()) ? '<button class="btn btn-primary" type="button" data-upgrade="max">' + esc(T('cta_max')) + '</button>'
+      : ai.enabled() && (manual.enabled() || pay.enabled() || !auth.enabled()) ? '<button class="btn btn-primary" type="button" data-upgrade="max">' + esc(T('cta_max')) + '</button>'
       : '<button class="btn btn-ghost" type="button" data-waitlist>' + esc(T(store.get('waitlist', null) ? 'cta_wait_on' : 'cta_wait')) + '</button>' +
         '<p class="plan-until"><span class="soon-badge">' + esc(T('soon')) + '</span></p>';
     const passOn = passEnabled();
@@ -2939,8 +2941,8 @@
       });
       return;
     }
-    // The Payme Worker sells Pro only; Max goes through card transfer.
-    if (pay.enabled() && want === 'pro') { openCheckout(); return; }
+    // The Payme Worker sells Pro, Max and the pass.
+    if (pay.enabled()) { openCheckout(want); return; }
     if (manual.enabled()) { openManualPay(want); return; }
     const email = auth.user ? auth.user.email : '';
     const steps = T('up_steps').map(s => esc(s.replace('{price}', priceText(CONFIG.PLANS.PRO_PRICE, lang))));
@@ -3207,21 +3209,44 @@
     };
   }
 
-  // Online payment: the card form (Pro renews every month) or Payme's own page (one month).
-  function openCheckout() {
-    const lang = langNow(), T = k => planText(k, lang);
-    const ui = stepModal(T('up_title'), lang);
+  // Online payment for Pro or Max: the card form (renews every month), Payme's own
+  // page (one month) or, for Pro, the pass (PASS_MONTHS, paid once on Payme's page).
+  function openCheckout(planId) {
+    planId = planId === 'max' ? 'max' : 'pro';
+    const lang = langNow(), planName = planText(planId + '_name', lang);
+    const T = k => { const v = planText(k, lang); return typeof v === 'string' ? v.replace(/\{plan\}/g, planName) : v; };
+    const ui = stepModal(T(planId === 'max' ? 'cta_max' : 'up_title'), lang);
     const { show, row, closeBtn } = ui;
     const powered = '<p class="pay-powered">' + esc(T('pay_powered')) + ' <img src="' + PAYME_LOGO + '" alt="Payme" width="64" height="20"></p>';
+    // Our public offer (oferta.html): paying accepts it, so every payment step links to it.
+    const offerLink = '<a href="oferta.html" target="_blank" rel="noopener">' + esc(T('pay_offer_link')) + '</a>';
     const help = '<p class="pay-help"><a href="' + esc(CONFIG.CONTACT_TELEGRAM) + '" target="_blank" rel="noopener">' + esc(T('tg_help')) + '</a></p>';
     const errorBox = (form, msg) => { const e = form.querySelector('.pay-err'); e.textContent = msg || ''; e.hidden = !msg; };
     const busy = (form, on) => { $$('button, input', form).forEach(el => { el.disabled = on; }); form.setAttribute('aria-busy', on ? 'true' : 'false'); };
     let co = null, price = '';
+    // Payme's Subscribe API "front-end" methods (cards.create, cards.get_verify_code,
+    // cards.verify), called straight from the browser with the kassa ID only, as
+    // Payme's protocol asks. The card number goes to Payme, never to our Worker.
+    async function payme(method, params) {
+      // Payme's sandbox API has no CORS headers, so test mode goes through the Worker.
+      if (co.cardsProxy) return (await pay.call('/card/sandbox', { method, params })).result || {};
+      let res, data = null;
+      try {
+        res = await fetch(co.cardsApi, { method: 'POST', headers: { 'content-type': 'application/json', 'X-Auth': co.cardsId }, body: JSON.stringify({ id: Date.now(), method, params }) });
+        data = await res.json();
+      } catch (e) { throw new Error(T('pay_offline')); }
+      if (data && data.error) {
+        const m = data.error.message;
+        const text = typeof m === 'string' ? m : m && (m[lang] || m.ru || m.uz || m.en);
+        throw new Error('Payme: ' + (text || T('pay_failed')));
+      }
+      return (data && data.result) || {};
+    }
 
     // A new order (the old one expired or was used up), then straight back to the card form.
     function start(next, msg) {
       show('<p class="muted" aria-live="polite">' + esc(T('pay_preparing')) + '</p>');
-      pay.call('/checkout').then(r => {
+      pay.call('/checkout', { plan: planId }).then(r => {
         co = r; price = priceText(fmtSom(r.amount), lang);
         next(msg);
       }).catch(e => show('<p>' + esc(e.message) + '</p>' + help + row(closeBtn()), '[data-close]'));
@@ -3231,14 +3256,23 @@
     function choose() {
       show('<p>' + esc(T('pay_choose').replace('{price}', price)) + '</p><div class="pay-options">' +
         (co.card ? '<button type="button" class="pay-opt" data-opt="card"><b>' + esc(T('pay_card_t')) + '</b><span>' + esc(T('pay_card_d').replace('{price}', price)) + '</span></button>' : '') +
-        '<button type="button" class="pay-opt" data-opt="page"><b>' + esc(T('pay_page_t')) + '</b><span>' + esc(T('pay_page_d')) + '</span></button></div>' +
+        '<button type="button" class="pay-opt" data-opt="page"><b>' + esc(T('pay_page_t')) + '</b><span>' + esc(T('pay_page_d')) + '</span></button>' +
+        (planId === 'pro' && passEnabled() ? '<button type="button" class="pay-opt" data-opt="pass"><b>' + esc(T('pay_pass_t').replace('{n}', String(CONFIG.PLANS.PASS_MONTHS))) + '</b><span>' +
+          esc(T('pay_pass_d').replace('{price}', priceText(CONFIG.PLANS.PASS_PRICE, lang))) + '</span></button>' : '') + '</div>' +
+        '<p class="pay-terms">' + esc(T('pay_offer')).replace('{offer}', offerLink) + '</p>' +
         powered + row(closeBtn()), '.pay-opt');
       $$('[data-opt]', ui.box).forEach(b => b.addEventListener('click', () => {
         if (b.dataset.opt === 'card') { cardForm(); return; }
         b.disabled = true;
         b.querySelector('span').textContent = T('pay_opening');
-        location.href = co.url;
+        // The pass is its own order, at its own price.
+        (b.dataset.opt === 'pass' ? pay.call('/checkout', { plan: 'pass' }) : Promise.resolve(co)).then(toPayme)
+          .catch(e => show('<p>' + esc(e.message) + '</p>' + help + row(closeBtn()), '[data-close]'));
       }));
+    }
+    function toPayme(order) {
+      co = order;
+      location.href = co.url;
     }
 
     // Payme's rules for card forms: inputs without "name", a form without
@@ -3251,7 +3285,7 @@
         '<div class="field pay-exp"><label for="pc-exp">' + esc(T('pay_exp')) + '</label>' +
         '<input id="pc-exp" class="input" inputmode="numeric" autocomplete="cc-exp" placeholder="MM/YY" maxlength="5"></div></div>' +
         '<p class="pay-safe">' + esc(T('pay_safe')) + '</p>' +
-        '<p class="pay-terms">' + esc(T('pay_terms').replace('{price}', price)).replace('{terms}', '<a href="' + PAYME_TERMS + '" target="_blank" rel="noopener">' + esc(T('pay_terms_link')) + '</a>') + '</p>' +
+        '<p class="pay-terms">' + esc(T('pay_terms').replace('{price}', price)).replace('{offer}', offerLink).replace('{terms}', '<a href="' + PAYME_TERMS + '" target="_blank" rel="noopener">' + esc(T('pay_terms_link')) + '</a>') + '</p>' +
         powered + '<p class="pay-err" role="alert" hidden></p>' +
         row('<button type="button" class="btn btn-ghost" data-back>' + esc(T('pay_back')) + '</button><button type="submit" class="btn btn-primary">' + esc(T('pay_continue')) + '</button>') +
         '</form>', '#pc-num');
@@ -3266,12 +3300,16 @@
         if (number.length < 16) { errorBox(form, T('pay_bad_num')); num.focus(); return; }
         if (!/^(0[1-9]|1[0-2])\d{2}$/.test(expire)) { errorBox(form, T('pay_bad_exp')); exp.focus(); return; }
         errorBox(form, ''); busy(form, true);
-        try { codeForm((await pay.call('/card/start', { orderId: co.orderId, number, expire })).phone); }
-        catch (err) { busy(form, false); if (err.code === 'expired') start(cardForm); else errorBox(form, err.message); }
+        try {
+          const card = (await payme('cards.create', { card: { number, expire }, save: true })).card || {};
+          if (!card.token) throw new Error(T('pay_failed'));
+          if (card.recurrent === false) throw new Error(T('pay_no_recurrent'));
+          codeForm((await payme('cards.get_verify_code', { token: card.token })).phone, card.token);
+        } catch (err) { busy(form, false); errorBox(form, err.message); }
       });
     }
 
-    function codeForm(phone) {
+    function codeForm(phone, token) {
       show('<form class="pay-card" novalidate><p>' + esc(phone ? T('pay_sent').replace('{phone}', phone) : T('pay_sent_nophone')) + '</p>' +
         '<div class="field pay-code"><label for="pc-code">' + esc(T('pay_code')) + '</label>' +
         '<input id="pc-code" class="input" inputmode="numeric" autocomplete="one-time-code" maxlength="8"></div>' +
@@ -3284,8 +3322,8 @@
       $('[data-resend]', form).addEventListener('click', async ev => {
         const b = ev.currentTarget;
         b.disabled = true;
-        try { await pay.call('/card/resend'); toast(T('pay_resent')); }
-        catch (err) { if (err.code === 'expired') { start(cardForm, err.message); return; } errorBox(form, err.message); }
+        try { await payme('cards.get_verify_code', { token }); toast(T('pay_resent')); }
+        catch (err) { errorBox(form, err.message); }
         setTimeout(() => { b.disabled = false; }, 30000);
       });
       form.addEventListener('submit', async e => {
@@ -3293,7 +3331,11 @@
         const c = code.value.replace(/\D/g, '');
         if (c.length < 4) { errorBox(form, T('pay_bad_code')); code.focus(); return; }
         errorBox(form, ''); busy(form, true);
-        try { done(await pay.call('/card/verify', { code: c })); }
+        let card;
+        try { card = (await payme('cards.verify', { token, code: c })).card || {}; }
+        catch (err) { busy(form, false); errorBox(form, err.message); return; }
+        if (!card.verify) { busy(form, false); errorBox(form, T('pay_bad_code')); return; }
+        try { done(await pay.call('/card/pay', { orderId: co.orderId, token: card.token || token })); }
         catch (err) {
           busy(form, false);
           // A declined card or an expired code needs the card form again, with a new order.
@@ -3315,7 +3357,8 @@
 
   // Plans page: when Pro ends, and stopping or restarting automatic renewal.
   function openManage() {
-    const lang = langNow(), T = k => planText(k, lang);
+    const lang = langNow(), cur = plan.current() === 'max' ? 'max' : 'pro', planName = planText(cur + '_name', lang);
+    const T = k => { const v = planText(k, lang); return typeof v === 'string' ? v.replace(/\{plan\}/g, planName) : v; };
     const ui = stepModal(T('manage_t'), lang);
     const { show, row, closeBtn } = ui;
     function load() {
@@ -3334,7 +3377,7 @@
         } else {
           if (d) html += '<p class="muted">' + esc(T('m_off')) + '</p>';
           show(html + row(closeBtn() + '<button type="button" class="btn btn-primary" data-more>' + esc(T('m_more')) + '</button>'), '[data-more]');
-          $('[data-more]', ui.box).addEventListener('click', () => { ui.m.close(); openCheckout(); });
+          $('[data-more]', ui.box).addEventListener('click', () => { ui.m.close(); openCheckout(cur); });
         }
       }).catch(e => show('<p>' + esc(e.message) + '</p>' + row(closeBtn()), '[data-close]'));
     }
@@ -3364,7 +3407,7 @@
     const before = plan.until();
     for (let i = 0; i < 5; i++) {
       try {
-        if (await plan.refresh() !== 'free' && plan.until() > before) { toast(planText('pay_back_ok').replace('{d}', fmtDate(plan.until())), 6000); return; }
+        if (await plan.refresh() !== 'free' && plan.until() > before) { toast(planText('pay_back_ok').replace('{plan}', planText(plan.current() === 'max' ? 'max_name' : 'pro_name')).replace('{d}', fmtDate(plan.until())), 6000); return; }
       } catch (e) { /* try again */ }
       await new Promise(r => setTimeout(r, 2500));
     }
@@ -3607,6 +3650,23 @@
     $$('[data-link="telegram"]').forEach(a => { a.href = CONFIG.CONTACT_TELEGRAM; });
     $$('[data-link="channel"]').forEach(a => { a.href = CONFIG.CHANNEL_TELEGRAM; });
     $$('[data-link="instagram"]').forEach(a => { a.href = CONFIG.INSTAGRAM; });
+    footerContacts();
+  }
+  // Every footer's Contact list shows the phone, email and address (Payme asks
+  // for contacts both in the offer and on the site). Pages differ, so fill gaps here.
+  function footerContacts() {
+    const lists = [...new Set($$('.site-footer a[data-link="telegram"]').map(a => a.closest('ul')).filter(Boolean))];
+    if (!lists.length) return;
+    const li = html => { const el = document.createElement('li'); el.innerHTML = html; return el; };
+    lists.forEach(ul => {
+      if (!ul.querySelector('a[href^="tel:"]')) ul.prepend(li('<a href="tel:' + CONFIG.PHONE.replace(/[^+0-9]/g, '') + '">' + esc(CONFIG.PHONE) + '</a>'));
+      if (!ul.querySelector('a[href^="mailto:"]')) ul.querySelector('a[href^="tel:"]').parentElement.after(li('<a href="mailto:' + esc(CONFIG.EMAIL) + '">' + esc(CONFIG.EMAIL) + '</a>'));
+      if (!ul.querySelector('[data-nav="address"]')) ul.append(li('<span data-nav="address"></span>'));
+    });
+    const paint = () => { const t = NAV_TEXT[langNow()] || NAV_TEXT.en; $$('.site-footer [data-nav="address"]').forEach(el => { el.textContent = t.address; }); };
+    paint();
+    // Pages switch language in different ways; all of them set <html lang>.
+    try { new MutationObserver(paint).observe(document.documentElement, { attributes: true, attributeFilter: ['lang'] }); } catch (e) { /* old browser: first language only */ }
   }
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', initChrome); else initChrome();
 
