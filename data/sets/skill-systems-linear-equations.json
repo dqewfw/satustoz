@@ -1,0 +1,151 @@
+{
+ "id": "skill-systems-linear-equations",
+ "title": "Skill set: Systems of two linear equations",
+ "description": "Ten questions on solving systems by elimination and substitution, word problems, and systems with no solution or infinitely many solutions.",
+ "questions": [
+  {
+   "id": "sys-01",
+   "section": "math",
+   "domain": "Algebra",
+   "skill": "Systems of two linear equations in two variables",
+   "difficulty": "easy",
+   "prompt": "$$x + y = 15$$ $$x - y = 3$$ If $(x, y)$ is the solution to the given system of equations, what is the value of $x$?",
+   "answer": [
+    "9"
+   ],
+   "explanation": "Add the two equations. The $y$ terms cancel: $2x = 18$, so $x = 9$.\n\nCheck: then $y = 15 - 9 = 6$, and $9 - 6 = 3$."
+  },
+  {
+   "id": "sys-02",
+   "section": "math",
+   "domain": "Algebra",
+   "skill": "Systems of two linear equations in two variables",
+   "difficulty": "easy",
+   "prompt": "$$y = 2x + 1$$ $$y = 5x - 8$$ What is the solution $(x, y)$ to the given system of equations?",
+   "choices": [
+    "$(7, 3)$",
+    "$(3, 7)$",
+    "$\\left(\\dfrac{9}{7}, \\dfrac{25}{7}\\right)$",
+    "$\\left(-\\dfrac{7}{3}, -\\dfrac{11}{3}\\right)$"
+   ],
+   "answer": "B",
+   "explanation": "Both expressions equal $y$, so set them equal: $5x - 8 = 2x + 1$. Then $3x = 9$ and $x = 3$. Substitute: $y = 2(3) + 1 = 7$.\n\nChoice A swaps $x$ and $y$. Choice C comes from adding $2x$ and $5x$ instead of subtracting. Choice D comes from a sign error: $3x = 1 - 8$."
+  },
+  {
+   "id": "sys-03",
+   "section": "math",
+   "domain": "Algebra",
+   "skill": "Systems of two linear equations in two variables",
+   "difficulty": "easy",
+   "prompt": "A museum sells adult tickets for 30,000 so'm each and child tickets for 15,000 so'm each. A family bought 6 tickets and paid 135,000 so'm in total. If $a$ is the number of adult tickets and $c$ is the number of child tickets, which system of equations represents this situation?",
+   "choices": [
+    "$a + c = 6$ and $15{,}000a + 30{,}000c = 135{,}000$",
+    "$a + c = 135{,}000$ and $30{,}000a + 15{,}000c = 6$",
+    "$a + c = 6$ and $30{,}000a = 15{,}000c$",
+    "$a + c = 6$ and $30{,}000a + 15{,}000c = 135{,}000$"
+   ],
+   "answer": "D",
+   "explanation": "One equation counts tickets: $a + c = 6$. The other counts money: each adult ticket costs 30,000 and each child ticket 15,000, so $30{,}000a + 15{,}000c = 135{,}000$.\n\nChoice A swaps the prices. Choice B swaps the 6 and the 135,000. Choice C says adults and children paid the same total, which the problem never states."
+  },
+  {
+   "id": "sys-04",
+   "section": "math",
+   "domain": "Algebra",
+   "skill": "Systems of two linear equations in two variables",
+   "difficulty": "medium",
+   "prompt": "$$3x + 2y = 16$$ $$x - 2y = 0$$ If $(x, y)$ is the solution to the given system of equations, what is the value of $y$?",
+   "answer": [
+    "2"
+   ],
+   "explanation": "The $y$ terms are opposites, so add the equations: $4x = 16$, so $x = 4$. From the second equation, $4 - 2y = 0$, so $y = 2$.\n\nCheck: $3(4) + 2(2) = 16$. The question asks for $y$, not $x$, so the answer is 2, not 4."
+  },
+  {
+   "id": "sys-05",
+   "section": "math",
+   "domain": "Algebra",
+   "skill": "Systems of two linear equations in two variables",
+   "difficulty": "medium",
+   "prompt": "$$2x - ky = 5$$ $$6x - 9y = 4$$ In the given system of equations, $k$ is a constant. For what value of $k$ does the system have no solution?",
+   "choices": [
+    "$-3$",
+    "$3$",
+    "$9$",
+    "$27$"
+   ],
+   "answer": "B",
+   "explanation": "A system of two linear equations has no solution when the lines are parallel: the $x$ and $y$ coefficients are in the same ratio, but the constants are not.\n\nThe $x$ coefficients are 2 and 6, a ratio of $\\dfrac{1}{3}$. So $\\dfrac{k}{9} = \\dfrac{1}{3}$, and $k = 3$. The constants 5 and 4 are not in that ratio, so the lines are different: no solution.\n\nChoice D comes from flipping the ratio: $\\dfrac{k}{9} = 3$. Choice C copies the other $y$ coefficient. Choice A has the wrong sign: with $k = -3$ the first equation is $2x + 3y = 5$, which is not parallel to the second."
+  },
+  {
+   "id": "sys-06",
+   "section": "math",
+   "domain": "Algebra",
+   "skill": "Systems of two linear equations in two variables",
+   "difficulty": "medium",
+   "prompt": "At a market, 4 kilograms of apples and 1 kilogram of grapes cost 50,000 so'm in total. 2 kilograms of apples and 3 kilograms of grapes cost 60,000 so'm in total. What is the price, in so'm, of 1 kilogram of grapes?",
+   "choices": [
+    "$5{,}000$",
+    "$9{,}000$",
+    "$14{,}000$",
+    "$23{,}000$"
+   ],
+   "answer": "C",
+   "explanation": "Let $a$ be the price of 1 kg of apples and $g$ the price of 1 kg of grapes: $4a + g = 50{,}000$ and $2a + 3g = 60{,}000$.\n\nFrom the first equation, $g = 50{,}000 - 4a$. Substitute: $2a + 3(50{,}000 - 4a) = 60{,}000$, so $150{,}000 - 10a = 60{,}000$, $a = 9{,}000$ and $g = 14{,}000$.\n\nCheck: $2(9{,}000) + 3(14{,}000) = 60{,}000$. Choice B is the price of apples, choice D is apples plus grapes, and choice A is their difference."
+  },
+  {
+   "id": "sys-07",
+   "section": "math",
+   "domain": "Algebra",
+   "skill": "Systems of two linear equations in two variables",
+   "difficulty": "medium",
+   "prompt": "$$y = 3x - 5$$ $$2x + y = 15$$ If $(x, y)$ is the solution to the given system of equations, what is the value of $x + y$?",
+   "answer": [
+    "11"
+   ],
+   "explanation": "Substitute $y = 3x - 5$ into the second equation: $2x + 3x - 5 = 15$, so $5x = 20$ and $x = 4$. Then $y = 3(4) - 5 = 7$.\n\nThe question asks for $x + y = 4 + 7 = 11$. Stopping at $x = 4$ is the common mistake."
+  },
+  {
+   "id": "sys-08",
+   "section": "math",
+   "domain": "Algebra",
+   "skill": "Systems of two linear equations in two variables",
+   "difficulty": "hard",
+   "prompt": "$$2x - 5y = 4$$ $$ax - 15y = b$$ In the given system of equations, $a$ and $b$ are constants. If the system has infinitely many solutions, what is the value of $a + b$?",
+   "answer": [
+    "18"
+   ],
+   "explanation": "Infinitely many solutions means both equations describe the same line, so the second is a multiple of the first.\n\nThe $y$ coefficient went from $-5$ to $-15$, so the multiplier is 3: $3(2x - 5y) = 3(4)$ gives $6x - 15y = 12$. So $a = 6$, $b = 12$ and $a + b = 18$."
+  },
+  {
+   "id": "sys-09",
+   "section": "math",
+   "domain": "Algebra",
+   "skill": "Systems of two linear equations in two variables",
+   "difficulty": "hard",
+   "prompt": "A shop mixes almonds that cost 120,000 so'm per kilogram with raisins that cost 40,000 so'm per kilogram. It makes 10 kilograms of a mix worth 64,000 so'm per kilogram. How many kilograms of almonds are in the mix?",
+   "choices": [
+    "$5$",
+    "$7$",
+    "$8$",
+    "$3$"
+   ],
+   "answer": "D",
+   "explanation": "Let $x$ be kilograms of almonds and $y$ kilograms of raisins. Weight: $x + y = 10$. Value: $120{,}000x + 40{,}000y = 64{,}000(10) = 640{,}000$.\n\nDivide the second equation by 40,000: $3x + y = 16$. Subtract the first equation: $2x = 6$, so $x = 3$ and $y = 7$.\n\nCheck: $120{,}000(3) + 40{,}000(7) = 360{,}000 + 280{,}000 = 640{,}000$. Choice B is the raisins. Choice A assumes equal amounts, which would make a mix worth 80,000 so'm per kilogram."
+  },
+  {
+   "id": "sys-10",
+   "section": "math",
+   "domain": "Algebra",
+   "skill": "Systems of two linear equations in two variables",
+   "difficulty": "hard",
+   "prompt": "$$3x + 4y = 12$$ $$ax + 8y = c$$ In the given system of equations, $a$ and $c$ are constants. If the system has exactly one solution, which of the following must be true?",
+   "choices": [
+    "$a \\neq 6$",
+    "$c \\neq 24$",
+    "$a = 6$ and $c \\neq 24$",
+    "$a = 6$ and $c = 24$"
+   ],
+   "answer": "A",
+   "explanation": "Two lines meet in exactly one point when they are not parallel, which means their $x$ and $y$ coefficients are **not** in the same ratio.\n\nThe $y$ coefficients are 4 and 8, a ratio of 2. The lines would be parallel (or the same) if $a = 2 \\cdot 3 = 6$. So for exactly one solution, $a \\neq 6$, and $c$ can be anything.\n\nChoice C describes no solution, choice D describes infinitely many solutions, and choice B is not needed: with $a \\neq 6$ the system has one solution whatever $c$ is."
+  }
+ ]
+}

@@ -47,12 +47,28 @@
       "file": "data/sets/skill-words-in-context.json"
     },
     {
+      "id": "skill-rhetorical-synthesis",
+      "title": "Skill set: Rhetorical Synthesis",
+      "description": "Ten questions on using a student's notes to meet a goal: similarities, differences, causes, introductions, and generalizations with examples.",
+      "section": "rw",
+      "plan": "pro",
+      "file": "data/sets/skill-rhetorical-synthesis.json"
+    },
+    {
       "id": "skill-linear-equations-one-variable",
       "title": "Skill set: Linear equations in one variable",
       "description": "Ten questions on solving linear equations, including word problems and equations with no solution or infinitely many solutions.",
       "section": "math",
       "plan": "pro",
       "file": "data/sets/skill-linear-equations-one-variable.json"
+    },
+    {
+      "id": "skill-systems-linear-equations",
+      "title": "Skill set: Systems of two linear equations",
+      "description": "Ten questions on solving systems by elimination and substitution, word problems, and systems with no solution or infinitely many solutions.",
+      "section": "math",
+      "plan": "pro",
+      "file": "data/sets/skill-systems-linear-equations.json"
     },
     {
       "id": "skill-nonlinear-functions",

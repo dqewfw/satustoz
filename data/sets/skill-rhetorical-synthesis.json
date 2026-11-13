@@ -1,0 +1,177 @@
+{
+ "id": "skill-rhetorical-synthesis",
+ "title": "Skill set: Rhetorical Synthesis",
+ "description": "Ten questions on using a student's notes to meet a goal: similarities, differences, causes, introductions, and generalizations with examples.",
+ "questions": [
+  {
+   "id": "rs-01",
+   "section": "rw",
+   "domain": "Expression of Ideas",
+   "skill": "Rhetorical Synthesis",
+   "difficulty": "easy",
+   "passage": "While researching a topic, a student has taken the following notes:\n\n• The Venus flytrap is a plant that catches insects.\n• In the wild, it grows only in wetlands in North and South Carolina, in the United States.\n• A trap closes only if a trigger hair inside it is touched twice within about 20 seconds.\n• The plant digests insects to get nutrients that are scarce in the poor soil where it grows.",
+   "prompt": "The student wants to emphasize where the Venus flytrap grows in the wild. Which choice most effectively uses relevant information from the notes to accomplish this goal?",
+   "choices": [
+    "A Venus flytrap's trap closes only if a trigger hair inside it is touched twice within about 20 seconds.",
+    "In the wild, the Venus flytrap grows only in wetlands in North and South Carolina.",
+    "The Venus flytrap digests insects to get nutrients that are scarce in poor soil.",
+    "The Venus flytrap is a plant that catches insects."
+   ],
+   "answer": "B",
+   "explanation": "The goal is **where** the plant grows. Only B names a place: wetlands in North and South Carolina.\n\nA explains how the trap works, C explains why the plant eats insects, and D says what the plant is. All are true, but none says where it grows."
+  },
+  {
+   "id": "rs-02",
+   "section": "rw",
+   "domain": "Expression of Ideas",
+   "skill": "Rhetorical Synthesis",
+   "difficulty": "easy",
+   "passage": "While researching a topic, a student has taken the following notes:\n\n• The Aral Sea lies between Uzbekistan and Kazakhstan.\n• It was once one of the largest lakes in the world.\n• Starting in the 1960s, water from the rivers that fed it was diverted to irrigate cotton fields.\n• The sea has since shrunk to a small fraction of its former size.",
+   "prompt": "The student wants to explain why the Aral Sea shrank. Which choice most effectively uses relevant information from the notes to accomplish this goal?",
+   "choices": [
+    "The Aral Sea, which lies between Uzbekistan and Kazakhstan, was once one of the largest lakes in the world.",
+    "The Aral Sea has shrunk to a small fraction of its former size.",
+    "The Aral Sea lies between Uzbekistan and Kazakhstan.",
+    "The Aral Sea shrank after water from the rivers that fed it was diverted to irrigate cotton fields."
+   ],
+   "answer": "D",
+   "explanation": "The goal asks **why**, so the answer must give a cause. D does: the rivers' water was taken for irrigation.\n\nB says that the sea shrank but not why. A and C describe the sea's location and former size."
+  },
+  {
+   "id": "rs-03",
+   "section": "rw",
+   "domain": "Expression of Ideas",
+   "skill": "Rhetorical Synthesis",
+   "difficulty": "easy",
+   "passage": "While researching a topic, a student has taken the following notes:\n\n• Suzani is a type of embroidered textile.\n• It is traditionally made in Central Asia, including Uzbekistan.\n• Suzani often feature large flower and sun designs.\n• Bukhara and Samarkand are known for their suzani.",
+   "prompt": "The student wants to introduce suzani to an audience unfamiliar with it. Which choice most effectively uses relevant information from the notes to accomplish this goal?",
+   "choices": [
+    "Suzani, an embroidered textile traditionally made in Central Asia, often features large flower and sun designs.",
+    "Bukhara and Samarkand are both known for suzani.",
+    "Suzani often feature large flower and sun designs.",
+    "Many suzani are made in Uzbekistan."
+   ],
+   "answer": "A",
+   "explanation": "A reader who has never heard of suzani first needs to know **what it is**. Only A says it is an embroidered textile, and it adds where it comes from and what it looks like.\n\nB, C and D all use the word *suzani* without explaining it, so an unfamiliar reader would not know what is being described."
+  },
+  {
+   "id": "rs-04",
+   "section": "rw",
+   "domain": "Expression of Ideas",
+   "skill": "Rhetorical Synthesis",
+   "difficulty": "medium",
+   "passage": "While researching a topic, a student has taken the following notes:\n\n• Camels are well adapted to life in deserts.\n• The dromedary camel has one hump and lives mainly in the hot deserts of North Africa and the Middle East.\n• The Bactrian camel has two humps and lives mainly in the cold deserts of Central Asia, such as the Gobi.\n• Both kinds of camel store fat in their humps.",
+   "prompt": "The student wants to emphasize a difference between the habitats of the two kinds of camel. Which choice most effectively uses relevant information from the notes to accomplish this goal?",
+   "choices": [
+    "Both dromedary and Bactrian camels store fat in their humps, which helps them survive in deserts.",
+    "While the dromedary has one hump, the Bactrian camel has two.",
+    "The dromedary lives mainly in hot deserts, whereas the Bactrian camel lives mainly in the cold deserts of Central Asia.",
+    "The Bactrian camel, which has two humps, lives in deserts such as the Gobi."
+   ],
+   "answer": "C",
+   "explanation": "The goal has two parts: a **difference**, and it must be about **habitats**. C contrasts hot deserts with cold deserts, signaled by *whereas*.\n\nB gives a difference, but in humps, not habitats. A gives a similarity. D describes only one camel's habitat, so there is nothing to compare."
+  },
+  {
+   "id": "rs-05",
+   "section": "rw",
+   "domain": "Expression of Ideas",
+   "skill": "Rhetorical Synthesis",
+   "difficulty": "medium",
+   "passage": "While researching a topic, a student has taken the following notes:\n\n• Samarkand and Bukhara are cities in Uzbekistan.\n• Both were important stops on the Silk Road.\n• Samarkand is famous for the Registan square; Bukhara is famous for the Kalyan Minaret.\n• Bukhara's historic center became a UNESCO World Heritage site in 1993, and Samarkand followed in 2001.",
+   "prompt": "The student wants to emphasize a similarity between the two cities. Which choice most effectively uses relevant information from the notes to accomplish this goal?",
+   "choices": [
+    "Samarkand is famous for the Registan, while Bukhara is famous for the Kalyan Minaret.",
+    "Like Bukhara, Samarkand was an important stop on the Silk Road and is now a UNESCO World Heritage site.",
+    "Bukhara's historic center became a UNESCO World Heritage site in 1993.",
+    "Samarkand, home to the Registan, became a UNESCO World Heritage site in 2001."
+   ],
+   "answer": "B",
+   "explanation": "A similarity needs **both cities** and **what they share**. B names both and says what they have in common, signaled by *Like*.\n\nA mentions both cities but describes a difference (*while*). C and D each describe only one city."
+  },
+  {
+   "id": "rs-06",
+   "section": "rw",
+   "domain": "Expression of Ideas",
+   "skill": "Rhetorical Synthesis",
+   "difficulty": "medium",
+   "passage": "While researching a topic, a student has taken the following notes:\n\n• The saiga is an antelope that lives on the dry grasslands of Central Asia.\n• It has a large, flexible nose that hangs over its mouth.\n• In summer, the nose filters out dust kicked up by the herds.\n• In winter, the nose warms cold air before it reaches the lungs.",
+   "prompt": "The student wants to explain how the saiga's nose helps it survive. Which choice most effectively uses relevant information from the notes to accomplish this goal?",
+   "choices": [
+    "The saiga, an antelope of Central Asia's dry grasslands, has a large, flexible nose.",
+    "The saiga's large nose hangs over its mouth.",
+    "The saiga lives on the dry grasslands of Central Asia.",
+    "The saiga's large nose filters out dust in summer and warms cold air in winter."
+   ],
+   "answer": "D",
+   "explanation": "The goal asks **how** the nose helps. Only D says what the nose does: it filters dust and warms cold air.\n\nA is the trap: it describes the nose but not how it helps the animal. B also only describes it, and C is about where the saiga lives."
+  },
+  {
+   "id": "rs-07",
+   "section": "rw",
+   "domain": "Expression of Ideas",
+   "skill": "Rhetorical Synthesis",
+   "difficulty": "medium",
+   "passage": "While researching a topic, a student has taken the following notes:\n\n• The Tashkent Television Tower is in Tashkent, Uzbekistan.\n• Its construction was finished in 1985.\n• The tower is 375 meters tall.\n• It is the tallest tower in Central Asia.",
+   "prompt": "The student wants to emphasize how the tower compares with other towers in its region. Which choice most effectively uses relevant information from the notes to accomplish this goal?",
+   "choices": [
+    "At 375 meters, the Tashkent Television Tower is the tallest tower in Central Asia.",
+    "The Tashkent Television Tower, which is 375 meters tall, was finished in 1985.",
+    "Construction of the Tashkent Television Tower was finished in 1985.",
+    "The Tashkent Television Tower stands 375 meters tall in Tashkent, Uzbekistan."
+   ],
+   "answer": "A",
+   "explanation": "A comparison with the **region** needs the fact that relates the tower to others in Central Asia. Only A says it is the tallest tower there.\n\nB and D give the height, but a number alone does not compare the tower with anything. C gives only a date."
+  },
+  {
+   "id": "rs-08",
+   "section": "rw",
+   "domain": "Expression of Ideas",
+   "skill": "Rhetorical Synthesis",
+   "difficulty": "hard",
+   "passage": "While researching a topic, a student has taken the following notes:\n\n• Itchan Kala is the walled inner town of Khiva, Uzbekistan.\n• Its brick walls are about 10 meters high.\n• In 1990, it became a UNESCO World Heritage site.\n• It was the first place in Uzbekistan to receive this status.",
+   "prompt": "The student wants to emphasize Itchan Kala's place in the history of Uzbekistan's World Heritage sites. Which choice most effectively uses relevant information from the notes to accomplish this goal?",
+   "choices": [
+    "In 1990, Itchan Kala, the walled inner town of Khiva, became a UNESCO World Heritage site.",
+    "Itchan Kala, the walled inner town of Khiva, is surrounded by brick walls about 10 meters high.",
+    "Khiva's Itchan Kala became Uzbekistan's first UNESCO World Heritage site in 1990.",
+    "Itchan Kala, a UNESCO World Heritage site, is in Khiva, Uzbekistan."
+   ],
+   "answer": "C",
+   "explanation": "Its place in the **history of the country's World Heritage sites** is that it came **first**. Only C says so.\n\nA is the strongest trap: it gives the year 1990, but a year alone does not tell the reader it came before every other site in Uzbekistan. D mentions the status without any history, and B is about the walls."
+  },
+  {
+   "id": "rs-09",
+   "section": "rw",
+   "domain": "Expression of Ideas",
+   "skill": "Rhetorical Synthesis",
+   "difficulty": "hard",
+   "passage": "While researching a topic, a student has taken the following notes:\n\n• Many desert animals have adaptations that help them save water.\n• The fennec fox gets much of the water it needs from the food it eats.\n• The kangaroo rat produces very concentrated urine, so it loses little water.\n• The desert tortoise can store water in its bladder.",
+   "prompt": "The student wants to make a generalization about desert animals and support it with an example. Which choice most effectively uses relevant information from the notes to accomplish this goal?",
+   "choices": [
+    "The fennec fox gets much of its water from food, and the kangaroo rat produces very concentrated urine.",
+    "Many desert animals have ways of saving water; the desert tortoise, for example, can store water in its bladder.",
+    "Many desert animals have adaptations that help them save water.",
+    "Like the kangaroo rat, the desert tortoise lives in the desert."
+   ],
+   "answer": "B",
+   "explanation": "The goal has two parts: a **generalization** (a claim about many animals) **and** an **example**. B makes the general claim and then gives one specific animal, signaled by *for example*.\n\nC is the generalization with no example. A gives two examples but no general claim. D makes a comparison that says nothing about saving water."
+  },
+  {
+   "id": "rs-10",
+   "section": "rw",
+   "domain": "Expression of Ideas",
+   "skill": "Rhetorical Synthesis",
+   "difficulty": "hard",
+   "passage": "While researching a topic, a student has taken the following notes:\n\n• Silk is made from the cocoons of silkworms.\n• Silkworms feed only on mulberry leaves.\n• Uzbekistan is one of the world's largest producers of raw silk.\n• The city of Margilan, in the Fergana Valley, is famous for a hand-woven silk called atlas.",
+   "prompt": "The student wants to emphasize the connection between Uzbekistan's silk production and mulberry trees. Which choice most effectively uses relevant information from the notes to accomplish this goal?",
+   "choices": [
+    "Uzbekistan's large silk industry depends on mulberry trees, since silkworms feed only on mulberry leaves.",
+    "Uzbekistan is one of the world's largest producers of raw silk, and Margilan is famous for atlas silk.",
+    "Silkworms feed only on mulberry leaves, and silk is made from their cocoons.",
+    "Margilan's hand-woven atlas silk is made from the cocoons of silkworms."
+   ],
+   "answer": "A",
+   "explanation": "The goal links two things: **Uzbekistan's silk production** and **mulberry trees**. A connects them and explains why: the silkworms eat only mulberry leaves.\n\nC is the trap: it mentions mulberry leaves and silk but never Uzbekistan's production. B is about Uzbekistan's silk but leaves out mulberry trees. D leaves out both the trees and the country's production."
+  }
+ ]
+}
