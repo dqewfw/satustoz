@@ -44,6 +44,30 @@
   .expl { background: var(--paper); border-left: 3px solid var(--gold); padding: 10px 12px; border-radius: 0 10px 10px 0; margin-top: 8px; }
   .score-big { font-family: var(--display); font-size: 3rem; font-weight: 600; color: var(--brand-text); line-height: 1; margin: 6px 0; }
   @media (max-width: 600px) { .check-card { padding: 16px; } }
+  /* Interactive parabola ("::quadratic" in a lesson body) */
+  .qx { background: var(--paper); border: 1px solid var(--line-2); border-radius: var(--r); padding: 18px 20px; margin: 18px 0 8px; }
+  .qx-h { font-family: var(--display); font-weight: 600; font-size: 1.05rem; margin: 0 0 10px; color: var(--ink); }
+  .qx-eq { font-size: 1.2rem; margin: 0 0 12px; min-height: 1.6em; }
+  .qx-sl { display: grid; grid-template-columns: 22px 1fr 46px; align-items: center; gap: 10px; margin-bottom: 6px; }
+  .qx-sl label { font-weight: 700; font-style: italic; color: var(--ink-2); }
+  .qx-sl output { text-align: right; font-weight: 700; font-variant-numeric: tabular-nums; color: var(--ink); }
+  .qx-sl input[type=range] { width: 100%; accent-color: var(--brand); min-height: 28px; }
+  .qx-pre { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; margin: 8px 0 12px; }
+  .qx-pre .small { margin-right: 4px; }
+  .qx-pre button { font: inherit; font-size: .9rem; padding: 5px 12px; border-radius: 999px; border: 1px solid var(--line-2); background: var(--paper); color: var(--ink); cursor: pointer; }
+  .qx-pre button:hover { border-color: var(--brand); background: var(--brand-tint); }
+  .qx svg { display: block; width: 100%; height: auto; background: var(--paper); border-radius: var(--r-sm); border: 1px solid var(--line); touch-action: manipulation; }
+  .qx-leg { display: flex; flex-wrap: wrap; gap: 14px; font-size: .88rem; color: var(--muted); margin: 8px 0 12px; }
+  .qx-leg i { display: inline-block; width: 11px; height: 11px; border-radius: 50%; margin-right: 6px; vertical-align: -1px; }
+  .qx-stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 8px; }
+  .qx-stat { background: var(--ivory); border-radius: var(--r-sm); padding: 9px 12px; }
+  .qx-stat span { display: block; font-size: .84rem; color: var(--muted); }
+  .qx-stat b { font-size: 1.02rem; color: var(--ink); font-variant-numeric: tabular-nums; }
+  .qx-forms { margin-top: 12px; background: var(--ivory); border-radius: var(--r-sm); padding: 10px 14px; }
+  .qx-forms p { margin: 4px 0; font-size: 1rem; color: var(--ink-2); }
+  .qx-forms .lbl { display: inline-block; min-width: 10.5em; color: var(--muted); font-size: .9rem; }
+  .qx-note { color: var(--warn); font-weight: 600; margin: 6px 0 0; }
+  @media (max-width: 600px) { .qx { padding: 14px; } .qx-forms .lbl { display: block; min-width: 0; } }
 </style>
 </head>
 <body>
@@ -92,17 +116,29 @@ document.addEventListener('DOMContentLoaded', function () {
       min: '{n} min', done: 'Check: {s}/5', start: 'Start lesson', back: 'All lessons', check_h: 'Check yourself: 5 questions', check_p: 'Questions from our {skill} set, with an explanation after each one.',
       begin: 'Start the check', q: 'Question {i} of {n}', check: 'Check', next: 'Next', finish: 'See my result', ok: 'Correct', no: 'Not quite. The answer is {a}.',
       res: 'You got {s} of {n}.', res_good: 'Well done. Keep it fresh with the full practice set.', res_more: 'Read the lesson once more, then try the full practice set: your misses are in your Mistake Bank.',
-      full: 'Full practice set', retry: 'Try the check again', next_l: 'Next lesson', report: 'Report a mistake', err: 'Could not load the lessons. Check your connection.', none: 'This lesson was not found.' },
+      full: 'Full practice set', retry: 'Try the check again', next_l: 'Next lesson', report: 'Report a mistake', err: 'Could not load the lessons. Check your connection.', none: 'This lesson was not found.',
+      qx_h: 'Try it: move the sliders', qx_ex: 'Examples:', qx_opens: 'Opens', qx_up: 'Up: the vertex is a minimum', qx_down: 'Down: the vertex is a maximum',
+      qx_vertex: 'Vertex', qx_axis: 'Axis of symmetry', qx_disc: 'Discriminant', qx_zeros: 'Zeros (x-intercepts)', qx_yint: 'y-intercept',
+      qx_z2: '2 zeros', qx_z1: '1 zero', qx_z0: 'No real zeros', qx_line: 'a = 0: this is a straight line, not a quadratic.',
+      qx_forms: 'The same function in three forms', qx_std: 'Standard', qx_vtx: 'Vertex form', qx_fac: 'Factored', qx_nofac: 'cannot be factored: no real zeros', qx_graph: 'Graph of the parabola with its vertex, zeros and y-intercept' },
     uz: { h1: '5 daqiqalik darslar', lede: 'SATda eng koʻp tushadigan koʻnikmalar boʻyicha oʻzbek, rus yoki ingliz tilidagi qisqa darslar. Har biri 5 ta savollik tekshiruv bilan tugaydi. Savollar esa imtihondagidek ingliz tilida.',
       min: '{n} daqiqa', done: 'Tekshiruv: {s}/5', start: 'Darsni boshlash', back: 'Barcha darslar', check_h: 'Oʻzingizni tekshiring: 5 ta savol', check_p: '{skill} toʻplamimizdagi savollar, har biridan keyin izoh bilan.',
       begin: 'Tekshiruvni boshlash', q: '{n} tadan {i}-savol', check: 'Tekshirish', next: 'Keyingisi', finish: 'Natijani koʻrish', ok: 'Toʻgʻri', no: 'Unchalik emas. Toʻgʻri javob: {a}.',
       res: '{n} tadan {s} ta toʻgʻri.', res_good: 'Barakalla. Bilimingizni toʻliq toʻplam bilan mustahkamlang.', res_more: 'Darsni yana bir bor oʻqing, soʻng toʻliq toʻplamni yeching: xatolaringiz xatolar bankida.',
-      full: 'Toʻliq savollar toʻplami', retry: 'Tekshiruvni qayta topshirish', next_l: 'Keyingi dars', report: 'Xato haqida xabar berish', err: 'Darslarni yuklab boʻlmadi. Internetni tekshiring.', none: 'Bu dars topilmadi.' },
+      full: 'Toʻliq savollar toʻplami', retry: 'Tekshiruvni qayta topshirish', next_l: 'Keyingi dars', report: 'Xato haqida xabar berish', err: 'Darslarni yuklab boʻlmadi. Internetni tekshiring.', none: 'Bu dars topilmadi.',
+      qx_h: 'Sinab koʻring: slayderlarni suring', qx_ex: 'Misollar:', qx_opens: 'Shoxlari', qx_up: 'Yuqoriga: uchi minimum', qx_down: 'Pastga: uchi maksimum',
+      qx_vertex: 'Uchi', qx_axis: 'Simmetriya oʻqi', qx_disc: 'Diskriminant', qx_zeros: 'Nollar (x oʻqini kesish)', qx_yint: 'y oʻqini kesish',
+      qx_z2: '2 ta nol', qx_z1: '1 ta nol', qx_z0: 'Haqiqiy nollar yoʻq', qx_line: 'a = 0: bu toʻgʻri chiziq, kvadrat funksiya emas.',
+      qx_forms: 'Bitta funksiya uch shaklda', qx_std: 'Standart', qx_vtx: 'Uchli shakl', qx_fac: 'Koʻpaytuvchilarga ajratilgan', qx_nofac: 'ajratib boʻlmaydi: haqiqiy nollar yoʻq', qx_graph: 'Parabola grafigi: uchi, nollari va y oʻqini kesish nuqtasi' },
     ru: { h1: '5-минутные уроки', lede: 'Короткие уроки по самым частым навыкам SAT на английском, узбекском или русском. Каждый заканчивается проверкой из 5 вопросов. Сами вопросы на английском, как на экзамене.',
       min: '{n} мин', done: 'Проверка: {s}/5', start: 'Начать урок', back: 'Все уроки', check_h: 'Проверьте себя: 5 вопросов', check_p: 'Вопросы из нашего набора {skill}, с объяснением после каждого.',
       begin: 'Начать проверку', q: 'Вопрос {i} из {n}', check: 'Проверить', next: 'Дальше', finish: 'Мой результат', ok: 'Верно', no: 'Не совсем. Верный ответ: {a}.',
       res: 'Верно {s} из {n}.', res_good: 'Отлично. Закрепите результат полным набором вопросов.', res_more: 'Перечитайте урок и решите полный набор: ваши ошибки уже в банке ошибок.',
-      full: 'Полный набор вопросов', retry: 'Пройти проверку снова', next_l: 'Следующий урок', report: 'Сообщить об ошибке', err: 'Не удалось загрузить уроки. Проверьте интернет.', none: 'Урок не найден.' }
+      full: 'Полный набор вопросов', retry: 'Пройти проверку снова', next_l: 'Следующий урок', report: 'Сообщить об ошибке', err: 'Не удалось загрузить уроки. Проверьте интернет.', none: 'Урок не найден.',
+      qx_h: 'Попробуйте: двигайте ползунки', qx_ex: 'Примеры:', qx_opens: 'Ветви', qx_up: 'Вверх: вершина — минимум', qx_down: 'Вниз: вершина — максимум',
+      qx_vertex: 'Вершина', qx_axis: 'Ось симметрии', qx_disc: 'Дискриминант', qx_zeros: 'Нули (пересечения с осью x)', qx_yint: 'Пересечение с осью y',
+      qx_z2: '2 нуля', qx_z1: '1 нуль', qx_z0: 'Действительных нулей нет', qx_line: 'a = 0: это прямая, а не квадратичная функция.',
+      qx_forms: 'Одна функция в трёх формах', qx_std: 'Стандартная', qx_vtx: 'Через вершину', qx_fac: 'Разложенная', qx_nofac: 'не раскладывается: нет действительных нулей', qx_graph: 'График параболы с вершиной, нулями и пересечением с осью y' }
   });
   const box = $('#ls');
   let lessons = [], quiz = null;
@@ -112,6 +148,8 @@ document.addEventListener('DOMContentLoaded', function () {
   // Lesson text: "## " headings, "- " lists, "1. " steps, the rest paragraphs (renderRich inside).
   function md(src) {
     return String(src || '').split(/\n\s*\n/).map(block => {
+      const w = block.trim().match(/^::([a-z-]+)$/);
+      if (w && WIDGETS[w[1]]) return '<div data-widget="' + w[1] + '"></div>';
       const lines = block.split('\n');
       if (/^## /.test(lines[0])) return '<h2>' + SH.renderRich(lines[0].slice(3), { inline: true }) + '</h2>' + (lines.length > 1 ? md(lines.slice(1).join('\n')) : '');
       if (lines.every(l => /^- /.test(l))) return '<ul>' + lines.map(l => '<li>' + SH.renderRich(l.slice(2), { inline: true }) + '</li>').join('') + '</ul>';
@@ -120,6 +158,93 @@ document.addEventListener('DOMContentLoaded', function () {
       while (i < lines.length && !/^- /.test(lines[i])) pre.push(lines[i++]);
       return (pre.length ? '<p>' + SH.renderRich(pre.join('\n'), { inline: true }) + '</p>' : '') + (i < lines.length ? md(lines.slice(i).join('\n')) : '');
     }).join('');
+  }
+
+  // Interactive widgets. A lesson body block that is just "::name" becomes WIDGETS[name].
+  // Colors come from sh.css variables, so dark mode works without extra rules.
+  const num = v => { const r = Math.round(v * 100) / 100; return Object.is(r, -0) ? 0 : r; };
+  const tex = s => SH.renderRich('$' + s + '$', { inline: true });
+  function coef(v, first, sym) { // one term of a polynomial in KaTeX: "+ 2x", "- x^2", "3"
+    if (v === 0) return '';
+    const a = Math.abs(num(v)), sign = v < 0 ? (first ? '-' : ' - ') : (first ? '' : ' + ');
+    return sign + (sym && a === 1 ? '' : String(a)) + sym;
+  }
+  const shift = h => h === 0 ? 'x' : '(x ' + (h > 0 ? '- ' : '+ ') + Math.abs(num(h)) + ')';
+  const lead = a => a === 1 ? '' : a === -1 ? '-' : String(num(a));
+  const qxState = { a: 1, b: -2, c: -3 };
+  const WIDGETS = {
+    quadratic(el) {
+      const S = qxState;
+      const PRE = [{ k: 'qx_z2', a: 1, b: -2, c: -3 }, { k: 'qx_z1', a: 1, b: -4, c: 4 }, { k: 'qx_z0', a: 1, b: -2, c: 3 }, { k: 'qx_down', a: -1, b: 2, c: 3 }];
+      const slider = (k, min, max, step) => '<div class="qx-sl"><label for="qx-' + k + '">' + k + '</label><input type="range" id="qx-' + k + '" data-k="' + k + '" min="' + min + '" max="' + max + '" step="' + step + '" value="' + S[k] + '"><output id="qx-' + k + '-o" for="qx-' + k + '">' + S[k] + '</output></div>';
+      el.className = 'qx';
+      el.innerHTML = '<p class="qx-h">' + esc(t('qx_h')) + '</p><div class="qx-eq" aria-live="polite"></div>' +
+        slider('a', -3, 3, 0.5) + slider('b', -8, 8, 1) + slider('c', -8, 8, 1) +
+        '<div class="qx-pre"><span class="small muted">' + esc(t('qx_ex')) + '</span>' + PRE.map((p, i) => '<button type="button" data-pre="' + i + '">' + esc(t(p.k).split(':')[0]) + '</button>').join('') + '</div>' +
+        '<svg viewBox="0 0 600 420" role="img" aria-label="' + esc(t('qx_graph')) + '"></svg>' +
+        '<div class="qx-leg"><span><i style="background:var(--gold-text)"></i>' + esc(t('qx_vertex')) + '</span><span><i style="background:var(--brand-text)"></i>' + esc(t('qx_zeros')) + '</span><span><i style="border:2px solid var(--ink-2)"></i>' + esc(t('qx_yint')) + '</span></div>' +
+        '<div class="qx-stats" aria-live="polite"></div><div class="qx-forms"></div>';
+      const svg = $('svg', el), eq = $('.qx-eq', el), stats = $('.qx-stats', el), forms = $('.qx-forms', el);
+      const W = 600, H = 420, U = 30, X = x => W / 2 + x * U, Y = y => H / 2 - y * U; // 1 unit = 30px: x from -10 to 10, y from -7 to 7
+      let sc = 1; // on narrow screens the SVG shrinks, so labels, lines and dots get bigger in SVG units
+      function chrome() {
+        let grid = '', ticks = '';
+        for (let i = -10; i <= 10; i++) grid += '<line x1="' + X(i) + '" y1="0" x2="' + X(i) + '" y2="' + H + '"/>';
+        for (let i = -7; i <= 7; i++) grid += '<line x1="0" y1="' + Y(i) + '" x2="' + W + '" y2="' + Y(i) + '"/>';
+        for (let i = -8; i <= 8; i += 2) if (i) ticks += '<text x="' + X(i) + '" y="' + (Y(0) + 14 + 4 * sc) + '" text-anchor="middle">' + i + '</text>';
+        for (let i = -6; i <= 6; i += 2) if (i) ticks += '<text x="' + (X(0) - 6 - sc) + '" y="' + (Y(i) + 4 * sc) + '" text-anchor="end">' + i + '</text>';
+        return '<defs><clipPath id="qx-clip"><rect width="' + W + '" height="' + H + '"/></clipPath></defs>' +
+          '<g style="stroke:var(--line);stroke-width:1">' + grid + '</g>' +
+          '<g style="stroke:var(--edge);stroke-width:' + 1.5 * sc + '"><line x1="0" y1="' + Y(0) + '" x2="' + W + '" y2="' + Y(0) + '"/><line x1="' + X(0) + '" y1="0" x2="' + X(0) + '" y2="' + H + '"/></g>' +
+          '<g style="fill:var(--muted);font-size:' + Math.round(13 * sc) + 'px;font-family:var(--sans)">' + ticks + '</g>';
+      }
+      const dot = (x, y, r, fill, ring) => '<circle cx="' + X(x).toFixed(1) + '" cy="' + Y(y).toFixed(1) + '" r="' + (r * sc).toFixed(1) + '" style="fill:' + fill + ';stroke:' + ring + ';stroke-width:' + (2.5 * sc).toFixed(1) + '"/>';
+      const stat = (k, v) => '<div class="qx-stat"><span>' + esc(t(k)) + '</span><b>' + v + '</b></div>';
+      function draw() {
+        const { a, b, c } = S;
+        ['a', 'b', 'c'].forEach(k => { $('#qx-' + k, el).value = S[k]; $('#qx-' + k + '-o', el).textContent = num(S[k]); });
+        const std = (coef(a, true, 'x^2') + coef(b, !a, 'x') + coef(c, !a && !b, '')) || '0';
+        eq.innerHTML = tex('f(x) = ' + std);
+        sc = Math.min(1.9, Math.max(1, 480 / (svg.clientWidth || 600)));
+        let out = chrome(), path = '';
+        for (let i = 0; i <= 300; i++) {
+          const x = -10 + i * 20 / 300, y = Math.max(-40, Math.min(40, a * x * x + b * x + c));
+          path += (i ? 'L' : 'M') + X(x).toFixed(1) + ' ' + Y(y).toFixed(1);
+        }
+        if (!a) {
+          out += '<path d="' + path + '" clip-path="url(#qx-clip)" style="fill:none;stroke:var(--brand-text);stroke-width:' + 3 * sc + '"/>' + dot(0, c, 5, 'var(--paper)', 'var(--ink-2)');
+          svg.innerHTML = out;
+          stats.innerHTML = '<p class="qx-note">' + esc(t('qx_line')) + '</p>';
+          forms.innerHTML = '';
+          return;
+        }
+        const h = -b / (2 * a), k = a * h * h + b * h + c, D = b * b - 4 * a * c;
+        const zs = D > 0 ? [(-b - Math.sqrt(D)) / (2 * a), (-b + Math.sqrt(D)) / (2 * a)].sort((p, q) => p - q) : D === 0 ? [h] : [];
+        const exact = zs.every(z => Math.abs(z - num(z)) < 1e-9), zt = zs.map(z => (exact ? '' : '≈ ') + num(z));
+        out += '<line x1="' + X(h).toFixed(1) + '" y1="0" x2="' + X(h).toFixed(1) + '" y2="' + H + '" style="stroke:var(--gold-text);stroke-width:' + 1.5 * sc + ';stroke-dasharray:' + 6 * sc + ' ' + 5 * sc + '"/>' +
+          '<path d="' + path + '" clip-path="url(#qx-clip)" style="fill:none;stroke:var(--brand-text);stroke-width:' + 3 * sc + ';stroke-linejoin:round;stroke-linecap:round"/>' +
+          zs.map(z => dot(z, 0, 6, 'var(--brand-text)', 'var(--paper)')).join('') + dot(0, c, 5, 'var(--paper)', 'var(--ink-2)') +
+          (Math.abs(k) <= 7.5 && Math.abs(h) <= 10 ? dot(h, k, 7, 'var(--gold-text)', 'var(--paper)') : '');
+        svg.innerHTML = out;
+        stats.innerHTML = stat('qx_opens', esc(t(a > 0 ? 'qx_up' : 'qx_down'))) + stat('qx_vertex', '(' + num(h) + ', ' + num(k) + ')') + stat('qx_axis', 'x = ' + num(h)) +
+          stat('qx_disc', 'D = ' + num(D) + ' → ' + esc(t(D > 0 ? 'qx_z2' : D === 0 ? 'qx_z1' : 'qx_z0'))) + stat('qx_zeros', zs.length ? esc(zt.join(';  ')) : '—') + stat('qx_yint', '(0, ' + num(c) + ')');
+        const rel = ok => ok ? ' = ' : ' \\approx ', isExact = v => Math.abs(v - num(v)) < 1e-9;
+        const vtx = rel(isExact(h) && isExact(k)) + lead(a) + (h === 0 ? 'x^2' : shift(h) + '^2') + coef(k, false, '');
+        const fac = D < 0 ? esc(t('qx_nofac')) : tex('f(x)' + rel(exact) + lead(a) + (D === 0 ? shift(h) + '^2' : shift(zs[0]) + shift(zs[1])));
+        forms.innerHTML = '<p class="small muted" style="margin:0 0 4px">' + esc(t('qx_forms')) + '</p>' +
+          '<p><span class="lbl">' + esc(t('qx_std')) + '</span>' + tex('f(x) = ' + std) + '</p>' +
+          '<p><span class="lbl">' + esc(t('qx_vtx')) + '</span>' + tex('f(x)' + vtx) + '</p>' +
+          '<p><span class="lbl">' + esc(t('qx_fac')) + '</span>' + fac + '</p>';
+      }
+      $$('input[type=range]', el).forEach(r => r.addEventListener('input', () => { S[r.dataset.k] = Number(r.value); draw(); }));
+      $$('[data-pre]', el).forEach(btn => btn.addEventListener('click', () => { const p = PRE[btn.dataset.pre]; S.a = p.a; S.b = p.b; S.c = p.c; draw(); }));
+      draw();
+      let lastW = svg.clientWidth;
+      if (window.ResizeObserver) new ResizeObserver(() => { if (svg.isConnected && Math.abs(svg.clientWidth - lastW) > 40) { lastW = svg.clientWidth; draw(); } }).observe(svg);
+    }
+  };
+  function mountWidgets(root) {
+    $$('[data-widget]', root).forEach(el => { try { WIDGETS[el.dataset.widget](el); } catch (e) { console.warn('[SAT Ustoz] Widget failed:', e); } });
   }
 
   function route() {
@@ -146,14 +271,17 @@ document.addEventListener('DOMContentLoaded', function () {
       '<h1>' + esc(L(l.title)) + '</h1><div class="lesson-body rich">' + md(L(l.body)) + '</div>' +
       '<section class="check" id="check"><div class="card"><h2 style="font-size:1.4rem">' + esc(t('check_h')) + '</h2><p class="muted">' + esc(t('check_p', { skill: l.skill })) + '</p><button type="button" class="btn btn-primary" data-begin>' + esc(t('begin')) + '</button></div></section></article>';
     $('[data-begin]').addEventListener('click', () => beginCheck(l));
+    mountWidgets(box);
     window.scrollTo(0, 0);
     SH.track('lesson_opened', { lesson: l.id });
   }
   // Five questions from the lesson's skill set: two easy, two medium, one hard.
+  // A lesson can list its own question ids instead ("qids" in lessons.json).
   async function beginCheck(l) {
     const set = await SH.loadSet(l.set);
     const of = d => set.questions.filter(q => q.skill === l.skill && q.difficulty === d);
-    const qs = of('easy').slice(0, 2).concat(of('medium').slice(0, 2), of('hard').slice(0, 1)).map(q => Object.assign({ setId: set.id }, q));
+    const picked = Array.isArray(l.qids) ? l.qids.map(id => set.questions.find(q => q.id === id)).filter(Boolean) : [];
+    const qs = (picked.length ? picked : of('easy').slice(0, 2).concat(of('medium').slice(0, 2), of('hard').slice(0, 1))).map(q => Object.assign({ setId: set.id }, q));
     quiz = { l, qs, i: 0, pick: null, checked: false, right: 0 };
     drawQ();
   }
