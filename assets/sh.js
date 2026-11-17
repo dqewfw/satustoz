@@ -116,7 +116,7 @@
     CONTACT_TELEGRAM: 'https://t.me/azizbek7_t',
     CHANNEL_TELEGRAM: 'https://t.me/satustoz_off',
     INSTAGRAM: 'https://www.instagram.com/satustoz',
-    PHONE: '+998 97 055 00 33',
+    PHONE: '+998 50 955 00 58',
     EMAIL: 'satustozacademy@gmail.com',
     // Your learning center, offered after the free diagnostic to students who
     // want a teacher (a free 15-minute call or a trial lesson). Empty URL: the
