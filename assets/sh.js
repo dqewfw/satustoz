@@ -1886,13 +1886,13 @@
   // Header and footer words on the trilingual pages (vocab, lessons, daily,
   // mock, score calculator): <a data-nav="vocab">Vocabulary</a>.
   const NAV_TEXT = {
-    en: { dash: 'Dashboard', sets: 'Sets', tests: 'Tests', vocab: 'Vocabulary', lessons: 'Lessons', plans: 'Plans', daily: 'Question of the day', calc: 'Score calculator', mock: 'National mock', teach: 'For teachers', practice: 'Practice', contact: 'Contact', channel: 'Telegram channel', feedback: 'Send feedback', skip: 'Skip to content', address: 'Alisher Navoiy MFY, Pop district, Namangan region, Uzbekistan',
+    en: { dash: 'Dashboard', sets: 'Sets', tests: 'Tests', vocab: 'Vocabulary', lessons: 'Lessons', plans: 'Plans', daily: 'Question of the day', calc: 'Score calculator', mock: 'National mock', teach: 'For teachers', practice: 'Practice', contact: 'Contact', channel: 'Telegram channel', feedback: 'Send feedback', skip: 'Skip to content',
       tag: 'Digital SAT practice built by someone who has taken the test, for students in Uzbekistan and beyond.',
       legal: 'SAT® is a trademark registered by the College Board, which is not affiliated with, and does not endorse, this website. All practice questions on this site are written by SAT Ustoz.' },
-    uz: { dash: 'Sahifam', sets: 'Toʻplamlar', tests: 'Testlar', vocab: 'Lugʻat', lessons: 'Darslar', plans: 'Tariflar', daily: 'Kun savoli', calc: 'Ball kalkulyatori', mock: 'Milliy sinov imtihoni', teach: 'Oʻqituvchilar uchun', practice: 'Mashq', contact: 'Aloqa', channel: 'Telegram kanal', feedback: 'Fikr bildirish', skip: 'Asosiy qismga oʻtish', address: 'Namangan viloyati, Pop tumani, Alisher Navoiy MFY',
+    uz: { dash: 'Sahifam', sets: 'Toʻplamlar', tests: 'Testlar', vocab: 'Lugʻat', lessons: 'Darslar', plans: 'Tariflar', daily: 'Kun savoli', calc: 'Ball kalkulyatori', mock: 'Milliy sinov imtihoni', teach: 'Oʻqituvchilar uchun', practice: 'Mashq', contact: 'Aloqa', channel: 'Telegram kanal', feedback: 'Fikr bildirish', skip: 'Asosiy qismga oʻtish',
       tag: 'Imtihonni oʻzi topshirgan inson tomonidan Oʻzbekiston va boshqa mamlakatlardagi oʻquvchilar uchun yaratilgan Digital SAT mashqlari.',
       legal: 'SAT® College Board tomonidan roʻyxatdan oʻtkazilgan savdo belgisidir. College Board ushbu sayt bilan bogʻliq emas va uni qoʻllab-quvvatlamaydi. Saytdagi barcha mashq savollari SAT Ustoz tomonidan yozilgan.' },
-    ru: { dash: 'Кабинет', sets: 'Наборы', tests: 'Тесты', vocab: 'Словарь', lessons: 'Уроки', plans: 'Тарифы', daily: 'Вопрос дня', calc: 'Калькулятор баллов', mock: 'Национальный пробный экзамен', teach: 'Для преподавателей', practice: 'Практика', contact: 'Контакты', channel: 'Telegram-канал', feedback: 'Оставить отзыв', skip: 'Перейти к содержанию', address: 'Наманганская обл., Попский р-н, МСГ Алишер Навои',
+    ru: { dash: 'Кабинет', sets: 'Наборы', tests: 'Тесты', vocab: 'Словарь', lessons: 'Уроки', plans: 'Тарифы', daily: 'Вопрос дня', calc: 'Калькулятор баллов', mock: 'Национальный пробный экзамен', teach: 'Для преподавателей', practice: 'Практика', contact: 'Контакты', channel: 'Telegram-канал', feedback: 'Оставить отзыв', skip: 'Перейти к содержанию',
       tag: 'Практика Digital SAT от того, кто сам сдавал тест, для учеников в Узбекистане и не только.',
       legal: 'SAT® является зарегистрированным товарным знаком College Board, которая не связана с этим сайтом и не одобряет его. Все тренировочные вопросы на сайте написаны SAT Ustoz.' }
   };
@@ -3652,8 +3652,9 @@
     $$('[data-link="instagram"]').forEach(a => { a.href = CONFIG.INSTAGRAM; });
     footerContacts();
   }
-  // Every footer's Contact list shows the phone, email and address (Payme asks
-  // for contacts both in the offer and on the site). Pages differ, so fill gaps here.
+  // Every footer's Contact list shows the phone and email (Payme asks for
+  // contacts both in the offer and on the site). Pages differ, so fill gaps here.
+  // The address is only in oferta.html, on purpose.
   function footerContacts() {
     const lists = [...new Set($$('.site-footer a[data-link="telegram"]').map(a => a.closest('ul')).filter(Boolean))];
     if (!lists.length) return;
@@ -3661,12 +3662,7 @@
     lists.forEach(ul => {
       if (!ul.querySelector('a[href^="tel:"]')) ul.prepend(li('<a href="tel:' + CONFIG.PHONE.replace(/[^+0-9]/g, '') + '">' + esc(CONFIG.PHONE) + '</a>'));
       if (!ul.querySelector('a[href^="mailto:"]')) ul.querySelector('a[href^="tel:"]').parentElement.after(li('<a href="mailto:' + esc(CONFIG.EMAIL) + '">' + esc(CONFIG.EMAIL) + '</a>'));
-      if (!ul.querySelector('[data-nav="address"]')) ul.append(li('<span data-nav="address"></span>'));
     });
-    const paint = () => { const t = NAV_TEXT[langNow()] || NAV_TEXT.en; $$('.site-footer [data-nav="address"]').forEach(el => { el.textContent = t.address; }); };
-    paint();
-    // Pages switch language in different ways; all of them set <html lang>.
-    try { new MutationObserver(paint).observe(document.documentElement, { attributes: true, attributeFilter: ['lang'] }); } catch (e) { /* old browser: first language only */ }
   }
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', initChrome); else initChrome();
 
