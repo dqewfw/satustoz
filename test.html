@@ -229,6 +229,7 @@
   .filters button { border: 1px solid var(--line-2); background: var(--paper); border-radius: var(--r-sm); padding: 7px 14px; font-weight: 600; font-size: .88rem; cursor: pointer; transition: background-color var(--t-fast), border-color var(--t-fast), color var(--t-fast); }
   .filters button:hover { border-color: var(--brand); color: var(--brand-text); }
   .filters button[aria-pressed="true"] { background: var(--brand); color: #fff; border-color: var(--brand); }
+  .sec-filters { margin-bottom: 8px; }
   .filters .cnt { opacity: .75; font-weight: 700; margin-left: 4px; font-variant-numeric: tabular-nums; }
   .qitem { border: 1px solid var(--line); border-radius: var(--r-sm); background: var(--paper); margin-bottom: 10px; overflow: hidden; transition: box-shadow var(--t), border-color var(--t); }
   .qitem:hover { border-color: var(--line-2); }
@@ -1200,14 +1201,22 @@ document.addEventListener('DOMContentLoaded', function () {
   /* ---------------- Results ---------------- */
   function showResults(rec) {
     stopTick(); closePanels();
-    function keep(t, filter) {
+    // Review filters: a section (both / Math / English) and a status (all / incorrect / ...).
+    const RV_T = SH.i18n({
+      en: { both: 'Both sections', math: 'Math', rw: 'English', jump: 'Review questions', sec: 'Section' },
+      uz: { both: 'Ikkala boʻlim', math: 'Matematika', rw: 'Ingliz tili', jump: 'Savollarni koʻrish', sec: 'Boʻlim' },
+      ru: { both: 'Оба раздела', math: 'Математика', rw: 'Английский', jump: 'Разбор вопросов', sec: 'Раздел' }
+    }, SH.pickLang);
+    let curSec = 'all', curF = 'all';
+    function keep(t, filter, sec) {
+      if (sec && sec !== 'all' && t.sec.id !== sec) return false;
       const r = rec.responses[t.q.id]; const ok = SH.isCorrect(t.q, r);
       if (filter === 'wrong') return !ok;
       if (filter === 'marked') return !!(rec.marked && rec.marked[t.q.id]);
       if (filter === 'blank') return r == null || r === '';
       return true;
     }
-    const filterCount = f => takenQuestions(rec.routes).filter(t => keep(t, f)).length;
+    const filterCount = (f, sec) => takenQuestions(rec.routes).filter(t => keep(t, f, sec)).length;
     document.body.classList.add('results');
     const taken = takenQuestions(rec.routes);
     const fmtMin = ms => SH.fmtClock((ms || 0) / 1000);
@@ -1251,7 +1260,7 @@ document.addEventListener('DOMContentLoaded', function () {
       '<p class="muted small">' + (rec.name ? esc(rec.name) + ', ' : '') + SH.fmtDate(rec.finishedAt) + '</p>' +
       (rec.total != null ? '<div class="score-big">' + rec.total + '<small>Estimated total score (400–1600)</small></div>' + scaleHtml(rec.total) : '') +
       '</div><div class="sec-scores">' + secRows + '<p class="small muted" style="margin:0">This is an estimate. The real SAT scores each question with item response theory, so treat it as a ballpark, not a prediction.</p><div class="true-score" id="true-score" hidden></div></div></section>' +
-      '<div class="row" style="margin:16px 0 26px"><a class="btn btn-primary" href="test.html?id=' + encodeURIComponent(rec.testId) + '">Retake this test</a><a class="btn btn-ghost" href="practice.html#home">Practice my weak skills</a><button type="button" class="btn btn-ghost" id="share-score">Share my score</button></div>' +
+      '<div class="row" style="margin:16px 0 26px"><a class="btn btn-primary" href="test.html?id=' + encodeURIComponent(rec.testId) + '">Retake this test</a><a class="btn btn-ghost" href="practice.html#home">Practice my weak skills</a><button type="button" class="btn btn-ghost" id="share-score">Share my score</button>' + (full ? '<a class="btn btn-ghost" href="#review">' + RV_T('jump') + '</a>' : '') + '</div>' +
       (rec.mock ? '<section class="card notice-ok" id="mock-res" style="margin-bottom:26px">' + mockResHtml(rec, rec.mockSaved ? true : null) + '</section>' : '') +
       (isDiag ? '<section class="card diag" id="diag" style="margin-bottom:26px"></section>' : '') +
       (full
@@ -1260,9 +1269,11 @@ document.addEventListener('DOMContentLoaded', function () {
         : isDiag ? '' : '<section class="card"><h3>Your three weakest skills</h3>' + SH.lockBox(weakRows || domRows, 'See which skills cost you points', 'Pro breaks your score down by skill and module, so you know exactly what to practice next.', 'weak_skills') + '</section>') +
       (full ? '' : '<section style="margin-top:26px"><h2 style="font-size:1.6rem">Review every question</h2><div class="card">' +
         SH.lockBox('<div id="qprev"></div>', 'Review all ' + taken.length + ' questions', 'You missed ' + wrongCount + '. Pro shows each one with the right answer and an explanation.', 'review') + '</div></section>') +
-      (!full ? '' : '<section style="margin-top:26px"><h2 style="font-size:1.6rem">Review every question</h2>' +
+      (!full ? '' : '<section id="review" style="margin-top:26px;scroll-margin-top:16px"><h2 style="font-size:1.6rem">Review every question</h2>' +
+      (test.sections.length > 1 ? '<div class="filters sec-filters" role="group" aria-label="' + RV_T('sec') + '">' + [['all', RV_T('both')]].concat(test.sections.map(s => [s.id, RV_T(s.id === 'math' ? 'math' : 'rw')])).map((f, i) =>
+        '<button type="button" data-sf="' + esc(f[0]) + '" aria-pressed="' + (i === 0) + '">' + esc(f[1]) + '<span class="cnt">' + filterCount('all', f[0]) + '</span></button>').join('') + '</div>' : '') +
       '<div class="filters" role="group" aria-label="Filter questions">' + [['all', 'All'], ['wrong', 'Incorrect'], ['marked', 'Marked'], ['blank', 'Unanswered']].map((f, i) =>
-        '<button type="button" data-f="' + f[0] + '" aria-pressed="' + (i === 0) + '">' + f[1] + '<span class="cnt">' + filterCount(f[0]) + '</span></button>').join('') + '</div>' +
+        '<button type="button" data-f="' + f[0] + '" aria-pressed="' + (i === 0) + '">' + f[1] + '<span class="cnt" data-cnt="' + f[0] + '">' + filterCount(f[0]) + '</span></button>').join('') + '</div>' +
       '<div id="qlist"></div></section>') + '</main>';
 
     SH.theme.apply(); // the logo with light lettering in dark mode
@@ -1427,8 +1438,8 @@ document.addEventListener('DOMContentLoaded', function () {
     if (rec.total != null) drawTrueScore(rec);
     if (isDiag) drawDiagReport(rec, taken);
     const list = $('#qlist') || $('#qprev');
-    function draw(filter) {
-      const items = taken.filter(t => keep(t, filter));
+    function draw() {
+      const items = taken.filter(t => keep(t, curF, curSec));
       list.innerHTML = items.length ? items.map((t, i) => {
         const r = rec.responses[t.q.id]; const ok = SH.isCorrect(t.q, r); const blank = r == null || r === '';
         return '<div class="qitem" data-qid="' + esc(t.q.id) + '"><button type="button" aria-expanded="false">' +
@@ -1456,10 +1467,16 @@ document.addEventListener('DOMContentLoaded', function () {
       window.scrollTo(0, 0);
       return;
     }
-    draw('all');
+    draw();
     $$('[data-f]').forEach(b => b.addEventListener('click', () => {
       $$('[data-f]').forEach(x => x.setAttribute('aria-pressed', String(x === b)));
-      draw(b.dataset.f);
+      curF = b.dataset.f; draw();
+    }));
+    $$('[data-sf]').forEach(b => b.addEventListener('click', () => {
+      $$('[data-sf]').forEach(x => x.setAttribute('aria-pressed', String(x === b)));
+      curSec = b.dataset.sf;
+      $$('[data-cnt]').forEach(c => { c.textContent = filterCount(c.dataset.cnt, curSec); });
+      draw();
     }));
     window.scrollTo(0, 0);
   }
