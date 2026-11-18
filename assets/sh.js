@@ -93,7 +93,7 @@
     // switches on by itself, and Pro tests load through the Worker. MANUAL_PAY
     // is then ignored.
     // Example: 'https://satustoz-pay.yourname.workers.dev'
-    PAYMENTS_ENDPOINT: '',
+    PAYMENTS_ENDPOINT: 'https://satustoz-pay.azizbeekk7.workers.dev',
 
     // Pro tests through the payments Worker before Payme is ready (README
     // "Moving the Pro tests off GitHub Pages"). Paste the Worker URL here and
