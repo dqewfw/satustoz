@@ -255,6 +255,7 @@ document.addEventListener('DOMContentLoaded', function () {
     if (!l) { box.innerHTML = '<p class="muted">' + esc(t('none')) + '</p><a class="btn btn-ghost" href="lessons.html">' + esc(t('back')) + '</a>'; return; }
     drawLesson(l);
   }
+  const LIST_TITLE = document.title;
   function drawList() {
     const pr = progress();
     box.innerHTML = '<div class="ls-head"><h1>' + esc(t('h1')) + '</h1><p>' + esc(t('lede')) + '</p></div><div class="grid grid-3">' + lessons.map(l => {
@@ -262,7 +263,7 @@ document.addEventListener('DOMContentLoaded', function () {
       return '<a class="card l-card" href="#' + esc(l.id) + '"><div class="meta"><span class="tag tag-' + l.section + '">' + (l.section === 'math' ? 'Math' : 'R&amp;W') + '</span><span class="small muted">' + esc(t('min', { n: l.minutes })) + '</span>' +
         (p && !p.deleted ? '<span class="status status-done">' + esc(t('done', { s: p.score })) + '</span>' : '') + '</div><h2>' + esc(L(l.title)) + '</h2><span class="small muted">' + esc(l.skill) + '</span></a>';
     }).join('') + '</div>';
-    document.title = t('h1') + ' | SAT Ustoz';
+    document.title = SH.langNow() === 'en' ? LIST_TITLE : t('h1') + ' | SAT Ustoz'; // English keeps the searchable <title>
   }
   function drawLesson(l) {
     document.title = L(l.title) + ' | SAT Ustoz';

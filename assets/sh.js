@@ -131,7 +131,7 @@
 
     // Official SAT dates students pick their test day from (goal setup).
     // Check them against collegeboard.org each year and add the next ones.
-    SAT_DATES: ['2026-11-07', '2026-12-05', '2027-03-13', '2027-05-01', '2027-06-05'],
+    SAT_DATES: ['2026-11-07', '2026-12-05', '2027-03-06', '2027-05-01', '2027-06-05'],
 
     CATALOG_URL: 'data/catalog.json'
   };
@@ -530,7 +530,13 @@
   // targetRw / targetMath: optional section targets (0 = split the total).
   // focus: '' both sections, 'rw' or 'math' for a student who preps one section.
   const PROFILE_DEFAULTS = { name: '', target: 1400, targetRw: 0, targetMath: 0, focus: '', goalSet: false, testDate: '', grade: '', region: '', school: '', onboarded: false, updatedAt: 0 };
-  function getProfile() { return Object.assign({}, PROFILE_DEFAULTS, store.get('profile', {})); }
+  // SAT dates we listed wrongly before: a saved goal on the old day moves to the official one.
+  const MOVED_SAT_DATES = { '2027-03-13': '2027-03-06' };
+  function getProfile() {
+    const p = Object.assign({}, PROFILE_DEFAULTS, store.get('profile', {}));
+    if (MOVED_SAT_DATES[p.testDate]) p.testDate = MOVED_SAT_DATES[p.testDate];
+    return p;
+  }
   function setProfile(p) { store.set('profile', Object.assign(getProfile(), p, { updatedAt: Date.now() })); }
   function getTestHistory() { return store.get('testHistory', []); }
   function addTestHistory(rec) { store.set('testHistory', [rec].concat(getTestHistory()).slice(0, 40)); }
@@ -3496,7 +3502,8 @@
      ------------------------------------------------------------------ */
   const analytics = {
     on: false, who: null,
-    enabled() { const a = CONFIG.ANALYTICS; return !!(a && a.KEY && a.HOST && SCRIPT && SCRIPT.hasAttribute('data-analytics')); },
+    // Live site only: local previews and promo-video renders would count as visits.
+    enabled() { const a = CONFIG.ANALYTICS; return !!(a && a.KEY && a.HOST && SCRIPT && SCRIPT.hasAttribute('data-analytics') && /(^|\.)satustoz\.academy$/.test(location.hostname)); },
     init() {
       if (this.on || !this.enabled()) return;
       this.on = true;
