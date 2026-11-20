@@ -24,6 +24,9 @@
   .ls { padding-top: 26px; min-height: 60vh; }
   .ls-head h1 { font-size: clamp(1.9rem, 4.5vw, 2.6rem); margin: 0 0 6px; }
   .ls-head p { margin: 0 0 22px; color: var(--muted); max-width: 42em; }
+  .ls-dom { margin-bottom: 30px; }
+  .ls-dom-h { font-size: 1.15rem; margin: 0 0 12px; color: var(--ink-2); }
+  .ls-prog { color: var(--brand-text); font-weight: 600; margin: -12px 0 22px; }
   .l-card { display: flex; flex-direction: column; gap: 8px; text-decoration: none; color: var(--ink); }
   .l-card:hover { border-color: var(--brand); color: var(--ink); }
   .l-card h2 { font-size: 1.2rem; margin: 0; }
@@ -35,6 +38,11 @@
   .lesson-body ul, .lesson-body ol { padding-left: 1.3em; margin: 0 0 1em; }
   .lesson-body li { margin-bottom: 4px; }
   .lesson-body em { color: var(--ink); }
+  .ls-table { overflow-x: auto; margin: 4px 0 16px; }
+  .ls-table table { border-collapse: collapse; min-width: 100%; font-size: .98rem; }
+  .ls-table th, .ls-table td { border: 1px solid var(--line-2); padding: 7px 10px; text-align: left; color: var(--ink-2); }
+  .ls-table thead th { background: var(--ivory); color: var(--ink); }
+  .ls-table tbody th { font-weight: 600; color: var(--ink); }
   .check { margin-top: 34px; }
   .check-card { background: var(--paper); border: 1px solid var(--line-2); border-radius: var(--r); padding: 22px 24px; }
   .check-stim { background: var(--ivory); border-radius: var(--r-sm); padding: 14px 16px; margin-bottom: 14px; }
@@ -112,7 +120,8 @@ document.addEventListener('DOMContentLoaded', function () {
   const SH = window.SH;
   const { esc, $, $$ } = SH;
   const t = SH.i18n({
-    en: { h1: '5-minute lessons', lede: 'Short lessons on the most-tested SAT skills, in English, Uzbek or Russian. Each ends with a 5-question check. The questions stay in English, like on test day.',
+    en: { h1: '5-minute lessons', lede: 'A short lesson for every skill on the Digital SAT, in English, Uzbek or Russian. Each ends with a 5-question check. The questions stay in English, like on test day.', prog: '{d} of {n} lessons checked',
+      check_pb: 'Questions on {skill} from our practice tests, with an explanation after each one. You get new ones each time.', full_b: 'Practice this skill in the Question Bank',
       min: '{n} min', done: 'Check: {s}/5', start: 'Start lesson', back: 'All lessons', check_h: 'Check yourself: 5 questions', check_p: 'Questions from our {skill} set, with an explanation after each one.',
       begin: 'Start the check', q: 'Question {i} of {n}', check: 'Check', next: 'Next', finish: 'See my result', ok: 'Correct', no: 'Not quite. The answer is {a}.',
       res: 'You got {s} of {n}.', res_good: 'Well done. Keep it fresh with the full practice set.', res_more: 'Read the lesson once more, then try the full practice set: your misses are in your Mistake Bank.',
@@ -121,7 +130,8 @@ document.addEventListener('DOMContentLoaded', function () {
       qx_vertex: 'Vertex', qx_axis: 'Axis of symmetry', qx_disc: 'Discriminant', qx_zeros: 'Zeros (x-intercepts)', qx_yint: 'y-intercept',
       qx_z2: '2 zeros', qx_z1: '1 zero', qx_z0: 'No real zeros', qx_line: 'a = 0: this is a straight line, not a quadratic.',
       qx_forms: 'The same function in three forms', qx_std: 'Standard', qx_vtx: 'Vertex form', qx_fac: 'Factored', qx_nofac: 'cannot be factored: no real zeros', qx_graph: 'Graph of the parabola with its vertex, zeros and y-intercept' },
-    uz: { h1: '5 daqiqalik darslar', lede: 'SATda eng koʻp tushadigan koʻnikmalar boʻyicha oʻzbek, rus yoki ingliz tilidagi qisqa darslar. Har biri 5 ta savollik tekshiruv bilan tugaydi. Savollar esa imtihondagidek ingliz tilida.',
+    uz: { h1: '5 daqiqalik darslar', lede: 'Digital SATdagi har bir koʻnikma boʻyicha oʻzbek, rus yoki ingliz tilidagi qisqa dars. Har biri 5 ta savollik tekshiruv bilan tugaydi. Savollar esa imtihondagidek ingliz tilida.', prog: '{n} ta darsdan {d} tasi tekshirilgan',
+      check_pb: 'Mashq testlarimizdagi {skill} savollari, har biridan keyin izoh bilan. Har safar yangi savollar chiqadi.', full_b: 'Bu koʻnikmani Savollar bankida mashq qilish',
       min: '{n} daqiqa', done: 'Tekshiruv: {s}/5', start: 'Darsni boshlash', back: 'Barcha darslar', check_h: 'Oʻzingizni tekshiring: 5 ta savol', check_p: '{skill} toʻplamimizdagi savollar, har biridan keyin izoh bilan.',
       begin: 'Tekshiruvni boshlash', q: '{n} tadan {i}-savol', check: 'Tekshirish', next: 'Keyingisi', finish: 'Natijani koʻrish', ok: 'Toʻgʻri', no: 'Unchalik emas. Toʻgʻri javob: {a}.',
       res: '{n} tadan {s} ta toʻgʻri.', res_good: 'Barakalla. Bilimingizni toʻliq toʻplam bilan mustahkamlang.', res_more: 'Darsni yana bir bor oʻqing, soʻng toʻliq toʻplamni yeching: xatolaringiz xatolar bankida.',
@@ -130,7 +140,8 @@ document.addEventListener('DOMContentLoaded', function () {
       qx_vertex: 'Uchi', qx_axis: 'Simmetriya oʻqi', qx_disc: 'Diskriminant', qx_zeros: 'Nollar (x oʻqini kesish)', qx_yint: 'y oʻqini kesish',
       qx_z2: '2 ta nol', qx_z1: '1 ta nol', qx_z0: 'Haqiqiy nollar yoʻq', qx_line: 'a = 0: bu toʻgʻri chiziq, kvadrat funksiya emas.',
       qx_forms: 'Bitta funksiya uch shaklda', qx_std: 'Standart', qx_vtx: 'Uchli shakl', qx_fac: 'Koʻpaytuvchilarga ajratilgan', qx_nofac: 'ajratib boʻlmaydi: haqiqiy nollar yoʻq', qx_graph: 'Parabola grafigi: uchi, nollari va y oʻqini kesish nuqtasi' },
-    ru: { h1: '5-минутные уроки', lede: 'Короткие уроки по самым частым навыкам SAT на английском, узбекском или русском. Каждый заканчивается проверкой из 5 вопросов. Сами вопросы на английском, как на экзамене.',
+    ru: { h1: '5-минутные уроки', lede: 'Короткий урок по каждому навыку Digital SAT на английском, узбекском или русском. Каждый заканчивается проверкой из 5 вопросов. Сами вопросы на английском, как на экзамене.', prog: 'Проверено уроков: {d} из {n}',
+      check_pb: 'Вопросы на {skill} из наших пробных тестов, с объяснением после каждого. Каждый раз новые.', full_b: 'Тренировать навык в банке вопросов',
       min: '{n} мин', done: 'Проверка: {s}/5', start: 'Начать урок', back: 'Все уроки', check_h: 'Проверьте себя: 5 вопросов', check_p: 'Вопросы из нашего набора {skill}, с объяснением после каждого.',
       begin: 'Начать проверку', q: 'Вопрос {i} из {n}', check: 'Проверить', next: 'Дальше', finish: 'Мой результат', ok: 'Верно', no: 'Не совсем. Верный ответ: {a}.',
       res: 'Верно {s} из {n}.', res_good: 'Отлично. Закрепите результат полным набором вопросов.', res_more: 'Перечитайте урок и решите полный набор: ваши ошибки уже в банке ошибок.',
@@ -140,6 +151,18 @@ document.addEventListener('DOMContentLoaded', function () {
       qx_z2: '2 нуля', qx_z1: '1 нуль', qx_z0: 'Действительных нулей нет', qx_line: 'a = 0: это прямая, а не квадратичная функция.',
       qx_forms: 'Одна функция в трёх формах', qx_std: 'Стандартная', qx_vtx: 'Через вершину', qx_fac: 'Разложенная', qx_nofac: 'не раскладывается: нет действительных нулей', qx_graph: 'График параболы с вершиной, нулями и пересечением с осью y' }
   });
+  // SAT content domains, in College Board order. Lessons are grouped under these.
+  const DOMAINS = {
+    'Information and Ideas': { uz: 'Axborot va gʻoyalar', ru: 'Информация и идеи' },
+    'Craft and Structure': { uz: 'Matn tuzilishi va soʻzlar', ru: 'Структура текста и лексика' },
+    'Expression of Ideas': { uz: 'Fikrni ifodalash', ru: 'Выражение мыслей' },
+    'Standard English Conventions': { uz: 'Ingliz tili qoidalari', ru: 'Нормы английского языка' },
+    'Algebra': { uz: 'Algebra', ru: 'Алгебра' },
+    'Advanced Math': { uz: 'Murakkab algebra', ru: 'Продвинутая математика' },
+    'Problem-Solving and Data Analysis': { uz: 'Masalalar va maʼlumotlar tahlili', ru: 'Задачи и анализ данных' },
+    'Geometry and Trigonometry': { uz: 'Geometriya va trigonometriya', ru: 'Геометрия и тригонометрия' }
+  };
+  const domName = d => SH.langNow() === 'en' ? d : ((DOMAINS[d] || {})[SH.langNow()] || d);
   const box = $('#ls');
   let lessons = [], quiz = null;
   const L = o => (o && (o[SH.langNow()] || o.en)) || '';
@@ -152,6 +175,12 @@ document.addEventListener('DOMContentLoaded', function () {
       if (w && WIDGETS[w[1]]) return '<div data-widget="' + w[1] + '"></div>';
       const lines = block.split('\n');
       if (/^## /.test(lines[0])) return '<h2>' + SH.renderRich(lines[0].slice(3), { inline: true }) + '</h2>' + (lines.length > 1 ? md(lines.slice(1).join('\n')) : '');
+      if (lines.length > 1 && lines.every(l => /^\|/.test(l.trim()))) { // "| a | b |" rows; the second row is the |---| divider
+        const cells = l => l.trim().replace(/^\||\|$/g, '').split('|').map(c => SH.renderRich(c.trim(), { inline: true }));
+        const rows = lines.filter((l, i) => !(i === 1 && /^[\s|:-]+$/.test(l)));
+        return '<div class="ls-table"><table><thead><tr>' + cells(rows[0]).map(c => '<th>' + c + '</th>').join('') + '</tr></thead><tbody>' +
+          rows.slice(1).map(r => '<tr>' + cells(r).map((c, i) => i ? '<td>' + c + '</td>' : '<th scope="row">' + c + '</th>').join('') + '</tr>').join('') + '</tbody></table></div>';
+      }
       if (lines.every(l => /^- /.test(l))) return '<ul>' + lines.map(l => '<li>' + SH.renderRich(l.slice(2), { inline: true }) + '</li>').join('') + '</ul>';
       if (lines.every(l => /^\d+\. /.test(l))) return '<ol>' + lines.map(l => '<li>' + SH.renderRich(l.replace(/^\d+\. /, ''), { inline: true }) + '</li>').join('') + '</ol>';
       const pre = []; let i = 0;
@@ -258,11 +287,18 @@ document.addEventListener('DOMContentLoaded', function () {
   const LIST_TITLE = document.title;
   function drawList() {
     const pr = progress();
-    box.innerHTML = '<div class="ls-head"><h1>' + esc(t('h1')) + '</h1><p>' + esc(t('lede')) + '</p></div><div class="grid grid-3">' + lessons.map(l => {
+    const card = l => {
       const p = pr[l.id];
       return '<a class="card l-card" href="#' + esc(l.id) + '"><div class="meta"><span class="tag tag-' + l.section + '">' + (l.section === 'math' ? 'Math' : 'R&amp;W') + '</span><span class="small muted">' + esc(t('min', { n: l.minutes })) + '</span>' +
         (p && !p.deleted ? '<span class="status status-done">' + esc(t('done', { s: p.score })) + '</span>' : '') + '</div><h2>' + esc(L(l.title)) + '</h2><span class="small muted">' + esc(l.skill) + '</span></a>';
-    }).join('') + '</div>';
+    };
+    const doms = [];
+    lessons.forEach(l => { const d = l.domain || ''; if (!doms.includes(d)) doms.push(d); });
+    const nDone = lessons.filter(l => pr[l.id] && !pr[l.id].deleted).length;
+    box.innerHTML = '<div class="ls-head"><h1>' + esc(t('h1')) + '</h1><p>' + esc(t('lede')) + '</p>' +
+      (nDone ? '<p class="small ls-prog">' + esc(t('prog', { d: nDone, n: lessons.length })) + '</p>' : '') + '</div>' +
+      doms.map(d => '<section class="ls-dom">' + (d ? '<h2 class="ls-dom-h">' + esc(domName(d)) + '</h2>' : '') +
+        '<div class="grid grid-3">' + lessons.filter(l => (l.domain || '') === d).map(card).join('') + '</div></section>').join('');
     document.title = SH.langNow() === 'en' ? LIST_TITLE : t('h1') + ' | SAT Ustoz'; // English keeps the searchable <title>
   }
   function drawLesson(l) {
@@ -270,19 +306,42 @@ document.addEventListener('DOMContentLoaded', function () {
     box.innerHTML = '<article class="lesson"><a class="small" href="lessons.html">&larr; ' + esc(t('back')) + '</a>' +
       '<div class="row" style="margin-top:14px;gap:8px"><span class="tag tag-' + l.section + '">' + (l.section === 'math' ? 'Math' : 'R&amp;W') + '</span><span class="small muted">' + esc(l.skill) + ' · ' + esc(t('min', { n: l.minutes })) + '</span></div>' +
       '<h1>' + esc(L(l.title)) + '</h1><div class="lesson-body rich">' + md(L(l.body)) + '</div>' +
-      '<section class="check" id="check"><div class="card"><h2 style="font-size:1.4rem">' + esc(t('check_h')) + '</h2><p class="muted">' + esc(t('check_p', { skill: l.skill })) + '</p><button type="button" class="btn btn-primary" data-begin>' + esc(t('begin')) + '</button></div></section></article>';
+      '<section class="check" id="check"><div class="card"><h2 style="font-size:1.4rem">' + esc(t('check_h')) + '</h2><p class="muted">' + esc(t(l.bank ? 'check_pb' : 'check_p', { skill: l.skill })) + '</p><button type="button" class="btn btn-primary" data-begin>' + esc(t('begin')) + '</button></div></section></article>';
     $('[data-begin]').addEventListener('click', () => beginCheck(l));
     mountWidgets(box);
     window.scrollTo(0, 0);
     SH.track('lesson_opened', { lesson: l.id });
   }
-  // Five questions from the lesson's skill set: two easy, two medium, one hard.
-  // A lesson can list its own question ids instead ("qids" in lessons.json).
+  // Five questions: two easy, two medium, one hard. They come from the lesson's
+  // practice set ("set"), its own list ("qids"), or, for "bank" lessons, a fresh
+  // random pick from that Question Bank skill. Bank picks skip tests the
+  // student's plan doesn't open, the same way the Question Bank does.
+  const tidOf = id => { const m = /^t(\d+)-/.exec(id || ''); return m ? 'practice-test-' + m[1] : ''; };
+  const DIFF = ['easy', 'medium', 'hard'];
+  async function bankPick(l) {
+    const [raw, cat] = await Promise.all([SH.getJSON('data/bank/' + l.bank + '.json'), SH.loadCatalog()]);
+    const n = SH.normalizeList(raw.questions, l.bank);
+    if (n.errors.length) console.warn('[SAT Ustoz] Skipped questions in data/bank/' + l.bank + '.json:\n' + n.errors.join('\n'));
+    const open = q => { const meta = cat.tests.find(x => x.id === tidOf(q.id)); return !meta || SH.plan.opens(meta); };
+    const pool = SH.shuffle(n.questions.filter(q => q.skill === l.skill && open(q)));
+    const out = [];
+    ['easy', 'easy', 'medium', 'medium', 'hard'].forEach(d => { const q = pool.find(x => x.difficulty === d && !out.includes(x)); if (q) out.push(q); });
+    pool.forEach(q => { if (out.length < 5 && !out.includes(q)) out.push(q); }); // a skill short on easy questions borrows harder ones
+    out.sort((a, b) => DIFF.indexOf(a.difficulty) - DIFF.indexOf(b.difficulty));
+    return out.map(q => Object.assign({ testId: tidOf(q.id) }, q));
+  }
   async function beginCheck(l) {
-    const set = await SH.loadSet(l.set);
-    const of = d => set.questions.filter(q => q.skill === l.skill && q.difficulty === d);
-    const picked = Array.isArray(l.qids) ? l.qids.map(id => set.questions.find(q => q.id === id)).filter(Boolean) : [];
-    const qs = (picked.length ? picked : of('easy').slice(0, 2).concat(of('medium').slice(0, 2), of('hard').slice(0, 1))).map(q => Object.assign({ setId: set.id }, q));
+    let qs;
+    try {
+      if (l.bank) qs = await bankPick(l);
+      else {
+        const set = await SH.loadSet(l.set);
+        const of = d => set.questions.filter(q => q.skill === l.skill && q.difficulty === d);
+        const picked = Array.isArray(l.qids) ? l.qids.map(id => set.questions.find(q => q.id === id)).filter(Boolean) : [];
+        qs = (picked.length ? picked : of('easy').slice(0, 2).concat(of('medium').slice(0, 2), of('hard').slice(0, 1))).map(q => Object.assign({ setId: set.id }, q));
+      }
+    } catch (e) { SH.toast(t('err')); console.warn('[SAT Ustoz] Lesson check failed to load:', e); return; }
+    if (!qs.length) { SH.toast(t('err')); return; }
     quiz = { l, qs, i: 0, pick: null, checked: false, right: 0 };
     drawQ();
   }
@@ -312,7 +371,7 @@ document.addEventListener('DOMContentLoaded', function () {
       const good = SH.isCorrect(q, z.pick);
       if (good) z.right++;
       SH.recordAttempts([{ qid: q.id, section: q.section, domain: q.domain, skill: q.skill, difficulty: q.difficulty, correct: good, source: 'lesson' }]);
-      SH.mistakes.record(q, good, { type: 'set', id: q.setId, where: 'Lesson: ' + quiz.l.skill });
+      SH.mistakes.record(q, good, q.testId ? { type: 'test', id: q.testId, where: 'Lesson: ' + quiz.l.skill } : { type: 'set', id: q.setId, where: 'Lesson: ' + quiz.l.skill });
       drawQ();
     });
     const nx = $('[data-next]', host); if (nx) nx.addEventListener('click', () => { z.i++; z.pick = null; z.checked = false; drawQ(); host.scrollIntoView({ block: 'start' }); });
@@ -329,7 +388,7 @@ document.addEventListener('DOMContentLoaded', function () {
     }
     const next = lessons[(lessons.indexOf(l) + 1) % lessons.length];
     $('#check').innerHTML = '<div class="card"><div class="score-big">' + z.right + '/' + n + '</div><p>' + esc(t('res', { s: z.right, n })) + ' ' + esc(z.right >= 4 ? t('res_good') : t('res_more')) + '</p>' +
-      '<div class="row"><a class="btn btn-primary" href="practice.html#sets">' + esc(t('full')) + '</a><button type="button" class="btn btn-ghost" data-again>' + esc(t('retry')) + '</button>' +
+      '<div class="row"><a class="btn btn-primary" href="practice.html#' + (l.bank ? 'bank' : 'sets') + '">' + esc(t(l.bank ? 'full_b' : 'full')) + '</a><button type="button" class="btn btn-ghost" data-again>' + esc(t('retry')) + '</button>' +
       (next && next !== l ? '<a class="btn btn-ghost" href="#' + esc(next.id) + '">' + esc(t('next_l')) + ': ' + esc(L(next.title)) + '</a>' : '') + '</div></div>';
     $('[data-again]').addEventListener('click', () => beginCheck(l));
   }
