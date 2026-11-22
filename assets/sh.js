@@ -664,7 +664,8 @@
     'Geometry and Trigonometry': 1.3, 'Advanced Math': 1.6, 'Information and Ideas': 1.8, 'Craft and Structure': 2.0 };
   const GAP_WINDOW = 60, RANK_MIN = 15, CONFIDENT = 40;
   const isReviewSource = s => s === 'review' || s === 'mistakes';
-  const isFullTest = h => h && h.total != null && h.testId !== 'diagnostic-mini';
+  // Extra-time and untimed practice runs don't feed score estimates (timing 1 = standard; older runs have none).
+  const isFullTest = h => h && h.total != null && h.testId !== 'diagnostic-mini' && (h.timing == null || h.timing === 1);
   const round10 = v => Math.round(v / 10) * 10;
   // Whole numbers that add up exactly to total (largest remainder).
   function splitExact(weights, total) {
