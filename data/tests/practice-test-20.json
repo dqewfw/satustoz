@@ -46,20 +46,36 @@
             "explanation": "The fish moves \"cautiously,\" as if checking the water after a long sleep, so it is *trying out* the water."
           },
           {
-            "id": "t20-rw1-03",
+            "id": "t20-rw1-05",
             "section": "rw",
-            "skill": "Command of Evidence: Textual",
+            "skill": "Words in Context",
             "difficulty": "medium",
-            "passage": "*Life Among the Paiutes* is an 1882 autobiographical narrative by Sarah Winnemucca Hopkins, a Northern Paiute author, educator, and activist. In the work, Winnemucca directly addresses the reader to explain certain customs, writing ______",
-            "prompt": "Which quotation from *Life Among the Paiutes* most effectively illustrates the claim?",
+            "passage": "The 1978 recording \"Two Doors Down\" established Dolly Parton as a key figure in pop music. But before she dabbled in pop, her singing and songwriting had been ______ the traditional folk music of the Appalachian Mountains. For example, \"Little Bird,\" one of her best early songs, is clearly influenced by the phrasing and subject matter of Appalachian ballads.",
+            "prompt": "Which choice completes the text with the most logical and precise word or phrase?",
             "choices": [
-              "\"But how can I describe the scene that followed? Some of you, dear readers, can imagine.\"",
-              "\"Now, my dear reader, there is no word so endearing as the word father, and that is why [my people] call all good people father or mother.\"",
-              "\"During the time my grandfather was away in California, where he [stayed] till after the Mexican war, there was a girl-baby born in our family.\"",
-              "\"We would all go in company to see if the flowers we were looking for had bloomed.\""
+              "hostile to",
+              "rooted in",
+              "unaware of",
+              "helpful to"
             ],
             "answer": "B",
-            "explanation": "The claim has two parts: Winnemucca speaks directly to the reader (\"my dear reader\") and explains a custom. Only B does both: it addresses the reader and explains why her people \"call all good people father or mother.\" A addresses readers but explains no custom; C and D explain no custom to the reader."
+            "explanation": "\"Little Bird\" is \"clearly influenced by\" Appalachian ballads, so her early music was *rooted in* that folk tradition."
+          },
+          {
+            "id": "t20-rw1-11",
+            "section": "rw",
+            "skill": "Text Structure and Purpose",
+            "difficulty": "medium",
+            "passage": "Alternative-history fiction is a subgenre of science fiction in which plots center on \"what if?\" questions. __What if India had started the Industrial Revolution? What if Soviet cosmonauts had been first to land on the moon?__ Speculative counterfactuals like these can be great fodder for stories, but they're also commonly deployed by academic historians to better understand factors influencing historical events. Well-realized and coherent alternative-history stories can thus complement historians' speculations about the past.",
+            "prompt": "Which choice best describes the function of the underlined portion in the text as a whole?",
+            "choices": [
+              "It provides examples of the types of scenarios addressed in alternative-history fiction.",
+              "It illustrates how academic historians have influenced writers of alternative-history fiction.",
+              "It indicates specific ideas that were first raised by writers of alternative-history fiction and that subsequently inspired scholarship by academic historians.",
+              "It acknowledges counterfactual questions that academic historians have largely overlooked."
+            ],
+            "answer": "A",
+            "explanation": "The underlined questions (\"What if India had started the Industrial Revolution?\") are examples of the \"what if?\" scenarios that alternative-history fiction centers on."
           },
           {
             "id": "t20-rw1-04",
@@ -78,22 +94,6 @@
             "explanation": "Robeyns criticizes policies that shift the cost of failure to taxpayers and argues that stricter regulation would have made the 2008 bailout unnecessary. The text is about why she thinks these government practices should be reconsidered. A and B focus on details of the example; C is never discussed."
           },
           {
-            "id": "t20-rw1-05",
-            "section": "rw",
-            "skill": "Words in Context",
-            "difficulty": "medium",
-            "passage": "The 1978 recording \"Two Doors Down\" established Dolly Parton as a key figure in pop music. But before she dabbled in pop, her singing and songwriting had been ______ the traditional folk music of the Appalachian Mountains. For example, \"Little Bird,\" one of her best early songs, is clearly influenced by the phrasing and subject matter of Appalachian ballads.",
-            "prompt": "Which choice completes the text with the most logical and precise word or phrase?",
-            "choices": [
-              "hostile to",
-              "rooted in",
-              "unaware of",
-              "helpful to"
-            ],
-            "answer": "B",
-            "explanation": "\"Little Bird\" is \"clearly influenced by\" Appalachian ballads, so her early music was *rooted in* that folk tradition."
-          },
-          {
             "id": "t20-rw1-06",
             "section": "rw",
             "skill": "Central Ideas and Details",
@@ -110,36 +110,36 @@
             "explanation": "Politicians try to support what constituents favor, but their sense of those views comes partly from direct contact, which is subject to a \"selection effect\": the people who make contact are not representative. So their understanding may be skewed. A is only a supporting detail; D repeats the opening concession."
           },
           {
-            "id": "t20-rw1-07",
+            "id": "t20-rw1-03",
             "section": "rw",
-            "skill": "Boundaries",
+            "skill": "Command of Evidence: Textual",
             "difficulty": "medium",
-            "passage": "In the seventeenth century, market-savvy British greenhouses scrambled to cultivate ______ the small group of wealthy consumers who could afford to import them from the Caribbean, the fruits had become a status symbol.",
-            "prompt": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+            "passage": "*Life Among the Paiutes* is an 1882 autobiographical narrative by Sarah Winnemucca Hopkins, a Northern Paiute author, educator, and activist. In the work, Winnemucca directly addresses the reader to explain certain customs, writing ______",
+            "prompt": "Which quotation from *Life Among the Paiutes* most effectively illustrates the claim?",
             "choices": [
-              "pineapples. For",
-              "pineapples, for",
-              "pineapples for",
-              "pineapples, which for"
+              "\"But how can I describe the scene that followed? Some of you, dear readers, can imagine.\"",
+              "\"Now, my dear reader, there is no word so endearing as the word father, and that is why [my people] call all good people father or mother.\"",
+              "\"During the time my grandfather was away in California, where he [stayed] till after the Mexican war, there was a girl-baby born in our family.\"",
+              "\"We would all go in company to see if the flowers we were looking for had bloomed.\""
             ],
-            "answer": "A",
-            "explanation": "\"British greenhouses scrambled to cultivate pineapples\" is a complete sentence, and \"For the small group ... the fruits had become a status symbol\" is another. A period separates them. B and C run the two sentences together, and D creates a fragment."
+            "answer": "B",
+            "explanation": "The claim has two parts: Winnemucca speaks directly to the reader (\"my dear reader\") and explains a custom. Only B does both: it addresses the reader and explains why her people \"call all good people father or mother.\" A addresses readers but explains no custom; C and D explain no custom to the reader."
           },
           {
-            "id": "t20-rw1-08",
+            "id": "t20-rw1-22",
             "section": "rw",
-            "skill": "Form, Structure, and Sense",
+            "skill": "Command of Evidence: Textual",
             "difficulty": "medium",
-            "passage": "Many ranching terms come from Spanish. For example, the word \"rodeo\" (a roundup) ______ from the Spanish word *rodear*, and \"cinch\" (a belt) derives from *cincho*. This is because the first Anglo, African, and Native American cattle ranchers in the southwestern US learned the trade from Spanish-speaking Mexican *vaqueros*, or cowboys.",
-            "prompt": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+            "passage": "*The Wonderful Wizard of Oz* is a 1900 novel by L. Frank Baum. In the novel, Dorothy travels to meet the Wizard of Oz, an important figure in a place called the Emerald City. The text presents a contrast between the Wizard of Oz's self-presentation and reality: ______",
+            "prompt": "Which quotation from *The Wonderful Wizard of Oz* most effectively illustrates the claim?",
             "choices": [
-              "derives",
-              "have derived",
-              "were deriving",
-              "derive"
+              "\"[The hot air balloon] came down gradually, and I was not hurt a bit. But I found myself in the midst of a strange people, who, seeing me come from the clouds, thought I was a great Wizard.\"",
+              "\"When I grew up I became a ventriloquist, and at that I was very well trained by a great master.\"",
+              "\"Then Oz got into the basket and said to all the people in a loud voice: 'I am now going away to make a visit.'\"",
+              "\"'I am Oz, the Great and Terrible,' said the little man, in a trembling voice.\""
             ],
-            "answer": "A",
-            "explanation": "The subject is the singular \"the word 'rodeo',\" and the parallel clause uses the present tense (\"derives\"). So the verb is the singular present *derives*."
+            "answer": "D",
+            "explanation": "The contrast is between how Oz presents himself and what he is. In D he announces himself as \"the Great and Terrible,\" but he is \"the little man\" speaking \"in a trembling voice.\""
           },
           {
             "id": "t20-rw1-09",
@@ -198,86 +198,6 @@
             "explanation": "In the 2019 column, body, mind, and spirit paperbacks averaged \\$18.92, far below the other genres (\\$41.93, \\$42.85, and \\$49.61)."
           },
           {
-            "id": "t20-rw1-10",
-            "section": "rw",
-            "skill": "Form, Structure, and Sense",
-            "difficulty": "medium",
-            "passage": "Jose Guerrero, an American abstract painter whose works are distinctive for their energetic brushstrokes, ______ frequently included in the mid-twentieth-century art movement the New York School, whose members were known for capturing the energy and chaos of modern living in paint.",
-            "prompt": "Which choice completes the text so that it conforms to the conventions of Standard English?",
-            "choices": [
-              "are",
-              "have been",
-              "were",
-              "is"
-            ],
-            "answer": "D",
-            "explanation": "The subject is \"Jose Guerrero,\" which is singular (the phrase between the commas describes him). The verb must be singular: *is*. A, B, and C are plural forms."
-          },
-          {
-            "id": "t20-rw1-11",
-            "section": "rw",
-            "skill": "Text Structure and Purpose",
-            "difficulty": "medium",
-            "passage": "Alternative-history fiction is a subgenre of science fiction in which plots center on \"what if?\" questions. __What if India had started the Industrial Revolution? What if Soviet cosmonauts had been first to land on the moon?__ Speculative counterfactuals like these can be great fodder for stories, but they're also commonly deployed by academic historians to better understand factors influencing historical events. Well-realized and coherent alternative-history stories can thus complement historians' speculations about the past.",
-            "prompt": "Which choice best describes the function of the underlined portion in the text as a whole?",
-            "choices": [
-              "It provides examples of the types of scenarios addressed in alternative-history fiction.",
-              "It illustrates how academic historians have influenced writers of alternative-history fiction.",
-              "It indicates specific ideas that were first raised by writers of alternative-history fiction and that subsequently inspired scholarship by academic historians.",
-              "It acknowledges counterfactual questions that academic historians have largely overlooked."
-            ],
-            "answer": "A",
-            "explanation": "The underlined questions (\"What if India had started the Industrial Revolution?\") are examples of the \"what if?\" scenarios that alternative-history fiction centers on."
-          },
-          {
-            "id": "t20-rw1-12",
-            "section": "rw",
-            "skill": "Boundaries",
-            "difficulty": "medium",
-            "passage": "The Egyptian calendar ______ three seasons: Akhet (the inundation season), Peret (the growing season), and Shemu (the harvest season).",
-            "prompt": "Which choice completes the text so that it conforms to the conventions of Standard English?",
-            "choices": [
-              "had—",
-              "had",
-              "had,",
-              "had;"
-            ],
-            "answer": "B",
-            "explanation": "\"Had\" is the verb, and \"three seasons\" is its object. No punctuation should come between a verb and its object. The colon after \"seasons\" then introduces the list."
-          },
-          {
-            "id": "t20-rw1-13",
-            "section": "rw",
-            "skill": "Inferences",
-            "difficulty": "hard",
-            "passage": "Some farms are expanding their mix of crop species in an effort to reduce nonagricultural biodiversity loss caused by increasing agricultural specialization, in which farmers focus on a limited range of crops or livestock species to improve yields and, thus, their revenues. To study the joint environmental and economic effects of diversification practices (which can encompass improved soil and water management as well as increased variety in crops and livestock), Laura Vang Rasmussen and team analyzed data from 2,655 farms in eleven countries. They found that using multiple diversification practices concurrently had greater potential for improving both nonagricultural biodiversity and yields than using a single strategy did. Their finding suggests that",
-            "prompt": "Which choice most logically completes the text?",
-            "choices": [
-              "farmers who focus primarily on increasing crop variety without engaging in other diversification practices will likely help reverse nonagricultural biodiversity loss, but their farms will produce smaller yields than if they had continued to focus on developing a single crop.",
-              "it is more expensive to increase crop variety while simultaneously implementing other diversification practices than it is to increase crop variety and then subsequently implement other diversification practices.",
-              "farmers who are reluctant to switch from specializing in a single crop to cultivating a variety of crops incorrectly assume that any improvements in yields will be insufficient to offset the costs associated with making that transition.",
-              "agricultural diversification doesn't inherently involve a trade-off between environmental and economic considerations, but farmers' chances of avoiding that outcome may be diminished if they focus on crop variety to the exclusion of other diversification practices."
-            ],
-            "answer": "D",
-            "explanation": "Using several practices together helped both biodiversity *and* yields more than a single strategy. So diversification need not trade environmental gains for economic ones, but focusing only on crop variety (a single strategy) may reduce that benefit. A claims smaller yields; B and C bring in costs and assumptions the text never discusses."
-          },
-          {
-            "id": "t20-rw1-14",
-            "section": "rw",
-            "skill": "Boundaries",
-            "difficulty": "medium",
-            "passage": "Though they are in different countries, the towns of Jamame, Somalia, and Nyahururu, Kenya, ______ They are among the rare places that sit almost directly on the equator.",
-            "prompt": "Which choice completes the text so that it conforms to the conventions of Standard English?",
-            "choices": [
-              "do they have something in common.",
-              "do have something in common?",
-              "do they have something in common?",
-              "do have something in common."
-            ],
-            "answer": "D",
-            "explanation": "The sentence is a statement, not a question, so it ends with a period, and normal word order is \"they do have.\" The subject \"the towns\" already comes before the blank, so D completes it: \"the towns ... do have something in common.\""
-          },
-          {
             "id": "t20-rw1-15",
             "section": "rw",
             "skill": "Command of Evidence: Quantitative",
@@ -319,20 +239,36 @@
             "explanation": "The table lists 59.9 million years for leaf beetles."
           },
           {
-            "id": "t20-rw1-16",
+            "id": "t20-rw1-23",
             "section": "rw",
-            "skill": "Form, Structure, and Sense",
-            "difficulty": "easy",
-            "passage": "In World War II, US cryptanalyst Ann Caracristi ______ a code revealing the locations of enemy supply ships.",
-            "prompt": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+            "skill": "Command of Evidence: Textual",
+            "difficulty": "hard",
+            "passage": "The interiors of many temples in the ancient Middle East needed to satisfy a precise set of acoustic demands: the sounds of chants and hymns should travel with clarity, while profound silences should be fully felt and appreciated. In a research paper, a student claims that the users of one such temple were aware of how the materials that were used within the structure could affect sound quality and that they deliberately applied this knowledge to influence how sound was experienced in the space.",
+            "prompt": "Which quotation from a work by a historian would most directly support the student's claim?",
             "choices": [
-              "to crack",
-              "cracking",
-              "having cracked",
-              "cracked"
+              "\"The acoustic environment of the temple was best suited for music that eschewed ornamentation in favor of simple melodies, harmonies, and rhythms.\"",
+              "\"Many researchers believe that the central chamber of the temple had a high ceiling, a feature that has since become essential to the acoustic design of modern concert halls.\"",
+              "\"During special occasions, curtains were placed inside the temple to minimize reverberation and confine the sound to designated locations.\"",
+              "\"The innermost room of the temple was likely among the quietest spaces in the interior of the temple.\""
+            ],
+            "answer": "C",
+            "explanation": "The claim is that the temple users knew materials affect sound and *deliberately* used that knowledge. Placing curtains to reduce reverberation is a deliberate use of a material to shape sound. A, B, and D describe acoustic features but show no deliberate use of materials."
+          },
+          {
+            "id": "t20-rw1-13",
+            "section": "rw",
+            "skill": "Inferences",
+            "difficulty": "hard",
+            "passage": "Some farms are expanding their mix of crop species in an effort to reduce nonagricultural biodiversity loss caused by increasing agricultural specialization, in which farmers focus on a limited range of crops or livestock species to improve yields and, thus, their revenues. To study the joint environmental and economic effects of diversification practices (which can encompass improved soil and water management as well as increased variety in crops and livestock), Laura Vang Rasmussen and team analyzed data from 2,655 farms in eleven countries. They found that using multiple diversification practices concurrently had greater potential for improving both nonagricultural biodiversity and yields than using a single strategy did. Their finding suggests that",
+            "prompt": "Which choice most logically completes the text?",
+            "choices": [
+              "farmers who focus primarily on increasing crop variety without engaging in other diversification practices will likely help reverse nonagricultural biodiversity loss, but their farms will produce smaller yields than if they had continued to focus on developing a single crop.",
+              "it is more expensive to increase crop variety while simultaneously implementing other diversification practices than it is to increase crop variety and then subsequently implement other diversification practices.",
+              "farmers who are reluctant to switch from specializing in a single crop to cultivating a variety of crops incorrectly assume that any improvements in yields will be insufficient to offset the costs associated with making that transition.",
+              "agricultural diversification doesn't inherently involve a trade-off between environmental and economic considerations, but farmers' chances of avoiding that outcome may be diminished if they focus on crop variety to the exclusion of other diversification practices."
             ],
             "answer": "D",
-            "explanation": "The sentence needs a main verb for the subject \"Ann Caracristi.\" Only the past-tense *cracked* works; the other choices are not finite verbs."
+            "explanation": "Using several practices together helped both biodiversity *and* yields more than a single strategy. So diversification need not trade environmental gains for economic ones, but focusing only on crop variety (a single strategy) may reduce that benefit. A claims smaller yields; B and C bring in costs and assumptions the text never discusses."
           },
           {
             "id": "t20-rw1-17",
@@ -351,6 +287,22 @@
             "explanation": "Wade thinks the texts were copied \"from a traveling minstrel's repertoire book,\" and the jokes could be adjusted for Holbrooke or Radford, so the minstrel worked in that area. The names were not removed (A), Heege did not give the copy to a minstrel (C), and nothing suggests writing from memory or mentions Brackonwet (D)."
           },
           {
+            "id": "t20-rw1-16",
+            "section": "rw",
+            "skill": "Form, Structure, and Sense",
+            "difficulty": "easy",
+            "passage": "In World War II, US cryptanalyst Ann Caracristi ______ a code revealing the locations of enemy supply ships.",
+            "prompt": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+            "choices": [
+              "to crack",
+              "cracking",
+              "having cracked",
+              "cracked"
+            ],
+            "answer": "D",
+            "explanation": "The sentence needs a main verb for the subject \"Ann Caracristi.\" Only the past-tense *cracked* works; the other choices are not finite verbs."
+          },
+          {
             "id": "t20-rw1-18",
             "section": "rw",
             "skill": "Form, Structure, and Sense",
@@ -365,6 +317,86 @@
             ],
             "answer": "C",
             "explanation": "\"Seeks\" must be followed by an infinitive: \"seeks *to expand* understanding.\""
+          },
+          {
+            "id": "t20-rw1-07",
+            "section": "rw",
+            "skill": "Boundaries",
+            "difficulty": "medium",
+            "passage": "In the seventeenth century, market-savvy British greenhouses scrambled to cultivate ______ the small group of wealthy consumers who could afford to import them from the Caribbean, the fruits had become a status symbol.",
+            "prompt": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+            "choices": [
+              "pineapples. For",
+              "pineapples, for",
+              "pineapples for",
+              "pineapples, which for"
+            ],
+            "answer": "A",
+            "explanation": "\"British greenhouses scrambled to cultivate pineapples\" is a complete sentence, and \"For the small group ... the fruits had become a status symbol\" is another. A period separates them. B and C run the two sentences together, and D creates a fragment."
+          },
+          {
+            "id": "t20-rw1-08",
+            "section": "rw",
+            "skill": "Form, Structure, and Sense",
+            "difficulty": "medium",
+            "passage": "Many ranching terms come from Spanish. For example, the word \"rodeo\" (a roundup) ______ from the Spanish word *rodear*, and \"cinch\" (a belt) derives from *cincho*. This is because the first Anglo, African, and Native American cattle ranchers in the southwestern US learned the trade from Spanish-speaking Mexican *vaqueros*, or cowboys.",
+            "prompt": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+            "choices": [
+              "derives",
+              "have derived",
+              "were deriving",
+              "derive"
+            ],
+            "answer": "A",
+            "explanation": "The subject is the singular \"the word 'rodeo',\" and the parallel clause uses the present tense (\"derives\"). So the verb is the singular present *derives*."
+          },
+          {
+            "id": "t20-rw1-10",
+            "section": "rw",
+            "skill": "Form, Structure, and Sense",
+            "difficulty": "medium",
+            "passage": "Jose Guerrero, an American abstract painter whose works are distinctive for their energetic brushstrokes, ______ frequently included in the mid-twentieth-century art movement the New York School, whose members were known for capturing the energy and chaos of modern living in paint.",
+            "prompt": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+            "choices": [
+              "are",
+              "have been",
+              "were",
+              "is"
+            ],
+            "answer": "D",
+            "explanation": "The subject is \"Jose Guerrero,\" which is singular (the phrase between the commas describes him). The verb must be singular: *is*. A, B, and C are plural forms."
+          },
+          {
+            "id": "t20-rw1-12",
+            "section": "rw",
+            "skill": "Boundaries",
+            "difficulty": "medium",
+            "passage": "The Egyptian calendar ______ three seasons: Akhet (the inundation season), Peret (the growing season), and Shemu (the harvest season).",
+            "prompt": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+            "choices": [
+              "had—",
+              "had",
+              "had,",
+              "had;"
+            ],
+            "answer": "B",
+            "explanation": "\"Had\" is the verb, and \"three seasons\" is its object. No punctuation should come between a verb and its object. The colon after \"seasons\" then introduces the list."
+          },
+          {
+            "id": "t20-rw1-14",
+            "section": "rw",
+            "skill": "Boundaries",
+            "difficulty": "medium",
+            "passage": "Though they are in different countries, the towns of Jamame, Somalia, and Nyahururu, Kenya, ______ They are among the rare places that sit almost directly on the equator.",
+            "prompt": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+            "choices": [
+              "do they have something in common.",
+              "do have something in common?",
+              "do they have something in common?",
+              "do have something in common."
+            ],
+            "answer": "D",
+            "explanation": "The sentence is a statement, not a question, so it ends with a period, and normal word order is \"they do have.\" The subject \"the towns\" already comes before the blank, so D completes it: \"the towns ... do have something in common.\""
           },
           {
             "id": "t20-rw1-19",
@@ -413,38 +445,6 @@
             ],
             "answer": "A",
             "explanation": "The text raises an assumption (that Bowditch kept his views secret) and then corrects it: his views were well known. \"On the contrary\" introduces this contradiction."
-          },
-          {
-            "id": "t20-rw1-22",
-            "section": "rw",
-            "skill": "Command of Evidence: Textual",
-            "difficulty": "medium",
-            "passage": "*The Wonderful Wizard of Oz* is a 1900 novel by L. Frank Baum. In the novel, Dorothy travels to meet the Wizard of Oz, an important figure in a place called the Emerald City. The text presents a contrast between the Wizard of Oz's self-presentation and reality: ______",
-            "prompt": "Which quotation from *The Wonderful Wizard of Oz* most effectively illustrates the claim?",
-            "choices": [
-              "\"[The hot air balloon] came down gradually, and I was not hurt a bit. But I found myself in the midst of a strange people, who, seeing me come from the clouds, thought I was a great Wizard.\"",
-              "\"When I grew up I became a ventriloquist, and at that I was very well trained by a great master.\"",
-              "\"Then Oz got into the basket and said to all the people in a loud voice: 'I am now going away to make a visit.'\"",
-              "\"'I am Oz, the Great and Terrible,' said the little man, in a trembling voice.\""
-            ],
-            "answer": "D",
-            "explanation": "The contrast is between how Oz presents himself and what he is. In D he announces himself as \"the Great and Terrible,\" but he is \"the little man\" speaking \"in a trembling voice.\""
-          },
-          {
-            "id": "t20-rw1-23",
-            "section": "rw",
-            "skill": "Command of Evidence: Textual",
-            "difficulty": "hard",
-            "passage": "The interiors of many temples in the ancient Middle East needed to satisfy a precise set of acoustic demands: the sounds of chants and hymns should travel with clarity, while profound silences should be fully felt and appreciated. In a research paper, a student claims that the users of one such temple were aware of how the materials that were used within the structure could affect sound quality and that they deliberately applied this knowledge to influence how sound was experienced in the space.",
-            "prompt": "Which quotation from a work by a historian would most directly support the student's claim?",
-            "choices": [
-              "\"The acoustic environment of the temple was best suited for music that eschewed ornamentation in favor of simple melodies, harmonies, and rhythms.\"",
-              "\"Many researchers believe that the central chamber of the temple had a high ceiling, a feature that has since become essential to the acoustic design of modern concert halls.\"",
-              "\"During special occasions, curtains were placed inside the temple to minimize reverberation and confine the sound to designated locations.\"",
-              "\"The innermost room of the temple was likely among the quietest spaces in the interior of the temple.\""
-            ],
-            "answer": "C",
-            "explanation": "The claim is that the temple users knew materials affect sound and *deliberately* used that knowledge. Placing curtains to reduce reverberation is a deliberate use of a material to shape sound. A, B, and D describe acoustic features but show no deliberate use of materials."
           },
           {
             "id": "t20-rw1-24",
@@ -661,38 +661,6 @@
               "explanation": "Alexandra looks at the land \"with love and yearning\" and finds it \"beautiful,\" so moved that she cries. Nothing suggests worry or leaving."
             },
             {
-              "id": "t20-rw2e-10",
-              "section": "rw",
-              "skill": "Command of Evidence: Textual",
-              "difficulty": "medium",
-              "passage": "The name \"Silk Road\" suggests a single highway, but a student claims that it was really a network of many routes linking China with Central Asia, the Middle East, and the Mediterranean.",
-              "prompt": "Which finding, if true, would most directly support the student's claim?",
-              "choices": [
-                "Silk was one of the most valuable goods traded between China and the Mediterranean.",
-                "Goods from the same period have been found along several separate paths, some crossing mountains and others following coastlines.",
-                "Most traders traveled only part of the distance between China and the Mediterranean.",
-                "The term \"Silk Road\" was first used by a geographer in the nineteenth century."
-              ],
-              "answer": "B",
-              "explanation": "The claim is that there were many routes. Finding trade goods along several separate paths shows exactly that. A, C, and D do not address how many routes there were."
-            },
-            {
-              "id": "t20-rw2e-11",
-              "section": "rw",
-              "skill": "Command of Evidence: Textual",
-              "difficulty": "medium",
-              "passage": "A student claims that people often remember an unfinished task better than a finished one, an idea known as the Zeigarnik effect.",
-              "prompt": "Which finding, if true, would most directly support the student's claim?",
-              "choices": [
-                "Participants who finished all their assigned puzzles reported feeling more satisfied than those who did not.",
-                "Participants who were interrupted before finishing some puzzles later recalled more of the interrupted puzzles than of the completed ones.",
-                "Participants recalled puzzles they found easy more often than puzzles they found difficult.",
-                "Participants who were given more time completed a greater number of puzzles."
-              ],
-              "answer": "B",
-              "explanation": "The claim compares memory for unfinished and finished tasks. B shows interrupted (unfinished) puzzles were remembered better than completed ones."
-            },
-            {
               "id": "t20-rw2e-12",
               "section": "rw",
               "skill": "Command of Evidence: Quantitative",
@@ -737,6 +705,38 @@
               ],
               "answer": "A",
               "explanation": "Angel Falls is listed at 979 meters, the greatest height in the table."
+            },
+            {
+              "id": "t20-rw2e-10",
+              "section": "rw",
+              "skill": "Command of Evidence: Textual",
+              "difficulty": "medium",
+              "passage": "The name \"Silk Road\" suggests a single highway, but a student claims that it was really a network of many routes linking China with Central Asia, the Middle East, and the Mediterranean.",
+              "prompt": "Which finding, if true, would most directly support the student's claim?",
+              "choices": [
+                "Silk was one of the most valuable goods traded between China and the Mediterranean.",
+                "Goods from the same period have been found along several separate paths, some crossing mountains and others following coastlines.",
+                "Most traders traveled only part of the distance between China and the Mediterranean.",
+                "The term \"Silk Road\" was first used by a geographer in the nineteenth century."
+              ],
+              "answer": "B",
+              "explanation": "The claim is that there were many routes. Finding trade goods along several separate paths shows exactly that. A, C, and D do not address how many routes there were."
+            },
+            {
+              "id": "t20-rw2e-11",
+              "section": "rw",
+              "skill": "Command of Evidence: Textual",
+              "difficulty": "medium",
+              "passage": "A student claims that people often remember an unfinished task better than a finished one, an idea known as the Zeigarnik effect.",
+              "prompt": "Which finding, if true, would most directly support the student's claim?",
+              "choices": [
+                "Participants who finished all their assigned puzzles reported feeling more satisfied than those who did not.",
+                "Participants who were interrupted before finishing some puzzles later recalled more of the interrupted puzzles than of the completed ones.",
+                "Participants recalled puzzles they found easy more often than puzzles they found difficult.",
+                "Participants who were given more time completed a greater number of puzzles."
+              ],
+              "answer": "B",
+              "explanation": "The claim compares memory for unfinished and finished tasks. B shows interrupted (unfinished) puzzles were remembered better than completed ones."
             },
             {
               "id": "t20-rw2e-13",
@@ -844,22 +844,6 @@
               "explanation": "The subject is \"Each,\" which is singular (\"of the students\" is just a phrase). So the verb is *is*."
             },
             {
-              "id": "t20-rw2e-18",
-              "section": "rw",
-              "skill": "Form, Structure, and Sense",
-              "difficulty": "medium",
-              "passage": "After years of research, marine biologist Sylvia Earle and her team concluded that protecting certain areas of the ocean, which she called \"hope spots,\" ______ help damaged ecosystems recover.",
-              "prompt": "Which choice completes the text so that it conforms to the conventions of Standard English?",
-              "choices": [
-                "could",
-                "to",
-                "having",
-                "being"
-              ],
-              "answer": "A",
-              "explanation": "The clause \"protecting certain areas ... help\" needs a helping verb before \"help.\" *Could help* is a complete verb; the other choices are not."
-            },
-            {
               "id": "t20-rw2e-19",
               "section": "rw",
               "skill": "Boundaries",
@@ -874,6 +858,22 @@
               ],
               "answer": "C",
               "explanation": "Both parts are complete sentences. A semicolon can join them. A is a comma splice, B is a run-on, and D has an extra comma."
+            },
+            {
+              "id": "t20-rw2e-18",
+              "section": "rw",
+              "skill": "Form, Structure, and Sense",
+              "difficulty": "medium",
+              "passage": "After years of research, marine biologist Sylvia Earle and her team concluded that protecting certain areas of the ocean, which she called \"hope spots,\" ______ help damaged ecosystems recover.",
+              "prompt": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+              "choices": [
+                "could",
+                "to",
+                "having",
+                "being"
+              ],
+              "answer": "A",
+              "explanation": "The clause \"protecting certain areas ... help\" needs a helping verb before \"help.\" *Could help* is a complete verb; the other choices are not."
             },
             {
               "id": "t20-rw2e-20",
@@ -1041,22 +1041,6 @@
               "explanation": "The example (dangerous jobs should earn more) describes differences in wealth that Robeyns accepts, that is, some *disparity*."
             },
             {
-              "id": "t20-rw2h-03",
-              "section": "rw",
-              "skill": "Form, Structure, and Sense",
-              "difficulty": "hard",
-              "passage": "Established in 1933 for the specific purpose of stabilizing the US banking system, ______ helped the nation recover from the Great Depression.",
-              "prompt": "Which choice completes the text so that it conforms to the conventions of Standard English?",
-              "choices": [
-                "the US government's many ways, just one of which was the Emergency Banking Act (EBA),",
-                "many ways, just one of which was the Emergency Banking Act (EBA), were how the US government",
-                "the US government in many ways, just one of which was the Emergency Banking Act (EBA),",
-                "the Emergency Banking Act (EBA) was just one of many ways the US government"
-              ],
-              "answer": "D",
-              "explanation": "The opening phrase \"Established in 1933 for the specific purpose of stabilizing the US banking system\" must describe the subject that comes right after it. Only the Emergency Banking Act was established in 1933. D puts it right after the comma and gives the sentence a correct verb (\"helped\")."
-            },
-            {
               "id": "t20-rw2h-04",
               "section": "rw",
               "skill": "Words in Context",
@@ -1089,20 +1073,36 @@
               "explanation": "All art \"draws on what has already been created by others,\" so in some sense it is *derivative* (based on earlier work), which makes originality elusive."
             },
             {
-              "id": "t20-rw2h-06",
+              "id": "t20-rw2h-11",
               "section": "rw",
-              "skill": "Central Ideas and Details",
+              "skill": "Text Structure and Purpose",
               "difficulty": "hard",
-              "passage": "Seventeenth-century Flemish artist Clara Peeters played a crucial role in the history of still-life painting. At a time when historical paintings were the preferred genre—indeed, at a time when there wasn't even a term for still-life painting in Peeters's language—Peeters painted food, flowers, fish, and game. Her influence spread throughout Western Europe and she became so strongly associated with the genre that painters who took up similar subjects were sometimes described as belonging to the \"circle of Peeters.\"",
-              "prompt": "Which choice best states the main idea of the text?",
+              "passage": "__On receiving good news, people's first instinct might be to immediately share it__, but a recent experiment suggests that keeping it a secret can be psychologically beneficial. Study participants were randomly assigned to reflect on an experience in which they either shared good news or kept it to themselves. On average, those who kept good news secret reported feeling more energized by the experience than participants who shared did, perhaps, as the researchers suggest, because the choice to savor good news is usually a personal one and autonomous motivation is linked with feelings of vitality.",
+              "prompt": "Which choice best describes the function of the underlined portion in the text as a whole?",
               "choices": [
-                "Clara Peeters made significant contributions to multiple genres of painting.",
-                "Clara Peeters introduced the term \"still-life painting\" to Western Europe.",
-                "Some paintings attributed to Clara Peeters may have been painted by other artists in her circle.",
-                "Clara Peeters was an important figure in the development of still-life painting."
+                "It presents a scenario whose psychological impact was investigated in the study summarized in the text.",
+                "It indicates a reason why skepticism about the conclusions of the psychological study mentioned in the text is likely warranted.",
+                "It reports the main conclusion of a study into a social phenomenon whose methodology is critiqued in the text.",
+                "It provides an observation about human behavior that was validated by the experiment summarized in the text."
+              ],
+              "answer": "A",
+              "explanation": "The underlined part describes the situation the study tested: sharing good news versus keeping it secret. The study then measured how keeping it secret affected people."
+            },
+            {
+              "id": "t20-rw2h-15",
+              "section": "rw",
+              "skill": "Text Structure and Purpose",
+              "difficulty": "hard",
+              "passage": "Bioluminescence is most commonly found among marine organisms: __70% of known luminescent species inhabit ocean environments.__ This trait is remarkably stable and has evolved independently in many marine species over time. Light-emitting marine species, like the Humboldt squid with its flashing light displays, exhibit accelerated diversification compared to nonluminescent relatives. This increased genetic variety among related light-emitting species further underscores bioluminescence's crucial role in marine biodiversity and evolution.",
+              "prompt": "Which choice best describes the function of the underlined portion in the text as a whole?",
+              "choices": [
+                "To provide a statistical comparison between two categories of bioluminescent species that is elaborated on in the rest of the text",
+                "To present a scientific finding that the text's discussion of the evolutionary history of bioluminescence calls into question",
+                "To provide data that support an argument made in the text about a particular light-emitting ocean species",
+                "To support the text's assertion that bioluminescence is associated with particular environments"
               ],
               "answer": "D",
-              "explanation": "The text says Peeters played \"a crucial role in the history of still-life painting\" and was so tied to the genre that followers were called her \"circle.\" A mentions multiple genres; B and C are not stated."
+              "explanation": "The text first claims bioluminescence is \"most commonly found among marine organisms.\" The underlined statistic (70% of known luminescent species live in the ocean) supports that claim about a particular environment."
             },
             {
               "id": "t20-rw2h-07",
@@ -1121,20 +1121,20 @@
               "explanation": "Text 1 says many factors besides GDP affect quality of life, so its author would agree that factors like social relationships and community activity may matter to well-being in France as well as the UK."
             },
             {
-              "id": "t20-rw2h-08",
+              "id": "t20-rw2h-06",
               "section": "rw",
-              "skill": "Boundaries",
+              "skill": "Central Ideas and Details",
               "difficulty": "hard",
-              "passage": "The Kaiparowits Formation is a fossil-rich layer of sedimentary rock in the Grand Staircase, a colossal sequence of rock layers stretching from Utah's Bryce Canyon to Arizona's Grand Canyon. The sandstones and mudstones of the Kaiparowits Formation were deposited ______ the Late Cretaceous, preserving many species from that time.",
-              "prompt": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+              "passage": "Seventeenth-century Flemish artist Clara Peeters played a crucial role in the history of still-life painting. At a time when historical paintings were the preferred genre—indeed, at a time when there wasn't even a term for still-life painting in Peeters's language—Peeters painted food, flowers, fish, and game. Her influence spread throughout Western Europe and she became so strongly associated with the genre that painters who took up similar subjects were sometimes described as belonging to the \"circle of Peeters.\"",
+              "prompt": "Which choice best states the main idea of the text?",
               "choices": [
-                "during;",
-                "during:",
-                "during",
-                "during,"
+                "Clara Peeters made significant contributions to multiple genres of painting.",
+                "Clara Peeters introduced the term \"still-life painting\" to Western Europe.",
+                "Some paintings attributed to Clara Peeters may have been painted by other artists in her circle.",
+                "Clara Peeters was an important figure in the development of still-life painting."
               ],
-              "answer": "C",
-              "explanation": "\"During the Late Cretaceous\" is a prepositional phrase. No punctuation belongs between the preposition \"during\" and its object."
+              "answer": "D",
+              "explanation": "The text says Peeters played \"a crucial role in the history of still-life painting\" and was so tied to the genre that followers were called her \"circle.\" A mentions multiple genres; B and C are not stated."
             },
             {
               "id": "t20-rw2h-09",
@@ -1188,6 +1188,111 @@
               "explanation": "The row for bear 158 shows male, 5 years, and 250 pounds."
             },
             {
+              "id": "t20-rw2h-16",
+              "section": "rw",
+              "skill": "Command of Evidence: Quantitative",
+              "difficulty": "hard",
+              "passage": "The table shows that in 2016, the percentage of commuters who regularly biked to work in Minneapolis, Minnesota, was ______",
+              "table": {
+                "title": "Percentage of City's Commuters Regularly Biking to Work in 2016",
+                "head": [
+                  "City",
+                  "% of commuters"
+                ],
+                "rows": [
+                  [
+                    "Minneapolis, Minnesota",
+                    "3.7"
+                  ],
+                  [
+                    "Houston, Texas",
+                    "0.5"
+                  ],
+                  [
+                    "Davis, California",
+                    "16.6"
+                  ],
+                  [
+                    "Madison, Wisconsin",
+                    "4.9"
+                  ]
+                ]
+              },
+              "prompt": "Which choice most effectively uses data from the table to complete the statement?",
+              "choices": [
+                "16.6.",
+                "0.5.",
+                "4.9.",
+                "3.7."
+              ],
+              "answer": "D",
+              "explanation": "The table lists 3.7% for Minneapolis, Minnesota."
+            },
+            {
+              "id": "t20-rw2h-23",
+              "section": "rw",
+              "skill": "Inferences",
+              "difficulty": "hard",
+              "passage": "Since 2012, a consortium of research institutions has released an annual report that ranks countries by their populations' well-being, which the authors of the report derive using data from a globally administered survey of respondents' self-assessed levels of happiness. However, some other scholars caution that this approach reflects a tendentious understanding of the relationship between these two metrics. For example, studies have revealed a tendency among people in some non-Western countries to regard individual happiness as less important to their well-being than other ideals (e.g., a sense of harmony or balance).",
+              "prompt": "Based on the text, what is a potential weakness of the annual report issued by the consortium of research institutions?",
+              "choices": [
+                "It includes survey data from a wide range of Western countries but only from a narrow set of non-Western countries.",
+                "It overlooks how philosophies regarding a particular concept have evolved over time.",
+                "It may not adequately account for cultural variations in the value attached to a particular concept.",
+                "It relies on survey responses from participants who may not be representative of their countries' cultural norms."
+              ],
+              "answer": "C",
+              "explanation": "The report measures well-being by happiness, but some cultures value harmony or balance more than happiness. So the report may not account for cultural differences in how much happiness is valued."
+            },
+            {
+              "id": "t20-rw2h-24",
+              "section": "rw",
+              "skill": "Inferences",
+              "difficulty": "hard",
+              "passage": "There is a growing belief that teaching medical students about art alongside standard science and clinical coursework helps them become more observant, develop greater patient empathy, and strengthen their communication skills. But some medical program educators are skeptical, questioning if arts and humanities experiences can be clearly shown to have any worthwhile advantages for their students. Research into the effectiveness of arts programs for medical students by Neha Mukunda and her colleagues found that evidence is largely anecdotal and based on studies that were short in duration, limited to single institutions, or restricted to small numbers of students. To strengthen the evidence base in support of incorporating humanities into the coursework for medical students, then, ______",
+              "prompt": "Which choice most logically completes the text?",
+              "choices": [
+                "researchers must prove that scientific training alone is insufficient for developing clinical skills.",
+                "larger-scale, multi-institutional research studies tracking outcomes for medical students over longer periods are needed.",
+                "medical schools should highlight more student testimonials about how arts education benefits their clinical abilities.",
+                "institutions may need to provide medical students with exposure to larger numbers of artworks than have been used in previous studies."
+              ],
+              "answer": "B",
+              "explanation": "The weakness is that current evidence comes from short, single-institution, small studies. The fix is larger, multi-institution, longer studies."
+            },
+            {
+              "id": "t20-rw2h-03",
+              "section": "rw",
+              "skill": "Form, Structure, and Sense",
+              "difficulty": "hard",
+              "passage": "Established in 1933 for the specific purpose of stabilizing the US banking system, ______ helped the nation recover from the Great Depression.",
+              "prompt": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+              "choices": [
+                "the US government's many ways, just one of which was the Emergency Banking Act (EBA),",
+                "many ways, just one of which was the Emergency Banking Act (EBA), were how the US government",
+                "the US government in many ways, just one of which was the Emergency Banking Act (EBA),",
+                "the Emergency Banking Act (EBA) was just one of many ways the US government"
+              ],
+              "answer": "D",
+              "explanation": "The opening phrase \"Established in 1933 for the specific purpose of stabilizing the US banking system\" must describe the subject that comes right after it. Only the Emergency Banking Act was established in 1933. D puts it right after the comma and gives the sentence a correct verb (\"helped\")."
+            },
+            {
+              "id": "t20-rw2h-08",
+              "section": "rw",
+              "skill": "Boundaries",
+              "difficulty": "hard",
+              "passage": "The Kaiparowits Formation is a fossil-rich layer of sedimentary rock in the Grand Staircase, a colossal sequence of rock layers stretching from Utah's Bryce Canyon to Arizona's Grand Canyon. The sandstones and mudstones of the Kaiparowits Formation were deposited ______ the Late Cretaceous, preserving many species from that time.",
+              "prompt": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+              "choices": [
+                "during;",
+                "during:",
+                "during",
+                "during,"
+              ],
+              "answer": "C",
+              "explanation": "\"During the Late Cretaceous\" is a prepositional phrase. No punctuation belongs between the preposition \"during\" and its object."
+            },
+            {
               "id": "t20-rw2h-10",
               "section": "rw",
               "skill": "Boundaries",
@@ -1202,22 +1307,6 @@
               ],
               "answer": "B",
               "explanation": "The list items contain commas (\"*The Siege of Thebes*, which purports...\"), so semicolons must separate the items. The other items are already separated by semicolons."
-            },
-            {
-              "id": "t20-rw2h-11",
-              "section": "rw",
-              "skill": "Text Structure and Purpose",
-              "difficulty": "hard",
-              "passage": "__On receiving good news, people's first instinct might be to immediately share it__, but a recent experiment suggests that keeping it a secret can be psychologically beneficial. Study participants were randomly assigned to reflect on an experience in which they either shared good news or kept it to themselves. On average, those who kept good news secret reported feeling more energized by the experience than participants who shared did, perhaps, as the researchers suggest, because the choice to savor good news is usually a personal one and autonomous motivation is linked with feelings of vitality.",
-              "prompt": "Which choice best describes the function of the underlined portion in the text as a whole?",
-              "choices": [
-                "It presents a scenario whose psychological impact was investigated in the study summarized in the text.",
-                "It indicates a reason why skepticism about the conclusions of the psychological study mentioned in the text is likely warranted.",
-                "It reports the main conclusion of a study into a social phenomenon whose methodology is critiqued in the text.",
-                "It provides an observation about human behavior that was validated by the experiment summarized in the text."
-              ],
-              "answer": "A",
-              "explanation": "The underlined part describes the situation the study tested: sharing good news versus keeping it secret. The study then measured how keeping it secret affected people."
             },
             {
               "id": "t20-rw2h-12",
@@ -1268,79 +1357,6 @@
               "explanation": "The subject \"The Earth's inner core\" needs a main verb. Only *consists* is a finite verb."
             },
             {
-              "id": "t20-rw2h-15",
-              "section": "rw",
-              "skill": "Text Structure and Purpose",
-              "difficulty": "hard",
-              "passage": "Bioluminescence is most commonly found among marine organisms: __70% of known luminescent species inhabit ocean environments.__ This trait is remarkably stable and has evolved independently in many marine species over time. Light-emitting marine species, like the Humboldt squid with its flashing light displays, exhibit accelerated diversification compared to nonluminescent relatives. This increased genetic variety among related light-emitting species further underscores bioluminescence's crucial role in marine biodiversity and evolution.",
-              "prompt": "Which choice best describes the function of the underlined portion in the text as a whole?",
-              "choices": [
-                "To provide a statistical comparison between two categories of bioluminescent species that is elaborated on in the rest of the text",
-                "To present a scientific finding that the text's discussion of the evolutionary history of bioluminescence calls into question",
-                "To provide data that support an argument made in the text about a particular light-emitting ocean species",
-                "To support the text's assertion that bioluminescence is associated with particular environments"
-              ],
-              "answer": "D",
-              "explanation": "The text first claims bioluminescence is \"most commonly found among marine organisms.\" The underlined statistic (70% of known luminescent species live in the ocean) supports that claim about a particular environment."
-            },
-            {
-              "id": "t20-rw2h-16",
-              "section": "rw",
-              "skill": "Command of Evidence: Quantitative",
-              "difficulty": "hard",
-              "passage": "The table shows that in 2016, the percentage of commuters who regularly biked to work in Minneapolis, Minnesota, was ______",
-              "table": {
-                "title": "Percentage of City's Commuters Regularly Biking to Work in 2016",
-                "head": [
-                  "City",
-                  "% of commuters"
-                ],
-                "rows": [
-                  [
-                    "Minneapolis, Minnesota",
-                    "3.7"
-                  ],
-                  [
-                    "Houston, Texas",
-                    "0.5"
-                  ],
-                  [
-                    "Davis, California",
-                    "16.6"
-                  ],
-                  [
-                    "Madison, Wisconsin",
-                    "4.9"
-                  ]
-                ]
-              },
-              "prompt": "Which choice most effectively uses data from the table to complete the statement?",
-              "choices": [
-                "16.6.",
-                "0.5.",
-                "4.9.",
-                "3.7."
-              ],
-              "answer": "D",
-              "explanation": "The table lists 3.7% for Minneapolis, Minnesota."
-            },
-            {
-              "id": "t20-rw2h-17",
-              "section": "rw",
-              "skill": "Rhetorical Synthesis",
-              "difficulty": "medium",
-              "passage": "While researching a topic, a student has taken the following notes:\n• India Arie is an African American singer and songwriter.\n• The media outlet BBC Music has described her music as a \"blend of hip hop, soul and folk [that is] as subtle as it [is] inspired.\"\n• Her first studio album, *Acoustic Soul*, was released in 2001.\n• It features the song \"Strength, Courage & Wisdom.\"\n• Avery Johnson played bass on the album.",
-              "prompt": "The student wants to introduce *Acoustic Soul* to an audience already familiar with India Arie. Which choice most effectively uses relevant information from the notes to accomplish this goal?",
-              "choices": [
-                "Avery Johnson played bass on singer and songwriter India Arie's 2001 album, *Acoustic Soul*.",
-                "India Arie's music has been described as a \"blend of hip hop, soul and folk [that is] as subtle as it [is] inspired.\"",
-                "Featuring the song \"Strength, Courage & Wisdom,\" *Acoustic Soul* is India Arie's first studio album.",
-                "\"Strength, Courage & Wisdom,\" a song by singer and songwriter India Arie, is featured on the album *Acoustic Soul*."
-              ],
-              "answer": "C",
-              "explanation": "The audience already knows India Arie, so the sentence should introduce the album itself. C names *Acoustic Soul*, says it is her first studio album, and mentions a song on it. A focuses on the bassist; B is about her music in general."
-            },
-            {
               "id": "t20-rw2h-18",
               "section": "rw",
               "skill": "Boundaries",
@@ -1371,6 +1387,22 @@
               ],
               "answer": "C",
               "explanation": "The clause after the blank (\"the latter's connection ... is so attenuated ...\") explains the earlier statement about Taiwan. A colon introduces this explanation after the complete clause. A creates a comma splice; B and D run the clauses together."
+            },
+            {
+              "id": "t20-rw2h-22",
+              "section": "rw",
+              "skill": "Transitions",
+              "difficulty": "medium",
+              "passage": "When it was built in the nineteenth century, the Eiffel Tower was criticized—even protested—for its unique appearance. ______ the spire-like structure earned not just acceptance but adoration, and its iconic design is now echoed in everything from the Eiffel Tower replica in Klagenfurt, Austria, to the Tokyo Tower in Tokyo, Japan.",
+              "prompt": "Which choice completes the text with the most logical transition?",
+              "choices": [
+                "For example,",
+                "Thus,",
+                "Ultimately,",
+                "Similarly,"
+              ],
+              "answer": "C",
+              "explanation": "The Eiffel Tower was first criticized and protested, but in the end it was adored. \"Ultimately\" signals that final outcome."
             },
             {
               "id": "t20-rw2h-20",
@@ -1405,52 +1437,20 @@
               "explanation": "The first sentence suggests the study covered North American ungulates in general. The next sentence qualifies that: the researchers did *not* analyze all of them. \"However\" marks this contrast, and the semicolon then joins the explanation that they studied only elk. (The PDF key said A, but \"for instance\" makes no sense here.)"
             },
             {
-              "id": "t20-rw2h-22",
+              "id": "t20-rw2h-17",
               "section": "rw",
-              "skill": "Transitions",
+              "skill": "Rhetorical Synthesis",
               "difficulty": "medium",
-              "passage": "When it was built in the nineteenth century, the Eiffel Tower was criticized—even protested—for its unique appearance. ______ the spire-like structure earned not just acceptance but adoration, and its iconic design is now echoed in everything from the Eiffel Tower replica in Klagenfurt, Austria, to the Tokyo Tower in Tokyo, Japan.",
-              "prompt": "Which choice completes the text with the most logical transition?",
+              "passage": "While researching a topic, a student has taken the following notes:\n• India Arie is an African American singer and songwriter.\n• The media outlet BBC Music has described her music as a \"blend of hip hop, soul and folk [that is] as subtle as it [is] inspired.\"\n• Her first studio album, *Acoustic Soul*, was released in 2001.\n• It features the song \"Strength, Courage & Wisdom.\"\n• Avery Johnson played bass on the album.",
+              "prompt": "The student wants to introduce *Acoustic Soul* to an audience already familiar with India Arie. Which choice most effectively uses relevant information from the notes to accomplish this goal?",
               "choices": [
-                "For example,",
-                "Thus,",
-                "Ultimately,",
-                "Similarly,"
+                "Avery Johnson played bass on singer and songwriter India Arie's 2001 album, *Acoustic Soul*.",
+                "India Arie's music has been described as a \"blend of hip hop, soul and folk [that is] as subtle as it [is] inspired.\"",
+                "Featuring the song \"Strength, Courage & Wisdom,\" *Acoustic Soul* is India Arie's first studio album.",
+                "\"Strength, Courage & Wisdom,\" a song by singer and songwriter India Arie, is featured on the album *Acoustic Soul*."
               ],
               "answer": "C",
-              "explanation": "The Eiffel Tower was first criticized and protested, but in the end it was adored. \"Ultimately\" signals that final outcome."
-            },
-            {
-              "id": "t20-rw2h-23",
-              "section": "rw",
-              "skill": "Inferences",
-              "difficulty": "hard",
-              "passage": "Since 2012, a consortium of research institutions has released an annual report that ranks countries by their populations' well-being, which the authors of the report derive using data from a globally administered survey of respondents' self-assessed levels of happiness. However, some other scholars caution that this approach reflects a tendentious understanding of the relationship between these two metrics. For example, studies have revealed a tendency among people in some non-Western countries to regard individual happiness as less important to their well-being than other ideals (e.g., a sense of harmony or balance).",
-              "prompt": "Based on the text, what is a potential weakness of the annual report issued by the consortium of research institutions?",
-              "choices": [
-                "It includes survey data from a wide range of Western countries but only from a narrow set of non-Western countries.",
-                "It overlooks how philosophies regarding a particular concept have evolved over time.",
-                "It may not adequately account for cultural variations in the value attached to a particular concept.",
-                "It relies on survey responses from participants who may not be representative of their countries' cultural norms."
-              ],
-              "answer": "C",
-              "explanation": "The report measures well-being by happiness, but some cultures value harmony or balance more than happiness. So the report may not account for cultural differences in how much happiness is valued."
-            },
-            {
-              "id": "t20-rw2h-24",
-              "section": "rw",
-              "skill": "Inferences",
-              "difficulty": "hard",
-              "passage": "There is a growing belief that teaching medical students about art alongside standard science and clinical coursework helps them become more observant, develop greater patient empathy, and strengthen their communication skills. But some medical program educators are skeptical, questioning if arts and humanities experiences can be clearly shown to have any worthwhile advantages for their students. Research into the effectiveness of arts programs for medical students by Neha Mukunda and her colleagues found that evidence is largely anecdotal and based on studies that were short in duration, limited to single institutions, or restricted to small numbers of students. To strengthen the evidence base in support of incorporating humanities into the coursework for medical students, then, ______",
-              "prompt": "Which choice most logically completes the text?",
-              "choices": [
-                "researchers must prove that scientific training alone is insufficient for developing clinical skills.",
-                "larger-scale, multi-institutional research studies tracking outcomes for medical students over longer periods are needed.",
-                "medical schools should highlight more student testimonials about how arts education benefits their clinical abilities.",
-                "institutions may need to provide medical students with exposure to larger numbers of artworks than have been used in previous studies."
-              ],
-              "answer": "B",
-              "explanation": "The weakness is that current evidence comes from short, single-institution, small studies. The fix is larger, multi-institution, longer studies."
+              "explanation": "The audience already knows India Arie, so the sentence should introduce the album itself. C names *Acoustic Soul*, says it is her first studio album, and mentions a song on it. A focuses on the bassist; B is about her music in general."
             },
             {
               "id": "t20-rw2h-25",
@@ -1511,6 +1511,65 @@
         "minutes": 35,
         "questions": [
           {
+            "id": "t20-m1-10",
+            "section": "math",
+            "skill": "Two-variable data: models and scatterplots",
+            "difficulty": "easy",
+            "image": "assets/figures/t20-m1-10.svg",
+            "imageAlt": "Figure for this question",
+            "prompt": "The scatterplot shows the relationship between two variables, $x$ and $y$. A line of best fit is also shown.\n\nWhich of the following equations best represents the line of best fit shown?",
+            "choices": [
+              "$y = 9.5 + 0.4x$",
+              "$y = 9.5 - 0.4x$",
+              "$y = -9.5 + 0.4x$",
+              "$y = -9.5 - 0.4x$"
+            ],
+            "answer": "B",
+            "explanation": "The line crosses the $y$-axis near $9.5$ and slopes downward, so the intercept is positive and the slope is negative: $y = 9.5 - 0.4x$."
+          },
+          {
+            "id": "t20-m1-11",
+            "section": "math",
+            "skill": "Nonlinear functions",
+            "difficulty": "easy",
+            "prompt": "The graph of the polynomial function $f$ in the $xy$-plane, where $y = f(x)$, passes through the point $(9, 8)$. Which of the following must be true?",
+            "choices": [
+              "$f(0) = 8$",
+              "$f(8) = 9$",
+              "$f(9) = 0$",
+              "$f(9) = 8$"
+            ],
+            "answer": "D",
+            "explanation": "A point $(9, 8)$ on the graph of $y = f(x)$ means that when $x = 9$, $y = 8$: $f(9) = 8$."
+          },
+          {
+            "id": "t20-m1-16",
+            "section": "math",
+            "skill": "Systems of two linear equations in two variables",
+            "difficulty": "easy",
+            "prompt": "$y = 5x + 18$\n$y = 5x - 18$\n\nHow many solutions does the given system of equations have?",
+            "choices": [
+              "Zero",
+              "Exactly one",
+              "Exactly two",
+              "Infinitely many"
+            ],
+            "answer": "A",
+            "explanation": "The lines have the same slope ($5$) but different $y$-intercepts, so they are parallel and never meet: zero solutions."
+          },
+          {
+            "id": "t20-m1-18",
+            "section": "math",
+            "skill": "Linear functions",
+            "difficulty": "easy",
+            "prompt": "The function $f$ is defined by $f(x) = 3x - 7$ and $f(b) = \\frac{4}{5}$. What is the value of $b$?",
+            "answer": [
+              "13/5",
+              "2.6"
+            ],
+            "explanation": "$3b - 7 = \\frac{4}{5}$, so $3b = \\frac{39}{5}$ and $b = \\frac{13}{5}$."
+          },
+          {
             "id": "t20-m1-01",
             "section": "math",
             "skill": "Nonlinear functions",
@@ -1524,21 +1583,6 @@
             ],
             "answer": "D",
             "explanation": "Increasing $x$ by $8$ adds $2$ to the exponent $\\frac{x}{4}$, so $f$ is multiplied by $1.20^2 = 1.44$. That is a $44\\%$ increase."
-          },
-          {
-            "id": "t20-m1-02",
-            "section": "math",
-            "skill": "Nonlinear functions",
-            "difficulty": "hard",
-            "prompt": "A model estimates that in a particular forest, the number of trees with any given diameter measured at shoulder height is $21\\%$ less for each $1$-inch increase in tree diameter measured at shoulder height. The model can be written in the form $f(x) = ab^x$, where $a$ and $b$ are constants and $x$ is the tree's diameter, in inches, measured at shoulder height, and $x \\ge 5$. The model estimates that $3{,}100$ trees in this forest have a diameter of $13$ inches measured at shoulder height. Which function best represents this model?",
-            "choices": [
-              "$f(x) = 3{,}100(0.21)^x$",
-              "$f(x) = 3{,}100(0.79)^x$",
-              "$f(x) = 66{,}000(0.21)^x$",
-              "$f(x) = 66{,}000(0.79)^x$"
-            ],
-            "answer": "D",
-            "explanation": "A $21\\%$ decrease means $b = 1 - 0.21 = 0.79$. Then $f(13) = a(0.79)^{13} = 3{,}100$, and $0.79^{13} \\approx 0.047$, so $a \\approx 3{,}100 \\div 0.047 \\approx 66{,}000$."
           },
           {
             "id": "t20-m1-03",
@@ -1580,21 +1624,6 @@
             "explanation": "All choices have slope $2.02$, so check one point. At $t = 230$, $d \\approx 405$. Choice A gives $-60.1 + 2.02(230) = 404.5$, which fits. The other intercepts give values in the $600$s or higher."
           },
           {
-            "id": "t20-m1-04",
-            "section": "math",
-            "skill": "Nonlinear functions",
-            "difficulty": "hard",
-            "prompt": "The function $f$ is defined by $f(x) = a^x - b$, where $a$ and $b$ are constants. In the $xy$-plane, the graph of $y = f(x)$ passes through the points $(c, 11)$ and $(2c, 221)$, where $c$ is a constant. Which of the following could be the value of $b$?",
-            "choices": [
-              "$4$",
-              "$25$",
-              "$210$",
-              "$232$"
-            ],
-            "answer": "A",
-            "explanation": "From the points, $a^c = 11 + b$ and $a^{2c} = 221 + b$. Since $a^{2c} = (a^c)^2$: $(11+b)^2 = 221 + b$, so $b^2 + 21b - 100 = 0$ and $(b + 25)(b - 4) = 0$. So $b = 4$ (with $b = -25$, $a^c$ would be negative, which is impossible)."
-          },
-          {
             "id": "t20-m1-05",
             "section": "math",
             "skill": "Lines, angles, and triangles",
@@ -1610,33 +1639,6 @@
             "explanation": "If $B = 48^\\circ$, then $C = 180 - 56 - 48 = 76^\\circ$. If $R = 76^\\circ$, then $Q = 48^\\circ$. So $A = P$, $B = Q$, $C = R$: the triangles are similar (AA). In A the side ratios differ ($\\frac{20}{20} \\ne \\frac{30}{90}$); B gives a side that is not adjacent to the angle; in D the angles do not match."
           },
           {
-            "id": "t20-m1-06",
-            "section": "math",
-            "skill": "Nonlinear equations in one variable and systems of equations in two variables",
-            "difficulty": "hard",
-            "prompt": "$\\frac{5}{9}(5x + 9)\\left(x + \\sqrt{5k + 9}\\right)\\left(x - \\sqrt{5k + 9}\\right) = 0$\n\nIn the given equation, $k$ is a positive constant. The product of the solutions to the equation is $81$. What is the value of $k$?",
-            "answer": [
-              "36/5",
-              "7.2"
-            ],
-            "explanation": "The solutions are $x = -\\frac{9}{5}$, $x = \\sqrt{5k+9}$, and $x = -\\sqrt{5k+9}$. Their product is $-\\frac{9}{5} \\cdot \\left(-(5k + 9)\\right) = \\frac{9}{5}(5k + 9) = 81$, so $5k + 9 = 45$ and $k = \\frac{36}{5}$."
-          },
-          {
-            "id": "t20-m1-07",
-            "section": "math",
-            "skill": "Nonlinear equations in one variable and systems of equations in two variables",
-            "difficulty": "hard",
-            "prompt": "$4x^2 - px + w = -86$\n\nIn the given equation, $p$ and $w$ are integer constants. The equation has exactly one real solution. Which is NOT a possible value of $w$?",
-            "choices": [
-              "$-22$",
-              "$14$",
-              "$25$",
-              "$314$"
-            ],
-            "answer": "C",
-            "explanation": "Rewrite as $4x^2 - px + (w + 86) = 0$. One solution means the discriminant is zero: $p^2 = 16(w + 86)$, so $w + 86 = \\left(\\frac{p}{4}\\right)^2$ must be a perfect square (with $p$ a multiple of $4$). $-22 + 86 = 64$, $14 + 86 = 100$, $314 + 86 = 400$ are squares, but $25 + 86 = 111$ is not."
-          },
-          {
             "id": "t20-m1-08",
             "section": "math",
             "skill": "Linear equations in one variable",
@@ -1650,50 +1652,6 @@
             ],
             "answer": "B",
             "explanation": "The same number divided by $5$ and by $13$ can be equal only if the number is $0$. So $x + 6 = 0$, which is between $-2$ and $2$."
-          },
-          {
-            "id": "t20-m1-09",
-            "section": "math",
-            "skill": "Equivalent expressions",
-            "difficulty": "hard",
-            "prompt": "The expression $6x^4 + 17x^2 + 5$ can be rewritten as $(3x^2 + a)(2x^2 + b)$, where $a$ and $b$ are positive integers, or as $(3x^2 + c)(2x^2 + d)$, where $c$ and $d$ are positive nonintegers. What is the value of $a + c$?",
-            "answer": [
-              "17/2",
-              "8.5"
-            ],
-            "explanation": "$(3x^2 + a)(2x^2 + b) = 6x^4 + (3b + 2a)x^2 + ab$, so $ab = 5$ and $3b + 2a = 17$. Integers: $a = 1$, $b = 5$. Nonintegers: $c = \\frac{15}{2}$, $d = \\frac{2}{3}$ (check: $3 \\cdot \\frac{2}{3} + 2 \\cdot \\frac{15}{2} = 17$ and $\\frac{15}{2} \\cdot \\frac{2}{3} = 5$). So $a + c = 1 + \\frac{15}{2} = \\frac{17}{2}$."
-          },
-          {
-            "id": "t20-m1-10",
-            "section": "math",
-            "skill": "Two-variable data: models and scatterplots",
-            "difficulty": "easy",
-            "image": "assets/figures/t20-m1-10.svg",
-            "imageAlt": "Figure for this question",
-            "prompt": "The scatterplot shows the relationship between two variables, $x$ and $y$. A line of best fit is also shown.\n\nWhich of the following equations best represents the line of best fit shown?",
-            "choices": [
-              "$y = 9.5 + 0.4x$",
-              "$y = 9.5 - 0.4x$",
-              "$y = -9.5 + 0.4x$",
-              "$y = -9.5 - 0.4x$"
-            ],
-            "answer": "B",
-            "explanation": "The line crosses the $y$-axis near $9.5$ and slopes downward, so the intercept is positive and the slope is negative: $y = 9.5 - 0.4x$."
-          },
-          {
-            "id": "t20-m1-11",
-            "section": "math",
-            "skill": "Nonlinear functions",
-            "difficulty": "easy",
-            "prompt": "The graph of the polynomial function $f$ in the $xy$-plane, where $y = f(x)$, passes through the point $(9, 8)$. Which of the following must be true?",
-            "choices": [
-              "$f(0) = 8$",
-              "$f(8) = 9$",
-              "$f(9) = 0$",
-              "$f(9) = 8$"
-            ],
-            "answer": "D",
-            "explanation": "A point $(9, 8)$ on the graph of $y = f(x)$ means that when $x = 9$, $y = 8$: $f(9) = 8$."
           },
           {
             "id": "t20-m1-12",
@@ -1756,21 +1714,6 @@
             "explanation": "The dashed line passes through $(0, 1)$ and $(1, 5)$, so it is $y = 4x + 1$. The shading is below and to the right of the line, so $y < 4x + 1$."
           },
           {
-            "id": "t20-m1-16",
-            "section": "math",
-            "skill": "Systems of two linear equations in two variables",
-            "difficulty": "easy",
-            "prompt": "$y = 5x + 18$\n$y = 5x - 18$\n\nHow many solutions does the given system of equations have?",
-            "choices": [
-              "Zero",
-              "Exactly one",
-              "Exactly two",
-              "Infinitely many"
-            ],
-            "answer": "A",
-            "explanation": "The lines have the same slope ($5$) but different $y$-intercepts, so they are parallel and never meet: zero solutions."
-          },
-          {
             "id": "t20-m1-17",
             "section": "math",
             "skill": "Right triangles and trigonometry",
@@ -1786,18 +1729,6 @@
             ],
             "answer": "B",
             "explanation": "In right triangle $ACE$, angles $A$ and $C$ are complementary, so $\\sin C = \\cos A = 0.65$. (Both equal $\\frac{AE}{AC}$.)"
-          },
-          {
-            "id": "t20-m1-18",
-            "section": "math",
-            "skill": "Linear functions",
-            "difficulty": "easy",
-            "prompt": "The function $f$ is defined by $f(x) = 3x - 7$ and $f(b) = \\frac{4}{5}$. What is the value of $b$?",
-            "answer": [
-              "13/5",
-              "2.6"
-            ],
-            "explanation": "$3b - 7 = \\frac{4}{5}$, so $3b = \\frac{39}{5}$ and $b = \\frac{13}{5}$."
           },
           {
             "id": "t20-m1-19",
@@ -1828,6 +1759,75 @@
             ],
             "answer": "B",
             "explanation": "Vertex form $a(x - h)^2 + k$ shows the minimum $k$. Completing the square: $x^2 - 4x - 780 = (x - 2)^2 - 4 - 780 = (x - 2)^2 - 784$, so the minimum is $-784$."
+          },
+          {
+            "id": "t20-m1-02",
+            "section": "math",
+            "skill": "Nonlinear functions",
+            "difficulty": "hard",
+            "prompt": "A model estimates that in a particular forest, the number of trees with any given diameter measured at shoulder height is $21\\%$ less for each $1$-inch increase in tree diameter measured at shoulder height. The model can be written in the form $f(x) = ab^x$, where $a$ and $b$ are constants and $x$ is the tree's diameter, in inches, measured at shoulder height, and $x \\ge 5$. The model estimates that $3{,}100$ trees in this forest have a diameter of $13$ inches measured at shoulder height. Which function best represents this model?",
+            "choices": [
+              "$f(x) = 3{,}100(0.21)^x$",
+              "$f(x) = 3{,}100(0.79)^x$",
+              "$f(x) = 66{,}000(0.21)^x$",
+              "$f(x) = 66{,}000(0.79)^x$"
+            ],
+            "answer": "D",
+            "explanation": "A $21\\%$ decrease means $b = 1 - 0.21 = 0.79$. Then $f(13) = a(0.79)^{13} = 3{,}100$, and $0.79^{13} \\approx 0.047$, so $a \\approx 3{,}100 \\div 0.047 \\approx 66{,}000$."
+          },
+          {
+            "id": "t20-m1-04",
+            "section": "math",
+            "skill": "Nonlinear functions",
+            "difficulty": "hard",
+            "prompt": "The function $f$ is defined by $f(x) = a^x - b$, where $a$ and $b$ are constants. In the $xy$-plane, the graph of $y = f(x)$ passes through the points $(c, 11)$ and $(2c, 221)$, where $c$ is a constant. Which of the following could be the value of $b$?",
+            "choices": [
+              "$4$",
+              "$25$",
+              "$210$",
+              "$232$"
+            ],
+            "answer": "A",
+            "explanation": "From the points, $a^c = 11 + b$ and $a^{2c} = 221 + b$. Since $a^{2c} = (a^c)^2$: $(11+b)^2 = 221 + b$, so $b^2 + 21b - 100 = 0$ and $(b + 25)(b - 4) = 0$. So $b = 4$ (with $b = -25$, $a^c$ would be negative, which is impossible)."
+          },
+          {
+            "id": "t20-m1-06",
+            "section": "math",
+            "skill": "Nonlinear equations in one variable and systems of equations in two variables",
+            "difficulty": "hard",
+            "prompt": "$\\frac{5}{9}(5x + 9)\\left(x + \\sqrt{5k + 9}\\right)\\left(x - \\sqrt{5k + 9}\\right) = 0$\n\nIn the given equation, $k$ is a positive constant. The product of the solutions to the equation is $81$. What is the value of $k$?",
+            "answer": [
+              "36/5",
+              "7.2"
+            ],
+            "explanation": "The solutions are $x = -\\frac{9}{5}$, $x = \\sqrt{5k+9}$, and $x = -\\sqrt{5k+9}$. Their product is $-\\frac{9}{5} \\cdot \\left(-(5k + 9)\\right) = \\frac{9}{5}(5k + 9) = 81$, so $5k + 9 = 45$ and $k = \\frac{36}{5}$."
+          },
+          {
+            "id": "t20-m1-07",
+            "section": "math",
+            "skill": "Nonlinear equations in one variable and systems of equations in two variables",
+            "difficulty": "hard",
+            "prompt": "$4x^2 - px + w = -86$\n\nIn the given equation, $p$ and $w$ are integer constants. The equation has exactly one real solution. Which is NOT a possible value of $w$?",
+            "choices": [
+              "$-22$",
+              "$14$",
+              "$25$",
+              "$314$"
+            ],
+            "answer": "C",
+            "explanation": "Rewrite as $4x^2 - px + (w + 86) = 0$. One solution means the discriminant is zero: $p^2 = 16(w + 86)$, so $w + 86 = \\left(\\frac{p}{4}\\right)^2$ must be a perfect square (with $p$ a multiple of $4$). $-22 + 86 = 64$, $14 + 86 = 100$, $314 + 86 = 400$ are squares, but $25 + 86 = 111$ is not."
+          },
+          {
+            "id": "t20-m1-09",
+            "section": "math",
+            "skill": "Equivalent expressions",
+            "difficulty": "hard",
+            "prompt": "The expression $6x^4 + 17x^2 + 5$ can be rewritten as $(3x^2 + a)(2x^2 + b)$, where $a$ and $b$ are positive integers, or as $(3x^2 + c)(2x^2 + d)$, where $c$ and $d$ are positive nonintegers. What is the value of $a + c$?",
+            "answer": [
+              "17/2",
+              "8.5"
+            ],
+            "explanation": "$(3x^2 + a)(2x^2 + b) = 6x^4 + (3b + 2a)x^2 + ab$, so $ab = 5$ and $3b + 2a = 17$. Integers: $a = 1$, $b = 5$. Nonintegers: $c = \\frac{15}{2}$, $d = \\frac{2}{3}$ (check: $3 \\cdot \\frac{2}{3} + 2 \\cdot \\frac{15}{2} = 17$ and $\\frac{15}{2} \\cdot \\frac{2}{3} = 5$). So $a + c = 1 + \\frac{15}{2} = \\frac{17}{2}$."
           },
           {
             "id": "t20-m1-21",
@@ -1972,21 +1972,6 @@
               "explanation": "Supplementary angles add up to $180^\\circ$: $180 - 47 = 133$."
             },
             {
-              "id": "t20-m2e-09",
-              "section": "math",
-              "skill": "Systems of two linear equations in two variables",
-              "difficulty": "medium",
-              "prompt": "$x + y = 14$\n$x - y = 4$\n\nWhat is the value of $x$ in the solution to the given system of equations?",
-              "choices": [
-                "$4$",
-                "$5$",
-                "$9$",
-                "$10$"
-              ],
-              "answer": "C",
-              "explanation": "Add the equations: $2x = 18$, so $x = 9$ (and $y = 5$)."
-            },
-            {
               "id": "t20-m2e-10",
               "section": "math",
               "skill": "Probability and conditional probability",
@@ -2000,6 +1985,36 @@
               ],
               "answer": "A",
               "explanation": "There are $6 + 9 + 5 = 20$ marbles, and $9$ are blue, so the probability is $\\frac{9}{20}$."
+            },
+            {
+              "id": "t20-m2e-13",
+              "section": "math",
+              "skill": "Area and volume",
+              "difficulty": "easy",
+              "prompt": "A rectangular box has a length of $8$ centimeters, a width of $5$ centimeters, and a height of $3$ centimeters. What is the volume, in cubic centimeters, of the box?",
+              "choices": [
+                "$16$",
+                "$40$",
+                "$79$",
+                "$120$"
+              ],
+              "answer": "D",
+              "explanation": "Volume $= 8 \\times 5 \\times 3 = 120$ cubic centimeters."
+            },
+            {
+              "id": "t20-m2e-09",
+              "section": "math",
+              "skill": "Systems of two linear equations in two variables",
+              "difficulty": "medium",
+              "prompt": "$x + y = 14$\n$x - y = 4$\n\nWhat is the value of $x$ in the solution to the given system of equations?",
+              "choices": [
+                "$4$",
+                "$5$",
+                "$9$",
+                "$10$"
+              ],
+              "answer": "C",
+              "explanation": "Add the equations: $2x = 18$, so $x = 9$ (and $y = 5$)."
             },
             {
               "id": "t20-m2e-11",
@@ -2030,21 +2045,6 @@
               ],
               "answer": "B",
               "explanation": "At $x = 0$, $f(0) = 500(1.04)^0 = 500$. So $500$ is the value when the investment was made."
-            },
-            {
-              "id": "t20-m2e-13",
-              "section": "math",
-              "skill": "Area and volume",
-              "difficulty": "easy",
-              "prompt": "A rectangular box has a length of $8$ centimeters, a width of $5$ centimeters, and a height of $3$ centimeters. What is the volume, in cubic centimeters, of the box?",
-              "choices": [
-                "$16$",
-                "$40$",
-                "$79$",
-                "$120$"
-              ],
-              "answer": "D",
-              "explanation": "Volume $= 8 \\times 5 \\times 3 = 120$ cubic centimeters."
             },
             {
               "id": "t20-m2e-14",
@@ -2186,6 +2186,36 @@
               "explanation": "$1$ second squared $= \\frac{1}{3{,}600}$ minute squared, so multiply by $3{,}600$ and divide by $1{,}609$: $12.60 \\times \\frac{3{,}600}{1{,}609} \\approx 28.19$, which rounds to $28.2$."
             },
             {
+              "id": "t20-m2h-08",
+              "section": "math",
+              "skill": "Systems of two linear equations in two variables",
+              "difficulty": "medium",
+              "prompt": "$20x = 1{,}200y - 2{,}000$\n\nOne of the two equations in a system of linear equations is given. The system has no solution. Which equation could be the second equation in this system?",
+              "choices": [
+                "$\\frac{1}{20}x = 3y$",
+                "$\\frac{1}{20}x = 60y - 100$",
+                "$x = 3y$",
+                "$x = 60y - 100$"
+              ],
+              "answer": "A",
+              "explanation": "Divide the given equation by $20$: $x = 60y - 100$. No solution needs a parallel line with a different constant, $x = 60y + k$ with $k \\ne -100$. Choice A becomes $x = 60y$: parallel and different. D is the same line (infinitely many); B and C have different slopes (one solution)."
+            },
+            {
+              "id": "t20-m2h-15",
+              "section": "math",
+              "skill": "Linear inequalities in one or two variables",
+              "difficulty": "medium",
+              "prompt": "$y \\le x + 8$\n$y \\ge -3x - 8$\n\nWhich point $(x, y)$ is a solution to the given system of inequalities in the $xy$-plane?",
+              "choices": [
+                "$(0, -9)$",
+                "$(0, 9)$",
+                "$(-5, 0)$",
+                "$(5, 0)$"
+              ],
+              "answer": "D",
+              "explanation": "Check $(5, 0)$: $0 \\le 13$ and $0 \\ge -23$, both true. $(0, -9)$ fails the second ($-9 \\ge -8$ is false), $(0, 9)$ fails the first, and $(-5, 0)$ fails the second ($0 \\ge 7$ is false)."
+            },
+            {
               "id": "t20-m2h-02",
               "section": "math",
               "skill": "Linear equations in two variables",
@@ -2288,21 +2318,6 @@
               "explanation": "Slope: $\\frac{189 - 81}{5 - 2} = 36$. Then $81 = 36(2) + b$ gives $b = 9$, so $p = 36c + 9$, or $36c - p = -9$."
             },
             {
-              "id": "t20-m2h-08",
-              "section": "math",
-              "skill": "Systems of two linear equations in two variables",
-              "difficulty": "medium",
-              "prompt": "$20x = 1{,}200y - 2{,}000$\n\nOne of the two equations in a system of linear equations is given. The system has no solution. Which equation could be the second equation in this system?",
-              "choices": [
-                "$\\frac{1}{20}x = 3y$",
-                "$\\frac{1}{20}x = 60y - 100$",
-                "$x = 3y$",
-                "$x = 60y - 100$"
-              ],
-              "answer": "A",
-              "explanation": "Divide the given equation by $20$: $x = 60y - 100$. No solution needs a parallel line with a different constant, $x = 60y + k$ with $k \\ne -100$. Choice A becomes $x = 60y$: parallel and different. D is the same line (infinitely many); B and C have different slopes (one solution)."
-            },
-            {
               "id": "t20-m2h-09",
               "section": "math",
               "skill": "Circles",
@@ -2387,21 +2402,6 @@
                 "18.49"
               ],
               "explanation": "Area $= \\pi r^2 = \\pi (4.3)^2 = 18.49\\pi$, so $b = 18.49$."
-            },
-            {
-              "id": "t20-m2h-15",
-              "section": "math",
-              "skill": "Linear inequalities in one or two variables",
-              "difficulty": "medium",
-              "prompt": "$y \\le x + 8$\n$y \\ge -3x - 8$\n\nWhich point $(x, y)$ is a solution to the given system of inequalities in the $xy$-plane?",
-              "choices": [
-                "$(0, -9)$",
-                "$(0, 9)$",
-                "$(-5, 0)$",
-                "$(5, 0)$"
-              ],
-              "answer": "D",
-              "explanation": "Check $(5, 0)$: $0 \\le 13$ and $0 \\ge -23$, both true. $(0, -9)$ fails the second ($-9 \\ge -8$ is false), $(0, 9)$ fails the first, and $(-5, 0)$ fails the second ($0 \\ge 7$ is false)."
             },
             {
               "id": "t20-m2h-16",

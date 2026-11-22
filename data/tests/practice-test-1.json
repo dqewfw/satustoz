@@ -355,6 +355,22 @@
             "explanation": "The sentence is a statement, not a question, so it ends with a period, and the clause keeps normal word order: \"Soto would see.\""
           },
           {
+            "id": "t1-rw1x-20",
+            "section": "rw",
+            "skill": "Form, Structure, and Sense",
+            "difficulty": "easy",
+            "passage": "Recognized as a National Heritage Area by the United States Congress in 1996, the Rivers of Steel National Heritage Area ______ a region of Pennsylvania that has long been known for its unique natural, cultural, and historical attributes.",
+            "prompt": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+            "choices": [
+              "was",
+              "will have been",
+              "had been",
+              "is"
+            ],
+            "answer": "D",
+            "explanation": "The text describes the area as it is now (\"has long been known\"), so the present tense \"is\" fits."
+          },
+          {
             "id": "t1-rw1x-16",
             "section": "rw",
             "skill": "Boundaries",
@@ -417,22 +433,6 @@
             ],
             "answer": "D",
             "explanation": "The subject is \"Anthony van Dyck\" (singular); the long description between commas doesn't change that, so the verb is \"is.\""
-          },
-          {
-            "id": "t1-rw1x-20",
-            "section": "rw",
-            "skill": "Form, Structure, and Sense",
-            "difficulty": "easy",
-            "passage": "Recognized as a National Heritage Area by the United States Congress in 1996, the Rivers of Steel National Heritage Area ______ a region of Pennsylvania that has long been known for its unique natural, cultural, and historical attributes.",
-            "prompt": "Which choice completes the text so that it conforms to the conventions of Standard English?",
-            "choices": [
-              "was",
-              "will have been",
-              "had been",
-              "is"
-            ],
-            "answer": "D",
-            "explanation": "The text describes the area as it is now (\"has long been known\"), so the present tense \"is\" fits."
           },
           {
             "id": "t1-rw1x-21",
@@ -499,6 +499,22 @@
             "explanation": "Only B gives the distance: 1,900 miles from Montana to Missouri."
           },
           {
+            "id": "t1-rw1x-27",
+            "section": "rw",
+            "skill": "Rhetorical Synthesis",
+            "difficulty": "easy",
+            "passage": "While researching a topic, a student has taken the following notes:\n• *The Future of Nostalgia* is a scholarly book by literary theorist Svetlana Boym.\n• The book explores the concept of nostalgia from various angles.\n• Chapter 3 explores nostalgia in the 1993 sci-fi action movie *Jurassic Park*.\n• Chapter 16 discusses the nostalgic home décor of Russian émigrés.\n• In chapter 16, Boym writes, \"Their rooms filled with diasporic souvenirs are not altars to their unhappiness, but rather places for communication.\"",
+            "prompt": "The student wants to explain what Svetlana Boym writes about in chapter 3. Which choice most effectively uses relevant information from the notes to accomplish this goal?",
+            "choices": [
+              "After exploring nostalgia in the 1993 sci-fi action movie *Jurassic Park*, Svetlana Boym goes on to discuss the nostalgic home décor of Russian émigrés.",
+              "Literary theorist Svetlana Boym explores nostalgia in the 1993 sci-fi action movie *Jurassic Park* in chapter 3 of her book.",
+              "As Svetlana Boym writes in the sixteenth chapter of her book, \"Their rooms filled with diasporic souvenirs are not altars to their unhappiness, but rather places for communication.\"",
+              "Svetlana Boym's *The Future of Nostalgia* explores the concept of nostalgia from various angles."
+            ],
+            "answer": "B",
+            "explanation": "Chapter 3 is about nostalgia in *Jurassic Park*, which B states."
+          },
+          {
             "id": "t1-rw1x-25",
             "section": "rw",
             "skill": "Rhetorical Synthesis",
@@ -529,22 +545,6 @@
             ],
             "answer": "B",
             "explanation": "\"Sixth-largest ... in the world\" is the global rank."
-          },
-          {
-            "id": "t1-rw1x-27",
-            "section": "rw",
-            "skill": "Rhetorical Synthesis",
-            "difficulty": "easy",
-            "passage": "While researching a topic, a student has taken the following notes:\n• *The Future of Nostalgia* is a scholarly book by literary theorist Svetlana Boym.\n• The book explores the concept of nostalgia from various angles.\n• Chapter 3 explores nostalgia in the 1993 sci-fi action movie *Jurassic Park*.\n• Chapter 16 discusses the nostalgic home décor of Russian émigrés.\n• In chapter 16, Boym writes, \"Their rooms filled with diasporic souvenirs are not altars to their unhappiness, but rather places for communication.\"",
-            "prompt": "The student wants to explain what Svetlana Boym writes about in chapter 3. Which choice most effectively uses relevant information from the notes to accomplish this goal?",
-            "choices": [
-              "After exploring nostalgia in the 1993 sci-fi action movie *Jurassic Park*, Svetlana Boym goes on to discuss the nostalgic home décor of Russian émigrés.",
-              "Literary theorist Svetlana Boym explores nostalgia in the 1993 sci-fi action movie *Jurassic Park* in chapter 3 of her book.",
-              "As Svetlana Boym writes in the sixteenth chapter of her book, \"Their rooms filled with diasporic souvenirs are not altars to their unhappiness, but rather places for communication.\"",
-              "Svetlana Boym's *The Future of Nostalgia* explores the concept of nostalgia from various angles."
-            ],
-            "answer": "B",
-            "explanation": "Chapter 3 is about nostalgia in *Jurassic Park*, which B states."
           }
         ]
       },
@@ -713,22 +713,6 @@
               "explanation": "Only this choice links sleep to test scores."
             },
             {
-              "id": "t1-rw2e-11",
-              "section": "rw",
-              "skill": "Command of Evidence: Textual",
-              "difficulty": "medium",
-              "passage": "Biologists claim that the color of a flower helps determine which animals pollinate it.",
-              "prompt": "Which finding, if true, would most directly support the biologists' claim?",
-              "choices": [
-                "Some flowers bloom only at night.",
-                "When researchers changed a flower's color from pink to orange-red without changing its scent or nectar, visits from bees dropped and visits from hummingbirds rose.",
-                "Flowers that produce more nectar are visited by more pollinators.",
-                "Bees can fly several kilometers to find flowers."
-              ],
-              "answer": "B",
-              "explanation": "Changing only the color changed which animals visited, which isolates color as the cause."
-            },
-            {
               "id": "t1-rw2e-12",
               "section": "rw",
               "skill": "Command of Evidence: Quantitative",
@@ -768,6 +752,22 @@
                   ]
                 ]
               }
+            },
+            {
+              "id": "t1-rw2e-11",
+              "section": "rw",
+              "skill": "Command of Evidence: Textual",
+              "difficulty": "medium",
+              "passage": "Biologists claim that the color of a flower helps determine which animals pollinate it.",
+              "prompt": "Which finding, if true, would most directly support the biologists' claim?",
+              "choices": [
+                "Some flowers bloom only at night.",
+                "When researchers changed a flower's color from pink to orange-red without changing its scent or nectar, visits from bees dropped and visits from hummingbirds rose.",
+                "Flowers that produce more nectar are visited by more pollinators.",
+                "Bees can fly several kilometers to find flowers."
+              ],
+              "answer": "B",
+              "explanation": "Changing only the color changed which animals visited, which isolates color as the cause."
             },
             {
               "id": "t1-rw2e-13",
@@ -834,6 +834,22 @@
               "explanation": "A comma separates the introductory \"When...\" clause from the main sentence."
             },
             {
+              "id": "t1-rw2e-19",
+              "section": "rw",
+              "skill": "Form, Structure, and Sense",
+              "difficulty": "easy",
+              "passage": "Each of the students in the robotics club ______ responsible for building one part of the robot.",
+              "prompt": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+              "choices": [
+                "is",
+                "were",
+                "are",
+                "have been"
+              ],
+              "answer": "A",
+              "explanation": "The subject is \"Each,\" which is singular, so the verb is **is**."
+            },
+            {
               "id": "t1-rw2e-17",
               "section": "rw",
               "skill": "Boundaries",
@@ -864,22 +880,6 @@
               ],
               "answer": "C",
               "explanation": "Items that already contain commas are separated by semicolons, as the rest of the list shows."
-            },
-            {
-              "id": "t1-rw2e-19",
-              "section": "rw",
-              "skill": "Form, Structure, and Sense",
-              "difficulty": "easy",
-              "passage": "Each of the students in the robotics club ______ responsible for building one part of the robot.",
-              "prompt": "Which choice completes the text so that it conforms to the conventions of Standard English?",
-              "choices": [
-                "is",
-                "were",
-                "are",
-                "have been"
-              ],
-              "answer": "A",
-              "explanation": "The subject is \"Each,\" which is singular, so the verb is **is**."
             },
             {
               "id": "t1-rw2e-20",
@@ -1159,22 +1159,6 @@
               "explanation": "Text 1 says Georgia structures aren't built to resist expansive soil; Text 2 says vapor barriers reduce the damage. Mostafiz's team would recommend vapor barriers for new structures."
             },
             {
-              "id": "t1-rw2hx-10",
-              "section": "rw",
-              "skill": "Inferences",
-              "difficulty": "hard",
-              "passage": "Fernand Braudel and other historians of capitalism rarely discuss domestic African capitalism in Africa before the period of European colonization, implicitly presenting capitalism as external to and imposed on Africa. John Iliffe and other Africanist scholars have shown, however, that in parts of Africa, institutionally protected private land ownership, the existence of salaried labor, and other features of capitalism predated colonization. One reason for this discrepancy is that historians of capitalism tend to focus on longitudinal economic data drawn from archival records, which do not exist for much of precolonial Africa.",
-              "prompt": "Which statement about Iliffe and other Africanist scholars is best supported by the information in the text?",
-              "choices": [
-                "They likely make use of different types of evidence than historians of capitalism typically rely on.",
-                "They likely have a different view about which activities should be considered capitalist in nature than historians of capitalism do.",
-                "They likely differ from historians of capitalism in the methods they use to derive longitudinal economic data from archival records.",
-                "They likely view capitalism as having been more beneficial for Africa than historians of capitalism do."
-              ],
-              "answer": "A",
-              "explanation": "Historians of capitalism rely on archival data that don't exist for precolonial Africa, yet Africanist scholars found capitalism there, so they must use other kinds of evidence."
-            },
-            {
               "id": "t1-rw2hx-11",
               "section": "rw",
               "skill": "Command of Evidence: Textual",
@@ -1205,6 +1189,22 @@
               ],
               "answer": "D",
               "explanation": "The claim links *My Name Is Red* to magical realist novels **and** to Turkish folklore. Only D makes both points: like magical realist works, the novel draws antirealistic elements from Turkish folklore. A and B describe folklore in the novel but never compare it to magical realism."
+            },
+            {
+              "id": "t1-rw2hx-10",
+              "section": "rw",
+              "skill": "Inferences",
+              "difficulty": "hard",
+              "passage": "Fernand Braudel and other historians of capitalism rarely discuss domestic African capitalism in Africa before the period of European colonization, implicitly presenting capitalism as external to and imposed on Africa. John Iliffe and other Africanist scholars have shown, however, that in parts of Africa, institutionally protected private land ownership, the existence of salaried labor, and other features of capitalism predated colonization. One reason for this discrepancy is that historians of capitalism tend to focus on longitudinal economic data drawn from archival records, which do not exist for much of precolonial Africa.",
+              "prompt": "Which statement about Iliffe and other Africanist scholars is best supported by the information in the text?",
+              "choices": [
+                "They likely make use of different types of evidence than historians of capitalism typically rely on.",
+                "They likely have a different view about which activities should be considered capitalist in nature than historians of capitalism do.",
+                "They likely differ from historians of capitalism in the methods they use to derive longitudinal economic data from archival records.",
+                "They likely view capitalism as having been more beneficial for Africa than historians of capitalism do."
+              ],
+              "answer": "A",
+              "explanation": "Historians of capitalism rely on archival data that don't exist for precolonial Africa, yet Africanist scholars found capitalism there, so they must use other kinds of evidence."
             },
             {
               "id": "t1-rw2hx-13",
@@ -1383,38 +1383,6 @@
               "explanation": "The second sentence restates the first in plainer words, so \"That is\" fits."
             },
             {
-              "id": "t1-rw2hx-24",
-              "section": "rw",
-              "skill": "Rhetorical Synthesis",
-              "difficulty": "hard",
-              "passage": "• Richard Serra is an American artist.\n• He is known for his large metal sculptures.\n• His sculpture *Gutter Corner Splash: Night Shift* is roughly 2 feet wide and 9 feet tall.\n• It is made from lead.",
-              "prompt": "Which choice most effectively uses information from the given sentences to emphasize the size of the sculpture?",
-              "choices": [
-                "Richard Serra is an American artist known for his large metal sculptures.",
-                "Richard Serra's *Gutter Corner Splash: Night Shift* is made of lead.",
-                "*Gutter Corner Splash: Night Shift*—a large metal sculpture by artist Richard Serra—stretches roughly 2 feet wide and 9 feet tall.",
-                "American artist Richard Serra creates large sculptures from metal."
-              ],
-              "answer": "C",
-              "explanation": "Only C gives the size: roughly 2 feet wide and 9 feet tall."
-            },
-            {
-              "id": "t1-rw2hx-25",
-              "section": "rw",
-              "skill": "Rhetorical Synthesis",
-              "difficulty": "hard",
-              "passage": "While researching a topic, a student has taken the following notes:\n• Artist Pablo Picasso of Spain won a Carnegie Prize gold medal in 1930.\n• The Carnegie Prize is an international art competition.\n• It is administered by the Carnegie Museum of Art in Pittsburgh, Pennsylvania.\n• Picasso's winning artwork was a painting entitled *Portrait of Mme. Picasso*.",
-              "prompt": "The student wants to identify the painting for which Picasso won a Carnegie Prize gold medal. Which choice most effectively uses relevant information from the notes to accomplish this goal?",
-              "choices": [
-                "Picasso won a Carnegie Prize gold medal for the painting *Portrait of Mme. Picasso*.",
-                "The Carnegie Museum of Art awarded Picasso a gold medal in 1930.",
-                "The Carnegie Prize is an international art competition administered by the Carnegie Museum of Art in Pittsburgh, Pennsylvania.",
-                "In 1930, an artist from Spain won a Carnegie Prize gold medal for a painting."
-              ],
-              "answer": "A",
-              "explanation": "A names the painting: *Portrait of Mme. Picasso*."
-            },
-            {
               "id": "t1-rw2hx-26",
               "section": "rw",
               "skill": "Rhetorical Synthesis",
@@ -1445,6 +1413,38 @@
               ],
               "answer": "B",
               "explanation": "B makes a generalization (some flags include animal symbols) and supports it with an example (Papua New Guinea's bird). Said's key had D, but D says nothing about symbols."
+            },
+            {
+              "id": "t1-rw2hx-24",
+              "section": "rw",
+              "skill": "Rhetorical Synthesis",
+              "difficulty": "hard",
+              "passage": "• Richard Serra is an American artist.\n• He is known for his large metal sculptures.\n• His sculpture *Gutter Corner Splash: Night Shift* is roughly 2 feet wide and 9 feet tall.\n• It is made from lead.",
+              "prompt": "Which choice most effectively uses information from the given sentences to emphasize the size of the sculpture?",
+              "choices": [
+                "Richard Serra is an American artist known for his large metal sculptures.",
+                "Richard Serra's *Gutter Corner Splash: Night Shift* is made of lead.",
+                "*Gutter Corner Splash: Night Shift*—a large metal sculpture by artist Richard Serra—stretches roughly 2 feet wide and 9 feet tall.",
+                "American artist Richard Serra creates large sculptures from metal."
+              ],
+              "answer": "C",
+              "explanation": "Only C gives the size: roughly 2 feet wide and 9 feet tall."
+            },
+            {
+              "id": "t1-rw2hx-25",
+              "section": "rw",
+              "skill": "Rhetorical Synthesis",
+              "difficulty": "hard",
+              "passage": "While researching a topic, a student has taken the following notes:\n• Artist Pablo Picasso of Spain won a Carnegie Prize gold medal in 1930.\n• The Carnegie Prize is an international art competition.\n• It is administered by the Carnegie Museum of Art in Pittsburgh, Pennsylvania.\n• Picasso's winning artwork was a painting entitled *Portrait of Mme. Picasso*.",
+              "prompt": "The student wants to identify the painting for which Picasso won a Carnegie Prize gold medal. Which choice most effectively uses relevant information from the notes to accomplish this goal?",
+              "choices": [
+                "Picasso won a Carnegie Prize gold medal for the painting *Portrait of Mme. Picasso*.",
+                "The Carnegie Museum of Art awarded Picasso a gold medal in 1930.",
+                "The Carnegie Prize is an international art competition administered by the Carnegie Museum of Art in Pittsburgh, Pennsylvania.",
+                "In 1930, an artist from Spain won a Carnegie Prize gold medal for a painting."
+              ],
+              "answer": "A",
+              "explanation": "A names the painting: *Portrait of Mme. Picasso*."
             }
           ]
         }

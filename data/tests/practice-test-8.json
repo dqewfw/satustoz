@@ -174,22 +174,6 @@
             "explanation": "The hypothesis links frog variety to beaver ponds. Only this finding shows frogs concentrated in those ponds and scarce where there are no dams."
           },
           {
-            "id": "t8-rw1-11",
-            "section": "rw",
-            "skill": "Command of Evidence: Textual",
-            "difficulty": "hard",
-            "passage": "Book historian Priya Venkataraman claims that in the eighteenth-century port city she studies, owning books was common not only among wealthy merchant families but also among ordinary artisans and shopkeepers.",
-            "prompt": "Which finding, if true, would most directly support Venkataraman's claim?",
-            "choices": [
-              "Wealthy merchant families in the city often owned libraries of several hundred books.",
-              "The city had more printing shops than any other city in its region.",
-              "Most of the city's artisans were able to sign their names on legal documents.",
-              "Lists of household goods recorded after the deaths of the city's carpenters, bakers, and tailors frequently include several books."
-            ],
-            "answer": "D",
-            "explanation": "The claim is about artisans and shopkeepers owning books, so the evidence must come from their households. Signing names shows literacy, not ownership, and printing shops show production, not who owned the books."
-          },
-          {
             "id": "t8-rw1-12",
             "section": "rw",
             "skill": "Command of Evidence: Quantitative",
@@ -234,6 +218,22 @@
                 ]
               ]
             }
+          },
+          {
+            "id": "t8-rw1-11",
+            "section": "rw",
+            "skill": "Command of Evidence: Textual",
+            "difficulty": "hard",
+            "passage": "Book historian Priya Venkataraman claims that in the eighteenth-century port city she studies, owning books was common not only among wealthy merchant families but also among ordinary artisans and shopkeepers.",
+            "prompt": "Which finding, if true, would most directly support Venkataraman's claim?",
+            "choices": [
+              "Wealthy merchant families in the city often owned libraries of several hundred books.",
+              "The city had more printing shops than any other city in its region.",
+              "Most of the city's artisans were able to sign their names on legal documents.",
+              "Lists of household goods recorded after the deaths of the city's carpenters, bakers, and tailors frequently include several books."
+            ],
+            "answer": "D",
+            "explanation": "The claim is about artisans and shopkeepers owning books, so the evidence must come from their households. Signing names shows literacy, not ownership, and printing shops show production, not who owned the books."
           },
           {
             "id": "t8-rw1-13",
@@ -284,6 +284,22 @@
             "explanation": "Both parts are complete sentences, so they need a semicolon. A comma alone creates a comma splice."
           },
           {
+            "id": "t8-rw1-19",
+            "section": "rw",
+            "skill": "Form, Structure, and Sense",
+            "difficulty": "easy",
+            "passage": "The spices in a traditional Moroccan tagine ______ cumin, which gives the stew its warm, earthy aroma.",
+            "prompt": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+            "choices": [
+              "includes",
+              "is including",
+              "include",
+              "has included"
+            ],
+            "answer": "C",
+            "explanation": "The subject is the plural \"spices,\" not \"tagine,\" so the verb is **include**."
+          },
+          {
             "id": "t8-rw1-16",
             "section": "rw",
             "skill": "Boundaries",
@@ -298,22 +314,6 @@
             ],
             "answer": "C",
             "explanation": "The phrase \"a shrub that grows along many desert rivers\" opens with a comma, so it must close with a comma before the verb \"can survive.\""
-          },
-          {
-            "id": "t8-rw1-17",
-            "section": "rw",
-            "skill": "Boundaries",
-            "difficulty": "hard",
-            "passage": "The Jikji, a collection of Buddhist teachings printed at a temple in Korea in ______ is often described as the oldest surviving book printed with movable metal type.",
-            "prompt": "Which choice completes the text so that it conforms to the conventions of Standard English?",
-            "choices": [
-              "1377,",
-              "1377",
-              "1377;",
-              "1377—"
-            ],
-            "answer": "A",
-            "explanation": "The long phrase describing the Jikji opens with a comma, so it must close with a comma, not a dash. Leaving out the comma runs the phrase into the main verb \"is.\""
           },
           {
             "id": "t8-rw1-18",
@@ -332,22 +332,6 @@
             "explanation": "Two complete sentences joined by \"so\" need a comma before the conjunction."
           },
           {
-            "id": "t8-rw1-19",
-            "section": "rw",
-            "skill": "Form, Structure, and Sense",
-            "difficulty": "easy",
-            "passage": "The spices in a traditional Moroccan tagine ______ cumin, which gives the stew its warm, earthy aroma.",
-            "prompt": "Which choice completes the text so that it conforms to the conventions of Standard English?",
-            "choices": [
-              "includes",
-              "is including",
-              "include",
-              "has included"
-            ],
-            "answer": "C",
-            "explanation": "The subject is the plural \"spices,\" not \"tagine,\" so the verb is **include**."
-          },
-          {
             "id": "t8-rw1-20",
             "section": "rw",
             "skill": "Form, Structure, and Sense",
@@ -362,6 +346,22 @@
             ],
             "answer": "D",
             "explanation": "\"Since\" describes an action that began in the past and continues to the present, so the present perfect **have planted** is needed."
+          },
+          {
+            "id": "t8-rw1-17",
+            "section": "rw",
+            "skill": "Boundaries",
+            "difficulty": "hard",
+            "passage": "The Jikji, a collection of Buddhist teachings printed at a temple in Korea in ______ is often described as the oldest surviving book printed with movable metal type.",
+            "prompt": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+            "choices": [
+              "1377,",
+              "1377",
+              "1377;",
+              "1377—"
+            ],
+            "answer": "A",
+            "explanation": "The long phrase describing the Jikji opens with a comma, so it must close with a comma, not a dash. Leaving out the comma runs the phrase into the main verb \"is.\""
           },
           {
             "id": "t8-rw1-21",
@@ -444,22 +444,6 @@
             "explanation": "Only this choice explains the reuse: single-character pieces could be rearranged for each new text."
           },
           {
-            "id": "t8-rw1-26",
-            "section": "rw",
-            "skill": "Rhetorical Synthesis",
-            "difficulty": "hard",
-            "passage": "While researching a topic, a student has taken the following notes:\n\n• The shamisen is a long-necked lute from Japan.\n• It has three strings and no frets.\n• The oud is a short-necked lute from the Middle East.\n• It usually has eleven strings and a rounded, pear-shaped body.\n• Both instruments are played by plucking the strings with a plectrum rather than with the bare fingers.",
-            "prompt": "The student wants to emphasize a similarity in how the two instruments are played. Which choice most effectively uses relevant information from the notes to accomplish this goal?",
-            "choices": [
-              "The shamisen has three strings, while the oud usually has eleven.",
-              "The shamisen and the oud are both lutes.",
-              "Both the Japanese shamisen and the Middle Eastern oud are played by plucking the strings with a plectrum rather than with the bare fingers.",
-              "The oud, a short-necked lute from the Middle East, usually has eleven strings."
-            ],
-            "answer": "C",
-            "explanation": "The goal is a similarity in how the instruments are played. Both being lutes is a similarity in their form, not in how they are played."
-          },
-          {
             "id": "t8-rw1-27",
             "section": "rw",
             "skill": "Rhetorical Synthesis",
@@ -474,6 +458,22 @@
             ],
             "answer": "B",
             "explanation": "Only this choice defines the trait: continuing to make the milk-digesting enzyme into adulthood."
+          },
+          {
+            "id": "t8-rw1-26",
+            "section": "rw",
+            "skill": "Rhetorical Synthesis",
+            "difficulty": "hard",
+            "passage": "While researching a topic, a student has taken the following notes:\n\n• The shamisen is a long-necked lute from Japan.\n• It has three strings and no frets.\n• The oud is a short-necked lute from the Middle East.\n• It usually has eleven strings and a rounded, pear-shaped body.\n• Both instruments are played by plucking the strings with a plectrum rather than with the bare fingers.",
+            "prompt": "The student wants to emphasize a similarity in how the two instruments are played. Which choice most effectively uses relevant information from the notes to accomplish this goal?",
+            "choices": [
+              "The shamisen has three strings, while the oud usually has eleven.",
+              "The shamisen and the oud are both lutes.",
+              "Both the Japanese shamisen and the Middle Eastern oud are played by plucking the strings with a plectrum rather than with the bare fingers.",
+              "The oud, a short-necked lute from the Middle East, usually has eleven strings."
+            ],
+            "answer": "C",
+            "explanation": "The goal is a similarity in how the instruments are played. Both being lutes is a similarity in their form, not in how they are played."
           }
         ]
       },
@@ -642,22 +642,6 @@
               "explanation": "Only this finding compares the growth of plants given each kind of water."
             },
             {
-              "id": "t8-rw2e-11",
-              "section": "rw",
-              "skill": "Command of Evidence: Textual",
-              "difficulty": "medium",
-              "passage": "Engineers claim that a reed-bed wetland built beside a small town is removing much of the nitrogen from the town's treated wastewater before the water reaches a nearby river.",
-              "prompt": "Which finding, if true, would most directly support the engineers' claim?",
-              "choices": [
-                "Many bird species have visited the reed bed since it was built.",
-                "Water flowing out of the reed bed contains far less nitrogen than water flowing into it.",
-                "The town's population has grown since the reed bed was built.",
-                "Reeds in the wetland grow fastest in early summer."
-              ],
-              "answer": "B",
-              "explanation": "If the water leaving the reed bed has much less nitrogen than the water entering it, the reed bed must be removing nitrogen."
-            },
-            {
               "id": "t8-rw2e-12",
               "section": "rw",
               "skill": "Command of Evidence: Quantitative",
@@ -697,6 +681,22 @@
                   ]
                 ]
               }
+            },
+            {
+              "id": "t8-rw2e-11",
+              "section": "rw",
+              "skill": "Command of Evidence: Textual",
+              "difficulty": "medium",
+              "passage": "Engineers claim that a reed-bed wetland built beside a small town is removing much of the nitrogen from the town's treated wastewater before the water reaches a nearby river.",
+              "prompt": "Which finding, if true, would most directly support the engineers' claim?",
+              "choices": [
+                "Many bird species have visited the reed bed since it was built.",
+                "Water flowing out of the reed bed contains far less nitrogen than water flowing into it.",
+                "The town's population has grown since the reed bed was built.",
+                "Reeds in the wetland grow fastest in early summer."
+              ],
+              "answer": "B",
+              "explanation": "If the water leaving the reed bed has much less nitrogen than the water entering it, the reed bed must be removing nitrogen."
             },
             {
               "id": "t8-rw2e-13",
@@ -763,6 +763,22 @@
               "explanation": "A comma separates the introductory \"After...\" clause from the main sentence."
             },
             {
+              "id": "t8-rw2e-19",
+              "section": "rw",
+              "skill": "Form, Structure, and Sense",
+              "difficulty": "easy",
+              "passage": "The members of the school choir practiced for months before ______ first concert.",
+              "prompt": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+              "choices": [
+                "its",
+                "it's",
+                "their",
+                "they're"
+              ],
+              "answer": "C",
+              "explanation": "The pronoun refers to the plural \"members,\" so the possessive **their** is needed."
+            },
+            {
               "id": "t8-rw2e-17",
               "section": "rw",
               "skill": "Boundaries",
@@ -793,22 +809,6 @@
               ],
               "answer": "A",
               "explanation": "\"Ecologists who study the river's floodplain\" is the subject, and no punctuation should separate a subject from its verb \"have found.\""
-            },
-            {
-              "id": "t8-rw2e-19",
-              "section": "rw",
-              "skill": "Form, Structure, and Sense",
-              "difficulty": "easy",
-              "passage": "The members of the school choir practiced for months before ______ first concert.",
-              "prompt": "Which choice completes the text so that it conforms to the conventions of Standard English?",
-              "choices": [
-                "its",
-                "it's",
-                "their",
-                "they're"
-              ],
-              "answer": "C",
-              "explanation": "The pronoun refers to the plural \"members,\" so the possessive **their** is needed."
             },
             {
               "id": "t8-rw2e-20",
@@ -1213,22 +1213,6 @@
               "explanation": "Warming makes high valleys more like the warm low valleys, where the red form, which resists overheating, has the advantage. Black wings help only in the cold, so they should not spread to warm low areas."
             },
             {
-              "id": "t8-rw2h-15",
-              "section": "rw",
-              "skill": "Boundaries",
-              "difficulty": "hard",
-              "passage": "The library's oldest printed map is not, ______ its most valuable: that distinction belongs to a hand-colored atlas produced nearly a century later.",
-              "prompt": "Which choice completes the text so that it conforms to the conventions of Standard English?",
-              "choices": [
-                "however",
-                "however;",
-                "however,",
-                "however:"
-              ],
-              "answer": "C",
-              "explanation": "\"However\" interrupts the clause, so it is set off by a pair of commas; the first comma is already there. A semicolon or colon would cut off \"its most valuable\" from the rest of the clause."
-            },
-            {
               "id": "t8-rw2h-16",
               "section": "rw",
               "skill": "Boundaries",
@@ -1243,6 +1227,22 @@
               ],
               "answer": "B",
               "explanation": "Each item in the list already contains a comma, so the items are separated by semicolons, as the rest of the list shows."
+            },
+            {
+              "id": "t8-rw2h-15",
+              "section": "rw",
+              "skill": "Boundaries",
+              "difficulty": "hard",
+              "passage": "The library's oldest printed map is not, ______ its most valuable: that distinction belongs to a hand-colored atlas produced nearly a century later.",
+              "prompt": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+              "choices": [
+                "however",
+                "however;",
+                "however,",
+                "however:"
+              ],
+              "answer": "C",
+              "explanation": "\"However\" interrupts the clause, so it is set off by a pair of commas; the first comma is already there. A semicolon or colon would cut off \"its most valuable\" from the rest of the clause."
             },
             {
               "id": "t8-rw2h-17",

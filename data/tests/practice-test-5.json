@@ -174,22 +174,6 @@
             "explanation": "The hypothesis is about how females respond. Only this finding compares female responses to synchronized and random flashing, and females preferred the synchronized lights."
           },
           {
-            "id": "t5-rw1-11",
-            "section": "rw",
-            "skill": "Command of Evidence: Textual",
-            "difficulty": "hard",
-            "passage": "Studying a region where several large warehouses opened within two years, economist Olivia Grant argues that the warehouses raised wages not only for their own employees but also for workers at nearby retail stores, which had to raise pay to keep employees from leaving for warehouse jobs.",
-            "prompt": "Which finding, if true, would most directly support Grant's argument?",
-            "choices": [
-              "Warehouse employees in the region earned more per hour than retail employees did both before and after the warehouses opened.",
-              "Several retail stores in the region closed during the two years in which the warehouses opened.",
-              "Most people hired by the new warehouses had been unemployed rather than working in retail.",
-              "Retail wages rose faster in towns within commuting distance of the new warehouses than in similar towns farther away, and the gap appeared only after the warehouses began hiring."
-            ],
-            "answer": "D",
-            "explanation": "The argument is about a spillover to retail pay. Only this finding ties faster retail wage growth to nearness to the warehouses and to the timing of their hiring. The finding about previously unemployed hires would weaken the argument."
-          },
-          {
             "id": "t5-rw1-12",
             "section": "rw",
             "skill": "Command of Evidence: Quantitative",
@@ -234,6 +218,22 @@
                 ]
               ]
             }
+          },
+          {
+            "id": "t5-rw1-11",
+            "section": "rw",
+            "skill": "Command of Evidence: Textual",
+            "difficulty": "hard",
+            "passage": "Studying a region where several large warehouses opened within two years, economist Olivia Grant argues that the warehouses raised wages not only for their own employees but also for workers at nearby retail stores, which had to raise pay to keep employees from leaving for warehouse jobs.",
+            "prompt": "Which finding, if true, would most directly support Grant's argument?",
+            "choices": [
+              "Warehouse employees in the region earned more per hour than retail employees did both before and after the warehouses opened.",
+              "Several retail stores in the region closed during the two years in which the warehouses opened.",
+              "Most people hired by the new warehouses had been unemployed rather than working in retail.",
+              "Retail wages rose faster in towns within commuting distance of the new warehouses than in similar towns farther away, and the gap appeared only after the warehouses began hiring."
+            ],
+            "answer": "D",
+            "explanation": "The argument is about a spillover to retail pay. Only this finding ties faster retail wage growth to nearness to the warehouses and to the timing of their hiring. The finding about previously unemployed hires would weaken the argument."
           },
           {
             "id": "t5-rw1-13",
@@ -284,6 +284,22 @@
             "explanation": "Both parts are complete sentences, so they need a semicolon. A comma alone, even with *in fact*, creates a comma splice."
           },
           {
+            "id": "t5-rw1-19",
+            "section": "rw",
+            "skill": "Form, Structure, and Sense",
+            "difficulty": "easy",
+            "passage": "The ants in a single army ant colony ______ able to link their bodies together to form living bridges across gaps on the forest floor.",
+            "prompt": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+            "choices": [
+              "is",
+              "was being",
+              "has been",
+              "are"
+            ],
+            "answer": "D",
+            "explanation": "The subject is the plural \"ants,\" not \"colony,\" so the verb is **are**."
+          },
+          {
             "id": "t5-rw1-16",
             "section": "rw",
             "skill": "Boundaries",
@@ -316,38 +332,6 @@
             "explanation": "The \"which\" clause adds extra information and is closed by the comma after \"swarm,\" so it must open with a comma too."
           },
           {
-            "id": "t5-rw1-18",
-            "section": "rw",
-            "skill": "Boundaries",
-            "difficulty": "hard",
-            "passage": "Early sound-film cameras were so noisy that microphones on the set picked up their ______ studios placed each camera, along with its operator, inside a soundproof booth.",
-            "prompt": "Which choice completes the text so that it conforms to the conventions of Standard English?",
-            "choices": [
-              "whirring; as a result,",
-              "whirring, as a result,",
-              "whirring as a result,",
-              "whirring, as a result;"
-            ],
-            "answer": "A",
-            "explanation": "Two complete sentences joined by the transition \"as a result\" need a semicolon before it and a comma after it. The other choices create a comma splice or put the semicolon in the wrong place."
-          },
-          {
-            "id": "t5-rw1-19",
-            "section": "rw",
-            "skill": "Form, Structure, and Sense",
-            "difficulty": "easy",
-            "passage": "The ants in a single army ant colony ______ able to link their bodies together to form living bridges across gaps on the forest floor.",
-            "prompt": "Which choice completes the text so that it conforms to the conventions of Standard English?",
-            "choices": [
-              "is",
-              "was being",
-              "has been",
-              "are"
-            ],
-            "answer": "D",
-            "explanation": "The subject is the plural \"ants,\" not \"colony,\" so the verb is **are**."
-          },
-          {
             "id": "t5-rw1-20",
             "section": "rw",
             "skill": "Form, Structure, and Sense",
@@ -362,6 +346,22 @@
             ],
             "answer": "A",
             "explanation": "The cameras belong to two directors (\"their early comedies\"), so the plural possessive **directors'** is needed."
+          },
+          {
+            "id": "t5-rw1-18",
+            "section": "rw",
+            "skill": "Boundaries",
+            "difficulty": "hard",
+            "passage": "Early sound-film cameras were so noisy that microphones on the set picked up their ______ studios placed each camera, along with its operator, inside a soundproof booth.",
+            "prompt": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+            "choices": [
+              "whirring; as a result,",
+              "whirring, as a result,",
+              "whirring as a result,",
+              "whirring, as a result;"
+            ],
+            "answer": "A",
+            "explanation": "Two complete sentences joined by the transition \"as a result\" need a semicolon before it and a comma after it. The other choices create a comma splice or put the semicolon in the wrong place."
           },
           {
             "id": "t5-rw1-21",
@@ -642,22 +642,6 @@
               "explanation": "Only this choice compares sick days for the two kinds of schedules, and the flexible group took fewer."
             },
             {
-              "id": "t5-rw2e-11",
-              "section": "rw",
-              "skill": "Command of Evidence: Textual",
-              "difficulty": "medium",
-              "passage": "Geologist Maria Santos claims that a layer of volcanic ash found in the mud at the bottom of several lakes across a region came from a single large eruption rather than from several smaller ones.",
-              "prompt": "Which finding, if true, would most directly support Santos's claim?",
-              "choices": [
-                "The ash layer is thicker in some lakes than in others.",
-                "Several volcanoes in the region have erupted within the past 10,000 years.",
-                "The lakes in the region formed at different times.",
-                "The ash in every lake has the same distinctive chemical makeup, and in each lake the layer dates to the same year."
-              ],
-              "answer": "D",
-              "explanation": "Identical chemistry and identical dates point to one eruption. Several active volcanoes in the region would, if anything, suggest more than one source."
-            },
-            {
               "id": "t5-rw2e-12",
               "section": "rw",
               "skill": "Command of Evidence: Quantitative",
@@ -697,6 +681,22 @@
                   ]
                 ]
               }
+            },
+            {
+              "id": "t5-rw2e-11",
+              "section": "rw",
+              "skill": "Command of Evidence: Textual",
+              "difficulty": "medium",
+              "passage": "Geologist Maria Santos claims that a layer of volcanic ash found in the mud at the bottom of several lakes across a region came from a single large eruption rather than from several smaller ones.",
+              "prompt": "Which finding, if true, would most directly support Santos's claim?",
+              "choices": [
+                "The ash layer is thicker in some lakes than in others.",
+                "Several volcanoes in the region have erupted within the past 10,000 years.",
+                "The lakes in the region formed at different times.",
+                "The ash in every lake has the same distinctive chemical makeup, and in each lake the layer dates to the same year."
+              ],
+              "answer": "D",
+              "explanation": "Identical chemistry and identical dates point to one eruption. Several active volcanoes in the region would, if anything, suggest more than one source."
             },
             {
               "id": "t5-rw2e-13",
@@ -763,6 +763,22 @@
               "explanation": "A colon introduces the two materials after a complete sentence. A semicolon would need a complete sentence after it."
             },
             {
+              "id": "t5-rw2e-19",
+              "section": "rw",
+              "skill": "Form, Structure, and Sense",
+              "difficulty": "easy",
+              "passage": "Last summer, a team of geologists ______ samples of hardened lava from the slopes of the volcano.",
+              "prompt": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+              "choices": [
+                "collected",
+                "collects",
+                "will collect",
+                "is collecting"
+              ],
+              "answer": "A",
+              "explanation": "\"Last summer\" places the action in the past, so the past tense **collected** is needed."
+            },
+            {
               "id": "t5-rw2e-17",
               "section": "rw",
               "skill": "Boundaries",
@@ -793,22 +809,6 @@
               ],
               "answer": "A",
               "explanation": "The subject (\"The thick walls...homes\") runs straight into its verb \"help,\" so no punctuation belongs between them."
-            },
-            {
-              "id": "t5-rw2e-19",
-              "section": "rw",
-              "skill": "Form, Structure, and Sense",
-              "difficulty": "easy",
-              "passage": "Last summer, a team of geologists ______ samples of hardened lava from the slopes of the volcano.",
-              "prompt": "Which choice completes the text so that it conforms to the conventions of Standard English?",
-              "choices": [
-                "collected",
-                "collects",
-                "will collect",
-                "is collecting"
-              ],
-              "answer": "A",
-              "explanation": "\"Last summer\" places the action in the past, so the past tense **collected** is needed."
             },
             {
               "id": "t5-rw2e-20",
@@ -1223,6 +1223,22 @@
               "explanation": "If laid-off workers can take jobs elsewhere, fewer of them compete for local jobs, so local wages fall less. A large share of the workforce or matching skills would increase the competition instead."
             },
             {
+              "id": "t5-rw2h-17",
+              "section": "rw",
+              "skill": "Boundaries",
+              "difficulty": "medium",
+              "passage": "Insects that undergo complete ______ such as beetles, butterflies, and flies, pass through four distinct life stages: egg, larva, pupa, and adult.",
+              "prompt": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+              "choices": [
+                "metamorphosis,",
+                "metamorphosis",
+                "metamorphosis:",
+                "metamorphosis;"
+              ],
+              "answer": "A",
+              "explanation": "The \"such as\" phrase is extra information that closes with the comma after \"flies,\" so it must open with a comma too. A colon or semicolon cannot separate the subject from its verb \"pass.\""
+            },
+            {
               "id": "t5-rw2h-15",
               "section": "rw",
               "skill": "Boundaries",
@@ -1253,22 +1269,6 @@
               ],
               "answer": "A",
               "explanation": "Both parts are complete sentences, and the second explains the first (why the flow kept moving), so a colon fits. A comma, even with *in fact*, creates a comma splice."
-            },
-            {
-              "id": "t5-rw2h-17",
-              "section": "rw",
-              "skill": "Boundaries",
-              "difficulty": "medium",
-              "passage": "Insects that undergo complete ______ such as beetles, butterflies, and flies, pass through four distinct life stages: egg, larva, pupa, and adult.",
-              "prompt": "Which choice completes the text so that it conforms to the conventions of Standard English?",
-              "choices": [
-                "metamorphosis,",
-                "metamorphosis",
-                "metamorphosis:",
-                "metamorphosis;"
-              ],
-              "answer": "A",
-              "explanation": "The \"such as\" phrase is extra information that closes with the comma after \"flies,\" so it must open with a comma too. A colon or semicolon cannot separate the subject from its verb \"pass.\""
             },
             {
               "id": "t5-rw2h-18",
@@ -1891,21 +1891,6 @@
               ]
             },
             {
-              "id": "t5-m2e-09",
-              "section": "math",
-              "skill": "Linear inequalities in one or two variables",
-              "difficulty": "medium",
-              "prompt": "Which of the following values of $x$ is NOT a solution to the inequality $5 - 2x \\le 1$?",
-              "explanation": "Subtract 5: $-2x \\le -4$. Dividing by $-2$ reverses the inequality: $x \\ge 2$. Only 1 is less than 2.",
-              "choices": [
-                "2",
-                "3",
-                "1",
-                "5"
-              ],
-              "answer": "C"
-            },
-            {
               "id": "t5-m2e-10",
               "section": "math",
               "skill": "Lines, angles, and triangles",
@@ -1919,6 +1904,21 @@
                 "60"
               ],
               "answer": "A"
+            },
+            {
+              "id": "t5-m2e-09",
+              "section": "math",
+              "skill": "Linear inequalities in one or two variables",
+              "difficulty": "medium",
+              "prompt": "Which of the following values of $x$ is NOT a solution to the inequality $5 - 2x \\le 1$?",
+              "explanation": "Subtract 5: $-2x \\le -4$. Dividing by $-2$ reverses the inequality: $x \\ge 2$. Only 1 is less than 2.",
+              "choices": [
+                "2",
+                "3",
+                "1",
+                "5"
+              ],
+              "answer": "C"
             },
             {
               "id": "t5-m2e-11",

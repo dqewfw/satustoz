@@ -158,22 +158,6 @@
             "explanation": "Both \"coyote\" and \"maize\" came from Indigenous languages into English through Spanish, so Spanish served as a medium for that influence."
           },
           {
-            "id": "t6-rw1x-10",
-            "section": "rw",
-            "skill": "Inferences",
-            "difficulty": "hard",
-            "passage": "In Armenia, use of solid fuel (e.g., coal, wood) as a share of total household fuel use fell by approximately 90 percent between 2000 and 2018; such shifts are typically explained by appeal to the energy ladder, a model holding that fuel choice is mediated mainly by household income (specifically, high-technology fuels displace solid fuels as incomes rise). Boukary Ouedraogo's study of fuel use in Burkina Faso shows how reductive this model is, however: although income of course constrains fuel choice, several factors, including the frequency with which certain dishes are cooked, influence decisions.",
-            "prompt": "Based on the text, the author would most likely agree with which statement about household income?",
-            "choices": [
-              "It constrains the amount of fuel households use but not the type of fuel they use.",
-              "It affects household fuel choice but not for the reasons assumed by the energy ladder model.",
-              "It can explain some but not all of the differences in fuel choice across households.",
-              "It is often said to influence household fuel choice but actually does not."
-            ],
-            "answer": "C",
-            "explanation": "The author grants that \"income of course constrains fuel choice\" but says several other factors matter too, so income explains some but not all of the differences."
-          },
-          {
             "id": "t6-rw1x-11",
             "section": "rw",
             "skill": "Command of Evidence: Textual",
@@ -303,6 +287,22 @@
             "explanation": "If predators stop attacking when caterpillars make sounds, the sounds are aimed at predators."
           },
           {
+            "id": "t6-rw1x-10",
+            "section": "rw",
+            "skill": "Inferences",
+            "difficulty": "hard",
+            "passage": "In Armenia, use of solid fuel (e.g., coal, wood) as a share of total household fuel use fell by approximately 90 percent between 2000 and 2018; such shifts are typically explained by appeal to the energy ladder, a model holding that fuel choice is mediated mainly by household income (specifically, high-technology fuels displace solid fuels as incomes rise). Boukary Ouedraogo's study of fuel use in Burkina Faso shows how reductive this model is, however: although income of course constrains fuel choice, several factors, including the frequency with which certain dishes are cooked, influence decisions.",
+            "prompt": "Based on the text, the author would most likely agree with which statement about household income?",
+            "choices": [
+              "It constrains the amount of fuel households use but not the type of fuel they use.",
+              "It affects household fuel choice but not for the reasons assumed by the energy ladder model.",
+              "It can explain some but not all of the differences in fuel choice across households.",
+              "It is often said to influence household fuel choice but actually does not."
+            ],
+            "answer": "C",
+            "explanation": "The author grants that \"income of course constrains fuel choice\" but says several other factors matter too, so income explains some but not all of the differences."
+          },
+          {
             "id": "t6-rw1x-15",
             "section": "rw",
             "skill": "Inferences",
@@ -415,22 +415,6 @@
             "explanation": "The steps go in order: first scraped, \"Next\" sprayed, \"Lastly\" smoothed."
           },
           {
-            "id": "t6-rw1x-22",
-            "section": "rw",
-            "skill": "Rhetorical Synthesis",
-            "difficulty": "medium",
-            "passage": "While researching a topic, a student has taken the following notes:\n• A lever is a simple machine consisting of a rigid beam and a fulcrum.\n• The fulcrum is the point about which the beam pivots.\n• The input force (effort) is the force applied to the lever.\n• The output force (load) is the force that the lever exerts on another object.\n• In first-class levers, the fulcrum is located between the effort and the load.\n• In second-class levers, the load is located between the effort and the fulcrum.\n•",
-            "prompt": "The student wants to contrast first-class levers and second-class levers. Which choice most effectively uses relevant information from the notes to accomplish this goal?",
-            "choices": [
-              "In levers, the effort is the force applied to the lever; the load, in contrast, is the force that the lever exerts on another object.",
-              "In first-class and second-class levers, the fulcrum and the load are in different locations.",
-              "First-class levers are simple machines consisting of a rigid beam and a fulcrum, but then again, the same is true of second-class levers.",
-              "In first-class levers, the fulcrum is located between the effort and the load; in second-class levers, the load is located between the effort and the fulcrum."
-            ],
-            "answer": "D",
-            "explanation": "D contrasts the two types by where the fulcrum and load sit."
-          },
-          {
             "id": "t6-rw1x-23",
             "section": "rw",
             "skill": "Rhetorical Synthesis",
@@ -445,6 +429,38 @@
             ],
             "answer": "C",
             "explanation": "C states the difference: different kinds of steel."
+          },
+          {
+            "id": "t6-rw1x-26",
+            "section": "rw",
+            "skill": "Rhetorical Synthesis",
+            "difficulty": "easy",
+            "passage": "While researching a topic, a student has taken the following notes:\n• A supercontinent is a single landmass made up of most or all of Earth's continents.\n• Over time, continents merge together to form supercontinents, which then break apart.\n• This process is believed to take hundreds of millions of years and is known as the supercontinent cycle.\n• Pannotia and Kenorland were supercontinents.\n• Pannotia formed about 600 million years ago.\n• Kenorland formed about 2.6 billion years ago.\n•",
+            "prompt": "The student wants to specify when Pannotia formed. Which choice most effectively uses relevant information from the notes to accomplish this goal?",
+            "choices": [
+              "The supercontinent Pannotia formed about 600 million years ago.",
+              "Over hundreds of millions of years, the supercontinent cycle results in supercontinents forming and breaking apart.",
+              "Long ago, the Earth was home to supercontinents like Pannotia and Kenorland.",
+              "Pannotia was a supercontinent, a single landmass made up of most or all of Earth's continents."
+            ],
+            "answer": "A",
+            "explanation": "A gives when Pannotia formed: about 600 million years ago."
+          },
+          {
+            "id": "t6-rw1x-22",
+            "section": "rw",
+            "skill": "Rhetorical Synthesis",
+            "difficulty": "medium",
+            "passage": "While researching a topic, a student has taken the following notes:\n• A lever is a simple machine consisting of a rigid beam and a fulcrum.\n• The fulcrum is the point about which the beam pivots.\n• The input force (effort) is the force applied to the lever.\n• The output force (load) is the force that the lever exerts on another object.\n• In first-class levers, the fulcrum is located between the effort and the load.\n• In second-class levers, the load is located between the effort and the fulcrum.\n•",
+            "prompt": "The student wants to contrast first-class levers and second-class levers. Which choice most effectively uses relevant information from the notes to accomplish this goal?",
+            "choices": [
+              "In levers, the effort is the force applied to the lever; the load, in contrast, is the force that the lever exerts on another object.",
+              "In first-class and second-class levers, the fulcrum and the load are in different locations.",
+              "First-class levers are simple machines consisting of a rigid beam and a fulcrum, but then again, the same is true of second-class levers.",
+              "In first-class levers, the fulcrum is located between the effort and the load; in second-class levers, the load is located between the effort and the fulcrum."
+            ],
+            "answer": "D",
+            "explanation": "D contrasts the two types by where the fulcrum and load sit."
           },
           {
             "id": "t6-rw1x-24",
@@ -477,22 +493,6 @@
             ],
             "answer": "A",
             "explanation": "A stresses size: \"a massive crater measuring 35 km in diameter.\""
-          },
-          {
-            "id": "t6-rw1x-26",
-            "section": "rw",
-            "skill": "Rhetorical Synthesis",
-            "difficulty": "easy",
-            "passage": "While researching a topic, a student has taken the following notes:\n• A supercontinent is a single landmass made up of most or all of Earth's continents.\n• Over time, continents merge together to form supercontinents, which then break apart.\n• This process is believed to take hundreds of millions of years and is known as the supercontinent cycle.\n• Pannotia and Kenorland were supercontinents.\n• Pannotia formed about 600 million years ago.\n• Kenorland formed about 2.6 billion years ago.\n•",
-            "prompt": "The student wants to specify when Pannotia formed. Which choice most effectively uses relevant information from the notes to accomplish this goal?",
-            "choices": [
-              "The supercontinent Pannotia formed about 600 million years ago.",
-              "Over hundreds of millions of years, the supercontinent cycle results in supercontinents forming and breaking apart.",
-              "Long ago, the Earth was home to supercontinents like Pannotia and Kenorland.",
-              "Pannotia was a supercontinent, a single landmass made up of most or all of Earth's continents."
-            ],
-            "answer": "A",
-            "explanation": "A gives when Pannotia formed: about 600 million years ago."
           },
           {
             "id": "t6-rw1x-27",
@@ -677,22 +677,6 @@
               "explanation": "Only this finding compares the heights of the two groups, which is what the hypothesis is about."
             },
             {
-              "id": "t6-rw2e-11",
-              "section": "rw",
-              "skill": "Command of Evidence: Textual",
-              "difficulty": "medium",
-              "passage": "Carpet historian Arthur Bell claims that a large nineteenth-century carpet in a museum's collection was woven by several weavers working side by side rather than by a single weaver.",
-              "prompt": "Which finding, if true, would most directly support Bell's claim?",
-              "choices": [
-                "The carpet's wool was dyed with madder and indigo.",
-                "The carpet is one of the largest in the museum's collection.",
-                "Carpets of a similar size were often given as wedding gifts.",
-                "The knots in the carpet's left, middle, and right sections were tied with three noticeably different techniques, and the borders between these sections run straight from the bottom of the carpet to the top."
-              ],
-              "answer": "D",
-              "explanation": "Three knotting styles in side-by-side strips running the whole length of the carpet point to three weavers working next to one another."
-            },
-            {
               "id": "t6-rw2e-12",
               "section": "rw",
               "skill": "Command of Evidence: Quantitative",
@@ -732,6 +716,22 @@
                   ]
                 ]
               }
+            },
+            {
+              "id": "t6-rw2e-11",
+              "section": "rw",
+              "skill": "Command of Evidence: Textual",
+              "difficulty": "medium",
+              "passage": "Carpet historian Arthur Bell claims that a large nineteenth-century carpet in a museum's collection was woven by several weavers working side by side rather than by a single weaver.",
+              "prompt": "Which finding, if true, would most directly support Bell's claim?",
+              "choices": [
+                "The carpet's wool was dyed with madder and indigo.",
+                "The carpet is one of the largest in the museum's collection.",
+                "Carpets of a similar size were often given as wedding gifts.",
+                "The knots in the carpet's left, middle, and right sections were tied with three noticeably different techniques, and the borders between these sections run straight from the bottom of the carpet to the top."
+              ],
+              "answer": "D",
+              "explanation": "Three knotting styles in side-by-side strips running the whole length of the carpet point to three weavers working next to one another."
             },
             {
               "id": "t6-rw2e-13",
@@ -798,6 +798,38 @@
               "explanation": "Both parts are complete sentences, so they need a semicolon. A comma alone creates a comma splice."
             },
             {
+              "id": "t6-rw2e-19",
+              "section": "rw",
+              "skill": "Form, Structure, and Sense",
+              "difficulty": "easy",
+              "passage": "The baskets woven by the village's craftspeople ______ sold at the weekly market.",
+              "prompt": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+              "choices": [
+                "are",
+                "is",
+                "was",
+                "has been"
+              ],
+              "answer": "A",
+              "explanation": "The subject is the plural \"baskets,\" so the verb is **are**."
+            },
+            {
+              "id": "t6-rw2e-21",
+              "section": "rw",
+              "skill": "Form, Structure, and Sense",
+              "difficulty": "easy",
+              "passage": "Last spring, the research team ______ a network of sensors across the glacier to record the temperature of the ice.",
+              "prompt": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+              "choices": [
+                "install",
+                "will install",
+                "installing",
+                "installed"
+              ],
+              "answer": "D",
+              "explanation": "\"Last spring\" places the action in the past, so the past tense **installed** fits."
+            },
+            {
               "id": "t6-rw2e-17",
               "section": "rw",
               "skill": "Boundaries",
@@ -830,22 +862,6 @@
               "explanation": "Items in a simple list of three are separated by commas."
             },
             {
-              "id": "t6-rw2e-19",
-              "section": "rw",
-              "skill": "Form, Structure, and Sense",
-              "difficulty": "easy",
-              "passage": "The baskets woven by the village's craftspeople ______ sold at the weekly market.",
-              "prompt": "Which choice completes the text so that it conforms to the conventions of Standard English?",
-              "choices": [
-                "are",
-                "is",
-                "was",
-                "has been"
-              ],
-              "answer": "A",
-              "explanation": "The subject is the plural \"baskets,\" so the verb is **are**."
-            },
-            {
               "id": "t6-rw2e-20",
               "section": "rw",
               "skill": "Form, Structure, and Sense",
@@ -860,22 +876,6 @@
               ],
               "answer": "B",
               "explanation": "The sentence needs a plural noun that simply names the farms, so **farms** fits. Nothing belongs to the farms here, so no apostrophe is needed."
-            },
-            {
-              "id": "t6-rw2e-21",
-              "section": "rw",
-              "skill": "Form, Structure, and Sense",
-              "difficulty": "easy",
-              "passage": "Last spring, the research team ______ a network of sensors across the glacier to record the temperature of the ice.",
-              "prompt": "Which choice completes the text so that it conforms to the conventions of Standard English?",
-              "choices": [
-                "install",
-                "will install",
-                "installing",
-                "installed"
-              ],
-              "answer": "D",
-              "explanation": "\"Last spring\" places the action in the past, so the past tense **installed** fits."
             },
             {
               "id": "t6-rw2e-22",
@@ -1397,6 +1397,22 @@
               "explanation": "The subject is \"collection\" (singular), so \"remains.\""
             },
             {
+              "id": "t6-rw2hx-26",
+              "section": "rw",
+              "skill": "Transitions",
+              "difficulty": "medium",
+              "passage": "In a 1984 study by Warren et al., the researchers determined the ratio of three different plant subtypes within the diet of sheep: graminoids, forbs, and browse. ______ the researchers determined the relative quantities of the plants the animal consumed.",
+              "prompt": "Which choice completes the text with the most logical transition?",
+              "choices": [
+                "By contrast,",
+                "In addition,",
+                "That is,",
+                "Next,"
+              ],
+              "answer": "C",
+              "explanation": "The second sentence restates the first in plainer terms: \"That is.\""
+            },
+            {
               "id": "t6-rw2hx-23",
               "section": "rw",
               "skill": "Transitions",
@@ -1443,22 +1459,6 @@
               ],
               "answer": "D",
               "explanation": "Because genes are shaped by interactions with proteins, researchers have begun studying the proteome: \"Accordingly.\""
-            },
-            {
-              "id": "t6-rw2hx-26",
-              "section": "rw",
-              "skill": "Transitions",
-              "difficulty": "medium",
-              "passage": "In a 1984 study by Warren et al., the researchers determined the ratio of three different plant subtypes within the diet of sheep: graminoids, forbs, and browse. ______ the researchers determined the relative quantities of the plants the animal consumed.",
-              "prompt": "Which choice completes the text with the most logical transition?",
-              "choices": [
-                "By contrast,",
-                "In addition,",
-                "That is,",
-                "Next,"
-              ],
-              "answer": "C",
-              "explanation": "The second sentence restates the first in plainer terms: \"That is.\""
             },
             {
               "id": "t6-rw2hx-27",

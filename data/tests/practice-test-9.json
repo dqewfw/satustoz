@@ -174,22 +174,6 @@
             "explanation": "This finding shows both parts of the hypothesis: fewer options led to more buying, and many options made choosing feel hard. Stopping to look is not the same as buying."
           },
           {
-            "id": "t9-rw1-11",
-            "section": "rw",
-            "skill": "Command of Evidence: Textual",
-            "difficulty": "hard",
-            "passage": "Ecologist Jacob Reyes claims that harvester ants on the Colorado Plateau improve the growth of nearby plants because the seed husks and other waste the ants discard around their nest entrances enrich the soil.",
-            "prompt": "Which finding, if true, would most directly support Reyes's claim?",
-            "choices": [
-              "Seedlings grown in pots of soil taken from nest entrances grew larger than seedlings of the same species grown under identical conditions in pots of soil collected 10 meters from the nests.",
-              "Plants growing within a few meters of ant nests were, on average, taller than plants growing farther away.",
-              "The ants collected seeds from more than twenty plant species, carrying some as far as 30 meters to their nests.",
-              "Ant nests were most common in areas where plant cover was already dense before the colonies were established."
-            ],
-            "answer": "A",
-            "explanation": "Only the pot experiment isolates the soil itself, showing that nest-entrance soil boosts growth when everything else is equal. Taller plants near nests could simply mean the ants build nests where plants already grow well."
-          },
-          {
             "id": "t9-rw1-12",
             "section": "rw",
             "skill": "Command of Evidence: Quantitative",
@@ -234,6 +218,22 @@
                 ]
               ]
             }
+          },
+          {
+            "id": "t9-rw1-11",
+            "section": "rw",
+            "skill": "Command of Evidence: Textual",
+            "difficulty": "hard",
+            "passage": "Ecologist Jacob Reyes claims that harvester ants on the Colorado Plateau improve the growth of nearby plants because the seed husks and other waste the ants discard around their nest entrances enrich the soil.",
+            "prompt": "Which finding, if true, would most directly support Reyes's claim?",
+            "choices": [
+              "Seedlings grown in pots of soil taken from nest entrances grew larger than seedlings of the same species grown under identical conditions in pots of soil collected 10 meters from the nests.",
+              "Plants growing within a few meters of ant nests were, on average, taller than plants growing farther away.",
+              "The ants collected seeds from more than twenty plant species, carrying some as far as 30 meters to their nests.",
+              "Ant nests were most common in areas where plant cover was already dense before the colonies were established."
+            ],
+            "answer": "A",
+            "explanation": "Only the pot experiment isolates the soil itself, showing that nest-entrance soil boosts growth when everything else is equal. Taller plants near nests could simply mean the ants build nests where plants already grow well."
           },
           {
             "id": "t9-rw1-13",
@@ -284,6 +284,22 @@
             "explanation": "Both parts are complete sentences, so a **semicolon** is needed. A comma alone, with or without \"in fact,\" creates a comma splice."
           },
           {
+            "id": "t9-rw1-19",
+            "section": "rw",
+            "skill": "Form, Structure, and Sense",
+            "difficulty": "easy",
+            "passage": "Last spring, a folk dance ensemble from Seville ______ its first tour of South Korea, performing in six cities.",
+            "prompt": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+            "choices": [
+              "completes",
+              "will complete",
+              "is completing",
+              "completed"
+            ],
+            "answer": "D",
+            "explanation": "\"Last spring\" places the action in the past, so the past tense **completed** is needed."
+          },
+          {
             "id": "t9-rw1-16",
             "section": "rw",
             "skill": "Boundaries",
@@ -298,22 +314,6 @@
             ],
             "answer": "B",
             "explanation": "The first clause is complete, and what follows explains the two stages, so a **colon** fits. No punctuation or a comma alone would fuse two sentences."
-          },
-          {
-            "id": "t9-rw1-17",
-            "section": "rw",
-            "skill": "Boundaries",
-            "difficulty": "hard",
-            "passage": "The ancient Chinese mathematical ______ *The Nine Chapters on the Mathematical Art* includes methods for solving systems of linear equations by arranging numbers in rows and columns.",
-            "prompt": "Which choice completes the text so that it conforms to the conventions of Standard English?",
-            "choices": [
-              "text,",
-              "text:",
-              "text",
-              "text—"
-            ],
-            "answer": "C",
-            "explanation": "The title is essential: it tells which text is meant, so **no punctuation** is used. A comma or dash would need a matching mark after the title, and a colon can't separate a noun from the name that identifies it."
           },
           {
             "id": "t9-rw1-18",
@@ -332,22 +332,6 @@
             "explanation": "The clause \"who corresponded...pseudonym\" interrupts the sentence and opens with a comma, so it must close with a **comma**. A dash wouldn't match the opening comma."
           },
           {
-            "id": "t9-rw1-19",
-            "section": "rw",
-            "skill": "Form, Structure, and Sense",
-            "difficulty": "easy",
-            "passage": "Last spring, a folk dance ensemble from Seville ______ its first tour of South Korea, performing in six cities.",
-            "prompt": "Which choice completes the text so that it conforms to the conventions of Standard English?",
-            "choices": [
-              "completes",
-              "will complete",
-              "is completing",
-              "completed"
-            ],
-            "answer": "D",
-            "explanation": "\"Last spring\" places the action in the past, so the past tense **completed** is needed."
-          },
-          {
             "id": "t9-rw1-20",
             "section": "rw",
             "skill": "Form, Structure, and Sense",
@@ -362,6 +346,22 @@
             ],
             "answer": "A",
             "explanation": "The pronoun refers to \"A kangaroo rat,\" which is singular, so the possessive is **its**. *It's* means \"it is.\""
+          },
+          {
+            "id": "t9-rw1-17",
+            "section": "rw",
+            "skill": "Boundaries",
+            "difficulty": "hard",
+            "passage": "The ancient Chinese mathematical ______ *The Nine Chapters on the Mathematical Art* includes methods for solving systems of linear equations by arranging numbers in rows and columns.",
+            "prompt": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+            "choices": [
+              "text,",
+              "text:",
+              "text",
+              "text—"
+            ],
+            "answer": "C",
+            "explanation": "The title is essential: it tells which text is meant, so **no punctuation** is used. A comma or dash would need a matching mark after the title, and a colon can't separate a noun from the name that identifies it."
           },
           {
             "id": "t9-rw1-21",
@@ -444,22 +444,6 @@
             "explanation": "Only this choice gives the reason: her notes contained a step-by-step method for a machine to follow."
           },
           {
-            "id": "t9-rw1-26",
-            "section": "rw",
-            "skill": "Rhetorical Synthesis",
-            "difficulty": "hard",
-            "passage": "While researching a topic, a student has taken the following notes:\n\n• Dugongs and manatees are large marine mammals that feed mainly on plants.\n• Dugongs live only in salt water, in coastal areas of the Indian and Pacific Oceans.\n• West Indian manatees can live in salt water, fresh water, or a mix of the two.\n• A dugong has a notched tail like a dolphin's, while a manatee's tail is rounded like a paddle.",
-            "prompt": "The student wants to contrast the habitats of dugongs and West Indian manatees. Which choice most effectively uses relevant information from the notes to accomplish this goal?",
-            "choices": [
-              "While dugongs live only in salt water, West Indian manatees can live in salt water, fresh water, or a mix of the two.",
-              "A dugong's notched tail resembles a dolphin's, whereas a manatee's tail is rounded like a paddle.",
-              "Both dugongs and manatees are large marine mammals that feed mainly on plants.",
-              "Dugongs live in coastal areas of the Indian and Pacific Oceans."
-            ],
-            "answer": "A",
-            "explanation": "The goal is a contrast in **habitat**. The tail choice is a contrast too, but of body shape, not habitat."
-          },
-          {
             "id": "t9-rw1-27",
             "section": "rw",
             "skill": "Rhetorical Synthesis",
@@ -474,6 +458,22 @@
             ],
             "answer": "C",
             "explanation": "A method is what the researchers did. Only this choice describes the procedure; the 18% figure is a result."
+          },
+          {
+            "id": "t9-rw1-26",
+            "section": "rw",
+            "skill": "Rhetorical Synthesis",
+            "difficulty": "hard",
+            "passage": "While researching a topic, a student has taken the following notes:\n\n• Dugongs and manatees are large marine mammals that feed mainly on plants.\n• Dugongs live only in salt water, in coastal areas of the Indian and Pacific Oceans.\n• West Indian manatees can live in salt water, fresh water, or a mix of the two.\n• A dugong has a notched tail like a dolphin's, while a manatee's tail is rounded like a paddle.",
+            "prompt": "The student wants to contrast the habitats of dugongs and West Indian manatees. Which choice most effectively uses relevant information from the notes to accomplish this goal?",
+            "choices": [
+              "While dugongs live only in salt water, West Indian manatees can live in salt water, fresh water, or a mix of the two.",
+              "A dugong's notched tail resembles a dolphin's, whereas a manatee's tail is rounded like a paddle.",
+              "Both dugongs and manatees are large marine mammals that feed mainly on plants.",
+              "Dugongs live in coastal areas of the Indian and Pacific Oceans."
+            ],
+            "answer": "A",
+            "explanation": "The goal is a contrast in **habitat**. The tail choice is a contrast too, but of body shape, not habitat."
           }
         ]
       },
@@ -763,6 +763,22 @@
               "explanation": "Items in a list of three are separated by **commas**."
             },
             {
+              "id": "t9-rw2e-19",
+              "section": "rw",
+              "skill": "Form, Structure, and Sense",
+              "difficulty": "easy",
+              "passage": "Before last year's competition, the two dancers ______ their routine every evening for a month.",
+              "prompt": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+              "choices": [
+                "practices",
+                "practicing",
+                "practiced",
+                "has practiced"
+              ],
+              "answer": "C",
+              "explanation": "The action happened in the past (\"last year's competition\") and the subject is plural, so the verb is **practiced**."
+            },
+            {
               "id": "t9-rw2e-17",
               "section": "rw",
               "skill": "Boundaries",
@@ -793,22 +809,6 @@
               ],
               "answer": "D",
               "explanation": "The phrase \"a close relative of seals and sea lions\" opens with a comma, so it must close with a **comma**."
-            },
-            {
-              "id": "t9-rw2e-19",
-              "section": "rw",
-              "skill": "Form, Structure, and Sense",
-              "difficulty": "easy",
-              "passage": "Before last year's competition, the two dancers ______ their routine every evening for a month.",
-              "prompt": "Which choice completes the text so that it conforms to the conventions of Standard English?",
-              "choices": [
-                "practices",
-                "practicing",
-                "practiced",
-                "has practiced"
-              ],
-              "answer": "C",
-              "explanation": "The action happened in the past (\"last year's competition\") and the subject is plural, so the verb is **practiced**."
             },
             {
               "id": "t9-rw2e-20",
@@ -859,6 +859,22 @@
               "explanation": "The bowhead whale is an example of a marine mammal with thick blubber, so **For example** fits."
             },
             {
+              "id": "t9-rw2e-24",
+              "section": "rw",
+              "skill": "Transitions",
+              "difficulty": "easy",
+              "passage": "Many people assume that companies began advertising directly to children only after television became common in the 1950s. ______ toy makers were placing advertisements aimed at children in magazines and catalogs decades earlier.",
+              "prompt": "Which choice completes the text with the most logical transition?",
+              "choices": [
+                "For example,",
+                "As a result,",
+                "Likewise,",
+                "However,"
+              ],
+              "answer": "D",
+              "explanation": "The second sentence contradicts the assumption in the first, so **However** fits."
+            },
+            {
               "id": "t9-rw2e-23",
               "section": "rw",
               "skill": "Transitions",
@@ -875,20 +891,20 @@
               "explanation": "Because a wheel turns after each key press, the same letter comes out differently the next time. That is a result, so **As a result** fits."
             },
             {
-              "id": "t9-rw2e-24",
+              "id": "t9-rw2e-27",
               "section": "rw",
-              "skill": "Transitions",
+              "skill": "Rhetorical Synthesis",
               "difficulty": "easy",
-              "passage": "Many people assume that companies began advertising directly to children only after television became common in the 1950s. ______ toy makers were placing advertisements aimed at children in magazines and catalogs decades earlier.",
-              "prompt": "Which choice completes the text with the most logical transition?",
+              "passage": "While researching a topic, a student has taken the following notes:\n\n• Ecologist Thandi Nkosi studied shovel-snouted lizards in the Namib Desert of Namibia.\n• She observed 40 lizards at different times of day.\n• The lizards were most active in the morning, when the sand was between 30°C and 40°C.\n• At midday, when the sand could reach 60°C, most of the lizards buried themselves in sand or rested in the shade.",
+              "prompt": "The student wants to explain how the lizards avoid overheating. Which choice most effectively uses relevant information from the notes to accomplish this goal?",
               "choices": [
-                "For example,",
-                "As a result,",
-                "Likewise,",
-                "However,"
+                "Shovel-snouted lizards are most active in the morning, when the sand is between 30°C and 40°C.",
+                "Ecologist Thandi Nkosi observed 40 shovel-snouted lizards in the Namib Desert.",
+                "Shovel-snouted lizards are found in the Namib Desert of Namibia.",
+                "At midday, when the sand can reach 60°C, most shovel-snouted lizards avoid overheating by burying themselves in sand or resting in the shade."
               ],
               "answer": "D",
-              "explanation": "The second sentence contradicts the assumption in the first, so **However** fits."
+              "explanation": "Only this choice describes what the lizards do when the sand gets dangerously hot."
             },
             {
               "id": "t9-rw2e-25",
@@ -921,22 +937,6 @@
               ],
               "answer": "C",
               "explanation": "Only this choice says what the book was used for: practical business tasks."
-            },
-            {
-              "id": "t9-rw2e-27",
-              "section": "rw",
-              "skill": "Rhetorical Synthesis",
-              "difficulty": "easy",
-              "passage": "While researching a topic, a student has taken the following notes:\n\n• Ecologist Thandi Nkosi studied shovel-snouted lizards in the Namib Desert of Namibia.\n• She observed 40 lizards at different times of day.\n• The lizards were most active in the morning, when the sand was between 30°C and 40°C.\n• At midday, when the sand could reach 60°C, most of the lizards buried themselves in sand or rested in the shade.",
-              "prompt": "The student wants to explain how the lizards avoid overheating. Which choice most effectively uses relevant information from the notes to accomplish this goal?",
-              "choices": [
-                "Shovel-snouted lizards are most active in the morning, when the sand is between 30°C and 40°C.",
-                "Ecologist Thandi Nkosi observed 40 shovel-snouted lizards in the Namib Desert.",
-                "Shovel-snouted lizards are found in the Namib Desert of Namibia.",
-                "At midday, when the sand can reach 60°C, most shovel-snouted lizards avoid overheating by burying themselves in sand or resting in the shade."
-              ],
-              "answer": "D",
-              "explanation": "Only this choice describes what the lizards do when the sand gets dangerously hot."
             }
           ]
         },

@@ -174,22 +174,6 @@
             "explanation": "The hypothesis is that lining canals cuts seepage and delivers more water. Only this finding shows a lined canal delivering more water than an unlined one under the same conditions."
           },
           {
-            "id": "t10-rw1-11",
-            "section": "rw",
-            "skill": "Command of Evidence: Textual",
-            "difficulty": "hard",
-            "passage": "Paleontologist Noah Fischer argues that a small feathered dinosaur whose fossils he studied was active mainly at night.",
-            "prompt": "Which finding, if true, would most directly support Fischer's argument?",
-            "choices": [
-              "The dinosaur's eye sockets, relative to the size of its skull, were as large as those of modern owls, which hunt in dim light.",
-              "The dinosaur's fossils were found in rock that formed in a hot, dry region, a type of environment in which many animals today are active at night.",
-              "The dinosaur's teeth suggest that it fed mainly on insects.",
-              "Several of the dinosaur's skeletons were found close together, suggesting that it lived in groups."
-            ],
-            "answer": "A",
-            "explanation": "Owl-sized eyes are an adaptation for seeing in dim light, a trait of this dinosaur itself. The dry-climate choice is tempting, but it describes only the environment, where animals active by day also live, so it says little about this particular dinosaur."
-          },
-          {
             "id": "t10-rw1-12",
             "section": "rw",
             "skill": "Command of Evidence: Quantitative",
@@ -234,6 +218,22 @@
                 ]
               ]
             }
+          },
+          {
+            "id": "t10-rw1-11",
+            "section": "rw",
+            "skill": "Command of Evidence: Textual",
+            "difficulty": "hard",
+            "passage": "Paleontologist Noah Fischer argues that a small feathered dinosaur whose fossils he studied was active mainly at night.",
+            "prompt": "Which finding, if true, would most directly support Fischer's argument?",
+            "choices": [
+              "The dinosaur's eye sockets, relative to the size of its skull, were as large as those of modern owls, which hunt in dim light.",
+              "The dinosaur's fossils were found in rock that formed in a hot, dry region, a type of environment in which many animals today are active at night.",
+              "The dinosaur's teeth suggest that it fed mainly on insects.",
+              "Several of the dinosaur's skeletons were found close together, suggesting that it lived in groups."
+            ],
+            "answer": "A",
+            "explanation": "Owl-sized eyes are an adaptation for seeing in dim light, a trait of this dinosaur itself. The dry-climate choice is tempting, but it describes only the environment, where animals active by day also live, so it says little about this particular dinosaur."
           },
           {
             "id": "t10-rw1-13",
@@ -284,6 +284,22 @@
             "explanation": "The introductory \"When...\" clause must be separated from the main clause with a comma."
           },
           {
+            "id": "t10-rw1-19",
+            "section": "rw",
+            "skill": "Form, Structure, and Sense",
+            "difficulty": "easy",
+            "passage": "The growth rings inside a tree trunk ______ a year-by-year record of how much the tree grew, so wide rings usually mark years with plenty of rain.",
+            "prompt": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+            "choices": [
+              "provides",
+              "is providing",
+              "provide",
+              "has provided"
+            ],
+            "answer": "C",
+            "explanation": "The subject is the plural \"rings,\" not \"trunk,\" so the verb is **provide**."
+          },
+          {
             "id": "t10-rw1-16",
             "section": "rw",
             "skill": "Boundaries",
@@ -298,22 +314,6 @@
             ],
             "answer": "A",
             "explanation": "Both parts are complete sentences, so they need a semicolon. A comma alone, with or without \"for example,\" creates a comma splice."
-          },
-          {
-            "id": "t10-rw1-17",
-            "section": "rw",
-            "skill": "Boundaries",
-            "difficulty": "hard",
-            "passage": "The small, beaked dinosaur skeleton that a team of paleontologists dug out of a sandstone cliff in the badlands of Alberta in ______ is remarkably complete, with nearly every bone still in place.",
-            "prompt": "Which choice completes the text so that it conforms to the conventions of Standard English?",
-            "choices": [
-              "2019,",
-              "2019",
-              "2019;",
-              "2019—"
-            ],
-            "answer": "B",
-            "explanation": "The long subject (\"The small...in 2019\") must not be separated from its verb \"is,\" so no punctuation is needed."
           },
           {
             "id": "t10-rw1-18",
@@ -332,22 +332,6 @@
             "explanation": "The clause \"which had darkened...centuries\" adds extra information and closes with a comma, so it must also open with a comma."
           },
           {
-            "id": "t10-rw1-19",
-            "section": "rw",
-            "skill": "Form, Structure, and Sense",
-            "difficulty": "easy",
-            "passage": "The growth rings inside a tree trunk ______ a year-by-year record of how much the tree grew, so wide rings usually mark years with plenty of rain.",
-            "prompt": "Which choice completes the text so that it conforms to the conventions of Standard English?",
-            "choices": [
-              "provides",
-              "is providing",
-              "provide",
-              "has provided"
-            ],
-            "answer": "C",
-            "explanation": "The subject is the plural \"rings,\" not \"trunk,\" so the verb is **provide**."
-          },
-          {
             "id": "t10-rw1-20",
             "section": "rw",
             "skill": "Form, Structure, and Sense",
@@ -362,6 +346,22 @@
             ],
             "answer": "D",
             "explanation": "The wheels belong to the three mills, so the plural possessive **mills'** is needed. *Mill's* would refer to only one mill."
+          },
+          {
+            "id": "t10-rw1-17",
+            "section": "rw",
+            "skill": "Boundaries",
+            "difficulty": "hard",
+            "passage": "The small, beaked dinosaur skeleton that a team of paleontologists dug out of a sandstone cliff in the badlands of Alberta in ______ is remarkably complete, with nearly every bone still in place.",
+            "prompt": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+            "choices": [
+              "2019,",
+              "2019",
+              "2019;",
+              "2019—"
+            ],
+            "answer": "B",
+            "explanation": "The long subject (\"The small...in 2019\") must not be separated from its verb \"is,\" so no punctuation is needed."
           },
           {
             "id": "t10-rw1-21",
@@ -444,22 +444,6 @@
             "explanation": "Only this choice gives a reason the forests grow beside rivers: their trees need the groundwater that the rivers supply."
           },
           {
-            "id": "t10-rw1-26",
-            "section": "rw",
-            "skill": "Rhetorical Synthesis",
-            "difficulty": "hard",
-            "passage": "While researching a topic, a student has taken the following notes:\n\n• Conservators Bruno Ferri and Selin Kaya each restored a damaged nineteenth-century wall painting.\n• Ferri worked on a painting in a house in Verona; Kaya worked on one in a mansion in Istanbul.\n• Both conservators first secured the flaking paint with a weak adhesive.\n• Ferri filled the missing areas with fine lines of color that look complete from a distance but can be recognized as new up close.\n• Kaya left the missing areas as plain, neutral-toned plaster.",
-            "prompt": "The student wants to emphasize a difference in how the two conservators treated the missing areas of the paintings. Which choice most effectively uses relevant information from the notes to accomplish this goal?",
-            "choices": [
-              "Both Ferri and Kaya began by securing the flaking paint with a weak adhesive.",
-              "Whereas Ferri filled the missing areas with fine lines of color that blend in from a distance, Kaya left them as plain, neutral-toned plaster.",
-              "Ferri restored a painting in Verona, while Kaya restored one in Istanbul.",
-              "Ferri filled the missing areas of the painting in Verona with fine lines of color that look complete from a distance."
-            ],
-            "answer": "B",
-            "explanation": "The goal is a difference in how the missing areas were treated, so both treatments must be contrasted. The Verona–Istanbul choice states a difference, but not one about the missing areas."
-          },
-          {
             "id": "t10-rw1-27",
             "section": "rw",
             "skill": "Rhetorical Synthesis",
@@ -474,6 +458,22 @@
             ],
             "answer": "A",
             "explanation": "Only this choice states what the find suggests: the group lived across a much wider area than scientists had believed."
+          },
+          {
+            "id": "t10-rw1-26",
+            "section": "rw",
+            "skill": "Rhetorical Synthesis",
+            "difficulty": "hard",
+            "passage": "While researching a topic, a student has taken the following notes:\n\n• Conservators Bruno Ferri and Selin Kaya each restored a damaged nineteenth-century wall painting.\n• Ferri worked on a painting in a house in Verona; Kaya worked on one in a mansion in Istanbul.\n• Both conservators first secured the flaking paint with a weak adhesive.\n• Ferri filled the missing areas with fine lines of color that look complete from a distance but can be recognized as new up close.\n• Kaya left the missing areas as plain, neutral-toned plaster.",
+            "prompt": "The student wants to emphasize a difference in how the two conservators treated the missing areas of the paintings. Which choice most effectively uses relevant information from the notes to accomplish this goal?",
+            "choices": [
+              "Both Ferri and Kaya began by securing the flaking paint with a weak adhesive.",
+              "Whereas Ferri filled the missing areas with fine lines of color that blend in from a distance, Kaya left them as plain, neutral-toned plaster.",
+              "Ferri restored a painting in Verona, while Kaya restored one in Istanbul.",
+              "Ferri filled the missing areas of the painting in Verona with fine lines of color that look complete from a distance."
+            ],
+            "answer": "B",
+            "explanation": "The goal is a difference in how the missing areas were treated, so both treatments must be contrasted. The Verona–Istanbul choice states a difference, but not one about the missing areas."
           }
         ]
       },
@@ -642,22 +642,6 @@
               "explanation": "Only this finding compares residents near and far from parks on a measure of neighborly connection."
             },
             {
-              "id": "t10-rw2e-11",
-              "section": "rw",
-              "skill": "Command of Evidence: Textual",
-              "difficulty": "medium",
-              "passage": "Art historian Marta Kovač argues that the unknown artist who painted a series of nineteenth-century village scenes had been trained as a mapmaker.",
-              "prompt": "Which finding, if true, would most directly support Kovač's argument?",
-              "choices": [
-                "The paintings were found in the attic of a house that once belonged to a wealthy merchant.",
-                "The paintings show the village's streets and fields as if seen from directly above, with distances drawn to a consistent scale, a method common in maps but rare among painters of the time.",
-                "The artist used an expensive blue pigment in several of the paintings.",
-                "Several of the paintings show farmers working in the fields at harvest time."
-              ],
-              "answer": "B",
-              "explanation": "Only this finding ties the paintings to a skill specific to mapmaking: drawing places from above and to scale."
-            },
-            {
               "id": "t10-rw2e-12",
               "section": "rw",
               "skill": "Command of Evidence: Quantitative",
@@ -697,6 +681,22 @@
                   ]
                 ]
               }
+            },
+            {
+              "id": "t10-rw2e-11",
+              "section": "rw",
+              "skill": "Command of Evidence: Textual",
+              "difficulty": "medium",
+              "passage": "Art historian Marta Kovač argues that the unknown artist who painted a series of nineteenth-century village scenes had been trained as a mapmaker.",
+              "prompt": "Which finding, if true, would most directly support Kovač's argument?",
+              "choices": [
+                "The paintings were found in the attic of a house that once belonged to a wealthy merchant.",
+                "The paintings show the village's streets and fields as if seen from directly above, with distances drawn to a consistent scale, a method common in maps but rare among painters of the time.",
+                "The artist used an expensive blue pigment in several of the paintings.",
+                "Several of the paintings show farmers working in the fields at harvest time."
+              ],
+              "answer": "B",
+              "explanation": "Only this finding ties the paintings to a skill specific to mapmaking: drawing places from above and to scale."
             },
             {
               "id": "t10-rw2e-13",
@@ -763,6 +763,22 @@
               "explanation": "Both parts are complete sentences, so they need a semicolon. A comma alone creates a comma splice."
             },
             {
+              "id": "t10-rw2e-19",
+              "section": "rw",
+              "skill": "Form, Structure, and Sense",
+              "difficulty": "easy",
+              "passage": "The silk tapestries in the palace's north gallery ______ cleaned and rehung last spring.",
+              "prompt": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+              "choices": [
+                "were",
+                "was",
+                "is",
+                "has been"
+              ],
+              "answer": "A",
+              "explanation": "The subject is the plural \"tapestries,\" not \"gallery,\" and \"last spring\" calls for the past tense, so **were** fits."
+            },
+            {
               "id": "t10-rw2e-17",
               "section": "rw",
               "skill": "Boundaries",
@@ -793,22 +809,6 @@
               ],
               "answer": "D",
               "explanation": "\"The engineers who designed the city's new water treatment plant\" is the subject, and no punctuation should separate it from its verb \"expect.\""
-            },
-            {
-              "id": "t10-rw2e-19",
-              "section": "rw",
-              "skill": "Form, Structure, and Sense",
-              "difficulty": "easy",
-              "passage": "The silk tapestries in the palace's north gallery ______ cleaned and rehung last spring.",
-              "prompt": "Which choice completes the text so that it conforms to the conventions of Standard English?",
-              "choices": [
-                "were",
-                "was",
-                "is",
-                "has been"
-              ],
-              "answer": "A",
-              "explanation": "The subject is the plural \"tapestries,\" not \"gallery,\" and \"last spring\" calls for the past tense, so **were** fits."
             },
             {
               "id": "t10-rw2e-20",
@@ -1228,6 +1228,22 @@
               "explanation": "The downstream farmers relied on the floods the reservoir stopped and couldn't use the steady releases, so the planners overlooked them. More steady water wouldn't help farmers with no canals to reach it, and *always* goes far beyond one valley."
             },
             {
+              "id": "t10-rw2h-17",
+              "section": "rw",
+              "skill": "Boundaries",
+              "difficulty": "medium",
+              "passage": "The survey team visited three ancient water-supply sites: the Pont du Gard, near ______ the aqueduct of Segovia, in Spain; and a system of qanats near Yazd, in Iran.",
+              "prompt": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+              "choices": [
+                "Nîmes,",
+                "Nîmes;",
+                "Nîmes:",
+                "Nîmes"
+              ],
+              "answer": "B",
+              "explanation": "The items in this list already contain commas, so the items are separated with semicolons, as the rest of the list shows."
+            },
+            {
               "id": "t10-rw2h-15",
               "section": "rw",
               "skill": "Boundaries",
@@ -1258,22 +1274,6 @@
               ],
               "answer": "A",
               "explanation": "\"Lined...and narrowed\" are two verbs sharing one subject, \"the engineers,\" so no punctuation should separate them. A comma before \"and\" is used only when a new subject and verb follow."
-            },
-            {
-              "id": "t10-rw2h-17",
-              "section": "rw",
-              "skill": "Boundaries",
-              "difficulty": "medium",
-              "passage": "The survey team visited three ancient water-supply sites: the Pont du Gard, near ______ the aqueduct of Segovia, in Spain; and a system of qanats near Yazd, in Iran.",
-              "prompt": "Which choice completes the text so that it conforms to the conventions of Standard English?",
-              "choices": [
-                "Nîmes,",
-                "Nîmes;",
-                "Nîmes:",
-                "Nîmes"
-              ],
-              "answer": "B",
-              "explanation": "The items in this list already contain commas, so the items are separated with semicolons, as the rest of the list shows."
             },
             {
               "id": "t10-rw2h-18",

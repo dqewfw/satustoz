@@ -14,52 +14,20 @@
         "minutes": 32,
         "questions": [
           {
-            "id": "t21-rw1-01",
+            "id": "t21-rw1-22",
             "section": "rw",
-            "skill": "Command of Evidence: Textual",
+            "skill": "Words in Context",
             "difficulty": "medium",
-            "passage": "*Peter Pan* is a 1911 novel by J.M. Barrie. In the fantasy novel, a dog named Nana is a nurse (nanny) for the children in the Darling family—Wendy, John, and Michael. The narrator describes Nana as planning for events like a human would: ______",
-            "prompt": "Which quotation from *Peter Pan* best illustrates the claim?",
+            "passage": "The following text is from William Blake's 1794 poem \"Introduction to the Songs of Experience.\" The speaker addresses Earth as if it has been asleep.\n\"O Earth, O Earth, return!\nArise from out the dewy grass;\nNight is worn,\nAnd the morn\nRises from the slumbrous mass.\"",
+            "prompt": "Based on the text, what does the speaker most likely mean by saying that \"night is worn\"?",
             "choices": [
-              "\"On John's [soccer] days [Nana] never once forgot his sweater, and she usually carried an umbrella in her mouth in case of rain.\"",
-              "\"[Mrs. Darling] was wearing Wendy's bracelet on her arm.\"",
-              "\"Mrs. Darling loved to have everything just so, and Mr. Darling had a passion for being exactly like his neighbours.\"",
-              "\"Of course [Nana's] kennel was in the nursery.\""
+              "The night is ending.",
+              "The night is interesting.",
+              "The night seems like an old piece of clothing.",
+              "The night seems like it is happening for the first time."
             ],
             "answer": "A",
-            "explanation": "The claim is that Nana plans ahead the way a human would. A shows exactly that: she never forgets John's sweater and carries an umbrella \"in case of rain.\" The other quotations do not show Nana planning anything."
-          },
-          {
-            "id": "t21-rw1-02",
-            "section": "rw",
-            "skill": "Transitions",
-            "difficulty": "medium",
-            "passage": "For centuries, observers assumed that a honeybee colony was governed by its queen, who seemed to direct the work of the thousands of bees around her. ______ the queen's role is mostly limited to laying eggs; decisions such as when to swarm and where to build a new nest are made collectively by worker bees.",
-            "prompt": "Which choice completes the text with the most logical transition?",
-            "choices": [
-              "For example,",
-              "Similarly,",
-              "In reality,",
-              "As a result,"
-            ],
-            "answer": "C",
-            "explanation": "The first sentence says honeybee colonies were long assumed to be ruled by the queen. The second gives the opposite view: workers, not the queen, make the key decisions. \"In reality\" introduces the truth that corrects the assumption."
-          },
-          {
-            "id": "t21-rw1-03",
-            "section": "rw",
-            "skill": "Form, Structure, and Sense",
-            "difficulty": "medium",
-            "passage": "An emulsifier is a type of compound that serves to stabilize an emulsion—a mixture of two or more liquids that otherwise would not easily blend together, like oil and water. Though modern chemists commonly use emulsifiers like poloxamer 407 in their formulations, emulsifiers that have been employed for millennia, such as beeswax and egg yolk, ______ used to this day by chemists as well.",
-            "prompt": "Which choice completes the text so that it conforms to the conventions of Standard English?",
-            "choices": [
-              "are",
-              "would have been",
-              "were being",
-              "were"
-            ],
-            "answer": "A",
-            "explanation": "The subject \"emulsifiers\" is plural, and \"to this day\" calls for the present tense: *are* used."
+            "explanation": "The speaker says night is \"worn\" and \"the morn / Rises,\" so night is worn out: it is ending as morning comes."
           },
           {
             "id": "t21-rw1-04",
@@ -78,38 +46,6 @@
             "explanation": "The shark was classified as a full ectotherm, but researchers found its body is consistently warmer than the water. That finding made the old classification impossible to defend: *untenable*."
           },
           {
-            "id": "t21-rw1-05",
-            "section": "rw",
-            "skill": "Form, Structure, and Sense",
-            "difficulty": "easy",
-            "passage": "Ferns and conifers ______ during the Triassic period (201 to 252 million years ago). These plants were well suited to the hot, dry climate of Pangaea, the sole landmass on Earth at the time.",
-            "prompt": "Which choice completes the text so that it conforms to the conventions of Standard English?",
-            "choices": [
-              "having thrived",
-              "to thrive",
-              "thriving",
-              "thrived"
-            ],
-            "answer": "D",
-            "explanation": "The subject \"Ferns and conifers\" needs a main verb, and the time is the past. Only *thrived* is a finite verb."
-          },
-          {
-            "id": "t21-rw1-06",
-            "section": "rw",
-            "skill": "Central Ideas and Details",
-            "difficulty": "medium",
-            "passage": "The following text is adapted from María Amparo Ruiz de Burton's 1885 novel *The Squatter and the Don*. Mercedes and Clarence, who develop a romantic relationship in the novel, have been traveling with a group of friends.\n[Mercedes] was still very pale, and her hands yet trembled, when the thundering of the east-bound train was heard in the distance. Two shrieks pierced the air simultaneously, as the two trains passed each other. Her heart gave accelerated throbs when she heard those shrieks, because she knew that one of them came from the train which bore Clarence away, and it seemed to her as if expressive of his pain at being torn from her: Yes, that magician, the locomotive, understood it all, and shrieked to say he did so, because he knew she, too, wished to shriek like that.",
-            "prompt": "Which choice best states the main idea of the text?",
-            "choices": [
-              "Mercedes shares a passion for locomotive travel with Clarence.",
-              "The sounds at the train station irritate Mercedes.",
-              "Clarence boarded his train at the last minute.",
-              "Mercedes feels heartbroken to be separated from Clarence."
-            ],
-            "answer": "D",
-            "explanation": "Mercedes trembles and her heart throbs when she hears the shriek from the train taking Clarence away, which seems to express \"his pain at being torn from her.\" She is heartbroken to be separated from him."
-          },
-          {
             "id": "t21-rw1-07",
             "section": "rw",
             "skill": "Text Structure and Purpose",
@@ -124,54 +60,6 @@
             ],
             "answer": "C",
             "explanation": "Celestine drops everything when her daughter looks at her, and despite exhaustion she feels \"a nerve of excitement running through each hour.\" The text portrays her excitement about her daughter."
-          },
-          {
-            "id": "t21-rw1-08",
-            "section": "rw",
-            "skill": "Cross-Text Connections",
-            "difficulty": "hard",
-            "passage": "**Text 1**\nVernacular art, also known as folk art, refers to works by artists without extensive training who work outside the mainstream art world. In the last few decades, the Minneapolis Institute of Art and similar cultural institutions have worked to bring vernacular art out of obscurity. As a result, Nellie Mae Rowe's drawing *Rocking Chair* can now be experienced by art lovers.\n**Text 2**\nSpecial exhibits and similar efforts by cultural institutions to promote vernacular artists often inadvertently uphold misleading distinctions between these artists and the creators of so-called \"high\" art. Artists regularly gain inspiration from each other: vernacular artists often reveal a familiarity with prevailing trends through their works, and more mainstream artists in turn often credit vernacular works as important influences.",
-            "prompt": "Based on the texts, how would the author of Text 2 most likely respond to the author of Text 1's characterization of vernacular artists?",
-            "choices": [
-              "By questioning the argument made in Text 1 that the general public will readily embrace works by vernacular artists as those works are brought to greater attention",
-              "By suggesting that the author of Text 1 may be overstating the extent to which vernacular artists have been detached from the mainstream art world",
-              "By agreeing with the author of Text 1 that some of the terms used to describe vernacular artists may be misleading",
-              "By challenging the idea advanced in Text 1 that mainstream cultural institutions are suitable venues for adequately honoring vernacular artists"
-            ],
-            "answer": "B",
-            "explanation": "Text 1 describes vernacular artists as working \"outside the mainstream art world.\" Text 2 says vernacular and mainstream artists influence each other, so the author of Text 2 would say Text 1 overstates how detached vernacular artists are."
-          },
-          {
-            "id": "t21-rw1-09",
-            "section": "rw",
-            "skill": "Form, Structure, and Sense",
-            "difficulty": "hard",
-            "passage": "Established in 1934 for the specific purpose of protecting US investors from market manipulation, ______ helped the nation recover from the Great Depression.",
-            "prompt": "Which choice completes the text so that it conforms to the conventions of Standard English?",
-            "choices": [
-              "many ways, just one of which was the Securities and Exchange Commission (SEC), were how the US government",
-              "the US government's many ways, just one of which was the Securities and Exchange Commission (SEC),",
-              "the US government in many ways, just one of which was the Securities and Exchange Commission (SEC),",
-              "the Securities and Exchange Commission (SEC) was just one of many ways the US government"
-            ],
-            "answer": "D",
-            "explanation": "The opening phrase \"Established in 1934 for the specific purpose of protecting US investors\" must describe the subject right after it. Only the SEC was established in 1934, and D gives a complete clause with the verb \"helped.\""
-          },
-          {
-            "id": "t21-rw1-10",
-            "section": "rw",
-            "skill": "Boundaries",
-            "difficulty": "medium",
-            "passage": "As water in oceans, lakes, and rivers is heated by the Sun, it turns into water vapor and rises into the atmosphere, where it cools and forms clouds before falling back to Earth as rain or ______ process is called the water cycle.",
-            "prompt": "Which choice completes the text so that it conforms to the conventions of Standard English?",
-            "choices": [
-              "snow this",
-              "snow? This",
-              "snow, this",
-              "snow. This"
-            ],
-            "answer": "D",
-            "explanation": "\"As water ... forms clouds before falling back to Earth as rain or snow\" is a complete sentence, and \"This process is called the water cycle\" is another. A period separates them."
           },
           {
             "id": "t21-rw1-11",
@@ -190,36 +78,68 @@
             "explanation": "The underlined part states a common belief (happiness is always the ideal). The experiment found that anger helped people solve puzzles, which challenges that belief."
           },
           {
-            "id": "t21-rw1-12",
+            "id": "t21-rw1-16",
             "section": "rw",
-            "skill": "Boundaries",
+            "skill": "Text Structure and Purpose",
             "difficulty": "medium",
-            "passage": "A bias toward studying diversity at a local rather than a continental scale was one of the many shortcomings researcher Sonia Llorente-Culebras and her team ______ analyzing nearly 400 biodiversity studies from around the globe.",
-            "prompt": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+            "passage": "The following text is from Jerome K. Jerome's 1889 novel *Three Men in a Boat (To Say Nothing of the Dog)*. The narrator and two friends are taking a boat down the River Thames in England.\nIn a boat, I have always noticed that it is the fixed idea of each member of the crew that he is doing everything. Harris's notion was, that it was he alone who had been working, and that both George and I had been imposing upon him. George, on the other hand, ridiculed the idea of Harris's having done anything more than eat and sleep, and had a cast-iron opinion that it was he—George himself—who had done all the labour worth speaking of.",
+            "prompt": "Which choice best describes the main purpose of the text?",
             "choices": [
-              "discovered: while",
-              "discovered, while",
-              "discovered while",
-              "discovered. While"
-            ],
-            "answer": "C",
-            "explanation": "\"While analyzing nearly 400 biodiversity studies\" is an essential phrase telling when the team discovered the shortcomings, so no punctuation is needed before it."
-          },
-          {
-            "id": "t21-rw1-13",
-            "section": "rw",
-            "skill": "Boundaries",
-            "difficulty": "medium",
-            "passage": "With an average summer temperature of 69 degrees Fahrenheit, Odessa is one European ______ many travelers recommend, especially from June to September.",
-            "prompt": "Which choice completes the text so that it conforms to the conventions of Standard English?",
-            "choices": [
-              "city in which,",
-              "city that",
-              "city, which",
-              "city, that"
+              "To examine how the narrator and his friends each contributed to navigating a challenge",
+              "To present the narrator's generalization along with supporting examples from a specific situation",
+              "To give an overview of a particular situation that the narrator finds startling",
+              "To convey the narrator's confidence that he understands the role expected of him in a group"
             ],
             "answer": "B",
-            "explanation": "\"That many travelers recommend\" is an essential clause identifying which kind of city Odessa is, so it uses \"that\" with no comma."
+            "explanation": "The narrator first makes a general claim (each crew member thinks he is doing everything) and then supports it with how Harris and George each behave on this trip."
+          },
+          {
+            "id": "t21-rw1-08",
+            "section": "rw",
+            "skill": "Cross-Text Connections",
+            "difficulty": "hard",
+            "passage": "**Text 1**\nVernacular art, also known as folk art, refers to works by artists without extensive training who work outside the mainstream art world. In the last few decades, the Minneapolis Institute of Art and similar cultural institutions have worked to bring vernacular art out of obscurity. As a result, Nellie Mae Rowe's drawing *Rocking Chair* can now be experienced by art lovers.\n**Text 2**\nSpecial exhibits and similar efforts by cultural institutions to promote vernacular artists often inadvertently uphold misleading distinctions between these artists and the creators of so-called \"high\" art. Artists regularly gain inspiration from each other: vernacular artists often reveal a familiarity with prevailing trends through their works, and more mainstream artists in turn often credit vernacular works as important influences.",
+            "prompt": "Based on the texts, how would the author of Text 2 most likely respond to the author of Text 1's characterization of vernacular artists?",
+            "choices": [
+              "By questioning the argument made in Text 1 that the general public will readily embrace works by vernacular artists as those works are brought to greater attention",
+              "By suggesting that the author of Text 1 may be overstating the extent to which vernacular artists have been detached from the mainstream art world",
+              "By agreeing with the author of Text 1 that some of the terms used to describe vernacular artists may be misleading",
+              "By challenging the idea advanced in Text 1 that mainstream cultural institutions are suitable venues for adequately honoring vernacular artists"
+            ],
+            "answer": "B",
+            "explanation": "Text 1 describes vernacular artists as working \"outside the mainstream art world.\" Text 2 says vernacular and mainstream artists influence each other, so the author of Text 2 would say Text 1 overstates how detached vernacular artists are."
+          },
+          {
+            "id": "t21-rw1-06",
+            "section": "rw",
+            "skill": "Central Ideas and Details",
+            "difficulty": "medium",
+            "passage": "The following text is adapted from María Amparo Ruiz de Burton's 1885 novel *The Squatter and the Don*. Mercedes and Clarence, who develop a romantic relationship in the novel, have been traveling with a group of friends.\n[Mercedes] was still very pale, and her hands yet trembled, when the thundering of the east-bound train was heard in the distance. Two shrieks pierced the air simultaneously, as the two trains passed each other. Her heart gave accelerated throbs when she heard those shrieks, because she knew that one of them came from the train which bore Clarence away, and it seemed to her as if expressive of his pain at being torn from her: Yes, that magician, the locomotive, understood it all, and shrieked to say he did so, because he knew she, too, wished to shriek like that.",
+            "prompt": "Which choice best states the main idea of the text?",
+            "choices": [
+              "Mercedes shares a passion for locomotive travel with Clarence.",
+              "The sounds at the train station irritate Mercedes.",
+              "Clarence boarded his train at the last minute.",
+              "Mercedes feels heartbroken to be separated from Clarence."
+            ],
+            "answer": "D",
+            "explanation": "Mercedes trembles and her heart throbs when she hears the shriek from the train taking Clarence away, which seems to express \"his pain at being torn from her.\" She is heartbroken to be separated from him."
+          },
+          {
+            "id": "t21-rw1-01",
+            "section": "rw",
+            "skill": "Command of Evidence: Textual",
+            "difficulty": "medium",
+            "passage": "*Peter Pan* is a 1911 novel by J.M. Barrie. In the fantasy novel, a dog named Nana is a nurse (nanny) for the children in the Darling family—Wendy, John, and Michael. The narrator describes Nana as planning for events like a human would: ______",
+            "prompt": "Which quotation from *Peter Pan* best illustrates the claim?",
+            "choices": [
+              "\"On John's [soccer] days [Nana] never once forgot his sweater, and she usually carried an umbrella in her mouth in case of rain.\"",
+              "\"[Mrs. Darling] was wearing Wendy's bracelet on her arm.\"",
+              "\"Mrs. Darling loved to have everything just so, and Mr. Darling had a passion for being exactly like his neighbours.\"",
+              "\"Of course [Nana's] kennel was in the nursery.\""
+            ],
+            "answer": "A",
+            "explanation": "The claim is that Nana plans ahead the way a human would. A shows exactly that: she never forgets John's sweater and carries an umbrella \"in case of rain.\" The other quotations do not show Nana planning anything."
           },
           {
             "id": "t21-rw1-14",
@@ -268,84 +188,20 @@
             "explanation": "The maximum depths are 25, 27, 15, and 80 meters. The closest pair is 25 m (*Acropora echinata*) and 27 m (*Danafungia scruposa*)."
           },
           {
-            "id": "t21-rw1-15",
+            "id": "t21-rw1-23",
             "section": "rw",
-            "skill": "Boundaries",
-            "difficulty": "hard",
-            "passage": "On April 12, 1985, the space shuttle *Discovery* blasted off into space, commencing Mission ______ six days and twenty-three hours, the mission ended when the shuttle landed at Kennedy Space Center in Florida.",
-            "prompt": "Which choice completes the text so that it conforms to the conventions of Standard English?",
-            "choices": [
-              "STS-51-D, it lasted",
-              "STS-51-D, lasting",
-              "STS-51-D lasting",
-              "STS-51-D. Lasting"
-            ],
-            "answer": "D",
-            "explanation": "The first sentence is complete after \"Mission STS-51-D,\" so it ends with a period. \"Lasting six days and twenty-three hours\" then begins the next sentence and describes \"the mission.\" A is a comma splice, and B and C leave \"lasting\" to describe the wrong noun or run the sentences together."
-          },
-          {
-            "id": "t21-rw1-16",
-            "section": "rw",
-            "skill": "Text Structure and Purpose",
+            "skill": "Inferences",
             "difficulty": "medium",
-            "passage": "The following text is from Jerome K. Jerome's 1889 novel *Three Men in a Boat (To Say Nothing of the Dog)*. The narrator and two friends are taking a boat down the River Thames in England.\nIn a boat, I have always noticed that it is the fixed idea of each member of the crew that he is doing everything. Harris's notion was, that it was he alone who had been working, and that both George and I had been imposing upon him. George, on the other hand, ridiculed the idea of Harris's having done anything more than eat and sleep, and had a cast-iron opinion that it was he—George himself—who had done all the labour worth speaking of.",
-            "prompt": "Which choice best describes the main purpose of the text?",
+            "passage": "The following text is from an 1894 translation of Alexandre Dumas's 1844 novel *The Count of Monte-Cristo*. Dantès is searching for a treasure and finds a cave whose opening has been deliberately blocked by a large rock. Hercules is a hero of Greek mythology.\nDantès dug away the earth carefully, and detected, or fancied he detected, the ingenious artifice. He attacked this wall, cemented by the hand of time, with his pickaxe. After ten minutes' labor the wall gave way, and a hole large enough to insert the arm was opened. Dantès went and cut the strongest olive-tree he could find, stripped off its branches, inserted it in the hole, and used it as a lever. But the rock was too heavy, and too firmly wedged, to be moved by any one man, were he Hercules himself.",
+            "prompt": "Which statement about Dantès is best supported by the text?",
             "choices": [
-              "To examine how the narrator and his friends each contributed to navigating a challenge",
-              "To present the narrator's generalization along with supporting examples from a specific situation",
-              "To give an overview of a particular situation that the narrator finds startling",
-              "To convey the narrator's confidence that he understands the role expected of him in a group"
-            ],
-            "answer": "B",
-            "explanation": "The narrator first makes a general claim (each crew member thinks he is doing everything) and then supports it with how Harris and George each behave on this trip."
-          },
-          {
-            "id": "t21-rw1-17",
-            "section": "rw",
-            "skill": "Form, Structure, and Sense",
-            "difficulty": "easy",
-            "passage": "The play *The Great Leap*, which tells the story of a basketball player named Manford Lum, was written by Chinese American playwright Lauren Yee. Yee's script was brought to life in 2018, when the play ______ staged at the Atlantic Theater Company in New York City.",
-            "prompt": "Which choice completes the text so that it conforms to the conventions of Standard English?",
-            "choices": [
-              "was",
-              "will be",
-              "is",
-              "is being"
+              "He is determined in his efforts to move the rock away from the opening of the cave.",
+              "He is worried he will lack the courage to enter the cave when the entrance is finally opened.",
+              "He is unsure why the cave's opening was purposely hidden behind a wall and a large rock.",
+              "He is aware that his impatience is causing him to make clumsy errors as he enlarges the hole in the wall."
             ],
             "answer": "A",
-            "explanation": "The play was staged in 2018, a completed past event, so the verb is the past tense *was*."
-          },
-          {
-            "id": "t21-rw1-18",
-            "section": "rw",
-            "skill": "Transitions",
-            "difficulty": "easy",
-            "passage": "For millennia, acorns were a staple food for the Tongva people, the Indigenous inhabitants of what is now the Los Angeles basin. Raw acorns have an extremely bitter taste, though, due to their high tannin levels. ______ it was necessary to process the acorns—which involved grinding, rinsing, and shaping the nuts into a dough—before eating them.",
-            "prompt": "Which choice completes the text with the most logical transition?",
-            "choices": [
-              "However,",
-              "Afterward,",
-              "Similarly,",
-              "Therefore,"
-            ],
-            "answer": "D",
-            "explanation": "Raw acorns are very bitter, so it was necessary to process them. \"Therefore\" signals this consequence."
-          },
-          {
-            "id": "t21-rw1-19",
-            "section": "rw",
-            "skill": "Transitions",
-            "difficulty": "medium",
-            "passage": "Rocket Geyser, found in Yellowstone National Park, is a cone geyser, a type of geyser that forms a mound of silica around the narrow geyser vent as volcanic rock dissolved in the water is deposited during eruptions. ______ Yellowstone's fountain geysers, such as Jewel Geyser, erupt from larger openings where water collects in a pool.",
-            "prompt": "Which choice completes the text with the most logical transition?",
-            "choices": [
-              "In comparison,",
-              "Thus,",
-              "In turn,",
-              "Regardless,"
-            ],
-            "answer": "A",
-            "explanation": "The text describes cone geysers and then contrasts them with fountain geysers, which erupt from larger openings. \"In comparison\" introduces this contrast."
+            "explanation": "Dantès digs carefully, attacks the wall with a pickaxe, cuts down a tree, and uses it as a lever. These repeated efforts show his determination to move the rock."
           },
           {
             "id": "t21-rw1-20",
@@ -380,36 +236,180 @@
             "explanation": "Much of the novel is pure invention. Readers who focus only on links to Céline's life would miss how much he invented, that is, his creativity."
           },
           {
-            "id": "t21-rw1-22",
+            "id": "t21-rw1-05",
             "section": "rw",
-            "skill": "Words in Context",
-            "difficulty": "medium",
-            "passage": "The following text is from William Blake's 1794 poem \"Introduction to the Songs of Experience.\" The speaker addresses Earth as if it has been asleep.\n\"O Earth, O Earth, return!\nArise from out the dewy grass;\nNight is worn,\nAnd the morn\nRises from the slumbrous mass.\"",
-            "prompt": "Based on the text, what does the speaker most likely mean by saying that \"night is worn\"?",
+            "skill": "Form, Structure, and Sense",
+            "difficulty": "easy",
+            "passage": "Ferns and conifers ______ during the Triassic period (201 to 252 million years ago). These plants were well suited to the hot, dry climate of Pangaea, the sole landmass on Earth at the time.",
+            "prompt": "Which choice completes the text so that it conforms to the conventions of Standard English?",
             "choices": [
-              "The night is ending.",
-              "The night is interesting.",
-              "The night seems like an old piece of clothing.",
-              "The night seems like it is happening for the first time."
+              "having thrived",
+              "to thrive",
+              "thriving",
+              "thrived"
             ],
-            "answer": "A",
-            "explanation": "The speaker says night is \"worn\" and \"the morn / Rises,\" so night is worn out: it is ending as morning comes."
+            "answer": "D",
+            "explanation": "The subject \"Ferns and conifers\" needs a main verb, and the time is the past. Only *thrived* is a finite verb."
           },
           {
-            "id": "t21-rw1-23",
+            "id": "t21-rw1-17",
             "section": "rw",
-            "skill": "Inferences",
-            "difficulty": "medium",
-            "passage": "The following text is from an 1894 translation of Alexandre Dumas's 1844 novel *The Count of Monte-Cristo*. Dantès is searching for a treasure and finds a cave whose opening has been deliberately blocked by a large rock. Hercules is a hero of Greek mythology.\nDantès dug away the earth carefully, and detected, or fancied he detected, the ingenious artifice. He attacked this wall, cemented by the hand of time, with his pickaxe. After ten minutes' labor the wall gave way, and a hole large enough to insert the arm was opened. Dantès went and cut the strongest olive-tree he could find, stripped off its branches, inserted it in the hole, and used it as a lever. But the rock was too heavy, and too firmly wedged, to be moved by any one man, were he Hercules himself.",
-            "prompt": "Which statement about Dantès is best supported by the text?",
+            "skill": "Form, Structure, and Sense",
+            "difficulty": "easy",
+            "passage": "The play *The Great Leap*, which tells the story of a basketball player named Manford Lum, was written by Chinese American playwright Lauren Yee. Yee's script was brought to life in 2018, when the play ______ staged at the Atlantic Theater Company in New York City.",
+            "prompt": "Which choice completes the text so that it conforms to the conventions of Standard English?",
             "choices": [
-              "He is determined in his efforts to move the rock away from the opening of the cave.",
-              "He is worried he will lack the courage to enter the cave when the entrance is finally opened.",
-              "He is unsure why the cave's opening was purposely hidden behind a wall and a large rock.",
-              "He is aware that his impatience is causing him to make clumsy errors as he enlarges the hole in the wall."
+              "was",
+              "will be",
+              "is",
+              "is being"
             ],
             "answer": "A",
-            "explanation": "Dantès digs carefully, attacks the wall with a pickaxe, cuts down a tree, and uses it as a lever. These repeated efforts show his determination to move the rock."
+            "explanation": "The play was staged in 2018, a completed past event, so the verb is the past tense *was*."
+          },
+          {
+            "id": "t21-rw1-03",
+            "section": "rw",
+            "skill": "Form, Structure, and Sense",
+            "difficulty": "medium",
+            "passage": "An emulsifier is a type of compound that serves to stabilize an emulsion—a mixture of two or more liquids that otherwise would not easily blend together, like oil and water. Though modern chemists commonly use emulsifiers like poloxamer 407 in their formulations, emulsifiers that have been employed for millennia, such as beeswax and egg yolk, ______ used to this day by chemists as well.",
+            "prompt": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+            "choices": [
+              "are",
+              "would have been",
+              "were being",
+              "were"
+            ],
+            "answer": "A",
+            "explanation": "The subject \"emulsifiers\" is plural, and \"to this day\" calls for the present tense: *are* used."
+          },
+          {
+            "id": "t21-rw1-10",
+            "section": "rw",
+            "skill": "Boundaries",
+            "difficulty": "medium",
+            "passage": "As water in oceans, lakes, and rivers is heated by the Sun, it turns into water vapor and rises into the atmosphere, where it cools and forms clouds before falling back to Earth as rain or ______ process is called the water cycle.",
+            "prompt": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+            "choices": [
+              "snow this",
+              "snow? This",
+              "snow, this",
+              "snow. This"
+            ],
+            "answer": "D",
+            "explanation": "\"As water ... forms clouds before falling back to Earth as rain or snow\" is a complete sentence, and \"This process is called the water cycle\" is another. A period separates them."
+          },
+          {
+            "id": "t21-rw1-12",
+            "section": "rw",
+            "skill": "Boundaries",
+            "difficulty": "medium",
+            "passage": "A bias toward studying diversity at a local rather than a continental scale was one of the many shortcomings researcher Sonia Llorente-Culebras and her team ______ analyzing nearly 400 biodiversity studies from around the globe.",
+            "prompt": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+            "choices": [
+              "discovered: while",
+              "discovered, while",
+              "discovered while",
+              "discovered. While"
+            ],
+            "answer": "C",
+            "explanation": "\"While analyzing nearly 400 biodiversity studies\" is an essential phrase telling when the team discovered the shortcomings, so no punctuation is needed before it."
+          },
+          {
+            "id": "t21-rw1-13",
+            "section": "rw",
+            "skill": "Boundaries",
+            "difficulty": "medium",
+            "passage": "With an average summer temperature of 69 degrees Fahrenheit, Odessa is one European ______ many travelers recommend, especially from June to September.",
+            "prompt": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+            "choices": [
+              "city in which,",
+              "city that",
+              "city, which",
+              "city, that"
+            ],
+            "answer": "B",
+            "explanation": "\"That many travelers recommend\" is an essential clause identifying which kind of city Odessa is, so it uses \"that\" with no comma."
+          },
+          {
+            "id": "t21-rw1-09",
+            "section": "rw",
+            "skill": "Form, Structure, and Sense",
+            "difficulty": "hard",
+            "passage": "Established in 1934 for the specific purpose of protecting US investors from market manipulation, ______ helped the nation recover from the Great Depression.",
+            "prompt": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+            "choices": [
+              "many ways, just one of which was the Securities and Exchange Commission (SEC), were how the US government",
+              "the US government's many ways, just one of which was the Securities and Exchange Commission (SEC),",
+              "the US government in many ways, just one of which was the Securities and Exchange Commission (SEC),",
+              "the Securities and Exchange Commission (SEC) was just one of many ways the US government"
+            ],
+            "answer": "D",
+            "explanation": "The opening phrase \"Established in 1934 for the specific purpose of protecting US investors\" must describe the subject right after it. Only the SEC was established in 1934, and D gives a complete clause with the verb \"helped.\""
+          },
+          {
+            "id": "t21-rw1-15",
+            "section": "rw",
+            "skill": "Boundaries",
+            "difficulty": "hard",
+            "passage": "On April 12, 1985, the space shuttle *Discovery* blasted off into space, commencing Mission ______ six days and twenty-three hours, the mission ended when the shuttle landed at Kennedy Space Center in Florida.",
+            "prompt": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+            "choices": [
+              "STS-51-D, it lasted",
+              "STS-51-D, lasting",
+              "STS-51-D lasting",
+              "STS-51-D. Lasting"
+            ],
+            "answer": "D",
+            "explanation": "The first sentence is complete after \"Mission STS-51-D,\" so it ends with a period. \"Lasting six days and twenty-three hours\" then begins the next sentence and describes \"the mission.\" A is a comma splice, and B and C leave \"lasting\" to describe the wrong noun or run the sentences together."
+          },
+          {
+            "id": "t21-rw1-18",
+            "section": "rw",
+            "skill": "Transitions",
+            "difficulty": "easy",
+            "passage": "For millennia, acorns were a staple food for the Tongva people, the Indigenous inhabitants of what is now the Los Angeles basin. Raw acorns have an extremely bitter taste, though, due to their high tannin levels. ______ it was necessary to process the acorns—which involved grinding, rinsing, and shaping the nuts into a dough—before eating them.",
+            "prompt": "Which choice completes the text with the most logical transition?",
+            "choices": [
+              "However,",
+              "Afterward,",
+              "Similarly,",
+              "Therefore,"
+            ],
+            "answer": "D",
+            "explanation": "Raw acorns are very bitter, so it was necessary to process them. \"Therefore\" signals this consequence."
+          },
+          {
+            "id": "t21-rw1-02",
+            "section": "rw",
+            "skill": "Transitions",
+            "difficulty": "medium",
+            "passage": "For centuries, observers assumed that a honeybee colony was governed by its queen, who seemed to direct the work of the thousands of bees around her. ______ the queen's role is mostly limited to laying eggs; decisions such as when to swarm and where to build a new nest are made collectively by worker bees.",
+            "prompt": "Which choice completes the text with the most logical transition?",
+            "choices": [
+              "For example,",
+              "Similarly,",
+              "In reality,",
+              "As a result,"
+            ],
+            "answer": "C",
+            "explanation": "The first sentence says honeybee colonies were long assumed to be ruled by the queen. The second gives the opposite view: workers, not the queen, make the key decisions. \"In reality\" introduces the truth that corrects the assumption."
+          },
+          {
+            "id": "t21-rw1-19",
+            "section": "rw",
+            "skill": "Transitions",
+            "difficulty": "medium",
+            "passage": "Rocket Geyser, found in Yellowstone National Park, is a cone geyser, a type of geyser that forms a mound of silica around the narrow geyser vent as volcanic rock dissolved in the water is deposited during eruptions. ______ Yellowstone's fountain geysers, such as Jewel Geyser, erupt from larger openings where water collects in a pool.",
+            "prompt": "Which choice completes the text with the most logical transition?",
+            "choices": [
+              "In comparison,",
+              "Thus,",
+              "In turn,",
+              "Regardless,"
+            ],
+            "answer": "A",
+            "explanation": "The text describes cone geysers and then contrasts them with fountain geysers, which erupt from larger openings. \"In comparison\" introduces this contrast."
           },
           {
             "id": "t21-rw1-24",
@@ -482,54 +482,6 @@
           "minutes": 32,
           "questions": [
             {
-              "id": "t21-rw2e-01",
-              "section": "rw",
-              "skill": "Transitions",
-              "difficulty": "medium",
-              "passage": "In ArtMed inSight, a series of art-based medical education classes taught by Anne Willieme, medical students learn to use techniques more often associated with the arts, such as slowing down interpretation and considering multiple perspectives. ______ Willieme's students develop better observational skills, enhancing their ability to understand and diagnose patients effectively.",
-              "prompt": "Which choice completes the text with the most logical transition?",
-              "choices": [
-                "Nevertheless,",
-                "In doing so,",
-                "For example,",
-                "By contrast,"
-              ],
-              "answer": "B",
-              "explanation": "Students learn artistic techniques, and through doing that they develop better observation skills. \"In doing so\" links the activity to its result."
-            },
-            {
-              "id": "t21-rw2e-02",
-              "section": "rw",
-              "skill": "Words in Context",
-              "difficulty": "medium",
-              "passage": "Hawaii has a rich literary history that originated with the traditional stories of the Kanaka Maoli, or the Native Hawaiian people. Anwei Skinsnes Law, Imaikalani Kalahele, and other writers have built on this tradition and brought Hawaiian literature to international prominence, ______ the manifold experiences of the Hawaiian people for readers around the world.",
-              "prompt": "Which choice completes the text with the most logical and precise word or phrase?",
-              "choices": [
-                "excising",
-                "illuminating",
-                "controlling",
-                "presupposing"
-              ],
-              "answer": "B",
-              "explanation": "These writers brought Hawaiian literature to the world, making Hawaiian experiences clear and visible to readers: *illuminating* them."
-            },
-            {
-              "id": "t21-rw2e-03",
-              "section": "rw",
-              "skill": "Central Ideas and Details",
-              "difficulty": "medium",
-              "passage": "Several sociologists have observed that the word \"culture,\" though commonly used in academic literature, is an ultimately hazy concept—for example, Renate Mayntz has noted that \"there is (still) no agreement on the meaning of this core term of sociological analysis.\" Does the idea of culture encompass art, or customs, or both these things and others? For casual usage, such haziness is permissible—we know culture when we see it—but for researchers, a standardization of the term is called for if sociology is to truly progress.",
-              "prompt": "Which choice best states the main idea of the text?",
-              "choices": [
-                "Nonspecialists and specialists have different ideas of what the word \"culture\" means.",
-                "There is no widely agreed-upon definition of the word \"culture,\" though the field of sociology would benefit if there were.",
-                "In her research, Mayntz presented reasons why sociologists disagree on how to analyze \"culture.\"",
-                "Art and customs are key components of what nonspecialists refer to as \"culture.\""
-              ],
-              "answer": "B",
-              "explanation": "Sociologists note there is \"no agreement\" on what culture means, and the author argues researchers need a standard definition \"if sociology is to truly progress.\""
-            },
-            {
               "id": "t21-rw2e-04",
               "section": "rw",
               "skill": "Words in Context",
@@ -560,6 +512,70 @@
               ],
               "answer": "D",
               "explanation": "The English text around the Spanish words makes their meaning clear, so it *suggests* their meaning to readers."
+            },
+            {
+              "id": "t21-rw2e-02",
+              "section": "rw",
+              "skill": "Words in Context",
+              "difficulty": "medium",
+              "passage": "Hawaii has a rich literary history that originated with the traditional stories of the Kanaka Maoli, or the Native Hawaiian people. Anwei Skinsnes Law, Imaikalani Kalahele, and other writers have built on this tradition and brought Hawaiian literature to international prominence, ______ the manifold experiences of the Hawaiian people for readers around the world.",
+              "prompt": "Which choice completes the text with the most logical and precise word or phrase?",
+              "choices": [
+                "excising",
+                "illuminating",
+                "controlling",
+                "presupposing"
+              ],
+              "answer": "B",
+              "explanation": "These writers brought Hawaiian literature to the world, making Hawaiian experiences clear and visible to readers: *illuminating* them."
+            },
+            {
+              "id": "t21-rw2e-11",
+              "section": "rw",
+              "skill": "Text Structure and Purpose",
+              "difficulty": "easy",
+              "passage": "Insects like ground beetles, crustaceans like calico crabs, and many other animals without spines are known as arthropods. Their nervous systems are made up of a brain and different nerves. Javier Ortega-Hernández, James Weaver, and team studied two fossils of the extinct arthropod *Mollisonia symmetrica* and identified parts of the species' nervous system. The researchers spotted evidence of __nerves extending into the animal's body parts__ and may have also found rare signs of a synganglion, a brain- like mass of nerves in the head.",
+              "prompt": "Which choice best describes the function of the underlined portion in the text as a whole?",
+              "choices": [
+                "It describes a feature that was missing from both fossils.",
+                "It gives the name of an arthropod species.",
+                "It explains how the team discovered the fossils.",
+                "It describes part of the nervous system the team identified."
+              ],
+              "answer": "D",
+              "explanation": "The underlined phrase names what the team found: nerves extending into the body parts, which is part of the nervous system they identified."
+            },
+            {
+              "id": "t21-rw2e-13",
+              "section": "rw",
+              "skill": "Central Ideas and Details",
+              "difficulty": "easy",
+              "passage": "In 2014 Marta S. Pimentel and colleagues published a study concluding that ocean acidification has a strong effect on the behavior of *Coryphaena hippurus*, a species of fish. However, Pimentel and colleagues' study relied on a mean sample size of only 10 fish. In a 2022 review of various scientists' conclusions about the impacts of ocean acidification on fish behavior, Timothy D. Clark and colleagues caution that relying on such a relatively small sample size can increase the potential for biased analysis. Such analysis, in turn, can contribute to reports of exaggerated effects.",
+              "prompt": "What is the main topic of the scientific research discussed in the text?",
+              "choices": [
+                "Feeding patterns of top marine predators",
+                "Loss of marine diversity due to overfishing",
+                "Changes in technologies used to capture fish",
+                "Effects of ocean acidification on fish behavior"
+              ],
+              "answer": "D",
+              "explanation": "Both studies discussed in the text concern how ocean acidification affects fish behavior."
+            },
+            {
+              "id": "t21-rw2e-03",
+              "section": "rw",
+              "skill": "Central Ideas and Details",
+              "difficulty": "medium",
+              "passage": "Several sociologists have observed that the word \"culture,\" though commonly used in academic literature, is an ultimately hazy concept—for example, Renate Mayntz has noted that \"there is (still) no agreement on the meaning of this core term of sociological analysis.\" Does the idea of culture encompass art, or customs, or both these things and others? For casual usage, such haziness is permissible—we know culture when we see it—but for researchers, a standardization of the term is called for if sociology is to truly progress.",
+              "prompt": "Which choice best states the main idea of the text?",
+              "choices": [
+                "Nonspecialists and specialists have different ideas of what the word \"culture\" means.",
+                "There is no widely agreed-upon definition of the word \"culture,\" though the field of sociology would benefit if there were.",
+                "In her research, Mayntz presented reasons why sociologists disagree on how to analyze \"culture.\"",
+                "Art and customs are key components of what nonspecialists refer to as \"culture.\""
+              ],
+              "answer": "B",
+              "explanation": "Sociologists note there is \"no agreement\" on what culture means, and the author argues researchers need a standard definition \"if sociology is to truly progress.\""
             },
             {
               "id": "t21-rw2e-06",
@@ -617,102 +633,6 @@
               ],
               "answer": "A",
               "explanation": "The table lists 1.6% for Albuquerque, New Mexico."
-            },
-            {
-              "id": "t21-rw2e-08",
-              "section": "rw",
-              "skill": "Boundaries",
-              "difficulty": "medium",
-              "passage": "Native to the Yangtze River in China, the Chinese river dolphin is one of many species to have recently gone extinct in what some are calling \"the sixth great mass extinction\" in Earth's history. Far from being caused by humans, though, the five prior such events—the Ordovician-Silurian (440 million years ago, or mya), the Devonian (365 mya), the Permian-Triassic (250 mya), the Triassic-Jurassic (201 mya), and the Cretaceous-Tertiary ______ all predate us.",
-              "prompt": "Which choice completes the text so that it conforms to the conventions of Standard English?",
-              "choices": [
-                "(65 mya)—",
-                "(65 mya);",
-                "(65 mya)",
-                "(65 mya),"
-              ],
-              "answer": "A",
-              "explanation": "A dash before \"the five prior such events\" opens a list of the events, so a second dash must close it before the verb \"predate.\""
-            },
-            {
-              "id": "t21-rw2e-09",
-              "section": "rw",
-              "skill": "Form, Structure, and Sense",
-              "difficulty": "medium",
-              "passage": "An imposing spire of igneous rock rising high above the Belle Fourche River in eastern Wyoming, Devils Tower (also known as Bear Lodge) is one of the most prominent examples of columnar jointing, a pattern of fracturing in rocks that ______ in parallel arrays of long polygonal prisms.",
-              "prompt": "Which choice completes the text so that it conforms to the conventions of Standard English?",
-              "choices": [
-                "resulting",
-                "to result",
-                "results",
-                "were resulting"
-              ],
-              "answer": "C",
-              "explanation": "\"That\" refers to \"a pattern of fracturing,\" which is singular, and the description is a general fact, so the verb is the present-tense *results*."
-            },
-            {
-              "id": "t21-rw2e-10",
-              "section": "rw",
-              "skill": "Boundaries",
-              "difficulty": "medium",
-              "passage": "How a folktale begins depends largely on the language in which it ______ folktales told in the Korean language open with a phrase that roughly means \"on an old day, in the old times.\" English-language folktales, on the other hand, often begin with \"once upon a time.\"",
-              "prompt": "Which choice completes the text so that it conforms to the conventions of Standard English?",
-              "choices": [
-                "originates. Many",
-                "originates, many",
-                "originates many",
-                "originates many,"
-              ],
-              "answer": "A",
-              "explanation": "\"How a folktale begins depends largely on the language in which it originates\" is complete, and \"Many folktales ... open with ...\" is another sentence. A period separates them."
-            },
-            {
-              "id": "t21-rw2e-11",
-              "section": "rw",
-              "skill": "Text Structure and Purpose",
-              "difficulty": "easy",
-              "passage": "Insects like ground beetles, crustaceans like calico crabs, and many other animals without spines are known as arthropods. Their nervous systems are made up of a brain and different nerves. Javier Ortega-Hernández, James Weaver, and team studied two fossils of the extinct arthropod *Mollisonia symmetrica* and identified parts of the species' nervous system. The researchers spotted evidence of __nerves extending into the animal's body parts__ and may have also found rare signs of a synganglion, a brain- like mass of nerves in the head.",
-              "prompt": "Which choice best describes the function of the underlined portion in the text as a whole?",
-              "choices": [
-                "It describes a feature that was missing from both fossils.",
-                "It gives the name of an arthropod species.",
-                "It explains how the team discovered the fossils.",
-                "It describes part of the nervous system the team identified."
-              ],
-              "answer": "D",
-              "explanation": "The underlined phrase names what the team found: nerves extending into the body parts, which is part of the nervous system they identified."
-            },
-            {
-              "id": "t21-rw2e-12",
-              "section": "rw",
-              "skill": "Form, Structure, and Sense",
-              "difficulty": "easy",
-              "passage": "During the relatively warm Cretaceous period (66 to 145 million years ago), there ______ forests near the North Pole and South Pole.",
-              "prompt": "Which choice completes the text so that it conforms to the conventions of Standard English?",
-              "choices": [
-                "having been",
-                "were",
-                "to be",
-                "being"
-              ],
-              "answer": "B",
-              "explanation": "The sentence needs a main verb; \"forests\" is plural and the period is in the past, so *were*."
-            },
-            {
-              "id": "t21-rw2e-13",
-              "section": "rw",
-              "skill": "Central Ideas and Details",
-              "difficulty": "easy",
-              "passage": "In 2014 Marta S. Pimentel and colleagues published a study concluding that ocean acidification has a strong effect on the behavior of *Coryphaena hippurus*, a species of fish. However, Pimentel and colleagues' study relied on a mean sample size of only 10 fish. In a 2022 review of various scientists' conclusions about the impacts of ocean acidification on fish behavior, Timothy D. Clark and colleagues caution that relying on such a relatively small sample size can increase the potential for biased analysis. Such analysis, in turn, can contribute to reports of exaggerated effects.",
-              "prompt": "What is the main topic of the scientific research discussed in the text?",
-              "choices": [
-                "Feeding patterns of top marine predators",
-                "Loss of marine diversity due to overfishing",
-                "Changes in technologies used to capture fish",
-                "Effects of ocean acidification on fish behavior"
-              ],
-              "answer": "D",
-              "explanation": "Both studies discussed in the text concern how ocean acidification affects fish behavior."
             },
             {
               "id": "t21-rw2e-14",
@@ -808,20 +728,20 @@
               "explanation": "The table shows 19% for the gentle vibration."
             },
             {
-              "id": "t21-rw2e-16",
+              "id": "t21-rw2e-23",
               "section": "rw",
-              "skill": "Form, Structure, and Sense",
-              "difficulty": "easy",
-              "passage": "Scott Parazynski, a former US astronaut, has gone on seven spacewalks. During ______ spacewalks, Parazynski performed important tasks outside the spacecraft, such as installing new equipment.",
-              "prompt": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+              "skill": "Command of Evidence: Textual",
+              "difficulty": "medium",
+              "passage": "Throughout history, tall structures such as Ruwanwelisaya in Sri Lanka or the Minarets of Selimiye Mosque in Turkey have posed a challenge to their architects, since these structures are more susceptible to physical forces than smaller structures. For example, the lower floors of a building must be able to support the enormous weight of the upper floors. To test a hypothesis that steel is more suitable than concrete for construction of a tall building's lower floors, researchers created a computer model of two buildings that were identical except that one had concrete lower floors while one had steel lower floors, and simulated the effects of the forces of wind and gravity on those structures over the course of a century.",
+              "prompt": "Which finding, if true, would most directly support the researchers' hypothesis?",
               "choices": [
-                "this",
-                "that",
-                "these",
-                "one"
+                "At the end of the simulation, the structure with steel lower floors had slightly larger dimensions at its base than it did at the beginning of the simulation.",
+                "During the simulation, the structure with steel lower floors bent in high wind to a greater degree than did the structure with concrete lower floors.",
+                "During the simulation, when sudden forces caused vibrations in the structures, those vibrations took longer to disappear in the structure with steel lower floors than in the structure with concrete lower floors.",
+                "At the end of the simulation, the structure with concrete lower floors was several inches shorter than the structure with steel lower floors."
               ],
-              "answer": "C",
-              "explanation": "The word refers to the \"seven spacewalks,\" which is plural, so *these* spacewalks."
+              "answer": "D",
+              "explanation": "If steel is better for the lower floors, the concrete version should hold up worse under the weight. D says the concrete building ended up several inches shorter, meaning it compressed more. B and C show steel performing worse; A is about the steel building alone."
             },
             {
               "id": "t21-rw2e-17",
@@ -840,6 +760,70 @@
               "explanation": "The absence of *Mammillaria* has been blamed on poor habitat, but the area is \"notoriously inaccessible.\" That suggests the plants may simply not have been found because the region has not been explored well."
             },
             {
+              "id": "t21-rw2e-21",
+              "section": "rw",
+              "skill": "Inferences",
+              "difficulty": "medium",
+              "passage": "Readers sometimes divide the works of twentieth-century English author Evelyn Waugh into two periods: one consisting of his early satirical novels and the other consisting of his later, more serious—even ponderous—books. Critic Seamus Perry, however, challenges that strict division. Perry argues that Waugh's writing didn't change over time as much as some readers have suggested. For instance, Perry contends that some of Waugh's earliest works, notably his biography of artist Dante Gabriel Rossetti, exhibit the earnest romanticism that would characterize Waugh's later fiction.",
+              "prompt": "Based on the text, which statement about Waugh's works would Perry most likely agree with?",
+              "choices": [
+                "Regardless of when they were written, Waugh's works have important similarities that transcend their differences.",
+                "Over time, Waugh's works became less humorous and more focused on weightier topics.",
+                "Waugh's works can appropriately be separated into two periods by their subject matter and tone.",
+                "The earliest of Waugh's works exhibit a satirical tone, even if that tone is more apparent in Waugh's later works."
+              ],
+              "answer": "A",
+              "explanation": "Perry argues Waugh's writing \"didn't change over time as much as some readers have suggested,\" and early works show the same romanticism as later ones. So Waugh's works share important similarities across periods."
+            },
+            {
+              "id": "t21-rw2e-24",
+              "section": "rw",
+              "skill": "Inferences",
+              "difficulty": "medium",
+              "passage": "In a study of perceptions of listening ability, participants explained their position on a sociopolitical issue and then received a listener's written summary that expressed agreement or disagreement. Within selected summaries, researchers embedded markers of attentive listening (e.g., references to specific details), hypothesizing that such indications would positively influence perceptions of listening skill even in the context of disagreement. Instead, participants consistently rated listeners who expressed disagreement as less skilled, regardless of the other traits of the listeners' summaries.",
+              "prompt": "What does the text most strongly imply about how participants responded to expressions of disagreement?",
+              "choices": [
+                "Although participants were critical of expressions of disagreement, they gave higher ratings to listeners whose summaries included markers of attentiveness than to listeners whose summaries did not include these markers.",
+                "Although participants maintained their positions regardless of a summary's level of detail, they tended to regard listeners who expressed disagreement as more attentive when these listeners provided more detailed summaries.",
+                "When participants felt personally invested in the topics they discussed, they were less likely to perceive listeners who expressed disagreement as attentive, regardless of evidence to the contrary in these listeners' summaries.",
+                "When participants encountered summaries from listeners who expressed disagreement with their views, participants tended to disregard evidence that the listeners had in fact been attentive."
+              ],
+              "answer": "D",
+              "explanation": "Even when summaries contained clear signs of attentive listening, participants rated disagreeing listeners as less skilled \"regardless of the other traits.\" So they disregarded evidence that those listeners had been attentive. A contradicts this; B and C add claims the text never makes."
+            },
+            {
+              "id": "t21-rw2e-12",
+              "section": "rw",
+              "skill": "Form, Structure, and Sense",
+              "difficulty": "easy",
+              "passage": "During the relatively warm Cretaceous period (66 to 145 million years ago), there ______ forests near the North Pole and South Pole.",
+              "prompt": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+              "choices": [
+                "having been",
+                "were",
+                "to be",
+                "being"
+              ],
+              "answer": "B",
+              "explanation": "The sentence needs a main verb; \"forests\" is plural and the period is in the past, so *were*."
+            },
+            {
+              "id": "t21-rw2e-16",
+              "section": "rw",
+              "skill": "Form, Structure, and Sense",
+              "difficulty": "easy",
+              "passage": "Scott Parazynski, a former US astronaut, has gone on seven spacewalks. During ______ spacewalks, Parazynski performed important tasks outside the spacecraft, such as installing new equipment.",
+              "prompt": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+              "choices": [
+                "this",
+                "that",
+                "these",
+                "one"
+              ],
+              "answer": "C",
+              "explanation": "The word refers to the \"seven spacewalks,\" which is plural, so *these* spacewalks."
+            },
+            {
               "id": "t21-rw2e-18",
               "section": "rw",
               "skill": "Boundaries",
@@ -856,20 +840,52 @@
               "explanation": "The first sentence is a question (\"Why do children ... ?\"), so it ends with a question mark, and \"The answer\" starts a new sentence."
             },
             {
-              "id": "t21-rw2e-19",
+              "id": "t21-rw2e-08",
               "section": "rw",
-              "skill": "Transitions",
+              "skill": "Boundaries",
               "difficulty": "medium",
-              "passage": "The World Cup of men's soccer, one of the biggest sporting events on the planet, brought 32 national teams from six continents to the host country, Russia, in 2018. ______ only 16 teams, all from Europe and the Americas, competed in the 1962 World Cup in Chile.",
-              "prompt": "Which choice completes the text with the most logical transition?",
+              "passage": "Native to the Yangtze River in China, the Chinese river dolphin is one of many species to have recently gone extinct in what some are calling \"the sixth great mass extinction\" in Earth's history. Far from being caused by humans, though, the five prior such events—the Ordovician-Silurian (440 million years ago, or mya), the Devonian (365 mya), the Permian-Triassic (250 mya), the Triassic-Jurassic (201 mya), and the Cretaceous-Tertiary ______ all predate us.",
+              "prompt": "Which choice completes the text so that it conforms to the conventions of Standard English?",
               "choices": [
-                "As a result,",
-                "For example,",
-                "In other words,",
-                "In comparison,"
+                "(65 mya)—",
+                "(65 mya);",
+                "(65 mya)",
+                "(65 mya),"
               ],
-              "answer": "D",
-              "explanation": "The text compares the 2018 World Cup (32 teams from six continents) with the 1962 one (16 teams from two regions). \"In comparison\" introduces this contrast."
+              "answer": "A",
+              "explanation": "A dash before \"the five prior such events\" opens a list of the events, so a second dash must close it before the verb \"predate.\""
+            },
+            {
+              "id": "t21-rw2e-09",
+              "section": "rw",
+              "skill": "Form, Structure, and Sense",
+              "difficulty": "medium",
+              "passage": "An imposing spire of igneous rock rising high above the Belle Fourche River in eastern Wyoming, Devils Tower (also known as Bear Lodge) is one of the most prominent examples of columnar jointing, a pattern of fracturing in rocks that ______ in parallel arrays of long polygonal prisms.",
+              "prompt": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+              "choices": [
+                "resulting",
+                "to result",
+                "results",
+                "were resulting"
+              ],
+              "answer": "C",
+              "explanation": "\"That\" refers to \"a pattern of fracturing,\" which is singular, and the description is a general fact, so the verb is the present-tense *results*."
+            },
+            {
+              "id": "t21-rw2e-10",
+              "section": "rw",
+              "skill": "Boundaries",
+              "difficulty": "medium",
+              "passage": "How a folktale begins depends largely on the language in which it ______ folktales told in the Korean language open with a phrase that roughly means \"on an old day, in the old times.\" English-language folktales, on the other hand, often begin with \"once upon a time.\"",
+              "prompt": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+              "choices": [
+                "originates. Many",
+                "originates, many",
+                "originates many",
+                "originates many,"
+              ],
+              "answer": "A",
+              "explanation": "\"How a folktale begins depends largely on the language in which it originates\" is complete, and \"Many folktales ... open with ...\" is another sentence. A period separates them."
             },
             {
               "id": "t21-rw2e-20",
@@ -888,20 +904,36 @@
               "explanation": "The steps are listed in order: first the drums, then the guitars, last the vocals. \"Next\" marks the second step."
             },
             {
-              "id": "t21-rw2e-21",
+              "id": "t21-rw2e-01",
               "section": "rw",
-              "skill": "Inferences",
+              "skill": "Transitions",
               "difficulty": "medium",
-              "passage": "Readers sometimes divide the works of twentieth-century English author Evelyn Waugh into two periods: one consisting of his early satirical novels and the other consisting of his later, more serious—even ponderous—books. Critic Seamus Perry, however, challenges that strict division. Perry argues that Waugh's writing didn't change over time as much as some readers have suggested. For instance, Perry contends that some of Waugh's earliest works, notably his biography of artist Dante Gabriel Rossetti, exhibit the earnest romanticism that would characterize Waugh's later fiction.",
-              "prompt": "Based on the text, which statement about Waugh's works would Perry most likely agree with?",
+              "passage": "In ArtMed inSight, a series of art-based medical education classes taught by Anne Willieme, medical students learn to use techniques more often associated with the arts, such as slowing down interpretation and considering multiple perspectives. ______ Willieme's students develop better observational skills, enhancing their ability to understand and diagnose patients effectively.",
+              "prompt": "Which choice completes the text with the most logical transition?",
               "choices": [
-                "Regardless of when they were written, Waugh's works have important similarities that transcend their differences.",
-                "Over time, Waugh's works became less humorous and more focused on weightier topics.",
-                "Waugh's works can appropriately be separated into two periods by their subject matter and tone.",
-                "The earliest of Waugh's works exhibit a satirical tone, even if that tone is more apparent in Waugh's later works."
+                "Nevertheless,",
+                "In doing so,",
+                "For example,",
+                "By contrast,"
               ],
-              "answer": "A",
-              "explanation": "Perry argues Waugh's writing \"didn't change over time as much as some readers have suggested,\" and early works show the same romanticism as later ones. So Waugh's works share important similarities across periods."
+              "answer": "B",
+              "explanation": "Students learn artistic techniques, and through doing that they develop better observation skills. \"In doing so\" links the activity to its result."
+            },
+            {
+              "id": "t21-rw2e-19",
+              "section": "rw",
+              "skill": "Transitions",
+              "difficulty": "medium",
+              "passage": "The World Cup of men's soccer, one of the biggest sporting events on the planet, brought 32 national teams from six continents to the host country, Russia, in 2018. ______ only 16 teams, all from Europe and the Americas, competed in the 1962 World Cup in Chile.",
+              "prompt": "Which choice completes the text with the most logical transition?",
+              "choices": [
+                "As a result,",
+                "For example,",
+                "In other words,",
+                "In comparison,"
+              ],
+              "answer": "D",
+              "explanation": "The text compares the 2018 World Cup (32 teams from six continents) with the 1962 one (16 teams from two regions). \"In comparison\" introduces this contrast."
             },
             {
               "id": "t21-rw2e-22",
@@ -918,38 +950,6 @@
               ],
               "answer": "B",
               "explanation": "The text admits that Casa Batlló's stone and tiles could not literally grow in a forest, but still one can see nature's influence. \"Still\" marks this concession."
-            },
-            {
-              "id": "t21-rw2e-23",
-              "section": "rw",
-              "skill": "Command of Evidence: Textual",
-              "difficulty": "medium",
-              "passage": "Throughout history, tall structures such as Ruwanwelisaya in Sri Lanka or the Minarets of Selimiye Mosque in Turkey have posed a challenge to their architects, since these structures are more susceptible to physical forces than smaller structures. For example, the lower floors of a building must be able to support the enormous weight of the upper floors. To test a hypothesis that steel is more suitable than concrete for construction of a tall building's lower floors, researchers created a computer model of two buildings that were identical except that one had concrete lower floors while one had steel lower floors, and simulated the effects of the forces of wind and gravity on those structures over the course of a century.",
-              "prompt": "Which finding, if true, would most directly support the researchers' hypothesis?",
-              "choices": [
-                "At the end of the simulation, the structure with steel lower floors had slightly larger dimensions at its base than it did at the beginning of the simulation.",
-                "During the simulation, the structure with steel lower floors bent in high wind to a greater degree than did the structure with concrete lower floors.",
-                "During the simulation, when sudden forces caused vibrations in the structures, those vibrations took longer to disappear in the structure with steel lower floors than in the structure with concrete lower floors.",
-                "At the end of the simulation, the structure with concrete lower floors was several inches shorter than the structure with steel lower floors."
-              ],
-              "answer": "D",
-              "explanation": "If steel is better for the lower floors, the concrete version should hold up worse under the weight. D says the concrete building ended up several inches shorter, meaning it compressed more. B and C show steel performing worse; A is about the steel building alone."
-            },
-            {
-              "id": "t21-rw2e-24",
-              "section": "rw",
-              "skill": "Inferences",
-              "difficulty": "medium",
-              "passage": "In a study of perceptions of listening ability, participants explained their position on a sociopolitical issue and then received a listener's written summary that expressed agreement or disagreement. Within selected summaries, researchers embedded markers of attentive listening (e.g., references to specific details), hypothesizing that such indications would positively influence perceptions of listening skill even in the context of disagreement. Instead, participants consistently rated listeners who expressed disagreement as less skilled, regardless of the other traits of the listeners' summaries.",
-              "prompt": "What does the text most strongly imply about how participants responded to expressions of disagreement?",
-              "choices": [
-                "Although participants were critical of expressions of disagreement, they gave higher ratings to listeners whose summaries included markers of attentiveness than to listeners whose summaries did not include these markers.",
-                "Although participants maintained their positions regardless of a summary's level of detail, they tended to regard listeners who expressed disagreement as more attentive when these listeners provided more detailed summaries.",
-                "When participants felt personally invested in the topics they discussed, they were less likely to perceive listeners who expressed disagreement as attentive, regardless of evidence to the contrary in these listeners' summaries.",
-                "When participants encountered summaries from listeners who expressed disagreement with their views, participants tended to disregard evidence that the listeners had in fact been attentive."
-              ],
-              "answer": "D",
-              "explanation": "Even when summaries contained clear signs of attentive listening, participants rated disagreeing listeners as less skilled \"regardless of the other traits.\" So they disregarded evidence that those listeners had been attentive. A contradicts this; B and C add claims the text never makes."
             },
             {
               "id": "t21-rw2e-25",
@@ -1311,6 +1311,22 @@
               "explanation": "The subject is \"The team,\" a singular noun (\"of engineers who designed the bridge\" describes it). So the verb is singular: *claims*."
             },
             {
+              "id": "t21-rw2h-21",
+              "section": "rw",
+              "skill": "Boundaries",
+              "difficulty": "medium",
+              "passage": "Built between 1173 and 1372, the bell tower of the cathedral in Pisa, Italy, began to lean during ______ soft ground beneath its foundation could not support its weight evenly.",
+              "prompt": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+              "choices": [
+                "construction: the",
+                "construction, the",
+                "construction the",
+                "construction, and, the"
+              ],
+              "answer": "A",
+              "explanation": "\"The bell tower ... began to lean during construction\" is complete, and the next clause explains why. A colon introduces an explanation. B is a comma splice and C is a run-on."
+            },
+            {
               "id": "t21-rw2h-17",
               "section": "rw",
               "skill": "Form, Structure, and Sense",
@@ -1373,22 +1389,6 @@
               ],
               "answer": "B",
               "explanation": "These are two complete sentences joined by \"however.\" A semicolon must come before \"however\" and a comma after it. A and D create comma splices."
-            },
-            {
-              "id": "t21-rw2h-21",
-              "section": "rw",
-              "skill": "Boundaries",
-              "difficulty": "medium",
-              "passage": "Built between 1173 and 1372, the bell tower of the cathedral in Pisa, Italy, began to lean during ______ soft ground beneath its foundation could not support its weight evenly.",
-              "prompt": "Which choice completes the text so that it conforms to the conventions of Standard English?",
-              "choices": [
-                "construction: the",
-                "construction, the",
-                "construction the",
-                "construction, and, the"
-              ],
-              "answer": "A",
-              "explanation": "\"The bell tower ... began to lean during construction\" is complete, and the next clause explains why. A colon introduces an explanation. B is a comma splice and C is a run-on."
             },
             {
               "id": "t21-rw2h-22",
@@ -1497,83 +1497,6 @@
         "minutes": 35,
         "questions": [
           {
-            "id": "t21-m1-01",
-            "section": "math",
-            "skill": "Linear inequalities in one or two variables",
-            "difficulty": "medium",
-            "image": "assets/figures/t21-m1-01.svg",
-            "imageAlt": "Figure for this question",
-            "prompt": "Which inequality has the solutions represented by the shaded region in the graph shown?",
-            "choices": [
-              "$y < \\frac{1}{3}x + 12$",
-              "$y < 3x + 12$",
-              "$y > \\frac{1}{3}x + 12$",
-              "$y > 3x + 12$"
-            ],
-            "answer": "B",
-            "explanation": "The dashed line passes through $(-4, 0)$ and $(0, 12)$, so its slope is $\\frac{12}{4} = 3$ and it is $y = 3x + 12$. The shading is below and to the right of the line: $y < 3x + 12$."
-          },
-          {
-            "id": "t21-m1-02",
-            "section": "math",
-            "skill": "Lines, angles, and triangles",
-            "difficulty": "medium",
-            "image": "assets/figures/t21-m1-02.svg",
-            "imageAlt": "Figure for this question",
-            "prompt": "In the figure shown, $d$, $e$, and $f$ are constants and the value of $k$ is $2$. If the measures of angles $D$, $E$, and $F$ are $42^\\circ$, $x^\\circ$, and $(2x + 12)^\\circ$, respectively, what is the measure, in degrees, of angle $S$?",
-            "answer": [
-              "96"
-            ],
-            "explanation": "Each side of triangle $QRS$ is $k$ times the matching side of $DEF$, so the triangles are similar with $D \\leftrightarrow Q$, $E \\leftrightarrow R$, $F \\leftrightarrow S$. In $DEF$: $42 + x + 2x + 12 = 180$, so $x = 42$ and $F = 2(42) + 12 = 96^\\circ$. So angle $S = 96^\\circ$."
-          },
-          {
-            "id": "t21-m1-03",
-            "section": "math",
-            "skill": "Nonlinear equations in one variable and systems of equations in two variables",
-            "difficulty": "hard",
-            "prompt": "$3x^2 - 13x + 19 = 0$\n\nHow many distinct real solutions does the given equation have?",
-            "choices": [
-              "Zero",
-              "Exactly one",
-              "Exactly two",
-              "Infinitely many"
-            ],
-            "answer": "A",
-            "explanation": "The discriminant is $(-13)^2 - 4(3)(19) = 169 - 228 = -59$, which is negative, so there are no real solutions."
-          },
-          {
-            "id": "t21-m1-04",
-            "section": "math",
-            "skill": "Nonlinear equations in one variable and systems of equations in two variables",
-            "difficulty": "hard",
-            "image": "assets/figures/t21-m1-04.svg",
-            "imageAlt": "Figure for this question",
-            "prompt": "The graph of a system of a linear equation and a quadratic equation is shown. What is the solution $(x, y)$ to this system?",
-            "choices": [
-              "$(0, 3)$",
-              "$(0, 5)$",
-              "$(-5, 3)$",
-              "$(5, -3)$"
-            ],
-            "answer": "C",
-            "explanation": "The horizontal line $y = 3$ touches the parabola only at its vertex, $(-5, 3)$."
-          },
-          {
-            "id": "t21-m1-05",
-            "section": "math",
-            "skill": "Linear functions",
-            "difficulty": "medium",
-            "prompt": "The function $h$ is defined by $h(x) = \\frac{x}{6}$. What is the value of $h(x)$ when $x = 48$?",
-            "choices": [
-              "$6$",
-              "$8$",
-              "$42$",
-              "$54$"
-            ],
-            "answer": "B",
-            "explanation": "$h(48) = \\frac{48}{6} = 8$."
-          },
-          {
             "id": "t21-m1-06",
             "section": "math",
             "skill": "Ratios, rates, proportional relationships, and units",
@@ -1583,17 +1506,6 @@
               "66"
             ],
             "explanation": "Distance $=$ speed $\\times$ time $= 22 \\times 3 = 66$ meters."
-          },
-          {
-            "id": "t21-m1-07",
-            "section": "math",
-            "skill": "Linear equations in one variable",
-            "difficulty": "medium",
-            "prompt": "$\\frac{13}{x + 1} = \\frac{13}{7}$\n\nWhat value of $x$ makes the given equation true?",
-            "answer": [
-              "6"
-            ],
-            "explanation": "The numerators are equal, so the denominators must be equal: $x + 1 = 7$ and $x = 6$."
           },
           {
             "id": "t21-m1-08",
@@ -1637,6 +1549,131 @@
             ],
             "answer": "B",
             "explanation": "The number of books is $h + p = 21$. The cost is $3h + 2p = 49$."
+          },
+          {
+            "id": "t21-m1-18",
+            "section": "math",
+            "skill": "Linear inequalities in one or two variables",
+            "difficulty": "easy",
+            "prompt": "To earn a bachelor's degree at a certain university, students are required to complete at least $120$ credit hours. If a student has completed $42$ credit hours, what is the minimum number of additional credit hours the student is required to complete to earn a bachelor's degree at this university?",
+            "choices": [
+              "$162$",
+              "$120$",
+              "$78$",
+              "$20$"
+            ],
+            "answer": "C",
+            "explanation": "$120 - 42 = 78$ more credit hours."
+          },
+          {
+            "id": "t21-m1-20",
+            "section": "math",
+            "skill": "Ratios, rates, proportional relationships, and units",
+            "difficulty": "easy",
+            "prompt": "During an experiment, a particle's speed was $48$ feet per second. What is this speed in feet per **minute**?",
+            "choices": [
+              "$78$",
+              "$108$",
+              "$1{,}440$",
+              "$2{,}880$"
+            ],
+            "answer": "D",
+            "explanation": "There are $60$ seconds in a minute: $48 \\times 60 = 2{,}880$ feet per minute."
+          },
+          {
+            "id": "t21-m1-21",
+            "section": "math",
+            "skill": "One-variable data: distributions and measures of center and spread",
+            "difficulty": "easy",
+            "table": {
+              "head": [
+                "Program",
+                "Number of students"
+              ],
+              "rows": [
+                [
+                  "Volleyball",
+                  "$30$"
+                ],
+                [
+                  "Hockey",
+                  "$40$"
+                ],
+                [
+                  "Basketball",
+                  "$57$"
+                ],
+                [
+                  "Soccer",
+                  "$43$"
+                ]
+              ]
+            },
+            "prompt": "The table shows the number of students in each of four sports programs at a high school. How many more students are in the hockey program than the volleyball program?",
+            "choices": [
+              "$10$",
+              "$30$",
+              "$40$",
+              "$70$"
+            ],
+            "answer": "A",
+            "explanation": "Hockey has $40$ students and volleyball has $30$, so the difference is $10$."
+          },
+          {
+            "id": "t21-m1-01",
+            "section": "math",
+            "skill": "Linear inequalities in one or two variables",
+            "difficulty": "medium",
+            "image": "assets/figures/t21-m1-01.svg",
+            "imageAlt": "Figure for this question",
+            "prompt": "Which inequality has the solutions represented by the shaded region in the graph shown?",
+            "choices": [
+              "$y < \\frac{1}{3}x + 12$",
+              "$y < 3x + 12$",
+              "$y > \\frac{1}{3}x + 12$",
+              "$y > 3x + 12$"
+            ],
+            "answer": "B",
+            "explanation": "The dashed line passes through $(-4, 0)$ and $(0, 12)$, so its slope is $\\frac{12}{4} = 3$ and it is $y = 3x + 12$. The shading is below and to the right of the line: $y < 3x + 12$."
+          },
+          {
+            "id": "t21-m1-02",
+            "section": "math",
+            "skill": "Lines, angles, and triangles",
+            "difficulty": "medium",
+            "image": "assets/figures/t21-m1-02.svg",
+            "imageAlt": "Figure for this question",
+            "prompt": "In the figure shown, $d$, $e$, and $f$ are constants and the value of $k$ is $2$. If the measures of angles $D$, $E$, and $F$ are $42^\\circ$, $x^\\circ$, and $(2x + 12)^\\circ$, respectively, what is the measure, in degrees, of angle $S$?",
+            "answer": [
+              "96"
+            ],
+            "explanation": "Each side of triangle $QRS$ is $k$ times the matching side of $DEF$, so the triangles are similar with $D \\leftrightarrow Q$, $E \\leftrightarrow R$, $F \\leftrightarrow S$. In $DEF$: $42 + x + 2x + 12 = 180$, so $x = 42$ and $F = 2(42) + 12 = 96^\\circ$. So angle $S = 96^\\circ$."
+          },
+          {
+            "id": "t21-m1-05",
+            "section": "math",
+            "skill": "Linear functions",
+            "difficulty": "medium",
+            "prompt": "The function $h$ is defined by $h(x) = \\frac{x}{6}$. What is the value of $h(x)$ when $x = 48$?",
+            "choices": [
+              "$6$",
+              "$8$",
+              "$42$",
+              "$54$"
+            ],
+            "answer": "B",
+            "explanation": "$h(48) = \\frac{48}{6} = 8$."
+          },
+          {
+            "id": "t21-m1-07",
+            "section": "math",
+            "skill": "Linear equations in one variable",
+            "difficulty": "medium",
+            "prompt": "$\\frac{13}{x + 1} = \\frac{13}{7}$\n\nWhat value of $x$ makes the given equation true?",
+            "answer": [
+              "6"
+            ],
+            "explanation": "The numerators are equal, so the denominators must be equal: $x + 1 = 7$ and $x = 6$."
           },
           {
             "id": "t21-m1-11",
@@ -1695,21 +1732,6 @@
             "explanation": "The boundary line has a negative slope ($-\\frac{1}{4}$) and $y$-intercept $7$, so it falls from left to right; that rules out A and B. \"$y \\le$\" means the region below the line is shaded, which is Graph C."
           },
           {
-            "id": "t21-m1-15",
-            "section": "math",
-            "skill": "Nonlinear functions",
-            "difficulty": "hard",
-            "prompt": "$q(x) = 28(2^x)$\n\nWhich choice gives three values of $x$ and their corresponding values of $q(x)$ for function $q$?",
-            "choices": [
-              "$q(-1) = 14$, $q(0) = 28$, $q(1) = 56$",
-              "$q(-1) = \\frac{1}{14}$, $q(0) = 28$, $q(1) = 56$",
-              "$q(-1) = \\frac{1}{14}$, $q(0) = 2$, $q(1) = 56$",
-              "$q(-1) = -56$, $q(0) = 0$, $q(1) = 56$"
-            ],
-            "answer": "A",
-            "explanation": "$q(-1) = 28 \\cdot \\frac{1}{2} = 14$, $q(0) = 28 \\cdot 1 = 28$, $q(1) = 28 \\cdot 2 = 56$."
-          },
-          {
             "id": "t21-m1-16",
             "section": "math",
             "skill": "Linear equations in one variable",
@@ -1723,6 +1745,53 @@
             ],
             "answer": "A",
             "explanation": "Let $u = x - 9$. Then $3u - 4 = 8u + 4$, so $-5u = 8$ and $u = -\\frac{8}{5}$."
+          },
+          {
+            "id": "t21-m1-03",
+            "section": "math",
+            "skill": "Nonlinear equations in one variable and systems of equations in two variables",
+            "difficulty": "hard",
+            "prompt": "$3x^2 - 13x + 19 = 0$\n\nHow many distinct real solutions does the given equation have?",
+            "choices": [
+              "Zero",
+              "Exactly one",
+              "Exactly two",
+              "Infinitely many"
+            ],
+            "answer": "A",
+            "explanation": "The discriminant is $(-13)^2 - 4(3)(19) = 169 - 228 = -59$, which is negative, so there are no real solutions."
+          },
+          {
+            "id": "t21-m1-04",
+            "section": "math",
+            "skill": "Nonlinear equations in one variable and systems of equations in two variables",
+            "difficulty": "hard",
+            "image": "assets/figures/t21-m1-04.svg",
+            "imageAlt": "Figure for this question",
+            "prompt": "The graph of a system of a linear equation and a quadratic equation is shown. What is the solution $(x, y)$ to this system?",
+            "choices": [
+              "$(0, 3)$",
+              "$(0, 5)$",
+              "$(-5, 3)$",
+              "$(5, -3)$"
+            ],
+            "answer": "C",
+            "explanation": "The horizontal line $y = 3$ touches the parabola only at its vertex, $(-5, 3)$."
+          },
+          {
+            "id": "t21-m1-15",
+            "section": "math",
+            "skill": "Nonlinear functions",
+            "difficulty": "hard",
+            "prompt": "$q(x) = 28(2^x)$\n\nWhich choice gives three values of $x$ and their corresponding values of $q(x)$ for function $q$?",
+            "choices": [
+              "$q(-1) = 14$, $q(0) = 28$, $q(1) = 56$",
+              "$q(-1) = \\frac{1}{14}$, $q(0) = 28$, $q(1) = 56$",
+              "$q(-1) = \\frac{1}{14}$, $q(0) = 2$, $q(1) = 56$",
+              "$q(-1) = -56$, $q(0) = 0$, $q(1) = 56$"
+            ],
+            "answer": "A",
+            "explanation": "$q(-1) = 28 \\cdot \\frac{1}{2} = 14$, $q(0) = 28 \\cdot 1 = 28$, $q(1) = 28 \\cdot 2 = 56$."
           },
           {
             "id": "t21-m1-17",
@@ -1740,21 +1809,6 @@
             "explanation": "The plausible range is $7\\% \\pm 2.8\\%$, or $4.2\\%$ to $9.8\\%$ of $8{,}000$: from $336$ to $784$ scales."
           },
           {
-            "id": "t21-m1-18",
-            "section": "math",
-            "skill": "Linear inequalities in one or two variables",
-            "difficulty": "easy",
-            "prompt": "To earn a bachelor's degree at a certain university, students are required to complete at least $120$ credit hours. If a student has completed $42$ credit hours, what is the minimum number of additional credit hours the student is required to complete to earn a bachelor's degree at this university?",
-            "choices": [
-              "$162$",
-              "$120$",
-              "$78$",
-              "$20$"
-            ],
-            "answer": "C",
-            "explanation": "$120 - 42 = 78$ more credit hours."
-          },
-          {
             "id": "t21-m1-19",
             "section": "math",
             "skill": "Nonlinear equations in one variable and systems of equations in two variables",
@@ -1770,60 +1824,6 @@
             ],
             "answer": "D",
             "explanation": "A solution is a point where the line and the parabola intersect. They cross at $(6, 7)$."
-          },
-          {
-            "id": "t21-m1-20",
-            "section": "math",
-            "skill": "Ratios, rates, proportional relationships, and units",
-            "difficulty": "easy",
-            "prompt": "During an experiment, a particle's speed was $48$ feet per second. What is this speed in feet per **minute**?",
-            "choices": [
-              "$78$",
-              "$108$",
-              "$1{,}440$",
-              "$2{,}880$"
-            ],
-            "answer": "D",
-            "explanation": "There are $60$ seconds in a minute: $48 \\times 60 = 2{,}880$ feet per minute."
-          },
-          {
-            "id": "t21-m1-21",
-            "section": "math",
-            "skill": "One-variable data: distributions and measures of center and spread",
-            "difficulty": "easy",
-            "table": {
-              "head": [
-                "Program",
-                "Number of students"
-              ],
-              "rows": [
-                [
-                  "Volleyball",
-                  "$30$"
-                ],
-                [
-                  "Hockey",
-                  "$40$"
-                ],
-                [
-                  "Basketball",
-                  "$57$"
-                ],
-                [
-                  "Soccer",
-                  "$43$"
-                ]
-              ]
-            },
-            "prompt": "The table shows the number of students in each of four sports programs at a high school. How many more students are in the hockey program than the volleyball program?",
-            "choices": [
-              "$10$",
-              "$30$",
-              "$40$",
-              "$70$"
-            ],
-            "answer": "A",
-            "explanation": "Hockey has $40$ students and volleyball has $30$, so the difference is $10$."
           },
           {
             "id": "t21-m1-22",
@@ -1959,21 +1959,6 @@
               "explanation": "Cosine is adjacent over hypotenuse. The side adjacent to $A$ is $AB = 22$ and the hypotenuse is $AC = 43$, so $\\cos A = \\frac{22}{43}$."
             },
             {
-              "id": "t21-m2e-07",
-              "section": "math",
-              "skill": "Equivalent expressions",
-              "difficulty": "medium",
-              "prompt": "$R = \\frac{0.43l}{A}$\n\nThe given equation relates the resistance $R$, in ohms, of a wire to its length $l$, in meters, and its cross-sectional area $A$, in square meters. Which equation correctly expresses the length, in meters, of the wire in terms of its resistance, in ohms, and its cross-sectional area, in square meters?",
-              "choices": [
-                "$l = \\frac{R - A}{0.43}$",
-                "$l = \\frac{R + A}{0.43}$",
-                "$l = \\frac{0.43R}{A}$",
-                "$l = \\frac{AR}{0.43}$"
-              ],
-              "answer": "D",
-              "explanation": "Multiply both sides by $A$: $AR = 0.43l$. Divide by $0.43$: $l = \\frac{AR}{0.43}$."
-            },
-            {
               "id": "t21-m2e-08",
               "section": "math",
               "skill": "Percentages",
@@ -2004,17 +1989,6 @@
               "explanation": "Area $=$ length $\\times$ width $= 10 \\times 6{,}000 = 60{,}000$."
             },
             {
-              "id": "t21-m2e-10",
-              "section": "math",
-              "skill": "Area and volume",
-              "difficulty": "medium",
-              "prompt": "A cube has a volume of $216$ cubic inches. What is the surface area, in square inches, of the cube?",
-              "answer": [
-                "216"
-              ],
-              "explanation": "The edge length is $\\sqrt[3]{216} = 6$ inches. A cube has $6$ faces, each $6 \\times 6 = 36$ square inches, so the surface area is $6 \\times 36 = 216$ square inches."
-            },
-            {
               "id": "t21-m2e-11",
               "section": "math",
               "skill": "Linear equations in one variable",
@@ -2030,21 +2004,6 @@
               "explanation": "$6x = 18$, so $x = 3$: exactly one solution."
             },
             {
-              "id": "t21-m2e-12",
-              "section": "math",
-              "skill": "Linear functions",
-              "difficulty": "medium",
-              "prompt": "The function $g$ is defined by $g(x) = 5x + 2$. If $g(t) - 4 = 3t$, what is the value of $t$?",
-              "choices": [
-                "$-3$",
-                "$1$",
-                "$3$",
-                "$7$"
-              ],
-              "answer": "B",
-              "explanation": "$g(t) - 4 = 5t + 2 - 4 = 5t - 2$. Setting $5t - 2 = 3t$ gives $2t = 2$, so $t = 1$."
-            },
-            {
               "id": "t21-m2e-13",
               "section": "math",
               "skill": "Linear equations in two variables",
@@ -2054,23 +2013,6 @@
                 "12"
               ],
               "explanation": "$7x + 12(8) = 180$, so $7x = 84$ and $x = 12$."
-            },
-            {
-              "id": "t21-m2e-14",
-              "section": "math",
-              "skill": "Two-variable data: models and scatterplots",
-              "difficulty": "medium",
-              "image": "assets/figures/t21-m2-14.svg",
-              "imageAlt": "Figure for this question",
-              "prompt": "The scatterplot shows the relationship between two variables, $x$ and $y$. A line of best fit is also shown.\n\nWhich equation best represents this line of best fit?",
-              "choices": [
-                "$y = 12.4 + 0.7x$",
-                "$y = 12.4 - 0.7x$",
-                "$y = -12.4 + 0.7x$",
-                "$y = -12.4 - 0.7x$"
-              ],
-              "answer": "B",
-              "explanation": "The line crosses the $y$-axis near $12.4$ and slopes downward, so the equation has a positive intercept and a negative slope: $y = 12.4 - 0.7x$."
             },
             {
               "id": "t21-m2e-15",
@@ -2103,21 +2045,6 @@
               "explanation": "Each length is multiplied by $\\frac{1}{3}$: $S'T' = \\frac{1}{3}(9) = 3$. Choice B is the image of $\\overline{RS}$."
             },
             {
-              "id": "t21-m2e-17",
-              "section": "math",
-              "skill": "Nonlinear equations in one variable and systems of equations in two variables",
-              "difficulty": "medium",
-              "prompt": "$z = \\sqrt{y + 47x}$\n\nThe given equation relates the distinct positive values $x$, $y$, and $z$. Which equation correctly expresses $x$ in terms of $y$ and $z$?",
-              "choices": [
-                "$x = 47z^2 - y$",
-                "$x = 47z - y^2$",
-                "$x = \\frac{z^2 - y}{47}$",
-                "$x = \\frac{z - y^2}{47}$"
-              ],
-              "answer": "C",
-              "explanation": "Square both sides: $z^2 = y + 47x$. Then $47x = z^2 - y$ and $x = \\frac{z^2 - y}{47}$."
-            },
-            {
               "id": "t21-m2e-18",
               "section": "math",
               "skill": "Linear functions",
@@ -2131,6 +2058,79 @@
               ],
               "answer": "B",
               "explanation": "The installation fee is charged once, regardless of $x$: it is the constant $120$. The $50$ is the monthly fee."
+            },
+            {
+              "id": "t21-m2e-07",
+              "section": "math",
+              "skill": "Equivalent expressions",
+              "difficulty": "medium",
+              "prompt": "$R = \\frac{0.43l}{A}$\n\nThe given equation relates the resistance $R$, in ohms, of a wire to its length $l$, in meters, and its cross-sectional area $A$, in square meters. Which equation correctly expresses the length, in meters, of the wire in terms of its resistance, in ohms, and its cross-sectional area, in square meters?",
+              "choices": [
+                "$l = \\frac{R - A}{0.43}$",
+                "$l = \\frac{R + A}{0.43}$",
+                "$l = \\frac{0.43R}{A}$",
+                "$l = \\frac{AR}{0.43}$"
+              ],
+              "answer": "D",
+              "explanation": "Multiply both sides by $A$: $AR = 0.43l$. Divide by $0.43$: $l = \\frac{AR}{0.43}$."
+            },
+            {
+              "id": "t21-m2e-10",
+              "section": "math",
+              "skill": "Area and volume",
+              "difficulty": "medium",
+              "prompt": "A cube has a volume of $216$ cubic inches. What is the surface area, in square inches, of the cube?",
+              "answer": [
+                "216"
+              ],
+              "explanation": "The edge length is $\\sqrt[3]{216} = 6$ inches. A cube has $6$ faces, each $6 \\times 6 = 36$ square inches, so the surface area is $6 \\times 36 = 216$ square inches."
+            },
+            {
+              "id": "t21-m2e-12",
+              "section": "math",
+              "skill": "Linear functions",
+              "difficulty": "medium",
+              "prompt": "The function $g$ is defined by $g(x) = 5x + 2$. If $g(t) - 4 = 3t$, what is the value of $t$?",
+              "choices": [
+                "$-3$",
+                "$1$",
+                "$3$",
+                "$7$"
+              ],
+              "answer": "B",
+              "explanation": "$g(t) - 4 = 5t + 2 - 4 = 5t - 2$. Setting $5t - 2 = 3t$ gives $2t = 2$, so $t = 1$."
+            },
+            {
+              "id": "t21-m2e-14",
+              "section": "math",
+              "skill": "Two-variable data: models and scatterplots",
+              "difficulty": "medium",
+              "image": "assets/figures/t21-m2-14.svg",
+              "imageAlt": "Figure for this question",
+              "prompt": "The scatterplot shows the relationship between two variables, $x$ and $y$. A line of best fit is also shown.\n\nWhich equation best represents this line of best fit?",
+              "choices": [
+                "$y = 12.4 + 0.7x$",
+                "$y = 12.4 - 0.7x$",
+                "$y = -12.4 + 0.7x$",
+                "$y = -12.4 - 0.7x$"
+              ],
+              "answer": "B",
+              "explanation": "The line crosses the $y$-axis near $12.4$ and slopes downward, so the equation has a positive intercept and a negative slope: $y = 12.4 - 0.7x$."
+            },
+            {
+              "id": "t21-m2e-17",
+              "section": "math",
+              "skill": "Nonlinear equations in one variable and systems of equations in two variables",
+              "difficulty": "medium",
+              "prompt": "$z = \\sqrt{y + 47x}$\n\nThe given equation relates the distinct positive values $x$, $y$, and $z$. Which equation correctly expresses $x$ in terms of $y$ and $z$?",
+              "choices": [
+                "$x = 47z^2 - y$",
+                "$x = 47z - y^2$",
+                "$x = \\frac{z^2 - y}{47}$",
+                "$x = \\frac{z - y^2}{47}$"
+              ],
+              "answer": "C",
+              "explanation": "Square both sides: $z^2 = y + 47x$. Then $47x = z^2 - y$ and $x = \\frac{z^2 - y}{47}$."
             },
             {
               "id": "t21-m2e-19",
@@ -2218,6 +2218,21 @@
                 "60"
               ],
               "explanation": "The final price is $p(1.2)(0.8) = 0.96p$. So $0.96p = 57.60$ and $p = 60$. (The changes do not cancel out.)"
+            },
+            {
+              "id": "t21-m2h-13",
+              "section": "math",
+              "skill": "Probability and conditional probability",
+              "difficulty": "medium",
+              "prompt": "In a survey of $200$ students, $120$ said they play a sport, $80$ said they play a musical instrument, and $50$ said they do both. If one of the students who play a sport is chosen at random, what is the probability that this student also plays a musical instrument?",
+              "choices": [
+                "$\\frac{1}{4}$",
+                "$\\frac{5}{12}$",
+                "$\\frac{5}{8}$",
+                "$\\frac{2}{5}$"
+              ],
+              "answer": "B",
+              "explanation": "Only the $120$ sport players are considered. Of them, $50$ also play an instrument, so the probability is $\\frac{50}{120} = \\frac{5}{12}$. Choice A uses all $200$ students."
             },
             {
               "id": "t21-m2h-03",
@@ -2360,21 +2375,6 @@
               ],
               "answer": "C",
               "explanation": "The original sum is $9 \\times 14 = 126$, and the new sum is $8 \\times 13 = 104$. The removed value is $126 - 104 = 22$."
-            },
-            {
-              "id": "t21-m2h-13",
-              "section": "math",
-              "skill": "Probability and conditional probability",
-              "difficulty": "medium",
-              "prompt": "In a survey of $200$ students, $120$ said they play a sport, $80$ said they play a musical instrument, and $50$ said they do both. If one of the students who play a sport is chosen at random, what is the probability that this student also plays a musical instrument?",
-              "choices": [
-                "$\\frac{1}{4}$",
-                "$\\frac{5}{12}$",
-                "$\\frac{5}{8}$",
-                "$\\frac{2}{5}$"
-              ],
-              "answer": "B",
-              "explanation": "Only the $120$ sport players are considered. Of them, $50$ also play an instrument, so the probability is $\\frac{50}{120} = \\frac{5}{12}$. Choice A uses all $200$ students."
             },
             {
               "id": "t21-m2h-14",

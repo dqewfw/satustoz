@@ -142,22 +142,6 @@
             "explanation": "The countryside makes the narrator forget his work (\"forgetful of musty papers\") and brings hopes for the future and \"recollections of childhood.\""
           },
           {
-            "id": "t4-rw1x-09",
-            "section": "rw",
-            "skill": "Inferences",
-            "difficulty": "hard",
-            "passage": "Paris has high pedestrian traffic, but simply replicating a feature of Paris associated with walkability—e.g., its high number of car-free areas—is insufficient to induce increased walking in other cities. As urbanist Mariela Alfonzo argues, our understanding of individuals' decision-making about whether to walk is insufficiently robust: some studies emphasize the role of climate conditions, others the role of population density, and so on, but walking decisions are made in complex contexts in which multiple conditions and needs inform individuals' choices.",
-            "prompt": "Based on the text, Alfonzo would most likely agree with which statement about studies of decision-making about walking?",
-            "choices": [
-              "They tend to be misleading because they ignore the most important factor influencing walking decisions.",
-              "They have overstated the extent to which people differ in their decision-making processes regarding walking.",
-              "They would be improved by efforts to identify the features that cities with high pedestrian traffic have in common.",
-              "They are unlikely to find convincing evidence that any single factor consistently predicts walking decisions."
-            ],
-            "answer": "D",
-            "explanation": "Alfonzo says walking decisions depend on \"multiple conditions and needs,\" so no single factor will reliably predict them."
-          },
-          {
             "id": "t4-rw1x-10",
             "section": "rw",
             "skill": "Command of Evidence: Quantitative",
@@ -346,6 +330,22 @@
             ],
             "answer": "B",
             "explanation": "Johnson's maximum density in North Dakota (2.78) is far below Choate's in Utah (10.24), suggesting North Dakota's habitat can't support as many cougars. (The passage was missing from Said's file, so we restored it from the table and choices.)"
+          },
+          {
+            "id": "t4-rw1x-09",
+            "section": "rw",
+            "skill": "Inferences",
+            "difficulty": "hard",
+            "passage": "Paris has high pedestrian traffic, but simply replicating a feature of Paris associated with walkability—e.g., its high number of car-free areas—is insufficient to induce increased walking in other cities. As urbanist Mariela Alfonzo argues, our understanding of individuals' decision-making about whether to walk is insufficiently robust: some studies emphasize the role of climate conditions, others the role of population density, and so on, but walking decisions are made in complex contexts in which multiple conditions and needs inform individuals' choices.",
+            "prompt": "Based on the text, Alfonzo would most likely agree with which statement about studies of decision-making about walking?",
+            "choices": [
+              "They tend to be misleading because they ignore the most important factor influencing walking decisions.",
+              "They have overstated the extent to which people differ in their decision-making processes regarding walking.",
+              "They would be improved by efforts to identify the features that cities with high pedestrian traffic have in common.",
+              "They are unlikely to find convincing evidence that any single factor consistently predicts walking decisions."
+            ],
+            "answer": "D",
+            "explanation": "Alfonzo says walking decisions depend on \"multiple conditions and needs,\" so no single factor will reliably predict them."
           },
           {
             "id": "t4-rw1x-15",
@@ -722,22 +722,6 @@
               "explanation": "Only this finding compares plants with and without coffee grounds and shows the taller growth she predicted."
             },
             {
-              "id": "t4-rw2e-11",
-              "section": "rw",
-              "skill": "Command of Evidence: Textual",
-              "difficulty": "medium",
-              "passage": "Linguist Sophie Tremblay hypothesizes that people in Montreal who speak both French and English switch to English more often when talking about technology than when talking about family.",
-              "prompt": "Which finding, if true, would most directly support Tremblay's hypothesis?",
-              "choices": [
-                "Most of the speakers she recorded learned French before they learned English.",
-                "In recorded conversations, speakers used English in about 60% of their sentences about computers and phones but in only about 15% of their sentences about relatives.",
-                "Speakers switched languages more often when talking with friends than when talking with strangers.",
-                "Many of the speakers said that they enjoy talking about new technology."
-              ],
-              "answer": "B",
-              "explanation": "This finding compares the two topics directly and shows much more English in talk about technology. The choice about friends and strangers concerns the listener, not the topic."
-            },
-            {
               "id": "t4-rw2e-12",
               "section": "rw",
               "skill": "Command of Evidence: Quantitative",
@@ -777,6 +761,22 @@
                   ]
                 ]
               }
+            },
+            {
+              "id": "t4-rw2e-11",
+              "section": "rw",
+              "skill": "Command of Evidence: Textual",
+              "difficulty": "medium",
+              "passage": "Linguist Sophie Tremblay hypothesizes that people in Montreal who speak both French and English switch to English more often when talking about technology than when talking about family.",
+              "prompt": "Which finding, if true, would most directly support Tremblay's hypothesis?",
+              "choices": [
+                "Most of the speakers she recorded learned French before they learned English.",
+                "In recorded conversations, speakers used English in about 60% of their sentences about computers and phones but in only about 15% of their sentences about relatives.",
+                "Speakers switched languages more often when talking with friends than when talking with strangers.",
+                "Many of the speakers said that they enjoy talking about new technology."
+              ],
+              "answer": "B",
+              "explanation": "This finding compares the two topics directly and shows much more English in talk about technology. The choice about friends and strangers concerns the listener, not the topic."
             },
             {
               "id": "t4-rw2e-13",
@@ -843,6 +843,22 @@
               "explanation": "A colon introduces a list after a complete sentence. A semicolon would need a complete sentence after it."
             },
             {
+              "id": "t4-rw2e-19",
+              "section": "rw",
+              "skill": "Form, Structure, and Sense",
+              "difficulty": "easy",
+              "passage": "Last spring, the school photography club ______ an exhibition of its members' work in the main hall.",
+              "prompt": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+              "choices": [
+                "held",
+                "holds",
+                "will hold",
+                "is holding"
+              ],
+              "answer": "A",
+              "explanation": "\"Last spring\" places the event in the past, so the past tense **held** is needed."
+            },
+            {
               "id": "t4-rw2e-17",
               "section": "rw",
               "skill": "Boundaries",
@@ -873,22 +889,6 @@
               ],
               "answer": "C",
               "explanation": "\"However\" interrupts a single sentence here, so it needs a comma on each side. A semicolon would need a complete sentence before it, and \"Tablets that are exposed to water\" is not one."
-            },
-            {
-              "id": "t4-rw2e-19",
-              "section": "rw",
-              "skill": "Form, Structure, and Sense",
-              "difficulty": "easy",
-              "passage": "Last spring, the school photography club ______ an exhibition of its members' work in the main hall.",
-              "prompt": "Which choice completes the text so that it conforms to the conventions of Standard English?",
-              "choices": [
-                "held",
-                "holds",
-                "will hold",
-                "is holding"
-              ],
-              "answer": "A",
-              "explanation": "\"Last spring\" places the event in the past, so the past tense **held** is needed."
             },
             {
               "id": "t4-rw2e-20",
@@ -1136,22 +1136,6 @@
               "explanation": "Places API data are mostly customer-facing places, so the model may miss some amenities in a neighborhood."
             },
             {
-              "id": "t4-rw2hx-08",
-              "section": "rw",
-              "skill": "Inferences",
-              "difficulty": "hard",
-              "passage": "A number of artists associated with hyperpop, a movement in electronic music that emerged in the 2010s, aggressively manipulate their recorded voice. The musician Arca, for example, sometimes shifts the pitch of her vocals to be much higher than that of her natural range. And even the hyperpop artists who don't rely on pitch-shifting, such as Namasenda, often distort their vocals using digital tools. Rather than being an arbitrary stylistic choice, hyperpop's persistent modification of the voice functions as a commentary on how digital technology mediates human experience today.",
-              "prompt": "Based on the text, the author would be most likely to disagree with which statement about vocal manipulation in hyperpop?",
-              "choices": [
-                "It confirms hyperpop's ability to offset certain negative effects of digital technology.",
-                "It is a symbol of the influence that hyperpop exerts on listeners' sense of self.",
-                "It is an aesthetic feature that has little or no social import.",
-                "It represents changes to human experience brought about by technology."
-              ],
-              "answer": "C",
-              "explanation": "The author says the vocal manipulation is not \"arbitrary\" but a commentary on technology, so the author would reject the idea that it has little social import."
-            },
-            {
               "id": "t4-rw2hx-09",
               "section": "rw",
               "skill": "Central Ideas and Details",
@@ -1243,6 +1227,22 @@
               ],
               "answer": "B",
               "explanation": "To show lizards hold back even when escaping, we need escape data below full speed: 8 species (2 + 1 + 2 + 3) escape at under 90% of maximal speed. D is about pursuit, not escape."
+            },
+            {
+              "id": "t4-rw2hx-08",
+              "section": "rw",
+              "skill": "Inferences",
+              "difficulty": "hard",
+              "passage": "A number of artists associated with hyperpop, a movement in electronic music that emerged in the 2010s, aggressively manipulate their recorded voice. The musician Arca, for example, sometimes shifts the pitch of her vocals to be much higher than that of her natural range. And even the hyperpop artists who don't rely on pitch-shifting, such as Namasenda, often distort their vocals using digital tools. Rather than being an arbitrary stylistic choice, hyperpop's persistent modification of the voice functions as a commentary on how digital technology mediates human experience today.",
+              "prompt": "Based on the text, the author would be most likely to disagree with which statement about vocal manipulation in hyperpop?",
+              "choices": [
+                "It confirms hyperpop's ability to offset certain negative effects of digital technology.",
+                "It is a symbol of the influence that hyperpop exerts on listeners' sense of self.",
+                "It is an aesthetic feature that has little or no social import.",
+                "It represents changes to human experience brought about by technology."
+              ],
+              "answer": "C",
+              "explanation": "The author says the vocal manipulation is not \"arbitrary\" but a commentary on technology, so the author would reject the idea that it has little social import."
             },
             {
               "id": "t4-rw2hx-12",
@@ -1389,6 +1389,22 @@
               "explanation": "The first sentence ends at \"fertilizers.\" The next opens with \"Containing macronutrients ...,\" which modifies \"such fertilizers.\""
             },
             {
+              "id": "t4-rw2hx-23",
+              "section": "rw",
+              "skill": "Transitions",
+              "difficulty": "medium",
+              "passage": "Before the first railroads were built in Australia, engineers warned against using multiple track widths across the continent. ______ regional officials couldn't agree on a single-width system. Thus, railways in Victoria, like the Victorian Goldfields Railway, were made using wide tracks, while those in New South Wales were built with narrow tracks.",
+              "prompt": "Which choice completes the text with the most logical transition?",
+              "choices": [
+                "In other words,",
+                "Similarly,",
+                "For this reason,",
+                "Nevertheless,"
+              ],
+              "answer": "D",
+              "explanation": "Engineers warned against multiple widths, but officials still couldn't agree: \"Nevertheless.\""
+            },
+            {
               "id": "t4-rw2hx-21",
               "section": "rw",
               "skill": "Transitions",
@@ -1421,22 +1437,6 @@
               "explanation": "The writer concedes that the house's features couldn't grow in a forest before saying \"Still,\" nature shows. \"Of course\" signals that concession."
             },
             {
-              "id": "t4-rw2hx-23",
-              "section": "rw",
-              "skill": "Transitions",
-              "difficulty": "medium",
-              "passage": "Before the first railroads were built in Australia, engineers warned against using multiple track widths across the continent. ______ regional officials couldn't agree on a single-width system. Thus, railways in Victoria, like the Victorian Goldfields Railway, were made using wide tracks, while those in New South Wales were built with narrow tracks.",
-              "prompt": "Which choice completes the text with the most logical transition?",
-              "choices": [
-                "In other words,",
-                "Similarly,",
-                "For this reason,",
-                "Nevertheless,"
-              ],
-              "answer": "D",
-              "explanation": "Engineers warned against multiple widths, but officials still couldn't agree: \"Nevertheless.\""
-            },
-            {
               "id": "t4-rw2hx-24",
               "section": "rw",
               "skill": "Transitions",
@@ -1453,22 +1453,6 @@
               "explanation": "Because seats go to a plurality, it follows that a winner can get under 50%: \"Accordingly.\""
             },
             {
-              "id": "t4-rw2hx-25",
-              "section": "rw",
-              "skill": "Rhetorical Synthesis",
-              "difficulty": "hard",
-              "passage": "• Impact craters occur when a large object collides with Earth at high speeds.\n• Examples of such objects include comets and meteorites.\n• Kelly West is an impact crater in Australia.\n• Researchers have determined that it was formed more than 550 million years ago.\n• The crater has a diameter of approximately 10 km.",
-              "prompt": "Which choice most effectively uses information from the given sentences to emphasize the size of the crater?",
-              "choices": [
-                "When a large object struck what is now Australia more than 550 million years ago, it created Kelly West, a massive crater measuring 10 km in diameter.",
-                "Impact craters, like Kelly West in Australia, are formed when a massive object collides with the Earth, creating depressions in the land.",
-                "Long ago, a crater now known as Kelly West was created when a large object collided with Earth.",
-                "Researchers have investigated the formation of Kelly West, an ancient impact crater measuring 10 km in diameter located in Australia."
-              ],
-              "answer": "A",
-              "explanation": "A stresses size: \"a massive crater measuring 10 km in diameter.\""
-            },
-            {
               "id": "t4-rw2hx-26",
               "section": "rw",
               "skill": "Rhetorical Synthesis",
@@ -1483,6 +1467,22 @@
               ],
               "answer": "C",
               "explanation": "C gives the 2020 population: 7,015."
+            },
+            {
+              "id": "t4-rw2hx-25",
+              "section": "rw",
+              "skill": "Rhetorical Synthesis",
+              "difficulty": "hard",
+              "passage": "• Impact craters occur when a large object collides with Earth at high speeds.\n• Examples of such objects include comets and meteorites.\n• Kelly West is an impact crater in Australia.\n• Researchers have determined that it was formed more than 550 million years ago.\n• The crater has a diameter of approximately 10 km.",
+              "prompt": "Which choice most effectively uses information from the given sentences to emphasize the size of the crater?",
+              "choices": [
+                "When a large object struck what is now Australia more than 550 million years ago, it created Kelly West, a massive crater measuring 10 km in diameter.",
+                "Impact craters, like Kelly West in Australia, are formed when a massive object collides with the Earth, creating depressions in the land.",
+                "Long ago, a crater now known as Kelly West was created when a large object collided with Earth.",
+                "Researchers have investigated the formation of Kelly West, an ancient impact crater measuring 10 km in diameter located in Australia."
+              ],
+              "answer": "A",
+              "explanation": "A stresses size: \"a massive crater measuring 10 km in diameter.\""
             },
             {
               "id": "t4-rw2hx-27",
@@ -2173,6 +2173,17 @@
               "explanation": "Call the integers $n$, $n + 2$, and $n + 4$. Then $3n + 6 = n + 92$, so $2n = 86$ and $n = 43$. (The integers are 43, 45, and 47, whose sum, 135, is 92 more than 43.)"
             },
             {
+              "id": "t4-m2h-07",
+              "section": "math",
+              "skill": "Systems of two linear equations in two variables",
+              "difficulty": "medium",
+              "prompt": "A museum sells adult tickets for \\$40 each and student tickets for \\$15 each. On one day, it sold 260 tickets for a total of \\$7,650. How many student tickets did the museum sell that day?",
+              "answer": [
+                "110"
+              ],
+              "explanation": "Working in dollars: $a + s = 260$ and $40a + 15s = 7{,}650$. Substituting $a = 260 - s$ gives $10{,}400 - 25s = 7{,}650$, so $s = 110$."
+            },
+            {
               "id": "t4-m2h-02",
               "section": "math",
               "skill": "Percentages",
@@ -2238,17 +2249,6 @@
                 "5"
               ],
               "explanation": "Treat it as a quadratic in $x^2$: $(x^2 - 4)(x^2 - 9) = 0$, so $x^2 = 4$ or $x^2 = 9$. With $x > 0$, $x = 2$ or $x = 3$, and $2 + 3 = 5$."
-            },
-            {
-              "id": "t4-m2h-07",
-              "section": "math",
-              "skill": "Systems of two linear equations in two variables",
-              "difficulty": "medium",
-              "prompt": "A museum sells adult tickets for \\$40 each and student tickets for \\$15 each. On one day, it sold 260 tickets for a total of \\$7,650. How many student tickets did the museum sell that day?",
-              "answer": [
-                "110"
-              ],
-              "explanation": "Working in dollars: $a + s = 260$ and $40a + 15s = 7{,}650$. Substituting $a = 260 - s$ gives $10{,}400 - 25s = 7{,}650$, so $s = 110$."
             },
             {
               "id": "t4-m2h-08",

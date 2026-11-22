@@ -46,22 +46,6 @@
             "explanation": "A corpus can show how common a word is: \"long\" is the fifth most used adjective. So the tests measure how **pervasive** (widespread) a word is."
           },
           {
-            "id": "t2-rw1x-03",
-            "section": "rw",
-            "skill": "Words in Context",
-            "difficulty": "hard",
-            "passage": "Authors like Laura Esquivel contributed to the outpouring of Mexican literature in the years following the Mexican Revolution, which lasted from 1910 to 1920. Works from this period make up an ______ proportion of what is considered the canon of Mexican literature, but nineteenth-century writers like Justo Sierra O'Reilly should be considered just as integral to the Mexican literary canon.",
-            "prompt": "Which choice completes the text with the most logical and precise word or phrase?",
-            "choices": [
-              "overlooked",
-              "outsized",
-              "unspecified",
-              "erratic"
-            ],
-            "answer": "B",
-            "explanation": "\"But\" 19th-century writers \"should be considered just as integral,\" implying post-Revolution works take up an **outsized** (disproportionately large) share of the canon."
-          },
-          {
             "id": "t2-rw1x-04",
             "section": "rw",
             "skill": "Words in Context",
@@ -76,6 +60,22 @@
             ],
             "answer": "B",
             "explanation": "Rising prices drew new buyers into the market, so they **precipitated** (brought on) demand, which is the counterintuitive effect."
+          },
+          {
+            "id": "t2-rw1x-03",
+            "section": "rw",
+            "skill": "Words in Context",
+            "difficulty": "hard",
+            "passage": "Authors like Laura Esquivel contributed to the outpouring of Mexican literature in the years following the Mexican Revolution, which lasted from 1910 to 1920. Works from this period make up an ______ proportion of what is considered the canon of Mexican literature, but nineteenth-century writers like Justo Sierra O'Reilly should be considered just as integral to the Mexican literary canon.",
+            "prompt": "Which choice completes the text with the most logical and precise word or phrase?",
+            "choices": [
+              "overlooked",
+              "outsized",
+              "unspecified",
+              "erratic"
+            ],
+            "answer": "B",
+            "explanation": "\"But\" 19th-century writers \"should be considered just as integral,\" implying post-Revolution works take up an **outsized** (disproportionately large) share of the canon."
           },
           {
             "id": "t2-rw1x-05",
@@ -110,22 +110,6 @@
             "explanation": "Text 1 says He and colleagues skipped a crucial step (separating roots). Text 2 says even Meding and Zasoski's barrier wasn't enough. Both would agree He's study can't give compelling evidence for a CMN."
           },
           {
-            "id": "t2-rw1x-07",
-            "section": "rw",
-            "skill": "Central Ideas and Details",
-            "difficulty": "medium",
-            "passage": "\"Tomato\" is an example of a loanword—that is, a word that originated in one language and was later adopted by another. The word came to English directly from *tomate*, the Spanish word for the widely cultivated plant. Spanish had borrowed it from Nahuatl, an Indigenous language of Central Mexico, in which the word's original form is *tomatl*. \"Maize\" also has an Indigenous origin and entered English through Spanish. But in this case, the original source was Taino, a language of the Caribbean Islands, in which the word for the corn plant is *mahis*.",
-            "prompt": "Which choice best states the main idea of the text?",
-            "choices": [
-              "Many English words with Indigenous origins first passed through Spanish.",
-              "When borrowing from Indigenous languages, Spanish adopted words such as \"*tomatl*\" from Taino.",
-              "When non-Indigenous languages borrowed from Indigenous languages, the words often underwent a significant change in meaning.",
-              "The English words \"tomato\" and \"maize\" are both examples of loanwords from Indigenous languages of the Americas."
-            ],
-            "answer": "D",
-            "explanation": "The text explains that \"tomato\" (from Nahuatl) and \"maize\" (from Taino) are both loanwords from Indigenous languages that reached English through Spanish."
-          },
-          {
             "id": "t2-rw1x-08",
             "section": "rw",
             "skill": "Central Ideas and Details",
@@ -142,6 +126,22 @@
             "explanation": "Radiofrequency heating generates heat inside the food, \"thus reducing industrial cooking times,\" so conventional methods take longer."
           },
           {
+            "id": "t2-rw1x-07",
+            "section": "rw",
+            "skill": "Central Ideas and Details",
+            "difficulty": "medium",
+            "passage": "\"Tomato\" is an example of a loanword—that is, a word that originated in one language and was later adopted by another. The word came to English directly from *tomate*, the Spanish word for the widely cultivated plant. Spanish had borrowed it from Nahuatl, an Indigenous language of Central Mexico, in which the word's original form is *tomatl*. \"Maize\" also has an Indigenous origin and entered English through Spanish. But in this case, the original source was Taino, a language of the Caribbean Islands, in which the word for the corn plant is *mahis*.",
+            "prompt": "Which choice best states the main idea of the text?",
+            "choices": [
+              "Many English words with Indigenous origins first passed through Spanish.",
+              "When borrowing from Indigenous languages, Spanish adopted words such as \"*tomatl*\" from Taino.",
+              "When non-Indigenous languages borrowed from Indigenous languages, the words often underwent a significant change in meaning.",
+              "The English words \"tomato\" and \"maize\" are both examples of loanwords from Indigenous languages of the Americas."
+            ],
+            "answer": "D",
+            "explanation": "The text explains that \"tomato\" (from Nahuatl) and \"maize\" (from Taino) are both loanwords from Indigenous languages that reached English through Spanish."
+          },
+          {
             "id": "t2-rw1x-09",
             "section": "rw",
             "skill": "Central Ideas and Details",
@@ -156,22 +156,6 @@
             ],
             "answer": "B",
             "explanation": "The text places Green and Extavour's study in relation to earlier work by Chan's and Wittkopp's teams."
-          },
-          {
-            "id": "t2-rw1x-10",
-            "section": "rw",
-            "skill": "Inferences",
-            "difficulty": "hard",
-            "passage": "The following text is from Mick Herron's 2023 novel *The Secret Hours*. The narrator is describing members of a government committee.\n\nFinally, and adding much-needed gravitas, was Sir Winston Day, whose features recently moulded to adorn a bust, or possibly a stamp, and whose forehead was so evidently bulging with grey matter that it would have been impertinent to inquire too closely into the actual achievements his half century of public service had produced. His recently published memoirs possibly cast light on this enigma but given that such details were not provided until after the thirty-page mark, they might as well have remained state secrets.",
-            "prompt": "Based on the text, which choice best describes Sir Winston Day?",
-            "choices": [
-              "He looks like a person worthy of respect, but his memoirs reveal that some of his actions were dishonorable.",
-              "He has maintained a modest profile even though he has served the public capably for many years.",
-              "He has the appearance of a distinguished figure, but it is uncertain whether he has accomplished anything to earn distinction.",
-              "He would be a celebrated public figure if his achievements did not have to be kept secret."
-            ],
-            "answer": "C",
-            "explanation": "Day's forehead bulges with \"grey matter\" and his features are fit for a bust, yet it would be \"impertinent\" to ask what he actually achieved. He looks distinguished, but his accomplishments are doubtful."
           },
           {
             "id": "t2-rw1x-11",
@@ -244,6 +228,22 @@
             ],
             "answer": "A",
             "explanation": "Mussels can stand in for carp only if they absorb TiO₂-NPs at comparable rates in comparable environments."
+          },
+          {
+            "id": "t2-rw1x-10",
+            "section": "rw",
+            "skill": "Inferences",
+            "difficulty": "hard",
+            "passage": "The following text is from Mick Herron's 2023 novel *The Secret Hours*. The narrator is describing members of a government committee.\n\nFinally, and adding much-needed gravitas, was Sir Winston Day, whose features recently moulded to adorn a bust, or possibly a stamp, and whose forehead was so evidently bulging with grey matter that it would have been impertinent to inquire too closely into the actual achievements his half century of public service had produced. His recently published memoirs possibly cast light on this enigma but given that such details were not provided until after the thirty-page mark, they might as well have remained state secrets.",
+            "prompt": "Based on the text, which choice best describes Sir Winston Day?",
+            "choices": [
+              "He looks like a person worthy of respect, but his memoirs reveal that some of his actions were dishonorable.",
+              "He has maintained a modest profile even though he has served the public capably for many years.",
+              "He has the appearance of a distinguished figure, but it is uncertain whether he has accomplished anything to earn distinction.",
+              "He would be a celebrated public figure if his achievements did not have to be kept secret."
+            ],
+            "answer": "C",
+            "explanation": "Day's forehead bulges with \"grey matter\" and his features are fit for a bust, yet it would be \"impertinent\" to ask what he actually achieved. He looks distinguished, but his accomplishments are doubtful."
           },
           {
             "id": "t2-rw1x-13",
@@ -1318,6 +1318,22 @@
               "explanation": "Distant galaxies show the early universe, when galaxies were small and irregular, so large spirals likely developed later. The second choice is the trap: we see those regions as they were long ago, not as they are today."
             },
             {
+              "id": "t2-rw2h-20",
+              "section": "rw",
+              "skill": "Form, Structure, and Sense",
+              "difficulty": "medium",
+              "passage": "Over several months, the museum's conservators cleaned the tiles, replaced missing fragments, and ______ the glaze with a protective coating.",
+              "prompt": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+              "choices": [
+                "sealing",
+                "to seal",
+                "sealed",
+                "they sealed"
+              ],
+              "answer": "C",
+              "explanation": "The list uses past-tense verbs (\"cleaned,\" \"replaced\"), so the third item must be **sealed** to keep the list parallel."
+            },
+            {
               "id": "t2-rw2h-15",
               "section": "rw",
               "skill": "Boundaries",
@@ -1396,22 +1412,6 @@
               ],
               "answer": "D",
               "explanation": "The subject is the singular \"catalog\"; the plural nouns in the interrupting phrase do not change it, so the verb is **lists**."
-            },
-            {
-              "id": "t2-rw2h-20",
-              "section": "rw",
-              "skill": "Form, Structure, and Sense",
-              "difficulty": "medium",
-              "passage": "Over several months, the museum's conservators cleaned the tiles, replaced missing fragments, and ______ the glaze with a protective coating.",
-              "prompt": "Which choice completes the text so that it conforms to the conventions of Standard English?",
-              "choices": [
-                "sealing",
-                "to seal",
-                "sealed",
-                "they sealed"
-              ],
-              "answer": "C",
-              "explanation": "The list uses past-tense verbs (\"cleaned,\" \"replaced\"), so the third item must be **sealed** to keep the list parallel."
             },
             {
               "id": "t2-rw2h-21",

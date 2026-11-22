@@ -158,6 +158,22 @@
             "explanation": "Every sentence is about debut novels: a definition, an example, and why they interest readers."
           },
           {
+            "id": "t23-rw1-11",
+            "section": "rw",
+            "skill": "Command of Evidence: Textual",
+            "difficulty": "medium",
+            "passage": "*Great Expectations* is an 1861 novel by Charles Dickens. The narrator describes his brother-in-law, Joe Gargery, as being both powerful and tender: ______",
+            "prompt": "Which quotation from *Great Expectations* most effectively illustrates the claim?",
+            "choices": [
+              "\"There I stood, for minutes, looking at Joe, already at work with a glow of health and strength upon his face that made it show as if the bright sun of the life in store for him were shining on it.\"",
+              "\"In his working-clothes, Joe was a well-knit characteristic-looking blacksmith; in his holiday clothes, he was more like a scarecrow in good circumstances, than anything else.\"",
+              "\"I have often thought [Joe] since, like the steam-hammer that can crush a man or pat an egg-shell, in his combination of strength with gentleness.\"",
+              "\"Estella opened the gate as usual, and, the moment she appeared, Joe took his hat off and stood weighing it by the brim in both his hands.\""
+            ],
+            "answer": "C",
+            "explanation": "The claim has two parts: powerful and tender. C states both directly: a steam-hammer that can \"crush a man or pat an egg-shell,\" combining \"strength with gentleness.\" A shows only strength."
+          },
+          {
             "id": "t23-rw1-10",
             "section": "rw",
             "skill": "Command of Evidence: Quantitative",
@@ -197,22 +213,6 @@
             ],
             "answer": "B",
             "explanation": "The table lists the lion at 13 hours. The 20 hours belongs to the koala, 4.5 to the giraffe, and 3 to the elephant."
-          },
-          {
-            "id": "t23-rw1-11",
-            "section": "rw",
-            "skill": "Command of Evidence: Textual",
-            "difficulty": "medium",
-            "passage": "*Great Expectations* is an 1861 novel by Charles Dickens. The narrator describes his brother-in-law, Joe Gargery, as being both powerful and tender: ______",
-            "prompt": "Which quotation from *Great Expectations* most effectively illustrates the claim?",
-            "choices": [
-              "\"There I stood, for minutes, looking at Joe, already at work with a glow of health and strength upon his face that made it show as if the bright sun of the life in store for him were shining on it.\"",
-              "\"In his working-clothes, Joe was a well-knit characteristic-looking blacksmith; in his holiday clothes, he was more like a scarecrow in good circumstances, than anything else.\"",
-              "\"I have often thought [Joe] since, like the steam-hammer that can crush a man or pat an egg-shell, in his combination of strength with gentleness.\"",
-              "\"Estella opened the gate as usual, and, the moment she appeared, Joe took his hat off and stood weighing it by the brim in both his hands.\""
-            ],
-            "answer": "C",
-            "explanation": "The claim has two parts: powerful and tender. C states both directly: a steam-hammer that can \"crush a man or pat an egg-shell,\" combining \"strength with gentleness.\" A shows only strength."
           },
           {
             "id": "t23-rw1-12",
@@ -345,22 +345,6 @@
             "explanation": "The subject is the singular \"transfer\" (not \"hemispheres\"), and \"now\" calls for the present tense: *is*. *Being* would leave the sentence without a main verb."
           },
           {
-            "id": "t23-rw1-20",
-            "section": "rw",
-            "skill": "Form, Structure, and Sense",
-            "difficulty": "hard",
-            "passage": "Now seen as a mechanical precursor to the e-reader, Spanish educator and inventor Ángela Ruiz Robles's *Enciclopedia Mecánica* eschewed pages in favor of three horizontal paper scrolls that could be easily swapped out to accommodate a range of subjects. Though Ruiz Robles's prototype had limited functionality, interactive features described in her 1949 patent—such as a button labeled \"verb\" that would illuminate relevant text when pressed—______ an impressive early vision of hypertext.",
-            "prompt": "Which choice completes the text so that it conforms to the conventions of Standard English?",
-            "choices": [
-              "revealing",
-              "has revealed",
-              "reveals",
-              "reveal"
-            ],
-            "answer": "D",
-            "explanation": "The subject is the plural \"features\" (the dashes set off an example), so the verb must be plural: *reveal*. *Revealing* would leave the clause without a verb."
-          },
-          {
             "id": "t23-rw1-21",
             "section": "rw",
             "skill": "Boundaries",
@@ -375,6 +359,22 @@
             ],
             "answer": "C",
             "explanation": "Both parts are complete sentences, so a period separates them. A is a comma splice, B is a run-on, and a semicolon followed by \"and\" (D) is incorrect."
+          },
+          {
+            "id": "t23-rw1-20",
+            "section": "rw",
+            "skill": "Form, Structure, and Sense",
+            "difficulty": "hard",
+            "passage": "Now seen as a mechanical precursor to the e-reader, Spanish educator and inventor Ángela Ruiz Robles's *Enciclopedia Mecánica* eschewed pages in favor of three horizontal paper scrolls that could be easily swapped out to accommodate a range of subjects. Though Ruiz Robles's prototype had limited functionality, interactive features described in her 1949 patent—such as a button labeled \"verb\" that would illuminate relevant text when pressed—______ an impressive early vision of hypertext.",
+            "prompt": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+            "choices": [
+              "revealing",
+              "has revealed",
+              "reveals",
+              "reveal"
+            ],
+            "answer": "D",
+            "explanation": "The subject is the plural \"features\" (the dashes set off an example), so the verb must be plural: *reveal*. *Revealing* would leave the clause without a verb."
           },
           {
             "id": "t23-rw1-22",
@@ -655,22 +655,6 @@
               "explanation": "Reacting only to one specific face (the mask) and not to others shows the crows can tell faces apart. The other findings have nothing to do with recognizing faces."
             },
             {
-              "id": "t23-rw2e-12",
-              "section": "rw",
-              "skill": "Command of Evidence: Textual",
-              "difficulty": "medium",
-              "passage": "A student is writing about a farmer who switched from growing only corn to growing several different crops. The student claims that the farmer made the change mainly to reduce the financial risk of depending on one crop.",
-              "prompt": "Which quotation from the farmer would most directly support the student's claim?",
-              "choices": [
-                "\"I've always loved the look of a field full of different plants.\"",
-                "\"My grandfather grew only corn, and so did my father.\"",
-                "\"The year corn prices crashed, we nearly lost the farm. With several crops, one bad market can't sink us.\"",
-                "\"Our soil is rich and drains well after heavy rain.\""
-              ],
-              "answer": "C",
-              "explanation": "C ties the switch directly to financial risk: when corn prices fell, the farm nearly failed, and several crops protect against that. A gives a different reason."
-            },
-            {
               "id": "t23-rw2e-13",
               "section": "rw",
               "skill": "Command of Evidence: Quantitative",
@@ -710,6 +694,22 @@
               ],
               "answer": "A",
               "explanation": "The table shows green-light plants at 9 cm, the shortest of the four. 20 cm is white light and 18 cm is red light."
+            },
+            {
+              "id": "t23-rw2e-12",
+              "section": "rw",
+              "skill": "Command of Evidence: Textual",
+              "difficulty": "medium",
+              "passage": "A student is writing about a farmer who switched from growing only corn to growing several different crops. The student claims that the farmer made the change mainly to reduce the financial risk of depending on one crop.",
+              "prompt": "Which quotation from the farmer would most directly support the student's claim?",
+              "choices": [
+                "\"I've always loved the look of a field full of different plants.\"",
+                "\"My grandfather grew only corn, and so did my father.\"",
+                "\"The year corn prices crashed, we nearly lost the farm. With several crops, one bad market can't sink us.\"",
+                "\"Our soil is rich and drains well after heavy rain.\""
+              ],
+              "answer": "C",
+              "explanation": "C ties the switch directly to financial risk: when corn prices fell, the farm nearly failed, and several crops protect against that. A gives a different reason."
             },
             {
               "id": "t23-rw2e-14",
@@ -753,22 +753,6 @@
               "explanation": "The claim is about the wettest (fall) and driest (summer) times. October, a fall month, has the most rain (95 mm), and July, a summer month, has the least (20 mm)."
             },
             {
-              "id": "t23-rw2e-15",
-              "section": "rw",
-              "skill": "Inferences",
-              "difficulty": "medium",
-              "passage": "Many people believe that chameleons change color mainly to blend in with their surroundings. Researchers have found, however, that chameleons change color mostly in response to temperature, to their mood, and to send signals to other chameleons. A male chameleon that suddenly turns bright colors as a rival male approaches is therefore most likely ______",
-              "prompt": "Which choice most logically completes the text?",
-              "choices": [
-                "trying to hide from the rival.",
-                "signaling to the rival rather than trying to blend in.",
-                "cooling its body down.",
-                "matching the colors of nearby leaves."
-              ],
-              "answer": "B",
-              "explanation": "Chameleons often change color to send signals, and here the change happens as a rival approaches. Turning bright is the opposite of hiding (A)."
-            },
-            {
               "id": "t23-rw2e-16",
               "section": "rw",
               "skill": "Inferences",
@@ -783,6 +767,22 @@
               ],
               "answer": "A",
               "explanation": "Warm weather means more iced drink sales, so an especially hot week calls for more iced drinks. C reverses the pattern."
+            },
+            {
+              "id": "t23-rw2e-15",
+              "section": "rw",
+              "skill": "Inferences",
+              "difficulty": "medium",
+              "passage": "Many people believe that chameleons change color mainly to blend in with their surroundings. Researchers have found, however, that chameleons change color mostly in response to temperature, to their mood, and to send signals to other chameleons. A male chameleon that suddenly turns bright colors as a rival male approaches is therefore most likely ______",
+              "prompt": "Which choice most logically completes the text?",
+              "choices": [
+                "trying to hide from the rival.",
+                "signaling to the rival rather than trying to blend in.",
+                "cooling its body down.",
+                "matching the colors of nearby leaves."
+              ],
+              "answer": "B",
+              "explanation": "Chameleons often change color to send signals, and here the change happens as a rival approaches. Turning bright is the opposite of hiding (A)."
             },
             {
               "id": "t23-rw2e-17",
@@ -801,22 +801,6 @@
               "explanation": "\"Built from stone in the 1700s\" interrupts the sentence, so it needs a comma on each side: \"The city's oldest bridge, built ... 1700s, still carries ...\""
             },
             {
-              "id": "t23-rw2e-18",
-              "section": "rw",
-              "skill": "Boundaries",
-              "difficulty": "medium",
-              "passage": "Marie Curie won two Nobel ______ one in physics in 1903 and one in chemistry in 1911.",
-              "prompt": "Which choice completes the text so that it conforms to the conventions of Standard English?",
-              "choices": [
-                "Prizes;",
-                "Prizes:",
-                "Prizes. One",
-                "Prizes, and"
-              ],
-              "answer": "B",
-              "explanation": "A colon after the complete clause introduces the explanation of the two prizes. A semicolon needs a full clause after it, and C leaves a fragment."
-            },
-            {
               "id": "t23-rw2e-19",
               "section": "rw",
               "skill": "Boundaries",
@@ -831,6 +815,22 @@
               ],
               "answer": "A",
               "explanation": "Two complete sentences are joined, so a comma plus the conjunction \"so\" is needed. B is a run-on and C is a comma splice."
+            },
+            {
+              "id": "t23-rw2e-18",
+              "section": "rw",
+              "skill": "Boundaries",
+              "difficulty": "medium",
+              "passage": "Marie Curie won two Nobel ______ one in physics in 1903 and one in chemistry in 1911.",
+              "prompt": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+              "choices": [
+                "Prizes;",
+                "Prizes:",
+                "Prizes. One",
+                "Prizes, and"
+              ],
+              "answer": "B",
+              "explanation": "A colon after the complete clause introduces the explanation of the two prizes. A semicolon needs a full clause after it, and C leaves a fragment."
             },
             {
               "id": "t23-rw2e-20",
@@ -1078,22 +1078,6 @@
               "explanation": "Text 1 says Xiao's barriers \"excluded all pathways other than the CMN.\" Text 2 says liquids could still pass through, so the barriers can't rule out other pathways. Text 1 overstated how well the method worked."
             },
             {
-              "id": "t23-rw2h-08",
-              "section": "rw",
-              "skill": "Inferences",
-              "difficulty": "hard",
-              "passage": "To evaluate its new bike-lane program, a city counted the cyclists riding on streets with new lanes before and after the lanes were built and reported a 40 percent increase. Some transportation analysts cautioned, however, that many of the cyclists counted after construction may simply have shifted from nearby streets without lanes to the streets that now had them.",
-              "prompt": "Based on the text, what is a potential weakness of the city's evaluation?",
-              "choices": [
-                "It may count cyclists who changed their routes as if they were new cyclists.",
-                "It relied on data collected only during the winter, when fewer people ride bicycles.",
-                "It ignored the cost of building the new bike lanes.",
-                "It counted pedestrians as well as cyclists on the streets with new lanes."
-              ],
-              "answer": "A",
-              "explanation": "The analysts' concern is that riders who moved from other streets were counted as an increase, inflating the program's apparent effect. The other choices raise problems the text never mentions."
-            },
-            {
               "id": "t23-rw2h-09",
               "section": "rw",
               "skill": "Central Ideas and Details",
@@ -1158,6 +1142,22 @@
               ],
               "answer": "D",
               "explanation": "The preferences model predicts about 0.47 (US 2) and 0.33 (CI 2), far below the measured 0.76 and 0.79, while the density model (0.68 and 0.85) is much closer. D says this. A says the density predictions are farther away, which is false; B says the density model overestimated US 2, but 0.68 is below 0.76."
+            },
+            {
+              "id": "t23-rw2h-08",
+              "section": "rw",
+              "skill": "Inferences",
+              "difficulty": "hard",
+              "passage": "To evaluate its new bike-lane program, a city counted the cyclists riding on streets with new lanes before and after the lanes were built and reported a 40 percent increase. Some transportation analysts cautioned, however, that many of the cyclists counted after construction may simply have shifted from nearby streets without lanes to the streets that now had them.",
+              "prompt": "Based on the text, what is a potential weakness of the city's evaluation?",
+              "choices": [
+                "It may count cyclists who changed their routes as if they were new cyclists.",
+                "It relied on data collected only during the winter, when fewer people ride bicycles.",
+                "It ignored the cost of building the new bike lanes.",
+                "It counted pedestrians as well as cyclists on the streets with new lanes."
+              ],
+              "answer": "A",
+              "explanation": "The analysts' concern is that riders who moved from other streets were counted as an increase, inflating the program's apparent effect. The other choices raise problems the text never mentions."
             },
             {
               "id": "t23-rw2h-13",
@@ -1320,22 +1320,6 @@
               "explanation": "The text describes a process step by step, and the last sentence gives its final result. *Ultimately* introduces that outcome."
             },
             {
-              "id": "t23-rw2h-23",
-              "section": "rw",
-              "skill": "Transitions",
-              "difficulty": "hard",
-              "passage": "The ancient Library of Alexandria is often imagined as having been destroyed in a single, catastrophic fire. ______ most historians now think that the library declined gradually over several centuries as funding dried up and scholars left the city.",
-              "prompt": "Which choice completes the text with the most logical transition?",
-              "choices": [
-                "Accordingly,",
-                "In truth,",
-                "Similarly,",
-                "For instance,"
-              ],
-              "answer": "B",
-              "explanation": "The second sentence corrects the popular image in the first, so *In truth* fits. *Accordingly* would wrongly suggest the second idea follows from the first."
-            },
-            {
               "id": "t23-rw2h-24",
               "section": "rw",
               "skill": "Transitions",
@@ -1352,22 +1336,6 @@
               "explanation": "JWST is about a million miles away; Hubble is only about 340 miles up. The sentences contrast the two distances, so *By contrast* fits."
             },
             {
-              "id": "t23-rw2h-25",
-              "section": "rw",
-              "skill": "Transitions",
-              "difficulty": "hard",
-              "passage": "The basic design of the violin has changed remarkably little since the instruments made in Cremona, Italy, during the seventeenth and eighteenth centuries. ______ modern violins are not identical to their famous predecessors: most surviving older instruments have since been fitted with longer necks and with strings that produce a more powerful sound.",
-              "prompt": "Which choice completes the text with the most logical transition?",
-              "choices": [
-                "Therefore,",
-                "Likewise,",
-                "That said,",
-                "For example,"
-              ],
-              "answer": "C",
-              "explanation": "The first sentence stresses how little the violin has changed; the second adds a qualification (they aren't identical). *That said* introduces such a qualification."
-            },
-            {
               "id": "t23-rw2h-26",
               "section": "rw",
               "skill": "Transitions",
@@ -1382,6 +1350,38 @@
               ],
               "answer": "C",
               "explanation": "The last sentence narrows \"New York City\" to a particular neighborhood where speakers were found. *Specifically* introduces that more precise detail."
+            },
+            {
+              "id": "t23-rw2h-23",
+              "section": "rw",
+              "skill": "Transitions",
+              "difficulty": "hard",
+              "passage": "The ancient Library of Alexandria is often imagined as having been destroyed in a single, catastrophic fire. ______ most historians now think that the library declined gradually over several centuries as funding dried up and scholars left the city.",
+              "prompt": "Which choice completes the text with the most logical transition?",
+              "choices": [
+                "Accordingly,",
+                "In truth,",
+                "Similarly,",
+                "For instance,"
+              ],
+              "answer": "B",
+              "explanation": "The second sentence corrects the popular image in the first, so *In truth* fits. *Accordingly* would wrongly suggest the second idea follows from the first."
+            },
+            {
+              "id": "t23-rw2h-25",
+              "section": "rw",
+              "skill": "Transitions",
+              "difficulty": "hard",
+              "passage": "The basic design of the violin has changed remarkably little since the instruments made in Cremona, Italy, during the seventeenth and eighteenth centuries. ______ modern violins are not identical to their famous predecessors: most surviving older instruments have since been fitted with longer necks and with strings that produce a more powerful sound.",
+              "prompt": "Which choice completes the text with the most logical transition?",
+              "choices": [
+                "Therefore,",
+                "Likewise,",
+                "That said,",
+                "For example,"
+              ],
+              "answer": "C",
+              "explanation": "The first sentence stresses how little the violin has changed; the second adds a qualification (they aren't identical). *That said* introduces such a qualification."
             },
             {
               "id": "t23-rw2h-27",
@@ -1517,36 +1517,6 @@
             "explanation": "$24$ seconds is $\\frac{24}{4.0} = 6$ intervals of $4.0$ seconds, so the distance is $6(0.20) = 1.2$ meters."
           },
           {
-            "id": "t23-m1-07",
-            "section": "math",
-            "skill": "Nonlinear functions",
-            "difficulty": "hard",
-            "prompt": "The function $f$ is defined by $f(x) = 6(4)^x$. What is the value of $f(x)$ when $x = 3$?",
-            "choices": [
-              "$64$",
-              "$81$",
-              "$258$",
-              "$384$"
-            ],
-            "answer": "D",
-            "explanation": "$f(3) = 6(4)^3 = 6(64) = 384$."
-          },
-          {
-            "id": "t23-m1-08",
-            "section": "math",
-            "skill": "Nonlinear functions",
-            "difficulty": "hard",
-            "prompt": "The number of cells of the bacteria *Bacillus megaterium* doubles every $25$ minutes during its growth period when placed in a medium of sucrose-salts in a controlled laboratory environment. If a sample of $980$ cells of *Bacillus megaterium* is placed in sucrose-salts in a controlled laboratory environment, which function $f$ best represents the number of cells of the bacteria $x$ minutes after the growth period begins, where $x$ is less than the number of minutes in the growth period?",
-            "choices": [
-              "$f(x) = 980\\left(\\frac{1}{2}\\right)^{\\frac{x}{25}}$",
-              "$f(x) = 980(2)^{\\frac{x}{25}}$",
-              "$f(x) = 980\\left(\\frac{1}{3}\\right)^{\\frac{x}{25}}$",
-              "$f(x) = 980(3)^{\\frac{x}{25}}$"
-            ],
-            "answer": "B",
-            "explanation": "Doubling means a base of $2$, and doubling once every $25$ minutes means the exponent is $\\frac{x}{25}$. The starting amount is $980$."
-          },
-          {
             "id": "t23-m1-09",
             "section": "math",
             "skill": "Linear functions",
@@ -1636,21 +1606,6 @@
             "explanation": "From $(29, 15)$ to $(51, 26)$ the slope is $\\frac{11}{22} = \\frac{1}{2}$, so $t(x) = \\frac{1}{2}x + \\frac{1}{2}$. Then $v(x) = \\frac{1}{2}x - \\frac{7}{2}$, which is $0$ when $x = 7$."
           },
           {
-            "id": "t23-m1-14",
-            "section": "math",
-            "skill": "Nonlinear functions",
-            "difficulty": "hard",
-            "prompt": "For the polynomial function $f$, the graph of $y = f(x)$ in the $xy$-plane passes through the points $(-5, 0)$, $(3, 0)$, and $(4, 0)$. Which of the following must be a factor of $f(x)$?",
-            "choices": [
-              "$x + 3$",
-              "$x + 4$",
-              "$x - 3$",
-              "$x - 5$"
-            ],
-            "answer": "C",
-            "explanation": "If $(a, 0)$ is on the graph, then $x - a$ is a factor. So $x + 5$, $x - 3$, and $x - 4$ are factors; only $x - 3$ is listed."
-          },
-          {
             "id": "t23-m1-15",
             "section": "math",
             "skill": "Linear functions",
@@ -1664,17 +1619,6 @@
             ],
             "answer": "D",
             "explanation": "$y = -2x + b$ and $10 = -2(3) + b$, so $b = 16$. The $y$-intercept is $(0, 16)$."
-          },
-          {
-            "id": "t23-m1-16",
-            "section": "math",
-            "skill": "Circles",
-            "difficulty": "hard",
-            "prompt": "A circle has a circumference of $10\\pi$ centimeters. What is the diameter, in centimeters, of the circle?",
-            "answer": [
-              "10"
-            ],
-            "explanation": "$C = \\pi d$, so $10\\pi = \\pi d$ and $d = 10$."
           },
           {
             "id": "t23-m1-17",
@@ -1748,6 +1692,62 @@
             ],
             "answer": "D",
             "explanation": "With $13$ stores, the median is the $7$th value. The first $2 + 3 + 1 = 6$ stores have at most $18$ employees, so the $7$th store is in the $19$ to $24$ group. Only $21$ is in that range."
+          },
+          {
+            "id": "t23-m1-07",
+            "section": "math",
+            "skill": "Nonlinear functions",
+            "difficulty": "hard",
+            "prompt": "The function $f$ is defined by $f(x) = 6(4)^x$. What is the value of $f(x)$ when $x = 3$?",
+            "choices": [
+              "$64$",
+              "$81$",
+              "$258$",
+              "$384$"
+            ],
+            "answer": "D",
+            "explanation": "$f(3) = 6(4)^3 = 6(64) = 384$."
+          },
+          {
+            "id": "t23-m1-08",
+            "section": "math",
+            "skill": "Nonlinear functions",
+            "difficulty": "hard",
+            "prompt": "The number of cells of the bacteria *Bacillus megaterium* doubles every $25$ minutes during its growth period when placed in a medium of sucrose-salts in a controlled laboratory environment. If a sample of $980$ cells of *Bacillus megaterium* is placed in sucrose-salts in a controlled laboratory environment, which function $f$ best represents the number of cells of the bacteria $x$ minutes after the growth period begins, where $x$ is less than the number of minutes in the growth period?",
+            "choices": [
+              "$f(x) = 980\\left(\\frac{1}{2}\\right)^{\\frac{x}{25}}$",
+              "$f(x) = 980(2)^{\\frac{x}{25}}$",
+              "$f(x) = 980\\left(\\frac{1}{3}\\right)^{\\frac{x}{25}}$",
+              "$f(x) = 980(3)^{\\frac{x}{25}}$"
+            ],
+            "answer": "B",
+            "explanation": "Doubling means a base of $2$, and doubling once every $25$ minutes means the exponent is $\\frac{x}{25}$. The starting amount is $980$."
+          },
+          {
+            "id": "t23-m1-14",
+            "section": "math",
+            "skill": "Nonlinear functions",
+            "difficulty": "hard",
+            "prompt": "For the polynomial function $f$, the graph of $y = f(x)$ in the $xy$-plane passes through the points $(-5, 0)$, $(3, 0)$, and $(4, 0)$. Which of the following must be a factor of $f(x)$?",
+            "choices": [
+              "$x + 3$",
+              "$x + 4$",
+              "$x - 3$",
+              "$x - 5$"
+            ],
+            "answer": "C",
+            "explanation": "If $(a, 0)$ is on the graph, then $x - a$ is a factor. So $x + 5$, $x - 3$, and $x - 4$ are factors; only $x - 3$ is listed."
+          },
+          {
+            "id": "t23-m1-16",
+            "section": "math",
+            "skill": "Circles",
+            "difficulty": "hard",
+            "prompt": "A circle has a circumference of $10\\pi$ centimeters. What is the diameter, in centimeters, of the circle?",
+            "answer": [
+              "10"
+            ],
+            "explanation": "$C = \\pi d$, so $10\\pi = \\pi d$ and $d = 10$."
           },
           {
             "id": "t23-m1-20",
@@ -2112,21 +2112,6 @@
           "minutes": 35,
           "questions": [
             {
-              "id": "t23-m2h-01",
-              "section": "math",
-              "skill": "Linear equations in one variable",
-              "difficulty": "hard",
-              "prompt": "A candle is made of $18$ ounces of wax. When the candle is burning, the amount of wax in the candle decreases by $1$ ounce every $4$ hours. If $8$ ounces of wax remain in this candle, for how many hours has it been burning?",
-              "choices": [
-                "$3$",
-                "$7$",
-                "$32$",
-                "$40$"
-              ],
-              "answer": "D",
-              "explanation": "$18 - 8 = 10$ ounces have burned, at $4$ hours per ounce: $10 \\times 4 = 40$ hours."
-            },
-            {
               "id": "t23-m2h-02",
               "section": "math",
               "skill": "Two-variable data: models and scatterplots",
@@ -2142,6 +2127,51 @@
               ],
               "answer": "A",
               "explanation": "The line for data set A crosses the $y$-axis at about $47$. Subtracting $8$ from every $y$-value shifts the line down $8$ units, so the new intercept is about $47 - 8 = 39$. The closest choice is $39.17$."
+            },
+            {
+              "id": "t23-m2h-06",
+              "section": "math",
+              "skill": "Systems of two linear equations in two variables",
+              "difficulty": "medium",
+              "prompt": "$2x + 12y = 6$\n$x + 8y = 1$\n\nThe solution to the given system of equations is $(x, y)$. What is the value of $x + 4y$?",
+              "choices": [
+                "$9$",
+                "$7$",
+                "$5$",
+                "$1$"
+              ],
+              "answer": "C",
+              "explanation": "Subtract the second equation from the first: $(2x + 12y) - (x + 8y) = 6 - 1$, so $x + 4y = 5$."
+            },
+            {
+              "id": "t23-m2h-11",
+              "section": "math",
+              "skill": "Linear inequalities in one or two variables",
+              "difficulty": "medium",
+              "prompt": "$y \\le x + 14$\n$y \\ge -3x - 14$\n\nWhich point $(x, y)$ is a solution to the given system of inequalities in the $xy$-plane?",
+              "choices": [
+                "$(0, -15)$",
+                "$(0, 15)$",
+                "$(-8, 0)$",
+                "$(8, 0)$"
+              ],
+              "answer": "D",
+              "explanation": "Check $(8, 0)$: $0 \\le 22$ and $0 \\ge -38$, both true. $(0, -15)$ fails the second inequality, $(0, 15)$ fails the first, and $(-8, 0)$ fails the second ($0 \\ge 10$ is false)."
+            },
+            {
+              "id": "t23-m2h-01",
+              "section": "math",
+              "skill": "Linear equations in one variable",
+              "difficulty": "hard",
+              "prompt": "A candle is made of $18$ ounces of wax. When the candle is burning, the amount of wax in the candle decreases by $1$ ounce every $4$ hours. If $8$ ounces of wax remain in this candle, for how many hours has it been burning?",
+              "choices": [
+                "$3$",
+                "$7$",
+                "$32$",
+                "$40$"
+              ],
+              "answer": "D",
+              "explanation": "$18 - 8 = 10$ ounces have burned, at $4$ hours per ounce: $10 \\times 4 = 40$ hours."
             },
             {
               "id": "t23-m2h-03",
@@ -2183,21 +2213,6 @@
               ],
               "answer": "B",
               "explanation": "The other side $s$ satisfies $5^2 + s^2 = 34$, so $s = 3$. The perimeter is $2(5 + 3) = 16$."
-            },
-            {
-              "id": "t23-m2h-06",
-              "section": "math",
-              "skill": "Systems of two linear equations in two variables",
-              "difficulty": "medium",
-              "prompt": "$2x + 12y = 6$\n$x + 8y = 1$\n\nThe solution to the given system of equations is $(x, y)$. What is the value of $x + 4y$?",
-              "choices": [
-                "$9$",
-                "$7$",
-                "$5$",
-                "$1$"
-              ],
-              "answer": "C",
-              "explanation": "Subtract the second equation from the first: $(2x + 12y) - (x + 8y) = 6 - 1$, so $x + 4y = 5$."
             },
             {
               "id": "t23-m2h-07",
@@ -2274,21 +2289,6 @@
               ],
               "answer": "A",
               "explanation": "Expand: $x^2 + 3x - 1 = 0$. The quadratic formula gives $x = \\frac{-3 \\pm \\sqrt{9 + 4}}{2} = \\frac{-3 \\pm \\sqrt{13}}{2}$."
-            },
-            {
-              "id": "t23-m2h-11",
-              "section": "math",
-              "skill": "Linear inequalities in one or two variables",
-              "difficulty": "medium",
-              "prompt": "$y \\le x + 14$\n$y \\ge -3x - 14$\n\nWhich point $(x, y)$ is a solution to the given system of inequalities in the $xy$-plane?",
-              "choices": [
-                "$(0, -15)$",
-                "$(0, 15)$",
-                "$(-8, 0)$",
-                "$(8, 0)$"
-              ],
-              "answer": "D",
-              "explanation": "Check $(8, 0)$: $0 \\le 22$ and $0 \\ge -38$, both true. $(0, -15)$ fails the second inequality, $(0, 15)$ fails the first, and $(-8, 0)$ fails the second ($0 \\ge 10$ is false)."
             },
             {
               "id": "t23-m2h-12",

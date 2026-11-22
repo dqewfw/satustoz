@@ -78,6 +78,22 @@
             "explanation": "The morning light \"filled\" the small apartment, meaning it spread throughout the whole space. Light can't satisfy or stuff a room."
           },
           {
+            "id": "t22-rw1-08",
+            "section": "rw",
+            "skill": "Text Structure and Purpose",
+            "difficulty": "medium",
+            "passage": "Mantis shrimp are small marine crustaceans that hunt by striking their prey with club-like appendages. __Their strike is one of the fastest movements known in the animal world: the club can accelerate quickly enough to break the shells of snails and crabs, and it moves so fast that it creates collapsing bubbles in the water around it.__ Researchers studying the club's structure hope it may inspire tougher materials for helmets and body armor.",
+            "prompt": "Which choice best describes the function of the underlined portion in the text as a whole?",
+            "choices": [
+              "It describes how mantis shrimp avoid being eaten by larger predators.",
+              "It explains why researchers were surprised by the structure of the mantis shrimp's club.",
+              "It provides details about the power of the mantis shrimp's strike introduced in the previous sentence.",
+              "It compares the mantis shrimp's hunting method with those of snails and crabs."
+            ],
+            "answer": "C",
+            "explanation": "The first sentence says mantis shrimp strike prey with clubs; the underlined sentence adds details about how fast and powerful that strike is. Snails and crabs are its prey, not a comparison (D)."
+          },
+          {
             "id": "t22-rw1-05",
             "section": "rw",
             "skill": "Central Ideas and Details",
@@ -126,22 +142,6 @@
             "explanation": "After repeated failures, Teo organizes his tools, studies the problem, and finds the loose bolt. That shows patience and care. Nothing says he wants help (A) or has fixed this bike before (C)."
           },
           {
-            "id": "t22-rw1-08",
-            "section": "rw",
-            "skill": "Text Structure and Purpose",
-            "difficulty": "medium",
-            "passage": "Mantis shrimp are small marine crustaceans that hunt by striking their prey with club-like appendages. __Their strike is one of the fastest movements known in the animal world: the club can accelerate quickly enough to break the shells of snails and crabs, and it moves so fast that it creates collapsing bubbles in the water around it.__ Researchers studying the club's structure hope it may inspire tougher materials for helmets and body armor.",
-            "prompt": "Which choice best describes the function of the underlined portion in the text as a whole?",
-            "choices": [
-              "It describes how mantis shrimp avoid being eaten by larger predators.",
-              "It explains why researchers were surprised by the structure of the mantis shrimp's club.",
-              "It provides details about the power of the mantis shrimp's strike introduced in the previous sentence.",
-              "It compares the mantis shrimp's hunting method with those of snails and crabs."
-            ],
-            "answer": "C",
-            "explanation": "The first sentence says mantis shrimp strike prey with clubs; the underlined sentence adds details about how fast and powerful that strike is. Snails and crabs are its prey, not a comparison (D)."
-          },
-          {
             "id": "t22-rw1-09",
             "section": "rw",
             "skill": "Central Ideas and Details",
@@ -156,6 +156,38 @@
             ],
             "answer": "D",
             "explanation": "The experiments test whether young birds raised without adults still face the right way to migrate. The topic is how they know which direction to go."
+          },
+          {
+            "id": "t22-rw1-11",
+            "section": "rw",
+            "skill": "Command of Evidence: Textual",
+            "difficulty": "medium",
+            "passage": "A biologist hypothesizes that songbirds living in cities sing at a higher pitch than forest birds of the same species because higher-pitched songs are easier to hear over the low rumble of traffic.",
+            "prompt": "Which finding, if true, would most directly support the biologist's hypothesis?",
+            "choices": [
+              "Forest birds of the species sing most often in the early morning.",
+              "City birds of the species are slightly larger than forest birds of the species.",
+              "In cities, birds of the species sang at higher pitches on noisy weekdays than on quiet holidays.",
+              "Traffic noise in cities is loudest at night, when the birds are not singing."
+            ],
+            "answer": "C",
+            "explanation": "If birds raise their pitch when traffic is loud and lower it when it is quiet, that links the higher pitch to traffic noise. D would weaken the hypothesis."
+          },
+          {
+            "id": "t22-rw1-12",
+            "section": "rw",
+            "skill": "Command of Evidence: Textual",
+            "difficulty": "medium",
+            "passage": "Two years ago, the public library in a small town began lending tools, kitchen equipment, and board games in addition to books. In a report, a student argues that this program made the library more popular with town residents.",
+            "prompt": "Which finding, if true, would most directly support the student's argument?",
+            "choices": [
+              "The library's book collection has grown steadily for the past decade.",
+              "The number of residents with library cards rose sharply in the year after the program began.",
+              "Most residents who borrow tools from the library already own many tools.",
+              "The library opened a second branch three years before the program began."
+            ],
+            "answer": "B",
+            "explanation": "A sharp rise in library card holders right after the program started is evidence that the program drew more residents to the library. A and D concern other changes."
           },
           {
             "id": "t22-rw1-10",
@@ -197,38 +229,6 @@
             ],
             "answer": "A",
             "explanation": "The conclusion compares walkers and cyclists together with car riders. 18 + 13 = 31, which is more than 27. C compares bicycles alone, which would contradict the conclusion."
-          },
-          {
-            "id": "t22-rw1-11",
-            "section": "rw",
-            "skill": "Command of Evidence: Textual",
-            "difficulty": "medium",
-            "passage": "A biologist hypothesizes that songbirds living in cities sing at a higher pitch than forest birds of the same species because higher-pitched songs are easier to hear over the low rumble of traffic.",
-            "prompt": "Which finding, if true, would most directly support the biologist's hypothesis?",
-            "choices": [
-              "Forest birds of the species sing most often in the early morning.",
-              "City birds of the species are slightly larger than forest birds of the species.",
-              "In cities, birds of the species sang at higher pitches on noisy weekdays than on quiet holidays.",
-              "Traffic noise in cities is loudest at night, when the birds are not singing."
-            ],
-            "answer": "C",
-            "explanation": "If birds raise their pitch when traffic is loud and lower it when it is quiet, that links the higher pitch to traffic noise. D would weaken the hypothesis."
-          },
-          {
-            "id": "t22-rw1-12",
-            "section": "rw",
-            "skill": "Command of Evidence: Textual",
-            "difficulty": "medium",
-            "passage": "Two years ago, the public library in a small town began lending tools, kitchen equipment, and board games in addition to books. In a report, a student argues that this program made the library more popular with town residents.",
-            "prompt": "Which finding, if true, would most directly support the student's argument?",
-            "choices": [
-              "The library's book collection has grown steadily for the past decade.",
-              "The number of residents with library cards rose sharply in the year after the program began.",
-              "Most residents who borrow tools from the library already own many tools.",
-              "The library opened a second branch three years before the program began."
-            ],
-            "answer": "B",
-            "explanation": "A sharp rise in library card holders right after the program started is evidence that the program drew more residents to the library. A and D concern other changes."
           },
           {
             "id": "t22-rw1-13",
@@ -311,6 +311,22 @@
             "explanation": "The subject is the singular \"the locative case,\" not \"languages,\" and the sentence states a general fact. The singular present-tense *is* fits."
           },
           {
+            "id": "t22-rw1-20",
+            "section": "rw",
+            "skill": "Form, Structure, and Sense",
+            "difficulty": "medium",
+            "passage": "The naturalist spent ten years studying the plants and insects of the Amazon rain forest. The series of field notebooks that she kept during that decade ______ hundreds of detailed sketches, many of species that had never before been drawn.",
+            "prompt": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+            "choices": [
+              "include",
+              "including",
+              "includes",
+              "to include"
+            ],
+            "answer": "C",
+            "explanation": "The subject is the singular \"series,\" not \"notebooks,\" so the verb must be singular: *includes*. *Including* and *to include* leave the sentence without a main verb."
+          },
+          {
             "id": "t22-rw1-18",
             "section": "rw",
             "skill": "Boundaries",
@@ -341,22 +357,6 @@
             ],
             "answer": "C",
             "explanation": "Two complete sentences meet here, and the second explains the first. A colon joins them correctly. A creates a comma splice, B a run-on, and D joins them awkwardly without a comma."
-          },
-          {
-            "id": "t22-rw1-20",
-            "section": "rw",
-            "skill": "Form, Structure, and Sense",
-            "difficulty": "medium",
-            "passage": "The naturalist spent ten years studying the plants and insects of the Amazon rain forest. The series of field notebooks that she kept during that decade ______ hundreds of detailed sketches, many of species that had never before been drawn.",
-            "prompt": "Which choice completes the text so that it conforms to the conventions of Standard English?",
-            "choices": [
-              "include",
-              "including",
-              "includes",
-              "to include"
-            ],
-            "answer": "C",
-            "explanation": "The subject is the singular \"series,\" not \"notebooks,\" so the verb must be singular: *includes*. *Including* and *to include* leave the sentence without a main verb."
           },
           {
             "id": "t22-rw1-21",
@@ -407,22 +407,6 @@
             "explanation": "The first sentence credits the play with coining \"robot\"; the second adds a further contribution (\"also\"). \"Beyond the simple coining of a term\" moves from that first achievement to the larger one. D contradicts the play's \"indelible mark.\""
           },
           {
-            "id": "t22-rw1-24",
-            "section": "rw",
-            "skill": "Rhetorical Synthesis",
-            "difficulty": "medium",
-            "passage": "While researching a topic, a student has taken the following notes:\n• The human tongue contains taste receptors for a rich, savory flavor called umami.\n• Umami is triggered by compounds in a variety of foods, including sardines and mushrooms.\n• Participants in a study tasted a sample of wakame, a type of brown seaweed.\n• They rated its umami intensity as moderate.\n• The participants tasted a sample of ma-konbu, another type of brown seaweed.\n• They rated its umami intensity as high.",
-            "prompt": "The student wants to emphasize a difference between the two seaweeds. Which choice most effectively uses relevant information from the notes to accomplish this goal?",
-            "choices": [
-              "While wakame and ma-konbu contain umami flavor, umami can also be found in sardines and mushrooms.",
-              "After tasting two types of brown seaweed, wakame and ma-konbu, participants in a study found ma-konbu's umami flavor to be the more intense of the two.",
-              "Wakame is a type of brown seaweed, but so is ma-konbu.",
-              "Some types of brown seaweed, like wakame and ma-konbu, trigger umami flavor in human taste buds."
-            ],
-            "answer": "B",
-            "explanation": "The difference is in umami intensity: moderate for wakame, high for ma-konbu. Only B states that difference. A, C, and D point out things the seaweeds have in common."
-          },
-          {
             "id": "t22-rw1-25",
             "section": "rw",
             "skill": "Rhetorical Synthesis",
@@ -453,6 +437,22 @@
             ],
             "answer": "B",
             "explanation": "The goal asks for the March 2021 depth: 31 inches. A gives the February depth; C and D give no depth at all."
+          },
+          {
+            "id": "t22-rw1-24",
+            "section": "rw",
+            "skill": "Rhetorical Synthesis",
+            "difficulty": "medium",
+            "passage": "While researching a topic, a student has taken the following notes:\n• The human tongue contains taste receptors for a rich, savory flavor called umami.\n• Umami is triggered by compounds in a variety of foods, including sardines and mushrooms.\n• Participants in a study tasted a sample of wakame, a type of brown seaweed.\n• They rated its umami intensity as moderate.\n• The participants tasted a sample of ma-konbu, another type of brown seaweed.\n• They rated its umami intensity as high.",
+            "prompt": "The student wants to emphasize a difference between the two seaweeds. Which choice most effectively uses relevant information from the notes to accomplish this goal?",
+            "choices": [
+              "While wakame and ma-konbu contain umami flavor, umami can also be found in sardines and mushrooms.",
+              "After tasting two types of brown seaweed, wakame and ma-konbu, participants in a study found ma-konbu's umami flavor to be the more intense of the two.",
+              "Wakame is a type of brown seaweed, but so is ma-konbu.",
+              "Some types of brown seaweed, like wakame and ma-konbu, trigger umami flavor in human taste buds."
+            ],
+            "answer": "B",
+            "explanation": "The difference is in umami intensity: moderate for wakame, high for ma-konbu. Only B states that difference. A, C, and D point out things the seaweeds have in common."
           },
           {
             "id": "t22-rw1-27",
@@ -653,22 +653,6 @@
               "explanation": "The claim is about less trash going to landfills. A drop in the weight of landfill trash after the bins arrived directly supports it. Students enjoying the bins (D) doesn't show less trash."
             },
             {
-              "id": "t22-rw2e-12",
-              "section": "rw",
-              "skill": "Command of Evidence: Textual",
-              "difficulty": "medium",
-              "passage": "Researchers hypothesized that dogs can tell the difference between a cheerful human voice and an angry one, even when the words spoken are the same.",
-              "prompt": "Which finding, if true, would most directly support the researchers' hypothesis?",
-              "choices": [
-                "Dogs reacted differently to recordings of the same sentence spoken in a cheerful tone and in an angry tone.",
-                "Dogs responded to their own names more quickly than to other words.",
-                "Dogs that lived with families barked less often than dogs living in shelters.",
-                "Dogs could recognize their owners' voices from across a large room."
-              ],
-              "answer": "A",
-              "explanation": "The hypothesis is about distinguishing tone when the words don't change. Different reactions to the same sentence in two tones is exactly that evidence."
-            },
-            {
               "id": "t22-rw2e-13",
               "section": "rw",
               "skill": "Command of Evidence: Quantitative",
@@ -712,6 +696,22 @@
               ],
               "answer": "D",
               "explanation": "Wednesday's total in the table is 345, the highest of the five days. 271 is Friday, the lowest."
+            },
+            {
+              "id": "t22-rw2e-12",
+              "section": "rw",
+              "skill": "Command of Evidence: Textual",
+              "difficulty": "medium",
+              "passage": "Researchers hypothesized that dogs can tell the difference between a cheerful human voice and an angry one, even when the words spoken are the same.",
+              "prompt": "Which finding, if true, would most directly support the researchers' hypothesis?",
+              "choices": [
+                "Dogs reacted differently to recordings of the same sentence spoken in a cheerful tone and in an angry tone.",
+                "Dogs responded to their own names more quickly than to other words.",
+                "Dogs that lived with families barked less often than dogs living in shelters.",
+                "Dogs could recognize their owners' voices from across a large room."
+              ],
+              "answer": "A",
+              "explanation": "The hypothesis is about distinguishing tone when the words don't change. Different reactions to the same sentence in two tones is exactly that evidence."
             },
             {
               "id": "t22-rw2e-14",
@@ -819,6 +819,22 @@
               "explanation": "The sentence lists three activities, so commas separate the items: \"hike along the canyon rim, swim in the river, or camp ...\""
             },
             {
+              "id": "t22-rw2e-21",
+              "section": "rw",
+              "skill": "Form, Structure, and Sense",
+              "difficulty": "easy",
+              "passage": "Last summer, the town ______ its first farmers' market, which drew hundreds of visitors from nearby communities.",
+              "prompt": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+              "choices": [
+                "held",
+                "holds",
+                "will hold",
+                "is holding"
+              ],
+              "answer": "A",
+              "explanation": "\"Last summer\" places the event in the past, so the past-tense *held* is needed. The past-tense \"drew\" confirms it."
+            },
+            {
               "id": "t22-rw2e-19",
               "section": "rw",
               "skill": "Boundaries",
@@ -849,22 +865,6 @@
               ],
               "answer": "B",
               "explanation": "A colon after the complete clause introduces the list of ingredients. A semicolon needs a full clause after it, and \"which\" (D) creates an incomplete sentence."
-            },
-            {
-              "id": "t22-rw2e-21",
-              "section": "rw",
-              "skill": "Form, Structure, and Sense",
-              "difficulty": "easy",
-              "passage": "Last summer, the town ______ its first farmers' market, which drew hundreds of visitors from nearby communities.",
-              "prompt": "Which choice completes the text so that it conforms to the conventions of Standard English?",
-              "choices": [
-                "held",
-                "holds",
-                "will hold",
-                "is holding"
-              ],
-              "answer": "A",
-              "explanation": "\"Last summer\" places the event in the past, so the past-tense *held* is needed. The past-tense \"drew\" confirms it."
             },
             {
               "id": "t22-rw2e-22",
@@ -1032,22 +1032,6 @@
               "explanation": "The passage builds to the narrator's realization that the garden is about the grandmother's lost village, which she is \"rebuilding, row by row.\" The planting details serve that point (not A), and the narrator's career (B) never comes up."
             },
             {
-              "id": "t22-rw2h-05",
-              "section": "rw",
-              "skill": "Central Ideas and Details",
-              "difficulty": "hard",
-              "passage": "Economists use the term \"Dutch disease\" for a pattern in which a boom in one export, such as natural gas, raises the value of a country's currency, making its other exports more expensive abroad and therefore less competitive. The name refers to the Netherlands' experience after the discovery of a vast gas field there in 1959. Some economists argue, however, that the pattern is not inevitable: a country that saves much of its resource income in foreign investments, rather than spending it at home, can limit the rise in its currency.",
-              "prompt": "Which choice best states the main topic of the text?",
-              "choices": [
-                "The history of natural gas production in the Netherlands since 1959",
-                "A way that success in one industry can harm others, and how that harm might be limited",
-                "Reasons that a country's currency can lose value after a resource boom",
-                "Why economists disagree about whether natural gas exports are profitable"
-              ],
-              "answer": "B",
-              "explanation": "The text defines a pattern in which one booming export hurts other exports, then describes a way to limit it. A is just the example; C reverses the effect (the currency gains value)."
-            },
-            {
               "id": "t22-rw2h-06",
               "section": "rw",
               "skill": "Text Structure and Purpose",
@@ -1062,6 +1046,38 @@
               ],
               "answer": "D",
               "explanation": "The text introduces Linebarger's \"most significant work\" (the Army guide), summarizes its idea that propaganda should be as appealing as films, and then shows that idea's lasting effect on the US approach to promoting national interests. No resurgence (A), development history (B), or claim of neglect (C) appears."
+            },
+            {
+              "id": "t22-rw2h-09",
+              "section": "rw",
+              "skill": "Text Structure and Purpose",
+              "difficulty": "hard",
+              "passage": "Many people picture a glacier as a motionless mass of ice. __In fact, a glacier is always moving, slowly flowing downhill under its own enormous weight—in some cases by more than ten meters in a single day.__ That movement is what allows glaciers to grind out deep valleys and to carry boulders hundreds of kilometers from where they first broke loose.",
+              "prompt": "Which choice best describes the function of the underlined sentence in the text as a whole?",
+              "choices": [
+                "It corrects a common impression described in the previous sentence and introduces a process discussed in the rest of the text.",
+                "It offers an example of a glacier that is unusually fast-moving.",
+                "It explains why glaciers are mostly found in mountainous regions.",
+                "It presents a hypothesis that the final sentence calls into question."
+              ],
+              "answer": "A",
+              "explanation": "The first sentence describes the common belief that glaciers are motionless; the underlined sentence corrects it, and the final sentence explains what that movement does. Nothing in the last sentence questions the claim (D)."
+            },
+            {
+              "id": "t22-rw2h-05",
+              "section": "rw",
+              "skill": "Central Ideas and Details",
+              "difficulty": "hard",
+              "passage": "Economists use the term \"Dutch disease\" for a pattern in which a boom in one export, such as natural gas, raises the value of a country's currency, making its other exports more expensive abroad and therefore less competitive. The name refers to the Netherlands' experience after the discovery of a vast gas field there in 1959. Some economists argue, however, that the pattern is not inevitable: a country that saves much of its resource income in foreign investments, rather than spending it at home, can limit the rise in its currency.",
+              "prompt": "Which choice best states the main topic of the text?",
+              "choices": [
+                "The history of natural gas production in the Netherlands since 1959",
+                "A way that success in one industry can harm others, and how that harm might be limited",
+                "Reasons that a country's currency can lose value after a resource boom",
+                "Why economists disagree about whether natural gas exports are profitable"
+              ],
+              "answer": "B",
+              "explanation": "The text defines a pattern in which one booming export hurts other exports, then describes a way to limit it. A is just the example; C reverses the effect (the currency gains value)."
             },
             {
               "id": "t22-rw2h-07",
@@ -1094,22 +1110,6 @@
               ],
               "answer": "A",
               "explanation": "The text explains that typical participants are unusual compared with humanity as a whole, so findings based on them may not generalize. C claims they perform \"better,\" but the text only says \"differently\"; D goes beyond the text."
-            },
-            {
-              "id": "t22-rw2h-09",
-              "section": "rw",
-              "skill": "Text Structure and Purpose",
-              "difficulty": "hard",
-              "passage": "Many people picture a glacier as a motionless mass of ice. __In fact, a glacier is always moving, slowly flowing downhill under its own enormous weight—in some cases by more than ten meters in a single day.__ That movement is what allows glaciers to grind out deep valleys and to carry boulders hundreds of kilometers from where they first broke loose.",
-              "prompt": "Which choice best describes the function of the underlined sentence in the text as a whole?",
-              "choices": [
-                "It corrects a common impression described in the previous sentence and introduces a process discussed in the rest of the text.",
-                "It offers an example of a glacier that is unusually fast-moving.",
-                "It explains why glaciers are mostly found in mountainous regions.",
-                "It presents a hypothesis that the final sentence calls into question."
-              ],
-              "answer": "A",
-              "explanation": "The first sentence describes the common belief that glaciers are motionless; the underlined sentence corrects it, and the final sentence explains what that movement does. Nothing in the last sentence questions the claim (D)."
             },
             {
               "id": "t22-rw2h-10",
@@ -1263,22 +1263,6 @@
               "explanation": "The ship couldn't sink before it was built, and it was built from timber cut around 1625. Coins can be old when lost, so their earlier dates don't set the sinking date. A, C, and D all put the sinking before the timber was cut."
             },
             {
-              "id": "t22-rw2h-16",
-              "section": "rw",
-              "skill": "Boundaries",
-              "difficulty": "hard",
-              "passage": "Kintsugi, the Japanese practice of repairing broken pottery with lacquer dusted with powdered gold, treats breakage as part of an object's ______ the gleaming seams draw attention to the cracks rather than disguising them.",
-              "prompt": "Which choice completes the text so that it conforms to the conventions of Standard English?",
-              "choices": [
-                "history",
-                "history,",
-                "history:",
-                "history, and so"
-              ],
-              "answer": "C",
-              "explanation": "Two complete sentences meet here, and the second explains the first. A colon joins them. A is a run-on, B is a comma splice, and \"and so\" (D) creates an illogical cause-effect relationship."
-            },
-            {
               "id": "t22-rw2h-17",
               "section": "rw",
               "skill": "Form, Structure, and Sense",
@@ -1293,6 +1277,22 @@
               ],
               "answer": "D",
               "explanation": "The pronoun refers to the singular \"a social media post\" and shows possession (the post's contents), so the singular possessive *its* is correct. *It's* means \"it is,\" and *their* would need a plural antecedent."
+            },
+            {
+              "id": "t22-rw2h-16",
+              "section": "rw",
+              "skill": "Boundaries",
+              "difficulty": "hard",
+              "passage": "Kintsugi, the Japanese practice of repairing broken pottery with lacquer dusted with powdered gold, treats breakage as part of an object's ______ the gleaming seams draw attention to the cracks rather than disguising them.",
+              "prompt": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+              "choices": [
+                "history",
+                "history,",
+                "history:",
+                "history, and so"
+              ],
+              "answer": "C",
+              "explanation": "Two complete sentences meet here, and the second explains the first. A colon joins them. A is a run-on, B is a comma splice, and \"and so\" (D) creates an illogical cause-effect relationship."
             },
             {
               "id": "t22-rw2h-18",
@@ -1375,6 +1375,22 @@
               "explanation": "The second clause mirrors the first: \"Stalactites, which ..., grow downward\"; \"stalagmites, which ..., grow upward.\" A comma is needed before the nonessential \"which\" clause."
             },
             {
+              "id": "t22-rw2h-25",
+              "section": "rw",
+              "skill": "Transitions",
+              "difficulty": "medium",
+              "passage": "Some species of bamboo can grow almost a meter taller in a single day, faster than nearly any other plant. ______ a bamboo grove can be harvested again just a few years after it is cut, making bamboo a quickly renewable building material.",
+              "prompt": "Which choice completes the text with the most logical transition?",
+              "choices": [
+                "Nevertheless,",
+                "For example,",
+                "As a result,",
+                "In contrast,"
+              ],
+              "answer": "C",
+              "explanation": "Because bamboo grows so fast, it can be harvested again soon after cutting. The second sentence is a consequence of the first, so *As a result* fits."
+            },
+            {
               "id": "t22-rw2h-23",
               "section": "rw",
               "skill": "Transitions",
@@ -1405,22 +1421,6 @@
               ],
               "answer": "B",
               "explanation": "Water behaves the opposite way from most substances, so *by contrast* fits. Water is not an example of the general pattern (A); it is an exception."
-            },
-            {
-              "id": "t22-rw2h-25",
-              "section": "rw",
-              "skill": "Transitions",
-              "difficulty": "medium",
-              "passage": "Some species of bamboo can grow almost a meter taller in a single day, faster than nearly any other plant. ______ a bamboo grove can be harvested again just a few years after it is cut, making bamboo a quickly renewable building material.",
-              "prompt": "Which choice completes the text with the most logical transition?",
-              "choices": [
-                "Nevertheless,",
-                "For example,",
-                "As a result,",
-                "In contrast,"
-              ],
-              "answer": "C",
-              "explanation": "Because bamboo grows so fast, it can be harvested again soon after cutting. The second sentence is a consequence of the first, so *As a result* fits."
             },
             {
               "id": "t22-rw2h-26",
@@ -1626,21 +1626,6 @@
             "explanation": "Ten deposits add between $10(30) = 300$ and $10(60) = 600$ dollars to the \\$170, so $470 \\le x \\le 770$."
           },
           {
-            "id": "t22-m1-11",
-            "section": "math",
-            "skill": "Nonlinear functions",
-            "difficulty": "hard",
-            "prompt": "When a scientist began observing a sample of an isotope, the mass of the sample was $530{,}000$ milligrams. The mass of the sample decreases by half approximately every $5$ days. Which of the following is closest to the mass, in milligrams, of the sample $35$ days after the scientist began observing the sample?",
-            "choices": [
-              "$4{,}141$",
-              "$15{,}143$",
-              "$16{,}563$",
-              "$75{,}714$"
-            ],
-            "answer": "A",
-            "explanation": "$35$ days is $7$ halvings: $530{,}000\\left(\\frac{1}{2}\\right)^7 = \\frac{530{,}000}{128} \\approx 4{,}141$."
-          },
-          {
             "id": "t22-m1-12",
             "section": "math",
             "skill": "Two-variable data: models and scatterplots",
@@ -1709,6 +1694,21 @@
               "3.333"
             ],
             "explanation": "The increase is \\$3, and $\\frac{3}{90} = \\frac{1}{30} \\approx 3.33\\%$. So $p = \\frac{10}{3}$."
+          },
+          {
+            "id": "t22-m1-11",
+            "section": "math",
+            "skill": "Nonlinear functions",
+            "difficulty": "hard",
+            "prompt": "When a scientist began observing a sample of an isotope, the mass of the sample was $530{,}000$ milligrams. The mass of the sample decreases by half approximately every $5$ days. Which of the following is closest to the mass, in milligrams, of the sample $35$ days after the scientist began observing the sample?",
+            "choices": [
+              "$4{,}141$",
+              "$15{,}143$",
+              "$16{,}563$",
+              "$75{,}714$"
+            ],
+            "answer": "A",
+            "explanation": "$35$ days is $7$ halvings: $530{,}000\\left(\\frac{1}{2}\\right)^7 = \\frac{530{,}000}{128} \\approx 4{,}141$."
           },
           {
             "id": "t22-m1-17",
@@ -2112,21 +2112,6 @@
           "minutes": 35,
           "questions": [
             {
-              "id": "t22-m2h-01",
-              "section": "math",
-              "skill": "Linear functions",
-              "difficulty": "hard",
-              "prompt": "A taxi charges a base fee of \\$3.50 plus \\$2.25 per mile. If a ride costs \\$26.00, how many miles long was the ride?",
-              "choices": [
-                "$10$",
-                "$11.6$",
-                "$12$",
-                "$13.2$"
-              ],
-              "answer": "A",
-              "explanation": "$3.50 + 2.25m = 26$, so $2.25m = 22.50$ and $m = 10$."
-            },
-            {
               "id": "t22-m2h-02",
               "section": "math",
               "skill": "Percentages",
@@ -2170,6 +2155,21 @@
               ],
               "answer": "B",
               "explanation": "$1.6$ is the slope: each additional hour of studying is associated with a predicted $1.6$-point larger score increase. A describes $4.2$, the $y$-intercept."
+            },
+            {
+              "id": "t22-m2h-01",
+              "section": "math",
+              "skill": "Linear functions",
+              "difficulty": "hard",
+              "prompt": "A taxi charges a base fee of \\$3.50 plus \\$2.25 per mile. If a ride costs \\$26.00, how many miles long was the ride?",
+              "choices": [
+                "$10$",
+                "$11.6$",
+                "$12$",
+                "$13.2$"
+              ],
+              "answer": "A",
+              "explanation": "$3.50 + 2.25m = 26$, so $2.25m = 22.50$ and $m = 10$."
             },
             {
               "id": "t22-m2h-05",

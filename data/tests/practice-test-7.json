@@ -174,22 +174,6 @@
             "explanation": "Birds that never met adults still chose the right direction, so the sense of direction cannot have been learned from adults."
           },
           {
-            "id": "t7-rw1-11",
-            "section": "rw",
-            "skill": "Command of Evidence: Textual",
-            "difficulty": "hard",
-            "passage": "A team of engineers at a solar farm in the Atacama Desert of Chile claims that the dust that collects on the farm's panels reduces their electricity output mainly by blocking sunlight, not by raising the panels' temperature.",
-            "prompt": "Which finding, if true, would most directly support the engineers' claim?",
-            "choices": [
-              "On the hottest days, dusty panels were slightly warmer than clean panels.",
-              "Dusty panels produced about 15 percent less electricity than clean panels, and this gap was nearly unchanged when both sets of panels were cooled to the same temperature.",
-              "After the dusty panels were cleaned, their output returned to the same level as that of the other panels.",
-              "Dust collected more quickly on panels tilted at low angles than on panels tilted at steep angles."
-            ],
-            "answer": "B",
-            "explanation": "Holding temperature equal did not shrink the gap, so the loss must come mainly from **blocked light**. Recovery after cleaning shows dust matters but not how it reduces output."
-          },
-          {
             "id": "t7-rw1-12",
             "section": "rw",
             "skill": "Command of Evidence: Quantitative",
@@ -234,6 +218,22 @@
                 ]
               ]
             }
+          },
+          {
+            "id": "t7-rw1-11",
+            "section": "rw",
+            "skill": "Command of Evidence: Textual",
+            "difficulty": "hard",
+            "passage": "A team of engineers at a solar farm in the Atacama Desert of Chile claims that the dust that collects on the farm's panels reduces their electricity output mainly by blocking sunlight, not by raising the panels' temperature.",
+            "prompt": "Which finding, if true, would most directly support the engineers' claim?",
+            "choices": [
+              "On the hottest days, dusty panels were slightly warmer than clean panels.",
+              "Dusty panels produced about 15 percent less electricity than clean panels, and this gap was nearly unchanged when both sets of panels were cooled to the same temperature.",
+              "After the dusty panels were cleaned, their output returned to the same level as that of the other panels.",
+              "Dust collected more quickly on panels tilted at low angles than on panels tilted at steep angles."
+            ],
+            "answer": "B",
+            "explanation": "Holding temperature equal did not shrink the gap, so the loss must come mainly from **blocked light**. Recovery after cleaning shows dust matters but not how it reduces output."
           },
           {
             "id": "t7-rw1-13",
@@ -284,6 +284,22 @@
             "explanation": "Both parts are complete sentences, so they need a semicolon. A comma alone creates a comma splice."
           },
           {
+            "id": "t7-rw1-19",
+            "section": "rw",
+            "skill": "Form, Structure, and Sense",
+            "difficulty": "easy",
+            "passage": "The flock of white storks circling above the fields ______ waiting for rising warm air before continuing its journey south.",
+            "prompt": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+            "choices": [
+              "are",
+              "is",
+              "were",
+              "have been"
+            ],
+            "answer": "B",
+            "explanation": "The subject is the singular \"flock\" (note \"its journey\"), so the verb is **is**."
+          },
+          {
             "id": "t7-rw1-16",
             "section": "rw",
             "skill": "Boundaries",
@@ -316,38 +332,6 @@
             "explanation": "No punctuation should separate the subject (\"The tiny trackers...warblers\") from its verb \"can weigh.\""
           },
           {
-            "id": "t7-rw1-18",
-            "section": "rw",
-            "skill": "Boundaries",
-            "difficulty": "hard",
-            "passage": "Solar panels become less efficient as they heat up, so panels in hot desert climates often produce less electricity on summer afternoons than their ratings ______ engineers sometimes mount them well above the ground, allowing cooling air to flow beneath them.",
-            "prompt": "Which choice completes the text so that it conforms to the conventions of Standard English?",
-            "choices": [
-              "suggest, thus,",
-              "suggest thus;",
-              "suggest; thus,",
-              "suggest, thus"
-            ],
-            "answer": "C",
-            "explanation": "Two complete sentences joined by \"thus\" need a semicolon before it and a comma after it. Commas alone create a comma splice."
-          },
-          {
-            "id": "t7-rw1-19",
-            "section": "rw",
-            "skill": "Form, Structure, and Sense",
-            "difficulty": "easy",
-            "passage": "The flock of white storks circling above the fields ______ waiting for rising warm air before continuing its journey south.",
-            "prompt": "Which choice completes the text so that it conforms to the conventions of Standard English?",
-            "choices": [
-              "are",
-              "is",
-              "were",
-              "have been"
-            ],
-            "answer": "B",
-            "explanation": "The subject is the singular \"flock\" (note \"its journey\"), so the verb is **is**."
-          },
-          {
             "id": "t7-rw1-20",
             "section": "rw",
             "skill": "Form, Structure, and Sense",
@@ -362,6 +346,22 @@
             ],
             "answer": "D",
             "explanation": "The subject is the singular \"scene,\" and the worry happened in the past, so **would be** fits. *Being* is not a complete verb."
+          },
+          {
+            "id": "t7-rw1-18",
+            "section": "rw",
+            "skill": "Boundaries",
+            "difficulty": "hard",
+            "passage": "Solar panels become less efficient as they heat up, so panels in hot desert climates often produce less electricity on summer afternoons than their ratings ______ engineers sometimes mount them well above the ground, allowing cooling air to flow beneath them.",
+            "prompt": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+            "choices": [
+              "suggest, thus,",
+              "suggest thus;",
+              "suggest; thus,",
+              "suggest, thus"
+            ],
+            "answer": "C",
+            "explanation": "Two complete sentences joined by \"thus\" need a semicolon before it and a comma after it. Commas alone create a comma splice."
           },
           {
             "id": "t7-rw1-21",
@@ -642,22 +642,6 @@
               "explanation": "Only this choice links drinking water during a long session to better performance at the end of it."
             },
             {
-              "id": "t7-rw2e-11",
-              "section": "rw",
-              "skill": "Command of Evidence: Textual",
-              "difficulty": "medium",
-              "passage": "A theater researcher hypothesizes that audiences laugh more at a comedy when the theater is full than when it is mostly empty, even when the performance itself is the same.",
-              "prompt": "Which finding, if true, would most directly support the researcher's hypothesis?",
-              "choices": [
-                "Recordings of one comedy performed by the same cast showed that audiences laughed about twice as often on nights when every seat was filled as on nights when most seats were empty.",
-                "Tickets to comedies are usually cheaper than tickets to dramas.",
-                "Actors said they enjoyed performing in front of full theaters more than in front of empty ones.",
-                "Comedies are performed more often than tragedies at most theaters."
-              ],
-              "answer": "A",
-              "explanation": "This finding compares laughter for the same performance in full and empty theaters. The actors' enjoyment says nothing about how much audiences laughed."
-            },
-            {
               "id": "t7-rw2e-12",
               "section": "rw",
               "skill": "Command of Evidence: Quantitative",
@@ -697,6 +681,22 @@
                   ]
                 ]
               }
+            },
+            {
+              "id": "t7-rw2e-11",
+              "section": "rw",
+              "skill": "Command of Evidence: Textual",
+              "difficulty": "medium",
+              "passage": "A theater researcher hypothesizes that audiences laugh more at a comedy when the theater is full than when it is mostly empty, even when the performance itself is the same.",
+              "prompt": "Which finding, if true, would most directly support the researcher's hypothesis?",
+              "choices": [
+                "Recordings of one comedy performed by the same cast showed that audiences laughed about twice as often on nights when every seat was filled as on nights when most seats were empty.",
+                "Tickets to comedies are usually cheaper than tickets to dramas.",
+                "Actors said they enjoyed performing in front of full theaters more than in front of empty ones.",
+                "Comedies are performed more often than tragedies at most theaters."
+              ],
+              "answer": "A",
+              "explanation": "This finding compares laughter for the same performance in full and empty theaters. The actors' enjoyment says nothing about how much audiences laughed."
             },
             {
               "id": "t7-rw2e-13",
@@ -763,6 +763,22 @@
               "explanation": "A comma separates the introductory \"As...\" clause from the main sentence."
             },
             {
+              "id": "t7-rw2e-19",
+              "section": "rw",
+              "skill": "Form, Structure, and Sense",
+              "difficulty": "easy",
+              "passage": "The solar panels on the roof of the school ______ enough electricity to power all of its classrooms on sunny days.",
+              "prompt": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+              "choices": [
+                "generates",
+                "has generated",
+                "generate",
+                "is generating"
+              ],
+              "answer": "C",
+              "explanation": "The subject is the plural \"panels,\" not \"roof\" or \"school,\" so the verb is **generate**."
+            },
+            {
               "id": "t7-rw2e-17",
               "section": "rw",
               "skill": "Boundaries",
@@ -793,22 +809,6 @@
               ],
               "answer": "A",
               "explanation": "Items in a simple list are separated by commas, as \"movement, and improvisation\" shows."
-            },
-            {
-              "id": "t7-rw2e-19",
-              "section": "rw",
-              "skill": "Form, Structure, and Sense",
-              "difficulty": "easy",
-              "passage": "The solar panels on the roof of the school ______ enough electricity to power all of its classrooms on sunny days.",
-              "prompt": "Which choice completes the text so that it conforms to the conventions of Standard English?",
-              "choices": [
-                "generates",
-                "has generated",
-                "generate",
-                "is generating"
-              ],
-              "answer": "C",
-              "explanation": "The subject is the plural \"panels,\" not \"roof\" or \"school,\" so the verb is **generate**."
             },
             {
               "id": "t7-rw2e-20",

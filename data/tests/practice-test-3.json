@@ -343,6 +343,22 @@
             "explanation": "Northern Chinese (Mandarin speakers) settle in Flushing and southern Chinese (Cantonese/Fuzhounese) in Chinatown, so language differences in China show up in where immigrants live."
           },
           {
+            "id": "t3-rw1x-20",
+            "section": "rw",
+            "skill": "Form, Structure, and Sense",
+            "difficulty": "easy",
+            "passage": "In knot theory (the mathematical study of curved, closed loops), knots are characterized by their crossing numbers—that is, the number of times the knotted thread crosses over itself. The trefoil knot and the figure-eight knot, each with a crossing number below five, ______ among the simplest possible knots with the fewest number of crossings.",
+            "prompt": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+            "choices": [
+              "are",
+              "has been",
+              "is",
+              "was"
+            ],
+            "answer": "A",
+            "explanation": "The compound subject \"The trefoil knot and the figure-eight knot\" is plural and the text is in the present: \"are.\""
+          },
+          {
             "id": "t3-rw1x-15",
             "section": "rw",
             "skill": "Form, Structure, and Sense",
@@ -421,22 +437,6 @@
             ],
             "answer": "C",
             "explanation": "\"Through community involvement and scientific study\" is an interruption inside the clause \"that ... aim,\" set off by a pair of commas; the second comma is already there."
-          },
-          {
-            "id": "t3-rw1x-20",
-            "section": "rw",
-            "skill": "Form, Structure, and Sense",
-            "difficulty": "easy",
-            "passage": "In knot theory (the mathematical study of curved, closed loops), knots are characterized by their crossing numbers—that is, the number of times the knotted thread crosses over itself. The trefoil knot and the figure-eight knot, each with a crossing number below five, ______ among the simplest possible knots with the fewest number of crossings.",
-            "prompt": "Which choice completes the text so that it conforms to the conventions of Standard English?",
-            "choices": [
-              "are",
-              "has been",
-              "is",
-              "was"
-            ],
-            "answer": "A",
-            "explanation": "The compound subject \"The trefoil knot and the figure-eight knot\" is plural and the text is in the present: \"are.\""
           },
           {
             "id": "t3-rw1x-21",
@@ -717,22 +717,6 @@
               "explanation": "This finding compares short and long sessions with the same total time (60 minutes a day), which is exactly what the hypothesis is about. The choice about total time changes a different variable."
             },
             {
-              "id": "t3-rw2e-11",
-              "section": "rw",
-              "skill": "Command of Evidence: Textual",
-              "difficulty": "medium",
-              "passage": "Marine ecologist Fenna Albers claims that young reef fish use the sounds of a healthy reef, such as the snapping of shrimp and the grunts of fish, to find a place to settle.",
-              "prompt": "Which finding, if true, would most directly support Albers's claim?",
-              "choices": [
-                "Healthy reefs were found to be louder than damaged reefs, especially at night.",
-                "Young fish settled more often on reefs with many hiding places than on reefs with few.",
-                "Adult fish on healthy reefs produced more grunts than adult fish on damaged reefs.",
-                "When researchers played recordings of a healthy reef through underwater speakers on patches of dead coral, more young fish settled on those patches than on similar patches where no sound was played."
-              ],
-              "answer": "D",
-              "explanation": "With sound as the only difference, more young fish settled where it played, so the fish are responding to reef sounds. Knowing that healthy reefs are louder doesn't show that young fish use the sound."
-            },
-            {
               "id": "t3-rw2e-12",
               "section": "rw",
               "skill": "Command of Evidence: Quantitative",
@@ -772,6 +756,22 @@
                   ]
                 ]
               }
+            },
+            {
+              "id": "t3-rw2e-11",
+              "section": "rw",
+              "skill": "Command of Evidence: Textual",
+              "difficulty": "medium",
+              "passage": "Marine ecologist Fenna Albers claims that young reef fish use the sounds of a healthy reef, such as the snapping of shrimp and the grunts of fish, to find a place to settle.",
+              "prompt": "Which finding, if true, would most directly support Albers's claim?",
+              "choices": [
+                "Healthy reefs were found to be louder than damaged reefs, especially at night.",
+                "Young fish settled more often on reefs with many hiding places than on reefs with few.",
+                "Adult fish on healthy reefs produced more grunts than adult fish on damaged reefs.",
+                "When researchers played recordings of a healthy reef through underwater speakers on patches of dead coral, more young fish settled on those patches than on similar patches where no sound was played."
+              ],
+              "answer": "D",
+              "explanation": "With sound as the only difference, more young fish settled where it played, so the fish are responding to reef sounds. Knowing that healthy reefs are louder doesn't show that young fish use the sound."
             },
             {
               "id": "t3-rw2e-13",
@@ -838,6 +838,22 @@
               "explanation": "Both parts are complete sentences, so they need a semicolon. \"However\" can't join two sentences, so a comma alone creates a comma splice."
             },
             {
+              "id": "t3-rw2e-19",
+              "section": "rw",
+              "skill": "Form, Structure, and Sense",
+              "difficulty": "easy",
+              "passage": "The nest that a pair of storks built on top of the old minaret ______ nearly two meters across.",
+              "prompt": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+              "choices": [
+                "are",
+                "were",
+                "have been",
+                "is"
+              ],
+              "answer": "D",
+              "explanation": "The subject is the singular \"nest,\" not \"storks,\" so the verb is **is**."
+            },
+            {
               "id": "t3-rw2e-17",
               "section": "rw",
               "skill": "Boundaries",
@@ -868,22 +884,6 @@
               ],
               "answer": "A",
               "explanation": "The phrase \"a solid that is mostly air\" interrupts the sentence and opens with a comma, so it must close with a comma too."
-            },
-            {
-              "id": "t3-rw2e-19",
-              "section": "rw",
-              "skill": "Form, Structure, and Sense",
-              "difficulty": "easy",
-              "passage": "The nest that a pair of storks built on top of the old minaret ______ nearly two meters across.",
-              "prompt": "Which choice completes the text so that it conforms to the conventions of Standard English?",
-              "choices": [
-                "are",
-                "were",
-                "have been",
-                "is"
-              ],
-              "answer": "D",
-              "explanation": "The subject is the singular \"nest,\" not \"storks,\" so the verb is **is**."
             },
             {
               "id": "t3-rw2e-20",
@@ -1411,22 +1411,6 @@
               "explanation": "\"Ude, having referred to Nollywood ... as ...,\" is a participial phrase set off by commas; the main verb is \"honors.\""
             },
             {
-              "id": "t3-rw2hx-23",
-              "section": "rw",
-              "skill": "Transitions",
-              "difficulty": "hard",
-              "passage": "Analyses of Greenland ice cores in the 1980s suggested that the warming at the end of the Younger Dryas, a cold period about 12,900 to 11,700 years ago, unfolded over several centuries. Later cores sampled at much finer resolution, ______ allowed glaciologist Richard Alley and his colleagues to show that much of the warming occurred within just a few decades.",
-              "prompt": "Which choice completes the text with the most logical transition?",
-              "choices": [
-                "for example,",
-                "however,",
-                "in other words,",
-                "similarly,"
-              ],
-              "answer": "B",
-              "explanation": "Early ice-core work suggested the shift was gradual; the newer, finer-resolution samples show it happened in a few decades. That is a contrast, so \"however.\" (Said's file had only 26 questions in this module, so we added this one.)"
-            },
-            {
               "id": "t3-rw2hx-24",
               "section": "rw",
               "skill": "Transitions",
@@ -1441,6 +1425,22 @@
               ],
               "answer": "A",
               "explanation": "A 1991 turbine made 0.5 MW; a 2021 one makes about 8 MW. The comparison contrasts them: \"In contrast.\""
+            },
+            {
+              "id": "t3-rw2hx-23",
+              "section": "rw",
+              "skill": "Transitions",
+              "difficulty": "hard",
+              "passage": "Analyses of Greenland ice cores in the 1980s suggested that the warming at the end of the Younger Dryas, a cold period about 12,900 to 11,700 years ago, unfolded over several centuries. Later cores sampled at much finer resolution, ______ allowed glaciologist Richard Alley and his colleagues to show that much of the warming occurred within just a few decades.",
+              "prompt": "Which choice completes the text with the most logical transition?",
+              "choices": [
+                "for example,",
+                "however,",
+                "in other words,",
+                "similarly,"
+              ],
+              "answer": "B",
+              "explanation": "Early ice-core work suggested the shift was gradual; the newer, finer-resolution samples show it happened in a few decades. That is a contrast, so \"however.\" (Said's file had only 26 questions in this module, so we added this one.)"
             },
             {
               "id": "t3-rw2hx-25",

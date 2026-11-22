@@ -2,8 +2,13 @@
   "id": "diagnostic-mini",
   "title": "Mini diagnostic test",
   "description": "A shortened adaptive test with original SAT Ustoz questions. Same flow as test day: two modules per section, Module 2 adapts to how you did in Module 1, and a break between sections.",
-  "routing": { "threshold": 0.6 },
-  "scoring": { "m2HardWeight": 1.4, "m2EasyWeight": 0.75 },
+  "routing": {
+    "threshold": 0.6
+  },
+  "scoring": {
+    "m2HardWeight": 1.4,
+    "m2EasyWeight": 0.75
+  },
   "breakMinutes": 10,
   "sections": [
     {
@@ -20,7 +25,12 @@
             "difficulty": "medium",
             "passage": "Although the Aral Sea once supported a thriving fishing industry, decades of water diversion for cotton farming caused it to shrink dramatically. Recent efforts to restore its northern section have been ______: fish populations there have recovered enough that local fishing has resumed, even though the larger southern basin remains mostly dry.",
             "prompt": "Which choice completes the text with the most logical and precise word or phrase?",
-            "choices": ["negligible", "encouraging", "inevitable", "disastrous"],
+            "choices": [
+              "negligible",
+              "encouraging",
+              "inevitable",
+              "disastrous"
+            ],
             "answer": "B",
             "explanation": "The colon tells you the second half explains the blank. Fish have recovered and fishing has resumed, which are positive results, so **encouraging** fits. *Negligible* and *disastrous* contradict the recovery, and nothing in the text suggests the results were *inevitable*."
           },
@@ -84,8 +94,33 @@
             "passage": "A student researching household internet access in four regions of a country noticed that access grew in every region between 2018 and 2024. She claims that the region with the lowest access in 2018 also had the largest increase, in percentage points, over that period.",
             "table": {
               "title": "Households with internet access (%)",
-              "head": ["Region", "2018", "2024"],
-              "rows": [["North", "52", "71"], ["South", "38", "66"], ["East", "61", "74"], ["West", "45", "63"]]
+              "head": [
+                "Region",
+                "2018",
+                "2024"
+              ],
+              "rows": [
+                [
+                  "North",
+                  "52",
+                  "71"
+                ],
+                [
+                  "South",
+                  "38",
+                  "66"
+                ],
+                [
+                  "East",
+                  "61",
+                  "74"
+                ],
+                [
+                  "West",
+                  "45",
+                  "63"
+                ]
+              ]
             },
             "prompt": "Which choice most effectively uses data from the table to support the student's claim?",
             "choices": [
@@ -122,7 +157,12 @@
             "difficulty": "medium",
             "passage": "The collection of handwritten letters that the museum acquired last spring ______ details about daily life in Samarkand in the early twentieth century.",
             "prompt": "Which choice completes the text so that it conforms to the conventions of Standard English?",
-            "choices": ["reveal", "are revealing", "have revealed", "reveals"],
+            "choices": [
+              "reveal",
+              "are revealing",
+              "have revealed",
+              "reveals"
+            ],
             "answer": "D",
             "explanation": "The subject is **collection**, which is singular. \"Of handwritten letters\" and \"that the museum acquired last spring\" only describe it. A singular subject needs **reveals**."
           },
@@ -157,7 +197,12 @@
               "difficulty": "easy",
               "passage": "After surveying students about their schedules, the school librarian extended the library's opening hours. The new hours were designed to be ______: students who work after classes can now study there early in the morning, late in the evening, or on weekends.",
               "prompt": "Which choice completes the text with the most logical and precise word or phrase?",
-              "choices": ["restrictive", "convenient", "temporary", "confusing"],
+              "choices": [
+                "restrictive",
+                "convenient",
+                "temporary",
+                "confusing"
+              ],
               "answer": "B",
               "explanation": "The colon introduces what the hours allow: more options for busy students. That makes them **convenient**. *Restrictive* is the opposite, and nothing suggests *temporary* or *confusing*."
             },
@@ -213,18 +258,6 @@
               "explanation": "The sentence starts with \"Because\" traders spoke many languages, so the logical result is that they needed ways to communicate across those languages. B and D contradict the text, and C makes no sense with it."
             },
             {
-              "id": "dm-rw2e-05",
-              "section": "rw",
-              "domain": "Standard English Conventions",
-              "skill": "Boundaries",
-              "difficulty": "medium",
-              "passage": "Zebra finches learn their songs by listening to adult males ______ young birds that are raised without an adult tutor often produce songs that sound unusual to other finches.",
-              "prompt": "Which choice completes the text so that it conforms to the conventions of Standard English?",
-              "choices": ["sing,", "sing;", "sing", "sing, which"],
-              "answer": "B",
-              "explanation": "Both sides of the blank are complete sentences, so they need a semicolon (or a period). A comma alone makes a comma splice, no punctuation makes a run-on, and \"which\" leaves the second part without a working verb structure."
-            },
-            {
               "id": "dm-rw2e-06",
               "section": "rw",
               "domain": "Standard English Conventions",
@@ -232,9 +265,31 @@
               "difficulty": "easy",
               "passage": "Every year, the Navruz holiday ______ families and neighbors together to celebrate the arrival of spring with music, games, and traditional dishes such as sumalak.",
               "prompt": "Which choice completes the text so that it conforms to the conventions of Standard English?",
-              "choices": ["bring", "brings", "bringing", "to bring"],
+              "choices": [
+                "bring",
+                "brings",
+                "bringing",
+                "to bring"
+              ],
               "answer": "B",
               "explanation": "The sentence needs a main verb that agrees with the singular subject **holiday**. \"Brings\" does that. \"Bringing\" and \"to bring\" are not main verbs, and \"bring\" is plural."
+            },
+            {
+              "id": "dm-rw2e-05",
+              "section": "rw",
+              "domain": "Standard English Conventions",
+              "skill": "Boundaries",
+              "difficulty": "medium",
+              "passage": "Zebra finches learn their songs by listening to adult males ______ young birds that are raised without an adult tutor often produce songs that sound unusual to other finches.",
+              "prompt": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+              "choices": [
+                "sing,",
+                "sing;",
+                "sing",
+                "sing, which"
+              ],
+              "answer": "B",
+              "explanation": "Both sides of the blank are complete sentences, so they need a semicolon (or a period). A comma alone makes a comma splice, no punctuation makes a run-on, and \"which\" leaves the second part without a working verb structure."
             },
             {
               "id": "dm-rw2e-07",
@@ -244,7 +299,12 @@
               "difficulty": "easy",
               "passage": "Cotton has long been one of Uzbekistan's most important crops. Growing it, ______ requires large amounts of water, which has placed heavy demands on the region's rivers.",
               "prompt": "Which choice completes the text with the most logical transition?",
-              "choices": ["for example,", "however,", "therefore,", "similarly,"],
+              "choices": [
+                "for example,",
+                "however,",
+                "therefore,",
+                "similarly,"
+              ],
               "answer": "B",
               "explanation": "The first sentence presents cotton positively; the second presents a cost. That shift calls for a contrast word: **however**."
             },
@@ -278,7 +338,12 @@
               "difficulty": "hard",
               "passage": "Historians once treated the merchant's diary as a plain record of his travels. A closer reading, however, suggests that its author was far from ______: he exaggerated the dangers he faced and left out details that might have embarrassed the people who paid for his journeys.",
               "prompt": "Which choice completes the text with the most logical and precise word or phrase?",
-              "choices": ["disinterested", "prolific", "ambitious", "eloquent"],
+              "choices": [
+                "disinterested",
+                "prolific",
+                "ambitious",
+                "eloquent"
+              ],
               "answer": "A",
               "explanation": "**Disinterested** means impartial, with nothing to gain. The colon shows the author exaggerated and hid things to protect his sponsors, so he was far from impartial. Watch out: *disinterested* does not mean *uninterested*."
             },
@@ -341,7 +406,12 @@
               "difficulty": "medium",
               "passage": "The researchers tested three materials for the solar panel's ______ a titanium-based film, a silicone polymer, and a thin layer of graphene.",
               "prompt": "Which choice completes the text so that it conforms to the conventions of Standard English?",
-              "choices": ["coating:", "coating;", "coating, these were", "coating"],
+              "choices": [
+                "coating:",
+                "coating;",
+                "coating, these were",
+                "coating"
+              ],
               "answer": "A",
               "explanation": "A colon can introduce a list after a complete sentence. A semicolon needs a complete sentence on both sides, \"these were\" creates a comma splice, and no punctuation runs the list into the noun."
             },
@@ -370,7 +440,12 @@
               "difficulty": "medium",
               "passage": "For decades, scientists assumed the deep ocean floor was nearly lifeless because sunlight cannot reach it. The discovery of hydrothermal vents in 1977 challenged this view: dense communities of tubeworms, clams, and bacteria were found living around the vents. ______ these communities depend not on sunlight but on chemical energy released from the vents.",
               "prompt": "Which choice completes the text with the most logical transition?",
-              "choices": ["In fact,", "Nevertheless,", "Similarly,", "For instance,"],
+              "choices": [
+                "In fact,",
+                "Nevertheless,",
+                "Similarly,",
+                "For instance,"
+              ],
               "answer": "A",
               "explanation": "The last sentence adds a striking detail that strengthens the challenge to the old view, so **In fact** fits. It is not a contrast (Nevertheless), a comparison (Similarly), or an example of something earlier (For instance)."
             },
@@ -408,7 +483,12 @@
             "skill": "Linear equations in one variable",
             "difficulty": "easy",
             "prompt": "If $3x + 7 = 25$, what is the value of $x$?",
-            "choices": ["4", "6", "9", "18"],
+            "choices": [
+              "4",
+              "6",
+              "9",
+              "18"
+            ],
             "answer": "B",
             "explanation": "Subtract 7 from both sides: $3x = 18$. Divide by 3: $x = 6$."
           },
@@ -419,7 +499,12 @@
             "skill": "Percentages",
             "difficulty": "medium",
             "prompt": "A jacket originally priced at \\$80 is on sale for 15% off. What is the sale price, in dollars?",
-            "choices": ["12", "65", "68", "72"],
+            "choices": [
+              "12",
+              "65",
+              "68",
+              "72"
+            ],
             "answer": "C",
             "explanation": "15% of 80 is $0.15 \\times 80 = 12$. The sale price is $80 - 12 = 68$. Faster: $0.85 \\times 80 = 68$. Choice A is the discount, not the price."
           },
@@ -430,7 +515,9 @@
             "skill": "Systems of two linear equations in two variables",
             "difficulty": "medium",
             "prompt": "$$2x + y = 11$$ $$x - y = 1$$ The solution to the given system of equations is $(x, y)$. What is the value of $x$?",
-            "answer": ["4"],
+            "answer": [
+              "4"
+            ],
             "explanation": "Add the equations to eliminate $y$: $3x = 12$, so $x = 4$. (Then $y = 3$, which checks: $2(4) + 3 = 11$.)"
           },
           {
@@ -440,7 +527,12 @@
             "skill": "Nonlinear functions",
             "difficulty": "medium",
             "prompt": "The function $f$ is defined by $f(x) = x^2 - 4x + 3$. What is the minimum value of $f(x)$?",
-            "choices": ["$-1$", "$0$", "$2$", "$3$"],
+            "choices": [
+              "$-1$",
+              "$0$",
+              "$2$",
+              "$3$"
+            ],
             "answer": "A",
             "explanation": "The vertex of a parabola $ax^2 + bx + c$ is at $x = -\\dfrac{b}{2a} = \\dfrac{4}{2} = 2$. Then $f(2) = 4 - 8 + 3 = -1$. Choice C is where the minimum happens, not its value."
           },
@@ -451,7 +543,9 @@
             "skill": "Circles",
             "difficulty": "hard",
             "prompt": "A circle in the $xy$-plane has the equation $x^2 + y^2 - 6x + 8y = 0$. What is the radius of the circle?",
-            "answer": ["5"],
+            "answer": [
+              "5"
+            ],
             "explanation": "Complete the square: $(x^2 - 6x + 9) + (y^2 + 8y + 16) = 9 + 16$, so $(x - 3)^2 + (y + 4)^2 = 25$. The radius is $\\sqrt{25} = 5$."
           },
           {
@@ -461,7 +555,12 @@
             "skill": "Equivalent expressions",
             "difficulty": "hard",
             "prompt": "Which expression is equivalent to $\\dfrac{x^2 - 9}{x^2 + 5x + 6}$, for $x > 0$?",
-            "choices": ["$\\dfrac{x-3}{x+2}$", "$\\dfrac{x+3}{x+2}$", "$\\dfrac{x-3}{x+3}$", "$\\dfrac{-9}{5x+6}$"],
+            "choices": [
+              "$\\dfrac{x-3}{x+2}$",
+              "$\\dfrac{x+3}{x+2}$",
+              "$\\dfrac{x-3}{x+3}$",
+              "$\\dfrac{-9}{5x+6}$"
+            ],
             "answer": "A",
             "explanation": "Factor: $\\dfrac{(x-3)(x+3)}{(x+2)(x+3)}$. Cancel $(x+3)$ to get $\\dfrac{x-3}{x+2}$. Choice D wrongly cancels the $x^2$ terms."
           }
@@ -478,7 +577,12 @@
               "skill": "Linear functions",
               "difficulty": "easy",
               "prompt": "The function $g$ is defined by $g(x) = 5x - 2$. What is the value of $g(4)$?",
-              "choices": ["18", "20", "22", "3"],
+              "choices": [
+                "18",
+                "20",
+                "22",
+                "3"
+              ],
               "answer": "A",
               "explanation": "$g(4) = 5(4) - 2 = 20 - 2 = 18$."
             },
@@ -489,7 +593,9 @@
               "skill": "Ratios, rates, proportional relationships, and units",
               "difficulty": "easy",
               "prompt": "A recipe uses 3 cups of flour for every 2 cups of sugar. How many cups of flour are needed if 8 cups of sugar are used?",
-              "answer": ["12"],
+              "answer": [
+                "12"
+              ],
               "explanation": "8 cups of sugar is 4 times 2 cups, so multiply the flour by 4 too: $3 \\times 4 = 12$."
             },
             {
@@ -499,7 +605,12 @@
               "skill": "One-variable data: distributions and measures of center and spread",
               "difficulty": "easy",
               "prompt": "What is the mean of the data set $4, 7, 7, 9, 13$?",
-              "choices": ["7", "8", "9", "13"],
+              "choices": [
+                "7",
+                "8",
+                "9",
+                "13"
+              ],
               "answer": "B",
               "explanation": "The sum is $4 + 7 + 7 + 9 + 13 = 40$, and $40 \\div 5 = 8$. Choice A is the median and mode, not the mean."
             },
@@ -510,7 +621,9 @@
               "skill": "Lines, angles, and triangles",
               "difficulty": "medium",
               "prompt": "Two angles of a triangle measure $48^\\circ$ and $67^\\circ$. What is the measure, in degrees, of the third angle?",
-              "answer": ["65"],
+              "answer": [
+                "65"
+              ],
               "explanation": "The angles of a triangle add up to $180^\\circ$: $180 - 48 - 67 = 65$."
             },
             {
@@ -520,7 +633,12 @@
               "skill": "Linear inequalities in one or two variables",
               "difficulty": "medium",
               "prompt": "Which of the following values of $x$ satisfies the inequality $2x - 5 > 9$?",
-              "choices": ["5", "6", "7", "8"],
+              "choices": [
+                "5",
+                "6",
+                "7",
+                "8"
+              ],
               "answer": "D",
               "explanation": "Add 5: $2x > 14$. Divide by 2: $x > 7$. Only 8 is greater than 7. Choice C makes the two sides equal, which does not satisfy a strict inequality."
             },
@@ -532,11 +650,40 @@
               "difficulty": "medium",
               "table": {
                 "title": "Drink preference of 200 students",
-                "head": ["", "Tea", "Coffee", "Total"],
-                "rows": [["Grade 10", "45", "55", "100"], ["Grade 11", "60", "40", "100"], ["Total", "105", "95", "200"]]
+                "head": [
+                  "",
+                  "Tea",
+                  "Coffee",
+                  "Total"
+                ],
+                "rows": [
+                  [
+                    "Grade 10",
+                    "45",
+                    "55",
+                    "100"
+                  ],
+                  [
+                    "Grade 11",
+                    "60",
+                    "40",
+                    "100"
+                  ],
+                  [
+                    "Total",
+                    "105",
+                    "95",
+                    "200"
+                  ]
+                ]
               },
               "prompt": "The table shows the results of a survey of 200 students. If one of the students who prefer tea is selected at random, what is the probability that the student is in grade 11?",
-              "choices": ["$\\dfrac{3}{10}$", "$\\dfrac{4}{7}$", "$\\dfrac{3}{5}$", "$\\dfrac{3}{7}$"],
+              "choices": [
+                "$\\dfrac{3}{10}$",
+                "$\\dfrac{4}{7}$",
+                "$\\dfrac{3}{5}$",
+                "$\\dfrac{3}{7}$"
+              ],
               "answer": "B",
               "explanation": "Only tea drinkers count: there are 105, and 60 of them are in grade 11. $\\dfrac{60}{105} = \\dfrac{4}{7}$. Choice C uses 100 grade 11 students as the denominator instead."
             }
@@ -552,7 +699,9 @@
               "skill": "Systems of two linear equations in two variables",
               "difficulty": "medium",
               "prompt": "At a market, 3 kilograms of apples and 2 kilograms of pears cost 31,000 so'm in total. 1 kilogram of apples and 4 kilograms of pears cost 27,000 so'm in total. What is the price, in so'm, of 1 kilogram of apples?",
-              "answer": ["7000"],
+              "answer": [
+                "7000"
+              ],
               "explanation": "Let $a$ and $p$ be the prices per kilogram. $3a + 2p = 31{,}000$ and $a + 4p = 27{,}000$. From the second, $a = 27{,}000 - 4p$. Substitute: $81{,}000 - 12p + 2p = 31{,}000$, so $p = 5{,}000$ and $a = 7{,}000$. Type it without a comma: 7000."
             },
             {
@@ -562,7 +711,10 @@
               "skill": "Nonlinear equations in one variable and systems of equations in two variables",
               "difficulty": "hard",
               "prompt": "What is the sum of the solutions to $2x^2 - 7x + 3 = 0$?",
-              "answer": ["7/2", "3.5"],
+              "answer": [
+                "7/2",
+                "3.5"
+              ],
               "explanation": "For $ax^2 + bx + c = 0$, the solutions add up to $-\\dfrac{b}{a} = \\dfrac{7}{2}$. Check by factoring: $(2x - 1)(x - 3) = 0$ gives $x = \\tfrac{1}{2}$ and $x = 3$, which add to $3.5$."
             },
             {
@@ -572,7 +724,12 @@
               "skill": "Right triangles and trigonometry",
               "difficulty": "hard",
               "prompt": "In right triangle $ABC$, angle $C$ is the right angle and $\\sin A = \\dfrac{5}{13}$. What is the value of $\\tan B$?",
-              "choices": ["$\\dfrac{5}{12}$", "$\\dfrac{12}{13}$", "$\\dfrac{12}{5}$", "$\\dfrac{13}{5}$"],
+              "choices": [
+                "$\\dfrac{5}{12}$",
+                "$\\dfrac{12}{13}$",
+                "$\\dfrac{12}{5}$",
+                "$\\dfrac{13}{5}$"
+              ],
               "answer": "C",
               "explanation": "$\\sin A = \\dfrac{BC}{AB} = \\dfrac{5}{13}$, so take $BC = 5$ and $AB = 13$. Then $AC = \\sqrt{13^2 - 5^2} = 12$. From angle $B$, the opposite side is $AC$ and the adjacent side is $BC$, so $\\tan B = \\dfrac{12}{5}$. Choice A is $\\tan A$."
             },
@@ -583,7 +740,12 @@
               "skill": "Nonlinear functions",
               "difficulty": "hard",
               "prompt": "The number of bacteria in a sample is modeled by $P(t) = 500(1.2)^t$, where $t$ is the number of hours since the start of an experiment. By what percent does the number of bacteria increase every 2 hours?",
-              "choices": ["20%", "40%", "44%", "140%"],
+              "choices": [
+                "20%",
+                "40%",
+                "44%",
+                "140%"
+              ],
               "answer": "C",
               "explanation": "Every 2 hours the amount is multiplied by $(1.2)^2 = 1.44$, which is a 44% increase. Choice B simply doubles 20%, but growth compounds."
             },
@@ -594,7 +756,9 @@
               "skill": "Systems of two linear equations in two variables",
               "difficulty": "hard",
               "prompt": "$$4x - ky = 6$$ $$2x + 3y = 5$$ In the given system of equations, $k$ is a constant. For what value of $k$ does the system have no solution?",
-              "answer": ["-6"],
+              "answer": [
+                "-6"
+              ],
               "explanation": "No solution means parallel lines: same slope, different intercepts. The first equation must be exactly 2 times the second on the left side, so $-k = 2 \\times 3 = 6$, giving $k = -6$. The right sides, 6 and $2 \\times 5 = 10$, differ, so the lines never meet."
             },
             {
@@ -604,7 +768,12 @@
               "skill": "Area and volume",
               "difficulty": "hard",
               "prompt": "A cylinder has a volume of $72\\pi$ cubic centimeters and a height of 8 centimeters. A second cylinder has the same height and twice the radius. What is the volume, in cubic centimeters, of the second cylinder?",
-              "choices": ["$144\\pi$", "$216\\pi$", "$288\\pi$", "$576\\pi$"],
+              "choices": [
+                "$144\\pi$",
+                "$216\\pi$",
+                "$288\\pi$",
+                "$576\\pi$"
+              ],
               "answer": "C",
               "explanation": "$\\pi r^2(8) = 72\\pi$ gives $r^2 = 9$, so $r = 3$. The new radius is 6: $\\pi (6)^2 (8) = 288\\pi$. Doubling the radius multiplies the volume by 4, not 2 (choice A)."
             }
