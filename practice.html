@@ -513,6 +513,7 @@ document.addEventListener('DOMContentLoaded', function () {
     if (realUp) html += '<div style="margin-bottom:18px">' + realCardHtml(p, signedIn) + '</div>';
     const pathHtml = pathCardHtml(p, hist);
     html += pathHtml;
+    if (!pathHtml) html += todayHtml(p, hist);
     html += noticesHtml();
     if (SH.auth.enabled() && SH.auth.settled && !SH.auth.user) {
       html += '<div class="notice" style="display:flex;gap:14px;align-items:center;justify-content:space-between;flex-wrap:wrap;margin-bottom:18px"><span><b>Save your progress.</b> Sign in with Google to keep your results on every device' + (SH.ai.enabled() && SH.CONFIG.AI_REQUIRES_LOGIN ? ' and use the AI tutor' : '') + '.</span><a class="btn btn-primary btn-sm" href="' + esc(SH.loginUrl('practice.html#home')) + '">Sign in with Google</a></div>';
@@ -602,6 +603,118 @@ document.addEventListener('DOMContentLoaded', function () {
         : esc(n.text)) + '</span><button type="button" class="btn btn-ghost btn-sm" data-dismiss>OK</button></div>').join('');
   }
 
+  /* ---------- Today: three things to do, picked once a day ---------- */
+  const TD_T = SH.i18n({
+    en: {
+      h: 'Today', of: '{d} of {n} done', done: 'Done', start: 'Start',
+      p_none: 'Three things worth doing today.', p_build: 'Fix weak skills first; a full test now and then shows the progress.',
+      p_test: '{n} days to your SAT: one full test a week, drills in between.', p_final: '{n} days to your SAT: a full test every few days, and every mistake retried.',
+      p_rest: '{n} days to your SAT: no more full tests. Short and light from here.', p_eve: 'Your SAT is tomorrow. Get ready and rest.', p_day: 'Today is your SAT. Good luck!',
+      all: 'All done for today. Well done. See you tomorrow.',
+      test: 'Take {t}', test_s: '2 h 14 min. Do it in one sitting, at the hour of your real test.', mock_again: 'Retake {t}',
+      drill: 'Drill: {s}', drill_w: '10 questions on one of your weakest skills.', drill_c: '10 questions on a skill the SAT tests often.',
+      mist: 'Review your mistakes', mist_s: '5 questions are enough for today.', daily: 'Question of the day', daily_s: 'One question, two minutes.',
+      e1: 'Open Bluebook and finish exam setup', e1s: 'Use the device you will test on, and save your admission ticket.',
+      e2: 'Pack your bag', e2s: 'Passport or ID accepted for the SAT, charged device, charger, approved calculator, pen, water, snack.',
+      e3: 'Stop early and sleep', e3s: 'Nothing new tonight. Set two alarms and check the way to your test center.',
+      d1s: 'Passport or ID, charged device and charger, admission ticket. Arrive early. One question at a time: guess rather than leave a blank.'
+    },
+    uz: {
+      h: 'Bugun', of: '{n} tadan {d} tasi bajarildi', done: 'Bajarildi', start: 'Boshlash',
+      p_none: 'Bugun bajarishga arziydigan uchta ish.', p_build: 'Avval zaif mavzularni tuzating; vaqti-vaqti bilan toʻliq test oʻsishni koʻrsatadi.',
+      p_test: 'SATgacha {n} kun: haftasiga bitta toʻliq test, orada mashqlar.', p_final: 'SATgacha {n} kun: har bir necha kunda toʻliq test va barcha xatolarni qayta ishlash.',
+      p_rest: 'SATgacha {n} kun: endi toʻliq test yoʻq. Qisqa va yengil mashq qiling.', p_eve: 'Ertaga SAT. Tayyorlaning va dam oling.', p_day: 'Bugun SAT. Omad!',
+      all: 'Bugungi ishlar tugadi. Barakalla! Ertaga koʻrishamiz.',
+      test: '{t}ni topshiring', test_s: '2 soat 14 daqiqa. Bir oʻtirishda, haqiqiy imtihon soatida ishlang.', mock_again: '{t}ni qayta topshiring',
+      drill: 'Mashq: {s}', drill_w: 'Eng zaif mavzularingizdan biridan 10 ta savol.', drill_c: 'SATda koʻp uchraydigan mavzudan 10 ta savol.',
+      mist: 'Xatolaringizni takrorlang', mist_s: 'Bugun uchun 5 ta savol yetarli.', daily: 'Kun savoli', daily_s: 'Bitta savol, ikki daqiqa.',
+      e1: 'Bluebookni ochib, imtihon sozlamasini (exam setup) yakunlang', e1s: 'Imtihon topshiradigan qurilmangizda bajaring va kirish chiptasini (admission ticket) saqlab qoʻying.',
+      e2: 'Sumkangizni tayyorlang', e2s: 'SATda qabul qilinadigan pasport yoki ID, quvvatlangan qurilma, zaryadlovchi, ruxsat etilgan kalkulyator, ruchka, suv, yengil taom.',
+      e3: 'Erta toʻxtang va uxlang', e3s: 'Bugun yangi mavzu yoʻq. Ikkita budilnik qoʻying va imtihon joyiga yoʻlni tekshiring.',
+      d1s: 'Pasport yoki ID, quvvatlangan qurilma va zaryadlovchi, kirish chiptasi. Erta boring. Savollarni bittalab ishlang: boʻsh qoldirgandan koʻra taxmin qiling.'
+    },
+    ru: {
+      h: 'Сегодня', of: 'Сделано: {d} из {n}', done: 'Готово', start: 'Начать',
+      p_none: 'Три дела, которые стоит сделать сегодня.', p_build: 'Сначала слабые темы; полный тест время от времени покажет прогресс.',
+      p_test: 'До SAT (дней): {n}. Один полный тест в неделю, между ними тренировки.', p_final: 'До SAT (дней): {n}. Полный тест раз в несколько дней и разбор каждой ошибки.',
+      p_rest: 'До SAT (дней): {n}. Полных тестов больше не нужно. Занимайтесь коротко и легко.', p_eve: 'Завтра SAT. Подготовьтесь и отдохните.', p_day: 'Сегодня ваш SAT. Удачи!',
+      all: 'На сегодня всё. Отлично! До завтра.',
+      test: 'Пройдите: {t}', test_s: '2 ч 14 мин. За один раз, в то же время, что и настоящий экзамен.', mock_again: 'Пройдите ещё раз: {t}',
+      drill: 'Тренировка: {s}', drill_w: '10 вопросов по одной из ваших слабых тем.', drill_c: '10 вопросов по теме, которая часто бывает на SAT.',
+      mist: 'Повторите свои ошибки', mist_s: 'На сегодня достаточно 5 вопросов.', daily: 'Вопрос дня', daily_s: 'Один вопрос, две минуты.',
+      e1: 'Откройте Bluebook и завершите подготовку (exam setup)', e1s: 'На том устройстве, на котором будете сдавать, и сохраните билет (admission ticket).',
+      e2: 'Соберите сумку', e2s: 'Паспорт или ID, который принимают на SAT, заряженное устройство, зарядка, разрешённый калькулятор, ручка, вода, перекус.',
+      e3: 'Закончите пораньше и выспитесь', e3s: 'Сегодня ничего нового. Поставьте два будильника и проверьте дорогу до центра.',
+      d1s: 'Паспорт или ID, заряженное устройство и зарядка, билет. Приезжайте заранее. По одному вопросу: лучше угадать, чем оставить пустым.'
+    }
+  }, SH.pickLang);
+  const TD_COMMON = [['rw', 'Boundaries'], ['math', 'Linear equations in one variable'], ['rw', 'Words in Context'], ['math', 'Nonlinear functions'], ['rw', 'Transitions'], ['math', 'Systems of two linear equations in two variables']];
+  const daysToSat = p => p.testDate ? Math.round((Date.parse(p.testDate + 'T00:00:00Z') - Date.parse(SH.dayKey() + 'T00:00:00Z')) / 86400000) : null;
+  // The day's picks are saved, so the list doesn't change as answers come in.
+  function todayPicks(p, hist, days) {
+    const day = SH.dayKey(), ins = SH.plan.insights(), old = SH.store.get('todayPlan', null);
+    if (old && old.day === day && old.date === (p.testDate || '') && old.ins === ins && old.focus === (p.focus || '')) return old;
+    const full = hist.filter(SH.isFullTest), last = full.reduce((m, h) => Math.max(m, h.finishedAt || 0), 0);
+    const gap = days == null || days < 0 ? 14 : days <= 14 ? 3 : days <= 42 ? 7 : 14;
+    const inWindow = days == null || days < 0 || days >= 3;
+    let test = '', again = false;
+    if (inWindow && (!last || SH.dayNum() - SH.dayNum(last) >= gap)) {
+      const open = catalog.tests.filter(t => t.kind !== 'mini' && SH.plan.opens(t));
+      const runs = id => hist.filter(h => h.testId === id);
+      const pick = open.find(t => SH.store.get('run.' + t.id, null)) || open.find(t => !runs(t.id).length) ||
+        open.slice().sort((a, b) => Math.max.apply(null, runs(a.id).map(h => h.finishedAt || 0)) - Math.max.apply(null, runs(b.id).map(h => h.finishedAt || 0)))[0];
+      if (pick) { test = pick.id; again = runs(pick.id).length > 0; }
+    }
+    const n = test ? 1 : 2;
+    let skills = ins ? SH.weakSkills(30, 3).filter(w => !p.focus || w.section === p.focus).slice(0, n).map(w => ({ sec: w.section, skill: w.skill, weak: true })) : [];
+    const common = TD_COMMON.filter(x => !p.focus || x[0] === p.focus);
+    for (let i = 0; skills.length < n && i < common.length; i++) {
+      const c = common[(SH.dayNum() + i) % common.length];
+      if (!skills.some(x => x.skill === c[1])) skills.push({ sec: c[0], skill: c[1], weak: false });
+    }
+    const due = SH.mistakes.level() === 'free' ? SH.mistakes.visible().length : SH.mistakes.queue().length;
+    const plan = { day, date: p.testDate || '', ins, focus: p.focus || '', test, again, skills, mist: Math.min(5, due) };
+    SH.store.set('todayPlan', plan);
+    return plan;
+  }
+  function todayHtml(p, hist) {
+    const days = daysToSat(p), day = SH.dayKey();
+    let items = [], lead;
+    if (days === 0) { lead = TD_T('p_day'); items = [{ t: TD_T('e2'), s: TD_T('d1s'), info: true }]; }
+    else if (days === 1) {
+      lead = TD_T('p_eve');
+      items = [1, 2, 3].map(i => ({ t: TD_T('e' + i), s: TD_T('e' + i + 's'), info: true }));
+    } else {
+      lead = days == null || days < 0 ? TD_T('p_none') : TD_T(days === 2 ? 'p_rest' : days <= 14 ? 'p_final' : days <= 42 ? 'p_test' : 'p_build', { n: days });
+      const pk = todayPicks(p, hist, days);
+      const at = SH.getAttempts().filter(a => a.ts && SH.dayKey(a.ts) === day);
+      if (pk.test) {
+        const m = catalog.tests.find(t => t.id === pk.test);
+        items.push({ t: TD_T(pk.again ? 'mock_again' : 'test', { t: esc(m ? m.title : 'Practice Test') }), s: TD_T('test_s'),
+          ok: hist.some(h => SH.isFullTest(h) && SH.dayKey(h.finishedAt) === day), btn: '<a class="btn btn-primary btn-sm" href="test.html?id=' + encodeURIComponent(pk.test) + '">' + TD_T('start') + '</a>' });
+      }
+      pk.skills.forEach(k => items.push({ t: TD_T('drill', { s: esc(k.skill) }), s: TD_T(k.weak ? 'drill_w' : 'drill_c'),
+        ok: at.filter(a => a.section === k.sec && a.skill === k.skill && a.source !== 'test').length >= 10,
+        btn: '<button class="btn btn-primary btn-sm" type="button" data-drill="' + esc(k.skill) + '" data-sec="' + k.sec + '">' + TD_T('start') + '</button>' }));
+      if (pk.mist) {
+        const free = SH.mistakes.level() === 'free';
+        const left = free ? SH.mistakes.visible().length : SH.mistakes.queue().length;
+        items.push({ t: TD_T('mist'), s: TD_T('mist_s'), ok: !left || at.filter(a => a.source === 'review' || a.source === 'fixcheck').length >= pk.mist,
+          btn: '<a class="btn btn-primary btn-sm" href="#' + (free ? 'mistakes' : 'review') + '">' + TD_T('start') + '</a>' });
+      } else items.push({ t: TD_T('daily'), s: TD_T('daily_s'), ok: !!SH.daily.answered(), btn: '<a class="btn btn-primary btn-sm" href="daily.html">' + TD_T('start') + '</a>' });
+    }
+    const todo = items.filter(i => !i.info), done = todo.filter(i => i.ok).length;
+    let picked = false;
+    const rows = items.map((it, i) => {
+      const now = !it.ok && !it.info && !picked; if (now) picked = true;
+      const btn = it.ok ? '<span class="status status-done">' + ICON.check + TD_T('done') + '</span>' : it.info ? '<span></span>' : now ? it.btn : it.btn.replace('btn-primary', 'btn-ghost');
+      return '<div class="path-step' + (it.ok ? ' is-done' : now || it.info ? ' is-now' : '') + '"><span class="path-num" aria-hidden="true">' + (it.ok ? ICON.check : i + 1) + '</span><div><b>' + it.t + '</b></div>' + btn +
+        '<div class="small muted path-sub">' + it.s + '</div></div>';
+    }).join('');
+    return '<section class="card path-card" id="today" lang="' + SH.pickLang() + '"><div class="row" style="justify-content:space-between;align-items:baseline;margin-bottom:2px"><h2 style="margin:0;font-size:1.3rem">' + TD_T('h') + '</h2>' +
+      (todo.length ? '<span class="small muted">' + TD_T('of', { d: done, n: todo.length }) + '</span>' : '') + '</div><p class="muted" style="margin:0 0 10px">' + (todo.length && done === todo.length ? '<b>' + TD_T('all') + '</b>' : lead) + '</p>' + rows + '</section>';
+  }
+
   function toolsHtml() {
     const st = SH.xp.state(), doneToday = !!SH.daily.answered();
     const level = SH.mistakes.level(), dueN = level === 'free' ? SH.mistakes.visible().length : SH.mistakes.queue().length;
@@ -641,9 +754,8 @@ document.addEventListener('DOMContentLoaded', function () {
     const testsDone = SH.getTestHistory().filter(h => inWeek(h.finishedAt) && h.total != null).length;
     tasks.push({ label: weeksLeft <= 2 ? 'Take 2 full practice tests' : 'Take a full practice test', done: testsDone, goal: weeksLeft <= 2 ? 2 : 1, btn: '<a class="btn btn-ghost btn-sm" href="#tests">Tests</a>' });
     plan.focus.forEach(f => {
-      const inBank = bank.some(q => q.skill === f.skill && q.section === f.section);
       tasks.push({ label: 'Drill ' + f.skill, done: attempts.filter(a => a.skill === f.skill && a.section === f.section).length, goal: 20,
-        btn: inBank ? '<button class="btn btn-ghost btn-sm" type="button" data-drill="' + esc(f.skill) + '" data-sec="' + f.section + '">Drill</button>' : '<a class="btn btn-ghost btn-sm" href="lessons.html">Lessons</a>' });
+        btn: '<button class="btn btn-ghost btn-sm" type="button" data-drill="' + esc(f.skill) + '" data-sec="' + f.section + '">Drill</button>' });
     });
     tasks.push({ label: 'Master 5 mistakes', done: SH.mistakes.all().filter(e => e.st === 'mastered' && inWeek(e.mAt || 0)).length, goal: 5, btn: '<a class="btn btn-ghost btn-sm" href="#mistakes">Review</a>' });
     tasks.push({ label: 'Review vocabulary on 4 days', done: Object.keys(SH.vocab.get().days).filter(d => inWeek(Date.parse(d + 'T12:00:00+05:00'))).length, goal: 4, btn: '<a class="btn btn-ghost btn-sm" href="vocab.html">Review</a>' });
@@ -976,13 +1088,41 @@ document.addEventListener('DOMContentLoaded', function () {
     let cards = [];
     if (SH.mistakes.level() !== 'free') cards = SH.mistakes.queue().filter(e => e.section === section && skills.indexOf(e.skill) > -1).slice(0, Math.min(8, n));
     const fromBank = cards.length ? (await SH.mistakes.questions(cards)).map(q => Object.assign(SH.shuffledCopy(q), { _review: true })) : [];
-    const seen = new Set(SH.getAttempts().map(a => a.qid)), inBank = new Set(SH.mistakes.all().map(e => e.qid));
-    const fresh = SH.shuffle(bank.filter(q => q.section === section && skills.indexOf(q.skill) > -1 && !inBank.has(q.id)))
-      .sort((a, b) => (seen.has(a.id) ? 1 : 0) - (seen.has(b.id) ? 1 : 0) || order.indexOf(a.difficulty) - order.indexOf(b.difficulty))
+    const seen = new Set(SH.getAttempts().map(a => a.qid)), inBank = new Set(SH.mistakes.all().map(e => e.qid)), fin = qbFinished();
+    const all = SH.shuffle((await skillPool(section, skills)).filter(q => !inBank.has(q.id)));
+    const fresh = all.sort((a, b) => drillRank(a, seen, fin) - drillRank(b, seen, fin) || order.indexOf(a.difficulty) - order.indexOf(b.difficulty) || testNo(b) - testNo(a))
       .slice(0, n - fromBank.length);
     const qs = fromBank.concat(fresh);
     if (!qs.length) { SH.toast('No questions for ' + (skill || domain) + ' in the bank yet.'); return; }
     startSession({ title: (skill || domain) + ': fix this', questions: qs, source: 'drill' });
+  }
+
+  /* ---------- Skill drills: the sets plus the whole Question Bank ---------- */
+  const hasSkill = (section, skill) => Object.keys(SH.TAXONOMY[section].domains).some(d => SH.TAXONOMY[section].domains[d].indexOf(skill) > -1);
+  const testNo = q => +((/^t(\d+)-/.exec(q.id) || [])[1] || 0);
+  // Questions for these skills that the student's plan opens. Offline or on a
+  // failed load, whatever did load (at least the sets).
+  async function skillPool(section, skills) {
+    const own = bank.filter(q => q.section === section && skills.indexOf(q.skill) > -1);
+    try {
+      const ix = qbIndex || await SH.getJSON('data/bank/index.json');
+      const takenOnly = !!SH.store.get('bankTakenOnly', false), fin = qbFinished();
+      const lists = await Promise.all(ix.skills.filter(r => r.section === section && skills.indexOf(r.skill) > -1).map(r => qbLoad(r).catch(() => [])));
+      const extra = [].concat.apply([], lists).filter(q => qbOpen(q.id) && (!takenOnly || fin.has(qbTid(q.id))));
+      return own.concat(extra.map(q => Object.assign({ testId: qbTid(q.id) }, q)));
+    } catch (e) { return own; }
+  }
+  // New questions from sets and finished tests, then new ones from tests not
+  // taken yet (highest number first, so the next tests stay fresh), then old ones.
+  function drillRank(q, seen, fin) { return seen.has(q.id) ? 2 : !testNo(q) || fin.has(qbTid(q.id)) ? 0 : 1; }
+  async function startDrill(section, skill, n) {
+    SH.toast('Loading questions…', 1200);
+    const at = location.hash, seen = new Set(SH.getAttempts().map(a => a.qid)), fin = qbFinished();
+    const qs = SH.shuffle(await skillPool(section, [skill]));
+    if (session || location.hash !== at) return; // moved on while it loaded
+    if (!qs.length) { SH.toast('No questions for ' + skill + ' in the bank yet.'); return; }
+    qs.sort((a, b) => drillRank(a, seen, fin) - drillRank(b, seen, fin) || testNo(b) - testNo(a));
+    startSession({ title: skill + ' drill', questions: qs.slice(0, n), source: 'drill' });
   }
 
   /* ---------- Mistake Bank: today's review ---------- */
@@ -1356,17 +1496,16 @@ document.addEventListener('DOMContentLoaded', function () {
       '</div></div></div></section>';
   }
   function skillRow(w, withActions) {
-    const inBank = bank.filter(q => q.skill === w.skill && q.section === w.section).length;
+    const inBank = hasSkill(w.section, w.skill);
     const acts = withActions ? '<div class="acts row" style="gap:6px;justify-content:flex-end">' +
-      (inBank ? '<button class="btn ' + (SH.ai.enabled() && SH.plan.allows('max') ? 'btn-ghost' : 'btn-primary') + ' btn-sm" type="button" data-drill="' + esc(w.skill) + '" data-sec="' + w.section + '">Practice (' + inBank + ')</button>' : '') +
+      (inBank ? '<button class="btn ' + (SH.ai.enabled() && SH.plan.allows('max') ? 'btn-ghost' : 'btn-primary') + ' btn-sm" type="button" data-drill="' + esc(w.skill) + '" data-sec="' + w.section + '">Practice</button>' : '') +
       (SH.ai.enabled() && SH.plan.allows('max') ? '<button class="btn btn-primary btn-sm" type="button" data-aiskill="' + esc(w.skill) + '" data-sec="' + w.section + '">AI questions</button>' : (inBank ? '' : '<span class="small muted">More questions soon</span>')) + '</div>' : '';
     return '<div class="skill-row' + (withActions ? ' has-acts' : '') + '"><div>' + secTag(w.section) + ' <b>' + esc(w.skill) + '</b><div class="small muted">' + w.correct + ' of ' + w.n + ' correct</div></div>' +
       '<div class="bar ' + accClass(w.acc) + '"><i style="width:' + Math.round(w.acc * 100) + '%"></i></div>' + acts + '</div>';
   }
   function bindSkillButtons() {
     $$('[data-drill]').forEach(b => b.addEventListener('click', () => {
-      const qs = SH.shuffle(bank.filter(q => q.skill === b.dataset.drill && q.section === b.dataset.sec)).slice(0, 10);
-      startSession({ title: b.dataset.drill + ' drill', questions: qs, source: 'drill' });
+      startDrill(b.dataset.sec, b.dataset.drill, 10);
     }));
     $$('[data-aiskill]').forEach(b => b.addEventListener('click', () => {
       location.hash = '#ai';
@@ -1859,14 +1998,18 @@ document.addEventListener('DOMContentLoaded', function () {
       } }]
     });
   }
-  async function qbStart(r, opt) {
+  async function qbLoad(r) {
     if (!qbCache[r.slug]) {
-      SH.toast('Loading questions…', 1500);
       const raw = await SH.getJSON('data/bank/' + r.slug + '.json');
       const n = SH.normalizeList(raw.questions, r.slug);
       if (n.errors.length) console.warn('[SAT Ustoz] Skipped questions in data/bank/' + r.slug + '.json:\n' + n.errors.join('\n'));
       qbCache[r.slug] = n.questions;
     }
+    return qbCache[r.slug];
+  }
+  async function qbStart(r, opt) {
+    if (!qbCache[r.slug]) SH.toast('Loading questions…', 1500);
+    await qbLoad(r);
     const map = qbFold();
     const takenOnly = !!SH.store.get('bankTakenOnly', false), fin = qbFinished();
     let pool = qbCache[r.slug].filter(q => qbOpen(q.id) && (!takenOnly || fin.has(qbTid(q.id))) && (!opt.diff || q.difficulty === opt.diff));
